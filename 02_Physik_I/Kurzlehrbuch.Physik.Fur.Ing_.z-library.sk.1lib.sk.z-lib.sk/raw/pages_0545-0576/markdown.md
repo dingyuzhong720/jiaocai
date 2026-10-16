@@ -1,0 +1,1727 @@
+## Die Berechnung des Widerstands aus dem spezifischen Widerstand
+
+Wir haben im letzten Abschnitt eine wesentliche Unterscheidung getroffen:
+
+![](images/page_544_image_4.jpg)
+
+Der Widerstand ist eine Eigenschaft eines bestimmten Objekts; der spezifische Widerstand ist eine Materialeigenschaft.
+
+Ist der spezifische Widerstand eines Materials bekannt, so kann man den Wider stand eines Stücks Draht aus diesem Material berechnen. Es seien A der Querschnitt des Drahts, L seine Länge und V die Potenzialdifferenz zwischen seinen beiden Enden (Abb. 22.8). Wenn die Stromverteilung innerhalb des Leiters homogen ist, so sind die Stromdichte und das elektrische Feld an allen Punkten in dem Leiter konstant und nach Gl. 20.40 und Gl. 22.5 gilt
+
+$$
+E = V / L \quad \text {und} \quad J = i / A. \tag {22.14}
+$$
+
+Durch Kombination von Gln. 22.10 und 22.14 erhalten wir
+
+$$
+\rho = \frac {E}{J} = \frac {V / L}{i / A}. \tag {22.15}
+$$
+
+Der Quotient $V / i$ ist der Widerstand R, sodass man Gl. 22.15 auf die Form
+
+$$
+R = \rho \frac {L}{A} \tag {22.16}
+$$
+
+bringen kann. Diese Gleichung gilt nur für homogene, isotrope Leiter mit konstantem Querschnitt $A ,$ wenn die Potenzialdifferenz so wie in Abb. 22.7b dargestellt angelegt wird.
+
+Die makroskopischen Größen V, i und R sind immer dann von Interesse, wenn man konkrete Messungen an leitenden Objekten durchführt. Es sind diese makroskopischen Größen, deren Werte man von Messgeräten abliest. Beschäftigt man sich dagegen mit den grundlegenden elektrischen Eigenschaften der Stoffe, so verwendet man zweckmäßig die mikroskopischen Größen E, J und $\rho .$
+
+## KONTROLLFRAGE 3
+
+Die Abbildung zeigt drei zylinderförmige Leiter aus Kupfer mit ihren jeweiligen Längen und den Flächeninhalten der Stirnseiten. Zwischen den Stirnseiten werde jeweils die gleiche Potenzialdifferenz V angelegt. Ordnen Sie die drei Leiter in absteigender Reihenfolge nach dem durch sie fließenden Strom.
+
+![](images/page_544_image_16.jpg)
+
+(a)
+
+![](images/page_544_image_18.jpg)
+
+(b)
+
+![](images/page_544_image_20.jpg)
+
+(c)
+
+## Die Temperaturabhängigkeit des spezifischen Widerstands
+
+Wie die meisten physikalischen Eigenschaften ändert sich auch der spezifische Widerstand mit der Temperatur. Als Beispiel zeigt Abb. 22.9 die Abhängigkeit des spezifischen Widerstands von Kupfer mit der Temperatur über einen weiten Temperaturbereich. Die Temperaturabhängigkeit des spezifischen Widerstands von Kupfer ist – wie bei Metallen im Allgemeinen – über einen recht großen Temperaturbereich ziemlich linear. Einen solchen nahezu linearen Verlauf kann man durch eine empirische Beziehung wiedergeben, die die Temperaturabhängigkeit für viele Anwendungen ausreichend genau beschreibt:
+
+$$
+\rho - \rho_ {0} = \rho_ {0} \alpha (T - T _ {0}). \tag {22.17}
+$$
+
+![](images/page_544_image_25.jpg)
+
+<details>
+<summary>text_image</summary>
+
+L
+i
+A
+V
+i
+</details>
+
+Abb. 22.8
+
+Eine Potenzialdifferenz V wird zwischen den Enden eines Drahts mit Querschnitt A und Länge L angelegt und bewirkt einen Strom i in dem Draht.
+
+![](images/page_544_chart_28.jpg)
+
+<details>
+<summary>line</summary>
+
+| Temperatur (K) | Spezifischer Widerstand \((10^{-8}\) \(\Omega\) \(\cdot\) m) |
+| --- | --- |
+| 0 | 0 |
+| ~280 | ~1.4 |
+| ~1350 | ~9.4 |
+</details>
+
+Abb. 22.9
+
+Spezifischer Widerstand von Kupfer als Funktion der Temperatur. Zur Orientierung ist derjenige Punkt der Kurve eingezeichnet, welcher der Zimmertemperatur $\left( T _ { 0 } = 2 9 3   \mathrm { K } \right)$ entspricht. Der spezifische Widerstand von Kupfer beträgt bei dieser Temperatur $\rho _ { 0 } ^ { \mathrm { ~ \scriptsize ~ } } = 1 , 6 9 \cdot \bar { 1 } 0 ^ { - 8 }   \Omega$ ⋅ m.
+
+Hier ist $T _ { 0 }$ eine frei wählbare Referenztemperatur und $\rho _ { 0 }$ bezeichnet den spezi fischen Widerstand bei dieser Temperatur. Normalerweise setzt man $T _ { 0 } = 2 9 3   \mathrm { K }$ (Zimmertemperatur); bei dieser Temperatur ist für Kupfer $\rho _ { 0 } = 1 { , } 6 9 \cdot 1 0 ^ { - 8 }   \Omega \cdot \mathrm { m }$
+
+Da die Temperatur in Gl. 22.17 lediglich als Differenz eingeht, ist die verwendete Temperatureinheit ohne Bedeutung für das Ergebnis, sofern die Einteilung der beiden Temperaturskalen wie bei $^ \circ \mathrm { C }$ und K gleich ist. Die Konstante α in Gl. 22.17 ist der Temperaturkoeffizient des spezifischen Widerstands. Man wählt seinen Wert empirisch so, dass das mit Gl. 22.17 im betrachteten Temperaturbereich berechnete Verhalten der spezifischen Wärme gut mit dem beobachteten Verlauf übereinstimmt. In Tab. 22.1 sind einige Werte von α für Metalle angegeben.
+
+## Die Hindenburg-Katastrophe
+
+Als der Zeppelin Hindenburg am 6. Mai 1937 in Lakehurst (New Jersey) zur Landung bereit war, wurden die Leinen zu der am Boden wartenden Crew hinuntergelassen. Im Regensturm wurden die Leinen nass und damit zu guten elektrischen Leitern. In diesem Zustand wirkten sie als gute Erdverbindung für das Metallgerippe des Zeppelins, mit dem sie verbunden waren, und brachten das Metallgerippe auf Erdpotenzial. Dadurch wäre normalerweise auch das nasse Gewebe der äußeren Zeppelinhülle geerdet worden, wenn die Hindenburg nicht der erste Zeppelin gewesen wäre, dessen Hüllmaterial mit einer Schutzfarbe mit einem hohen elektrischen Widerstand behandelt wurde. Die Hülle blieb deshalb auf dem elektrischen Potenzial der Atmosphäre in der Flughöhe des Zeppelins von ungefähr 43 m. Aufgrund des starken Regens unterschied sich dieses Potenzial stark vom Potenzial der Erde.
+
+Wahrscheinlich verletzten die Halteleinen dann eine der Wasserstoffzellen des Zeppelins, sodass im Raum zwischen den Zellen und der äußeren Hülle Wasserstoffgas freigesetzt wurde; eine solche Beschädigung einer Wasserstoffzelle wäre auch eine Erklärung für die von Augenzeugen beobachtete Wellung der äußeren Hülle. So entstand eine kritische Situation: Die Hülle, von außen mit leitfähigem Regenwasser durchnässt, lag auf einem elektrischen Potenzial, das sich stark vom Potenzial des Metallgerippes unterschied. Offensichtlich floss nun die auf der äußeren Hülle vorhandene Ladung über die nasse Oberfläche der Hülle auf das Metallgerippe ab, und der Funke entzündete das ausgetretene Wasserstoffgas. Der Brand griff rasch auf die übrigen Wasserstoffzellen des Zeppelins über und brachte das Luftschiff in kurzer Zeit zum Absturz. Hätte man zum Schutz der Zeppelinhülle einen Anstrich mit einem kleineren elektrischen Widerstand verwendet, wie es bei früheren und späteren Luftschiffen auch der Fall war, hätte sich die Katastrophe der Hindenburg wahrscheinlich nicht ereignet.
+
+## 22.4 Das Ohmsche Gesetz
+
+![](images/page_545_image_7.jpg)
+
+## Lernziele
+
+Nach dem Durcharbeiten dieses Abschnitts sollten Sie in der Lage sein, . . .
+
+• zwischen Objekten zu unterscheiden, die das Ohmsche Gesetz befolgen („Ohmschen Widerständen“), und solchen, die dies nicht tun,
+• zwischen Materialien zu unterscheiden, die das Ohmsche Gesetz befolgen, und solchen, die dies nicht tun,
+• die generelle Bewegung der Leitungselektronen zu beschreiben, wenn ein Strom durch einen Leiter fließt,
+• für die Leitungselektronen in einem Leiter die Beziehung zwischen der mittleren freien Flugzeit (Stoßzeit) $\tau ,$ ihrer effektiven Geschwindigkeit und ihrer thermischen Zufallsbewegung zu erklären,
+• die Beziehung zwischen dem spezifischen Widerstand $\rho ,$ der Anzahldichte n der Leitungselektronen und der mittleren freien Flugzeit (Stoßzeit) τ der Elektronen anzuwenden.
+
+## Schlüsselideen
+
+• Ein gegebenes Schaltelement (Leiter, Widerstand, . . . ) gehorcht dem Ohmschen Gesetz, wenn sein Widerstand $R = V / i$ nicht von der anliegenden Potenzialdifferenz V abhängt.
+• Ein gegebenes Material gehorcht dem Ohmschen Gesetz, wenn sein spezifischer Widerstand $\rho \left( = E / J \right)$ nicht von der elektrischen Feldstärke abhängt.
+• Die Annahme, dass sich die Leitungselektronen in einem Metall als freie Teilchen wie die Moleküle eines Gases bewegen, führt zu folgendem Ausdruck für den spezifischen Widerstand eines Metalls:
+
+$$
+\rho = \frac {m}{e ^ {2} n \pi}.
+$$
+
+Dabei sind m die Elektronenmasse, n die Anzahldichte der freien Elektronen und τ die mittlere freie Flugzeit (Stoßzeit) zwischen Kollisionen der freien Elektronen mit den Atomen des Metalls.
+
+• Metalle gehorchen dem Ohmschen Gesetz, weil die mittlere freie Flugzeit τ der Leitungselektronen annähernd unabhängig von der elektrischen Feldstärke in einem metallischen Leiter ist.
+
+## 22.4.1 Das Ohmsche Gesetz
+
+Wie wir in Abschn. 22.3 sahen, ist ein Widerstand ein elektrischer Leiter, der dem Stromfluss durch ihn einen definierten Widerstand entgegensetzt. Der gemessene Widerstand eines Leiters ist unabhängig von Betrag und Richtung (Polarität) der angelegten Potenzialdifferenz. Der Widerstand anderer elektronischer Bauelemente kann jedoch durchaus von der angelegten Potenzialdifferenz abhängen.
+
+Mit welcher Art von Leiter man es im konkreten Fall zu tun hat, kann man aus der Strom-Spannungs-Kennlinie eines leitfähigen Objekts ablesen. Abbildung 22.10a zeigt eine Anordnung zur Messung dieser Kennlinie: Über das unbekannte Bauelement wird eine Potenzialdifferenz V angelegt und der durch das Bauelement fließende Strom i in Abhängigkeit von Betrag und Polarität der Potenzialdifferenz V gemessen. Dabei legt man die Polarität von V willkürlich als positiv fest, wenn sich die linke Klemme des Bauteils auf einem höheren elektrischen Potenzial befindet als die rechte Klemme. Dem in diesem Fall von links nach rechts durch das Bauelement fließenden Strom wird dabei ebenfalls willkürlich ein positives Vorzeichen zugeordnet. Umgekehrt bezeichnet man die Polarität von V als negativ, wenn die rechte Anschlussklemme des Bauteils auf dem höheren Potenzial liegt. Der resultierende Strom erhält entsprechend ein negatives Vorzeichen.
+
+Abbildung 22.10b zeigt als Beispiel für eine solche Kennlinie die Abhängigkeit des Stroms i durch ein elektronisches Bauelement von der angelegten Potenzialdifferenz V. Diese Kennlinie ist eine durch den Ursprung verlaufende Gerade, deren Steigung, also das Verhältnis $i / V ,$ für alle V konstant ist. Dies bedeutet aber, dass der Widerstand $R = V / i$ des Bauteils nicht von Betrag und Polarität der angelegten Potenzialdifferenz V abhängt.
+
+Ein anderes Beispiel einer Strom-Spannungs-Kennlinie ist in Abb. 22.10c dargestellt. Die Kennlinie zeigt, dass durch dieses Bauelement nur dann ein Strom fließt, wenn die Polarität der Potenzialdifferenz positiv und ihr Betrag größer als ungefähr 1,5 V ist. Sobald ein Strom fließt, ist der Zusammenhang zwischen Strom und Potenzialdifferenz nichtlinear, was bedeutet, dass der Verlauf der Kennlinie vom Betrag der angelegten Potenzialdifferenz V abhängt.
+
+Man unterscheidet zwischen diesen beiden charakteristischen Arten des Verhaltens von Leitern, indem man sagt, ein Leiter mit einer Kennlinie nach Abb. 22.10b befolge das **Ohmsche Gesetz**, ein Leiter mit einer Kennlinie wie in Abb. 22.10c jedoch nicht:
+
+![](images/page_546_image_16.jpg)
+
+Ein Leiter gehorcht dem **Ohmschen Gesetz**, wenn ein durch ihn fließender Strom immer direkt proportional zur angelegten Potenzialdifferenz ist.
+
+![](images/page_546_image_18.jpg)
+
+![](images/page_546_image_19.jpg)
+
+(a)
+
+![](images/page_546_chart_21.jpg)
+
+<details>
+<summary>line</summary>
+
+| Potenzialdifferenz (V) | Strom (mA) |
+| --- | --- |
+| -3 | -3 |
+| 0 | 0 |
+| +3 | +3 |
+</details>
+
+(b)
+
+![](images/page_546_chart_23.jpg)
+
+<details>
+<summary>line</summary>
+
+| Potenzialdifferenz (V) | Strom (mA) |
+| --- | --- |
+| -5 | 0 |
+| -4 | 0 |
+| -3 | 0 |
+| -2 | 0 |
+| -1 | 0 |
+| 0 | 0 |
+| +1 | ~0.1 |
+| +2 | ~0.6 |
+| +3 | ~2.2 |
+| +4 | >5 |
+</details>
+
+(c)
+
+## Abb. 22.10
+
+(a) Eine Spannung V wird zwischen den Enden eines elektronischen Bauelements angelegt und bewirkt einen Strom i. (b) Die beobachtete Abhängigkeit des Stroms i von der Potenzialdifferenz V für einen Ohmschen Widerstand von 1000 Ω. (c) Strom-Spannungs-Verlauf für eine Halbleiterdiode (einen pn-Übergang).
+
+Man spricht aus historischen Gründen von einem „Gesetz“, obwohl die Proportio nalität von Strom und Potenzialdifferenz durchaus ein spezielles Verhalten eines Leiters oder Bauteils und nicht allgemeingültig ist. Das Bauelement mit der Kennlinie von Abb. 22.10b ist ein Widerstand von 1000 Ω und verhält sich entsprechend dem Ohmschen Gesetz, das Bauelement von Abb. 22.10c – eine sogenannte pn-Diode – dagegen nicht.
+
+![](images/page_547_image_2.jpg)
+
+Ein elektronisches Bauelement befolgt das Ohmsche Gesetz, wenn sein Widerstand nicht von Betrag und Polarität der angelegten Potenzialdifferenz abhängt.
+
+Die moderne Mikroelektronik, die den Charakter unserer gegenwärtigen, technologisch orientierten Zivilisation ganz wesentlich geprägt hat und weiterhin prägt, beruht fast vollständig auf der Verwendung von Bauelementen, die dem Ohmschen Gesetz nicht gehorchen. Ihr Taschenrechner und Ihr Handy stecken beispielsweise voller solcher nichtlinearer Bauelemente.
+
+Oft wird behauptet, die Beziehung $V = i R$ sei eine Folgerung aus dem Ohmschen Gesetz oder überhaupt eine Formulierung des Ohmschen Gesetzes. Das trifft jedoch nicht zu. Vielmehr handelt es sich bei diesem Zusammenhang einfach um die Definition des Widerstands R, die für alle elektrisch leitenden Objekte zutrifft, unabhängig davon, ob sie dem Ohmschen Gesetz genügen: Wenn wir die an einem Bauelement, beispielsweise einer pn-Diode, anliegende Potenzialdifferenz V sowie den durch diese Potenzialdifferenz erzeugten Strom i durch das betreffende Bauelement messen, so ist dadurch mit $R = V / i$ ein Widerstand bei diesem bestimmten Wert von V definiert. Die Aussage des Ohmschen Gesetzes ist demgegenüber, dass der Zusammenhang zwischen dem Strom i und der Potenzialdifferenz V linear ist, d. h., der Widerstand R nicht von V abhängt!
+
+Man kann das Ohmsche Gesetz allgemeiner formulieren, wenn man leitende Stoffe betrachtet und nicht spezielle elektronische Bauelemente; das Ohmsche Gesetz lautet dann $\vec { E } = \rho \vec { J }$ (Gl. 22.11), in Analogie zu $V = i R$
+
+![](images/page_547_image_7.jpg)
+
+Ein leitfähiges Material verhält sich gemäß dem Ohmschen Gesetz, falls sein spezifischer Widerstand nicht von Betrag und Richtung des angelegten elektrischen Felds abhängt.
+
+Alle homogenen Stoffe, seien sie Leiter wie Kupfer oder auch Halbleiter wie reines oder mit bestimmten Verunreinigungen dotiertes Silicium, befolgen das Ohmsche Gesetz, zumindest innerhalb eines gewissen Bereichs der elektrischen Feldstärke. Wird das elektrische Feld hinreichend stark, so beobachtet man in jedem Fall Abweichungen vom Ohmschen Gesetz.
+
+## KONTROLLFRAGE 4
+
+Die Tabelle gibt den Strom i (in Ampere) durch die elektronischen Bauelemente 1 und 2 für einige Werte der angelegten Potenzialdifferenz V (in Volt) an. Welches der Bauelemente befolgt das Ohmsche Gesetz nicht?
+
+## 22.4.2 Das Ohmsche Gesetz – mikroskopisch betrachtet
+
+Um zu verstehen, warum bestimmte Stoffe das Ohmsche Gesetz befolgen, müssen wir den Prozess der Leitung des elektrischen Stroms auf atomarem Niveau untersuchen. Wir wollen uns hier nur mit der Leitung in Metallen wie beispielsweise Kupfer befassen. Dabei legen wir das Modell freier Elektronen zugrunde, wonach sich die Leitungselektronen eines Metalls wie die Moleküle eines Gases in einem geschlossenen Behälter frei innerhalb des Metallvolumens bewegen können. Außerdem setzen wir voraus, dass keine Stöße der Elektronen untereinander vorkommen, sondern nur Stöße zwischen Elektronen und den Atomen des Metalls.
+
+<table><tr><td colspan="2">Bauelement 1</td><td colspan="2">Bauelement 2</td></tr><tr><td>V</td><td>i</td><td>V</td><td>i</td></tr><tr><td>2,00</td><td>4,50</td><td>2,00</td><td>1,50</td></tr><tr><td>3,00</td><td>6,75</td><td>3,00</td><td>2,20</td></tr><tr><td>4,00</td><td>9,00</td><td>4,00</td><td>2,80</td></tr></table>
+
+Nach der klassischen Physik sollte man eine Maxwellsche Geschwindigkeitsverteilung für die Elektronen erwarten, analog zu der Geschwindigkeitsverteilung der Moleküle eines Gases. Bei einer solchen Verteilung (siehe Abschn. 15.6) sollte die mittlere Elektronengeschwindigkeit proportional zur Quadratwurzel der absoluten Temperatur sein. Die Bewegung der Elektronen in einem Festkörper unterliegt jedoch nicht den Regeln der klassischen Physik, sondern wird durch die Quantenphysik beschrieben. Wie sich bei näherer Untersuchung zeigt, ist es eine gute Annäherung an die Realität der $_ { p } \mathrm { Q }$ uantenwelt“ in einem Festkörper, wenn man annimmt, dass sich die Leitungselektronen in einem Metall alle mit einer (im Wesentlichen) temperaturunabhängigen effektiven Geschwindigkeit $\nu _ { \mathrm { e f f } }$ bewegen. Diese Geschwindigkeit hat für Kupfer den Wert $\nu _ { \mathrm { e f f } } \approx 1 { , } 6 \cdot 1 0 ^ { 6 }   \mathrm { m / s } .$
+
+Wenn man ein äußeres elektrisches Feld an ein Metallstück anlegt, wird die ungeordnete Bewegung der Elektronen gestört und sie driften langsam mit einer mittleren Geschwindigkeit $\nu _ { \mathrm { D } }$ in die dem Feld entgegengesetzte Richtung. Wie wir in Beispielaufgabe 22.3 im Übungsbuch sehen, beträgt diese Driftgeschwindigkeit in typischen Metallen etwa $5 \cdot \bar { 1 0 ^ { - 7 } }$ m/s und ist damit um viele Größenordnungen kleiner als die effektive Geschwindigkeit $\nu _ { \mathrm { e f f } } = 1 { , } 6 \cdot 1 0 ^ { 6 }$ m/s. Abbildung 22.11 soll eine Vorstellung von diesen beiden Bewegungsarten der Elektronen vermitteln. Die grau gestrichelten Linien zeigen eine mögliche Bahnkurve des Elektrons im Zuge seiner ungeordneten Bewegung ohne äußeres elektrisches Feld: Das Elektron bewegt sich von $\mathrm { A }$ nach $\mathrm { B } ,$ wobei es auf seinem Wege sechsmal mit Metallatomen zusammenstößt. Die grün gestrichelten Linien zeigen eine mögliche Bahnkurve des Elektrons bei einer analogen Bewegung unter der Wirkung eines äußeren elektrischen Felds ${ \vec { E } } .$ Ausgehend von demselben Ausgangspunkt driftet das Elektron im Laufe seiner Bewegung nach rechts und kommt schließlich im Punkt $\mathrm { B ^ { \prime } }$ an, nicht im Punkt B wie zuvor. Abbildung 22.11 wurde unter der Annahme $\nu _ { \mathrm { D } } \approx 0 { , } 0 2 \nu _ { \mathrm { e f f } }$ gezeichnet. Da in Wirklichkeit aber eher $\nu _ { \mathrm { D } } \approx 1 0 ^ { - 1 3 } \nu _ { \mathrm { e f f } }$ gilt, ist die Driftbewegung in der Abbildung extrem übertrieben dargestellt.
+
+Die Bewegung der Leitungselektronen in einem äußeren elektrischen Feld $\vec { E }$ ergibt sich demnach als Überlagerung der ungeordneten, thermischen Bewegung der Elektronen und einer Driftbewegung unter der Wirkung des äußeren elektrischen Felds. Betrachten wir die Gesamtheit der Elektronen, so mitteln sich ihre ungeordneten Bewegungen zu einer Nettogeschwindigkeit von null; sie tragen daher nicht zur Driftbewegung bei. Die Driftbewegung der Elektronen geht demzufolge ausschließlich auf die Wirkung des elektrischen Felds zurück.
+
+Ein Elektron der Masse m erfährt in einem elektrischen Feld vom Betrag E eine Beschleunigung, die durch das zweite Newtonsche Gesetz gegeben ist:
+
+$$
+a = \frac {F}{m} = \frac {e E}{m}. \tag {22.18}
+$$
+
+Bei einem typischen Stoß eines Leitungselektrons mit einem Metallatom verliert das Elektron sozusagen vollständig die „Erinnerung“ an seine Driftgeschwindigkeit vor dem Stoß. Nach jedem Stoß bewegt sich ein Elektron daher wieder in eine zufällige Richtung. Während der mittleren Zeit τ zwischen zwei Stößen wird ein Elektron vom Feld im Mittel auf eine Driftgeschwindigkeit $\nu _ { \mathrm { D } } = \alpha \tau$ beschleunigt. Dies gilt für alle Elektronen, wir können daher mit Gl. 22.18 schreiben
+
+$$
+\nu_ {\mathrm{D}} = a \tau = \frac {e E \tau}{m}. \tag {22.19}
+$$
+
+Kombinieren wir diesen Ausdruck mit Gl. 22.7 $( \vec { J } = n e \vec { \nu } _ { \mathrm { D } } )$ in Betragsform, so erhalten wir
+
+$$
+\nu_ {\mathrm{D}} = \frac {J}{n e} = \frac {e E \tau}{m}
+$$
+
+oder
+
+$$
+E = \left(\frac {m}{e ^ {2} n \tau}\right) J.
+$$
+
+![](images/page_548_image_13.jpg)
+
+<details>
+<summary>text_image</summary>
+
+A
+B
+B'
+E
+</details>
+
+Abb. 22.11
+
+Die grauen Linien zeigen die Flugbahn eines Elektrons, das auf seinem Weg von A nach B sechs Stöße erfährt. Grün gezeichnet ist eine mögliche Flugbahn desselben Elektrons unter dem Einfluss eines äußeren elektrischen Felds ${ \vec { E } } .$ Beachten Sie in diesem Fall die kontinuierliche Driftbewegung des Elektrons in Richtung von $\stackrel { - } { - \vec { E } } .$ (Noch genauer wäre es gewesen, wenn man die grünen Linien leicht gekrümmt gezeichnet hätte, um die Parabelbahnen darzustellen, die das Elektron zwischen den Stößen unter dem Einfluss des äußeren elektrischen Felds durchläuft.)
+
+Wenn wir diesen Ausdruck mit Gl. 22.11 $( \vec { E } = \rho \vec { J } )$ – ebenfalls in Betragsform – vergleichen, so erhalten wir schließlich
+
+$$
+\rho = \frac {m}{e ^ {2} n \tau}. \tag {22.20}
+$$
+
+Man kann Gl. 22.20 so interpretieren, dass Metalle das Ohmsche Gesetz befolgen, sofern ihr spezifischer Widerstand konstant ist und nicht vom Betrag des äußeren elektrischen Felds $\vec { E }$ abhängt. Da $n ,$ m und e konstant sind, reduziert sich dieser Nachweis darauf zu zeigen, dass die mittlere Zeit τ zwischen zwei Stößen (die mittlere Stoßzeit) konstant ist und nicht von der Feldstärke des äußeren elektrischen Felds abhängt. In der Tat kann man τ in guter Näherung als konstant annehmen, da die Driftgeschwindigkeit im äußeren elektrischen Feld so viel kleiner ist als die effektive Geschwindigkeit $\nu _ { \mathrm { e f f } }$ der Elektronen, dass die Elektronengeschwindigkeit insgesamt – und damit auch τ – durch das Feld kaum beeinflusst wird.
+
+## 22.5 Elektrische Leistung in Stromkreisen
+
+![](images/page_549_image_5.jpg)
+
+## Lernziele
+
+Nach dem Durcharbeiten dieses Abschnitts sollten Sie in der Lage sein, . . .
+
+• zu erklären, wie die Leitungselektronen in einem Stromkreis aufgrund des Widerstands der Schaltelemente Energie verlieren,
+• zu verstehen, dass Leistung die Rate ist, mit der Energie aus einer Form in eine andere überführt wird,
+• für einen Widerstand die Beziehung zwischen Leistung $P ,$ Stromstärke i, Spannung V und Widerstand R anzuwenden,
+• bei einer Batterie die Beziehung zwischen Leistung $P ,$ Stromstärke i und Potenzialdifferenz V zu verwenden,
+• die Energieerhaltung auf einen Stromkreis mit einer Batterie und einem Widerstand anzuwenden, um die Energieumwandlungen im Stromkreis zu erklären,
+• die Unterschiede zwischen Leitern, Halbleitern und Supraleitern zu kennen.
+
+![](images/page_549_image_15.jpg)
+
+## Schlüsselideen
+
+• Die Leistung bzw. Energieumwandlungsrate $P$ in einem elektrischen Schaltelement, an dem eine Potenzialdifferenz $V$ anliegt und durch das ein Strom i fließt, ist gegeben durch
+
+$$
+P = i V.
+$$
+
+• Für Widerstände kann man die Leistung auch in der Form
+
+$$
+P = i ^ {2} R = \frac {V ^ {2}}{R}
+$$
+
+schreiben.
+
+• In einem Widerstand wird elektrische potenzielle Energie durch Stöße zwischen Ladungsträgern und Atomen in innere thermische Energie umgewandelt.
+• Halbleiter sind Materialien, die nur wenige Leitungselektronen enthalten, aber durch Dotierung mit Fremdatomen, die Ladungsträger beisteuern, oder durch thermische Anregung elektrisch leitend werden können.
+• Supraleiter sind Materialien, die unterhalb einer Schwellentemperatur jeglichen elektrischen Widerstand verlieren. Bei den meisten Materialien liegt diese Temperatur sehr tief, es gibt jedoch auch Stoffe, die bereits fast bei Zimmertemperatur supraleitend werden.
+
+## 22.5.1 Elektrische Leistung in Stromkreisen
+
+Im Stromkreis von Abb. 22.12 ist eine Batterie B mit Drähten, deren Widerstand vernachlässigbar gering sei, mit einem nicht näher bekannten leitenden Bauelement verbunden. Dieses Bauelement kann beispielsweise ein Widerstand sein, ein Akku, ein Elektromotor oder auch ein anderes elektrisches Gerät. Die Batterie erhält eine Potenzialdifferenz V zwischen ihren beiden Anschlüssen aufrecht und damit auch – über die Verbindungsdrähte – zwischen den Anschlussklemmen des Bauteils, wobei das elektrische Potenzial an Klemme a des Bauteils größer ist als an Klemme b.
+
+Zwischen den Anschlussklemmen der Batterie besteht somit eine leitende Verbindung, die Batterie hält die Potenzialdifferenzen innerhalb des Kreises aufrecht, sodass ein konstanter, von Klemme a zu Klemme b des Bauteils gerichteter Strom fließt. Die im infinitesimalen Zeitintervall dt zwischen den Anschlussklemmen des Bauteils transportierte Ladung dq ist i dt. Diese Ladungsmenge durchläuft einen Potenzialabfall vom Betrag $V ,$ sodass ihre elektrische potenzielle Energie um einen Betrag
+
+$$
+\mathrm{d} U = V \mathrm{d} q = i V \mathrm{d} t
+$$
+
+abnimmt. Nach dem Energieerhaltungssatz muss diese elektrische potenzielle Energie in eine andere Energieform umgewandelt werden. Man kann die Leistung, mit der diese Umwandlung vor sich geht, als Umwandlungsrate d $. U / \mathrm { d } t$ schreiben; für sie gilt
+
+$$
+P = i V \quad (\text {Umwandlungsrate}). \tag {22.21}
+$$
+
+Diese Leistung P ist auch gleich der zeitlichen Rate, mit welcher Energie von der Batterie in das Bauelement übertragen wird. Handelt es sich bei dem Bauelement beispielsweise um einen Elektromotor, der eine mechanische Arbeit verrichtet, so wird die Energie der Batterie – zumindest teilweise – in mechanische Arbeit umgewandelt, handelt es sich um einen Akku, in chemische Energie des Akkus. Ist das Bauelement ein Widerstand, so wird die Energie der Batterie in Wärme umgewandelt und erhöht die Temperatur des Widerstands.
+
+Nach Gl. 22.21 ist die Einheit der elektrischen Leistung P das Produkt Volt mal Ampere $( \mathrm { V } \cdot \mathrm { A } )$ . Diese Einheit können wir umschreiben zu
+
+$$
+1 \mathrm{V} \cdot \mathrm{A} = 1 \frac {\mathrm{J}}{\mathrm{C}} \cdot 1 \frac {\mathrm{C}}{\mathrm{s}} = 1 \frac {\mathrm{J}}{\mathrm{s}} = 1 \mathrm{W}.
+$$
+
+Die Bewegung eines Elektrons, das sich mit einer konstanten Driftgeschwindigkeit durch einen Widerstand bewegt, ähnelt der Bewegung eines Steins, der in Wasser unter dem Einfluss der Schwerkraft schließlich mit einer konstanten Geschwindigkeit fällt. Die mittlere kinetische Energie des Elektrons bleibt bei dieser Bewegung konstant und sein Verlust an elektrischer potenzieller Energie erscheint wieder als Wärmeenergie des Widerstands. Mikroskopisch betrachtet wird diese Energieübertragung durch Stöße zwischen den Elektronen und den Molekülen oder Atomen des Widerstandsmaterials vermittelt, wodurch die Temperatur des Kristallgitters des Widerstandsmaterials zunimmt. Die mechanische Energie, die auf diese Weise in Wärmeenergie umgewandelt oder dissipiert wird, ist als nutzbare Arbeit verloren, da die Umwandlung irreversibel ist, also nicht mehr rückgängig gemacht werden kann.
+
+Zur Beschreibung der Energiedissipation in einem Widerstand R oder einem anderen elektronischen Bauelement mit Ohmschem Widerstand kann man die Gln. $2 2 . 8 \: ( R = V / i )$ und 22.21 kombinieren und erhält so
+
+$$
+P = i ^ {2} R \quad (\text {Dissipation in einem Widerstand}) \tag {22.22}
+$$
+
+oder
+
+$$
+P = \frac {V ^ {2}}{R} \quad (\text {Dissipation in einem Widerstand}). \tag {22.23}
+$$
+
+![](images/page_550_image_16.jpg)
+
+<details>
+<summary>text_image</summary>
+
+i
+B +
+-
+i
+i
+a
+?
+b
+i
+i
+</details>
+
+Abb. 22.12
+
+Eine Batterie B setzt einen elektrischen Strom i in einem Stromkreis in Gang, der ein unbekanntes, leitendes Bauelement enthält.
+
+![](images/page_550_image_19.jpg)
+
+<details>
+<summary>natural_image</summary>
+
+Exterior view of a vintage electrical switch with metal frame and copper wire (no text or symbols visible)
+</details>
+
+Abb. 22.13
+
+Das Bild zeigt einen Toaster von 1909, der über eine Glühbirnenfassung mit dem Stromnetz verbunden werden konnte. Damals war in manchen Gegenden der Strom für die Beleuchtung billiger als für andere Geräte [Quelle: Eric Norcross/CC-3.0].
+
+Hinweis: Beachten Sie den Unterschied zwischen diesen beiden Beziehungen und Gl. 22.21: $P = i V$ beschreibt alle Arten der Umwandlung elektrischer Energie, während die Beziehungen $P = i ^ { 2 } R$ und $P = V ^ { 2 } / R$ ausschließlich für die Umwandlung elektrischer potenzieller Energie in Wärmeenergie in einem Bauelement mit einem Ohmschen Widerstand R gelten.
+
+## KONTROLLFRAGE 5
+
+Eine Potenzialdifferenz V wird an ein Bauelement mit dem Ohmschen Wider stand R angelegt und erzeugt einen Strom i. Ordnen Sie die folgenden Änderungen der Bestimmungsgrößen i, V und R in absteigender Reihenfolge nach der Änderung der Rate, mit der elektrische Energie am Widerstand R in Wärmeenergie umgesetzt wird: (a) V wird verdoppelt, R bleibt unverändert, (b) i wird verdoppelt, R bleibt unverändert, (c) R wird verdoppelt, V bleibt unverändert, (d) R wird verdoppelt, i bleibt unverändert.
+
+## 22.5.2 Halbleiter
+
+Die Entwicklung von Halbleiterbauelementen bildete die Grundlage der mikroelektronischen Revolution, die unsere Gesellschaft ab Mitte des 20. Jahrhunderts ins Informationszeitalter katapultiert hat. In Tab. 22.2 sind die Eigenschaften von Silicium – einem typischen Halbleiter – und Kupfer – einem typischen metallischen Leiter – einander gegenübergestellt. Man erkennt, dass das Silicium wesentlich weniger Ladungsträger enthält als das Metall und einen sehr viel höheren Widerstand sowie einen großen und vor allem negativen Temperaturkoeffizienten des spezifischen Widerstands aufweist: Während der spezifische Widerstand von Kupfer mit zunehmender Temperatur ansteigt, nimmt der von reinem Silicium ab.
+
+Der spezifische Widerstand von reinem Silicium ist so hoch, dass man es praktisch als Isolator betrachten kann, was die Möglichkeiten eines direkten Einsatzes in elektronischen Schaltkreisen stark einschränkt. Man kann den spezifischen Widerstand von reinem Silicium jedoch durch kontrollierten Einbau kleiner Mengen bestimmter „Verunreinigungsatome“ in das Kristallgitter des Elements gezielt beeinflussen und sehr stark verringern. Diesen Prozess des kontrollierten Einbringens von Verunreinigungen bezeichnet man als Dotieren. Tabelle 22.1 zeigt einige typische Werte des spezifischen Widerstands von Silicium vor und nach dem Dotieren mit zwei verschiedenen Elementen an.
+
+Eine einfache Erklärung für die großen Unterschiede im spezifischen Widerstand (und damit in der Leitfähigkeit) von Halbleitern, Isolatoren und Metallen kann man sich folgendermaßen zurechtlegen (ein detailliertes Verständnis der Zusammenhänge ist nur mithilfe der Quantenmechanik möglich): In einem metallischen Leiter wie Kupfer sind die meisten Elektronen ortsfest in den Atomen gebunden. Um diese Elektronen aus ihren Bindungen zu befreien und beweglich zu machen, sodass sie einen elektrischen Strom bilden könnten, wäre viel Energie nötig. Einige der Elektronen jedoch sind nur schwach an die Atome des Kristallgitters gebunden und können mit einem sehr geringen Energieaufwand freigesetzt und damit beweglich gemacht werden. Hierzu reicht die Wärmeenergie oder auch ein äußeres elektrisches Feld, das man entlang eines Stücks Metall anlegt. Ein elektrisches Feld befreit nicht nur die Elektronen aus ihren schwachen Bindungen, sondern setzt sie auch als elektrischen Strom in Bewegung; es verursacht auf diese Weise einen elektrischen Strom in einem Leiter.
+
+TABELLE 22.2: Einige elektrische Eigenschaften von Kupfer und Silicium.<sup>a</sup>)
+
+| Eigenschaft | Kupfer | Silicium |
+| --- | --- | --- |
+| Materialklasse | Metall | Halbleiter |
+| Ladungsträgerkonzentration ($m^{-3}$) | $9 \cdot 10^{28}$ | $1 \cdot 10^{16}$ |
+| spezifischer Widerstand ($\Omega \cdot m$) | $2 \cdot 10^{-8}$ | $3 \cdot 10^{3}$ |
+| Temperaturkoeffizient des spezifischen Widerstands ($K^{-1}$) | $+4 \cdot 10^{-3}$ | $-70 \cdot 10^{-3}$ |
+
+a) Zum Vergleich auf eine signifikante Stelle gerundet.
+
+Um Elektronen der Atome eines Isolators aus ihren Bindungen zu befreien, sodass sie sich in einem äußeren elektrischen Feld als Strom in Bewegung setzen könnten, ist eine wesentlich größere Energie erforderlich; hierzu reichen weder die Wärmeenergie aus noch normalerweise erreichbare elektrische Feldstärken. Daher stehen unter normalen Bedingungen in einem Isolator keine freien Elektronen zur Verfügung, die sich unter dem Einfluss eines äußeren elektrischen Felds als elektrischer Strom durch das Kristallgitter bewegen könnten.
+
+Ein Halbleiter verhält sich ähnlich einem Isolator, aber mit der wesentlichen Ausnahme, dass man mit einem relativ geringen Energieaufwand einige wenige Elektronen aus ihren Bindungen befreien kann. Darüber hinaus kann man, wie gesagt, durch Einbau von Fremdatomen (Dotieren) Elektronen oder auch positive Ladungsträger im Material zur Verfügung stellen, die nur sehr schwach gebunden und daher leicht in Bewegung zu setzen sind. Durch gezieltes Dotieren eines Halbleiters ist es möglich, die Dichte von Ladungsträgern, die an einem elektrischen Strom teilnehmen können, in weiten Grenzen zu kontrollieren und damit auch die elektrischen Eigenschaften des Halbleitermaterials zu beeinflussen. Die meisten der gebräuchlichen Halbleiterbauelemente wie Transistoren und Dioden stellt man durch selektives Dotieren bestimmter Bereiche von Silicium-Einkristallen mit verschiedenen Fremdatomen her.
+
+Betrachten wir erneut Gl. 22.20 für den spezifischen Widerstand eines Leiters:
+
+$$
+\rho = \frac {m}{e ^ {2} n \tau}, \tag {22.24}
+$$
+
+wobei n die Ladungsträgerkonzentration (Anzahl von Ladungsträgern pro Einheitsvolumen) und τ die mittlere Stoßzeit (die mittlere Zeit zwischen zwei aufeinanderfolgenden Stößen) der Ladungsträger bezeichnen. Obwohl wir die Gültigkeit dieser Beziehung nur für Leiter gezeigt haben, gilt sie gleichermaßen für Halbleiter. Wir wollen nun untersuchen, wie sich die Größen n und τ mit steigender Temperatur ändern.
+
+In einem Leiter ist n groß und nur schwach temperaturabhängig. Der beobachtete Anstieg des spezifischen Widerstands von Metallen mit der Temperatur (Abb. 22.9) geht auf eine zunehmende Stoßrate von Ladungsträgern mit Gitteratomen zurück und geht in Gl. 22.24 durch eine Verringerung von τ ein, der mittleren Zeit zwischen zwei aufeinanderfolgenden Stößen.
+
+Bei einem Halbleiter ist n dagegen klein, wird jedoch mit zunehmender Temperatur sehr rasch größer, da durch die höhere Wärmeenergie mehr Ladungsträger freigesetzt werden. Dadurch nimmt der spezifische Widerstand eines Halbleiters mit zunehmender Temperatur ab, was in dem negativen Temperaturkoeffizienten des spezifischen Widerstands von Silicium (siehe Tab. 22.2) zum Ausdruck kommt. Wie in den Metallen nimmt auch in Halbleitern die Stoßrate der Ladungsträger mit der Temperatur zu, doch wird dieser Effekt vom rapiden Anstieg der Ladungsträ- gerkonzentration verdeckt. Mehr Details und weitere wichtige physikalische Eigenschaften von Halbleitern diskutieren wir in Kapitel 37.
+
+## 22.5.3 Supraleiter
+
+Im Jahr 1911 beobachtete der holländische Physiker Heike Kamerlingh Onnes, dass der spezifische Widerstand von Quecksilber bei Temperaturen unterhalb der sogenannten **kritischen Temperatur** $T _ { \mathrm { c } }   =   4 { , } 2 6   \mathrm { K }$ unmessbar klein wurde (Abb. 22.14). Dieses Phänomen, die sogenannte **Supraleitung**, ist nicht nur in der Grundlagenphysik von großem Interesse, sondern birgt auch ein enormes technisches Potenzial: In einem Material, das sich in diesem supraleitenden Zustand befindet, kann ein Strom ohne thermische Energieverluste fließen und damit Ladung verlustlos transportiert werden. Man hat in supraleitenden Ringen Ströme in Gang gesetzt, die noch nach Jahren ohne jegliche messbare Abschwächung flossen (sogenannte Dauerströme). Wohl ist ein gewisser Energieaufwand erforderlich, um die Elektronen als Dauerstrom in Bewegung zu setzen; dann jedoch fließt dieser Strom ohne jegliche Energiezufuhr weiter.
+
+![](images/page_552_chart_12.jpg)
+
+<details>
+<summary>line</summary>
+
+| Temperatur (K) | Widerstand \((\Omega)\) |
+| --- | --- |
+| 0 | ~0.01 |
+| 2 | ~0.01 |
+| 4 | ~0.01 |
+| 4.3 | ~0.13 |
+| 6 | ~0.14 |
+| 7.5 | ~0.15 |
+</details>
+
+Abb. 22.14 Der Widerstand von Quecksilber fällt bei einer Temperatur von etwa 4 K abrupt auf null.
+
+In den Jahren vor 1986 wurde die technische Anwendung der Supraleitung unter anderem auch durch die hohen Kosten behindert, die mit der Erzeugung der erforderlichen extrem tiefen Temperaturen verbunden sind. Im Jahr 1986 jedoch entdeckte man, dass bestimmte keramische Stoffe bereits bei wesentlich höheren, leichter und billiger zu erzeugenden Temperaturen supraleitend wurden. Die Untersuchung dieser sogenannten Hochtemperatur-Supraleiter trug und trägt auch weiterhin zum besseren Verständnis des Phänomens der Supraleitung bei und es besteht eine gewisse Hoffnung, dass man in nicht zu ferner Zukunft supraleitende Bauelemente entwickeln wird, die bei Zimmertemperatur arbeiten.
+
+Das Phänomen der Supraleitung unterscheidet sich grundlegend von der „normalen“ elektrischen Leitung: Die besten Normalleiter wie Silber und Kupfer werden auch bei den tiefsten erreichbaren Temperaturen nicht supraleitend. Dahingegen sind die neuen, keramischen Hochtemperatur-Supraleiter bei höheren Temperaturen, bei welchen sie sich noch nicht im supraleitenden Zustand befinden, gute Isolatoren.
+
+Der tatsächliche Wert der kritischen Temperatur hängt nicht nur von dem supraleitenden Material ab, sondern auch von anderen physikalischen Parametern. Zum Beispiel kann die Supraleitung durch ein hinreichend starkes Magnetfeld zerstört werden. Es gibt für jede Temperatur $T   <   T _ { \mathrm { c } }$ ein **kritisches Magnetfeld** $B _ { \mathrm { c } } ( T ) ,$ oberhalb dessen sich das Material im normalleitenden Zustand befindet. Oft gilt der Zusammenhang
+
+$$
+B _ {\mathrm{c}} (T) = B _ {0} \left[ 1 - \left(\frac {T}{T _ {\mathrm{c}}}\right) ^ {2} \right], \tag {22.25}
+$$
+
+wobei $B _ { 0 }$ und $T _ { \mathrm { c } }$ materialspezifische Konstanten sind.
+
+Basierend auf dem Verhalten für $B > B _ { \mathrm { c } }$ kann man verschiedene Typen von $\mathbf { \mathit { S } } \mathbf { u } -$ praleitern unterscheiden. Bei Typ-I-Supraleitern bricht hier der supraleitende $\mathbf { Z u } \cdot$ stand vollständig zusammen. Bei den Typ-II-Supraleitern gibt es dagegen zwei kritische Magnetfeldstärken $B _ { \mathrm { c , 1 } } ( T )$ und $B _ { \mathrm { c } , 2 } ( T )$ . Wenn das äußere Magnetfeld für $T < T _ { \mathrm { c } }$ den Wert $B _ { \mathrm { c } , 1 }$ erreicht, treten normalleitende Flusslinien in dem Material auf. Erst bei $B _ { c , 2 }$ wird das Gesamtsystem normalleitend. Da oft $B _ { \mathrm { c } , 2 } \gg B _ { \mathrm { c } , 1 }$ ist, sind Typ-II-Supraleiter auch industriell sehr interessant. In den Typ-II-Supraleitern spielen Versetzungen, d. h. Gitterfehler eine wichtige Rolle. Durch das Verankern der Flusslinien an diesen Gitterfehlern wird das für den Übergang in den normalleitenden Zustand notwendige kritische Feld erhöht.
+
+Eine wichtige experimentelle Beobachtung gelang dem Physiker Walther Meiß- ner und seinem Doktoranden Robert Ochsenfeld im Jahr 1933. Der nach ihnen benannte **Meißner-Ochsenfeld-Effekt** bezieht sich auf die Eigenschaft von Supraleitern, ein angelegtes Magnetfeld für $T < T _ { \mathrm { c } }$ und $B < B _ { \mathrm { c } }$ komplett aus ihrem Inneren zu verdrängen. Der Supraleiter ist in diesem Zustand ein idealer Diamagnet (vgl. Abschn. 28.6).
+
+Seit seiner Entdeckung hat das Phänomen der Supraleitung auch das Interesse vieler theoretisch arbeitender Physiker gefunden; dennoch gibt es bis heute keine allumfassende Theorie. Eine wichtige Erklärung für das Phänomen in vielen, aber nicht allen Supraleitern gaben Bardeen, Cooper und Schrieffer mit der nach ihnen benannten BCS-Theorie, die von der Vorstellung ausgeht, dass die einen Suprastrom bildenden Elektronen eines Stoffs sich in koordinierten Paaren, den **Cooper-Paaren**, durch das Kristallgitter bewegen. Man stellt sich vor, dass eines der Elektronen eines Paars die elektronische Struktur des supraleitenden Materials stört und in seiner unmittelbaren Umgebung kurzzeitig eine erhöhte Konzentration positiver Ladung erzeugt. Das andere Elektron eines solchen Paars wird dann von dieser erhöhten positiven Ladungskonzentration angezogen und es bildet sich ein gebundener Zustand der beiden Elektronen.
+
+Die effektive, durch die Beteiligung des Kristallgitters vermittelte attraktive Wechselwirkung zwischen den Elektronen kann in der BCS-Theorie zur Ausbildung eines elektronischen Grundzustands führen, der durch eine Energielücke von den angeregten Zuständen getrennt ist. Die Größe dieser Energielücke ist abhängig von den speziellen Materialeigenschaften. Da hier die Wechselwirkung mit dem Kristallgitter eine wichtige Rolle spielt, ist es leicht einzusehen, dass die Masse der Gitterionen als Parameter in die Theorie eingeht.
+
+Das Auftreten der Energielücke, das die mikroskopische Ursache für die Stabilität des supraleitenden Zustands liefert, erklärt z. B. auch das endliche kritische Magnetfeld $B _ { \mathrm { c } } ( T ) ,$ , das notwendig ist, um diesen Zustand zu zerstören. Die Abhängigkeit der Lücke von der Ionenmasse erklärt zudem den sogenannten **Isotopeneffekt**. Hierbei handelt es sich um die experimentelle Beobachtung, dass sich die kritische Temperatur ändert, sobald man verschiedene Proben des gleichen Materials analysiert, in denen unterschiedliche Isotope des gleichen chemischen Elements auftreten.
+
+Darüber hinaus liefert die BCS-Theorie auch den mikroskopischen Hintergrund zur Erklärung des Meißner-Ochsenfeld-Effekts, da sie eine endliche Eindringtiefe $\lambda _ { \mathrm { c } }$ für Magnetfelder vorhersagt. Im Rahmen eines stärker phänomenologischen Zugangs hatten die Brüder Fritz und Heinz London bereits im Jahr 1935 gefunden, dass ein äußeres Magnetfeld in einem Supraleiter einen Oberflächenstrom induziert, der ins Innere mit $\lambda _ { \mathrm { c } }$ exponentiell abfällt. Daher ist das Innere des Materials feldfrei und der gesamte Supraleiter wirkt wie ein effektiver Elektromagnet, der andere Magneten abstoßen kann. Ein Beispiel dafür sieht man in Abb. 22.15, in der ein Supraleiter frei über einem Permanentmagneten schwebt.
+
+Aufgrund des überwältigenden Erfolgs der BCS-Theorie erhielten Bardeen, Cooper und Schrieffer den Physik-Nobelpreis des Jahres 1972. In der Tat bot diese Theorie eine zufriedenstellende Erklärung der bis dahin bekannten Supraleitung bei sehr niedrigen Temperaturen. Zur Deutung der 1986 entdeckten Supraleitung bei höheren Temperaturen scheinen jedoch andere theoretische Ansätze erforderlich zu sein.
+
+![](images/page_554_image_7.jpg)
+
+<details>
+<summary>natural_image</summary>
+
+Close-up of a metallic object with a curved, textured surface mounted on a metal stand (no visible text or symbols)
+</details>
+
+Abb. 22.15
+
+Ein stickstoffgekühlter Supraleiter schwebt über einem Permanentmagneten [Quelle: TU Dresden, Henry Mühlpfordt/CC-SA-3.0].
+
+## 22.6 Zusammenfassung
+
+**Elektrischer Strom** Ein elektrischer Strom in einem Leiter ist definiert durch
+
+$$
+i = \frac {\mathrm{d} q}{\mathrm{d} t}. \tag {22.1}
+$$
+
+Dabei bezeichnet dq die Menge positiver Ladung, die sich im Zeitintervall dt durch eine gedachte Querschnittsfläche des Leiters bewegt. Nach Konvention legt man als Stromrichtung diejenige Richtung fest, in die sich positive Ladungsträger bewegen würden. Die SI-Einheit des elektrischen Stroms ist das **Ampere** (A): 1 A = 1 C/s.
+
+Stromdichte $\mathrm { Z u }$ der skalaren Größe des Stroms i definiert man den Vektor $\vec { J }$ der Stromdichte gemäß
+
+$$
+i = \int \vec {J} \cdot \mathrm{d} \vec {A}. \tag {22.4}
+$$
+
+Dabei ist d $\vec { A }$ ein Vektor, der senkrecht auf dem Flächenelement mit dem Inhalt dA steht, und das Integral wird über eine beliebige Querschnittsfläche des Leiters berechnet, in welchem der Strom fließt. $\vec { J }$ hat die gleiche Richtung wie die Geschwindigkeit der Ladungsträger, wenn diese positiv sind, und entsprechend die entgegengesetzte Richtung, wenn sie negativ sind.
+
+**Driftgeschwindigkeit der Ladungsträger** Legt man ein äußeres elektrisches Feld $\vec { E }$ an einen Leiter an, so erhalten die Ladungsträger (hier als positiv angenommen) eine Driftgeschwindigkeit $\nu _ { \mathrm { D } }$ in Richtung von ${ \vec { E } } .$ Diese Geschwindigkeit hängt mit der Stromdichte ⃗J über die Beziehung
+
+$$
+\vec {J} = (n e) \vec {\nu} _ {\mathrm{D}} \tag {22.7}
+$$
+
+zusammen, wobei das Produkt $n e$ die Bedeutung der Ladungsträgerkonzentration hat.
+
+**Widerstand eines Leiters** Der Widerstand R eines Leiters ist definiert durch
+
+$$
+R = \frac {V}{i}, \tag {22.8}
+$$
+
+wobei V die Potenzialdifferenz über den Leiter und i den durch ihn fließenden Strom bezeichnen. Die SI-Einheit des Widerstands ist das **Ohm** $( \Omega ) { : } 1   \Omega   =   1   \mathrm { V / A }$ . In ähnlicher Weise definiert man den spezifischen Widerstand $\rho$ sowie die Leitfähigkeit σ eines Stoffs:
+
+$$
+\rho = \frac {1}{\sigma} = \frac {E}{J}, \tag {22.10-22.12}
+$$
+
+worin E den Betrag des äußeren elektrischen Felds bezeichnet. Die SI-Einheit des spezifischen Widerstands ist Ohm mal Meter (Ω ⋅ m). In Vektorform lautet Gl. 22.10
+
+$$
+\vec {E} = \rho \vec {J}. \tag {22.11}
+$$
+
+Der Widerstand R eines leitenden Drahts mit konstantem Querschnitt und der Länge L ist
+
+$$
+R = \rho \frac {L}{A}, \tag {22.16}
+$$
+
+wobei A die Querschnittsfläche ist.
+
+**Temperaturabhängigkeit des spezifischen Widerstands ρ** Der spezifische Widerstand der meisten Stoffe ändert sich mit der Temperatur. Für zahlreiche Materialien, einschließ- lich der Metalle, kann man die Abhängigkeit des spezifischen Widerstands ρ von der Temperatur T näherungsweise durch eine Beziehung der Form
+
+$$
+\rho - \rho_ {0} = \rho_ {0} \alpha (T - T _ {0}) \tag {22.17}
+$$
+
+beschreiben. Darin bezeichnen $T _ { 0 }$ eine frei wählbare Referenztemperatur, $\rho _ { 0 }$ den spezifischen Widerstand bei dieser Temperatur und α den sogenannten Temperaturkoeffizienten des spezifischen Widerstands des betrachteten Stoffs.
+
+**Ohmsches Gesetz** Man sagt, ein gegebenes elektronisches Bauteil (beispielsweise ein Leiter, ein Widerstand oder ein elektrisches Gerät) verhalte sich entsprechend dem Ohmschen Gesetz, wenn sein Widerstand, definiert durch Gl. 22.8 als $V / i ,$ unabhängig von der angelegten Potenzialdifferenz V ist. Allgemeiner gesprochen folgt ein gegebener Stoff dem Ohmschen Gesetz, falls sein spezifischer Widerstand, definiert durch Gl. 22.10, unabhängig ist von Betrag und Richtung des äußeren elektrischen Felds ${ \vec { E } } .$
+
+**Spezifischer Widerstand eines Metalls** Unter der Annahme, dass sich die Leitungselektronen eines Metalls frei
+
+## 22.7 Fragen
+
+**1.** Abbildung 22.F1 zeigt Darstellungen des zeitlichen Verlaufs des Stroms i durch einen bestimmten Querschnitt eines Drahts während vierer verschiedener Zeiträume. Ordnen Sie die Fälle in absteigender Reihenfolge nach der Nettoladung, die dabei jeweils durch den Leiterquerschnitt transportiert wird.
+
+im Kristallgitter bewegen können (wie die Moleküle eines Gases in einem Behälter), kann man den folgenden Ausdruck für den spezifischen Widerstand eines Metalls herleiten:
+
+$$
+\rho = \frac {m}{e ^ {2} n \tau}. \tag {22.20}
+$$
+
+n ist die Anzahl freier Elektronen pro Volumeneinheit (die Ladungsträgerdichte) und die Stoßzeit τ bezeichnet die mittlere Zeit zwischen zwei aufeinanderfolgenden Stößen eines Leitungselektrons mit einem Metallatom. Eine Erklä- rung dafür, warum Metalle das Ohmsche Gesetz befolgen, liefert die Tatsache, dass die Stoßzeit τ in Metallen im Wesentlichen nicht von der Feldstärke E eines von außen angelegten elektrischen Felds abhängt.
+
+**Elektrische Leistung** Die elektrische Leistung oder Energieübertragungsrate P in einem elektrischen Bauteil, über dem eine Potenzialdifferenz V aufrechterhalten wird, ist gegeben durch
+
+$$
+P = i V. \tag {22.21}
+$$
+
+**Energiedissipation in einem Ohmschen Widerstand** Ist das elektrische Bauteil ein Ohmscher Widerstand, so kann man Gl. 22.21 in der Form
+
+$$
+P = i ^ {2} R = \frac {V ^ {2}}{R}, \tag {22.22,22.23}
+$$
+
+schreiben. In einem Ohmschen Widerstand wird elektrische potenzielle Energie der Ladungsträger durch Stöße zwischen den bewegten Ladungsträgern und den Atomen des Widerstandsmaterials in Wärmeenergie umgesetzt.
+
+**Halbleiter** Halbleiter sind Stoffe, die nur wenige freie Ladungsträger enthalten, deren Ladungsträgerdichte jedoch durch Erhöhen der Temperatur oder durch gezieltes $\mathrm { v e r } -$ unreinigen“ (Dotieren) mit bestimmten Fremdatomen sehr stark erhöht werden kann, sodass sie effektiv zu Leitern werden.
+
+**Supraleiter** Supraleiter sind Stoffe, deren elektrischer Widerstand bei hinreichend tiefen Temperaturen null wird. Man erforscht seit 1986 keramische Materialien, die sogenannten Hochtemperatur-Supraleiter, bei denen die Supraleitung schon bei relativ hohen Temperaturen einsetzt.
+
+![](images/page_555_chart_25.jpg)
+
+<details>
+<summary>line</summary>
+
+| Segment | Description |
+| --- | --- |
+| a | First segment of the graph |
+| b | Second segment of the graph |
+| c | Third segment of the graph |
+| d | Fourth segment of the graph |
+</details>
+
+Abb. 22.F1
+
+**2.** In Abb. 22.F2 sind vier verschiedene Situationen dargestellt, bei denen sich positive und negative Ladungen in einem gewissen Raumbereich horizontal bewegen. In jedem Fall ist die zeitliche Rate des Ladungstransports angegeben. Ordnen Sie die Situationen in absteigender Reihenfolge nach dem effektiven Strom, den die Ladungsbewegungen im jeweiligen Raumbereich darstellen.
+
+![](images/page_556_image_3.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph LR
+  A["Negative Charge"] -->|7 C/s| B["Positive Charge"]
+  B -->|3 C/s| C["Negative Charge"]
+  C -->|4 C/s| D["Positive Charge"]
+  D -->|2 C/s| E["Negative Charge"]
+  E -->|5 C/s| F["Negative Charge"]
+  F -->|6 C/s| G["Positive Charge"]
+  G -->|1 C/s| H["Negative Charge"]
+```
+</details>
+
+Abb. 22.F2
+
+**3.** Abbildung 22.F3 zeigt die rechteckigen Querschnitte dreier verschiedener Drähte gleicher Länge, die aus dem gleichen Material hergestellt sind. Ebenfalls angegeben sind die jeweiligen Kantenlängen in mm. Ordnen Sie die Drähte in absteigender Reihenfolge nach ihrem Widerstand zwischen den Drahtenden.
+
+![](images/page_556_image_6.jpg)
+
+Abb. 22.F3
+
+**4.** Nehmen Sie an, sie dehnen einen Draht mit zylindrischem Querschnitt; der Querschnitt soll auch nach dem Dehnen zylindrisch bleiben. Nimmt der Widerstand des Drahts zwischen seinen beiden Enden dabei zu, ab, oder bleibt er unverändert?
+**5.** Abbildung 22.F5 zeigt die quadratischen Querschnitte dreier Leiter derselben (großen) Länge, gefertigt aus demselben Material, mit den jeweiligen Seitenlängen. Leiter B passe spielfrei in Leiter A, Leiter C entsprechend spielfrei in Leiter B. Ordnen Sie die folgenden Leiter in absteigender Reihenfolge nach ihrem Widerstand zwischen ihren beiden Enden: (a) die einzelnen Drähte A, B und C, (b) die Kombinationen $\mathrm { A } + \mathrm { B } , \mathrm { B } + \mathrm { C }$ sowie $\mathrm { A } + \mathrm { B } + \mathrm { C } ,$
+
+![](images/page_556_image_11.jpg)
+
+<details>
+<summary>text_image</summary>
+
+A
+√3 l
+B
+√2 l
+C
+l
+</details>
+
+Abb. 22.F5
+
+**6.** Abbildung 22.F6 zeigt einen massiven, leitenden Körper in Form eines Quaders mit den Kantenlängen L, 2L und 3L. Eine Potenzialdifferenz V wird entsprechend Abb. 22.7b an jeweils zwei gegenüberliegenden Seiten angelegt: links/ rechts, oben/unten, vorne/hinten. Ordnen Sie diese drei Fälle in absteigender Reihenfolge nach (a) dem Betrag des elektrischen Felds innerhalb des Leiters, (b) der Stromdichte innerhalb des Leiters, (c) dem Strom durch den Leiter, (d) der Driftgeschwindigkeit der Elektronen im Leiter.
+
+![](images/page_556_image_15.jpg)
+
+<details>
+<summary>text_image</summary>
+
+2L
+3L
+L
+</details>
+
+Abb. 22.F6
+
+**7.** Die folgende Tabelle zeigt die Längen und Durchmesser dreier Kupferstäbe sowie die jeweilige Potenzialdifferenz zwischen ihren Enden. Ordnen Sie die drei Stäbe in absteigender Reihenfolge nach (a) dem Betrag des elektrischen Felds in ihrem Inneren, (b) der Stromdichte und (c) der Driftgeschwindigkeit der Elektronen in ihnen.
+
+| Stab | Länge | Durchmesser | Potenzialdifferenz |
+| --- | --- | --- | --- |
+| 1 | L | 3d | V |
+| 2 | 2L | d | 2V |
+| 3 | 3L | 2d | 2V |
+
+**8.** Die folgende Tabelle zeigt die Leitfähigkeiten sowie die Konzentrationen der Leitungselektronen für vier Substanzen A, B, C und D. Ordnen Sie die Materialien in absteigender Reihenfolge nach der mittleren Stoßzeit der Leitungselektronen.
+
+|  | A | B | C | D |
+| --- | --- | --- | --- | --- |
+| Leitfähigkeit | $\sigma$ | $2\sigma$ | $2\sigma$ | $\sigma$ |
+| Leitungselektronen/$m^{3}$ | $n$ | $2n$ | $n$ | $2n$ |
+
+**9.** Drei Drähte vom gleichen Durchmesser werden nacheinander mit zwei Polklemmen verbunden, zwischen denen eine konstante Potenzialdifferenz besteht. Die spezifi schen Widerstände sowie die Längen der Drähte seien wie folgt gegeben: ρ und L (Draht A), 1,2ρ und 1,2L (Draht B), 0,9ρ und L (Draht C). Ordnen Sie die drei Drähte in absteigender Reihenfolge nach dem Grad der Dissipation elektrischer Energie.
+**10.** Abbildung 22.F10 zeigt den Temperaturverlauf des spezifischen Widerstands für vier verschiedene Materialien. (a) Welche der Materialien sind Leiter, welche Halbleiter? Bei welchen Materialien bewirkt eine Erhöhung der Temperatur (b) eine Zunahme der Anzahl von Leitungselektronen pro Einheitsvolumen, (c) eine Zunahme der Stoßrate der Leitungselektronen?
+
+![](images/page_556_chart_24.jpg)
+
+<details>
+<summary>line</summary>
+
+| Line | Trend Description |
+| --- | --- |
+| 1 | Horizontal line with slight upward slope |
+| 2 | Downward sloping line |
+| 3 | Downward sloping line |
+| 4 | Upward sloping line |
+</details>
+
+**11.** In Abb. 22.F11 sehen Sie einen stromdurchflossenen Draht mit drei verschiedenen Querschnitten. Ordnen Sie die drei Abschnitte in absteigender Reihenfolge nach (a) der
+
+Stromstärke, (b) dem Betrag der Stromdichte und (c) dem Betrag der elektrischen Feldstärke.
+
+![](images/page_557_image_2.jpg)
+
+<details>
+<summary>text_image</summary>
+
+2R₀
+R₀
+1,5R₀
+</details>
+
+A
+
+B
+
+C
+
+Abb. 22.F11
+
+**12.** Abbildung 22.F12 stellt das elektrische Potenzial $V ( x )$ in Abhängigkeit von der Position x auf einem stromdurchflossenen Kupferdraht dar. Der Draht besteht aus drei Abschnitten mit unterschiedlichen Radien. Ordnen Sie die drei Abschnitte in absteigender Reihenfolge nach dem Betrag (a) des elektrischen Felds und (b) der Stromdichte.
+
+![](images/page_557_chart_8.jpg)
+
+<details>
+<summary>line</summary>
+
+| Category | Value |
+| --- | --- |
+| Start | V |
+| B | ~0.6 |
+| C | ~0.15 |
+| End | 0 |
+</details>
+
+Abb. 22.F12
+
+**13.** Abbildung 22.F13 zeigt die Driftgeschwindigkeit $\nu _ { \mathrm { D } }$ von Leitungselektronen in einem Kupferdraht in Abhängigkeit von der Position x auf dem Draht. Der Draht besteht aus drei Abschnitten mit unterschiedlichen Radien. Ordnen Sie die drei Abschnitte in absteigender Reihenfolge nach (a) dem Radius, (b) der Anzahl der Leitungselektronen pro Kubikmeter, (c) dem Betrag der elektrischen Feldstärke und (d) der elektrischen Leitfähigkeit.
+
+![](images/page_557_chart_12.jpg)
+
+<details>
+<summary>line</summary>
+
+| X | vD |
+| --- | --- |
+| A | High |
+| B | Medium |
+| C | Low |
+</details>
+
+Abb. 22.F13
+
+**14.** In Abb. 22.F14 sehen Sie für drei Drähte mit dem Radius R die Stromdichte J(r) als Funktion der Entfernung r vom Mittelpunkt des kreisförmigen Drahtquerschnitts. Die Drähte bestehen alle aus demselben Material. Ordnen Sie die Drähte in absteigender Reihenfolge nach dem Betrag des elektrischen Felds (a) im Mittelpunkt, (b) beim halben Radius und (c) an der Oberfläche.
+
+![](images/page_557_image_15.jpg)
+
+<details>
+<summary>text_image</summary>
+
+a
+J
+b
+c
+r
+R
+</details>
+
+Abb. 22.F14
+
+## 23 Stromkreise
+
+## 23.1 Unverzweigte Stromkreise
+
+## Physikalische Motivation
+
+Wir alle sind buchstäblich umgeben von elektrischen Stromkreisen. Möglicherweise sind Sie stolz auf ihre vielen elektrischen Geräte und haben vielleicht sogar eine Wunschliste mit Geräten, die Sie gerne auch noch besitzen würden. Jedes einzelne dieser Geräte beruht ebenso wie die gesamte Stromversorgung von Haushal ten und Industrie auf den Errungenschaften der modernen Elektrotechnik. Deren wirtschaftliche Bedeutung lässt sich zwar nicht leicht in Zahlen bemessen, doch wir können davon ausgehen, dass sie Jahr für Jahr zunimmt, da die Zahl der elektrisch erledigten und gesteuerten Arbeiten nach wie vor rapide ansteigt. Heutige Radiosender werden nicht mehr mit einem Drehknopf, sondern elektronisch eingestellt. Nachrichten werden als E-Mail und nicht mehr per Post gesendet. Wissenschaftliche Zeitschriften werden am Computer und nicht mehr im Lesesaal einer Bibliothek gelesen, und anschließend werden die Artikel elektronisch archiviert und nicht mehr fotokopiert und in überquellenden Büroschränken verstaut. Vielleicht lesen Sie sogar selbst gerade dieses Buch auf einem E-Book-Reader.
+
+Die wissenschaftliche Grundlage aller Elektrotechnik ist die Physik. In diesem Kapitel behandeln wir die Physik von elektrischen Stromkreisen, die aus Kombinationen von Widerständen und Batterien bestehen (sowie, in Abschn. 23.4, Kondensatoren). Wir beschränken unsere Diskussion hier zunächst auf Stromkreise, in welchen die Ladung immer in dieselbe Richtung fließt, also Gleichstromkreise (engl. „direct current“ bzw. „DC“). Wir beginnen mit der Frage: Wie bringt man Ladungen zum Fließen?
+
+![](images/page_558_image_5.jpg)
+
+## 23.1.1 Ladungen „pumpen“
+
+Wenn man Ladungsträger dazu bringen möchte, dass sie durch einen Widerstand fließen, muss man zwischen den beiden Enden des Widerstands eine Potenzialdifferenz herstellen. Man könnte dazu beispielsweise die Anschlüsse des Widerstands mit den Platten eines geladenen Kondensators verbinden. Der Stromfluss käme in diesem Fall jedoch mehr oder weniger rasch zum Erliegen, da der Strom durch den Widerstand den Kondensator entladen, also seine beiden Platten auf das gleiche Potenzial bringen würde. Sobald dies der Fall wäre, bestände über den Widerstand kein elektrisches Feld mehr und der Ladungstransport wäre beendet.
+
+Um einen konstanten Strom von Ladungen aufrechtzuerhalten, ist eine Ladungspumpe erforderlich, eine Vorrichtung, die eine gewisse Potenzialdifferenz zwischen einem Paar von Anschlussklemmen erzeugt und konstant hält, indem sie Arbeit an den Ladungsträgern verrichtet. Eine derartige Vorrichtung bezeichnen wir als **Spannungsquelle**: Sie stellt durch Verrichten von Arbeit an den Ladungsträgern eine **Spannung** zur Verfügung.
+
+In Kapitel 22 hatten wir die durch ein elektrisches Feld induzierte Bewegung von Ladungsträgern in einem Stromkreis betrachtet: Die Ladungsträger wurden dort durch Kräfte bewegt, die in diesem Feld auf sie wirkten. Im vorliegenden Kapitel dagegen untersuchen wir die Bewegung der Ladungsträger unter einem anderen Aspekt: Wir betrachten die Energie, die erforderlich ist, um einen Strom aufrechtzuerhalten. Eine Spannungsquelle stellt die notwendige Energie als Arbeit zur Verfügung, die sie an den Ladungsträgern verrichtet.
+
+Zu den häufigsten Spannungsquellen zählen sicher **Batterien**, mit deren Hilfe zahlreiche elektrische Geräte – von der Armbanduhr bis hin zu U-Booten – betrieben werden. Die Spannungsquelle, die unser tägliches Leben am stärksten beeinflusst, ist jedoch der **Generator:** Die von Generatoren erzeugten Potenzialdifferenzen werden über weit verzweigte Netze in unsere Häuser und an unsere Arbeitsplätze gebracht. **Solarzellen** als Spannungsquellen sind uns als „Sonnensegel“ der Satelliten bekannt und finden auch immer mehr Anwendungen in Haushalten. Etwas weniger vertraut sind uns **Brennstoffzellen**, die beispielsweise die Stromversorgung der Spaceshuttles gewährleisten, oder **Thermosäulen**, die an Bord einiger Raumschiffe oder in entlegenen Forschungsstationen in der Antarktis als Spannungsquellen Verwendung finden. Auch lebende Systeme, vom Zitteraal über den Menschen bis hin zu Pflanzen, können Potenzialdifferenzen erzeugen und als Spannungsquellen wirken.
+
+Obwohl sich die Wirkungsmechanismen der als Beispiele angeführten Spannungsquellen wesentlich voneinander unterscheiden, so ist doch ihre Funktion grundsätzlich die gleiche: Sie verrichten Arbeit an Ladungsträgern und erhalten dadurch eine bestimmte Potenzialdifferenz zwischen ihren Anschlüssen aufrecht.
+
+![](images/page_559_image_4.jpg)
+
+<details>
+<summary>text_image</summary>
+
+i
+a
+a'
+R
+i
+E
++
+</details>
+
+Abb. 23.1
+
+Ein unverzweigter elektrischer Schaltkreis, in welchem ein Bauelement mit der Spannung  Arbeit an den Ladungsträgern verrichtet und dadurch den konstanten Strom i durch einen Widerstand R aufrechterhält.
+
+## 23.1.2 Arbeit, Energie und Spannung
+
+Abbildung 23.1 zeigt eine Spannungsquelle, beispielsweise eine Batterie, als Teil eines einfachen Stromkreises, der außer der Spannungsquelle nur einen einzelnen Widerstand R enthält ( ist das Symbol für einen Widerstand). Eine Spannungsquelle hält den einen ihrer beiden Anschlüsse – den positiven Anschluss (mit + bezeichnet) – auf einem höheren elektrischen Potenzial als den anderen – den negativen Anschluss (mit − bezeichnet). Man kann eine Spannungsquelle in einem Schaltbild durch einen Pfeil symbolisieren, der vom negativen zum positiven Anschluss zeigt (Abb. 23.1). Ein kleiner Kreis am Pfeilende identifiziert den Pfeil als Symbol für eine Spannungsquelle und unterscheidet ihn so von Pfeilen, welche die Stromrichtung andeuten sollen.
+
+Sind die beiden Anschlüsse einer Spannungsquelle nicht über einen geschlossenen Stromkreis miteinander verbunden, so fließt keine Ladung. Werden die beiden Anschlüsse (Pole) der Spannungsquelle jedoch wie in Abb. 23.1 dargestellt über einen Stromkreis miteinander verbunden, so setzt der jeweilige innere Mechanismus der Quelle einen Strom positiver Ladungsträger in Gang, der in Richtung des Spannungspfeils der Quelle vom negativen zum positiven Pol hin gerichtet ist. Damit fließt im Stromkreis ein Strom in Richtung des Spannungspfeils (im Uhrzeigersinn in Abb. 23.1).
+
+Innerhalb der Spannungsquelle bewegen sich positive Ladungsträger aus einem Bereich mit niedrigem elektrischen Potenzial und damit geringer elektrischer potenzieller Energie (am negativen Pol) heraus in einen Bereich mit höherem elektrischem Potenzial und damit auch höherer elektrischer potenzieller Energie (am positiven Pol). Die Ladungsträger wandern dort somit entgegengesetzt zu der Richtung, in die sie sich unter der Wirkung des elektrischen Felds zwischen den Polen der Spannungsquelle – welches vom positiven zum negativen Pol zeigt – bewegen würden.
+
+Es muss deshalb eine Energiequelle in der Spannungsquelle vorhanden sein, die Arbeit an den Ladungsträgern verrichtet, sodass diese sich in der beschriebenen Art bewegen können. Diese interne Energiequelle kann chemischer Natur sein wie in einer gewöhnlichen Batterie oder einer Brennstoffzelle; sie kann aber wie im Fall eines Generators auch mechanisch sein. Auch Temperaturdifferenzen zwischen verschiedenen Wärmereservoirs können die Ursache für das Vorhandensein nutzbarer Energie sein (wie in Thermosäulen), oder die Energie kann direkt von der Sonne geliefert werden, wie es bei den Solarzellen der Fall ist.
+
+Analysieren wir nun den Stromkreis von Abb. 23.1 unter dem Aspekt des Transfers von Arbeit und Energie. In jedem differenziellen Zeitintervall dt bewegt sich eine differenzielle Ladung dq durch einen beliebigen Querschnitt des Stromkreises, beispielsweise durch die Ebene aa′. Exakt diese Ladungsmenge muss auf der Seite mit niedrigem Potenzial in die Spannungsquelle eintreten und sie auf der Seite mit hohem Potenzial wieder verlassen. Dabei muss die Spannungsquelle an der Ladungsmenge dq eine Arbeit dW verrichten, um sie zu dieser Bewegung gegen die im elektrischen Feld zwischen den Polen auf sie wirkenden Kräfte zu „zwingen“. Wir definieren nun die von der Spannungsquelle zur Verfügung gestellte Spannung durch diese Arbeit dW:
+
+$$
+\mathcal {E} = \frac {\mathrm{d} W}{\mathrm{d} q} \quad (\text {Definition von} \mathcal {E}). \tag {23.1}
+$$
+
+In Worten ist die Spannung einer Spannungsquelle gleich der Arbeit, die von der Quelle an einer Ladungseinheit zu verrichten ist, um sie von dem Pol mit niedrigem Potenzial zu dem Pol mit hohem Potenzial zu transportieren. Die SI-Einheit der Spannung ist Joule pro Coulomb. In Kapitel 20 nannten wir diese Einheit Volt.
+
+Eine **ideale Spannungsquelle** setzt der Bewegung der Ladung von Pol zu Pol innerhalb der Spannungsquelle keinen Widerstand entgegen. Bei einer idealen Spannungsquelle ist die Potenzialdifferenz zwischen ihren Polen gleich der Spannung der Quelle; so liegt bei einer idealen Batterie mit einer Spannung von 12,0 V immer auch eine Potenzialdifferenz von 12,0 V zwischen ihren Polen an.
+
+Eine **reale Spannungsquelle** – beispielsweise jede käufliche Batterie – setzt der Bewegung der Ladungsträger in ihrem Inneren einen Widerstand entgegen, den Innenwiderstand. Wenn die Anschlüsse einer realen Spannungsquelle offen sind, sie also nicht in einen Stromkreis eingebunden und von einem Strom durchflossen wird, so ist die Potenzialdifferenz zwischen den Anschlüssen gleich ihrer Nennoder Leerlaufspannung. Fließt dagegen ein Strom durch einen angeschlossenen Stromkreis, so unterscheidet sich die Potenzialdifferenz zwischen den Anschlüssen einer realen Spannungsquelle von ihrer Nennspannung. Wir werden das Verhalten realer Batterien in Abschn. 23.4 untersuchen.
+
+Wird eine Spannungsquelle in einen Stromkreis eingebunden und von einem Strom durchflossen, so überträgt sie Energie auf die durchfließenden Ladungsträ- ger. Die Ladungsträger können diese Energie ihrerseits an weitere im Stromkreis vorhandene Bauelemente oder elektrische Geräte weitergeben, beispielsweise an eine Glühlampe, die sie zum Leuchten bringen. Abbildung 23.2a zeigt einen Stromkreis mit zwei idealen, wiederaufladbaren Batterien (Akkumulatoren oder kurz Akkus) A und B, einem Widerstand R sowie einem Elektromotor M, der einen Körper der Masse m hebt, indem er die Energie der Ladungsträger in mechanische Arbeit umsetzt. Beachten Sie dabei, dass die Batterien gegeneinander geschaltet sind und die Ladungsträger im Stromkreis daher in einander entgegengesetzte Richtungen antreiben. Die Richtung des resultierenden Stroms innerhalb des Kreises wird durch die Batterie mit der höheren Spannung bestimmt, in diesem Falle die Batterie B. Die in dieser Batterie gespeicherte chemische Energie nimmt daher ab und wird auf die hindurchfließenden Ladungsträger übertragen. Die chemische Energie der Batterie A dagegen nimmt zu, da der durch sie hindurchfließende Strom vom positiven zum negativen Pol hin gerichtet ist: Batterie B lädt Batterie A. Batterie B liefert außerdem auch dem Elektromotor M Energie, die dieser in mechanische Arbeit umsetzt, und schließlich wird im Widerstand R elektrische Energie in Wärme umgewandelt (dissipiert). Abbildung 23.2b stellt diese drei Arten der Energieumwandlung schematisch dar: Durch jeden der Prozesse verliert die Batterie B chemische Energie.
+
+![](images/page_560_image_9.jpg)
+
+<details>
+<summary>text_image</summary>
+
+E_A
+A
+i
+M
+R
+i
+B
+i
+E_B
+m
+</details>
+
+(a)
+
+![](images/page_560_image_11.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph LR
+  A["chemische Energie, die Batterie B verliert"] --> B["Arbeit, die der Motor an der Masse m verrichtet"]
+  A --> C["Wärme, die der Widerstand R erzeugt"]
+  A --> D["chemische Energie, die in der Batterie A gespeichert wird"]
+```
+</details>
+
+(b)
+
+## Abb. 23.2
+
+(a) Im dargestellten Stromkreis gilt $\mathcal { E } _ { \mathrm { B } } > \mathcal { E } _ { \mathrm { A } }$ , sodass die Batterie B die Richtung des Stroms bestimmt.
+(b) Verschiedene Arten der Energieumwandlung im Stromkreis (a) unter der Annahme, dass im Motor keine thermische Dissipation von elektrischer Energie stattfindet.
+
+![](images/page_561_image_1.jpg)
+
+<details>
+<summary>text_image</summary>
+
+i
++ B R
+- a
+i
+höheres Potenzial
+i
+niedrigeres Potenzial
+</details>
+
+Abb. 23.3
+
+Ein unverzweigter Stromkreis, bei dem ein Widerstand R an eine ideale Batterie B mit der Spannung  angeschlossen ist. Der von der Batterie aufrechterhaltene Strom ist überall im Stromkreis gleich groß.
+
+## 23.1.3 Berechnung des Stroms in einem unverzweigten. Stromkreis
+
+Wir betrachten hier zwei äquivalente Arten, den Strom in einem einfachen, unverzweigten Stromkreis wie in Abb. 23.3 zu berechnen. Eine der beiden Methoden nutzt die Tatsache der Energieerhaltung, die andere arbeitet mit dem Konzept des elektrischen Potenzials. Der Stromkreis enthält eine ideale Batterie B mit der Spannung $\mathcal { E } ,$ einen Widerstand R sowie die beiden Verbindungskabel. (Wir setzen im Allgemeinen voraus, dass der Widerstand von Verbindungskabeln vernachlässigbar gering ist. Ihre Funktion besteht ausschließlich darin, die Elemente eines Stromkreises leitend miteinander zu verbinden.)
+
+## Energiebetrachtung
+
+Nach Gl. 22.22 $( P = i ^ { 2 } R )$ wird in dem Widerstand aus Abb. 23.3 in jedem Zeitintervall dt eine Energiemenge $i ^ { 2 } R$ dt in Wärme umgesetzt. (Da wir einen vernachlässigbar geringen Widerstand der Zuleitungen voraussetzen, erzeugen diese keine Wärme.) Während desselben Zeitintervalls bewegt sich eine Ladung dq = i dt durch die Batterie B und die Batterie verrichtet dabei nach Gl. 23.1 die Arbeit
+
+$$
+\mathrm{d} W = \mathcal {E} \mathrm{d} q = \mathcal {E} i \mathrm{d} t
+$$
+
+an der Ladung. Aus der Energieerhaltung folgt, dass diese von der (idealen) Batterie verrichtete Arbeit gleich der im Widerstand erzeugten Wärmemenge sein muss:
+
+$$
+\mathcal {E} i \mathrm{d} t = i ^ {2} R \mathrm{d} t.
+$$
+
+Daraus folgt
+
+$$
+\mathcal {E} = i R.
+$$
+
+Die Spannung  gibt die Energie pro Einheitsladung an, die die Batterie auf die durch sie hindurchbewegten Ladungsträger überträgt. Das Produkt iR gibt die Energie pro Einheitsladung an, die von den bewegten Ladungsträgern im Widerstand in Wärmeenergie umgewandelt wird. Die obige Gleichung besagt somit, dass die Energie, die in der Batterie auf die Ladungsträger übertragen wird, gleich der Energie ist, die ihnen im Widerstand wieder abgenommen und in Wärme umgesetzt wird. Lösen wir die Gleichung nach i auf, so erhalten wir
+
+$$
+i = \frac {\mathcal {E}}{R}. \tag {23.2}
+$$
+
+## Potenzialbetrachtung
+
+Wir wählen einen beliebigen Punkt in dem Stromkreis aus Abb. 23.3 und stellen uns vor, wir würden den Kreis in einer beliebigen Richtung vollständig durchlaufen und dabei die algebraische Summe aller Potenzialdifferenzen bilden, die wir auf unserem Weg antreffen. Nachdem wir wieder an unserem Ausgangspunkt angelangt wären, müsste logischerweise auch das Potenzial wieder seinen ursprünglichen Wert haben. Bevor wir diesen Weg tatsächlich nachvollziehen, formulieren wir diesen Gedanken in einem Satz, der – wie wir in Abschn. 23.2 zeigen werden – nicht nur für unverzweigte Stromkreise wie den in Abb. 23.3 dargestellten gilt, sondern ganz allgemein für jeden geschlossenen Weg in einem beliebigen Stromkreis.
+
+![](images/page_561_image_17.jpg)
+
+**Maschenregel:** Die algebraische Summe aller Potenzialänderungen beim vollständigen Durchlaufen eines beliebigen, geschlossenen Wegs (d. h. einer geschlossenen Schleife oder einer Masche) in einem Stromkreis ist null.
+
+Zu Ehren des deutschen Physikers Gustav Robert Kirchhoff bezeichnet man diesen Satz oft als Kirchhoffsche Maschenregel Diese Regel entspricht der Aussage, dass jeder Punkt auf einem Berg nur eine einzige Höhe über dem Meeresniveau haben kann: Beginnt man eine Wanderung an einer beliebigen Stelle auf dem Berg und kehrt schließlich zu diesem Punkt zurück, nachdem man einen beliebigen Weg auf dem Berg durchschritten hat, so muss die algebraische Summe aller Höhenänderungen, die man auf diesem Weg überwunden hat, null sein.
+
+Durchlaufen wir also den Stromkreis von Abb. 23.3, beginnend im Punkt a mit dem Potenzial $V _ { \mathrm { a } } ,$ im Uhrzeigersinn vollständig, bis wir wieder den Punkt a erreichen, und beachten wir dabei die Potenzialänderungen, die uns auf diesem Weg „begegnen“. Unser Ausgangspunkt a ist der Batteriepol mit dem niedrigeren Potenzial. Da es sich nach Voraussetzung um eine ideale Batterie handelt, ist die Potenzialdifferenz zwischen den Batteriepolen gleich der Batteriespannung V. Wir stellen uns vor, dass wir die Batterie zu der Seite mit höherem Potenzial durchqueren; die Potenzialänderung ist hierbei +.
+
+Auf dem Weg entlang der Verbindungsleitung zum Widerstand ändert sich das Potenzial nicht, da die Verbindungsleitung nach Voraussetzung einen vernachlässigbar kleinen Widerstand hat: Der obere Anschluss des Widerstands liegt deshalb ebenfalls auf dem gleichen Potenzial wie der Batteriepol mit dem höheren Potenzial. Auf dem Weg durch den Widerstand ändert sich nun das Potenzial entsprechend Gl. 22.8, wie man leicht erkennt, wenn man sie in der Form V = iR schreibt. Das Potenzial muss dabei abnehmen, da wir uns von der Seite mit höherem Potenzial zur Seite mit niedrigerem Potenzial bewegen. Somit ist die Potenzialänderung beim Durchlaufen des Widerstands gleich −iR.
+
+Schließlich kehren wir entlang der unteren Verbindungsleitung zum Punkt a zurück, wobei sich das Potenzial wieder nicht ändert, da der Widerstand der Leitung vernachlässigbar gering ist. Im Punkt a beträgt das Potenzial nun wieder $V _ { \mathrm { a } } ,$ Da wir einen geschlossenen Weg durchlaufen haben, muss das Potenzial am Ende des Wegs gleich dem Anfangspotenzial plus der Summe der entlang des Wegs aufge tretenen Potenzialänderungen sein; mathematisch heißt das
+
+$$
+V _ {\mathrm{a}} + \mathcal {E} - i R = V _ {\mathrm{a}}.
+$$
+
+Der Anfangswert $V _ { \mathrm { a } }$ hebt sich in dieser Gleichung heraus, es folgt daher
+
+$$
+\mathcal {E} - i R = 0.
+$$
+
+Löst man diese Gleichung nach i auf, so erhält man dasselbe Ergebnis $i = \mathcal { E } / R ,$ , das auch die Energiebetrachtung weiter oben ergeben hatte (Gl. 23.2).
+
+Wenden wir die Maschenregel auf einen Durchlauf im Gegenuhrzeigersinn an, so erhalten wir ganz entsprechend
+
+$$
+- \mathcal {E} + i R = 0,
+$$
+
+was uns erneut zu dem Ergebnis $i = \mathcal { E } / R$ führt. Für das Ergebnis der Anwendung der Maschenregel ist es somit ohne Bedeutung, in welcher Richtung man einen Stromkreis durchläuft.
+
+Zur Vorbereitung von Anwendungen der Maschenregel auf Stromkreise, die komplexer sind als der aus Abb. 23.3, formulieren wir noch zwei allgemeine Regeln, die sich zum Ermitteln von Potenzialdifferenzen beim Durchlaufen von Stromkreisen als nützlich erweisen.
+
+![](images/page_562_image_14.jpg)
+
+**Widerstandsregel:** Durchläuft man einen Widerstand in Stromrichtung, so ändert sich das Potenzial um $- i R ;$ durchläuft man ihn entgegen der Stromrichtung, so ist die Änderung gleich +iR.
+
+![](images/page_562_image_16.jpg)
+
+**Spannungsregel:** Bewegt man sich in Richtung des Spannungspfeils durch eine ideale Spannungsquelle, so ist die Potenzialänderung gleich +, in Gegenrichtung ist sie gleich −.
+
+![](images/page_563_image_1.jpg)
+
+<details>
+<summary>text_image</summary>
+
+i
+a
+B
+b
+R
+c
+</details>
+
+## KONTROLLFRAGE 1
+
+Die Abbildung zeigt einen unverzweigten Stromkreis, in dem ein Strom i fließt. Der Kreis besteht aus einer Batterie B, einem Widerstand R sowie Verbindungsleitungen mit vernachlässigbarem Widerstand. (a) Ist der Spannungspfeil an der Batterie nach links oder nach rechts weisend zu zeichnen? Ordnen sie die drei Punkte ${ \tt a } ,$ b und c in absteigender Reihenfolge nach (b) dem Betrag des dort fließenden Stroms, (c) dem Betrag des elektrischen Potenzials, (d) der elektrischen potenziellen Energie der Ladungsträger.
+
+## 23.1.4 Weitere unverzweigte Stromkreise
+
+In diesem Abschnitt erweitern wir den einfachen Stromkreis aus Abb. 23.3 in zweierlei Hinsicht.
+
+## Innenwiderstand
+
+Abbildung 23.4a zeigt eine reale Batterie mit dem Innenwiderstand $r ,$ die mit einem externen Widerstand R verbunden ist. Der Innenwiderstand einer Batterie ist der Widerstand der in der Batterie verwendeten leitenden Materialien und somit untrennbar mit ihr verbunden. Im Ersatzschaltbild in Abb. 23.4a ist die Batterie dagegen so dargestellt, als könnte man den Innenwiderstand von der Batterie trennen und die reale Batterie als Reihenschaltung aus einer idealen Batterie mit der Spannung $\varepsilon$ und einem separaten Widerstand r betrachten. Die Reihenfolge dieser beiden „Teile“ der realen Batterie spielt dabei keine Rolle.
+
+Wenden wir die Maschenregel im Uhrzeigersinn an, beginnend im Punkt a, so summieren sich die Potenzialänderungen auf einem vollständigen Durchlauf zu
+
+$$
+\mathcal {E} - i r - i R = 0. \tag {23.3}
+$$
+
+Auflösen nach dem Strom ergibt
+
+$$
+i = \frac {\mathcal {E}}{R + r}. \tag {23.4}
+$$
+
+Diese Beziehung reduziert sich für $r = 0$ auf Gl. 23.2, falls es sich also um eine ideale Batterie handelt.
+
+In Abb. 23.4b sind die beim Durchlaufen dieses Stromkreises auftretenden Po tenzialänderungen grafisch dargestellt. (Man erkennt den Zusammenhang dieser
+
+![](images/page_563_image_14.jpg)
+
+<details>
+<summary>text_image</summary>
+
+b
++
+r
+E
+-
+a
+reale Batterie
+i
+i
+R
+i
+i
+</details>
+
+(a)
+
+![](images/page_563_chart_16.jpg)
+
+(b)
+
+## Abb. 23.4
+
+(a) Ein unverzweigter Stromkreis aus einem Widerstand R und einer realen Batterie mit dem Innenwiderstand r und der Spannung . (b) Der Stromkreis (a) ist hier linear dargestellt und mit dem grün gezeichneten Potenzialverlauf unterlegt. Dabei werde der Kreis vom Punkt a ausgehend im Uhrzeigersinn durchlaufen. Der Wert des Potenzials $V _ { \mathrm { a } }$ im Punkt a wurde willkürlich gleich null gesetzt, sodass die von $V _ { \mathrm { a } }$ abweichenden Potenzialwerte relativ zu diesem Nullpunkt aufgetragen sind.
+
+Grafik mit dem geschlossenen Stromkreis in Abb. 23.4a leicht, wenn man sich die Darstellung des Potenzialverlaufs so aufgerollt denkt, dass die beiden Punkte a am linken und rechten Ende der Darstellung überlappen.) Beachten Sie, dass ein vollständiger Durchlauf des Stromkreises dem Umwandern eines „Potenzialbergs entspricht, wobei man schließlich wieder am Ausgangspunkt und auf der gleichen Höhe anlangt.
+
+Wenn wir in diesem Buch eine Batterie nicht explizit als real kennzeichnen oder ihren Innenwiderstand explizit angeben, gehen wir implizit immer davon aus, dass Batterien ideal sind – obwohl natürlich alle existierenden Batterien real sind und einen Innenwiderstand besitzen.
+
+## Reihenschaltungen von Widerständen
+
+Abbildung 23.5a zeigt drei Widerstände, die mit einer idealen Batterie der Spannung  in Reihe geschaltet sind. „In Reihe“ bedeutet dabei, dass die beiden Anschlüsse jedes der Widerstände nur mit jeweils einem der beiden Nachbarwiderstände verbunden sind und die Potenzialdifferenz  zwischen den beiden freien Anschlüssen der Widerstandsreihe anliegt. In Abb. 23.5a sind die Widerstände zwischen den Punkten a und b in Reihe geschaltet und die Potenzialdifferenz der Batterie liegt zwischen diesen beiden Punkten an. Die Potenzialdifferenzen, die nun über jedem Widerstand der Reihenschaltung anliegen, erzeugen jeweils gleiche Ströme i durch die Widerstände. Im Allgemeinen gilt:
+
+![](images/page_564_image_6.jpg)
+
+Legt man eine Potenzialdifferenz V an eine Reihenschaltung von Widerständen, so fließt durch jeden Widerstand der gleiche Strom i. Die Potenzialdifferenzen über die einzelnen Widerstände summieren sich zu der über die gesamte Widerstandsreihe anliegenden Potenzialdifferenz V.
+
+Beachten Sie dabei, dass es für die Ladung, die durch eine Reihenschaltung von Widerständen fließt, nur einen einzigen möglichen Weg gibt. Wenn weitere Wege existieren, sodass durch verschiedene Widerstände auch verschiedene Ströme fließen können, so handelt es sich nicht um eine Reihenschaltung.
+
+![](images/page_564_image_9.jpg)
+
+Man kann eine Reihenschaltung von Widerständen durch einen äquivalenten Ersatzwiderstand $R _ { \mathrm { E r s } }$ ersetzen, durch den ein Strom derselben Stärke i fließt und an dem dieselbe Potenzialdifferenz V anliegt wie an der Reihenschaltung als ganzer.
+
+In Abb. 23.5b wurden die drei Widerstände aus Abb. 23.5a durch ihren äquivalenten Ersatzwiderstand $R _ { \mathrm { E r s } }$ ersetzt.
+
+Um einen Ausdruck für $R _ { \mathrm { E r s } }$ in Abb. 23.5b herzuleiten, wenden wir die Maschenregel auf beide Stromkreise an. Wählen wir im Stromkreis von Abb. 23.5a den Batteriepol a als Ausgangspunkt und durchlaufen den Kreis vollständig im Uhrzeigersinn, so ergeben sich auf diesem Weg die folgenden Potenzialänderungen:
+
+$$
+\mathcal {E} - i R _ {1} - i R _ {2} - i R _ {3} = 0
+$$
+
+oder
+
+$$
+i = \frac {\mathcal {E}}{R _ {1} + R _ {2} + R _ {3}}. \tag {23.5}
+$$
+
+Für den Kreis von Abb. 23.5b mit dem äquivalenten Ersatzwiderstand $R _ { \mathrm { E r s } }$ erhalten wir ganz entsprechend
+
+$$
+\mathcal {E} - i R _ {\mathrm{Ers}} = 0
+$$
+
+oder
+
+$$
+i = \frac {\mathcal {E}}{R _ {\mathrm{Ers}}}. \tag {23.6}
+$$
+
+![](images/page_564_image_20.jpg)
+
+<details>
+<summary>text_image</summary>
+
+E₁
++
+-
+b
+R₁
+i
+R₂
+i
+a
+R₃
+i
+</details>
+
+(a)
+
+![](images/page_564_image_22.jpg)
+
+<details>
+<summary>text_image</summary>
+
+b
++
+E
+-
+R
+Ers
+i
+a
+</details>
+
+(b)
+
+## Abb. 23.5
+
+(a) Drei Widerstände sind zwischen den Punkten a und b in Reihe geschaltet. (b) Ein Ersatzschaltbild der Reihenschaltung aus (a), in dem der äquivalente Ersatzwiderstand $R _ { \mathrm { E r s } }$ die drei Einzelwiderstände ersetzt.
+
+Ein Vergleich der Gln. 23.5 und 23.6 liefert
+
+$$
+R _ {\mathrm{Ers}} = R _ {1} + R _ {2} + R _ {3}.
+$$
+
+Die Erweiterung auf eine Reihenschaltung von n Widerständen liegt auf der Hand:
+
+$$
+R _ {\mathrm{Ers}} = \sum_ {j = 1} ^ {n} R _ {j} \quad (n \text {Widerstände in Reihe}). \tag {23.7}
+$$
+
+Beachten Sie, dass der äquivalente Ersatzwiderstand einer Reihenschaltung von Widerständen immer größer ist als jeder einzelne der beteiligten Widerstände.
+
+## KONTROLLFRAGE 2
+
+In Abb. 23.5a gelte $R _ { 1 } > R _ { 2 } > R _ { 3 }$ . Ordnen Sie die drei Widerstände in absteigender Reihenfolge nach (a) dem durch sie fließenden Strom und (b) den an ihnen anliegenden Potenzialdifferenzen.
+
+## 23.1.5 Potenzialdifferenzen
+
+Oft ist es notwendig, die Potenzialdifferenz zwischen zwei herausgegriffenen Punkten eines Stromkreises zu bestimmen. Wie groß ist beispielsweise im Stromkreis von Abb. 23.4a die Potenzialdifferenz zwischen den Punkten b und a? Zur Bestimmung dieser Potenzialdifferenz beginnen wir im Punkt b und durchlaufen den Kreis im Uhrzeigersinn bis zum Punkt a, wobei wir den Widerstand R passieren. Wenn $V _ { \mathrm { a } }$ und $V _ { \mathrm { b } }$ die Werte des Potenzials in den Punkten a bzw. b bezeichnen, so gilt
+
+$$
+V _ {\mathrm{b}} - i R = V _ {\mathrm{a}},
+$$
+
+da nach der Widerstandsregel das Potenzial abnimmt, wenn man den Widerstand in Stromrichtung durchläuft. Diese Gleichung kann man umschreiben zu
+
+$$
+V _ {\mathrm{b}} - V _ {\mathrm{a}} = + i R, \tag {23.8}
+$$
+
+woraus man schließt, dass das Potenzial im Punkt b höher ist als im Punkt a. Kombiniert man Gln. 23.8 und 23.4, so erhält man
+
+$$
+V _ {\mathrm{b}} - V _ {\mathrm{a}} = \mathcal {E} \frac {R}{R + r}, \tag {23.9}
+$$
+
+wobei r wieder den Innenwiderstand der Spannungsquelle bezeichnet.
+
+![](images/page_565_image_16.jpg)
+
+Zur Bestimmung der Potenzialdifferenz zwischen zwei beliebigen Punkten eines Stromkreises beginnt man bei einem der Punkte, durchläuft den Kreis in beliebiger Richtung bis zu dem anderen Punkt und addiert dabei die Potenzialänderungen, die sich auf dem Weg ergeben.
+
+Wir wollen noch einmal die Potenzialdifferenz $V _ { \mathrm { b } } - V _ { \mathrm { a } }$ bestimmen, wobei wir wie der im Punkt b beginnen, nun aber den Stromkreis im Gegenuhrzeigersinn durch die Batterie hindurch bis zu Punkt a durchlaufen. Auf diesem Weg erhalten wir
+
+$$
+V _ {\mathrm{b}} + i r - \mathcal {E} = V _ {\mathrm{a}}
+$$
+
+oder
+
+$$
+V _ {\mathrm{b}} - V _ {\mathrm{a}} = \mathcal {E} - i r. \tag {23.10}
+$$
+
+Vergleicht man diesen Ausdruck mit Gl. 23.4, so gelangt man wieder zu Gl. 23.9.
+
+Die Größe $V _ { \mathrm { b } } -   V _ { \mathrm { a } }$ ist im Stromkreis von Abb. 23.4 die von der Batterie zwischen ihren beiden Polen aufgebaute Potenzialdifferenz. Wie wir bereits oben feststellten, ist diese Potenzialdifferenz nur dann gleich der Batteriespannung V, wenn die Batterie entweder keinen Innenwiderstand besitzt $( r = 0$ in Gl. 23.9) oder der Stromkreis offen ist $( i = 0$ in Gl. 23.10).
+
+Im Kreis von Abb. 23.4 seien $\mathcal { E } = 1 2   \mathrm { V } , R = 1 0   \Omega$ und $r = 2 { , } 0   \Omega$ . Dann folgt nach Gl. 23.9 für die Potenzialdifferenz zwischen den Batteriepolen
+
+$$
+V _ {\mathrm{b}} - V _ {\mathrm{a}} = (1 2 \mathrm{V}) \frac {1 0 \Omega}{1 0 \Omega + 2 , 0 \Omega} = 1 0 \mathrm{V}.
+$$
+
+Indem Sie (gegen ihren Innenwiderstand) Ladung durch sich selbst $\mathrm { { \tt { , } } p u m p t } ,$ verrichtet die Batterie eine Arbeit pro Einheitsladung von $\mathcal { E } = 1 2   \mathrm { J } / \mathrm { C }$ oder 12 V. Aufgrund ihres Innenwiderstands erzeugt sie dabei jedoch lediglich eine Potenzialdifferenz von 10 J/C oder 10 V zwischen ihren beiden Polen.
+
+## Leistung, Potenzial und Spannung
+
+Wenn eine Batterie oder eine andere Spannungsquelle Arbeit an den Ladungsträ- gern verrichtet und dadurch einen Strom i aufrechterhält, überträgt sie Energie von ihrer inneren Energiequelle – im Fall einer Batterie chemische Energie – auf die Ladungsträger. In einer realen Spannungsquelle, die einen von null verschiedenen Innenwiderstand r hat, wird jedoch wie in Abschn. 22.5 erläutert immer auch ein Teil der gespeicherten Energie dissipiert, also in Wärmeenergie umgewandelt. Wir wollen im Folgenden untersuchen, in welchem Verhältnis diese beiden Arten des Energietransfers zueinander stehen.
+
+Die Rate $P ,$ mit der die Spannungsquelle Energie auf die Ladungsträger überträgt, ist nach Gl. 22.21
+
+$$
+P = i V, \tag {23.11}
+$$
+
+wobei V die Potenzialdifferenz zwischen den Polen der Spannungsquelle bezeichnet. Nach Gl. 23.10 können wir diese Potenzialdifferenz durch $V = \mathcal { E } - i r$ ersetzen und erhalten
+
+$$
+P = i (\mathcal {E} - i r) = i \mathcal {E} - i ^ {2} r. \tag {23.12}
+$$
+
+Der Term $i ^ { 2 } r$ in Gl. 23.12 ist die Übertragungsrate $P _ { \mathrm { D } }$ von elektrischer Energie in Wärme innerhalb der Spannungsquelle:
+
+$$
+P _ {\mathrm{D}} = i ^ {2} r \quad \text {(innere Dissipationsrate)}  . \tag {23.13}
+$$
+
+Der Term $i \mathcal { E }$ in Gl. 23.12 beschreibt die Rate $P _ { \mathrm { B } } ,$ mit der die Spannungsquelle Energie sowohl in Energie der Ladungsträger als auch in Wärmeenergie umsetzt:
+
+$$
+P _ {\mathrm{B}} = i \mathcal {E} \quad (\text {Leistung einer Spannungsquelle}). \tag {23.14}
+$$
+
+Wird eine Batterie oder ein Akku wieder aufgeladen, indem man einen Stromfluss entgegen der Richtung des spontanen Entladungsstroms erzwingt, so wird die Energie der Ladungsträger sowohl in innere (chemische) Energie der Batterie, als auch – durch Dissipation am inneren Widerstand r – in Wärmeenergie umgewandelt. Gleichung 23.14 beschreibt die Rate der Umwandlung in innere (chemische) Energie, Gl. 23.13 dagegen die Rate der Energiedissipation in Wärmeenergie. Gleichung 23.11 beschreibt schließlich die Rate, mit der die Ladungsträger Energie herantransportieren.
+
+## KONTROLLFRAGE 3
+
+Eine Batterie liefert eine Spannung von 12 V und hat einen Innenwiderstand von 2 Ω. Ist die Potenzialdifferenz zwischen ihren Polen größer, kleiner oder gleich 12 V, wenn der Strom durch die Batterie (a) vom negativen zum positiven Pol, (b) vom positiven zum negativen Pol fließt bzw. (c) null ist?
+
+## LÖSUNGSSTRATEGIEN
+
+**Strategie 1: Vermuten der Stromrichtung** Bei der Untersuchung der Eigenschaften von Stromkreisen ist es nicht erforderlich, die Stromrichtung bereits zu Beginn der Überlegungen zu kennen. Sie können stattdessen die Stromrichtung einfach vermuten – was natürlich ein wenig physikalische Courage voraussetzt. Zur Erläuterung dieser Aussage nehmen wir einmal an, der Strom im Kreis von Abb. Ü23.1 im Übungsbuch fließe entgegen dem Uhrzeigersinn, also entgegen der Richtung der gezeichneten Strompfeile. Wendet man die Maschenregel im Gegenuhrzeigersinn an, beginnend im Punkt a, so erhält man
+
+$$
+- \mathcal {E} _ {1} - i r _ {1} - i R - i r _ {2} + \mathcal {E} _ {2} = 0
+$$
+
+oder
+
+$$
+i = - \frac {\mathcal {E} _ {1} - \mathcal {E} _ {2}}{R + r _ {1} + r _ {2}}.
+$$
+
+Setzt man die Zahlenwerte aus Beispielaufgabe 23.1 im Übungsbuch ein, so ergibt sich ein Strom $i = - 2 4 0   \mathrm { m A }$ . Das Minuszeichen weist darauf hin, dass die tatsächliche Stromrichtung der zunächst angenommenen entgegengesetzt ist.
+
+## 23.2 Verzweigte Stromkreise
+
+![](images/page_567_image_8.jpg)
+
+## Lernziele
+
+Nach dem Durcharbeiten dieses Abschnitts sollten Sie in der Lage sein, . . .
+
+• die Verzweigungsregel (Knotenregel) anzuwenden,
+einen Schaltkreis mit einer Batterie und drei parallel geschalteten Widerstände zu zeichnen und diesen von einem Kreis mit einer Batterie und drei in Reihe geschalteten Widerständen zu unterscheiden,
+• zu verstehen, dass an parallel geschalteten Widerständen dieselbe Potenzialdifferenz anliegt (die auch dieselbe ist, die an dem zugehörigen äquivalenten Ersatzwiderstand anliegt),
+• den äquivalenten Ersatzwiderstand mehrerer parallel geschalteter Widerstände zu bestimmen,
+• zu verstehen, dass der Gesamtstrom durch parallel geschaltete Widerstände gleich der Summe der Einzelströme ist,
+einen Stromkreis mit Batterie und mehreren parallel und in Reihe geschalteten Widerständen zu vereinfachen, indem Sie schrittweise äquivalente Ersatzwiderstände einführen, bis Sie den Strom durch die Batterie bestimmen können, und dann das Vorgehen umkehren, bis Sie die Ströme und Potenzialdifferenzen an den Einzelwiderständen erhalten,
+in einem Stromkreis, der sich nicht mit äquivalenten Ersatzwiderständen vereinfachen lässt, die einzelnen Maschen des Kreises zu identifizieren, die Richtungen der Ströme in den Zweigen zu wählen und dann daraus ein Gleichungssystem für die Ströme aufzustellen, das Sie nach den unbekannten Stromstärken auflösen,
+• in einem Stromkreis mit mehreren in Reihe geschalteten realen Batterien diese durch eine einzige ideale Batterie und einen einzigen (Ersatz-)Widerstand zu ersetzen,
+• in einem Stromkreis mit mehreren parallel geschalteten realen Batterien diese durch eine einzige ideale Batterie und einen einzigen (Ersatz-)Widerstand zu ersetzen.
+
+![](images/page_567_image_21.jpg)
+
+## Schlüsselideen
+
+• An parallel geschalteten Widerständen liegt dieselbe Potenzialdifferenz an. Der äquivalente Ersatzwiderstand für n parallele Widerstände ergibt sich aus
+
+$$
+\frac {1}{R _ {\mathrm{Ers}}} = \sum_ {j = 1} ^ {n} \frac {1}{R _ {j}}.
+$$
+
+## 23.2.1 Verzweigte Stromkreise
+
+Abbildung 23.6 zeigt einen verzweigten Stromkreis mit mehr als einer Schleife. Der Einfachheit halber nehmen wir auch hier die Batterien wieder als ideal an. Es gibt zwei Verzweigungspunkte oder Knoten in diesem Stromkreis, und drei Zweige verbinden diese beiden Punkte. Diese Zweige sind der linke (bad), der rechte (bcd) und der mittlere Zweig (bd). Welche Ströme fließen in diesen Zweigen?
+
+Wir wollen diese drei Ströme unterscheiden, indem wir für jeden Zweig dem Stromsymbol i einen eigenen Index beifügen: So hat der Strom $i _ { 1 }$ in jedem Punkt des Zweigs ‚bad‘ den gleichen Wert; für $i _ { 2 }$ und $i _ { 3 }$ gilt entsprechendes in den Zweigen ‚bcd‘ bzw. ‚bd‘. Die jeweiligen Stromrichtungen werden zunächst willkürlich angenommen.
+
+Betrachten wir den Verzweigungspunkt d: Mit den Strömen $i _ { 1 }$ und $i _ { 3 }$ kommt Ladung an diesem Punkt an und verlässt ihn wieder im Strom $i _ { 2 } .$ Da die Ladung erhalten bleibt, muss der gesamte im Punkt d eingehende Strom gleich dem gesamten ausgehenden Strom sein:
+
+$$
+i _ {1} + i _ {3} = i _ {2}. \tag {23.15}
+$$
+
+Man überzeugt sich leicht davon, dass die Anwendung dieser Bedingung auf den Verzweigungspunkt b zu demselben Ergebnis führt. Als Verallgemeinerung von Gl. 23.15 kann man eine allgemeingültige Regel formulieren:
+
+![](images/page_568_image_8.jpg)
+
+**Verzweigungsregel:** In einem Verzweigungspunkt oder Knoten eines Stromkreises ist die Summe aller eingehenden Ströme gleich der Summe aller ausgehenden Ströme.
+
+Dieser Satz heißt auch Kirchhoffsche Knotenregel. Er ist nichts anderes als eine Formulierung des Satzes von der Ladungserhaltung für ein System, in dem Ladung fließt: An einem Verzweigungspunkt sammelt sich keine Ladung an und es verschwindet auch keine Ladung. Damit haben wir die wesentlichen Werkzeuge zur Analyse verzweigter Stromkreise in der Hand: die Maschenregel als Konsequenz der Energieerhaltung sowie die Verzweigungsregel als Konsequenz der Ladungserhaltung.
+
+Gleichung 23.15 ist eine Gleichung mit drei Unbekannten. Um sie zu lösen und damit den Stromkreis vollständig zu analysieren, d. h. alle drei Ströme zu kennen, benötigen wir zwei weitere Gleichungen mit denselben Unbekannten. Wir erhalten diese, indem wir zweimal die Maschenregel anwenden. In dem Stromkreis aus Abb. 23.6 stehen dafür drei Schleifen zur Wahl: die linke Schleife badb, die rechte Schleife bcdb sowie die große Schleife badcb. Welche zwei Schleifen wir wählen, ist ohne Bedeutung; wir wählen im Folgenden die linke und die rechte.
+
+Wenn wir die linke Schleife beginnend im Punkt b im Gegenuhrzeigersinn durchlaufen, so ergibt die Maschenregel
+
+$$
+\mathcal {E} _ {1} - i _ {1} R _ {1} + i _ {3} R _ {3} = 0. \tag {23.16}
+$$
+
+Durchlaufen wir die rechte Schleife beginnend im Punkt b im Uhrzeigersinn, so folgt entsprechend
+
+$$
+- i _ {3} R _ {3} - i _ {2} R _ {2} - \mathcal {E} _ {2} = 0. \tag {23.17}
+$$
+
+Wir haben nun drei Gleichungen (Gln. 23.15–23.17) mit denselben drei Unbekannten; dieses Gleichungssystem können wir mit den üblichen Verfahren lösen.
+
+Wenden wir die Maschenregel auf die große Schleife an, so erhalten wir bei einem Durchlauf im Gegenuhrzeigersinn, beginnend im Punkt b,
+
+$$
+\mathcal {E} _ {1} - i _ {1} R _ {1} - i _ {2} R _ {2} - \mathcal {E} _ {2} = 0.
+$$
+
+Auf den ersten Blick scheint dieser Ausdruck neue Informationen zu enthalten, er ist jedoch einfach nur die Summe der Gln. 23.16 und 23.17. (Er würde natürlich dennoch zum korrekten Ergebnis führen, wenn man ihn mit Gl. 23.15 sowie einer der Gln. 23.16 und 23.17 kombinieren würde.)
+
+![](images/page_568_image_20.jpg)
+
+<details>
+<summary>text_image</summary>
+
+a
+E₁
++
+-
+b
+E₂
++
+-
+c
+i₁
+R₁
+R₃
+i₃
+R₂
+i₂
+d
+</details>
+
+Abb. 23.6
+
+Ein verzweigter Stromkreis, bestehend aus drei Zweigen: dem linken (bad) dem rechten (bcd) und dem mittleren (bd). Man kann sich den Stromkreis auch aus drei Schleifen zusammengesetzt denken – der linken Schleife badb, der rechten Schleife bcdb sowie der großen Schleife badcb.
+
+![](images/page_569_image_1.jpg)
+
+<details>
+<summary>text_image</summary>
+
+i
+a
+i2 + i3
+R1
+i1 R2
+i2 R3
+i3
+E
++
+-
+b
+i
+i2 + i3
+</details>
+
+(a)
+
+![](images/page_569_image_3.jpg)
+
+<details>
+<summary>text_image</summary>
+
+i
+a
+R_Ers
+i
+b
+</details>
+
+(b)
+
+## Abb. 23.7
+
+(a) Drei Widerstände sind zwischen den Punkten a und b parallel geschaltet. (b) Ein äquivalenter Stromkreis, bei dem die drei Widerstände aus
+(a) durch einen einzigen, äquivalenten Ersatzwiderstand $R _ { \mathrm { E r s } }$ ersetzt sind.
+
+## Parallelschaltung von Widerständen
+
+Abbildung 23.7a zeigt drei Widerstände, die in Parallelschaltung mit einer idealen Batterie der Spannung  verbunden sind. Parallelschaltung von Widerständen bedeutet, dass die Anschlüsse auf der einen Seite aller Widerstände leitend miteinander verbunden sind und die Anschlüsse auf der anderen Seite der Widerstände ebenfalls leitend verbunden sind. Die Potenzialdifferenz V liegt zwischen diesen beiden Gruppen zusammengeschalteter Anschlüsse an. An allen Widerständen einer Parallelschaltung liegt somit dieselbe Potenzialdifferenz an. In unserem Beispiel (Abb. 23.7) besteht über allen drei Widerständen die gleiche Potenzialdifferenz und verursacht jeweils einen Strom durch den Widerstand. Im Allgemeinen gilt:
+
+![](images/page_569_image_11.jpg)
+
+Legt man eine Potenzialdifferenz V an eine Parallelschaltung von mehreren Widerständen an, so liegt an jedem der Widerstände dieselbe Potenzialdifferenz an.
+
+In dem Stromkreis aus Abb. 23.7a wird diese äußere Potenzialdifferenz V von der Batterie aufrechterhalten. In Abb. 23.7b sind die drei parallel geschalteten Widerstände durch ihren äquivalenten Ersatzwiderstand $R _ { \mathrm { E r s } }$ ersetzt.
+
+![](images/page_569_image_14.jpg)
+
+Eine Parallelschaltung von Widerständen kann man durch einen äquivalenten Ersatzwiderstand $R _ { \mathrm { E r s } }$ ersetzen, an dem die gleiche Potenzialdifferenz V anliegt und durch den ein Strom fließt, der gleich dem Gesamtstrom durch alle parallel geschalteten Widerstände ist.
+
+Zur Herleitung eines Ausdrucks für $R _ { \mathrm { E r s } }$ für den Stromkreis in Abb. 23.7b schreiben wir zunächst für die Ströme durch jeden der drei Widerstände
+
+$$
+i _ {1} = \frac {V}{R _ {1}}, \quad i _ {2} = \frac {V}{R _ {2}} \quad \text {und} \quad i _ {3} = \frac {V}{R _ {3}}.
+$$
+
+Dabei bezeichnet V die Potenzialdifferenz zwischen a und b. Wenden wir die Ver zweigungsregel im Punkt a des Stromkreises aus Abb. 23.7a an und setzen dann die Ausdrücke für die drei Ströme ein, so erhalten wir:
+
+$$
+i = i _ {1} + i _ {2} + i _ {3} = V \left(\frac {1}{R _ {1}} + \frac {1}{R _ {2}} + \frac {1}{R _ {3}}\right). \tag {23.18}
+$$
+
+Nun ersetzen wir die Parallelschaltung durch ihren äquivalenten Ersatzwiderstand $R _ { \mathrm { E r s } }$ (Abb. 23.7b) und erhalten
+
+$$
+i = \frac {V}{R _ {\mathrm{Ers}}} . \tag {23.19}
+$$
+
+Ein Vergleich der beiden letzten Gleichungen ergibt schließlich
+
+$$
+\frac {1}{R _ {\mathrm{Ers}}} = \frac {1}{R _ {1}} + \frac {1}{R _ {2}} + \frac {1}{R _ {3}}. \tag {23.20}
+$$
+
+Die Verallgemeinerung auf n parallel geschaltete Widerstände lautet
+
+$$
+\frac {1}{R _ {\mathrm{Ers}}} = \sum_ {j = 1} ^ {n} \frac {1}{R _ {j}} \quad (n \text {parallelle Widerstände}). \tag {23.21}
+$$
+
+Insbesondere ist der äquivalente Ersatzwiderstand zweier parallel geschalteter Widerstände gleich dem Quotienten aus dem Produkt der beiden Widerstandswerte und ihrer Summe:
+
+$$
+R _ {\mathrm{Ers}} = \frac {R _ {1} R _ {2}}{R _ {1} + R _ {2}}. \tag {23.22}
+$$
+
+TABELLE 23.1:
+
+Reihen- und Parallelschaltung von Widerständen und Kondensatoren.
+
+| Reihenschaltung | Parallelschaltung |
+| --- | --- |
+| Widerstände$R_{\text{Ers}} = \sum_{j=1}^{n} R_j$ (Gl. 23.7) | $\frac{1}{R_{\text{Ers}}} = \sum_{j=1}^{n} \frac{1}{R_j}$ (Gl. 23.21) |
+| gleicher Strom durch alle Widerstände | gleiche Potenzialdifferenz an allen Widerständen |
+| Kondensatoren$\frac{1}{C_{\text{Ers}}} = \sum_{j=1}^{n} \frac{1}{C_j}$ (Gl. 21.20) | $C_{\text{Ers}} = \sum_{j=1}^{n} C_j$ (Gl. 21.19) |
+| gleiche Ladung auf allen Kondensatoren | gleiche Potenzialdifferenz an allen Kondensatoren |
+
+Wenn man bei der Berechnung des äquivalenten Ersatzwiderstands versehentlich die Summe der Widerstandswerte durch ihre Produkte dividiert, kann man den Fehler sofort daran erkennen, dass das Ergebnis die falsche Dimension besitzt.
+
+Beachten Sie, dass der Ersatzwiderstand einer Parallelschaltung von Widerständen stets kleiner ist als jeder einzelne Widerstandswert. Tabelle 23.1 fasst die Be ziehungen zur Berechnung der äquivalenten Größen bei der Parallel- und Reihenschaltung von Widerständen und Kondensatoren zusammen.
+
+## KONTROLLFRAGE 4
+
+Eine Batterie, die eine Potenzialdifferenz V zwischen ihren Anschlüssen erzeugt, wird mit einer Kombination zweier identischer Widerstände verbunden. Durch die Kombination fließt ein Strom i. Wie groß sind die Potenzialdifferenzen über die Widerstände sowie die durch sie fließenden Ströme, wenn die Widerstände (a) in Reihe und (b) parallel geschaltet sind?
+
+## LÖSUNGSSTRATEGIEN
+
+**Strategie 2: Systematische Analyse von Stromkreisen mit Batterien und Widerständen** Wir geben hier zwei Techniken an, um Ströme oder Potenzialdifferenzen in verzweigten Stromkreisen zu ermitteln.
+
+1. Sind Gruppen von Widerständen in Reihe oder parallel geschaltet, so vereinfachen Sie den Stromkreis, indem Sie die Gruppen durch ihre äquivalenten Ersatzwiderstände ersetzen. Gelingt es dadurch, den Stromkreis auf einen äquivalenten unverzweigten Kreis zu reduzieren, so kann man wie in Beispielaufgabe 23.2a im Übungsbuch den Strom durch die Batterie bestimmen. Nun kann man sich gegebenenfalls „zurückarbeiten“, indem man wie in Beispielaufgabe 23.2b im Übungsbuch die Ersetzungen der Widerstandskombinationen sukzessive rückgängig macht und jeweils die Ströme durch jeden einzelnen Widerstand sowie die jeweils an den Widerständen anliegenden Potenzialdifferenzen bestimmt.
+2. Gelingt es nicht, den verzweigten Stromkreis auf einen unverzweigten zu reduzieren, so stellen Sie durch Anwendung der Verzweigungsregel und der Maschenregel ein System von gekoppelten Gleichungen auf, wie wir es in Beispielaufgabe 23.4 im Übungsbuch gezeigt haben. Sie benötigen nicht mehr voneinander unabhängige Gleichungen, als unbekannte Größen in den Gleichungen vorkommen. Sind Sie an Strom und Potenzialdifferenz für einen ganz bestimmten Widerstand interessiert, so stellen Sie sicher, dass diese beiden Größen in Ihren Gleichungen vorkommen, indem Sie mindestens eine Schleife so wählen, dass sie diesen Widerstand enthält.
+
+## Strategie 3: Willkürliche Festlegungen bei der Analyse komplexer Stromkreise
+
+In Beispielaufgabe 23.4 im Übungsbuch haben wir einige Parameter zu Beginn der Analyse willkürlich festgelegt: (1) Wir haben willkürliche Richtungen der im Kreis von Abb. Ü23.3 im Übungsbuch fließenden Ströme angenommen. (2) Wir haben willkürlich festgelegt, anhand welcher der drei möglichen Zweige des Stromkreises wir das Gleichungssystem aufstellen. (3) Wir haben die Durchlaufrichtung jedes dieser Zweige willkürlich gewählt. (4) Wir haben die Anfangs- und Endpunkte der Durchläufe willkürlich gewählt.
+
+Solche Beliebigkeiten pflegen den Anfänger zu verwirren; wenn man jedoch Übung in der Analyse komplexer Stromkreise gewinnt, so gewöhnt man sich daran, willkürliche Festlegungen zu Beginn der Analyse, die ohne Bedeutung für das Ergebnis sind, als natürlich und notwendig zu akzeptieren. Befolgen Sie dabei nur stets die folgenden beiden Regeln: (1) Stellen Sie sicher, dass jeder gewählte Zweig vollständig durchlaufen wird. (2) Haben Sie sich einmal für die Richtung eines bestimmten Stroms entschieden, so halten sie so lange an dieser Festlegung fest, bis die numerischen Werte aller Ströme vorliegen. War ihre anfängliche Festlegung falsch, so erkennen Sie dies am Minuszeichen des Ergebnisses. Lassen Sie in diesem Fall einfach das Minuszeichen weg und korrigieren Sie die Richtung des Strompfeils im Schaltbild des Stromkreises. Führen Sie diese Korrektur aber niemals durch, bevor die Berechnungen sämtlicher gesuchter Größen des Stromkreises abgeschlossen sind! (Beispielaufgabe 23.4 im Übungsbuch)
+
+## 23.3 Amperemeter und Voltmeter
+
+![](images/page_571_image_4.jpg)
+
+## Lernziele
+
+Nach dem Durcharbeiten dieses Abschnitts sollten Sie in der Lage sein, . . .
+
+• die Funktionsweise und Verwendung von Amperemetern und Voltmetern zu erklären, einschließlich ihrer Innenwiderstände, die verhindern, dass die gemessenen Größen von der Messung beeinflusst werden.
+
+![](images/page_571_image_8.jpg)
+
+## Schlüsselideen
+
+• Es gibt drei Messinstrumente, die im Zusammenhang mit Stromkreisen Ver wendung finden. Ein Amperemeter misst die elektrische Stromstärke. Ein Voltmeter misst Spannungen (Potenzialdifferenzen). Ein Multimeter kann sowohl Stromstärken und Spannungen als auch Widerstände (und oft noch weitere Größen) messen.
+
+## 23.3.1 Amperemeter und Voltmeter
+
+![](images/page_571_image_12.jpg)
+
+<details>
+<summary>text_image</summary>
+
+i
+R2
+c
+R1
+V
+a
+A
+b
+d
+i
+</details>
+
+Abb. 23.8
+
+Anschlussarten eines Amperemeters (A) und eines Voltmeters (V) in einem einfachen Stromkreis.
+
+Ein Instrument zur Messung von Strömen bezeichnet man als Amperemeter. Um den in einer Leitung fließenden Strom zu messen, ist es normalerweise erforder lich, die Leitung zu unterbrechen und das Amperemeter in die Leitung einzuschleifen, sodass der zu messende Strom durch das Messgerät fließt. (Im Stromkreis von Abb. 23.8 ist das Amperemeter A zur Messung des Stroms i in den Stromkreis geschaltet.)
+
+Dabei ist es entscheidend, dass der Innenwiderstand $R _ { \mathrm { A } }$ des Amperemeters im Vergleich zu den anderen Widerständen im Stromkreis sehr klein ist. Ist dies nicht der Fall, so wird der zu messende Strom durch das Vorhandensein des Instruments in nicht vernachlässigbarer Weise beeinflusst – der gemessene Strom entspricht also nicht mehr dem Strom, der in dem Stromkreis fließt, wenn das Amperemeter nicht vorhanden ist.
+
+Ein Messgerät zur Bestimmung von Potenzialdifferenzen heißt Voltmeter. Um die Potenzialdifferenz zwischen zwei beliebigen Punkten eines Stromkreises zu messen, schaltet man das Instrument zwischen diese beiden Punkte, ohne dazu den Stromkreis unterbrechen zu müssen. (Im Stromkreis von Abb. 23.8 misst das Voltmeter V die über den Widerstand $R _ { 1 }$ abfallende Potenzialdifferenz.)
+
+Dabei ist es entscheidend, dass der Innenwiderstand $R _ { \mathrm { V } }$ des Voltmeters viel grö ßer ist als der Widerstand des Teils des Stromkreises, zwischen dessen Anschlüssen die Potenzialdifferenz gemessen werden soll. Ist diese Bedingung nicht erfüllt, so wirkt das Messgerät selbst als nicht vernachlässigbares Element des Stromkreises und verändert die zu messende Potenzialdifferenz.
+
+Oft verwendet man Messgeräte, die sogenannten Multimeter, die intern so verschaltet sind, dass man sie durch einfaches Umschalten sowohl als Amperemeter wie auch als Voltmeter – und meist sogar als Ohmmeter – verwenden kann. Ein Ohmmeter misst den Widerstand eines mit seinen beiden Anschlüssen verbundenen leitenden Bauteils.
+
+## 23.4 RC-Kreise
+
+## Lernziele
+
+Nach dem Durcharbeiten dieses Abschnitts sollten Sie in der Lage sein, . . .
+
+• schematische Diagramme von Lade- und Entladevorgängen in RC-Kreisen zu zeichnen,
+• die Differenzialgleichung für einen sich aufladenden RC-Kreis aufzustellen,
+• die Differenzialgleichung für einen sich entladenden RC-Kreis aufzustellen,
+• die Ladung eines Kondensators in einem sich auf- oder entladenden RC-Kreis als Funktion der Zeit anzugeben,
+• aus der Funktion q(t) für den zeitlichen Verlauf der Ladung eines Kondensators in einem sich auf- oder entladenden RC-Kreis dessen Potenzialdifferenz als Funktion der Zeit zu ermitteln,
+• Strom und Potenzialdifferenz in einem sich auf- oder entladenden RC-Kreis als Funktionen der Zeit anzugeben,
+• die kapazitive Zeitkonstante τ zu bestimmen,
+• die Ladung auf und die Potenzialdifferenz an einem Kondensator in einem sich auf- oder entladenden RC-Kreis zu Beginn des Prozesses sowie nach einer langen Zeit zu bestimmen.
+
+![](images/page_572_image_16.jpg)
+
+## Schlüsselideen
+
+• Wenn eine Spannung  an einen Widerstand R und eine mit diesem in Reihe geschaltete Kapazität C angelegt wird, nimmt die Ladung am Kondensator gemäß
+
+$$
+q = C \mathcal {E} (1 - \mathrm{e} ^ {- t / (R C)}) \quad \text {(Aufladen des Kondensators)}
+$$
+
+![](images/page_572_image_20.jpg)
+
+zu, wobei $C \mathcal { E } = q _ { 0 }$ der Gleichgewichtswert (Langzeitlimes) der Ladung ist und $R C = \tau$ die kapazitive Zeitkonstante des Stromkreises.
+
+• Während des Aufladens gilt für die Stromstärke
+
+$$
+i = \frac {\mathrm{d} q}{\mathrm{d} t} = \left(\frac {\mathcal {E}}{R}\right) \mathrm{e} ^ {- t / (R C)} \quad \text {(Aufladen des Kondensators)}.
+$$
+
+• Wenn sich ein Kondensator über einen Widerstand R entlädt, gilt für die Ladung auf dem Kondensator
+
+$$
+q = q _ {0} \mathrm{e} ^ {- t / (R C)} \quad \text {(Entladen des Kondensators)}.
+$$
+
+• Während des Entladens gilt für die Stromstärke
+
+$$
+i = \frac {\mathrm{d} q}{\mathrm{d} t} = - \left(\frac {q _ {0}}{R C}\right) \mathrm{e} ^ {- t / (R C)} \quad \text {(Entladen des Kondensators)}.
+$$
+
+## 23.4.1 RC-Kreise
+
+In den vorangegangenen Abschnitten haben wir uns ausschließlich mit Stromkreisen befasst, in denen zeitlich konstante Ströme flossen. Wir beginnen nun mit der Betrachtung zeitabhängiger Ströme in Stromkreisen.
+
+## Aufladen eines Kondensators
+
+![](images/page_573_image_4.jpg)
+
+<details>
+<summary>text_image</summary>
+
+a
+S
+b
+R
+C
+</details>
+
+Abb. 23.9
+
+Wird der Schalter S in Stellung a geschlossen, so lädt die Batterie den Kondensator über den Widerstand R. Legt man den Schalter anschließend in Stellung b um, so entlädt sich der Kondensator C über den Widerstand.
+
+Der Kondensator mit der Kapazität C in dem Stromkreis in Abb. 23.9 sei anfänglich ungeladen. Um ihn zu laden, legt man den Schalter S auf Stellung a. Dadurch schließt man einen sogenannten RC-Reihenkreis, der aus dem Kondensator, der als ideal angenommenen Batterie mit der Spannung $\varepsilon$ sowie dem Widerstand R besteht.
+
+Aus Abschn. 21.1 wissen wir, dass Ladung als elektrischer Strom zwischen den Batteriepolen und den beiden Kondensatorplatten zu fließen beginnt, sobald der Kreis geschlossen ist. Dieser Strom erhöht die Ladung auf den Kondensatorplatten und damit die über den Kondensator bestehende Potenzialdifferenz $V _ { C } = q / C .$ Sobald diese Potenzialdifferenz sich der Potenzialdifferenz zwischen den Polen der Batterie (die im Fall einer idealen Batterie gleich der Batteriespannung  ist) angeglichen hat, wird der Strom null. Nach Gl. 21.1 $( q = C V )$ ist die Ladung auf dem vollständig geladenen, mit der Batterie im Gleichgewicht befindlichen Kondensator gleich C.
+
+Wir wollen nun den Ladevorgang näher betrachten. Genauer gesagt wollen wir untersuchen, wie die Ladung $q ( t )$ auf den Kondensatorplatten, die Potenzialdifferenz $V _ { C } ( t )$ über den Kondensator sowie der Strom $i ( t )$ im Ladestromkreis während des Ladevorgangs von der Zeit anhängen. Dazu wenden wir zunächst die Maschenregel auf unseren Stromkreis an, indem wir ihn, beginnend am negativen Pol der Batterie, im Uhrzeigersinn durchlaufen. Wir erhalten damit
+
+$$
+\mathcal {E} - i R - \frac {q}{C} = 0. \tag {23.23}
+$$
+
+Der letzte Term auf der rechten Seite dieser Gleichung beschreibt die Potenzialdifferenz über den Kondensator. Dieser Term hat ein negatives Vorzeichen, da die mit dem positiven Batteriepol verbundene obere Kondensatorplatte auf einem höheren elektrischen Potenzial liegt als die untere Platte. Dies bedeutet, dass man einen Abfall des elektrischen Potenzials wahrnimmt, wenn man den Kondensator von oben nach unten durchläuft.
+
+Gleichung 23.23 ist nicht direkt lösbar, da sie noch zwei Unbekannte enthält: i und $q .$ Diese beiden Größen sind jedoch nicht unabhängig voneinander, sondern gekoppelt über die Beziehung
+
+$$
+i = \frac {\mathrm{d} q}{\mathrm{d} t}. \tag {23.24}
+$$
+
+Setzt man diesen Ausdruck für i in Gl. 23.23 ein, so erhält man nach Umstellen
+
+$$
+R \frac {\mathrm{d} q}{\mathrm{d} t} + \frac {q}{C} = \mathcal {E} \quad \text {(Ladungsgleichung)}. \tag {23.25}
+$$
+
+Diese Differenzialgleichung beschreibt die Zeitabhängigkeit der Ladung q des Kondensators im Stromkreis von Abb. 23.9. Um diese Gleichung zu lösen, müssen wir eine Funktion $q ( t )$ suchen, welche die Differenzialgleichung und gleichzeitig die Bedingung erfüllt, dass der Kondensator zu Beginn ungeladen ist: Zum Zeitpunkt $t = 0$ muss $q ( t ) = 0$ gelten, also $q ( 0 ) = 0$
+
+Wir werden weiter unten zeigen, dass die Funktion
+
+$$
+q = C \mathcal {E} (1 - \mathrm{e} ^ {- t / (R C)}) \quad \text {(Laden eines Kondensators)} \tag {23.26}
+$$
+
+die Differenzialgleichung Gl. 23.25 löst. (e bezeichnet hier die Basis der Exponentialfunktion, die Eulersche Konstante $\mathsf { e }   =   2 { , } 7 1 8 \ldots ,$ nicht die Elementarladung.)
+
+Beachten Sie, dass Gl. 23.26 auch die oben formulierte Anfangsbedingung erfüllt, da der Term $\mathrm { e } ^ { - t / ( R C ) }$ für $t = 0$ gleich eins wird, sodass die Funktion den Wert $q = 0$ hat. Beachten Sie weiterhin, dass der Term $\mathrm { e } ^ { - t / ( R C ) }$ für große Werte von $t \left( t \to \infty \right)$ gegen null geht, sodass die Funktion den richtigen Wert für die Ladung des vollständig geladenen Kondensators (im Gleichgewicht) liefert: $q = C \mathcal { E }$ . Abbildung 23.10a zeigt eine Darstellung der Funktion $q ( t )$ für den Ladevorgang.
+
+Der Ladestrom $i ( t )$ (t) des Kondensators ergibt sich als Ableitung der Funktion $q ( t )$ nach der Zeit t:
+
+$$
+i = \frac {\mathrm{d} q}{\mathrm{d} t} = \left(\frac {\mathcal {E}}{R}\right) \mathrm{e} ^ {- t / (R C)} \quad \text {(Laden eines Kondensators)}. \tag {23.27}
+$$
+
+Abbildung 23.10b zeigt eine Darstellung des Ladestroms $i ( t )$ als Funktion der Zeit während des Ladevorgangs. Beachten Sie, dass der Ladestrom vom Anfangswert $\mathcal { E } / R$ auf null gesunken ist, sobald der Kondensator vollständig geladen ist.
+
+![](images/page_574_image_6.jpg)
+
+Ein ungeladener Kondensator verhält sich für den ladenden Stromkreis zu Beginn des Ladevorgangs wie eine leitende Verbindung (wie ein Kurzschluss). Längere Zeit später, nachdem er vollständig geladen ist, wirkt er als Unterbrechung des Kreises.
+
+Kombiniert man Gl. 21.1 $( q = C V )$ und Gl. 23.26, so erhält man für die Potenzialdifferenz $V _ { C } ( t )$ am Kondensator während des Ladevorgangs
+
+$$
+V _ {C} = \frac {q}{C} = \mathcal {E} (1 - \mathrm{e} ^ {- t / (R C)}) \quad \text {(Laden eines Kondensators)}. \tag {23.28}
+$$
+
+Man schließt daraus: Es gilt $V _ { C } = 0$ für den vollständig entladenen Kondensator bei $t = 0$ und $V _ { C } = \mathcal { E }$ für den vollständig geladenen Kondensator bei $t \to \infty$
+
+## Die Zeitkonstante
+
+Das Produkt $R C$ in den Gln. 23.26–23.28 hat die Dimension einer Zeit – sowohl deshalb, weil das Argument einer Exponentialfunktion dimensionslos sein muss, als auch deshalb, weil $( 1 { , } 0   \Omega ) \cdot ( 1 { , } 0   \mathtt { F } ) = 1 { , } 0   \colon$ s ist. Man nennt diese Größe die ka**pazitive Zeitkonstante** des Stromkreises und bezeichnet sie mit τ:
+
+$$
+\tau = R C \quad (\text {Zeitkonstante}). \tag {23.29}
+$$
+
+Aus Gl. 23.26 ersehen wir, dass die Ladung des anfänglich ungeladenen Kondensators im Stromkreis von Abb. 23.9 zur Zeit $t = \tau = R C$ von null auf den Wert
+
+$$
+q = C \mathcal {E} (1 - \mathrm{e} ^ {- 1}) = 0, 6 3 C \mathcal {E} \tag {23.30}
+$$
+
+zugenommen hat: Während der ersten Zeitkonstante τ nimmt die Ladung des Kondensators von null auf 63 % ihres Endwerts $C \mathcal { E } \mathrm {  ~ z u . ~ }$ In Abb. 23.10 markieren die kleinen Dreiecke an der Zeitachse jeweils den Ablauf einer Zeitkonstante während des Ladevorgangs. Man gibt die Ladedauern von RC-Kreisen oft in Vielfachen der Zeitkonstante τ an: je größer τ ist, desto größer wird auch die Ladedauer.
+
+## Entladen eines Kondensators
+
+Nehmen wir nun an, der Kondensator in dem Stromkreis aus Abb. 23.9 sei vollständig auf ein Potenzial $V _ { 0 }$ geladen, das gleich der Batteriespannung  ist. Zu einem neuen Zeitpunkt $t = 0$ wird nun der Schalter S aus der Stellung a in die Stellung b umgelegt, sodass sich der Kondensator über den Widerstand R entladen kann. Wie ändern sich nun die Ladung $q ( t )$ des Kondensators sowie der Entladestrom $i ( t )$ durch den Widerstand R als Funktion der Zeit?
+
+![](images/page_574_chart_19.jpg)
+
+<details>
+<summary>line</summary>
+
+| Zeit (ms) | \(q (\mu C)\) |
+| --- | --- |
+| 0 | 0 |
+| ~2 | ~6.5 |
+| ~4 | ~8.5 |
+| ~6 | ~9.2 |
+| ~8 | ~9.5 |
+| 10 | ~9.7 |
+</details>
+
+(a)
+
+![](images/page_574_chart_21.jpg)
+
+<details>
+<summary>line</summary>
+
+| Zeit (ms) | i (mA) |
+| --- | --- |
+| 0 | 5 |
+| 2 | ~2.1 |
+| 4 | ~0.8 |
+| 6 | ~0.3 |
+| 8 | ~0.1 |
+| 10 | ~0.1 |
+</details>
+
+(b)
+
+## Abb. 23.10
+
+(a) Grafische Darstellung der Funktion aus Gl. 23.26. Der Kurvenverlauf zeigt den Aufbau von Ladung auf dem Kondensator aus Abb. 23.9 beim Laden.
+(b) Grafische Darstellung der Funktion aus Gl. 23.27. Man erkennt die zeitliche Abnahme des Ladestroms beim Laden des Kondensators im Stromkreis aus Abb. 23.9. Zugrunde liegen Werte von $R = 2 0 0 0   \Omega ,   C = 1$ μF und $\mathcal { E } = 1 0   \mathrm { V }$ für Widerstand, Kapazität und Spannung. Die kleinen Dreiecke kennzeichnen aufeinanderfolgende Zeitintervalle von der Länge der Zeitkonstante τ.
+
+Die Differenzialgleichung, deren Lösung die gesuchte Funktion $q ( t )$ ist, ähnelt formal Gl. 23.25, nur dass sich im Entladekreis keine Batterie befindet, sodass $\mathcal { E } = 0$ ist. Somit gilt
+
+$$
+R \frac {\mathrm{d} q}{\mathrm{d} t} + \frac {q}{C} = 0 \quad (\text {Entladungsgleichung}). \tag {23.31}
+$$
+
+Die Lösung dieser Differenzialgleichung ist
+
+$$
+q = q _ {0} \mathrm{e} ^ {- t / (R C)} \quad \text {(Entladen eines Kondensators)}, \tag {23.32}
+$$
+
+wobei $q _ { 0 } = C V _ { 0 }$ die anfängliche Ladung des Kondensators bezeichnet. Durch Einsetzen lässt sich einfach verifizieren, dass Gl. 23.32 tatsächlich Gl. 23.31 löst.
+
+Gleichung 23.32 besagt, dass die Ladung q des Kondensators exponentiell mit der Zeit abnimmt, und dies mit einer zeitlichen Rate, die durch die kapazitive Zeitkonstante $\tau = R C$ charakterisiert wird. Nach Ablauf der Zeit $t = \tau$ (also nach Ablauf der ersten Zeitkonstante) hat die Ladung des Kondensators auf einen Bruchteil $q _ { 0 } \mathrm { e } ^ { - 1 }$ oder ungefähr 37 % ihres anfänglichen Werts abgenommen. Beachten Sie, dass ein größerer Wert der Zeitkonstante τ eine längere Entladezeit bedeutet.
+
+Leitet man Gl. 23.32 nach der Zeit t ab, so erhält man für den Entladestrom i(t)
+
+$$
+i = \frac {\mathrm{d} q}{\mathrm{d} t} = - \left(\frac {q _ {0}}{R C}\right) \mathrm{e} ^ {- t / (R C)} \quad \text {(Entladen eines Kondensators)}. \tag {23.33}
+$$
+
+Der Entladestrom eines Kondensators nimmt demzufolge ebenfalls exponentiell mit der Zeit ab, wobei die Rate wiederum durch die kapazitive Zeitkonstante τ bestimmt wird. Der anfängliche Entladestrom $i _ { 0 }$ ist durch $q _ { 0 } / ( R C )$ gegeben. Beachten Sie, dass man den Strom $i _ { 0 }$ einfach durch Anwendung der Maschenregel auf den Entladestromkreis zur $\mathrm { Z e i t } \; t = 0$ ermitteln kann. In diesem Moment liegt die anfängliche Potenzialdifferenz $V _ { 0 }$ über dem Widerstand $R$ an, sodass ein Strom der Stärke $i _ { 0 } = V _ { 0 } / R = ( q _ { 0 } / C ) / R = q _ { 0 } / ( R C )$ fließt. Das Minuszeichen in Gl. 23.33 kann vernachlässigt werden; es zeigt lediglich an, dass die Ladung $q$ des Kondensators abnimmt.
+
+## Herleitung von Gleichung 23.26
+
+Um Gl. 23.25 zu lösen, schreiben wir sie zunächst in der Form
+
+$$
+\frac {\mathrm{d} q}{\mathrm{d} t} + \frac {q}{R C} = \frac {\mathcal {E}}{R}. \tag {23.34}
+$$
+
+Die allgemeine Lösung dieser Differenzialgleichung hat die Gestalt
+
+$$
+q = q _ {\mathrm{p}} + K \mathrm{e} ^ {- a t}, \tag {23.35}
+$$
+
+wobei $q _ { \mathrm { p } }$ eine spezielle Lösung der Differenzialgleichung und K eine durch Anwendung der Anfangsbedingungen zu bestimmende Konstante bezeichnet. $a =$ $1 / ( R C )$ ist der Koeffizient von $q$ in Gl. 23.34. Zur Bestimmung von $q _ { \mathrm { p } }$ setzen wir in Gl. 23.34 d $\mathsf { l } q / \mathsf { d } t = 0$ (entsprechend der Endbedingung, dass der Ladestrom null ist) und $q = q _ { \mathrm { p } } ,$ lösen nach $q _ { \mathrm { p } }$ auf und erhalten
+
+$$
+q _ {\mathrm{p}} = C \mathcal {E}. \tag {23.36}
+$$
+
+Um $K$ zu berechnen, setzen wir zunächst Gl. 23.36 in Gl. 23.35 ein:
+
+$$
+q = C \mathcal {E} + K \mathrm{e} ^ {- a t}.
+$$
+
+Mit den Anfangsbedingungen $q = 0$ und $t = 0$ erhält man
+
+$$
+0 = C \mathcal {E} + K
+$$
