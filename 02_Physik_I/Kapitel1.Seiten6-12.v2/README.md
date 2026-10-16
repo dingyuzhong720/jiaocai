@@ -12,4 +12,4 @@ FULL 内容视图保留模型识别出的页眉、页脚、页码、边栏、脚
 
 | 章节 | 原始 PDF 页码 |
 | --- | --- |
-| [Kapitel 1 – Einführung（原讲义摘页 6–12）](chapters/000_Kapitel 1 – Einführung（原讲义摘页 6–12）/content.md) | 1–7 |
+| [Kapitel 1 – Einführung（原讲义摘页 6–12）](chapters/000_Kapitel%201%20%E2%80%93%20Einf%C3%BChrung%EF%BC%88%E5%8E%9F%E8%AE%B2%E4%B9%89%E6%91%98%E9%A1%B5%206%E2%80%9312%EF%BC%89/content.md) | 1–7 |
