@@ -4,11 +4,11 @@
 
 [本学期课程页面](https://moodle.rwth-aachen.de/course/info.php?id=61294&lang=de)
 
-本目录收录该课程的原讲义及相关参考教材；参考书超出本学期的章节也完整保留。
+该课程原讲义与相关参考教材按原书完整保留；参考书超出本学期的章节也保留。
 
-| 教材／讲义 | 状态 |
-| --- | --- |
-| Experimentalphysik Band 1 | 待解析 |
-| Physik – Kapitel 1, Seiten 6–12 | 待解析 |
-| Kurzlehrbuch Physik für Ingenieure | 待解析 |
-| Physik für Studierende | 待解析 |
+| 教材／讲义 | 页数 | 状态／下载 |
+| --- | ---: | --- |
+| Experimentalphysik Band 1 | — | 待解析／整理 |
+| Physik – Kapitel 1, Seiten 6–12 | — | 待解析／整理 |
+| Kurzlehrbuch Physik für Ingenieure | — | 待解析／整理 |
+| Physik für Studierende | — | 待解析／整理 |
