@@ -10,5 +10,5 @@
 | 电路 第6版（邱关源） | — | 待解析／整理 |
 | Grundgebiete der Elektrotechnik | — | 待解析／整理 |
 | G1 Kapitel 0A – Motivation Elektrotechnik | — | 待解析／整理 |
-| G1 Kapitel 1 – Lehrstuhl Sauer | — | 待解析／整理 |
+| [G1 Kapitel 1 – Lehrstuhl Sauer](Kapitel_01_Lehrstuhl_Sauer/) | 45 | [ZIP](https://github.com/dingyuzhong720/jiaocai/releases/download/mineru-advanced-2026-10-16/Kapitel_01_Lehrstuhl_Sauer.mineru-advanced.zip) |
 | [G1 Kapitel 2 – Beschreibung Physikalischer Grundprinzipien](Kapitel_02_Beschreibung_Physikalischer_Grundprinzipien/) | 36 | [ZIP](https://github.com/dingyuzhong720/jiaocai/releases/download/mineru-advanced-2026-10-16/Kapitel_02_Beschreibung_Physikalischer_Grundprinzipien.mineru-advanced.zip) |
