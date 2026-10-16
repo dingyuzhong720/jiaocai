@@ -1,0 +1,3376 @@
+{
+  "pages": [
+    {
+      "page_idx": 128,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.173,
+            0.086,
+            0.486,
+            0.103
+          ],
+          "level": 2,
+          "content": "Schleifen in C++ mit Iteratoren"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.827,
+            0.087,
+            0.862,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.197,
+            0.128,
+            0.884,
+            0.445
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <iostream>\n#include <algorithm>\n#include <vector>\n#include <string>\nusing namespace std;\n\nvoid show(vector<int> c, string str) {cout<<str<<\": \"; for(auto e: c) cout<<e<<' ';cout<<endl<<endl;}\n\nint main( void )\n{\n    vector<int> v = {1, 2, 2, 5, 6, 7};\n    show(v,\"Ausgangslage\");\n\n    // 1. Loop: using a copy of the value\n    for(auto elm : v) { elm++; }\n    show(v,\"1. Loop\");\n    // 2. Loop: using the reference\n    for(auto& elm : v) { elm++; }\n    show(v,\"2. Loop\");\n    // 3. Loop: using the reference and const\n    // for(const auto& elm : v) { elm++; }\n    // -> error: increment of read-only reference 'elm'\n    // 4. Loop: using for_each\n    for_each(v.begin(), v.end(), [](int elm) { elm++; });\n    show(v,\"4. Loop\");\n    // 5. Loop: using classic for-loop and an iterator of a container\n    for(auto it = v.begin(); it != v.end(); ++it) { (*it)++; };\n    show(v,\"5. Loop\");\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.45,
+            0.184,
+            0.46
+          ],
+          "content": "**129**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.756,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.48,
+            0.85,
+            0.553
+          ],
+          "content": "A variable can also hold a set (i.e., a collection of objects) - we call such variable a container. In the simplest form this can be a vector or an array, that is a linear arrangement of the objects in memory. We will learn more about other data structures in the later chapters."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.557,
+            0.85,
+            0.593
+          ],
+          "content": "The $\\mathbf { 1 ^ { s t } }$ for-loop iterates through all elements of the container. The current element is copied into elm. This is basically a for-each operation."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.598,
+            0.85,
+            0.687
+          ],
+          "content": "In the $2 ^ { \\mathbf { n d } }$ example, elm contains a copy-by-reference of the element in the container, i.e., the int values in the vector cannot be modified. It uses a copy by reference, which is good practice especially for large objects such that no temporary copy has to be created. In principle, elements of a vector could now be modified."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.693,
+            0.75,
+            0.712
+          ],
+          "content": "The additional type specifier const prevents this again in the $\\mathbf { 3 ^ { r d } }$ loop."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.716,
+            0.59,
+            0.735
+          ],
+          "content": "The $4 ^ { \\mathbf { f h } }$ loop uses an explicit for\\_each expression."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.739,
+            0.845,
+            0.775
+          ],
+          "content": "Finally, the $\\mathbf { 5 ^ { t h } }$ loop uses a classic for construct, but with an iterator variable. An alternative would be using the index:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "129"
+        }
+      ]
+    },
+    {
+      "page_idx": 129,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.421,
+            0.102
+          ],
+          "level": 2,
+          "content": "Mehrdimensionale Arrays"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.234,
+            0.11,
+            0.766,
+            0.209
+          ],
+          "content": "| Stunde | Mo | Di | Mi | Do | Fr |\n| --- | --- | --- | --- | --- | --- |\n| 1 | Mathe | Politik | Bio | Mathe | Politik |\n| 2 | Mathe | Kunst | Deutsch | Mathe | Kunst |\n| 3 | Deutsch | Informatik | Sport | Deutsch | Informatik |\n| 4 | Englisch | Informatik | Sport | Englisch | Informatik |\n| 5 | Sport | Mathe | Physik | Sport | Mathe |\n| 6 | Sport | Mathe | Physik | Sport | Mathe |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_129_table_1.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.165,
+            0.214,
+            0.785,
+            0.421
+          ],
+          "sub_type": "text",
+          "content": "• Beispiel: Stundenplan\n• 2‐dimensionales Array (**Matrix**) als Datenstruktur\nElemente vom Typ String\n• Indizes:\n– Stunden (int)\n– Wochentage Mo‐Fr (?)\n– enum tag\\_typ {Mo, Di, Mi, Do, Fr}\n– **Aufzählungstyp**: deklariert Mo, ..., Fr als symbolische Konstanten\n– **Intern**: Mo = 0, Di = 1, ..., Fr = 4"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**130**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.841,
+            0.534
+          ],
+          "content": "Arrays sind in C die direkte Entsprechung von mathematischen Vektoren. Häufig sind auch matrixartige Strukturen zu programmieren. Hierfür können Arrays beliebig viele **Dimensionen** bekommen (d.h. 2 für Matrizen)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.539,
+            0.845,
+            0.665
+          ],
+          "content": "Im Beispiel wird ein **Aufzählungstyp** (enum) zur Matrix-Indizierung eingesetzt. Dies sind benutzerdefinierte Typen, die in erster Linie der besseren Programmlesbarkeit und –wartbarkeit dienen. Ein „enum“ ersetzt int-Konstanten durch lesbare Symbole (hier: Wochentage). Der Compiler (nicht der Präprozessor wie bei #define) ersetzt die Symbole dann durch die konkreten Konstanten. Standardmäßig beginnt die Nummerierung der enum-Konstanten bei 0, der Programmierer kann jedoch bei Bedarf auch manuell andere Werte festlegen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "130"
+        }
+      ]
+    },
+    {
+      "page_idx": 130,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.153,
+            0.125,
+            0.849,
+            0.344
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define STUNDEN 6\n#define TAGE 5\n#define MA \"Mathe\"\n#define DE \"Deutsch\"\n#define SP \"Sport\"\n/* ... */\nenum tag_typ {Mo, Di, Mi, Do, Fr};\nint main (void)\n{\n    char* plan[STUNDEN][TAGE];\n    int tag, stunde;\n    /* ... */\n\n/* ... */\nplan[0][Mo] = MA;\n/* ... */\nplan[5][Mo] = SP;\n/* ... */\nplan[5][Fr] = MA;\n\nprintf(\"Stundenplanabfrage:\\n\");\nscanf(\"%d\",&tag);\nscanf(\"%d\",&stunde);\n\nif ((tag > Fr) || (stunde > STUNDEN))\n    printf(\"Ungültig\");\nelse\n    printf(\"Fach = %s\", plan[stunde-1][tag];\nreturn 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.421,
+                0.102
+              ],
+              "content": "Mehrdimensionale Arrays"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.214,
+            0.367,
+            0.557,
+            0.43
+          ],
+          "content": "| Stunde | Mo | Di | Mi | Do | Fr |\n| --- | --- | --- | --- | --- | --- |\n| 1 | Mathe | Politik | Bio | Mathe | Politik |\n| 2 | Mathe | Kunst | Deutsch | Mathe | Kunst |\n| 3 | Deutsch | Informatik | Sport | Deutsch | Informatik |\n| 4 | Englisch | Informatik | Sport | Englisch | Informatik |\n| 5 | Sport | Mathe | Physik | Sport | Mathe |\n| 6 | Sport | Mathe | Physik | Sport | Mathe |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_130_table_2.jpg"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.604,
+            0.373,
+            0.762,
+            0.421
+          ],
+          "content": "| Stundenplanabfrage: |\n| --- |\n| > 2 |\n| > 4 |\n| Fach = Sport |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_130_table_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**131**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.439,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.845,
+            0.586
+          ],
+          "content": "Unten rechts ist eine **Beispiel-Ein/Ausgabe** gezeigt. Tag 2 bezeichnet „Mi“(siehe enum-Deklaration), so dass für Stunde 3 wie zu erwarten „Sport“ausgegeben wird. Man beachte, dass intern „stunde-1“ zur Indizierung verwendet wird, da (s.o.) die Indizierung immer bei 0 beginnt. Andererseits wäre es für den Stundenplanbenutzer unkomfortabel 0-5 statt 1-6 für die Indizierung zu verwenden."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "131"
+        }
+      ]
+    },
+    {
+      "page_idx": 131,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.459,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiel: Matrixmultiplikation"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.122,
+            0.522,
+            0.207
+          ],
+          "sub_type": "text",
+          "content": "ሺ𝑁 ൈ 𝑁ሻ‐Matrizen:\n• **Produkt** ergibt sich aus:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.233,
+            0.141,
+            0.445,
+            0.162
+          ],
+          "content": "A = (a _ {i j}), B = (b _ {i j})",
+          "image_source": "images/page_131_equation_3.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.233,
+            0.184,
+            0.433,
+            0.208
+          ],
+          "content": "c _ {i j} = \\sum_ {k = 1} ^ {N} a _ {i k} \\cdot b _ {k j}",
+          "image_source": "images/page_131_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.21,
+            0.423,
+            0.226
+          ],
+          "content": "• **Geschachtelte** Schleifen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.194,
+            0.231,
+            0.546,
+            0.348
+          ],
+          "sub_type": "text",
+          "content": "– Iteration über Zeilen 𝑖 ൌ 1 … 𝑁\n– Für jedes 𝑖: Iteration über Spalten 𝑗 ൌ 1 … 𝑁\n– Für jedes ሺ𝑖,𝑗ሻ: Bilde Skalarprodukt von 𝐴‐Zeile 𝑖 und 𝐵‐Spalte 𝑗"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.351,
+            0.55,
+            0.428
+          ],
+          "sub_type": "text",
+          "content": "C/C++ gestattet eine beliebige Anzahl von **Dimensionen** für Arrays\nElemente liegen stets benachbart im Speicher"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.55,
+            0.136,
+            0.84,
+            0.218
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_131_image_14.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.559,
+            0.243,
+            0.835,
+            0.38
+          ],
+          "sub_type": "code",
+          "content": "```txt\ntypedef int matrix[N][N];\nmatrix a, b, c;\nfor (i=0; i<N; i++)\n    for (j=0; j<N; j++) {\n        c[i][j] = 0;\n        for (k=0; k<N; k++)\n            c[i][j] += a[i][k]*b[k][j];\n    }\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**132**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.829,
+            0.552
+          ],
+          "content": "Für die (NxN)-Matrizen wird ein neuer Typ **matrix** mit N Zeilen und N Spalten definiert. Die einzelnen Elemente sind vom Typ int. Die Variablen A, B und C werden vom Typ matrix deklariert. Bei der Berechnung des Matrixprodukts laufen die Indizes in jeder Dimension wieder von 0 bis N-1."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.557,
+            0.813,
+            0.611
+          ],
+          "content": "Werden weitere Dimensionen benötigt, so müssen in der Deklaration mehrere eckige Klammern angegeben werden. Beim Zugriff auf die Elemente werden dann auch mehrere Indizes benötigt."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "132"
+        }
+      ]
+    },
+    {
+      "page_idx": 132,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.405,
+            0.171,
+            0.594,
+            0.194
+          ],
+          "level": 2,
+          "content": "5. Datentypen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.212,
+            0.506,
+            0.3
+          ],
+          "sub_type": "text",
+          "content": "5.1 Arrays\n**5.2 Strukturen**\n5.3 Abstrakte Datentypen\n5.4 Klassen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**133**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "133"
+        }
+      ]
+    },
+    {
+      "page_idx": 133,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.084,
+            0.272,
+            0.1
+          ],
+          "level": 2,
+          "content": "Strukturen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.122,
+            0.826,
+            0.392
+          ],
+          "sub_type": "text",
+          "content": "• **Struktur** (oder: struct, record): Zusammenfassung einer Gruppe von Variablen zu einer **Einheit**\n**Unterschied** zum Array: Adressierung innerhalb einer Struktur per Namen, nicht per Index\nBsp. (s.o.): geometrischer Punkt struct point { float x, y; };\nAllgemeine Form einer struct‐Deklaration: – struct ID { Variablendeklaration\\* } – Beliebige Variablendeklarationen (auch structs) – ID heißt structure tag\n• struct‐Deklaration oft in Verbindung mit typedef: struct point { float x, y; } p1,p2; oder typedef struct point { float x, y; } Point; Point p1, p2;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**134**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.841,
+            0.536
+          ],
+          "content": "Bei **Strukturen** handelt es sich um eine Zusammenfassung mehrerer Datentypen zu einem größeren. Im Gegensatz zu Arrays können in Strukturen unterschiedliche Datentypen zusammengestellt und gespeichert werden."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.54,
+            0.228,
+            0.557
+          ],
+          "content": "Beispiel:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.149,
+            0.56,
+            0.554,
+            0.716
+          ],
+          "sub_type": "code",
+          "content": "```javascript\n/* Definition der Struktur ,person' */\nstruct person\n{\n    int id;\n    char vorname[20], nachname[20];\n    char telnr[15];\n    int alter;\n};\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.721,
+            0.794,
+            0.759
+          ],
+          "content": "Um eine Variable H des Typs struct person anzulegen, geben Sie einfach an struct person H;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.764,
+            0.816,
+            0.819
+          ],
+          "content": "Zum Zugriff auf eine Komponente der Struktur gibt man den Namen der Struktur-Variablen an (im folgenden Beispiel also H), einen Punkt und danach den Bezeichner der Komponente:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.821,
+            0.289,
+            0.836
+          ],
+          "content": "H.alter = 32;"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "134"
+        }
+      ]
+    },
+    {
+      "page_idx": 134,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.16,
+            0.121,
+            0.805,
+            0.419
+          ],
+          "sub_type": "algorithm",
+          "content": "typedef struct person\n    { char name[100], vorname[100];\n        struct datum { int tag,monat,jahr; } gebdatum;\n    } Person;\nPerson p1, p2, \\*p\\_ptr;\n• Kopieren:\n    p1 = p2;  /\\* kopiert alle Komponenten auf einmal \\*/\n• Adressberechnung:\n    p\\_ptr = &p1;\n• Komponentenzugriff direkt (Operator „.“):\n    p2.gebdatum.jahr = 1950;\n• Komponentenzugriff per Zeiger (Operator „->“):\n    p\\_ptr->gebdatum.monat = 12;\n    // \"p->\" entspricht \"(\\*p).\"",
+          "captions": [
+            {
+              "bbox": [
+                0.161,
+                0.083,
+                0.439,
+                0.101
+              ],
+              "content": "Operationen auf Strukturen"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**135**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.849,
+            0.553
+          ],
+          "content": "Der eventuell etwas lästige Gebrauch von struct kann schon bei der Definition der Struktur vermieden werden. Der Definition ist ein **typedef** voranzustellen. Der Definition folgt dann ein gültiger (und auch eindeutiger) C-Name, in diesem Beispiel „Person“."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.557,
+            0.828,
+            0.611
+          ],
+          "content": "Der Zugriff auf Komponenten von „Person“ über eine Zeigervariable p\\_ptr, der die Adresse der Strukturvariablen p1 zugewiesen wird, kann über den **Pfeil-Operator** (->) oder über den **Dereferenzierungs-Operator** (\\*) geschehen:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.148,
+            0.615,
+            0.438,
+            0.673
+          ],
+          "sub_type": "algorithm",
+          "content": "p\\_ptr->gebdatum.tag = 30;\n    ist identisch zu\n(\\*p\\_ptr).gebdatum.tag = 30;",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "135"
+        }
+      ]
+    },
+    {
+      "page_idx": 135,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.084,
+            0.333,
+            0.101
+          ],
+          "level": 2,
+          "content": "Array von structs"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.705,
+            0.212
+          ],
+          "sub_type": "text",
+          "content": "Mit Arrays und structs lassen sich beliebige **komplexe Datenstrukturen** aufbauen\nBsp.: **Bundesliga‐Tabelle**\n• **Übung**: Neuberechnung nach Spieltag‐Ergebniseingabe"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.169,
+            0.221,
+            0.511,
+            0.422
+          ],
+          "content": "<table><tr><td colspan=\"2\"></td><td>SP</td><td>S</td><td>U</td><td>N</td><td>T</td><td>DIFF</td><td>PKT</td></tr><tr><td>1</td><td>Bayern München</td><td>3</td><td>3</td><td>0</td><td>0</td><td>10:0</td><td>10</td><td>9</td></tr><tr><td>2</td><td>Arminia Bielefeld</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7:3</td><td>4</td><td>7</td></tr><tr><td>3</td><td>VfL Bochum</td><td>3</td><td>2</td><td>1</td><td>0</td><td>6:4</td><td>2</td><td>7</td></tr><tr><td>4</td><td>Eintracht Frankfurt</td><td>3</td><td>2</td><td>1</td><td>0</td><td>4:2</td><td>2</td><td>7</td></tr><tr><td>5</td><td>Hamburger SV</td><td>3</td><td>2</td><td>0</td><td>1</td><td>3:2</td><td>1</td><td>6</td></tr><tr><td>6</td><td>FC Schalke 04</td><td>3</td><td>1</td><td>2</td><td>0</td><td>7:4</td><td>3</td><td>5</td></tr><tr><td>7</td><td>Bayer Leverkusen</td><td>3</td><td>1</td><td>1</td><td>1</td><td>3:1</td><td>2</td><td>4</td></tr><tr><td>8</td><td>VfL Wolfsburg</td><td>3</td><td>1</td><td>1</td><td>1</td><td>5:5</td><td>0</td><td>4</td></tr><tr><td>9</td><td>VfB Stuttgart</td><td>3</td><td>1</td><td>1</td><td>1</td><td>4:5</td><td>-1</td><td>4</td></tr><tr><td>10</td><td>Werder Bremen</td><td>3</td><td>1</td><td>1</td><td>1</td><td>3:6</td><td>-3</td><td>4</td></tr><tr><td>11</td><td>MSV Duisburg</td><td>3</td><td>1</td><td>0</td><td>2</td><td>4:5</td><td>-1</td><td>3</td></tr><tr><td>12</td><td>Hertha BSC</td><td>3</td><td>1</td><td>0</td><td>2</td><td>3:4</td><td>-1</td><td>3</td></tr><tr><td>13</td><td>Borussia Dortmund</td><td>3</td><td>1</td><td>0</td><td>2</td><td>5:7</td><td>-2</td><td>3</td></tr><tr><td>14</td><td>Karlsruher SC</td><td>3</td><td>1</td><td>0</td><td>2</td><td>3:5</td><td>-2</td><td>3</td></tr><tr><td>15</td><td>1. FC Nürnberg</td><td>3</td><td>1</td><td>0</td><td>2</td><td>2:4</td><td>-2</td><td>3</td></tr><tr><td>16</td><td>Hannover 96</td><td>3</td><td>1</td><td>0</td><td>2</td><td>2:5</td><td>-3</td><td>3</td></tr><tr><td>17</td><td>Energie Cottbus</td><td>3</td><td>0</td><td>1</td><td>2</td><td>1:5</td><td>-4</td><td>1</td></tr><tr><td>18</td><td>Hansa Rostock</td><td>3</td><td>0</td><td>0</td><td>3</td><td>1:6</td><td>-5</td><td>0</td></tr></table>",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_135_table_5.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.536,
+            0.248,
+            0.825,
+            0.398
+          ],
+          "sub_type": "code",
+          "content": "```txt\ntypedef struct team {\n  char *name;\n  int SP,S,U,N,T1,T2,DIFF,PKT;\n} Team;\n\nTeam liga[18]; /* 0...17 */\n/* ... */\nliga[5].name = \"FC Schalke 04\";\nliga[13].DIFF = liga[13].T1-liga[13].T2;\n/* ... */\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**136**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.844,
+            0.517
+          ],
+          "content": "Im Beispiel wird eine Struktur „Team“ als Typ definiert. Im Anschluss erfolgt die Deklaration einer Variablen „liga“ als 18-elementiges **Array von Teams**."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.521,
+            0.803,
+            0.575
+          ],
+          "content": "Mit Hilfe des Index greift man innerhalb des Arrays auf genau ein Strukturelement vom Typ Team zu, welches dann wiederum über den Punkt-Operator den Zugriff auf einzelne Komponenten erlaubt."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "136"
+        }
+      ]
+    },
+    {
+      "page_idx": 136,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.405,
+            0.171,
+            0.594,
+            0.194
+          ],
+          "level": 2,
+          "content": "5. Datentypen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.212,
+            0.512,
+            0.3
+          ],
+          "sub_type": "text",
+          "content": "5.1 Arrays\n5.2 Strukturen\n**5.3 Abstrakte Datentypen**\n5.4 Klassen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**137**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "137"
+        }
+      ]
+    },
+    {
+      "page_idx": 137,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.173,
+            0.086,
+            0.402,
+            0.105
+          ],
+          "level": 2,
+          "content": "Abstrakte Datentypen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.827,
+            0.087,
+            0.862,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.207,
+            0.124,
+            0.834,
+            0.184
+          ],
+          "content": "**Def**.: Ein **abstrakter Datentyp** (**ADT**) ist ein Datentyp (eine Menge von Werten und eine Sammlung von Operationen auf diesen Werten), der nur über eine Schnittstelle zugänglich ist."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.616,
+            0.186,
+            0.832,
+            0.199
+          ],
+          "content": "[Sedgewick, Algorithmen in C++]"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.206,
+            0.228,
+            0.87,
+            0.439
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <iostream>\n#include <set>\n#include <algorithm> // required for set_union\nusing namespace std;\n\nint main( void )\n{\n    set<int> s = {1, 2, 2};\n    set<int> t = {7, 2, 4, 1};\n\n    set<int> r;\n    set_union(s.begin(), s.end(), t.begin(), t.end(), inserter(r, r.begin());\n\n    // print the contents of the sets\n    cout << \"s: \"; for(auto elm : s) cout << elm << ' '; cout << endl;\n    cout << \"t: \"; for(auto elm : t) cout << elm << ' '; cout << endl;\n    cout << \"r: \"; for(auto elm : r) cout << elm << ' '; cout << endl;\n\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.177,
+                0.207,
+                0.326,
+                0.224
+              ],
+              "content": "• Menge set"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.45,
+            0.184,
+            0.46
+          ],
+          "content": "**138**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.756,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.481,
+            0.62,
+            0.497
+          ],
+          "content": "set\\_union is a method to create the union of two sets."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.504,
+            0.849,
+            0.539
+          ],
+          "content": "It requires the first and last element of the two sources as well as an iterator pointing to the next position for insertion."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.545,
+            0.807,
+            0.562
+          ],
+          "content": "The input sets have to occur in a sorted fashion when iterating through them."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.591,
+            0.725,
+            0.608
+          ],
+          "content": "Related operations are the **difference of sets** and their **intersection**."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.614,
+            0.849,
+            0.667
+          ],
+          "content": "The method merge combines both input sets including duplicates. To see this effect, the target container has to be a vector as duplicates get automatically removed in a set."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "138"
+        }
+      ]
+    },
+    {
+      "page_idx": 138,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.404,
+            0.171,
+            0.594,
+            0.194
+          ],
+          "level": 2,
+          "content": "5. Datentypen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.212,
+            0.506,
+            0.278
+          ],
+          "sub_type": "text",
+          "content": "5.1 Arrays\n5.2 Strukturen\n5.3 Abstrakte Datentypen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.257,
+            0.284,
+            0.37,
+            0.3
+          ],
+          "level": 2,
+          "content": "5.4 Klassen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.272,
+            0.307,
+            0.552,
+            0.422
+          ],
+          "sub_type": "text",
+          "content": "i (De)Konstruktor\nii Public vs. private\niii Vererbung\niv Abstrakte Klassen\nv Überladen von Operatoren"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**139**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "139"
+        }
+      ]
+    },
+    {
+      "page_idx": 139,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.173,
+            0.086,
+            0.402,
+            0.105
+          ],
+          "level": 2,
+          "content": "Abstrakte Datentypen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.827,
+            0.087,
+            0.862,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.174,
+            0.126,
+            0.439,
+            0.144
+          ],
+          "level": 2,
+          "content": "Klassen und Methoden"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.219,
+            0.198,
+            0.484,
+            0.379
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <string>\n#include <iostream>\nusing namespace std;\n\nclass Member {\n    public:\n        string status = \"public\";\n};\n\nint main( void ) {\n\n    Member someone;\n\n    cout << someone.status << endl;\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.45,
+            0.184,
+            0.46
+          ],
+          "content": "**140**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.756,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.849,
+            0.552
+          ],
+          "content": "A class is introduced with the keyword class followed by its name. You can have various variables and methods declared. A variable or method can be referenced using the object identifier followed by a ‘.’ and the corresponding method or variable."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.58,
+            0.825,
+            0.634
+          ],
+          "content": "Please note: a class declaration is always concluded by a ‘;’ – this goes back to the concept of struct declarations that can have objects be defined at the end (after the closing curly bracket)."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "140"
+        }
+      ]
+    },
+    {
+      "page_idx": 140,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.404,
+            0.171,
+            0.594,
+            0.194
+          ],
+          "level": 2,
+          "content": "5. Datentypen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.212,
+            0.506,
+            0.278
+          ],
+          "sub_type": "text",
+          "content": "5.1 Arrays\n5.2 Strukturen\n5.3 Abstrakte Datentypen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.257,
+            0.284,
+            0.369,
+            0.3
+          ],
+          "content": "**5.4 Klassen**"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.272,
+            0.307,
+            0.552,
+            0.422
+          ],
+          "sub_type": "text",
+          "content": "**i (De)Konstruktor**\nii Public vs. private\niii Vererbung\niv Abstrakte Klassen\nv Überladen von Operatoren"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**141**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "141"
+        }
+      ]
+    },
+    {
+      "page_idx": 141,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.175,
+            0.087,
+            0.255,
+            0.103
+          ],
+          "level": 2,
+          "content": "Klassen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.828,
+            0.087,
+            0.864,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.245,
+            0.139,
+            0.755,
+            0.45
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <string>\n#include <iostream>\nusing namespace std;\n\nclass Member {\n    public:\n        string status;\n    // constructor\n    Member() { status = \"starter\"; }\n    Member( string val ) : status(val) {}\n    // (de)constructor\n    ~Member() { cout << \"... a member left the pack.\" << endl; }\n    void show_status( void ) {\n        cout << \"Membership status: \" << status << endl;\n    }\n};\nvoid sub( void ) {\n    cout << \"> Entering function 'sub'\" << endl;\n    Member pers(\"gold\");\n    pers.show_status();\n    cout << \"> About to leave 'sub'\" << endl;\n}\nint main( void ) {\n    cout << \"> Starting in 'main'\" << endl;\n    Member someone;\n    someone.show_status();\n    sub();\n    cout << \"> About to leave 'main'\" << endl;\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.175,
+                0.119,
+                0.368,
+                0.137
+              ],
+              "content": "(De)Constructor"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.451,
+            0.184,
+            0.46
+          ],
+          "content": "**142**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.756,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.834,
+            0.534
+          ],
+          "content": "The class name itself acts as **constructor**, which is called when an object of that class is created. When the object is deleted, the **deconstructor** method is called, which has a preceding ‘\\~’ in front of the class name."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.54,
+            0.847,
+            0.611
+          ],
+          "content": "In this example, we use polymorphism to enable variations of the created object – a default way and one that provides a specific status. Constructor and deconstructor can be omitted if nothing is to be done on creation or deletion of an object."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.639,
+            0.841,
+            0.71
+          ],
+          "content": "The shown example highlights the concept of the **scope** of objects and their automatic deletion, once they leave a scope. Leaving the function sub results in an automatic call of the deconstrutor of the object stored in pers (which is of the Member class)."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "142"
+        }
+      ]
+    },
+    {
+      "page_idx": 142,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.404,
+            0.171,
+            0.594,
+            0.194
+          ],
+          "level": 2,
+          "content": "5. Datentypen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.212,
+            0.506,
+            0.278
+          ],
+          "sub_type": "text",
+          "content": "5.1 Arrays\n5.2 Strukturen\n5.3 Abstrakte Datentypen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.257,
+            0.284,
+            0.369,
+            0.3
+          ],
+          "level": 2,
+          "content": "5.4 Klassen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.272,
+            0.307,
+            0.551,
+            0.422
+          ],
+          "sub_type": "text",
+          "content": "i (De)Konstruktor\n**ii Public vs. private**\niii Vererbung\niv Abstrakte Klassen\nv Überladen von Operatoren"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**143**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "143"
+        }
+      ]
+    },
+    {
+      "page_idx": 143,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.175,
+            0.087,
+            0.255,
+            0.103
+          ],
+          "level": 2,
+          "content": "Klassen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.828,
+            0.087,
+            0.864,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.174,
+            0.126,
+            0.563,
+            0.147
+          ],
+          "level": 2,
+          "content": "• Klassenelemente: public vs. private"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.219,
+            0.184,
+            0.625,
+            0.392
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <string>\n#include <iostream>\nusing namespace std;\n\nclass Member {\n    public:\n        string statusA = \"public\"; // public Variable\n    private:\n        string statusB = \"secret\"; // private Variable\n};\n\nint main( void ) {\n\n    Member someone;\n\n    cout << someone.statusA << endl;\n    cout << someone.statusB << endl;\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.353,
+            0.391,
+            0.865,
+            0.408
+          ],
+          "content": "error: ‘std::string Member::statusB’ is private within this context"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.45,
+            0.186,
+            0.46
+          ],
+          "content": "**144**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.756,
+            0.452,
+            0.849,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.836,
+            0.534
+          ],
+          "content": "The variables and methods declared that are either private or public. **Private** ones are only accessible to other elements of the class itself. In this example, we cannot directly access the variable statusB of the class Member."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "144"
+        }
+      ]
+    },
+    {
+      "page_idx": 144,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.175,
+            0.087,
+            0.255,
+            0.103
+          ],
+          "level": 2,
+          "content": "Klassen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.828,
+            0.087,
+            0.864,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.219,
+            0.151,
+            0.625,
+            0.445
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <string>\n#include <iostream>\nusing namespace std;\n\nclass Member {\n    private:\n        string status = \"unknown\"; // Private Variable\n\n    public:\n        // public methods\n        void show_status( void ) {\n            cout << \"Status: \" << status << endl;\n        }\n        void update_status( string new_status ) {\n            status = new_status;\n        }\n};\n\nint main( void ) {\n\n    Member someone;\n\n    someone.show_status();\n    someone.update_status(\"gold\");\n    someone.show_status();\n\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.175,
+                0.127,
+                0.563,
+                0.146
+              ],
+              "content": "• Klassenelemente: public vs. private"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.503,
+            0.321,
+            0.856,
+            0.356
+          ],
+          "content": "Private Variablen werden mit sogenannten get und set Methoden verarbeitet."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.45,
+            0.184,
+            0.46
+          ],
+          "content": "**145**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.756,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.841,
+            0.517
+          ],
+          "content": "To access the **private** variable, we define a public method. This way the contents is protected against inadvertent manipulations."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.521,
+            0.803,
+            0.556
+          ],
+          "content": "In general, there should be related get and set methods to manipulate private objects."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "145"
+        }
+      ]
+    },
+    {
+      "page_idx": 145,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.404,
+            0.171,
+            0.594,
+            0.194
+          ],
+          "level": 2,
+          "content": "5. Datentypen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.212,
+            0.506,
+            0.278
+          ],
+          "sub_type": "text",
+          "content": "5.1 Arrays\n5.2 Strukturen\n5.3 Abstrakte Datentypen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.257,
+            0.284,
+            0.369,
+            0.3
+          ],
+          "level": 2,
+          "content": "5.4 Klassen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.272,
+            0.307,
+            0.551,
+            0.422
+          ],
+          "sub_type": "text",
+          "content": "i (De)Konstruktor\nii Public vs. private\n**iii Vererbung**\niv Abstrakte Klassen\nv Überladen von Operatoren"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**146**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "146"
+        }
+      ]
+    },
+    {
+      "page_idx": 146,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.175,
+            0.087,
+            0.255,
+            0.103
+          ],
+          "level": 2,
+          "content": "Klassen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.828,
+            0.087,
+            0.864,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.175,
+            0.127,
+            0.313,
+            0.145
+          ],
+          "level": 2,
+          "content": "• Vererbung"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.208,
+            0.155,
+            0.828,
+            0.184
+          ],
+          "content": "Weiterführung des Beispiels: Die Funktion main auf der vorrangegangen Folie wird durch den Code auf dieser Folie ersetzt."
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.237,
+            0.192,
+            0.806,
+            0.389
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n...\n\nclass Student : public Member {\n    public:\n        Student() { // constructor\n            Member::update_status(\"Student\");\n        }\n};\n\nint main( void ) {\n    Member someone;\n    Student pers;\n\n    someone.show_status();\n    pers.show_status();\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.45,
+            0.184,
+            0.46
+          ],
+          "content": "**147**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.756,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.844,
+            0.517
+          ],
+          "content": "**Inheritance** is a key element of object-oriented programming. We have a base class, that we re-use in multiple sub-classes and their potential derivation thereof."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "147"
+        }
+      ]
+    },
+    {
+      "page_idx": 147,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.175,
+            0.087,
+            0.255,
+            0.103
+          ],
+          "level": 2,
+          "content": "Klassen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.828,
+            0.087,
+            0.864,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.175,
+            0.127,
+            0.313,
+            0.145
+          ],
+          "level": 2,
+          "content": "• Vererbung"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.218,
+            0.18,
+            0.789,
+            0.393
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n...\n\nclass Prof : public Member {\n    public:\n        Prof() { // constructor\n            Member::update_status(\"Professor\");\n        }\n};\n\nint main( void ) {\n    Member someone;\n    Student persA;\n    Prof persB;\n\n    someone.show_status();\n    persA.show_status();\n    persB.show_status();\n\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.224,
+                0.158,
+                0.409,
+                0.171
+              ],
+              "content": "... und noch einen Schritt ..."
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.451,
+            0.184,
+            0.46
+          ],
+          "content": "**148**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.757,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.481,
+            0.745,
+            0.499
+          ],
+          "content": "Apparently, multiple sub-classes can inherit from the same base class."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "148"
+        }
+      ]
+    },
+    {
+      "page_idx": 148,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.175,
+            0.086,
+            0.307,
+            0.105
+          ],
+          "level": 2,
+          "content": "Polymorphie"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.828,
+            0.087,
+            0.862,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.175,
+            0.12,
+            0.558,
+            0.138
+          ],
+          "level": 2,
+          "content": "Dynamische Auswahl der Methode"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.261,
+            0.148,
+            0.77,
+            0.441
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <string>\n#include <iostream>\nusing namespace std;\n\nclass Being {\n    public:\n        string name;\n        Being() {}\n        Being( string str ) { name = str; }\n        virtual void show( void ) { cout << \"'\" << name << \"' is an unknown being.\" << endl << endl; }\n};\n\nclass Insect : public Being {\n    public:\n        Insect( string str ) { name = str; }\n        void show( void ) override { cout << \"The '\" << name << \"' is an insect.\" << endl << endl; }\n};\n\nclass Mammal : public Being {\n    public:\n        Mammal( string str ) { name = str; }\n        void show( void ) override { cout << \"The '\" << name << \"' is a mammal.\" << endl << endl; }\n};\n\nint main( void )\n{\n    Being* b; // pointer to the base class\n    string in;\n\n    while( 1 ) {\n        cout << \"Enter the type of being (i: insect, m: mammal): \";\n        cin >> in;\n        cout << endl;\n\n        if( in[0] == 'i' ) b = new Insect(\"ant\");\n        else if( in[0] == 'm' ) b = new Mammal(\"cat\");\n        else b = new Being(in);\n\n        b->show(); // method show is dynamically selected\n    }\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.45,
+            0.184,
+            0.46
+          ],
+          "content": "**149**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.756,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.759,
+            0.534
+          ],
+          "content": "At this point, we know the essential elements to introduce **dynamic polymorphism** - a concept where the binding of a function call with an appropriate declaration happens during run-time."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.539,
+            0.834,
+            0.592
+          ],
+          "content": "To enable this, we introduce the keyword virtual in the base class to label methods that should be considered for this. This triggers the compiler to create a table of potential methods to be used."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.621,
+            0.831,
+            0.657
+          ],
+          "content": "A typical application of this is handling objects of the base or derived class with the same code as shown in the given example:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.663,
+            0.83,
+            0.698
+          ],
+          "content": "We declare a pointer to an object of the base class. Depending on the user input, either an object of the base class or any of the two derived classes is created."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.703,
+            0.845,
+            0.757
+          ],
+          "content": "The call of show is then dynamically bound to the (sub-)class the base class of the object the pointer is pointing to, i.e., the class of the handled object determines during run-time the binding of show."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "149"
+        }
+      ]
+    },
+    {
+      "page_idx": 149,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.404,
+            0.171,
+            0.594,
+            0.194
+          ],
+          "level": 2,
+          "content": "5. Datentypen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.212,
+            0.506,
+            0.278
+          ],
+          "sub_type": "text",
+          "content": "5.1 Arrays\n5.2 Strukturen\n5.3 Abstrakte Datentypen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.257,
+            0.284,
+            0.37,
+            0.3
+          ],
+          "level": 2,
+          "content": "5.4 Klassen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.272,
+            0.307,
+            0.552,
+            0.422
+          ],
+          "sub_type": "text",
+          "content": "i (De)Konstruktor\nii Public vs. private\niii Vererbung\n**iv Abstrakte Klassen**\nv Überladen von Operatoren"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**150**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "150"
+        }
+      ]
+    },
+    {
+      "page_idx": 150,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.174,
+            0.086,
+            0.357,
+            0.103
+          ],
+          "level": 2,
+          "content": "Abstrakte Klassen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.828,
+            0.087,
+            0.862,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.261,
+            0.147,
+            0.845,
+            0.442
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <string>\n#include <iostream>\nusing namespace std;\n\nclass Being {\n    public:\n        string name;\n        Being() {}\n        Being( string str ) { name = str; }\n        virtual void show() = 0; // Definition einer rein virtuellen Methode\n};\n\nclass Insect : public Being {\n    public:\n        Insect( string str ) { name = str; }\n        void show() { cout << \"The '\" << name << \"' is an insect.\" << endl << endl; }\n};\n\nclass Mammal : public Being {\n    public:\n        Mammal( string str ) { name = str; }\n        void show() { cout << \"The '\" << name << \"' is a mammal.\" << endl << endl; }\n};\n\nint main( void )\n{\n    Being* b: // pointer to the base class\n    string in;\n\n    while( 1 ) {\n        cout << \"Enter the type of being (i: insect, m: mammal): \";\n        cin >> in;\n        cout << endl;\n\n    if( in[0] == 'i' ) b = new Insect(\"ant\");\n    else b = new Mammal(in);\n\n    b->show();\n}\nreturn 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.174,
+                0.122,
+                0.533,
+                0.141
+              ],
+              "content": "Beispiel: Schnittstellendefinition"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.45,
+            0.184,
+            0.46
+          ],
+          "content": "**151**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.756,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.809,
+            0.514
+          ],
+          "content": "The declaration of purely virtual methods (as shown in this example) leads to **abstract classes**."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.521,
+            0.641,
+            0.54
+          ],
+          "content": "They can be used as before, but not to generate an object."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.545,
+            0.838,
+            0.598
+          ],
+          "content": "A typical application case is the definition of **interfaces**. The specific implementation is realized in a sub class, in which all virtual methods have to be declared, otherwise the sub class remains virtual."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "151"
+        }
+      ]
+    },
+    {
+      "page_idx": 151,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.404,
+            0.171,
+            0.594,
+            0.194
+          ],
+          "level": 2,
+          "content": "5. Datentypen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.212,
+            0.506,
+            0.278
+          ],
+          "sub_type": "text",
+          "content": "5.1 Arrays\n5.2 Strukturen\n5.3 Abstrakte Datentypen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.257,
+            0.284,
+            0.37,
+            0.3
+          ],
+          "level": 2,
+          "content": "5.4 Klassen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.272,
+            0.307,
+            0.557,
+            0.422
+          ],
+          "sub_type": "text",
+          "content": "i (De)Konstruktor\nii Public vs. private\niii Vererbung\niv Abstrakte Klassen\n**v Überladen von Operatoren**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**152**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "152"
+        }
+      ]
+    },
+    {
+      "page_idx": 152,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.174,
+            0.084,
+            0.45,
+            0.105
+          ],
+          "level": 2,
+          "content": "Überladen von Operatoren"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.828,
+            0.087,
+            0.862,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.226,
+            0.148,
+            0.683,
+            0.445
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass myInt {\n    public:\n        int x;\n        myInt() { x = 0; };\n        myInt( int val ) : x(val){};\n        myInt& operator+(const myInt& val) {\n            myInt* o = new myInt(this->x + val.x + 1);\n            return *o;\n        }\n        myInt& operator=(const myInt& rhs) {\n            x = rhs.x;\n            return *this;\n        }\n        friend ostream& operator<<(ostream& os, const myInt& val) {\n            os << val.x;\n            return os;\n        }\n};\n\nint main( void )\n{\n    myInt a = 1, b = 1;\n\n    cout << \"a = \" << a << \"; b = \" << b << \" => a+b = \" << a+b <-\n\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.175,
+                0.129,
+                0.312,
+                0.145
+              ],
+              "content": "• 1 + 1 = …?!"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.451,
+            0.184,
+            0.46
+          ],
+          "content": "**153**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.417,
+            0.373,
+            0.84,
+            0.39
+          ],
+          "content": "Quiz: Was ist das Ergebnis von 1+1? 0, 1, 2, oder 3?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.757,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "153"
+        }
+      ]
+    },
+    {
+      "page_idx": 153,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.175,
+            0.085,
+            0.45,
+            0.105
+          ],
+          "level": 2,
+          "content": "Überladen von Operatoren"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.828,
+            0.087,
+            0.862,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.175,
+            0.129,
+            0.873,
+            0.148
+          ],
+          "content": "• Vereinigungsmenge (‚union‘) zweier Vektoren mit dem ‘+’‐Operator"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.217,
+            0.15,
+            0.873,
+            0.446
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\nvector<int>& operator+(const vector<int>& a, const vector<int>& b) {\n    vector<int>* res = new vector<int>();\n    res->insert(res->begin(), a.begin(), a.end());\n    res->insert(res->end(), b.begin(), b.end());\n    // Let's have the vector sorted\n    sort(res->begin(), res->end());\n    // ... and remove all duplicate.\n    // Note: the vector has to be sorted for unique to work\n    // Note: unique does not shrink the vector length, so we add a call to erase\n    res->erase( unique( res->begin(), res->end() ), res->end() );\n    return *res;\n}\n\nint main( void )\n{\n    vector<int> s = {1, 2, 2};\n    vector<int> t = {4, 5, 6};\n\n    vector<int> r = s+t;\n\n    // fancy: for(const auto& elm : ...\n    for(auto elm : r) cout << elm << ' ';\n    cout << endl;\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.451,
+            0.184,
+            0.46
+          ],
+          "content": "**154**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.385,
+            0.431,
+            0.839,
+            0.447
+          ],
+          "content": "Anmerkung: der ADT set bietet diese Funktionalität ..."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.757,
+            0.453,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.481,
+            0.79,
+            0.499
+          ],
+          "content": "This example overloads the ‘+’ operator to generate a union of two vectors."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.527,
+            0.601,
+            0.546
+          ],
+          "content": "Please note: the ADT set provides this functionality."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "154"
+        }
+      ]
+    },
+    {
+      "page_idx": 154,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.174,
+            0.084,
+            0.451,
+            0.105
+          ],
+          "level": 2,
+          "content": "Überladen von Operatoren"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.827,
+            0.086,
+            0.862,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.174,
+            0.127,
+            0.277,
+            0.143
+          ],
+          "level": 2,
+          "content": "• Stream"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.217,
+            0.167,
+            0.619,
+            0.411
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <string>\n#include <iostream>\nusing namespace std;\n\nclass Graphic {\n    public:\n        string name;\n        Graphic() { name = \"generic object\"; }\n};\n\nostream& operator<<(ostream& os, const Graphic& gr) {\n            os << gr.name;\n            return os;\n}\n\nint main( void ) {\n\n    Graphic a;\n\n    cout << \"This is a '\" << a <<的目的\" << endl;\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.45,
+            0.184,
+            0.46
+          ],
+          "content": "**155**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.756,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.481,
+            0.714,
+            0.499
+          ],
+          "content": "Operators can be **overloaded** – it is a way of static polymorphism."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.504,
+            0.845,
+            0.557
+          ],
+          "content": "In this example, it is used to define the representation of an object of the class graphic in a stream. In this way, we can define a class specific representation of an object when used with a standard operator."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "155"
+        }
+      ]
+    },
+    {
+      "page_idx": 155,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.175,
+            0.085,
+            0.45,
+            0.105
+          ],
+          "level": 2,
+          "content": "Überladen von Operatoren"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.828,
+            0.087,
+            0.862,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.214,
+            0.138,
+            0.825,
+            0.449
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nclass Point : public Graphic {\n    public:\n        int x0, y0;\n        Point( int a, int b ) : x0(a), y0(b) { name = \"Point\"; }\n};\nclass Line : public Graphic {\n    public:\n        int x0, y0, x1, y1;\n        Line( int a, int b, int c, int d) : x0(a), y0(b), x1(c), y1(d) { name = \"Line\"; }\n};\n\nostream& operator<<(ostream& os, const Point& gr) {\n            os << gr.name << \" at (\" << gr.x0 << \", \" << gr.y0 << \")\";\n            return os;\n}\nostream& operator<<(ostream& os, const Line& gr) {\n            os << gr.name << \" from (\" << gr.x0 << \", \" << gr.y0 << \")\";\n            os << \" -> (\" << gr.x1 << \", \" << gr.y1 << \")\";\n            return os;\n}\n\nint main( void ) {\n    Graphic a;\n    Point b(1,2);\n    Line c(3,4,5,6);\n\n    cout << \"This is a '\" << a <<的目的 << endl;\n    cout << \"This is a '\" << b <<的目的 << endl;\n    cout << \"This is a '\" << c <<的目的 << endl;\n\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.175,
+                0.119,
+                0.277,
+                0.135
+              ],
+              "content": "• Stream"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.451,
+            0.184,
+            0.46
+          ],
+          "content": "**156**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.757,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.849,
+            0.535
+          ],
+          "content": "This example is meant to highlight the advantage of using streams as opposed to calls to printf. The stream expression in main is identical for all three data types."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.563,
+            0.849,
+            0.599
+          ],
+          "content": "(Please note: the code of this slide should replace the declaration of main on the previous slide.)"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "156"
+        }
+      ]
+    },
+    {
+      "page_idx": 156,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.175,
+            0.085,
+            0.45,
+            0.105
+          ],
+          "level": 2,
+          "content": "Überladen von Operatoren"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.828,
+            0.087,
+            0.862,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.176,
+            0.13,
+            0.281,
+            0.145
+          ],
+          "level": 2,
+          "content": "• Functor"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.407,
+            0.13,
+            0.856,
+            0.181
+          ],
+          "content": "Funktoren werden häufig in der Methode transform genutzt. Diese wendet den Funktor auf alle Elemente aus einem vorgegebenen Bereich an."
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.197,
+            0.152,
+            0.692,
+            0.434
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <iostream>\nusing namespace std;\n\nclass Modulo {\n    private:\n        long mod;\n    public:\n        Modulo(long val) : mod(val) {}\n\n        long operator()(long x) {\n            return x%mod;\n        }\n\n        friend ostream& operator<<(ostream& os, const Modulo& x) {\n            os << x.mod;\n            return os;\n        }\n};\n\nint main( void )\n{\n    Modulo m(5);\n    cout << \"129 mod \" << m << \" = \" << m(129) << endl;\n    cout << \"127 mod \" << m << \" = \" << m(127) << endl;\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.45,
+            0.184,
+            0.46
+          ],
+          "content": "**157**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.756,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.48,
+            0.714,
+            0.499
+          ],
+          "content": "The overload of the function call operator ‘()’ is called a **functor**."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.527,
+            0.793,
+            0.564
+          ],
+          "content": "A functor is frequently used with the method transform, which applies the functor to elements withing a specified range."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "157"
+        }
+      ]
+    },
+    {
+      "page_idx": 157,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.175,
+            0.085,
+            0.45,
+            0.105
+          ],
+          "level": 2,
+          "content": "Überladen von Operatoren"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.828,
+            0.087,
+            0.862,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.188,
+            0.143,
+            0.884,
+            0.452
+          ],
+          "sub_type": "algorithm",
+          "content": "#include &lt;iostream&gt;\n#include &lt;algorithm&gt;\n#include &lt;string&gt;\n#include &lt;vector&gt;\nusing namespace std;\n\nclass translate {\n    private:\n        vector&lt;string&gt; ge = {\"eins\",\"zwei\",\"drei\",\"vier\"};\n        vector&lt;string&gt; en = {\"one\",\"two\",\"three\",\"four\"};\n        vector&lt;string&gt; fr = {\"un\",\"deux\",\"trois\",\"quatre\"};\n        vector&lt;string&gt;\\* source;\n        vector&lt;string&gt;\\* target;\n    public:\n        translate(string str) { // constructor\n            switch( str[0] ) {\n                case 'G': source = &amp;ge; break;\n                case 'E': source = &en; break;\n                case 'F': source = &fr; break;\n            }\n            switch( str[2] ) {\n                case 'G': target = &amp;ge; break;\n                case 'E': target = &en; break;\n                case 'F': target = &fr; break;\n            }\n        }\n        string operator() (string word) { // overloading of function call operator ()\n            string res = word;\n            auto it = find(source->begin(), source->end(), word);\n            size\\_t i = distance(source->begin(), it);\n            if( i&lt;source-&gt;size() && i&lt;target-&gt;size() ) res = (\\*target)[i];\n            return res;\n        }\n};\n\nint main( void ) {\n    vector&lt;string&gt; number = {\"vier\", \"eins\", \"zwei\", \"four\", \"trois\"};\n    for( auto elm : number ) cout << ' ' << elm; cout << endl;\n\n    transform(number.begin(), number.end(), number.begin(), translate(\"GeEn\"));\n    for( auto elm : number ) cout << ' ' << elm; cout << endl;\n\n    return 0;\n}",
+          "captions": [
+            {
+              "bbox": [
+                0.175,
+                0.122,
+                0.464,
+                0.14
+              ],
+              "content": "• Beispiel: Functor translate"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.451,
+            0.184,
+            0.46
+          ],
+          "content": "**158**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.756,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.851,
+            0.606
+          ],
+          "content": "The method transform calls the constructor of translate in translate(\"GeEn\"), which returns an object of this class with a specific initialization that encodes the intended translation – let’s call it temp. This temporary object is used to infer a unary function (as required by transform) that is called with the function call operator () and the current element of the vector number as parameter. Due to the overloading, we execute temp(elm), which performs the actual translation."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "158"
+        }
+      ]
+    },
+    {
+      "page_idx": 158,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.317,
+            0.17,
+            0.68,
+            0.196
+          ],
+          "level": 2,
+          "content": "6. Analyse von Algorithmen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.257,
+            0.254,
+            0.449,
+            0.273
+          ],
+          "level": 2,
+          "content": "6.1 Laufzeitanalyse"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.278,
+            0.66,
+            0.344
+          ],
+          "sub_type": "text",
+          "content": "6.2 𝒪‐Notation für Wachstumsordnungen\n6.3 Beispiel: Exponentialfunktion\n6.4 Beispiel: Suchen in Arrays"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**159**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "159"
+        }
+      ]
+    },
+    {
+      "page_idx": 159,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.411,
+            0.102
+          ],
+          "level": 2,
+          "content": "Analyse von Algorithmen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.486,
+            0.27
+          ],
+          "sub_type": "text",
+          "content": "Für jedes Problem gibt es **viele mögliche** Algorithmen und Implementierungen\nHäufig gesucht: **effizienteste/schnellste** Implementierung\n• Wie wird diese bestimmt?"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.494,
+            0.115,
+            0.83,
+            0.272
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define n 10\n\n/* ... */\n\n    int fact, count;\n\n    fact = 1;\n\n    for (count = 1; count <= n; count++) {\n        fact *= count;\n    }\n\n    printf(\"factorial(%d) = %d\", n, fact);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.194,
+            0.276,
+            0.522,
+            0.314
+          ],
+          "content": "– Algorithmenentwicklung ist ein **kreativer** Prozess"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.195,
+            0.32,
+            0.468,
+            0.379
+          ],
+          "content": "– **Analyse** eines gegebenen Algorithmus mittels **Wachstumsordnungen**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.385,
+            0.412,
+            0.403
+          ],
+          "content": "• Bsp.: Fakultätsfunktion"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.197,
+            0.407,
+            0.566,
+            0.429
+          ],
+          "content": "Factorial: 𝑛! ൌ 1 ⋅ 2 ⋅ … ⋅ 𝑛 ൌ ∏ 𝑖 ௡௜ୀଵ"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**160**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.846,
+            0.588
+          ],
+          "content": "Da es für das gleiche Problem nicht nur viele mögliche unterschiedliche Algorithmen, sondern auch unterschiedlichste Darstellungen für denselben Algorithmus in Form von Programmen gibt, ist es das Ziel, Algorithmen miteinander vergleichen zu können. Dies nennt man **Komplexitätsanalyse von Algorithmen.** Die Komplexität kann als Maß für die **Effizienz** eines Algorithmus herangezogen werden."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.593,
+            0.814,
+            0.644
+          ],
+          "content": "Kriterien für die Analyse sind häufig **Laufzeit** und **Speicherplatzbedarf**. Die Komplexität wird ausgedrückt in Abhängigkeit von der Menge und Größe der bearbeiteten Daten."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.652,
+            0.828,
+            0.688
+          ],
+          "content": "Im obigen Beispiel ist die Berechnung der Fakultätsfunktion (hier: Fakultät von 10) dargestellt."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "160"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "Microsoft PowerPoint - GGI1_W26.pptx",
+      "authors": [
+        "gemmeke"
+      ],
+      "created_at": "2026-10-06T18:10:39+02:00",
+      "modified_at": "2026-10-06T18:10:39+02:00",
+      "creator_application": "PScript5.dll Version 5.2.2",
+      "producer_application": "Acrobat Distiller 20.0 (Windows)",
+      "page_count": 355,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 128,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 129,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 130,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 131,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 132,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 133,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 134,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 135,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 136,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 137,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 138,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 139,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 140,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 141,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 142,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 143,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 144,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 145,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 146,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 147,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 148,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 149,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 150,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 151,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 152,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 153,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 154,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 155,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 156,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 157,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 158,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 159,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

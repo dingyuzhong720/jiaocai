@@ -1,0 +1,1347 @@
+--- PDF page 316 ---
+316
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+11. Techniken zum Algorithmenentwurf
+11.1 Rekursion und Iteration
+11.2 Backtracking
+11.3 Kombinatorische Optimierung
+11.4 Schwierige Probleme und Heuristiken
+11.5 Dynamische Programmierung
+11.6 Branch and Bound
+316
+In diesem Kapitel sollen einige Grundrezepte für den Algorithmenentwurf 
+vorgestellt werden, welche sich häufig für eine gegebene neue Problemstellung 
+abwandeln lassen, um so zu einer guten und/oder effizienten Lösung zu kommen. 
+Aus Zeitgründen können diese „Programmierparadigmen“ natürlich hier nur 
+ansatzweise behandelt werden.
+
+
+--- PDF page 317 ---
+317
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Rekursion und Iteration
+• Rekursion: lat. recurrere (zurücklaufen)
+– Definition einer Funktion f mittels f selbst
+– Im Programm: Berechnung von f durch erneuten Aufruf von f
+(mit anderen Parametern)
+– Häufig elegante und kompakte Funktionsdefinition
+– Nachteile: Höherer Speicherbedarf durch Laufzeit‐Stack sowie 
+evtl. Gefahr von Endlosschleifen 
+• Iteration: lat. iterare (wiederholen)
+– Berechnung einer Funktion f durch einzelne Schritte auf 
+bestimmter Datenstruktur
+– Typischerweise als Schleife (z.B. for) realisiert
+– Vor‐ und Nachteile komplementär zur Rekursion
+317
+Rekursion ist uns bereits an verschiedenen Stellen begegnet (siehe z.B. DFS-
+Durchlauf durch Graphen). Das Gegenstück dazu ist die Iteration, welche ohne 
+einen Stack auskommt.
+
+
+--- PDF page 318 ---
+318
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Fakultätsfunktion
+• Siehe auch Kap. 3
+• 𝐟𝐚𝐜𝐭𝒏ൌ𝟏ൈ𝟐ൈ … ൈ𝒏
+• Laufzeit für beide Algorithmen 
+𝓞ሺ𝒏ሻ
+• Rekursive Variante ist 
+kompakter
+• Wird mittels Laufzeit‐Stack
+abgearbeitet (s. Kap. 8)
+• D.h. Zusatzaufwand für Stack‐
+Bereitstellung und „Aufräumen“
+• Daneben: Compiler können 
+Schleifen oft gut optimieren
+• Iterative Variante daher 
+praktisch meist schneller
+Iterativ
+Rekursiv
+int factorial(int n)
+{
+int i, fact;
+fact = 1;
+for (i = 2; i <= n; i++) {
+fact *= i;
+}
+return fact;
+}
+int factorial(int n)
+{
+if (n <= 1)
+return 1;
+else return
+n * factorial(n-1);
+}
+318
+
+
+--- PDF page 319 ---
+319
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Fibonacci‐Zahlen
+• 𝐟𝐢𝐛𝒏ൌቊ 𝑛,
+ für 𝑛 ൑ 1
+ fib 𝑛െ1 ൅ fib 𝑛െ2 ,  für 𝑛 ൐1
+(d.h. fibሺ0ሻൌ0, fibሺ1ሻ ൌ 1)
+• Fibonacci‐Folge:
+ሺ0, 1, 1, 2, 3, 5, 8, 13, 21, 34, … ሻ
+• Viele Anwendungen in der Mathematik
+• Auch in der Natur zu beobachten
+• Siehe http://www.youtube.com/watch?v=iPKUe‐69PdA
+„Naive“ Rekursion:
+int fib(int n)
+{
+if (n <= 1)
+return 1;
+else
+return fib(n-1) + fib(n-2);
+}
+319
+Bei einer rekursiven Implementierung einer Funktion muss sorgfältig auf die 
+Laufzeit geachtet werden, wofür die Folge der Fibonacci-Zahlen ein gutes 
+Beispiel bildet. Jedes Folgeglied (bis auf die beiden ersten) ergibt sich als Summe 
+der letzten beiden Folgeglieder.
+Die hier gezeigte “naive” Rekursion ergibt sich unmittelbar aus der Definition, 
+weist aber ein sehr schlechtes Laufzeitverhalten auf, da sehr viele redundante 
+Berechnungen stattfinden: In der Berechnung von fib(n-1) ist ja die Berechnung 
+von fib(n-2) bereits enthalten. Dies wird aber von der hier gezeigten Funktion 
+nicht ausgenutzt.
+
+
+--- PDF page 320 ---
+320
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Laufzeitanalyse
+• Aufruf von fib erfordert i.a. zwei rekursive Aufrufe von fib
+• Rekursionsbaum wächst exponentiell!
+• Zeitbedarf für Aufruf fib(n):
+– 𝒪ሺ1ሻfür 𝑛 ൑ 1
+– Zeit für fib(n-1) + Zeit für fib(n-2) + 1 für Addition
+fib(5)
+fib(4)
+fib(3)
+fib(2)
+fib(3)
+fib(2)
+fib(1)
+1
+fib(1)
+fib(0)
+1
+0
+fib(1)
+fib(0)
+1
+0
+fib(2)
+fib(1)
+fib(1)
+fib(0)
+1
+1
+0
+320
+Am Rekursionsbaum sieht man sehr gut, wie viele gleiche Teilbäume er enthält 
+und damit wie viele redundante Berechnungen erfolgen. 
+
+
+--- PDF page 321 ---
+321
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Laufzeitanalyse
+• 𝑻ሺ𝒏ሻ ൌ 𝑻ሺ𝒏െ𝟏ሻ ൅ 𝑻ሺ𝒏െ𝟐ሻ ൅ 𝟏
+• Grobe Abschätzung:
+𝑇𝑛 ൒fib 𝑛ൌfib 𝑛െ1 ൅fib 𝑛െ2
+ ൒2 ൈfib 𝑛െ2
+ ൌ2 ൈfib 𝑛െ3 ൅fib 𝑛െ4
+ ൌ2 ൈfib 𝑛െ3 ൅2 ൈfib 𝑛െ4
+ ൒4 ൈfib 𝑛െ4
+ …
+ ൒2௞ିଵൈfib 𝑛– 2 𝑘െ1
+    setze 𝑛ൌ2𝑘 
+ ൌ2௞ିଵൈfib 𝑛 – 2 ½𝑛– 1
+ൌ2௞ିଵൈfib 2
+ ൌ2௞ିଵ
+ ൌ2௡ଶ
+⁄ି
+ଵൌ1 2
+⁄ ൈ2௡ଶ
+⁄
+• Also 𝑇ሺ𝑛ሻ ൌ 𝓞ሺ𝟐𝒏ሻ (mindestens)
+• Zusätzlicher Overhead für Stackverwaltung (konst. Faktor)
+321
+Die Laufzeit T(n) zur Berechnung von fib(n) lässt sich aufgrund des o.g. Ansatzes 
+mit Hilfe der Fibonacci-Folge selbst abschätzen.
+T(n) ist (wegen +1) sicher größer als fib(n). Da stets fib(n-1) > fib(n-2) gilt, 
+ergeben sich die weiteren hier gezeigten Abschätzungen nach unten. 
+In jedem Schritt verdoppelt sich der konstante Faktor (2,4,8,16,…2k-1). Für  2k = 
+n kann die Rekursion zurückgeführt werden auf fib(2) = 1. Somit ergibt sich die 
+im vorherigen Bild angedeutete exponentielle Laufzeit.
+
+
+--- PDF page 322 ---
+322
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Iterative Berechnung der Fibonacci‐Folge
+• Problem der rekursiven Version: Bei Berechnung von fibሺ𝑛ሻwird 
+Teilfolge fibሺ𝑛െ2ሻ stets unnötig doppelt berechnet
+• Iterative Version:
+• Laufzeit 𝓞ሺ𝟏ሻfür 𝑛 ൑ 1
+• Laufzeit 𝓞ሺ𝒏ሻsonst
+int fib(int n)
+{
+int f1, f2, f;
+if (n <= 1) return 1;
+f1 = 1;
+f2 = 0;
+for (i=2; i<=n; i++) {
+f = f1 + f2;
+f2 = f1;
+f1 = f;
+} 
+return f;
+}
+322
+Die iterative Version vermeidet die Mehrfachberechnungen und berechnet fib(n) 
+so in wesentlich kürzerer (nämlich linearer) Zeit.
+Bei Bedarf noch etwas schneller geht es allerdings mittels der Formel von 
+Moivre-Binet.
+
+
+--- PDF page 323 ---
+323
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+11. Techniken zum Algorithmenentwurf
+11.1 Rekursion und Iteration
+11.2 Backtracking
+11.3 Kombinatorische Optimierung
+11.4 Schwierige Probleme und Heuristiken
+11.5 Dynamische Programmierung
+11.6 Branch and Bound
+323
+
+
+--- PDF page 324 ---
+324
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Backtracking
+• „Rücksetzverfahren“
+• Grundprinzip:
+– Ausbau von Teillösung zu Gesamtlösung
+– „Raten“, falls Weg zur Gesamtlösung nicht feststeht
+– Rücknahme früherer Entscheidungen, falls keine Gesamtlösung 
+erreichbar
+• Eigenschaften:
+– Existierende Lösung wird garantiert gefunden, indem notfalls 
+alle Möglichkeiten ausprobiert werden
+– Dieser Fall führt jedoch zu schlechtem Laufzeitverhalten
+TL1
+TL2
+TL3
+TL4
+TL5
+TL6
+TL7
+Analogie:
+• DFS in Graphen
+• TL = Teillösung
+324
+Beim Lösen eines komplexen Problems ist der Lösungsweg häufig nicht von 
+vornherein klar. Es müssen daher Entscheidungen auf der Basis unvollständiger
+Information getroffen (d.h. es müssen Varianten “ausprobiert”) werden, um 
+überhaupt bei der Lösung voranzukommen. Diese Entscheidungen können sich
+später als falsch herausstellen, so dass man auf einen früheren Punkt
+“zurücksetzen” muss. 
+Man kann dies vergleichen mit der Wegsuche in einem Labyrinth: Hat man von 
+einem bestimmten Punkt A aus einen falschen Weg weiterverfolgt, so muss man 
+zu A zurückgehen, und von dort aus Alternativen verfolgen. Führen alle Wege
+von A aus nicht zum Erfolg, so muss man zu einem noch früheren Rücksetzpunkt
+zurücklaufen.
+
+
+--- PDF page 325 ---
+325
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel aus der technischen Informatik
+• Schaltkreise für Boolesche Funktionen
+• Boolesche Funktion ist eine Abbildung 𝑓∶ 0,1 ଶ → ሼ0,1ሽ
+• Schaltkreis = Hardware‐Implementierung einer Booleschen 
+Funktion
+• Einfache Funktionen (𝑓∶ ሼ0,1ሽൈሼ0,1ሽ→ሼ0,1ሽ) werden durch 
+Logikgatter realisiert, z.B. AND, OR, NOR
+• Komplexe Funktionen durch Zusammensetzen von Gattern
+𝑎
+𝑏
+𝑓
+AND: 𝑓 ൌ 1 ⟺ 𝑎 ൌ 1 UND 𝑏 ൌ 1
+𝑎
+𝑏
+𝑓
+OR:  𝑓 ൌ 1 ⟺𝑎 ൌ 1 ODER 𝑏 ൌ 1
+𝑎
+𝑏
+𝑓
+NOR: 𝑓 ൌ 1 ⟺NICHTሺ𝑎 ൌ 1 ODER 𝑏 ൌ 1ሻ
+325
+Boolesche Funktionen bilden ein Grundkonzept in der technischen Informatik 
+und werden in der Hardware durch Schaltkreise realisiert. Aus diesen 
+Schaltkreisen lassen sich beliebig komplexe Funktionen (und letztlich ganze 
+Computer) aufbauen. 
+Das Grundelement eines Schaltkreises ist ein logisches Gatter. Dieses berechnet 
+eine einfache Verknüpfung auf zwei Eingabebits, z.B. AND. Jede komplexe 
+Funktion lässt sich auf einfache Gatterfunktionen zurückführen, bspw. kann eine 
+bestimmte Anordnung von Gattern eine Addition von Binärzahlen durchführen.
+
+
+--- PDF page 326 ---
+326
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Testen von Schaltkreisen
+• Bei der Herstellung von integrierten Schaltkreisen (integrated
+circuit, IC) als Silizium‐Chips können Fehler auftreten
+• Fehlermodell: eine beliebige Leitung im Schaltkreis ist (z.B. durch 
+Kurzschluss) immer konstant 0 oder 1
+• Beispiel:
+𝒇ሺ𝑨, … , 𝑭ሻ
+𝑨
+𝑩
+𝑪
+𝑬
+𝑫
+𝑭
+𝑮
+𝑱
+𝑯
+𝑰
+𝑲
+𝑱immer = 1?
+326
+Leider können bei der Herstellung von Schaltkreisen Produktionsfehler
+vorkommen, die die Funktion beeinträchtigen. Daher muss jede integrierte 
+Schaltung vor der Auslieferung getestet werden. 
+Da man in eine integrierte Schaltung (welche heute aus Millionen oder gar 
+Milliarden von Transistoren besteht) nicht hineinschauen kann, muss man eine 
+einfache Annahme treffen, welche Fehler vorliegen können. Z.B. kann man 
+annehmen, dass es irgendwo ein fehlerhaftes Gatter gibt, welches immer eine 
+Konstante (0 oder 1) statt der gewünschten Funktion berechnet.
+Im Beispiel soll festgestellt werden, ob die Leitung J immer den Wert 1 hat, was 
+auf einen Fehler hinweisen würde.
+
+
+--- PDF page 327 ---
+327
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Testen von Schaltkreisen
+• Nur Ein‐ und Ausgänge der Schaltung können gesetzt bzw. 
+gemessen werden, jedoch keine internen Leitungen
+• Wie kann 𝑱ൌ𝟏 getestet werden?
+• Geeigneten binären Eingabevektor (𝐴െ𝐹) wählen, so dass im 
+korrekten Fall 𝐽ൌ0
+• Beobachten der Ausgabe 𝐿
+Eingänge
+Ausgang
+Chip
+𝑨
+𝑩
+𝑪
+𝑬
+𝑫
+𝑭
+𝑮
+𝑱
+𝑯
+𝑰
+𝑲
+𝑳
+327
+Das Problem ist, dass auf die Leitung J nicht direkt zugegriffen werden kann. 
+Man muss daher die Eingänge A-F geeignet mit 0en und 1en beschalten, um den 
+Fehler beobachtbar zu machen. Außerdem muss der Wert von J durch das rechte 
+Gatter geleitet werden, damit er letztlich auf der Ausgangsleitung L sichtbar wird.
+
+
+--- PDF page 328 ---
+328
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Bestimmung des Eingabevektors
+• Setze 𝑱ൌ𝟎, sonst Fehler nicht messbar
+• 𝐽ൌ𝐺 NOR 𝐼, also z.B. 𝐺ൌ1, 𝐼ൌ1
+• 𝐺ൌ𝐴 AND 𝐵, also 𝐴ൌ1, 𝐵ൌ1
+• 𝐼ൌ𝐻 OR 𝐸, also z.B. 𝐻ൌ1, 𝐸ൌ0
+• 𝐻ൌ𝐶 AND 𝐷, also 𝐶ൌ1, 𝐷ൌ1
+• Dieser Vektor 𝐴െ𝐸erzwingt 𝐽ൌ0, falls Schaltkreis korrekt
+0
+1
+1
+1
+1
+1
+0
+1
+1
+𝑳
+𝑨
+𝑩
+𝑪
+𝑬
+𝑫
+𝑭
+𝑮
+𝑱
+𝑯
+𝑰
+𝑲
+328
+Folgende Schritte werden durchgeführt, um eine korrekte Belegung der 
+Eingänge herbeizuführen:
+1. Es muss J = 0 erzwungen werden, da bei J = 1 der fehlerhafte Fall nicht vom 
+fehlerfreien zu unterscheiden wäre.
+2. J ergibt sich als NOR-Funktion (“weder…noch”) von G und I. Daher führt 
+z.B. G = 1 und I = 1 zu J = 0.
+3. Für eine 1 auf Leitung G müssen A und B auf 1 gesetzt werden.
+4. Für eine 1 auf I müssen H oder E auf 1 gesetzt werden (oder beide).
+5. Für H = 1 müssen C und D auf 1 gesetzt werden.
+Hiermit wird J = 0 im fehlerfreien Fall sichergestellt. Ob die Schaltung 
+tatsächlich fehlerfrei ist, lässt sich jedoch erst feststellen, wenn Leitung J 
+beobachtet werden kann. Dies kann nur indirekt über Leitung L erfolgen.
+
+
+--- PDF page 329 ---
+329
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beobachtung der Ausgabe
+• 𝐾ൌ1 impliziert 𝐿ൌ1, unabhängig von 𝐽
+• Also 𝐾ൌ0 zu setzen
+• 𝐾ൌ𝐼 OR 𝐹, also 𝐹ൌ0, 𝐼ൌ0 (Widerspruch zu 𝐼ൌ1)
+• Backtracking:
+𝐼ൌ0, 𝐻ൌ0, 𝐶ൌ0
+• Dann ist 𝑳ൌ𝟎 ⇔ Fehler 𝑱ൌ𝟏 liegt nicht vor
+0
+0
+0
+0
+0
+0
+1
+1
+1
+1
+1
+0
+1
+1
+𝑳
+𝑨
+𝑩
+𝑪
+𝑬
+𝑫
+𝑭
+𝑮
+𝑱
+𝑯
+𝑰
+𝑲
+329
+Da L als OR-Funktion berechnet wird, darf  K nicht gleich 1 sein, um den Wert 
+von J auf L beobachtbar zu machen. Dies führt dann zu der Anforderung I = 0 im 
+Widerspruch zu der früher gewählten Belegung. 
+An dieser Stelle wird also Backtracking erforderlich. Das Setzen von I = 0 
+erfordert Änderungen von H und C. Schießlich wird hiermit das gewünschte 
+Ergebnis erzielt.
+
+
+--- PDF page 330 ---
+330
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+11. Techniken zum Algorithmenentwurf
+11.1 Rekursion und Iteration
+11.2 Backtracking
+11.3 Kombinatorische Optimierung
+11.4 Schwierige Probleme und Heuristiken
+11.5 Dynamische Programmierung
+11.6 Branch and Bound
+330
+
+
+--- PDF page 331 ---
+331
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Kombinatorische Optimierung
+• Konstruktion einer Lösung eines Problems durch Auswahl einer 
+Teilmenge einer Menge von diskreten Elementen
+• Jede gültige Lösung muss einer Menge von Randbedingungen
+genügen
+• Gesucht: Lösung, die bzgl. einer Zielfunktion optimal ist (d.h. 
+minimal oder maximal, je nach Problemstellung)
+• Beispiel: minimaler Spannbaum in einem Graphen
+– Menge der diskreten Elemente: 
+• alle Graphkanten
+– Gültige Lösung:
+• Alle Knoten werden genau einmal erfasst
+• Zusammenhängend und keine Zyklen
+– Zielfunktion: 
+• Summe der Kantengewichte → min
+331
+Die Lösung kombinatorischer Optimierungsprobleme gehört zu den 
+häufigsten Anwendungen in der Informatik. Daher steht hierfür -je nach 
+Schwierigkeitsgrad des Problems- eine Reihe von Algorithmen-Grundrezepten 
+zur Verfügung. 
+Beispiel: Das Spannbaumproblem kann mittels eines Greedy-Verfahrens gelöst 
+werden. Dies ist jedoch ein eher einfacher Fall. Die meisten wichtigen 
+Optimierungsprobleme sind leider wesentlich schwieriger zu lösen.
+
+
+--- PDF page 332 ---
+332
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Optimierung durch Greedy‐Algorithmen
+• Greedy = gierig
+• Ausgehend von Teillösung wähle 
+Fortsetzung, welche zum aktuellen 
+Zeitpunkt den größten Gewinn 
+verspricht
+• Eigenschaften:
+– Meist geringe Laufzeit
+– Optimale Lösung evtl. nicht 
+gefunden
+• Beispiel: Kruskal‐Algorithmus
+– Greedy: wähle stets nächst‐
+billigste Kante
+– Laufzeit 𝒪ሺ𝐸log 𝐸ሻ
+– Optimum garantiert gefunden
+Graph MinSpanningTree(Graph G = (V,E))
+{ 
+Graph T; List L; Edge e;
+T = {};
+L = Sort(E); 
+while (#Kanten in T < #Knoten in G–1 
+&& !IsEmpty(L)) {
+e = FirstElem(L); 
+Delete(e,L);
+if (!Cycle(e,T)) {
+T = T {e};
+}
+}
+}
+332
+Wie bereits erwähnt, ist der Kruskal-Algorithmus nicht unbedingt typisch für 
+Greedy-Algorithmen, da er das Optimum garantiert immer findet. Oft werden 
+Greedy-Heuristiken eingesetzt, welche nur näherungsweise zum Optimum 
+führen, aber dafür stets sehr effizient sind.
+
+
+--- PDF page 333 ---
+333
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Münzwechselproblem
+• Landeswährung enthält Münzen zu 
+𝒏𝟏, … , 𝒏𝒌Einheiten
+• 𝑛ଵ൐𝑛ଶ … ൐𝑛௞
+• Stets 𝒏𝒌ൌ𝟏, sonst nicht alle Beträge 
+wechselbar
+• Z.B. Euro/Cent:
+𝑛ଵൌ200, 𝑛ଶൌ100, 𝑛ଷൌ50,
+𝑛ସൌ20, 𝑛ହൌ10, 𝑛଺ൌ5,
+𝑛଻ൌ2, 𝑛଼ൌ1
+• Problem: Auszahlung von Betrag 𝑁mit 
+verfügbaren Münzen
+• Diskrete Elemente: Münzen
+• Gültige Lösung: 
+Menge von Münzen mit Gesamtwert 𝑁
+• Zielfunktion: 
+möglichst wenige Münzen verwenden
+333
+Das Münzwechselproblem ist ebenfalls ein gutes Beispiel für die Anwendung 
+von Greedy-Algorithmen. Möchte man einen gewissen Betrag auszahlen, so wird 
+man dies i.d.R. mit einer minimalen Anzahl von Münzen tun wollen. Bei einer 
+“gut entworfenen” Stückelung der Münzen führt das Greedy-Verfahren zum 
+Erfolg.
+
+
+--- PDF page 334 ---
+334
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Greedy‐Algorithmus
+• Strategie: immer möglichst viele „große“ Münzen wählen, bevor 
+man zu „kleineren“ greift
+• „Untere Gaußklammerfunktion“: 𝐟𝐥𝐨𝐨𝐫ሺ𝒙ሻ= größte ganze Zahl, 
+die nicht größer ist als 𝑥
+• Führt bei „guten“ Stückelungen immer zum Optimum
+• Schlechte Stückelung: z.B. 𝑛ଵൌ2𝑛ଶ൅1, 𝑛ଶ൐1, 𝑛ଷൌ1
+Greedy‐Münzwechsel
+Schlechter Fall, z.B. 𝑁 ൌ 3𝑛ଶ
+z.B. 𝑛ଶൌ10, 𝑁ൌ30, 𝑛ଵൌ21
+1 Münze zu Wert 21
+dann 𝑊 ൌ 30 – 21 ൌ 9
+9 Münzen zu Wert 1
+Zusammen 10 Münzen
+Ausreichend wären 3 Münzen Wert 10
+void change(int N)
+{ 
+int W, i;
+W = N;
+for (i=1; i<=k; i++) { 
+f = floor(W/ni);
+wähle f Münzen
+der Einheit ni;
+W -= ni * f;
+}
+}
+334
+Übung: Man entwerfe einen Algorithmus, welcher auch bei der “schlechten” 
+Stückelung die minimale Anzahl von Münzen ermittelt.
+
+
+--- PDF page 335 ---
+335
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+11. Techniken zum Algorithmenentwurf
+11.1 Rekursion und Iteration
+11.2 Backtracking
+11.3 Kombinatorische Optimierung
+11.4 Schwierige Probleme und Heuristiken
+11.5 Dynamische Programmierung
+11.6 Branch and Bound
+335
+
+
+--- PDF page 336 ---
+336
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Komplexität von Optimierungsproblemen
+•
+Für viele wichtige kombinatorische Optimierungsprobleme ist 
+bekannt, dass sie nicht in akzeptabler Zeit optimal lösbar sind, da 
+ihre Laufzeit (höchstwahrscheinlich) mindestens in 𝒪ሺ2௡ሻliegt
+•
+Sog. NP‐vollständige Probleme
+•
+Rechenbeispiel: Problemgröße 𝑛ൌ64, schneller Rechner führt 
+232 Operationen/sec aus
+•
+Rechenzeit: 232 sec ≈ 136 Jahre
+•
+Prinzipielle Möglichkeiten:
+1. Optimale Lösung (brute force) für kleine Werte von n
+2. Optimale Lösung, und dafür sorgen, dass worst case möglichst 
+selten eintritt
+3. Gute, aber nicht notwendig optimale Lösung berechnen
+336
+Intuitiv bedeutet der Begriff “NP-vollständig”, dass es einen 
+nichtdeterministischen Algorithmus gibt (d.h. einen der “richtig raten” kann), 
+welcher das Problem effizient (in O(nk)) löst. Ob es auch einen entsprechenden 
+deterministischen (und damit auch praktisch implementierbaren) Algorithmus 
+gibt, ist allerdings unbekannt. 
+Sehr viele wichtige Optimierungsprobleme fallen in die Kategorie der NP-
+vollständigen Probleme. Ob diese überhaupt effizient lösbar sind, ist eins der 
+größten offenen Probleme der theoretischen Informatik (P = NP Problem). Es 
+wird jedoch allgemein vermutet, dass NP-vollständige Probleme nicht effizient 
+lösbar sind. 
+Ob ein Problem NP-vollständig ist oder nicht, lässt sich mathematisch oft relativ 
+einfach zeigen. Die Einstufung eines Problems kann somit Auskunft geben, ob 
+die Suche nach einem effizienten Algorithmus überhaupt sinnvoll ist. In der Tat 
+wäre das Auffinden eines solchen Algorithmus für ein NP-vollständiges Problem 
+eine Sensation, denn dieser Algorithmus könnte dann alle anderen NP-
+vollständigen Probleme ebenfalls effizient lösen. 
+
+
+--- PDF page 337 ---
+337
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiele NP‐vollständiger Probleme
+• Traveling salesman problem: 
+– Modell: Graph mit Kantengewichten
+– Gesucht: Kürzester Rundweg 
+(Zyklus), der alle Knoten genau 
+einmal enthält
+• Graph‐Färbung:
+– Modell: ungerichteter Graph
+– Gesucht: Färbung der Knoten mit 
+min. Anzahl Farben, so dass 
+benachbarte Knoten 
+unterschiedliche Farben haben
+• Erfüllbarkeit Boolescher Funktionen:
+– Gibt es für Funktion 𝑓eine Eingabe 𝑥
+mit 𝑓ሺ𝑥ሻ ൌ 1?
+Kürzester Rundweg über
+die 15 größten Städte
+Deutschlands (von > 43 * 109
+möglichen)   [Wikipedia]
+337
+Hier sind nur drei von tausenden bereits als NP-vollständig nachgewiesenen 
+Problem aufgeführt. Einige davon sind eher exotisch, aber sehr viele haben 
+Anwendungen in der täglichen Praxis. Daher sind Lösungsverfahren hierfür von 
+großem Interesse.
+
+
+--- PDF page 338 ---
+338
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Komplexität von Optimierungsproblemen
+• Zur Kategorie 3 gehören heuristische Algorithmen
+• Heuristik: 
+– Kompromiss zwischen Rechenaufwand und Lösungsqualität
+– Basierend auf problemspezifischem Wissen und 
+„Daumenregeln“
+– Greedy‐Algorithmen sind oft Heuristiken
+– Gewünscht: möglichst oft sehr gute Lösung
+– Nachteil: Lösung kann auch beliebig schlecht sein
+• Außerdem möglich: Approximationsalgorithmen
+– Garantie, dass Lösungsqualität nicht um mehr als bestimmten 
+Faktor vom Optimum abweicht
+– Faktor = „Güte“ des Approximationsalgorithmus
+338
+Die Kunst beim Entwurf von Heuristiken besteht darin, mit einem effizienten 
+Algorithmus möglichst oft und möglichst gut an das Optimum heranzukommen 
+und dabei das Vorkommen von “Ausreißern” mit sehr schlechter Lösung zu 
+minimieren.
+Bei Approximationsalgorithmen gibt es keine Ausreißer, denn man kann 
+nachweisen, dass eine bestimmte Güte nie unterschritten wird. Eine Heuristik 
+kann in der Praxis natürlich oft wesentlich bessere Dienste leisten. 
+Man sieht, dass es bei der Auswahl eines Lösungsverfahrens außer auf das 
+Problem selbst auch auf die konkreten Anforderungen an die Laufzeit und die 
+Lösungsqualität ankommt.
+
+
+--- PDF page 339 ---
+339
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel für Heuristik
+• Gegeben: kantengewichteter vollständiger
+Graph 𝐺ൌሺ𝑉, 𝐸, 𝑤ሻ, d.h. für alle Knoten 𝑢, 𝑣gilt ሼ𝑢, 𝑣ሽ  𝐸
+• Gesucht: Pfad 𝑃 ൌ ሺ𝑣ଵ, … , 𝑣௡ሻ in 𝐺, der
+– jeden Knoten in 𝑉genau einmal enthält und
+– eine maximale Kantengewichtssumme besitzt
+• Vergleiche minimaler (bzw. maximaler) Spannbaum:
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+1
+2
+3
+2
+1
+2
+1
+2
+4
+3
+1
+2
+339
+Bei einem vollständigen Graphen sind alle Knoten paarweise durch eine Kante 
+verbunden. 
+
+
+--- PDF page 340 ---
+340
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Maximal gewichteter Pfad
+• Man kann zeigen: Problem ist NP‐vollständig
+• Ausnutzung der Ähnlichkeit zum Spannbaumproblem
+– Pfad = „entarteter“ (d.h. linearer) Spannbaum
+– Modifikation des Kruskal‐Algorithmus: nächste Kante 𝑒nur 
+gültig, falls
+• Kein Zyklus entsteht
+• Keine Verzweigungen entstehen (d.h. kein „echter“ Baum)
+– Erzeugt heuristisch gute Lösungen in kurzer Zeit
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+0
+1
+3
+2
+4
+5
+1
+2
+4
+4
+3
+5
+0
+2
+3
+2
+2
+1
+2
+1
+340
+Der linke Graph ist zeichnerisch kein vollständiger Graph (da er sonst zu 
+unübersichtlich würde), man kann jedoch voraussetzen, dass alle nicht explizit 
+gezeigten Kanten das Gewicht 0 haben, und somit nichts zum Gewicht des 
+gesuchten Pfades beitragen könnten.
+Man beachte, dass durch die Abwandlung des Kruskal-Algorithmus (d.h. 
+Hinzunahme des Tests auf Verzweigungen) aus einem optimalen Algorithmus 
+eine echte Heuristik wird, d.h. es entstehen nicht immer optimale Lösungen. Dies 
+folgt schon allein aus der Tatsache, dass der Kruskal-Algorithmus eine Laufzeit 
+von O(N log N) (N = Anzahl der Graphkanten, s.o.) hat. Mit dieser Laufzeit kann 
+offenbar kein NP-vollständiges Problem optimal gelöst werden.
+
+
+--- PDF page 341 ---
+341
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+11. Techniken zum Algorithmenentwurf
+11.1 Rekursion und Iteration
+11.2 Backtracking
+11.3 Kombinatorische Optimierung
+11.4 Schwierige Probleme und Heuristiken
+11.5 Dynamische Programmierung
+11.6 Branch and Bound
+341
+
+
+--- PDF page 342 ---
+342
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Dynamische Programmierung
+• Effizientes exaktes Lösen von Optimierungsproblemen mit 
+folgender Eigenschaft:
+– Die optimale Lösung des Gesamtproblems kann effizient aus 
+optimalen Lösungen von Teilproblemen berechnet werden
+• Beispiel aus dem Compilerbau:
+– Rechner besitzt elementare Maschinenbefehle
+(Assemblerbefehle, s. Kap. 1), z.B. Addition oder Multiplikation 
+zweier Zahlen
+– Optimale Befehlsauswahl: Wie kann ein komplexer 
+arithmetischer Ausdruck in der Programmiersprache C am 
+schnellsten mit den verfügbaren Assemblerbefehlen berechnet 
+werden?
+342
+Die Befehlsauswahl ist ein zentraler Teil eines Compiler-Backends, welches den 
+zielprozessorspezifischen Teil eines Compilers darstellt. Das Problem kann als 
+ein Muster-Überdeckungsproblem aufgefasst werden. Der arithmetische 
+Ausdruck kann als Baum dargestellt werden, und die einzelnen Maschinenbefehle 
+entsprechen ebenfalls kleinen baumförmigen Mustern. Die Befehlsauswahl 
+besteht darin, den Ausdrucksbaum möglichst effizient (d.h. mit wenigen oder 
+“billigen” Befehlsmustern) zu überdecken.
+
+
+--- PDF page 343 ---
+343
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Befehlsauswahl
+• Ausdruck: (a * b) + (c * d)
+• Befehle:
+– Modell: 
+• Rechner lädt Variablen (var) aus dem Speicher 
+(load) und speichert Werte in Registern (r1, r2, 
+r3)
+• Jeder Befehl besitzt ein Kostenmaß (z.B. Zeit zur 
+Ausführung)
+– load:   r1 = var,            Kosten 1
+– add:    r1 = +(r1,r2),       Kosten 2
+– mul:    r1 = *(r1,r2),       Kosten 2
+– copy:   ri = rj,             Kosten 1
+– muladd: r1 = +(*(r1,r2),r3), Kosten 3
+var
+var
+*
+var
+var
+*
++
+Abstrakte 
+Darstellung des 
+Ausdrucks als 
+Baum
+343
+In diesem Beispiel stehen sechs Maschinenbefehle zur Verfügung. Eine optimale 
+Befehlsauswahl wird versuchen, den muladd-Befehl zu bevorzugen, da er eine 
+Überdeckung von + und * mit Kosten 3 erlaubt (statt insges. 4 bei getrennter 
+Überdeckung mittels add und mul).
+
+
+--- PDF page 344 ---
+344
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Befehlsauswahl
+• Ansatz:
+– Ausdrucksbaum mit möglichst 
+„billiger“ Menge von Befehlen 
+überdecken
+– Lösung für den gesamten 
+Ausdrucksbaum aus optimalen 
+Lösungen für seine Teilbäume 
+bestimmen
+• Für jeden Teilbaum merken:
+– Welcher Befehl an dessen Wurzel 
+passt (z.B. „+“ mittels „add“ zu 
+überdecken, „*“ mittels „mul“)
+– In welchem Register das Ergebnis des 
+Teilbaums gespeichert wird
+– Welche Gesamtkosten hierbei 
+entstehen
+load
+mul
+add
+muladd
+var‐Knoten:
+Überdeckung mit „load“
+Ergebnis dann in Register r1
+Kosten: 1
+Überdeckung mit „copy r1, r2“
+Ergebnis dann in Register r2
+Kosten: 2
+var
+var
+*
+var
+var
+*
++
+344
+Aufgrund der Baumstruktur ist das Problem der Befehlsauswahl sehr gut für die 
+dynamische Programmierung zugänglich. Die optimale Auswahl für jeden 
+Knoten k hängt nämlich nicht vom gesamten Restbaum ab, sondern nur von der 
+optimalen Auswahl für die Kinder von k. Diese lokal optimalen Lösungen können 
+dann zu einer Gesamtlösung des bei k beginnenden Teilbaums zusammengesetzt 
+werden.
+
+
+--- PDF page 345 ---
+345
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Befehlsauswahl
+var
+var
+*
+var
+var
+*
++
+Billigste Lösung
+Überdeckung des Ausdrucksbaums
+Befehle
+• Aus dieser Lösung kann die optimale Assembler‐
+Befehlsfolge unmittelbar konstruiert werden
+• Laufzeit: 𝒪ሺ𝑛ሻbei n Baumknoten
+load:
+r1  var
+→ Kosten 1
+add:
+r1  +(r1,r2)
+→ Kosten 2
+mul:
+r1  *(r1,r2)
+→ Kosten 2
+copy: 
+ri rj
+ Kosten 1
+muladd: 
+r1  +(*(r1,r2), r3) 
+→ Kosten 3
+load:
+r1  var
+→ Kosten 1
+add:
+r1  +(r1,r2)
+→ Kosten 2
+mul:
+r1  *(r1,r2)
+→ Kosten 2
+copy: 
+ri rj
+ Kosten 1
+muladd: 
+r1  +(*(r1,r2), r3) 
+→ Kosten 3
+load: r1,1
+copy: r1,r2,2
+copy: r3,r2,2
+load: r1,1
+copy: r1,r2,2
+copy: r1,r3,2
+load:r1,1
+copy:r1,r2,2
+copy:r1,r3,2
+load: r1,1
+copy: r1,r2,2
+copy: r1,r3,2
+mul: r1,r2,1+2+2=5
+copy: r1,r2,5+1=6
+copy: r1,r3,5+1=6
+mul: r1,r2,1+2+2=5
+copy: r2,   5+1=6
+copy: r3,   5+1=6
+add:    r1, 5+6+1+2=14
+muladd: r1, 1+2+6+3=12
+345
+Überdeckung der var-Knoten: Ein load-Befehl sorgt dafür, dass die Variable var
+in Register r1 geladen wird. Die Kosten hierfür betragen 1. Mittels copy kann der 
+Wert von var auch zusätzlich noch von r1 in ein anderes Register kopiert werden 
+(bspw. r2 oder r3), wofür eine zusätzliche Kosteneinheit anfällt, also insges. 2. 
+Diese Information ist identisch für alle 4 var-Knoten und wird als Tabelle am 
+jeweiligen var-Knoten vermerkt.
+Überdeckung der *-Knoten: Hierfür ist der mul-Befehl geeignet. Er erfordert, 
+dass das linke Argument sich in r1 befindet und das rechte inr2. Die Kosten 
+hierfür sind bereits aus den darüberliegenden Tabellen bekannt: 1 bzw. 2, 
+zusammen 3. Mit den Kosten für mul selbst (2) ergeben sich also Gesamtkosten 5, 
+um das Ergebnis eines bei * beginnenden Teilbaums in r1 abzuspeichern. 
+Zusätzlich kann wie oben der Wert nach r2 oder r3 kopiert werden, wofür wieder 
+je eine zusätzliche Kosteneinheit anfällt.
+Überdeckung des +-Knotens: Hierfür kann der add-Befehl eingesetzt werden. 
+Er erfordert, dass das linke Argument sich in r1 befindet und das rechte in r2. Die 
+Kosten hierfür sind bereits aus den darüberliegenden Tabellen bekannt: 5 bzw. 6, 
+zusammen 11. Mit den Kosten für add selbst (2) ergeben sich also Gesamtkosten 
+13, um das Ergebnis eines bei + beginnenden Teilbaums in r1 abzuspeichern. 
+Billiger geht es mit dem muladd-Befehl, bei dem sich Gesamtkosten 12 ergeben. 
+
+
+--- PDF page 346 ---
+346
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+11. Techniken zum Algorithmenentwurf
+11.1 Rekursion und Iteration
+11.2 Backtracking
+11.3 Kombinatorische Optimierung
+11.4 Schwierige Probleme und Heuristiken
+11.5 Dynamische Programmierung
+11.6 Branch and Bound
+346
+
+
+--- PDF page 347 ---
+347
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Branch and Bound
+• „Verzweigung und Schranke“
+• Exaktes Lösen schwieriger (NP‐vollständiger) 
+Optimierungsprobleme
+• Idee:
+– Lösen eines „schwierigen“ kombinatorischen 
+Optimierungsproblems entspricht Durchlauf eines 
+Entscheidungsbaumes
+– Entscheidungsbaum typischerweise exponentiell groß 
+– „Beschneidung“ des Baumes verringert Laufzeit ohne Verlust 
+an Optimalität
+• Ähnliches Konzept auch bei Spielbäumen (TicTacToe, Dame, 
+Schach, …)
+• Charakteristik:
+– Im worst case exponentielle Laufzeit
+– Im average case wesentlich schneller
+347
+Branch and Bound ist ein sehr elegantes Verfahren zum Lösen NP-vollständiger 
+Optimerungsprobleme. Durch eine geschickte Beschneidung des Lösungsraumes 
+(d.h. Weglassen von Lösungen, welche sowieso nicht zum Optimum führen 
+können) kann erheblich Zeit eingespart werden. 
+Bei einem kombinatorischen Optimierungsproblem müssen fortlaufend 
+Entscheidungen getroffen werden, z.B. mit welchem Wert eine bestimmte 
+Variable zu belegen ist. Die Suche kann als Baumstruktur aufgefasst werden: Jede 
+Entscheidung entspricht einem Baumknoten, und bei N alternativen 
+Möglichkeiten hat der Knoten N Nachfolger. 
+Branch and Bound nutzt nun aus, dass nicht alle (normalerweise exponentiell 
+vielen) Nachfolger weiterverfolgt werden müssen, um das Optimum zu finden, 
+sondern man versucht, die erfolgversprechendsten Wege zuerst zu verfolgen. 
+Leider gelingt das nicht immer, und im worst case muss doch der ganze 
+Entscheidungsbaum abgesucht werden. 
+
+
+--- PDF page 348 ---
+348
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Entscheidungsbaum
+• Annahme: Vektor 𝑉ൌሺ𝑥ଵ, … , 𝑥௡ሻ von 0/1‐Variablen so zu wählen, 
+dass eine Kostenfunktion 𝑓ሺ𝑉ሻminimiert wird
+• Entscheidungsbaum: Festlegen jeweils einer Variable
+ሺ𝒙𝟏, … , 𝒙𝒏ሻ
+ሺ𝒙𝟏, … , 𝒙𝒊ି𝟏, 𝟎, 𝒙𝒊ା𝟏, … , 𝒙𝒏ሻ
+𝒙𝒊ൌ𝟎
+ሺ𝒙𝟏, … , 𝒙𝒊ି𝟏, 𝟏, 𝒙𝒊ା𝟏, … , 𝒙𝒏ሻ
+𝒙𝒊ൌ𝟏
+ሺ𝒙𝟏, … , 𝒙𝒊ି𝟏, 𝟎, 𝟎, 𝒙𝒊ା𝟐, … , 𝒙𝒏ሻ
+𝒙𝒊ା𝟏ൌ𝟎
+ሺ𝒙𝟏, … , 𝒙𝒊ି𝟏, 𝟎, 𝟏, 𝒙𝒊ା𝟐, … , 𝒙𝒏ሻ
+𝒙𝒊ା𝟏ൌ𝟏
+ሺሺ𝒙𝟏, … , 𝒙𝒊ି𝟏, 𝟎, 𝟏, 𝟏, 𝒙𝒊ା𝟑, … , 𝒙𝒏ሻሻ
+𝒙𝒊ା𝟐ൌ𝟏
+ሺ𝒙𝟏, … , 𝒙𝒊ି𝟏, 𝟎, 𝟏, 𝟎, 𝒙𝒊ା𝟑, … , 𝒙𝒏ሻ
+𝒙𝒊ା𝟐ൌ𝟎
+348
+Bei diesem Beispielproblem besteht jede Entscheidung darin, eine Belegung 
+einer 0/1-Variable festzulegen. An der Wurzel sind alle Variablen frei, und auf 
+jeder Stufe wird genau eine Variable mit 0 oder 1 belegt. Offenbar hat der Baum 
+exponentielle Größe in der Anzahl der Variablen.
+
+
+--- PDF page 349 ---
+349
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Schranken
+• Während der Verzweigung: Berechnung von oberen (upper bound, 
+𝑈) und unteren Schranken (lower bound, 𝐿) für die Kostenfunktion 
+𝑓an jedem Knoten 𝐾, so dass im Teilbaum unterhalb von 𝐾
+– in jedem Fall mindestens Kosten 𝑳entstehen
+– garantiert eine Lösung mit Kosten höchstens 𝑼existiert
+• Bound: Besitzt Knoten 𝐾eine untere Schranke 𝑳, welche größer 
+ist als das kleinste bisher bekannte U, dann kann der Teilbaum 
+unterhalb von 𝐾von der Suche ausgeschlossen werden, ohne dass 
+eine optimale Lösung verloren geht
+• Wichtig:
+– Schranken sind schnell zu berechnen (sonst zu aufwendig)
+– Schranken sind „scharf“ (sonst kein effektives Bound)
+349
+Mit Hilfe der Schranken lässt sich oft schnell feststellen, welche Bereiche eines 
+Baums noch von Interesse sind, da sich dort das Optimum “verbergen” könnte. 
+Das Verfahren funktioniert jedoch nur dann gut, wenn man gute Algorithmen zur 
+Schrankenberechnung (d.h. schnell und/oder scharf) findet. Dies ist in der Tat der 
+schwierigste Teil beim Entwurf eines Branch and Bound-Algorithmus.
+
+
+--- PDF page 350 ---
+350
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel für Bound
+L = 30
+U = 40
+L = 11
+U = 20
+L = 25
+U = 30
+L = 10
+U = 50
+ሺ𝒙𝟏, … , 𝒙𝒏ሻ
+ሺ𝒙𝟏, … , 𝒙𝒊ି𝟏, 𝟎, 𝒙𝒊ା𝟏, … , 𝒙𝒏ሻ
+𝒙𝒊ൌ𝟎
+ሺ𝒙𝟏, … , 𝒙𝒊ି𝟏, 𝟏, 𝒙𝒊ା𝟏, … , 𝒙𝒏ሻ
+𝒙𝒊ൌ𝟏
+ሺ𝒙𝟏, … , 𝒙𝒊ି𝟏, 𝟎, 𝟎, 𝒙𝒊ା𝟐, … , 𝒙𝒏ሻ
+𝒙𝒊ା𝟏ൌ𝟎
+ሺ𝒙𝟏, … , 𝒙𝒊ି𝟏, 𝟎, 𝟏, 𝒙𝒊ା𝟐, … , 𝒙𝒏ሻ
+𝒙𝒊ା𝟏ൌ𝟏
+ሺሺ𝒙𝟏, … , 𝒙𝒊ି𝟏, 𝟎, 𝟏, 𝟏, 𝒙𝒊ା𝟑, … , 𝒙𝒏ሻሻ
+𝒙𝒊ା𝟐ൌ𝟏
+ሺ𝒙𝟏, … , 𝒙𝒊ି𝟏, 𝟎, 𝟏, 𝟎, 𝒙𝒊ା𝟑, … , 𝒙𝒏ሻ
+𝒙𝒊ା𝟐ൌ𝟎×
+×
+350
+Gesucht ist hier die Variablenbelegung V, welche eine Kostenfunktion f(V) 
+minimiert. 
+Beim Knoten rechts unten sind zwar erst 3 Variablen belegt, man weiss jedoch (U 
+= 20), dass das Endergebnis die Kosten 20 in diesem Teilbaum nie übersteigen 
+kann. Daher können die durchgestrichenen Teilbäume bereits zu diesem 
+Zeitpunkt außer Betracht gelassen werden, da sie Kosten von mindestens 25 bzw. 
+30 bewirken würden. 
+Beim übrigen Teilbaum (ganz links) muss noch weitergesucht werden, da er 
+theoretisch eine noch bessere Lösung liefern könnte (wegen L = 10).
+
+
+--- PDF page 351 ---
+351
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: max. gewichteter Pfad in Graphen
+• Branch: bestimmte Kante wird in den Pfad aufgenommen (sofern 
+gültig) oder aber explizit ausgeschlossen
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+0
+Verwenden?
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+0
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+1
+0
+351
+Alternativ zu dem o.g. abgewandelten Kruskal-Algorithmus zu Pfadbestimmung
+kann man auch Branch and Bound einsetzen. Während es sich bei dem o.g. 
+Algorithmus ja um eine Heuristik handelt, würde dies immer das Optimum 
+bestimmen. 
+Der Entscheidungsbaum ergibt sich einfach dadurch, dass man für jede Kante 
+im Graphen festlegen muss, ob sie Teil des ausgewählten Pfades sein soll oder 
+nicht.
+
+
+--- PDF page 352 ---
+352
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: max. gewichteter Pfad in Graphen
+• Effiziente Berechnung der Schranken?
+• Gegeben: Graph mit 𝑛Knoten und Teillösung mit 𝑘bereits fest 
+gewählten Kanten
+• Obere Schranke 𝑼:
+– Im besten Falle könnten noch die 𝑛െ𝑘െ1 „schwersten“ 
+unter den noch nicht betrachteten Kanten hinzugefügt werden
+– Optimale Lösung kann höchstens schlechter sein
+• Untere Schranke 𝑳:
+– Setze Teillösung mittels Heuristik durch Hinzunahme von 
+𝑛െ𝑘െ1 Kanten zu Gesamtlösung fort
+– Optimale Lösung kann höchstens besser werden
+• Maximierungsproblem: Falls für einen Knoten der Wert von 𝑈
+kleiner ist als bisher bestes 𝐿, so kann der Teilbaum entfallen
+352
+Die Berechnung von U ist sehr schnell, da man lediglich einige Kantengewichte 
+aufsummieren muss.
+Die Berechnung von L könnte sich der bekannten Heuristik bedienen, welche 
+ebenfalls recht schnell arbeitet. Da sie gute Ergebnisse liefert, wird L i.a. auch 
+scharf sein.
+
+
+--- PDF page 353 ---
+353
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Bildnachweise
+#20 
+Petr Kratochvil , „frau‐sitzt‐mit‐laptop “, publicdomainpictures.net
+„PC‐CPU‐Feld‐Vektor‐Bild“, publicdomainvectors.org
+#23
+Ldorfman ‐ According to a work of Johanna Pung made for Wikimedia Deutschland –
+Own work, CC BY‐SA 3.0, 
+commons.wikimedia.org/w/index.php?curid=21837408
+#32
+Max Pixel, “Medical Cold Fever Thermometer Temperature Digital“, maxpixel.net
+#143 Tim Reckmann, „Kreditkarte“, CC‐BY 2.0, ccnull.de
+#163 MartinStr, „blasen‐wasser‐sprudelnd‐lufblasen‐230014“, pixabay.com
+#213 ACBahn, „Warteschlange Eisdiele“, commons.wikimedia.org, CC GNU 1.2
+#245 „gps‐navigation‐garmin‐gerät‐304842“, pixabay.com
+openstreetmap.de, Open Database Licence (ODbL) 1.0
+#270 „Grundsätzliche Informationen zum Netzausbau”, www.buergerdialog‐stromnetz.de
+#280 wirestock, „closeup‐bee‐sunflower‐field‐sunligh”, freepik.com
+#294 „money_coins_loose_change_euro_cent_specie_metal_money_finance”, pxhere.com
+353
+
+
+--- PDF page 354 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Literaturnachweise
+• B.W. Kernighan, D.M. Ritchie: Programmieren in C, 
+2. Auflage, Hanser, 1990, ISBN 3‐446‐15497‐3 
+• R. Sedgewick: Algorithmen in C++, Teil 1‐4, Addison‐Wesley, 2002, 
+ISBN 3‐8273‐7026‐4
+• K. Loudon: Mastering Algorithms with C, 1. Auflage, O‘Reilly, 1999, 
+ISBN 978‐1‐56592‐453‐6
+354
+354
+
+
+--- PDF page 355 ---
+355
+© T. Gemmeke, IDS, RWTH
+• Abstrakte Datentypen
+• Ausgabe 
+• Funktionen
+– Lambda 
+– Overloading
+• Klassen
+– (De)Constructor
+– Public vs. Private 
+– Inheritance
+• Libraries 
+– Using & namespace
+• Loops
+– Iterators 
+• Polymorphie
+– Statisch 
+– Dynamisch 
+• Smart Pointer 
+– Unique 
+– Shared
+– Weak 
+• Streams 
+,
+• Template 
+Stichwortregister zu C++ Sprachelementen
+39
+113
+149
+117
+355
+140
+142
+144
+147
+40
+34
+70
+71
+72
+129
+153
+119
+138
+155
+39
+73

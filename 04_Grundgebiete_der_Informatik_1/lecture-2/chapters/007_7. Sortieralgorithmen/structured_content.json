@@ -1,0 +1,4446 @@
+{
+  "pages": [
+    {
+      "page_idx": 188,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.358,
+            0.17,
+            0.642,
+            0.196
+          ],
+          "level": 2,
+          "content": "7. Sortieralgorithmen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.253,
+            0.811,
+            0.321
+          ],
+          "sub_type": "text",
+          "content": "**7.1 Einfache Verfahren (Selection/Insertion/Bubblesort)**\n7.2 Quicksort\n7.3 Heapsort"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**189**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "189"
+        }
+      ]
+    },
+    {
+      "page_idx": 189,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.61,
+            0.102
+          ],
+          "level": 2,
+          "content": "Warum Betrachtung von Sortieralgorithmen?"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.83,
+            0.411
+          ],
+          "sub_type": "text",
+          "content": "• Sortierung von Datensätzen wird als **Subroutine** in sehr vielen Anwendungen benötigt (s. Beispiel „Suchen in Arrays“)\n• Einfachster Fall: Sortieren eines **Arrays von Zahlen** (z.B. int)\n• Allg. Fall: Sortieren eines **Arrays von Datensätzen** vom Typ struct\n• Beispiel:\n• Sortierung nach Namen, Vornamen oder Geburtsdatum?\nErfordert Definition eines **Schlüssels** (key), d.h. struct‐Komponente, gemäß der sortiert werden soll\n• Unterschiedliche Vergleichsfunktionen erforderlich"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.182,
+            0.241,
+            0.777,
+            0.319
+          ],
+          "sub_type": "code",
+          "content": "```c\ntypedef struct person {\n    char name[100], vorname[100];\n    struct datum { int tag, monat, jahr; } gebdatum;\n} Person;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**190**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.148,
+            0.481,
+            0.393,
+            0.496
+          ],
+          "level": 2,
+          "content": "Sortierte Datensätze können"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.149,
+            0.504,
+            0.604,
+            0.568
+          ],
+          "sub_type": "text",
+          "content": "• viel effizienter durchsucht werden (s. binäre Suche)\n• leichter auf Duplikate geprüft werden\n• von Menschen leichter gelesen werden."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.574,
+            0.836,
+            0.627
+          ],
+          "content": "Sortiert wird eine Menge von Datensätzen, meist in Form von Arrays. Hierzu wird eine **Schlüsselkomponente** der Arrayelemente benötigt, der die Datensätze vergleichbar macht."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.149,
+            0.633,
+            0.234,
+            0.648
+          ],
+          "level": 2,
+          "content": "Schlüssel"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.148,
+            0.656,
+            0.83,
+            0.756
+          ],
+          "sub_type": "text",
+          "content": "• dienen der Identifikation der Datensätze,\n• sind meist Bestandteil der Daten oder werden zusammen mit\n„Nutzdaten“ gespeichert,\n• müssen nicht unbedingt Zahlen sein (Bsp.: Name, Vorname / lexikographische Ordnung)."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "190"
+        }
+      ]
+    },
+    {
+      "page_idx": 190,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.469,
+            0.102
+          ],
+          "level": 2,
+          "content": "Definition des Sortierproblems"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.825,
+            0.435
+          ],
+          "sub_type": "text",
+          "content": "• **Gegeben**: Folge $S   =   ( s _ { 1 } , \\ldots , s _ { N } )$ von **Datensätzen** (struct)\nJeder Datensatz $s _ { i }$ besitzt einen Eintrag 𝑘𝑒𝑦 eines mittels einer Ordnungsrelation **linear geordneten Datentyps**\n• Z.B. **Zahlen**: $\\scriptstyle { \\boldsymbol { \\upsilon } } \\leq { \\boldsymbol { \\theta } } ^ { \\prime \\prime }$ Relation, **Buchstaben**: alphabetische Reihenfolge, **Geburtsdatum**: 3‐stufiger Vergleich Jahr, Monat, Tag\nGesucht: **Permutation** (Anordnung) $S ^ { \\prime } = ( s _ { 1 } ^ { \\prime } , \\dots , s _ { N } ^ { \\prime } )$ der Elemente von $S ,$ so dass\nGleiche Schlüssel dürfen auch **mehrfach** vorkommen\nEin Sortieralgorithmus, der die ursprüngliche Reihenfolge bei gleichem Schlüssel beibehält, heißt **stabil**\nSprachelemente in c: Definition der Folge als Array: Person $s [ N ]$ Auslesen des Schlüssels von Datensatz 𝑖: s[i].key"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.308,
+            0.275,
+            0.632,
+            0.297
+          ],
+          "content": "s _ {1} ^ {\\prime}. k e y \\leq s _ {2} ^ {\\prime}. k e y \\leq \\dots \\leq s _ {N} ^ {\\prime}. k e y",
+          "image_source": "../../raw/pages_0161-0192/images/page_190_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**191**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.813,
+            0.553
+          ],
+          "content": "Die **Stabilität** ist für die Korrektheit eines Sortierverfahrens ohne Belang. Sie kann jedoch nützlich sein, wenn gewünscht ist, dass eine einmal hergestellte Ordnung durch erneutes Sortieren der Datensätze (z.B. nach Einfügen eines neuen Eintrags) nicht wieder durcheinandergebracht wird."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.556,
+            0.836,
+            0.592
+          ],
+          "content": "**Übung**: Untersuchen Sie die im folgenden besprochenen Sortieralgorithmen auf Stabilität."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "191"
+        }
+      ]
+    },
+    {
+      "page_idx": 191,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.477,
+            0.102
+          ],
+          "level": 2,
+          "content": "Analyse von Sortieralgorithmen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.83,
+            0.416
+          ],
+          "sub_type": "text",
+          "content": "Wie üblich: Verwendung der 𝓞**‐Notation** zur Abstraktion von konstanten Faktoren und Rechnerdetails\nElementare Operationen von Sortieralgorithmen:\n– **Vergleich** zweier Schlüssel\n– **Vertauschen** von Daten in Folge S (Array oder File)\nDaher Abschätzung der **Laufzeit** in diesen Größen\n• **Reale Laufzeit**: abhängig von der Komplexität dieser Operationen\nBsp.: Sortieren eines **Bücherregals**, Vergleich der Autorennamen aufwendiger als Vertauschen\nBsp.: Sortieren einer **Datenbank** mit großen Datensätzen in einem File, Umkopieren auf Festplatte oder Magnetband aufwendiger als Key‐Vergleich\n• Hier: nur Betrachtung der **Vergleichsoperationen**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**192**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.848,
+            0.553
+          ],
+          "content": "Die Anzahl der Vergleichsoperationen ist eine **obere Schranke** für die Anzahl der Vertauschungen, da jede evtl. notwendige Vertauschung immer erst nach einem Vergleich durchgeführt werden kann. Für eine abstrakte Analyse ist die o.g. Einschränkung also zulässig."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "192"
+        }
+      ]
+    },
+    {
+      "page_idx": 192,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.082,
+            0.584,
+            0.101
+          ],
+          "level": 2,
+          "content": "Sortieren durch Auswählen (Selection Sort)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.123,
+            0.541,
+            0.159
+          ],
+          "content": "Manuelles **alphabetisches Sortieren** eines Bücherregals mit 𝑁 Büchern:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.197,
+            0.163,
+            0.541,
+            0.377
+          ],
+          "sub_type": "text",
+          "content": "– **Schlüssel**: Autorenname\n– Durchlaufen der Bücher von links nach rechts\n– **Merken** des jeweils „kleinsten“bisher gefundenen Buches und dessen **Position** 𝑝 im Regal\n– Zum Schluss: „Kleinstes“ Buch **ganz links** hinstellen, dort bisher stehendes Buch (vorläufig) an Position 𝑝 stellen\n– Verfahren **fortsetzen** mit 𝑝 ൌ 2"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.581,
+            0.073,
+            0.834,
+            0.309
+          ],
+          "sub_type": "text_image",
+          "content": "Hesse\nGoethe\nHesse\nGoethe",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_192_image_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**193**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.794,
+            0.515
+          ],
+          "content": "Für das Verständnis von Sortieralgorithmen ist es hilfreich, sich einmal zu überlegen, wie man Objekte (Bücher, Kartenspiele, etc.) **von Hand** sortiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.516,
+            0.714,
+            0.552
+          ],
+          "content": "Vielleicht haben Sie das hier gezeigte Selection Sort schon einmal „unbewusst“ angewendet."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.557,
+            0.845,
+            0.628
+          ],
+          "content": "Die Grundidee ist es, fortlaufend das kleinste Element zu suchen und nach links zu schaffen. Zu jedem Zeitpunkt befindet sich im linken Teil bereits eine sortierte Teilfolge, während der rechte Teil noch unsortiert ist. Der sortierte Teil wächst fortlaufend, bis zum Schluss der unsortierte Teil leer ist."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "193"
+        }
+      ]
+    },
+    {
+      "page_idx": 193,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.38,
+            0.101
+          ],
+          "level": 2,
+          "content": "Algorithmus im Detail"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.162,
+            0.124,
+            0.806,
+            0.205
+          ],
+          "sub_type": "text",
+          "content": "**Vereinfachung**: Sortieren von Arrays vom Typ int, d.h. Vergleichsoperation auf Zahlen, z.B. A[i] < A[j]\n**Real**: Hilfsfunktion „less“ auf Sortierschlüsseln, jeweils Vergleich less(A[i].key, A[j].key)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.294,
+            0.224,
+            0.65,
+            0.417
+          ],
+          "sub_type": "code",
+          "content": "```txt\nvoid selection_sort(int A[], int l, int r)\n{\n    int i, j, min;\n    for (i = l; i < r; i++) {\n        min = i;\n        for (j = i+1; j <= r; j++) {\n            if (A[j] < A[min]) min = j;\n        }\n        exchange(A[i], A[min]); // vertauschen\n    }\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**194**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.83,
+            0.57
+          ],
+          "content": "Zur einfacheren Darstellung des Algorithmus gehen wir hier von Integer-Arrays aus. Die Arrayelemente entsprechen dann unmittelbar den **Schlüsselelementen**, d.h. es wird direkt A[i] mit A[j] verglichen. In realen Anwendungen wird man meist eine Hilfsfunktion implementieren, die den Vergleich der Schlüsselelemente A[i].key und A[j].key vornimmt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.575,
+            0.842,
+            0.683
+          ],
+          "content": "Der **Algorithmus** durchläuft das Array A vom linken Rand l bis zum rechten Rand r-1 mit Hilfe des Index i. In jedem Durchlauf i wird nun zunächst das Minimum auf den Index i gesetzt. Im Folgenden wird das Array von der i-ten Position aus nach rechts durchlaufen und das Minimum mit dem aktuellen Element verglichen und u.U. aktualisiert. Am Ende des Arrays angelangt wird das i-te Element mit dem dem gefundenen (lokal) minimalen Element vertauscht."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "194"
+        }
+      ]
+    },
+    {
+      "page_idx": 194,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.244,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiel"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.174,
+            0.149,
+            0.536,
+            0.37
+          ],
+          "sub_type": "heatmap",
+          "content": "| Category | Value 1 | Value 2 | Value 3 | Value 4 | Value 5 | Value 6 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Row 1 | 45 | 12 | 77 | 23 | 76 | 11 |\n| Row 2 | 11 | 12 | 77 | 23 | 76 | 45 |\n| Row 3 | 11 | 12 | 77 | 23 | 76 | 45 |\n| Row 4 | 11 | 12 | 23 | 77 | 76 | 45 |\n| Row 5 | 11 | 12 | 23 | 45 | 76 | 77 |\n| Row 6 | 11 | 12 | 23 | 45 | 66 | 77 |\n| Row 7 | 11 | 12 | 23 | 45 | 66 | 76 |\n| Row 8 | 11 | 12 | 23 | 45 | 66 | 76 |\n| Row 9 | 11 | 12 | 23 | 45 | 66 | 76 |\n| Row 10 | 11 | 12 | 23 | 45 | 66 | 76 |\n| Row 11 | 11 | 12 | 23 | 45 | 66 | 76 |\n| Row 12 | — | — | — | — | — | — |\n| Row 13 | — | — | — | — | — | — |\n| Row 14 | — | — | — | — | — | — |\n| Row 15 | — | — | — | — | — | — |\n| Row 16 | — | — | — | — | — | — |\n| Row 17 | — | — | — | — | — | — |\n| Row 18 | — | — | — | — | — | — |\n| Row 19 | — | — | — | — | — | — |\n| Row 20 | — | — | — | — | — | — |\n| Row 21 | — | — | — | — | — | — |\n| Row 22 | — | — | — | — | — | — |\n| Row 23 | — | — | — | — | — | — |\n| Row 24 | — | — | — | — | — | — |\n| Row 25 | — | — | — | — | — | — |\n| Row 26 | — | — | — | — | — | — |\n| Row 27 | — | — | — | — | — | — |\n| Row 28 | — | — | — | — | — | — |\n| Row 29 | — | — | — | — | — | — |\n| Row 30 | — | — | — | — | — | — |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_194_chart_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.655,
+            0.197,
+            0.774,
+            0.21
+          ],
+          "content": "**noch unsortiert**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.633,
+            0.243,
+            0.796,
+            0.257
+          ],
+          "content": "**aktuell min. Schlüssel**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.292,
+            0.758,
+            0.304
+          ],
+          "content": "**vertauscht**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.657,
+            0.338,
+            0.771,
+            0.351
+          ],
+          "content": "**bereits sortiert**"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.174,
+            0.4,
+            0.535,
+            0.421
+          ],
+          "content": "| 11 | 12 | 23 | 45 | 66 | 76 | 77 | 83 |\n| --- | --- | --- | --- | --- | --- | --- | --- |",
+          "captions": [
+            {
+              "bbox": [
+                0.177,
+                0.382,
+                0.256,
+                0.398
+              ],
+              "content": "Ergebnis"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_194_table_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**195**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.743,
+            0.516
+          ],
+          "content": "Im obigen **Beispiel** wird der **Selection Sort** anschaulich anhand einer beispielhaften Zahlenfolge dargestellt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.521,
+            0.848,
+            0.575
+          ],
+          "content": "Im ersten Durchlauf wird das Element 11 als Minimum identifiziert und mit dem Element an Position 1 vertauscht. Die sortierte Folge enthält nun ein Element, der Algorithmus wird mit der restlichen Folge analog verfahren."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.58,
+            0.841,
+            0.634
+          ],
+          "content": "Im zweiten Durchlauf wird das Element 12 als Minimum identifiziert, steht jedoch schon an der richtigen Stelle, so dass kein Vertauschen notwendig ist. Die sortierte Folge enthält nun zwei Elemente."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.639,
+            0.844,
+            0.675
+          ],
+          "content": "Im dritten Durchlauf wird das Element 23 als Minimum identifiziert und mit dem Element an Position 3 vertauscht. Die sortierte Folge enthält nun drei Elemente."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.68,
+            0.848,
+            0.716
+          ],
+          "content": "Im vierten Durchlauf wird das Element 45 als Minimum identifiziert und mit dem Element an Position 4 vertauscht. Die sortierte Folge enthält nun vier Elemente."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.722,
+            0.811,
+            0.773
+          ],
+          "content": "Im fünften Durchlauf wird das Element 66 als Minimum identifiziert und mit dem Element an Position 5 vertauscht. Die sortierte Folge enthält nun fünf Elemente."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.78,
+            0.821,
+            0.834
+          ],
+          "content": "Im sechsten Durchlauf wird das Element 76 als Minimum identifiziert und mit dem Element an Position 6 vertauscht. Die sortierte Folge enthält nun sechs Elemente, usw."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.839,
+            0.506,
+            0.858
+          ],
+          "content": "Nach 7 Durchläufen ist die Folge sortiert."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "195"
+        }
+      ]
+    },
+    {
+      "page_idx": 195,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.319,
+            0.102
+          ],
+          "level": 2,
+          "content": "Laufzeitanalyse"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.242,
+            0.131,
+            0.818,
+            0.334
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"&quot;void selection_sort(int A[\"], int l, int r)\\n{\"] -->|\"N-1 Iterationen\"| B[\"N-1, N-2, ..., 1 Iterationen\"]\n  B -->|\"O1 Operationen\"| C[\"O(1) Operationen\"]\n  C -->|\"O1 Operationen\"| D[\"&quot;exchange(A[i\"], A[\"min\"]);\\n}\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_195_image_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.349,
+            0.549,
+            0.367
+          ],
+          "content": "• Aufruf: selection\\_sort(A,0,N-1);"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.178,
+            0.372,
+            0.798,
+            0.413
+          ],
+          "content": "\\begin{array}{l} (\\mathbf {1} + \\mathbf {2} + \\dots + N - \\mathbf {2} + N - \\mathbf {1}) \\cdot \\mathcal {O} (1) + (N - 1) \\cdot \\mathcal {O} (1) \\\\ = \\boldsymbol {N} \\cdot (\\boldsymbol {N} - \\boldsymbol {1}) / \\boldsymbol {2} \\cdot \\mathcal {O} (1) + \\mathcal {O} (N) = \\mathcal {O} (N ^ {2}) + \\mathcal {O} (N) = \\mathcal {O} (N ^ {2}) \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0193-0224/images/page_195_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**196**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.56,
+            0.498
+          ],
+          "content": "Die **Laufzeitanalyse** ergibt folgendes Ergebnis:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.504,
+            0.841,
+            0.539
+          ],
+          "content": "Die äußere Schleife enthält O(N) Iterationen mit jeweils einer Vertauschung (d.h. O(1) Operationen) $\\Rightarrow \\mathrm{O}(\\mathrm{N})^{*} \\mathrm{O}(1)=\\mathrm{O}(\\mathrm{N})$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.545,
+            0.84,
+            0.598
+          ],
+          "content": "In der inneren Schleife werden im k-ten Durchlauf (N-k) Vergleiche (d.h. je O(1) Operationen) durchgeführt, also $((  N-1 ) + (  N-2 ) + \\cdots + 2 + 1 ) *  O ( 1 ) =  N  * (  N-1 ) / 2 *$ $\\mathrm { O } ( 1 )   =   \\mathrm { O } ( \\mathrm { N } ^ { 2 } )$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.604,
+            0.847,
+            0.639
+          ],
+          "content": "Die Anzahl der Vergleiche ist dabei immer identisch, auch bei einer Vorsortierung des Arrays!"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.645,
+            0.573,
+            0.664
+          ],
+          "content": "Insgesamt ergibt sich also $\\mathrm { O } ( \\mathrm { N } ) + \\mathrm { O } ( \\mathrm { N } ^ { 2 } ) { = } \\mathrm { O } ( \\mathrm { N } ^ { 2 } )$"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "196"
+        }
+      ]
+    },
+    {
+      "page_idx": 196,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.082,
+            0.563,
+            0.102
+          ],
+          "level": 2,
+          "content": "Sortieren durch Einfügen (Insertion Sort)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.123,
+            0.541,
+            0.159
+          ],
+          "content": "Manuelles **alphabetisches Sortieren** eines Bücherregals mit 𝑁 Büchern:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.197,
+            0.163,
+            0.541,
+            0.397
+          ],
+          "sub_type": "text",
+          "content": "– **Schlüssel**: Autorenname\n– Durchlaufen der Bücher von links nach rechts (𝑖 ൌ 1 … 𝑁)\n– Betrachtung des Buchs an Position 𝒑 = 𝒊\n– Buch Nr. 𝑖 **entnehmen**\n– Bücher **links** von 𝑝 ൌ 𝑖 (d.h. 𝑝 ൏ 𝑖) nach rechts rücken, bis korrekte **Einfügeposition** für Buch 𝑖 gefunden\n– Verfahren **fortsetzen** mit 𝑖 ൌ 𝑖 ൅ 1"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.579,
+            0.073,
+            0.834,
+            0.309
+          ],
+          "sub_type": "bar",
+          "content": "| Category | Value |\n| --- | --- |\n| Hesse | ~1.0 |\n| Goethe | ~1.0 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_196_chart_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**197**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.83,
+            0.57
+          ],
+          "content": "Beim **Insertion Sort** ist die Grundidee, jeweils ein Element herauszunehmen, und durch Nach-Rechts-Schieben von größeren Elementen die richtige “Lücke” für das entnommene Element zu finden und es dort einzufügen. Nach entsprechender Behandlung des letzten (rechtesten) Elementes ist dann das gesamte Array sortiert."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.517,
+            0.993
+          ],
+          "content": "197"
+        }
+      ]
+    },
+    {
+      "page_idx": 197,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.38,
+            0.101
+          ],
+          "level": 2,
+          "content": "Algorithmus im Detail"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.163,
+            0.124,
+            0.79,
+            0.187
+          ],
+          "sub_type": "text",
+          "content": "Betrachtung aller Bücher von links nach rechts\n**Erstes Buch** braucht nicht betrachtet zu werden, da kein linker Nachbar (d.h. zu Beginn i = l+1)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.31,
+            0.205,
+            0.663,
+            0.414
+          ],
+          "sub_type": "code",
+          "content": "```lisp\nvoid insertion_sort(int A[], int l, int r)\n{\n    int i, j, v;\n    for (i = l+1; i <= r; i++) {\n        v = A[i];\n        for (j = i-1; j >= l; j--) {\n            if (v < A[j]) A[j+1] = A[j];\n            else break;\n        }\n        A[j+1] = v;\n    }\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**198**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.841,
+            0.642
+          ],
+          "content": "Der Algorithmus durchläuft das Array von links nach rechts, fängt jedoch an Position i=l+1 an, da das erste Buch **automatisch** eine sortierte Folge der Länge 1 ist. Nun wird sukzessive von rechts nach links die richtige **Einfügeposition** für das gerade betrachtete Element in der bereits sortierten Folge gesucht. D.h. die Elemente der bereits sortierten Folge werden solange um eine Position nach rechts gerückt, bis das einzufügende Element aufgrund der verwendeten Ordnungsrelation größer ist als das gerade betrachtete Element in der sortierten Folge. An der aktuellen Position wird nun das gerade betrachtete Element eingefügt. Die sortierte Folge ist nun um ein Element gewachsen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "198"
+        }
+      ]
+    },
+    {
+      "page_idx": 198,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.163,
+            0.084,
+            0.242,
+            0.101
+          ],
+          "level": 2,
+          "content": "Beispiel"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.174,
+            0.15,
+            0.536,
+            0.367
+          ],
+          "sub_type": "bar_stacked",
+          "content": "| Category | Value 1 | Value 2 | Value 3 | Value 4 | Value 5 | Value 6 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Row 1 | 45 | 12 | 77 | 23 | 76 | 11 |\n| Row 2 | 12 | 45 | 77 | 23 | 76 | 11 |\n| Row 3 | 12 | 45 | 77 | 23 | 76 | 11 |\n| Row 4 | 12 | 23 | 45 | 77 | 76 | 11 |\n| Row 5 | 12 | 23 | 45 | 76 | 77 | 11 |\n| Row 6 | 11 | 12 | 23 | 45 | 76 | 77 |\n| Row 7 | 11 | 12 | 23 | 45 | 76 | 77 |\n| Row 8 | 11 | 12 | 23 | 45 | 66 | 76 |\n| Row 9 | — | — | — | — | — | 83 |\n| Row 10 | — | — | — | — | — | 66 |\n| Row 11 | — | — | — | — | — | 66 |\n| Row 12 | — | — | — | — | — | 66 |\n| Row 13 | — | — | — | — | — | 83 |\n| Row 14 | — | — | — | — | — | 83 |\n| Row 15 | — | — | — | — | — | 83 |\n| Row 16 | — | — | — | — | — | 83 |\n| Row 17 | — | — | — | — | — | 83 |\n| Row 18 | — | — | — | — | — | 83 |\n| Row 19 | — | — | — | — | — | 83 |\n| Row 20 | — | — | — | — | — | 83 |\n| Row 21 | — | — | — | — | — | 83 |\n| Row 22 | — | — | — | — | — | 83 |\n| Row 23 | — | — | — | — | — | 83 |\n| Row 24 | — | — | — | — | — | 83 |\n| Row 25 | — | — | — | — | — | 83 |\n| Row 26 | — | — | — | — | — | 83 |\n| Row 27 | — | — | — | — | — | 83 |\n| Row 28 | — | — | — | — | — | 83 |\n| Row 29 | — | — | — | — | — | 83 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_198_chart_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.653,
+            0.183,
+            0.77,
+            0.195
+          ],
+          "content": "**noch unsortiert**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.645,
+            0.23,
+            0.778,
+            0.242
+          ],
+          "content": "**aktuelles Element**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.636,
+            0.269,
+            0.786,
+            0.297
+          ],
+          "content": "**bereits sortiert, aber zu verschieben**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.655,
+            0.325,
+            0.767,
+            0.337
+          ],
+          "content": "**bereits sortiert**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.437,
+            0.172,
+            0.445
+          ],
+          "content": "**199**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.439,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.823,
+            0.534
+          ],
+          "content": "Im ersten Schritt hat die sortierte Folge die Länge 1. Das Element 45 wird nun um eine Position nach rechts gerückt, da 12 kleiner 45 ist. Die 12 wird also vor der 45 eingefügt. Die sortierte Folge hat nun die Länge 2."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.539,
+            0.807,
+            0.576
+          ],
+          "content": "Im zweiten Schritt steht das Element 77 bereits an der richtigen Position. Die sortierte Folge hat nun die Länge 3."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.58,
+            0.82,
+            0.634
+          ],
+          "content": "Im dritten Schritt wird das Element 23 hinter der 12 eingefügt, alle anderen Elemente werden um eine Position nach rechts gerückt. Die sortierte Folge hat nun die Länge 4."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.639,
+            0.785,
+            0.674
+          ],
+          "content": "So wird mit in den nächsten Schritten fortgefahren, bis das Array komplett sortiert ist."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "199"
+        }
+      ]
+    },
+    {
+      "page_idx": 199,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.229,
+            0.118,
+            0.825,
+            0.341
+          ],
+          "sub_type": "algorithm",
+          "content": "void insertion\\_sort(int A[], int l, int r)\n{\n    int i, j, v;\n    for (i = l+1; i <= r; i++) {\n        v = A[i];\n        for (j = i-1; j >= l; j--) {\n            if (v < A[j]) A[j+1] = A[j];\n            else break;\n        }\n        A[j+1] = v;\n    }\n}",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.319,
+                0.102
+              ],
+              "content": "Laufzeitanalyse"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.198,
+            0.353,
+            0.531,
+            0.372
+          ],
+          "content": "• Aufruf: insertion\\_sort(A,0,N‐1);"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.198,
+            0.376,
+            0.815,
+            0.42
+          ],
+          "content": "\\begin{array}{l} (\\mathbf {1} + \\mathbf {2} + \\dots + N - \\mathbf {2} + N - \\mathbf {1}) \\cdot \\mathcal {O} (1) + (N - 1) \\cdot \\mathcal {O} (1) \\\\ = \\boldsymbol {N} \\cdot (\\boldsymbol {N} - \\boldsymbol {1}) / \\boldsymbol {2} \\cdot \\mathcal {O} (1) + \\mathcal {O} (N) = \\mathcal {O} (N ^ {2}) + \\mathcal {O} (N) = \\mathcal {O} (N ^ {2}) \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0193-0224/images/page_199_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**200**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.625
+          ],
+          "content": "Die **Laufzeitanalyse** ergibt: Die äußere Schleife wird N-1 mal durchlaufen, vom zweiten bis zum letzten Element des Arrays. In jedem Schleifendurchlauf wird nun die Einfügeposition des aktuellen Elements gesucht. Hier erfolgt im ersten Schleifendurchlauf eine Iteration, da mit nur einem Vorgängerelement verglichen werden muss. Im (N-1)-ten Schleifendurchlauf muss mit maximal N-1 Elementen verglichen werden. Für diese maximal N-1 Iterationen wird jeweils eine Operation (nach rechts rücken) der Komplexität O(1) ausgeführt. Das Einfügen selbst ist dann wiederum von der Komplexität O(1)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.628,
+            0.66,
+            0.647
+          ],
+          "content": "Insgesamt ergibt sich also eine **Gesamtlaufzeit** von O(N<sup>2</sup>)."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "200"
+        }
+      ]
+    },
+    {
+      "page_idx": 200,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.275,
+            0.1
+          ],
+          "level": 2,
+          "content": "Bubblesort"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.163,
+            0.124,
+            0.596,
+            0.248
+          ],
+          "sub_type": "text",
+          "content": "Idee: Elemente mit kleinem Schlüssel sind „**leicht**“ und steigen wie Blasen im Array auf (d.h. wandern nach links)\nAufsteigen durch fortgesetztes **paarweises Vertauschen** der Elemente von rechts nach links implementiert"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.637,
+            0.115,
+            0.842,
+            0.243
+          ],
+          "sub_type": "natural_image",
+          "content": "Close-up of bubbles floating in water under blue sky (no text or symbols)",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_200_image_4.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.304,
+            0.258,
+            0.631,
+            0.43
+          ],
+          "sub_type": "code",
+          "content": "```txt\nvoid bubble_sort(int A[], int l, int r)\n{\n    int i, j;\n    for (i = l; i < r; i++) {\n        for (j = r; j > i; j--) {\n            if (A[j-1] > A[j])\n                exchange(A[j-1],A[j]);\n        }\n    }\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**201**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.821,
+            0.516
+          ],
+          "content": "Ein weiteres elementares Sortierverfahren ist **Bubblesort**, das auf dem Prinzip des fortgesetzten Vertauschens von rechts nach links basiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.521,
+            0.794,
+            0.557
+          ],
+          "content": "Im ersten Durchlauf wandert dabei das kleinste Element an den Anfang des Arrays, im zweiten Durchlauf das zweitkleinste usw."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "201"
+        }
+      ]
+    },
+    {
+      "page_idx": 201,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.591,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiel (1. Durchlauf der äußeren Schleife)"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.164,
+            0.13,
+            0.526,
+            0.32
+          ],
+          "content": "| 45 | 12 | 77 | 23 | 76 | 11 | 83 | 66 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| 45 | 12 | 77 | 23 | 76 | 11 | 66 | 83 |\n| 45 | 12 | 77 | 23 | 11 | 76 | 66 | 83 |\n| 45 | 12 | 77 | 11 | 23 | 76 | 66 | 83 |\n| 45 | 12 | 11 | 77 | 23 | 76 | 66 | 83 |\n| 45 | 11 | 12 | 77 | 23 | 76 | 66 | 83 |\n| 11 | 45 | 12 | 77 | 23 | 76 | 66 | 83 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_201_table_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.652,
+            0.149,
+            0.771,
+            0.163
+          ],
+          "content": "**noch unsortiert**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.632,
+            0.196,
+            0.79,
+            0.21
+          ],
+          "content": "**aktuelle linke Grenze**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.653,
+            0.244,
+            0.768,
+            0.257
+          ],
+          "content": "**zu vertauschen**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.654,
+            0.291,
+            0.768,
+            0.304
+          ],
+          "content": "**bereits sortiert**"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.174,
+            0.345,
+            0.816,
+            0.428
+          ],
+          "sub_type": "text",
+          "content": "Kleinstes Element (11) am Ende des 1. Durchlaufs an der linken Position\nAndere relativ „leichte“ Elemente (z.B. 66) sind bereits teilweise nach links gerückt, schwere nach rechts (45, 77)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**202**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.848,
+            0.553
+          ],
+          "content": "Betrachtet werden im ersten Schritt die letzten beiden Elemente des Arrays, sie werden nötigenfalls vertauscht. So werden sukzessive paarweise Elemente verglichen, so dass das Element 11 im ersten Durchlauf an den Anfang des Arrays gerückt wird."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "202"
+        }
+      ]
+    },
+    {
+      "page_idx": 202,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.082,
+            0.658,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiel (2. und 3. Durchlauf der äußeren Schleife)"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.174,
+            0.115,
+            0.536,
+            0.343
+          ],
+          "sub_type": "bar_stacked",
+          "content": "| Category | Value 1 | Value 2 | Value 3 | Value 4 | Value 5 | Value 6 |\n| --- | --- | --- | --- | --- | --- | --- |\n| Row 1 | 45 | 12 | 77 | 23 | 76 | 66 |\n| Row 2 | 45 | 12 | 77 | 23 | 66 | 76 |\n| Row 3 | 45 | 12 | 23 | 77 | 66 | 76 |\n| Row 4 | 12 | 45 | 23 | 77 | 66 | 76 |\n| Row 5 | 12 | 45 | 23 | 77 | 66 | 76 |\n| Row 6 | 12 | 45 | 23 | 66 | 77 | 76 |\n| Row 7 | 12 | 23 | 45 | 66 | 77 | 76 |\n| Row 8 | 12 | 23 | 45 | 66 | 77 | 76 |\n| Row 9 | — | — | — | — | — | — |\n| Row 10 | — | — | — | — | — | — |\n| Row 11 | — | — | — | — | — | — |\n| Row 12 | — | — | — | — | — | — |\n| Row 13 | — | — | — | — | — | — |\n| Row 14 | — | — | — | — | — | — |\n| Row 15 | — | — | — | — | — | — |\n| Row 16 | — | — | — | — | — | — |\n| Row 17 | — | — | — | — | — | — |\n| Row 18 | — | — | — | — | — | — |\n| Row 19 | — | — | — | — | — | — |\n| Row 20 | — | — | — | — | — | — |\n| Row 21 | — | — | — | — | — | — |\n| Row 22 | — | — | — | — | — | — |\n| Row 23 | — | — | — | — | — | — |\n| Row 24 | — | — | — | — | — | — |\n| Row 25 | — | — | — | — | — | — |\n| Row 26 | — | — | — | — | — | — |\n| Row 27 | — | — | — | — | — | — |\n| Row 28 | — | — | — | — | — | — |\n| Row 29 | — | — | — | — | — | — |\n| Row 30 | — | — | — | — | — | — |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_202_chart_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.652,
+            0.15,
+            0.771,
+            0.163
+          ],
+          "content": "**noch unsortiert**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.632,
+            0.197,
+            0.79,
+            0.21
+          ],
+          "content": "**aktuelle linke Grenze**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.653,
+            0.245,
+            0.768,
+            0.257
+          ],
+          "content": "**zu vertauschen**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.654,
+            0.292,
+            0.768,
+            0.305
+          ],
+          "content": "**bereits sortiert**"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.163,
+            0.36,
+            0.801,
+            0.422
+          ],
+          "sub_type": "text",
+          "content": "**Eigenschaft**: nach 𝑖‐tem Durchlauf ist 𝑖‐tes kleinstes Element an seiner endgültigen Position\n• Andere Elemente wurden weiter **vorsortiert**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**203**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.809,
+            0.553
+          ],
+          "content": "Im zweiten Durchlauf wandert das Element 12 wiederum durch paarweise Vertauschung an die zweite Position, im dritten Durchlauf rückt die 23 an die dritte Position usw., d.h. im i-ten Durchlauf ist die Länge der sortierten Liste jeweils gleich i."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "203"
+        }
+      ]
+    },
+    {
+      "page_idx": 203,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.237,
+            0.116,
+            0.761,
+            0.304
+          ],
+          "sub_type": "algorithm",
+          "content": "void bubble\\_sort(int A[], int l, int r)\n{\n    int i, j;\n    for (i = l; i < r; i++) {\n        for (j = r; j > i; j--) {\n            if (A[j-1] > A[j])\n                exchange(A[j-1],A[j]);\n        }\n    }\n}",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.319,
+                0.102
+              ],
+              "content": "Laufzeitanalyse"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.191,
+            0.308,
+            0.593,
+            0.354
+          ],
+          "content": "\\begin{array}{l} (1 + 2 + \\dots + N - 2 + N - 1) \\cdot \\mathcal {O} (1) \\\\ = N \\cdot (N - 1) / 2 \\cdot \\mathcal {O} (1) = \\mathcal {O} (N ^ {2}) \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0193-0224/images/page_203_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.358,
+            0.832,
+            0.416
+          ],
+          "content": "Selection Sort, Insertion Sort und Bubblesort haben asymptotisch alle **quadratische Laufzeit** in der **Eingabegröße** 𝑁 und sind (bis auf konstante Faktoren) gleichwertig"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**204**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.845,
+            0.517
+          ],
+          "content": "Die **Laufzeitanalyse** ergibt N-1 Durchläufe. Dabei werden im i-ten Durchlauf Ni Iterationen, d.h. evtl. Vertauschungen in je O(1) Operationen durchgeführt."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "204"
+        }
+      ]
+    },
+    {
+      "page_idx": 204,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.358,
+            0.17,
+            0.642,
+            0.196
+          ],
+          "level": 2,
+          "content": "7. Sortieralgorithmen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.255,
+            0.253,
+            0.796,
+            0.32
+          ],
+          "sub_type": "text",
+          "content": "7.1 Einfache Verfahren (Selection/Insertion/Bubblesort)\n**7.2 Quicksort**\n7.3 Heapsort"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**205**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "205"
+        }
+      ]
+    },
+    {
+      "page_idx": 205,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.361,
+            0.102
+          ],
+          "level": 2,
+          "content": "Divide‐and‐conquer"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.114,
+            0.827,
+            0.298
+          ],
+          "sub_type": "text",
+          "content": "• „Divide et impera“, „Teile und herrsche“\n• Verbreitetes Prinzip beim **Algorithmenentwurf**\nD.h. selbst kein Algorithmus, nur ein „**Kochrezept**“ bei der Entwicklung\n• Divide‐and‐conquer‐Idee:\n– Mehrere kleine Probleme sind insgesamt **leichter zu lösen** als ein großes\n– **Teile** großes Problem in mehrere kleine, löse diese, und berechne daraus die **Gesamtlösung**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.301,
+            0.239,
+            0.317
+          ],
+          "content": "• Hier:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.195,
+            0.322,
+            0.826,
+            0.421
+          ],
+          "sub_type": "text",
+          "content": "– Zerlege zu sortierendes Array A in zwei Teile A' und A\", die **unabhängig voneinander** sortiert werden können\n– Sortiere A' und A\" getrennt\n– Zusammenfügen (**Konkatenation**) der sortierten Arrays A' und A\" ergibt sortiertes Gesamtarray A"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**206**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.817,
+            0.552
+          ],
+          "content": "Mit **Quicksort** stellen wir jetzt ein etwas komplexeres Sortierverfahren vor, in dem Sinne, dass man so wohl nicht von Hand sortieren würde. Wie wir später sehen werden, würde man bei großen Datenmengen aber hiermit wesentlich schneller zum Ziel kommen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.557,
+            0.841,
+            0.593
+          ],
+          "content": "Das “**divide and conquer**”-Prinzip findet seinen Einsatz auch bei vielen anderen Problemen in der Informatik."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "206"
+        }
+      ]
+    },
+    {
+      "page_idx": 206,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.389,
+            0.101
+          ],
+          "level": 2,
+          "content": "Quicksort‐Algorithmus"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.795,
+            0.375
+          ],
+          "sub_type": "text",
+          "content": "• Für Array $\\mathsf { A } [ 1 \\ldots r ]$ wähle ein **bestimmtes** A[k] aus\n$\\mathbb { A } [ \\mathbb { k } ]$ ist das **Trennelement**\n• Ordne Array so um, dass:\nDies wird realisiert, indem bzgl. des Trennelementes $, \\mathsf { f a l s c h e ^ { \\prime \\prime } }$ Elemente in $\\textsf { A } ^ { \\intercal }$ und $\\mathbb { A } ^ { \\textsf { n } }$ **paarweise vertauscht** werden\n• Achtung: Arrays $\\mathbb { A } ^ { \\intercal } , \\mathbb { A } ^ { \\mathsf { n } }$ sind danach i.a. **immer noch unsortiert**\n• Sortiere die Teilarrays $\\textsf { A } ^ { \\intercal }$ und $\\mathsf { A } ^ { \\textsf { n } }$ mittels erneutem Aufruf des Quicksort‐Algorithmus (**Rekursion**)\n• Anschließend ist $\\mathbf { A } = \\mathbf { A } ^ { \\mathsf { T } } \\mathbf { A } [ \\mathbf { k } ] \\mathbf { A } ^ { \\mathsf { T } }$ ein sortiertes Gesamtarray"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.197,
+            0.196,
+            0.648,
+            0.214
+          ],
+          "content": "- A ^ {\\prime} = A [ 1 \\dots k - 1 ] \\text {hat nur Elemente} \\leq A [ k ]",
+          "image_source": "../../raw/pages_0193-0224/images/page_206_equation_5.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.198,
+            0.22,
+            0.648,
+            0.239
+          ],
+          "content": "- A ^ {\\prime \\prime} = A [ k + 1 \\dots r ] \\text {hat nur Elemente} \\geq A [ k ]",
+          "image_source": "../../raw/pages_0193-0224/images/page_206_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**207**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.819,
+            0.57
+          ],
+          "content": "Man sieht ein Grundproblem bei der möglichen “manuellen” Anwendung von Quicksort, $\\mathbf { z . B . }$ bei einem Bücherregal: Man müsste häufig hin- und herlaufen und sich darüber hinaus diverse Informationen merken, um noch zu wissen, an welcher Stelle man weitermachen muss. In einer Implementierung in einem **Programm** ist beides allerdings sehr einfach zu bewerkstelligen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "207"
+        }
+      ]
+    },
+    {
+      "page_idx": 207,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.324,
+            0.133,
+            0.644,
+            0.271
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid quick_sort(int A[], int l, int r)\n{\n    int k;\n    if (r <= l) return;\n    k = partition(A,l,r);\n    quick_sort(A,l,k-1);\n    quick_sort(A,k+1,r);\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.38,
+                0.101
+              ],
+              "content": "Algorithmus im Detail"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.445
+          ],
+          "content": "**208**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.394,
+            0.299,
+            0.429,
+            0.33
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_207_image_3.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.676,
+            0.317,
+            0.754,
+            0.333
+          ],
+          "content": ">= \\mathrm{A} [ \\mathrm{k} ]",
+          "image_source": "../../raw/pages_0193-0224/images/page_207_equation_4.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.678,
+            0.365,
+            0.754,
+            0.381
+          ],
+          "content": "\\Leftarrow \\mathsf {A} [ \\mathsf {k} ]",
+          "image_source": "../../raw/pages_0193-0224/images/page_207_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.665,
+            0.413,
+            0.768,
+            0.428
+          ],
+          "content": "**fertig sortiert**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.439,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.48,
+            0.795,
+            0.516
+          ],
+          "content": "Die Array-Darstellungen zeigen vier **prinzipielle Schritte** beim Ablauf von Quicksort:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.149,
+            0.545,
+            0.837,
+            0.668
+          ],
+          "sub_type": "text",
+          "content": "1) Unsortiertes Array\n2) Array mit der Eigenschaft “kleine Elemente links vom Trennelement, große rechts davon” (divide-Schritt)\n3) Teilarray A´ nach rekursivem Quicksort-Aufruf bereits fertig sortiert, rechter Teil $\\mathrm { A } ^ { \\prime } { } ^ { \\prime }$ noch unsortiert\n4) Fertig sortiert"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.696,
+            0.827,
+            0.823
+          ],
+          "content": "Quicksort besteht aus einer **Hauptfunktion** (“quick\\_sort”), welche sich der **Hilfsfunktion** “partition” bedient, um den gewünschten Zustand (2) herzustellen. Diese liefert auch den Index k des Trennelementes zurück. Anschließend finden zwei rekursive Quicksort-Aufrufe statt, um die Sortierung fertigzustellen. Die Grenze zwischen den beiden Teilarrays ist dabei durch den Index k gegeben. Nach dem ersten rekursiven Aufruf bspw. ist die in Schritt 3) gezeigte Situation hergestellt."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "208"
+        }
+      ]
+    },
+    {
+      "page_idx": 208,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.269,
+            0.124,
+            0.672,
+            0.424
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint partition(int A[], int l, int r)\n{\n    int i, j, k, v;\n    k = r; v = A[k]; // willkürliches Trennelement\n    i = l; // starte am linken Rand\n    j = r-1; // starte am rechten Rand - 1\n    while (1) { // durchlaufen bis Abbruch\n        while (i < r && A[i] <= v) i++;\n        while (j >= l && A[j] >= v) j--;\n        if (i >= j) // aneinander vorbeigelaufen ?\n            break; // Abbruch der while-Schleife\n        else\n            exchange(A[i],A[j]);\n    }\n    exchange(A[i],A[k]);\n    return i;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.161,
+                0.083,
+                0.38,
+                0.101
+              ],
+              "content": "Algorithmus im Detail"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**209**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.587
+          ],
+          "content": "Als erstes wird das **Trennelement** gewählt. Da in einem unsortierten Array jedes Element “so gut wie das andere” ist, wird willkürlich das letzte Element gewählt. Innerhalb der äußeren while-Schleife wird das paarweise Vertauschen von Elementen durchgeführt. Die beiden inneren while-Schleifen sorgen dafür, dass i bzw. j nach Abbruch auf “falsche” Elemente zeigen, d.h. Elemente, die vertauscht werden müssen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.593,
+            0.838,
+            0.646
+          ],
+          "content": "Die äußere Schleife endet, wenn die Indizes i und j aneinander vorbeigelaufen sind. Dann muss noch das Trennelement durch Vertauschen mit Element i an die richtige Stelle in der “Array-Mitte” gebracht werden."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "209"
+        }
+      ]
+    },
+    {
+      "page_idx": 209,
+      "blocks": [
+        {
+          "type": "chart",
+          "bbox": [
+            0.148,
+            0.108,
+            0.856,
+            0.451
+          ],
+          "sub_type": "bar",
+          "content": "| Category | Value 1 | Value 2 | Value 3 | Value 4 | Value 5 | Value 6 |\n| --- | --- | --- | --- | --- | --- | --- |\n| i | 45 | 12 | 77 | 23 | 76 | 11 |\n| j | — | — | — | — | — | — |\n| j' | 45 | 12 | 77 | 23 | 76 | 11 |\n| j' | — | — | — | — | — | — |\n| j'' | 45 | 12 | 11 | 23 | 76 | 77 |\n| j'' | — | — | — | — | — | — |\n| A' | 45 | 12 | 11 | 23 | 66 | 77 |\n| A' | — | — | — | — | — | — |\n| A'' | — | — | — | — | — | — |\n| A''' | — | — | — | — | — | — |\n| A'''' | — | — | — | — | — | — |\n| A''''' | — | — | — | — | — | — |\n| A''''''' | — | — | — | — | — | — |\n| A''''''''' | — | — | — | — | — | — |\n| A''''''''''' | — | — | — | — | — | — |\n| A''''''''''' | — | — | — | — | — | — |\n| A''''''''''''' | — | — | — | — | — | — |\n| A''''''''''''' | — | — | — | — | — | — |\n| A''''''''''''' | — | — | — | — | — | — |\n| A''''''''''''' | — | — | — | — | — | — |\n| A''''''''''''' | — | — | 66 | 77 | 83 | 76 |\n| A''''''''''''' | — | — | — | — | — | — |\n| A''''''''''''' | — | — | — | — | — | — |\n| A''''''''''''' | — | — | — | — | — | 66 |",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.515,
+                0.102
+              ],
+              "content": "Beispiel (1. Durchlauf von partition)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_209_chart_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.845,
+            0.534
+          ],
+          "content": "Am Ende dieses Beispiels befindet sich das Element 66 an der richtigen Stelle im Array. Alle Elemente links davon sind kleiner als 66, alle Elemente rechts davon sind größer."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "210"
+        }
+      ]
+    },
+    {
+      "page_idx": 210,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.319,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiel (Forts.)"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.174,
+            0.116,
+            0.536,
+            0.153
+          ],
+          "content": "| 45 | 12 | 11 | 23 | 66 | 77 | 83 | 76 |\n| --- | --- | --- | --- | --- | --- | --- | --- |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_210_table_1.jpg"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.174,
+            0.159,
+            0.536,
+            0.197
+          ],
+          "content": "| 11 | 12 | 45 | 23 | 66 | 77 | 83 | 76 |\n| --- | --- | --- | --- | --- | --- | --- | --- |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_210_table_2.jpg"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.174,
+            0.217,
+            0.536,
+            0.24
+          ],
+          "content": "| 11 | 12 | 23 | 45 | 66 | 77 | 83 | 76 |\n| --- | --- | --- | --- | --- | --- | --- | --- |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_210_table_3.jpg"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.174,
+            0.252,
+            0.536,
+            0.275
+          ],
+          "content": "| 11 | 12 | 23 | 45 | 66 | 77 | 83 | 76 |\n| --- | --- | --- | --- | --- | --- | --- | --- |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_210_table_4.jpg"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.174,
+            0.288,
+            0.536,
+            0.311
+          ],
+          "content": "| 11 | 12 | 23 | 45 | 66 | 77 | 83 | 76 |\n| --- | --- | --- | --- | --- | --- | --- | --- |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_210_table_5.jpg"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.174,
+            0.324,
+            0.536,
+            0.347
+          ],
+          "content": "| 11 | 12 | 23 | 45 | 66 | 77 | 83 | 76 |\n| --- | --- | --- | --- | --- | --- | --- | --- |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_210_table_6.jpg"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.174,
+            0.356,
+            0.536,
+            0.379
+          ],
+          "content": "| 11 | 12 | 23 | 45 | 66 | 77 | 83 | 76 |\n| --- | --- | --- | --- | --- | --- | --- | --- |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_210_table_7.jpg"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.174,
+            0.407,
+            0.536,
+            0.429
+          ],
+          "content": "| 11 | 12 | 23 | 45 | 66 | 76 | 77 | 83 |\n| --- | --- | --- | --- | --- | --- | --- | --- |",
+          "captions": [
+            {
+              "bbox": [
+                0.332,
+                0.389,
+                0.359,
+                0.397
+              ],
+              "content": "..."
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_210_table_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**211**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.651,
+            0.153,
+            0.76,
+            0.166
+          ],
+          "content": "**Trennelement**"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.677,
+            0.2,
+            0.733,
+            0.215
+          ],
+          "content": ">= \\mathrm{A} [ \\mathrm{k} ]",
+          "image_source": "../../raw/pages_0193-0224/images/page_210_equation_12.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.677,
+            0.248,
+            0.733,
+            0.262
+          ],
+          "content": "\\Leftarrow \\mathsf {A} [ \\mathsf {k} ]",
+          "image_source": "../../raw/pages_0193-0224/images/page_210_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.654,
+            0.295,
+            0.757,
+            0.309
+          ],
+          "content": "**fertig sortiert**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.625,
+            0.342,
+            0.786,
+            0.356
+          ],
+          "content": "**noch nicht betrachtet**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.439,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.828,
+            0.516
+          ],
+          "content": "Man beachte, dass aufgrund des **Rekursionsschemas** zunächst immer das linke Teilarray ganz fertig sortiert wird, bevor die rechte Hälfte betrachtet wird."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "211"
+        }
+      ]
+    },
+    {
+      "page_idx": 211,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.319,
+            0.102
+          ],
+          "level": 2,
+          "content": "Laufzeitanalyse"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.829,
+            0.375
+          ],
+          "sub_type": "text",
+          "content": "• **Schlechtester Fall**: zufällig gewähltes Trennelement ist das **Maximum** des Arrays\n• Z.B. bei **vorsortiertem** Array\n• i durchläuft N-1 Elemente, d.h. 𝓞ሺ𝑵 െ 𝟏ሻ **Vergleiche**\n• Jeder Teilungsschritt **spaltet genau ein Element** ab und hinterlässt ein um ein Element kleineres Teilarray A'\n• Ist A' ebenfalls schon sortiert, so **wiederholt** sich dieser Effekt\n– Trennelement ist Maximum von A\n– i durchläuft N-2 Elemente\n– usw.\n• **Analoger Effekt** bei Trennelement ganz links und Array‐Min."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.286,
+            0.382,
+            0.648,
+            0.434
+          ],
+          "sub_type": "text_image",
+          "content": "i\nmax",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_211_image_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**212**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.845,
+            0.569
+          ],
+          "content": "Im Gegensatz zu anderen Sortierverfahren hängt die Laufzeit von Quicksort stark vom **Sortierungszustand** des Eingabearrays ab. Bei einem bereits sortierten Array findet keine Vertauschung statt, und die Arrayelemente werden jeweils O(N)-mal durchlaufen. Wie auf der nächsten Folie gezeigt, läuft dies auf eine **quadratische Laufzeit** hinaus."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.575,
+            0.831,
+            0.646
+          ],
+          "content": "Diesen schlechtesten Fall erhält man, wenn in jedem Durchlauf nur das Trennelement abgespalten wird, z.B. wenn das Trennelement jeweils das größte oder das kleinste Element des Arrays ist. In diesem Fall wird im Teilungsschritt nicht halbiert sondern nur um ein Element reduziert."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "212"
+        }
+      ]
+    },
+    {
+      "page_idx": 212,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.319,
+            0.102
+          ],
+          "level": 2,
+          "content": "Laufzeitanalyse"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.175,
+            0.115,
+            0.842,
+            0.434
+          ],
+          "sub_type": "text",
+          "content": "• Anzahl Vergleiche im **worst case**:\n• Jedoch wesentlich besser im **best case**:\n$T _ { N } : = \\mathsf { Z e i t } ,$ um Array der Länge 𝑁 zu sortieren\n– Pro Teilungsschritt durchlaufen 𝑖 und 𝑗 nicht mehr als 𝑁 Elemente, d.h. es gibt $\\mathcal { O } ( N )$ Vergleiche\n– Im besten Fall entstehen **jeweils 2 Teilarrays gleicher Größe**"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.209,
+            0.135,
+            0.622,
+            0.155
+          ],
+          "content": "\\mathcal {O} (N - 1) + \\mathcal {O} (N - 2) + \\dots + 1 = \\mathcal {O} (N ^ {2})",
+          "image_source": "../../raw/pages_0193-0224/images/page_212_equation_3.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.227,
+            0.268,
+            0.841,
+            0.433
+          ],
+          "content": "\\begin{array}{l} T _ {N} = 2 \\cdot T _ {N / 2} + \\mathcal {O} (N) \\\\ = 2 \\cdot \\left(2 \\cdot T _ {N / 4} + \\mathcal {O} (N / 2)\\right) + \\mathcal {O} (N) \\\\ = 4 \\cdot T _ {N / 4} + 2 \\cdot \\mathcal {O} (N / 2) + \\mathcal {O} (N) \\\\ = 4 \\cdot T _ {N / 4} + \\mathcal {O} (N) + \\mathcal {O} (N) \\quad \\log N \\text {Teilungsschritte,} T _ {1} = \\mathcal {O} (1) \\\\ = \\dots = \\mathcal {O} (N) + \\dots + \\mathcal {O} (N) \\quad \\log N \\text {mal} \\\\ = \\log N \\cdot \\mathcal {O} (N) \\\\ = \\mathcal {O} (N \\log N) \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0193-0224/images/page_212_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**213**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.806,
+            0.552
+          ],
+          "content": "Im besten Fall ist die Laufzeit jedoch wesentlich kürzer. Beim Ansatz zur **Bestimmung von** $\\mathbf { T } _ { \\mathbf { N } }$ sieht man zunächst, dass pro partition-Schritt nur O(N) Operationen stattfinden können: Egal, wie weit i und j laufen, sie treffen sich nach O(N) Schritten mehr oder weniger in der Mitte des Arrays."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.557,
+            0.845,
+            0.629
+          ],
+          "content": "Für die nach dem ersten partition-Aufruf entstehenden Teilarrays gilt das gleiche Argument, so dass man für $\\mathbf { T } _ { \\mathbf { N } / 2 }$ die entsprechende Formel rekursiv einsetzen kann. Hierbei wird der **best case** vorausgesetzt, d.h. das Array wird jeweils genau in der Mitte geteilt. Somit ergibt sich dann die gezeigte Gesamtlaufzeit."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "213"
+        }
+      ]
+    },
+    {
+      "page_idx": 213,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.319,
+            0.102
+          ],
+          "level": 2,
+          "content": "Laufzeitanalyse"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.804,
+            0.416
+          ],
+          "sub_type": "text",
+          "content": "• Durch **einfache Techniken** kann man den worst case meist ausschließen\n• Z.B. **Median von 3 Elementen** als Trennelement verwenden\nMan kann zeigen: Quicksort hat auch im **durchschnittlichen Fall** (average case) eine Laufzeit von 𝓞 𝑵 𝒍𝒐𝒈 𝑵\nD.h. Quicksort ist fast immer **effizient** und darüber hinaus recht **einfach** zu implementieren\n• Z.B. N = 1.000.000, 10<sup>9</sup> Operationen pro sec – 𝒪 𝑁 log 𝑁 : Laufzeit < 1 sec – 𝒪 𝑁<sup>ଶ</sup> : Laufzeit ≈ 17 min\nDaher: Quicksort ist das Sortierverfahren mit der **größten Verbreitung**\n• Z.B. Bestandteil jeder C‐Standard‐Library (**qsort‐Funktion**)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**214**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.838,
+            0.534
+          ],
+          "content": "Nimmt man den **Median** (das “Mittel”) mehrerer Elemente als Trennelement, so kann man den worst case (dass man ausgerechnet das Maximum erwischt) praktisch ausschließen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.539,
+            0.842,
+            0.594
+          ],
+          "content": "Mit Hilfe einer umfangreicheren mathematischen Analyse kann man zeigen, dass die **average case Laufzeit** für “zufällige” Arrays der best case Laufzeit von der Größenordnung her entspricht."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "214"
+        }
+      ]
+    },
+    {
+      "page_idx": 214,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.358,
+            0.17,
+            0.642,
+            0.196
+          ],
+          "level": 2,
+          "content": "7. Sortieralgorithmen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.255,
+            0.253,
+            0.796,
+            0.321
+          ],
+          "sub_type": "text",
+          "content": "7.1 Einfache Verfahren (Selection/Insertion/Bubblesort)\n7.2 Quicksort\n**7.3 Heapsort**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**215**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "215"
+        }
+      ]
+    },
+    {
+      "page_idx": 215,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.257,
+            0.102
+          ],
+          "level": 2,
+          "content": "Heapsort"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.123,
+            0.806,
+            0.277
+          ],
+          "sub_type": "text",
+          "content": "• **Selection Sort**: Sortierung durch fortgesetzte Minimumsauswahl (s.o.)\n• 𝑁 Minima sind auszuwählen, jede Auswahl kostet im Mittel $\\mathcal { O } \\big ( N / 2 \\big ) = \\mathcal { O } \\big ( N \\big )$ Schritte, daher **Gesamtlaufzeit** $\\mathcal { O } \\big ( N ^ { 2 } \\big )$\n• Idee bei Heapsort: **Beschleunigung** der Minimumsauswahl\nBetrachte folgende Anordnung der Array‐Elemente (Array‐Indizes **laufen hier von** 𝟏 … 𝑵 statt 0 … 𝑁 െ 1):"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.291,
+            0.28,
+            0.652,
+            0.318
+          ],
+          "content": "| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| 11 | 12 | 23 | 77 | 45 | 76 | 66 | 83 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_215_table_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.16,
+            0.333,
+            0.715,
+            0.352
+          ],
+          "content": "• „Unsortiert“, aber folgende **Eigenschaft** für jedes A[i]:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.194,
+            0.354,
+            0.577,
+            0.392
+          ],
+          "content": "\\begin{array}{l} - A [ i ] \\leq A [ 2 i ], \\quad \\text {falls} 2 i \\leq N \\\\ - A [ i ] \\leq A [ 2 i + 1 ], \\text {falls} 2 i + 1 \\leq N \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0193-0224/images/page_215_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**216**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.834,
+            0.517
+          ],
+          "content": "**Heapsort** ist im wesentlichen ein verbessertes Selection Sort. Grundlage hierfür ist die hier gezeigte “Heap-Eigenschaft” des Arrays."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "216"
+        }
+      ]
+    },
+    {
+      "page_idx": 216,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.527,
+            0.102
+          ],
+          "level": 2,
+          "content": "Veranschaulichung als Baumstruktur"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.245,
+            0.118,
+            0.7,
+            0.282
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"1\"] --> B[\"11\"]\n  B --> C[\"12\"]\n  C --> D[\"77\"]\n  D --> E[\"83\"]\n  C --> F[\"45\"]\n  F --> G[\"23\"]\n  G --> H[\"66\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_216_image_1.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.163,
+            0.292,
+            0.735,
+            0.358
+          ],
+          "sub_type": "text",
+          "content": "• Jedes Baumelement A[i] besitzt 0, 1, oder 2 „**Kinder**“\nKinder besitzen Arrayindex 2i **bzw.** 2i+1\n• 12, 23 sind Kinder von 11; 77, 45 sind Kinder von 12 usw."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.169,
+            0.368,
+            0.798,
+            0.428
+          ],
+          "content": "**Def**.: Gelten im Array A[1...N] für jedes A[i] die Eigenschaften A[i] ≤ A[2i] (falls 2i ≤ N) und A[i] ≤ A[2i+1] (falls 2i+1 ≤ N), so ist A ein **(Minimums‐)Heap**."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**217**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.776,
+            0.517
+          ],
+          "content": "Analog kann man einen **Maximums-Heap** definieren, mit dem ein leicht abgewandeltes Heapsort ebenfalls arbeiten könnte (Übungsaufgabe!)"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "217"
+        }
+      ]
+    },
+    {
+      "page_idx": 217,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.331,
+            0.102
+          ],
+          "level": 2,
+          "content": "Heapsort‐Prinzip"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.122,
+            0.802,
+            0.221
+          ],
+          "sub_type": "text",
+          "content": "**Heap‐Eigenschaft**: Das (globale) **Array‐Minimum** befindet sich stets ganz oben im Heap (der sog. **Wurzel**)\n**Folgerung**: Entnahme des Minimums aus einem Heap ist trivial (immer in A[1], d.h. Laufzeit 𝒪 1 )\n**Ablauf von Heapsort**:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.198,
+            0.225,
+            0.831,
+            0.423
+          ],
+          "sub_type": "text",
+          "content": "1. Verwandeln des unsortierten Arrays A[1...N] in einen Heap, danach ist Wurzel A[1] das Minimum\n2. Vertausche Wurzel und A[N]\n3. Min. befindet sich danach an der richtigen Stelle N (hier: **absteigende** Sortierreihenfolge!)\n4. A[2...N-1] ist noch korrekter Heap, jedoch neues Element A[1] evtl. falsch\n5. Wiederherstellen der Heap‐Eigenschaft von A[1...N-1]\n6. Fortsetzen ab Schritt 2 mit nächstem Element N-1 und neuer Wurzel"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**218**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.848,
+            0.552
+          ],
+          "content": "Das hier gezeigte Heapsort berechnet eine **absteigende Sortierreihenfolge**. Dies tut aber der Korrektheit keinen Abbruch, und falls man eine aufsteigende Reihenfolge benötigt, so lässt sich diese in einem Durchlauf durch Invertieren des Arrays schnell herstellen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "218"
+        }
+      ]
+    },
+    {
+      "page_idx": 218,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.163,
+            0.084,
+            0.331,
+            0.102
+          ],
+          "level": 2,
+          "content": "Heapsort‐Prinzip"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.174,
+            0.12,
+            0.499,
+            0.136
+          ],
+          "content": "**min i := i‐tes kleinstes Element im Array**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.174,
+            0.16,
+            0.314,
+            0.175
+          ],
+          "content": "**Unsortiertes Array**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.173,
+            0.191,
+            0.325,
+            0.206
+          ],
+          "content": "**Verwandeln in Heap**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.171,
+            0.226,
+            0.312,
+            0.239
+          ],
+          "content": "**min1 an Position 1**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.169,
+            0.253,
+            0.339,
+            0.269
+          ],
+          "content": "**Vertauschen mit** A[N]"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.17,
+            0.285,
+            0.408,
+            0.3
+          ],
+          "content": "**Heap   reparieren, min2 an Pos. 1**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.169,
+            0.319,
+            0.361,
+            0.335
+          ],
+          "content": "**Vertauschen mit** A[N-1]"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.17,
+            0.348,
+            0.408,
+            0.363
+          ],
+          "content": "**Heap reparieren, min3 an Pos. 1**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.453,
+            0.158,
+            0.813,
+            0.371
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_218_image_9.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.622,
+            0.388,
+            0.648,
+            0.396
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_218_image_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.171,
+            0.408,
+            0.275,
+            0.422
+          ],
+          "content": "**Fertig sortiert**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.454,
+            0.408,
+            0.813,
+            0.429
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_218_image_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.445
+          ],
+          "content": "**219**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.439,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.992
+          ],
+          "content": "219"
+        }
+      ]
+    },
+    {
+      "page_idx": 219,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.371,
+            0.102
+          ],
+          "level": 2,
+          "content": "Reparatur des Heaps"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.157,
+            0.111,
+            0.847,
+            0.266
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Situation nach erster Vertauschung\"] --> B[\"83\"]\n  B --> C[\"12\"]\n  C --> D[\"77\"]\n  C --> E[\"45\"]\n  C --> F[\"76\"]\n  C --> G[\"23\"]\n  G --> H[\"66\"]\n  B --> G\n  G --> I[\"83\"]\n  I --> J[\"77\"]\n  J --> K[\"11\"]\n  K --> L[\"11\"]\n  L --> M[\"12\"]\n  M --> N[\"45\"]\n  N --> O[\"76\"]\n  M --> P[\"23\"]\n  P --> Q[\"66\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_219_image_1.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.245,
+            0.317,
+            0.7,
+            0.433
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"12\"] --> B[\"83\"]\n  A --> C[\"23\"]\n  B --> D[\"77\"]\n  B --> E[\"45\"]\n  B --> F[\"76\"]\n  C --> G[\"66\"]\n  D --> H[\"11\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.16,
+                0.274,
+                0.808,
+                0.311
+              ],
+              "content": "„Einsinken lassen“ der Wurzel: Vertausche Wurzel mit kleinerem der beiden Kinder"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_219_image_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**220**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.834,
+            0.568
+          ],
+          "content": "Bei der ersten Vertauschung wechseln 11 und 83 ihre Plätze im Array. Die 83 ist danach (bzgl. Heap-Eigenschaft) **falsch**, da sie größer ist als ihre Kinder. Sie wechselt ihren Platz daher zunächst mit der 12. Die 11 hat bereits ihren endgültigen Platz eingenommen und wird von nun an nicht mehr weiter betrachtet."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "220"
+        }
+      ]
+    },
+    {
+      "page_idx": 220,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.371,
+            0.102
+          ],
+          "level": 2,
+          "content": "Reparatur des Heaps"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.122,
+            0.788,
+            0.221
+          ],
+          "sub_type": "text",
+          "content": "• **Fortsetzen abwärts im Baum**, bis keine kleineren Kinder mehr vorhanden\n• Vernachlässige **bereits sortierten Bereich** am Ende von A\n**Heap‐Eigenschaft** des unsortierten Bereichs von A wieder hergestellt"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.221,
+            0.212,
+            0.677,
+            0.442
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_220_image_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**221**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.806,
+            0.517
+          ],
+          "content": "Anschließend tauscht die 83 noch ihren Platz mit der 45, wodurch die **Heap-Eigenschaft** wieder komplett hergestellt ist."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "221"
+        }
+      ]
+    },
+    {
+      "page_idx": 221,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.226,
+            0.138,
+            0.714,
+            0.407
+          ],
+          "sub_type": "code",
+          "content": "```txt\nvoid sink(int A[], int k, int N) // A[0] nicht benutzt\n{\n    int child; // speichert kleinstes Kind falls vorhanden\n    while (1) { // durchlaufen bis Abbruch\n        if (2*k > N) break;  // Knoten k hat kein Kind\n        if (2*k+1 <= N) {   // Knoten k hat 2 Kinder\n            if (A[2*k] < A[2*k+1]) child = 2*k;\n            else child = 2*k+1;\n        } else child = 2*k;     // 2k <= N, Knoten k hat 1 Kind\n        if (A[k] > A[child]) { // Vertauschen notwendig?\n            exchange(A[k], A[child]);\n            k = child;    // Knoten k evtl. weiter sinken lassen\n        } else break; // sonst: richtige Pos. für k gefunden\n    }\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.161,
+                0.083,
+                0.616,
+                0.102
+              ],
+              "content": "Heap‐Reparatur (Einsinken lassen der Wurzel)"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**222**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.844,
+            0.517
+          ],
+          "content": "Die while-Schleife läuft solange, bis der Knoten k seinen richtigen Platz im Heap gefunden hat. Im wesentlichen wird eine **Fallunterscheidung** durchgeführt:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.149,
+            0.521,
+            0.822,
+            0.715
+          ],
+          "sub_type": "text",
+          "content": "1) Hat der Knoten 0, 1 oder 2 Kinder?\n2) Muss noch mit einem Kind vertauscht werden?\nDie Hilfsfunktion **exchange** soll zwei Arrayelemente vertauschen. Streng genommen müssten die Parameter per Zeiger übergeben werden, damit die Vertauschung wirksam wird, also:\nvoid exchange(int\\* a, int\\* b)\nund Aufruf wie folgt:\nexchange(&A[k],&A[child]);"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.192,
+            0.65,
+            0.473,
+            0.668
+          ],
+          "content": "\\{\\text {int} \\mathrm{x}; \\mathrm{x} = ^ {*} \\mathrm{a}; ^ {*} \\mathrm{a} = ^ {*} \\mathrm{b}; ^ {*} \\mathrm{b} = \\mathrm{x}; \\}",
+          "image_source": "../../raw/pages_0193-0224/images/page_221_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.742,
+            0.787,
+            0.762
+          ],
+          "content": "**Übungsaufgabe**: Wie könnte man die Funktion sink rekursiv formulieren?"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "222"
+        }
+      ]
+    },
+    {
+      "page_idx": 222,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.383,
+            0.102
+          ],
+          "level": 2,
+          "content": "Heapsort‐Algorithmus"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.165,
+            0.12,
+            0.829,
+            0.207
+          ],
+          "sub_type": "text",
+          "content": "Verwendung der Funktion **sink** auch zum einmaligen Heap‐Aufbau zu Beginn\nElemente mit Index > N/2 haben **keine Kinder**\n• Dann **Vertauschen** und **Einsinken lassen** wie oben gezeigt"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.214,
+            0.226,
+            0.71,
+            0.419
+          ],
+          "sub_type": "code",
+          "content": "```txt\nvoid heap_sort(int A[], int N) // A[0] nicht benutzt\n{\n    int i;\n    for (i = N/2; i > 0; i--) { // Heap aufbauen\n        sink(A,i,N);\n    }\n    for (i = N; i > 1; i--) {\n        exchange(A[1], A[i]); // Min. ans akt. Heap-Ende setzen\n        sink(A,1,i-1);          // Heap reparieren\n    }\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**223**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.534
+          ],
+          "content": "Der Vorteil der gezeigten Formulierung von sink ist, dass die Funktion sowohl für den Heap-Aufbau als auch für die “lokale Reparatur” benutzt werden kann. Dies macht die Formulierung der **Hauptfunktion** recht einfach."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.539,
+            0.849,
+            0.611
+          ],
+          "content": "Man beachte die unterschiedlichen **Parameter**: In der zweiten for-Schleife wird sink immer mit i-1 als Arraygrenze aufgerufen, da alle Elemente >= i sich bereits am endgültigen Platz befinden. Außerdem lässt man immer die Heap-Wurzel (d.h. A[1]) einsinken."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "223"
+        }
+      ]
+    },
+    {
+      "page_idx": 223,
+      "blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            0.202,
+            0.118,
+            0.695,
+            0.33
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"&quot;void heap_sort(int A[\"], int N)\\n{\"] --> B[\"for (i = N/2; i > 0; i--) \\n    sink(A,i,N); // Heap aufbauen\\n}\"]\n  B --> C[\"&quot;for (i = N; i > 1; i--) \\n    exchange(A[1\"],A[\"i\"]);\n    sink(A,1,i-1);\\n}\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.319,
+                0.102
+              ],
+              "content": "Laufzeitanalyse"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_223_image_1.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.345,
+            0.603,
+            0.436
+          ],
+          "sub_type": "text",
+          "content": "Betrachtung der **worst case** Laufzeit\n• 1. Schleife: 𝒪 𝑁 Aufrufe von sink\n• 2. Schleife: 𝒪 𝑁 Aufrufe von $\\sin \\mathsf { k } + \\mathcal { O } ( N )$\n• Gesamt: $\\mathcal { O } ( N ) \\cdot T _ { \\mathrm { s i n k } } + \\mathcal { O } ( N )$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.445
+          ],
+          "content": "**224**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.804,
+            0.516
+          ],
+          "content": "Wie üblich wird die **Laufzeit** durch Betrachtung der Einzelkomponenten des Algorithmus analysiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.521,
+            0.825,
+            0.575
+          ],
+          "content": "Für die Hauptfunktion ist dies einfach: Die beiden for-Schleifen führen offensichtlich jeweils O(N) Iterationen durch. Dies ist zu multiplizieren mit der Zeit, die für jede Iteration benötigt wird."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.58,
+            0.794,
+            0.618
+          ],
+          "content": "Das Vertauschen per exchange benötigt nur O(1), also ist entscheidend, was innerhalb von sink passiert. Diese Zeit $\\mathbf { T _ { s i n k } }$ wird im folgenden analysiert."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "224"
+        }
+      ]
+    },
+    {
+      "page_idx": 224,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.148,
+            0.108,
+            0.856,
+            0.451
+          ],
+          "sub_type": "algorithm",
+          "content": "void sink(int A[], int k, int N)\n{\n    int child;\n    while (1) {\n        if (2\\*k > N) break;\n        if (2\\*k+1 <= N) {\n            if (A[2\\*k] < A[2\\*k+1])\n                child = 2\\*k;\n            else child = 2\\*k+1;\n        } else child = 2\\*k;\n        if (A[k] > A[child]) {\n            exchange(A[k], Aumas);\n            k = child;\n        } else break;\n    }\n}",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.406,
+                0.103
+              ],
+              "content": "Laufzeitanalyse für 𝑻<sub>𝐬𝐢𝐧𝐤</sub>"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.851,
+            0.57
+          ],
+          "content": "Da die while-Schleife keine sichtbare Grenze besitzt, ist die Anzahl ihrer Iterationen zunächst einmal unklar. Man kann jedoch feststellen, dass jede Iteration nur O(1) benötigt, da –unabhängig vom vorliegenden Fall- nur Elementaroperationen ohne weitere innere Schleifen ausgeführt werden. Daher ist die **Laufzeit von sink** = O(1) \\* (Anzahl Iterationen der while-Schleife)"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "225"
+        }
+      ]
+    },
+    {
+      "page_idx": 225,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.319,
+            0.102
+          ],
+          "level": 2,
+          "content": "Laufzeitanalyse"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.822,
+            0.424
+          ],
+          "sub_type": "text",
+          "content": "In jedem Durchlauf der while‐Schleife wird k mindestens **verdoppelt** (child = 2k bzw. 2k+1; k = child; )\n• Z.B. k = 1, 2, 4, 8, 16, 32, ...\n• 32 nach 5 (= log 32) Schritten erreicht\n**Allgemein**: k kann höchstens (𝐥𝐨𝐠 𝑵**)‐mal verdoppelt** werden, bis Arraygrenze N erreicht wurde und sink terminiert\n**Gesamtlaufzeit**:\n• Heapsort braucht auch im **worst case** nur 𝒪 𝑁 log 𝑁 Schritte"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.264,
+            0.284,
+            0.585,
+            0.394
+          ],
+          "content": "\\begin{array}{l} \\mathcal {O} (N) \\cdot T _ {\\mathrm{sink}} + \\mathcal {O} (N) \\\\ = \\mathcal {O} (N) \\cdot \\left(\\log N \\cdot \\mathcal {O} (1)\\right) + \\mathcal {O} (N) \\\\ = \\mathcal {O} (N) \\cdot \\mathcal {O} (\\log N) + \\mathcal {O} (N) \\\\ = \\mathcal {O} (N \\log N) + \\mathcal {O} (N) \\\\ = \\mathcal {O} (N \\log N) \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0225-0256/images/page_225_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**226**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.821,
+            0.534
+          ],
+          "content": "Wie schon häufiger kann man die **log-Funktion** zur Laufzeitabschätzung benutzen. Gemäß der Rechenregeln für die O-Notation ergibt sich die gezeigte Gesamtlaufzeit (hier: **worst case**!)"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "226"
+        }
+      ]
+    },
+    {
+      "page_idx": 226,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.408,
+            0.1
+          ],
+          "level": 2,
+          "content": "Fazit zu Sortierverfahren"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.121,
+            0.84,
+            0.324
+          ],
+          "sub_type": "text",
+          "content": "**Man kann zeigen**: Jeder allgemeine Sortieralgorithmus benötigt im worst case **mindestens Laufzeit** 𝓞 𝑵 𝐥𝐨𝐠 𝑵\nD.h. Heapsort ist der „**bestmögliche**“ Sortieralgorithmus bis auf nichtsignifikante Terme + Konstanten\nIn der **Praxis** können jedoch andere Verfahren (z.B. Quicksort und sogar Bubblesort für kleine 𝑁) durchaus **schneller** sein\n• In **Spezialfällen** kann man noch schneller sortieren\nSortierverfahren mit Verwendung zusätzlicher Zwischenspeicher – Bucket Sort, Radix Sort, Counting Sort (nächste Folie)"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.149,
+            0.325,
+            0.801,
+            0.445
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Set\"] --> B[\"x ≤ 20\"]\n  A --> C[\"10 ≤ x < 20\"]\n  A --> D[\"20 ≤ x\"]\n  B --> E[\"m-Buckets → O(m)\"]\n  C --> E\n  D --> E\n  E --> F[\"&quot;Stabile Sortierung je Radix (Buchstabe, Ziffer, ...)\\nKey → [K\"][e][y]\\nm × Sortieren von Radix r → O(m) · O(f(r))\"]\n```",
+          "captions": [],
+          "footnotes": [
+            {
+              "bbox": [
+                0.674,
+                0.438,
+                0.816,
+                0.447
+              ],
+              "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+            }
+          ],
+          "image_source": "../../raw/pages_0225-0256/images/page_226_image_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.552
+          ],
+          "content": "Der Nachweis der **unteren Schranke** O(N log N) für allgemeine Sortierverfahren ist aufwendig. Die Existenz dieser Schranke, sowie die Tatsache, dass es Verfahren gibt, die diese Schranke (asymptotisch) bereits realisieren, zeigt, dass die Suche nach besseren allgemeinen Sortierverfahren nicht mehr lohnen kann."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.557,
+            0.844,
+            0.63
+          ],
+          "content": "Für **kleine Werte** von N oder bei ganz **bestimmten Anforderungen** an die Sortierung kann es natürlich in der Praxis sehr wohl auf die durch die O-Notation versteckten Terme und Faktoren ankommen, so dass man nicht immer zu Heapsort oder Quicksort greifen sollte."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "227"
+        }
+      ]
+    },
+    {
+      "page_idx": 227,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.427,
+            0.1
+          ],
+          "level": 2,
+          "content": "Schlüsselindiziertes Zählen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.117,
+            0.528,
+            0.135
+          ],
+          "content": "• Lineare Komplexität in der Laufzeit"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.194,
+            0.14,
+            0.553,
+            0.206
+          ],
+          "sub_type": "text",
+          "content": "Idee: „Schlüsselindiziertes Zählen“\n• 𝑚 ≔ Anzahl möglicher Schlüssel\nBeispiele"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.224,
+            0.21,
+            0.753,
+            0.251
+          ],
+          "sub_type": "text",
+          "content": "• $\\mathtt { P L Z } ; m _ { \\mathrm { P L Z } } < 1 0 ^ { 5 }$\n• Name (20 Buchstaben): $m _ { \\mathrm { n a m e } } = 2 6 ^ { 2 0 } < 2 ^ { 5 ^ { 2 0 } } = 2 ^ { 1 0 0 } \\approx 1 0 ^ { 3 0 }$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.172,
+            0.267,
+            0.632,
+            0.284
+          ],
+          "content": "Beispiel: $\\mathsf { A } [ ] : = \\{ \\verb ^ { i } \\mathsf { a } ^ { i } , \\verb ^ { i } \\mathsf { b } ^ { i } , \\verb ^ { i } \\mathsf { a } ^ { i } , \\verb ^ { i } \\mathsf { c } ^ { i } , \\verb ^ { i } \\mathsf { a } ^ { i } , \\verb ^ { i } \\mathsf { e } ^ { i } , \\verb ^ { i } \\mathsf { f } ^ { i } , \\verb ^ { i } \\mathsf { a } ^ { i } \\}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.179,
+            0.291,
+            0.218,
+            0.305
+          ],
+          "content": "C[m]"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.349,
+            0.291,
+            0.439,
+            0.305
+          ],
+          "content": "C[0] := 0"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.182,
+            0.307,
+            0.288,
+            0.32
+          ],
+          "content": "'a': C[1] ="
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.349,
+            0.308,
+            0.486,
+            0.321
+          ],
+          "content": "C[1] += C[0] ="
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.182,
+            0.323,
+            0.287,
+            0.337
+          ],
+          "content": "'b': C[2] ="
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.349,
+            0.323,
+            0.486,
+            0.337
+          ],
+          "content": "C[2] += C[1] ="
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.182,
+            0.339,
+            0.287,
+            0.353
+          ],
+          "content": "'c': C[3] ="
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.349,
+            0.339,
+            0.486,
+            0.353
+          ],
+          "content": "C[3] += C[2] ="
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.182,
+            0.355,
+            0.287,
+            0.369
+          ],
+          "content": "'d': C[4] ="
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.349,
+            0.355,
+            0.486,
+            0.369
+          ],
+          "content": "C[4] += C[3] ="
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.182,
+            0.371,
+            0.287,
+            0.384
+          ],
+          "content": "'e': C[5] ="
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.349,
+            0.371,
+            0.486,
+            0.385
+          ],
+          "content": "C[5] += C[4] ="
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.182,
+            0.387,
+            0.287,
+            0.401
+          ],
+          "content": "'f': C[6] ="
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.582,
+            0.296,
+            0.774,
+            0.31
+          ],
+          "content": "for( all letters in A )"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.607,
+            0.313,
+            0.74,
+            0.327
+          ],
+          "content": "C[A[i]-'a'+1]++;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.583,
+            0.331,
+            0.74,
+            0.344
+          ],
+          "content": "for( all C \\ C[0] )"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.607,
+            0.349,
+            0.732,
+            0.362
+          ],
+          "content": "C[i] += C[i-1];"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.583,
+            0.366,
+            0.773,
+            0.379
+          ],
+          "content": "for( all letters in A )"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.607,
+            0.384,
+            0.806,
+            0.397
+          ],
+          "content": "B[C[A[i]-'a']++] = A[i];"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.321,
+            0.416,
+            0.717,
+            0.432
+          ],
+          "content": "\\rightarrow \\mathrm{B} [ ]: \\{\\text {^ {\\prime} a ^ {\\prime}}, \\text {^ {\\prime} a ^ {\\prime}}, \\text {^ {\\prime} a ^ {\\prime}}, \\text {^ {\\prime} a ^ {\\prime}}, \\text {^ {\\prime} b ^ {\\prime}}, \\text {^ {\\prime} c ^ {\\prime}}, \\text {^ {\\prime} e ^ {\\prime}}, \\text {^ {\\prime} f ^ {\\prime}} \\}",
+          "image_source": "../../raw/pages_0225-0256/images/page_227_equation_29.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**228**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.727,
+            0.438,
+            0.817,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.798,
+            0.516
+          ],
+          "content": "Es gibt viele weitere Varianten an Sortieralgorithmen, welche für bestimmte Anwendungsfälle bessere Ergebnisse erzielen können."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.521,
+            0.847,
+            0.628
+          ],
+          "content": "Hier ist abschließend eine Variante dargestellt, welche in der Laufzeit sogar nur proportional zur Komplexität zunimmt. Hierzu sind allerdings zwei zusätzliche Speicherbereiche erforderlich. Einerseits in der Größe des zu sortierenden Arrays, um die sortierten Einträge aufzunehmen, und andererseits in der Größe aller möglichen Schlüssel m. Letzteres wächst exponentiell mit der verwendeten maximalen Anzahl an Symbolen n im Schlüssel."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.634,
+            0.845,
+            0.723
+          ],
+          "content": "In einem ersten Durchlauf wird die Anzahl eines jedes vorkommenden Schlüssels gezählt. In einem zweiten Schritt können dann die Einträge direkt an der richtigen Stelle im neuen Array abgespeichert werden. Beide Durchläufe haben die Komplexität O(n), d.h. insgesamt auch O(n+m). (O(m) für Initialisierung von c und aufaddieren im Zwischenschritt.)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.728,
+            0.837,
+            0.801
+          ],
+          "content": "Um das Problem der großen Anzahl an möglichen Schlüsseln zu überkommen, kann diese Algorithmus auch je Symbol einmal aufgerufen werden (engl. „radix sort“). Gibt es r verschiedene Symbole je Stelle mit maximal k Stellen, so ist die Laufzeit O(rk)."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "228"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "Microsoft PowerPoint - GGI1_W26.pptx",
+      "authors": [
+        "gemmeke"
+      ],
+      "created_at": "2026-10-06T18:10:39+02:00",
+      "modified_at": "2026-10-06T18:10:39+02:00",
+      "creator_application": "PScript5.dll Version 5.2.2",
+      "producer_application": "Acrobat Distiller 20.0 (Windows)",
+      "page_count": 355,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 188,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 189,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 190,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 191,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 192,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 193,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 194,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 195,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 196,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 197,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 198,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 199,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 200,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 201,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 202,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 203,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 204,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 205,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 206,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 207,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 208,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 209,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 210,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 211,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 212,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 213,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 214,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 215,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 216,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 217,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 218,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 219,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 220,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 221,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 222,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 223,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 224,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 225,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 226,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 227,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

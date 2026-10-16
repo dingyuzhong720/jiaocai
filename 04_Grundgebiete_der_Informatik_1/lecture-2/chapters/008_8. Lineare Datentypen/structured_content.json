@@ -1,0 +1,3345 @@
+{
+  "pages": [
+    {
+      "page_idx": 228,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.351,
+            0.171,
+            0.646,
+            0.196
+          ],
+          "level": 2,
+          "content": "8. Lineare Datentypen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.254,
+            0.369,
+            0.319
+          ],
+          "sub_type": "text",
+          "content": "**8.1 Listen**\n8.2 Stacks\n8.3 Queues"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**229**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "229"
+        }
+      ]
+    },
+    {
+      "page_idx": 229,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.359,
+            0.102
+          ],
+          "level": 2,
+          "content": "Mengendarstellung"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.111,
+            0.771,
+            0.358
+          ],
+          "sub_type": "text",
+          "content": "• **Problemstellung**: Verwaltung einer Menge von Objekten $A   =   \\{ a _ { 1 } , \\ldots , a _ { n } \\}$ vom Typ T\nGewünschte **Operationen**: – Suchen, Einfügen und Entfernen von Elementen – Vereinigung und Durchschnitt zweier Mengen 𝐴 und 𝐵\n• Prinzipiell wäre ein **Array** als Datenstruktur geeignet\n• Jedoch zwei Probleme: – **Einfügen** eines neuen Elementes an einer bestimmten Po erfordert aufwendige **Umordnung** – **Größe** der Menge muss **statisch** feststehen (Bspw. Deklaration: T A[100]; erlaubt max. 100 Elemente)"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.29,
+            0.374,
+            0.696,
+            0.437
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  Input[\"Input Variable\"] --> Decision{\"Verschieben\"}\n  Decision --> Output[\"Final Output\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_229_image_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**230**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.439,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.841,
+            0.552
+          ],
+          "content": "Eine sehr häufige Anwendung in der Informatik ist die Verwaltung von **Mengen**, z.B. in Datenbanken. Grundsätzlich sind hierfür sehr viele Datenstrukturen geeignet. Es kommt jedoch immer auf die gewünschten **Mengenoperationen** an, welche Datenstruktur sich als besonders effizient erweist."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "230"
+        }
+      ]
+    },
+    {
+      "page_idx": 230,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.335,
+            0.1
+          ],
+          "level": 2,
+          "content": "Verkettete Listen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.169,
+            0.117,
+            0.773,
+            0.175
+          ],
+          "content": "**Def**.: Eine **(verkettete) Liste** ist entweder leer oder besteht aus einer Referenz auf einen **Knoten**, der ein Element und eine Referenz auf eine verkettete Liste enthält."
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.168,
+            0.188,
+            0.732,
+            0.318
+          ],
+          "sub_type": "text",
+          "content": "• Verwendung von **Zeigern** (siehe Kap. 3)\n• Modellierung eines **Knotens** für ein Element vom Typ T:\ntypedef struct node {$\\mathsf { T } ^ { \\star }$ data; struct node\\* next; } \\*nodeptr;\n• data ist Zeiger auf Listenelement vom Typ T\n• next ist Zeiger auf Nachfolgerknoten"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.191,
+            0.325,
+            0.815,
+            0.433
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"nodeptr\"] --> B[\"data\"]\n  B --> C[\"Objekt vom Typ T\"]\n  B --> D[\"next\"]\n  D --> E[\"Intermediate Path\"]\n  E --> F[\"Rest-Liste\"]\n  F -.-> G[\"Final Output\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_230_image_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**231**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.825,
+            0.553
+          ],
+          "content": "Eine Liste ist generell eine **rekursive Datenstruktur**. Sie besteht aus einem “Kopf” (dem ersten Knoten) und einer Restliste. Die Bezeichnung “verkettet” rührt daher, dass die Elemente wie in einer Kette aneinandergereiht sind, wobei jeweils ein Element per Zeiger auf das nächste Element verweist."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.557,
+            0.781,
+            0.594
+          ],
+          "content": "In einer Liste sind “**Nutzdaten**” eines beliebigen Typs T gespeichert. T ist variabel und für die Listenimplementierung auch nicht von Belang."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "231"
+        }
+      ]
+    },
+    {
+      "page_idx": 231,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.335,
+            0.1
+          ],
+          "level": 2,
+          "content": "Verkettete Listen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.599,
+            0.319
+          ],
+          "sub_type": "text",
+          "content": "• Liste im **Speicher** (vgl. Kap. 3)\n• Liste = 1. Element + Restliste\nDarstellung einer leeren Liste: #define NULL 0\nZeigerwert NULL bedeutet, dass der Zeiger „nirgendwohin“ zeigt\nSpeicherzugriff per NULL‐Zeiger ist **unzulässig**, führt i.A. zum Programmabsturz"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.191,
+            0.365,
+            0.548,
+            0.42
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Initial State\"] --> B[\"Intermediate Block\"]\n  B --> C[\"Final Output: NULL\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_231_image_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**232**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.62,
+            0.109,
+            0.822,
+            0.433
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Data\"] --> B[\"Next\"]\n  B --> C[\"Data\"]\n  C --> D[\"Next\"]\n  D --> E[\"T\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.675,
+                0.438,
+                0.816,
+                0.446
+              ],
+              "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_231_image_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.841,
+            0.552
+          ],
+          "content": "Rechts wird gezeigt, wie eine Liste tatsächlich im **Speicher** abgelegt sein könnte. Der obere data-Zeiger verweist auf ein Nutzdatum vom Typ T. Der zugehörige next-Zeiger verweist auf den nächsten Listenknoten, welcher sich theoretisch an beliebiger Stelle im Speicher (genauer gesagt: im Heap-Bereich) befinden kann."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.557,
+            0.826,
+            0.608
+          ],
+          "content": "Auch der nächste data-Zeiger verweist dann auf ein Objekt vom Typ T, und der zugehörige next-Zeiger verweist wiederum auf den **Nachfolgerknoten** in der Liste."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.616,
+            0.842,
+            0.723
+          ],
+          "content": "Zur Kennzeichnung des **Listenendes** wird der next-Zeiger des letzten Knotens mit **NULL** belegt. Diese spezielle “0” ist ein ausgezeichneter Zeigerwert, der immer so interpretiert wird, dass er “auf nichts” zeigt. Er darf daher auch nicht dereferenziert werden. Ein Anwendungsprogramm, welches Listen benutzt, fragt daher häufig durch einen expliziten Vergleich mit NULL ab, ob der letzte Knoten erreicht worden ist, bspw. nach folgendem Schema:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.73,
+            0.241,
+            0.746
+          ],
+          "content": "nodeptr n;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.752,
+            0.395,
+            0.769
+          ],
+          "content": "n = “erster Knoten in Liste”;"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.148,
+            0.775,
+            0.569,
+            0.863
+          ],
+          "sub_type": "code",
+          "content": "```c\nwhile (n != NULL) /* Abbruch bei Listenende */\n{ \"verarbeite Objekt n->data\"; /* n != NULL) */\n    n = n->next; /* n weitersetzen */\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "232"
+        }
+      ]
+    },
+    {
+      "page_idx": 232,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.345,
+            0.101
+          ],
+          "level": 2,
+          "content": "Listenoperationen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.117,
+            0.687,
+            0.135
+          ],
+          "content": "Definition des Datentyps **Liste**, Elemente vom Typ T"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.327,
+            0.147,
+            0.66,
+            0.221
+          ],
+          "sub_type": "code",
+          "content": "```c\ntypedef struct node {\n    T* data;\n    struct node* next; } Node, *nodeptr;\n\ntypedef struct list {\n    nodeptr first, last; } List, *listptr;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.223,
+            0.235,
+            0.664,
+            0.287
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"L.first\"] --> B[\"Intermediate Stage 1\"]\n  B --> C[\"Intermediate Stage 2\"]\n  C --> D[\"L.last\"]\n  D --> E[\"NULL\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_232_image_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.293,
+            0.639,
+            0.31
+          ],
+          "content": "Erzeugung einer **leeren Liste** und **Leerheitstest**"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.308,
+            0.313,
+            0.684,
+            0.433
+          ],
+          "sub_type": "code",
+          "content": "```c\nList L;\nvoid Init(listptr L)\n{\n    L->first = NULL; L->last = NULL;\n}\n\nint IsEmpty(List L)\n{\n    return (L.first == NULL && L.last == NULL);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**233**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.841,
+            0.533
+          ],
+          "content": "Die Datenstruktur “List” bedient sich der Datenstruktur “Node” für Listenknoten und besteht nur aus **zwei Zeigern**: einem auf das erste und einem auf das letzte Listenelement."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.539,
+            0.811,
+            0.574
+          ],
+          "content": "Die Datentypen \"nodeptr\" und \"listptr\" stellen Zeigertypen auf die jeweiligen Datenstrukturen Node und List dar."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.58,
+            0.844,
+            0.617
+          ],
+          "content": "Per Definition sollen bei einer **leeren Liste** beide Zeiger gleich NULL sein. Beim Leerheitstest (Funktion “IsEmpty”) wird daher diese Eigenschaft geprüft."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.621,
+            0.837,
+            0.676
+          ],
+          "content": "Auf den “last”-Zeiger könnte in einer Listenimplementierung prinzipiell auch verzichtet werden, auf “first” dagegen nicht. **Übungsaufgabe**: Warum ist das so, und welche Funktionen müssten dann wie angepasst werden?"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "233"
+        }
+      ]
+    },
+    {
+      "page_idx": 233,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.345,
+            0.101
+          ],
+          "level": 2,
+          "content": "Listenoperationen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.115,
+            0.818,
+            0.134
+          ],
+          "content": "• **Einfügen** eines neuen Listenelements vom Typ T am Listenanfang"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.207,
+            0.14,
+            0.783,
+            0.212
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Input Block\"] --> B[\"Output Block\"]\n  B --> C[\"Vorher Output\"]\n  B --> D[\"Nachher Output\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_233_image_2.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.221,
+            0.805,
+            0.303
+          ],
+          "sub_type": "text",
+          "content": "Funktion „malloc“ (siehe Kap. 3) stellt dynamisch Speicherplatz auf dem Heap bereit\nFunktion „sizeof“ berechnet die erforderliche Anzahl von Bytes (hier z.B. insges. 8 Bytes bei 32‐Bit‐Zeigern)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.316,
+            0.308,
+            0.625,
+            0.432
+          ],
+          "sub_type": "code",
+          "content": "```c\nnodeptr newnode(T* item)\n{\n    nodeptr np;\n\n    np = (nodeptr)malloc(sizeof(Node));\n    np->data = item;\n    np->next = NULL;\n\n    return np;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.445
+          ],
+          "content": "**234**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.439,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.553
+          ],
+          "content": "Die Funktion **newnode** soll ein Nutzdatum item vom Typ T in einen Listenknoten einkapseln. Zunächst wird per malloc passender Speicherplatz auf dem Heap angefordert, dann wird der Anfang dieses Speicherblocks an die Zeigervariable np zugewiesen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.557,
+            0.848,
+            0.611
+          ],
+          "content": "Die Komponenten des neuen Knotens werden passend **initialisiert**, d.h. data zeigt auf das Nutzdatum, und next wird – da über die Einbettung von np in eine Liste noch nichts weiteres bekannt ist – mit NULL belegt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.616,
+            0.811,
+            0.652
+          ],
+          "content": "Anschließend wird np als Zeiger auf den nun fertigen Listenknoten per return zurückgeliefert."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "234"
+        }
+      ]
+    },
+    {
+      "page_idx": 234,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.148,
+            0.108,
+            0.855,
+            0.451
+          ],
+          "sub_type": "algorithm",
+          "content": "void AppendFirst(T\\* item, listptr L)\n{\n    nodeptr np = newnode(item);\n    if (IsEmpty(\\*L)) {\n        L->first = np; L->last = np;\n    } else {\n        np->next = L->first;\n        L->first = np;\n    }\n}\n\nnp --> NULL\nL->first --> NULL\nnp --> NULL\nL->first --> NULL\nnp --> NULL\nL->first --> NULL\n235",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.42,
+                0.102
+              ],
+              "content": "Einfügen am Listenanfang"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.534
+          ],
+          "content": "Die Skizze zeigt den **Ablauf beim Einfügen am Listenanfang**. Zunächst wird mittels “newnode” ein neuer Knoten “np” erzeugt, welcher das Nutzdatum “item” einkapselt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.539,
+            0.825,
+            0.594
+          ],
+          "content": "Der Nachfolgerzeiger “next” von “np” wird auf das ursprünglich erste Element der Liste L umgelenkt. Abschließend wird “np” zum neuen **Listenanfang** gemacht, d.h. der Zeiger L->first wird entsprechend umgesetzt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.598,
+            0.774,
+            0.651
+          ],
+          "content": "Der Sonderfall, dass die Liste L **leer** ist (IsEmpty-Funktion) wird vorab abgefangen. In diesem Fall wird “np” gleichzeitig zum ersten und letzten Listenelement."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "235"
+        }
+      ]
+    },
+    {
+      "page_idx": 235,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.148,
+            0.108,
+            0.855,
+            0.451
+          ],
+          "sub_type": "code",
+          "content": "```txt\nvoid AppendLast(T* item, listptr L)\n{\n    nodeptr np = newnode(item);\n    if (IsEmpty(*L)) {\n        L->first = np; L->last = np;\n    } else {\n        L->last->next = np;\n        L->last = np;\n    }\n}\n\nL->first\nL->first\nL->first\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.401,
+                0.101
+              ],
+              "content": "Einfügen am Listenende"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.825,
+            0.536
+          ],
+          "content": "Analog kann man wie in der Skizze gezeigt das neue Element “np” am **Listenende** anfügen. Die Zeiger werden entsprechend “umgebogen”, und auch hier ist evtl. der Spezialfall einer leeren Liste L vorab zu behandeln."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "236"
+        }
+      ]
+    },
+    {
+      "page_idx": 236,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.278,
+            0.118,
+            0.681,
+            0.253
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nint IsIn(T* item, List L)\n{\n    nodeptr np;\n    if (IsEmpty(L)) return 0; // false\n    np = L.first;\n    while (np != NULL) {\n        if (Equal(np->data, item)) return 1; // true\n        np = np->next;\n    }\n    return 0; // false\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.524,
+                0.1
+              ],
+              "content": "Prüfen ob Element in Liste enthalten"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.29,
+            0.264,
+            0.664,
+            0.332
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  Input[\"Input Sequence\"] --> Process1[\"Query Process\"]\n  Process1 --> Output[\"Result: NULL\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_236_image_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.337,
+            0.504,
+            0.355
+          ],
+          "content": "**Laufzeit** bei N‐elementiger Liste:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.194,
+            0.361,
+            0.495,
+            0.428
+          ],
+          "sub_type": "text",
+          "content": "– Best case: O(1)\n– Worst case: O(N)\n– Average case: O(N/2) = O(N)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**237**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.834,
+            0.553
+          ],
+          "content": "Zum **Auffinden** des Elementes “item” wird die Liste von links nach rechts durchlaufen. Ist die Liste leer, so kann “item” trivialerweise nicht enthalten sein. Ansonsten wird eine while-Schleife durchlaufen, welche terminiert, sobald per NULL-Zeiger das Listenende angezeigt wird."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.557,
+            0.83,
+            0.717
+          ],
+          "content": "Die **Equal-Funktion** (hier nicht weiter vertieft) soll prüfen, ob es sich bei dem aktuellen betrachteten Element um das gesuchte handelt. Man beachte, dass ein Vergleich per “==“-Operator i.a. nicht funktionieren wird: Da es sich bei T um einen beliebigen komplexen Datentyp handeln kann, welcher dann komponentenweise verglichen werden müsste, ist ein einfacher Zeigervergleich unzulässig. Es ist auch – je nach Implementierung – denkbar, dass verschiedene Zeiger auf das gesuchte Datum “\\*item” zeigen, d.h. “\\*(np->data)” und “\\*item” sind evtl. identisch, obwohl die Zeiger “np->data” und “item” durchaus verschieden sein könnten."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.723,
+            0.823,
+            0.76
+          ],
+          "content": "Bei positivem Vergleich wird sofort 1 (wahr) per return zurückgeliefert. Wurde das Listenende erreicht, so wird 0 (falsch) zurückgegeben."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "237"
+        }
+      ]
+    },
+    {
+      "page_idx": 237,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.164,
+            0.131,
+            0.442,
+            0.417
+          ],
+          "sub_type": "code",
+          "content": "```c\n// item2 hinter item1 einfügen\nvoid InsertBehind(T* item1,\n  T* item2, listptr L)\n{\n  nodeptr np, newnp;\n\n  if (!IsIn(item1,*L)) {\n    printf(„Fehler!“); return;\n  }\n\n  np = L->first;\n  while (np != NULL) {\n    if (Equal(np->data,item1)) {\n      newnp = newnode(item2);\n      newnp->next = np->next;\n      np->next = newnp;\n      if (np == L->last) {\n        L->last = newnp;\n      }\n      break;\n    }\n    np = np->next;\n  }\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.622,
+                0.102
+              ],
+              "content": "Einfügen hinter ein bestimmtes Listenelement"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.484,
+            0.189,
+            0.844,
+            0.266
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Input\"] --> B[\"Block 1\"]\n  C[\"Block 2\"] --> D[\"Block 3\"]\n  B --> D\n  D --> E[\"NULL\"]\n  F[\"np\"] -.-> D\n  G[\"newnp\"] --> H[\"NULL\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_237_image_2.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.485,
+            0.301,
+            0.844,
+            0.377
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Input Block\"] --> B[\"Block 1\"]\n  A --> C[\"Block 2\"]\n  B --> D[\"Output Block 1\"]\n  C --> E[\"Output Block 2\"]\n  D --> F[\"NULL\"]\n  E --> G[\"Newnp\"]\n  G --> H[\"Newnp\"]\n  H --> I[\"Output Block 3\"]\n  I --> J[\"Output Block 4\"]\n  J --> K[\"Final Output\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_237_image_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**238**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.834,
+            0.553
+          ],
+          "content": "Zum **Auffinden** des Elementes “item” wird die Liste von links nach rechts durchlaufen. Ist die Liste leer, so kann “item” trivialerweise nicht enthalten sein. Ansonsten wird eine while-Schleife durchlaufen, welche terminiert, sobald per NULL-Zeiger das Listenende angezeigt wird."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.557,
+            0.841,
+            0.717
+          ],
+          "content": "Die **Equal-Funktion** (hier nicht weiter vertieft) soll prüfen, ob es sich bei dem aktuellen betrachteten Element um das gesuchte handelt. Man beachte, dass ein Vergleich per “= =“-Operator i.a. nicht funktionieren wird: Da es sich bei T um einen beliebigen komplexen Datentyp handeln kann, welcher dann komponentenweise verglichen werden müsste, ist ein einfacher Zeigervergleich unzulässig. Es ist auch –je nach Implementierung- denkbar, dass verschiedene Zeiger auf das gesuchte Datum “\\*item” zeigen, d.h. “\\*(np->data)” und “\\*item” sind evtl. identisch, obwohl die Zeiger “np->data” und “item” durchaus verschieden sein könnten."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.723,
+            0.825,
+            0.761
+          ],
+          "content": "Bei positivem Vergleich wird sofort 1 (wahr) per return zurückgeliefert. Wurde das Listenende erreicht, so wird 0 (falsch) zurückgegeben."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "238"
+        }
+      ]
+    },
+    {
+      "page_idx": 238,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.159,
+            0.117,
+            0.446,
+            0.427
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid Delete(T* item, listptr L)\n{\n    nodeptr np1, np2;\n\n    if (IsEmpty(*L)) return;\n    np1 = L->first;\n    if (Equal(np1->data,item)) {\n        L->first = np1->next;\n        if (L->first == NULL)\n            L->last = NULL;\n        free(np1);\n        return;\n    }\n    np2 = np1->next;\n    while (np2 != NULL) {\n        if (Equal(np2->data,item)) {\n            np1->next = np2->next;\n            if (np2 == L->last)\n                L->last = np1;\n            free(np2);\n            break;\n        }\n        np1 = np2;\n        np2 = np2->next;\n    }\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.469,
+                0.1
+              ],
+              "content": "Löschen eines Listenelementes"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**239**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.456,
+            0.199,
+            0.841,
+            0.25
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"np1\"] --> B[\"Block 1\"]\n  B --> C[\"Block 2\"]\n  C --> D[\"NULL\"]\n  E[\"np2\"] --> C\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_238_image_3.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.456,
+            0.301,
+            0.841,
+            0.363
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"np1\"] --> B[\"Block 1\"]\n  B --> C[\"np2\"]\n  C --> D[\"Block 2\"]\n  D --> E[\"NULL\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_238_image_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.798,
+            0.515
+          ],
+          "content": "Das **Löschen** eines Elementes “item” aus Liste L ist etwas komplizierter, da verschiedene Fälle zu betrachten sind."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.521,
+            0.72,
+            0.557
+          ],
+          "content": "Ist L **leer**, so braucht nichts unternommen zu werden (bzw. es liegt möglicherweise sogar ein Fehler vor)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.563,
+            0.823,
+            0.634
+          ],
+          "content": "Ist “item” zufälligerweise das **erste Listenelement**, so muss L->first angepasst werden. Außerdem kann durch das Löschen (per “free”, dem Gegenstück zu “malloc”) die Liste ganz leer werden, was wiederum einen “reset” des Zeigers “L->last” notwendig macht."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.639,
+            0.838,
+            0.729
+          ],
+          "content": "Der **Normalfall** ist, dass “irgendwo” innerhalb der Liste zu löschen ist. Um das gesuchte Element aushängen zu können, muss die Liste mittels zweier (synchron und jeweils um eine Position versetzt laufender) Zeiger “np1” und “np2” durchlaufen werden. Auch hier ist der Sonderfall zu betrachten, dass “item” zufällig das letzte Listenelement ist."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "239"
+        }
+      ]
+    },
+    {
+      "page_idx": 239,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.463,
+            0.102
+          ],
+          "level": 2,
+          "content": "Zusammenfügen zweier Listen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.741,
+            0.166
+          ],
+          "sub_type": "text",
+          "content": "• Falls Liste als Mengendarstellung: entspricht **Vereinigung**\n• Evtl. **Mehrfachvorkommen** von Elementen ausschließen"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.168,
+            0.188,
+            0.836,
+            0.274
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Start\"] --> B[\"Step 1\"]\n  B --> C[\"Step 2\"]\n  C --> D[\"Step 3\"]\n  D --> E[\"L2\"]\n  E --> F[\"Step 4\"]\n  F --> G[\"NULL\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.164,
+                0.174,
+                0.194,
+                0.187
+              ],
+              "content": "L1:"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_239_image_5.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.272,
+            0.296,
+            0.582,
+            0.416
+          ],
+          "sub_type": "code",
+          "content": "```c\nlistptr Union(listptr L1, listptr L2)\n{\n    if (IsEmpty(*L2)) return L1;\n    if (IsEmpty(*L1)) return L2;\n\n    L1->last->next = L2->first;\n    L1->last = L2->last;\n\n    return L1;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.445
+          ],
+          "content": "**240**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.794,
+            0.516
+          ],
+          "content": "Die **Vereinigung** zweier Listen geschieht einfach durch Aneinanderhängen. Sonderfälle treten nur ein, wenn eine der beiden Listen zufällig leer ist."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.521,
+            0.845,
+            0.557
+          ],
+          "content": "Man beachte, dass durch das Aneinanderhängen **keine** neue Liste mit Kopien von Elementen aus den alten Listen erzeugt wird."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.563,
+            0.842,
+            0.653
+          ],
+          "content": "Zu beachten ist, ob mit Hilfe der Listen Mengen (im mathematischen Sinn) oder andere Daten zu verwalten sind. Bei Mengen gibt es kein **Mehrfachvorkommen** von Elementen, so dass u.U. zusätzlich sichergestellt werden muss, dass in der Vereinigung alle Elemente höchstens einmal vorhanden sind (**Übungsaufgabe**: wie lässt sich dies implementieren?)"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "240"
+        }
+      ]
+    },
+    {
+      "page_idx": 240,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.296,
+            0.13,
+            0.739,
+            0.277
+          ],
+          "sub_type": "code",
+          "content": "```c\nlistptr Intersect(listptr L1, listptr L2)\n{\n    nodeptr np;\n    listptr L = (listptr)malloc(sizeof(List));\n    Init(L);\n    np = L1->first;\n    while (np != NULL) {\n        if (IsIn(np->data, *L2)) AppendLast(np->data, L);\n        np = np->next;\n    }\n    return L;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.16,
+                0.083,
+                0.569,
+                0.102
+              ],
+              "content": "Schnittmengenberechnung mittels Listen"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.224,
+            0.298,
+            0.8,
+            0.43
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"A\"] --> B[\"B\"]\n  B --> C[\"C\"]\n  C --> D[\"D\"]\n  D --> E[\"E\"]\n  E --> NULL[\"NULL\"]\n  L2[\"L2:\"]\n  B --> D[\"D\"]\n  D --> E[\"E\"]\n  E --> G[\"G\"]\n  G --> NULL[\"NULL\"]\n  L[\"L:\"]\n  B --> D[\"D\"]\n  D --> E[\"E\"]\n  E --> NULL[\"NULL\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.219,
+                0.283,
+                0.25,
+                0.296
+              ],
+              "content": "L1:"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_240_image_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**241**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.845,
+            0.534
+          ],
+          "content": "Analog zur Vereinigung lassen sich **Schnittmengen** berechnen. Im Gegensatz zur Funktion Union wird in der Funktion Intersect eine neue Liste mit Kopien von Elementen aus den beiden alten Listen generiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.539,
+            0.82,
+            0.611
+          ],
+          "content": "Zunächst wird eine neue Liste L erzeugt, welche den Schnitt von L1 und L2 aufnehmen soll. Anschließend wird L1 elementweise durchlaufen, und es wird jeweils geprüft, ob das aktuelle Element auch in L2 enthalten ist. Falls ja, so gehört es in die Schnittmengenliste L."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "241"
+        }
+      ]
+    },
+    {
+      "page_idx": 241,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.351,
+            0.171,
+            0.646,
+            0.196
+          ],
+          "level": 2,
+          "content": "8. Lineare Datentypen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.254,
+            0.369,
+            0.319
+          ],
+          "sub_type": "text",
+          "content": "8.1 Listen\n**8.2 Stacks**\n8.3 Queues"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**242**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "242"
+        }
+      ]
+    },
+    {
+      "page_idx": 242,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.228,
+            0.1
+          ],
+          "level": 2,
+          "content": "Stacks"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.17,
+            0.117,
+            0.628,
+            0.156
+          ],
+          "content": "**Def**.: Ein **Stack** (Stapel) ist ein ADT, der folgende Grundoperationen unterstützt:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.171,
+            0.158,
+            0.711,
+            0.197
+          ],
+          "sub_type": "text",
+          "content": "1. Einfügen eines neuen Elementes $( , \\mathsf { P u s h } ^ { n } )$\n2. Entfernen des zuletzt eingefügten Elementes $( , P o p ^ { n } )$"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.211,
+            0.829,
+            0.41
+          ],
+          "sub_type": "text",
+          "content": "• Stacks sind eine **grundlegende Datenstruktur** in vielen Anwendungen\n– Ablagesystem auf Professorenschreibtisch\n– Compiler‐Frontend (Analyse des Quellprogramms)\n– Abarbeitung von C‐Funktionsaufrufen\nAufgrund der Pop‐Operation auch als **LIFO‐Datenstruktur** bezeichnet (last in, first out)\n• Stack als ADT, d.h. **verschiedene Implementierungen** möglich (z.B. Listen und Arrays)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**243**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.817,
+            0.533
+          ],
+          "content": "Der **Stack** ist eine Datenstruktur, auf die nur “von oben” zugegriffen werden kann. “Push” legt etwas auf den Stapel, und “Pop” nimmt das oberste Element herunter."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.54,
+            0.848,
+            0.647
+          ],
+          "content": "In diesem Fall unterscheiden wir genauer zwischen dem Stack als **abstrakter Datentyp** (ADT) und seiner Implementierung. Aus ADT-Sicht ist nur von Belang, dass der Stack Daten speichern kann, und dass Push und Pop das Gewünschte tun. Die eigentliche Realisierung als Programm ist unabhängig von dieser Sichtweise (und sollte es auch sein). Glücklicherweise kennen wir bereits zwei konkrete Datenstrukturen zur Stack-Implementierung."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "243"
+        }
+      ]
+    },
+    {
+      "page_idx": 243,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.3,
+            0.102
+          ],
+          "level": 2,
+          "content": "Push und Pop"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.312,
+            0.217,
+            0.374,
+            0.232
+          ],
+          "content": "push D"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.313,
+            0.26,
+            0.375,
+            0.275
+          ],
+          "content": "push EC"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.313,
+            0.304,
+            0.374,
+            0.318
+          ],
+          "content": "push B"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.315,
+            0.347,
+            0.377,
+            0.361
+          ],
+          "content": "push A"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.414,
+            0.142,
+            0.574,
+            0.398
+          ],
+          "sub_type": "text_image",
+          "content": "stack\nD\nC\nB\nA",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_243_image_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.619,
+            0.218,
+            0.688,
+            0.232
+          ],
+          "content": "pop → D"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.619,
+            0.261,
+            0.688,
+            0.275
+          ],
+          "content": "pop → E C"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.618,
+            0.305,
+            0.686,
+            0.318
+          ],
+          "content": "pop → B"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.621,
+            0.348,
+            0.69,
+            0.361
+          ],
+          "content": "pop → A"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.445
+          ],
+          "content": "**244**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.48,
+            0.834,
+            0.534
+          ],
+          "content": "Die Animation veranschaulicht eine willkürliche **Folge von Stack-Zugriffen** an einem Beispiel. Push und Pop müssen bei typischen Stapeln nicht immer abwechselnd erfolgen. Zu Vermeiden sind jedoch zwei Sondersituationen:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.148,
+            0.539,
+            0.675,
+            0.58
+          ],
+          "sub_type": "text",
+          "content": "(1) Der Versuch, etwas auf einen “vollen” Stack abzulegen\n(2) Der Versuch, etwas von einem leeren Stack zu entnehmen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "244"
+        }
+      ]
+    },
+    {
+      "page_idx": 244,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.082,
+            0.622,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiel: Laufzeit‐Stack für C‐Funktionsaufrufe"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.459,
+            0.384
+          ],
+          "sub_type": "text",
+          "content": "• Siehe auch Kap. 5\nFunktion f wird durch Aufruf von g **unterbrochen** und später **fortgesetzt**\ng kann ihrerseits **weitere Funktionen** aufrufen\nUmgebung zur Programmausführung muss einen **Stack noch aktiver Funktionen** verwalten\n• **Funktionsaufruf** = Push\n• **Funktionsende** = Pop"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.5,
+            0.134,
+            0.842,
+            0.402
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Statement f₁\"] --> B[\"Statement f₂\"]\n  B --> C[\"Statement g₁\"]\n  C --> D[\"Statement g₂\"]\n  D --> E[\"Statement f₃\"]\n  E --> F[\"Statement f₄\"]\n  B --> G[\"Aufruf\"]\n  G --> C\n  D --> E\n  D --> F\n  C -.-> H[\"Rücksprung\"]\n  H --> E\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_244_image_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**245**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.83,
+            0.553
+          ],
+          "content": "Das Konzept der **Funktionsaufrufe** in C wird über Stacks realisiert. Wird ein Programm ausgeführt, so ist dabei stets (für den Programmierer nicht direkt sichtbar) ein (Laufzeit-)Stack aktiv, auf dem Rücksprungpunkte aus Funktionen abgespeichert sind."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.557,
+            0.848,
+            0.665
+          ],
+          "content": "Da Funktionsaufrufe beliebig **verschachtelt** sein können, aber jede Funktion stets zur jeweils **letzten** aufrufenden Funktion zurückkehren muss, ist ein Stack genau die richtige Datenstruktur für diesen Zweck. Bei einem Aufruf von g aus f bspw. wird per Push auf dem Stack die aktuelle Position in f gespeichert. Nun wird g abgearbeitet (was evtl. zu weiteren Pushs führt), und der Rücksprung erfolgt dann nach f an die per Pop zu bestimmende Stelle."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "245"
+        }
+      ]
+    },
+    {
+      "page_idx": 245,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.619,
+            0.101
+          ],
+          "level": 2,
+          "content": "Beispiel: Laufzeit‐Stack für C‐Funktionsaufrufe"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.148,
+            0.113,
+            0.837,
+            0.449
+          ],
+          "sub_type": "flowchart",
+          "content": "This image displays a structured logic diagram representing a program or system with multiple input/output states (void f, void g, void h, i, int main) and their corresponding function blocks.",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_245_image_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.839,
+            0.514
+          ],
+          "content": "Das Beispiel zeigt, wie sich der Laufzeit-Stack für ein gegebenes (hier sicherlich nicht weiter sinnvolles) Programm entwickelt. Bei einer korrekten"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.516,
+            0.829,
+            0.552
+          ],
+          "content": "Programmabarbeitung sollte am Ende in jedem Fall der gleiche **Stack-Zustand** wie am Anfang herrschen (d.h. es ist lediglich die main-Funktion aktiv)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.557,
+            0.84,
+            0.629
+          ],
+          "content": "Bei manchen **Programmierfehlern** (z.B. Schreiben in ein lokales Array jenseits seiner Grenzen) kann der Laufzeitstack beschädigt (d.h. mit ungültigen Daten gefüllt) werden. Als Folge könnte eine Funktion ihre richtige Rücksprungadresse “vergessen”, was unweigerlich zu einem Programmabsturz führt."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "246"
+        }
+      ]
+    },
+    {
+      "page_idx": 246,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.521,
+            0.102
+          ],
+          "level": 2,
+          "content": "Stack‐Implementierung durch Listen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.557,
+            0.215
+          ],
+          "sub_type": "text",
+          "content": "Elemente auf Stack = Listenelemente\n• Push = Einfügen am Listenanfang\n• Pop = Entfernen des ersten Elementes\n• Stack für beliebigen Elementtyp T:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.239,
+            0.226,
+            0.504,
+            0.424
+          ],
+          "sub_type": "code",
+          "content": "```c\nList L;\n\nvoid Push(T* item,listptr L)\n{\n    AppendFirst(item, L);\n}\n\nT* Pop(listptr L)\n{\n    T* item;\n    if (IsEmpty(*L)) return NULL;\n\n    item = L->first->data;\n    Delete(item, L);\n    return item;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.706,
+            0.125,
+            0.755,
+            0.416
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Stage 1\"] --> B[\"Intermediate 1\"]\n  B --> C[\"Intermediate 2\"]\n  C --> D[\"Intermediate 3\"]\n  D --> E[\"Final Stage\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_246_image_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**247**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.837,
+            0.553
+          ],
+          "content": "Stacks lassen sich wie gezeigt sehr leicht durch **Listen** implementieren. Der Unterschied zu einer “normalen” Liste liegt lediglich darin, dass man auf sie nur per Push und Pop zugreift, wodurch die Funktionalität des ADT Stack gewährleistet wird."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "247"
+        }
+      ]
+    },
+    {
+      "page_idx": 247,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.161,
+            0.083,
+            0.527,
+            0.102
+          ],
+          "content": "Stack‐Implementierung durch Arrays"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.466,
+            0.404
+          ],
+          "sub_type": "text",
+          "content": "• Vorgabe der **max. Stack‐Größe** notwendig\nElemente auf Stack = Arrayelemente\n„top“ verweist stets auf das nächste freie Element (top = „**Stack‐Pointer**“)\nPush = Einfügen und Erhöhen von top um 1\nPop = Entfernen und Erniedrigen von top um 1\nPrüfen auf **Überlauf** (im Gegensatz zu Listen!)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.513,
+            0.131,
+            0.8,
+            0.416
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define MAX 100\ntypedef struct stk\n{ T* elems[MAX]; int top; } stack;\n\nvoid Init(stack* s)\n{ s->top = 0; }\n\nint IsEmpty(stack s)\n{ return (s.top == 0); }\n\nvoid Push(T* item,stack* s)\n{\n    if (s->top == MAX)\n        printf(„Stack voll!“);\n    s->elems[s->top] = item;\n    s->top++;\n}\n\nT* Pop(stack* s)\n{\n    if (IsEmpty(*s)) return NULL;\n    s->top--;\n    return s->elems[s->top];\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**248**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.849,
+            0.568
+          ],
+          "content": "Eine andere Variante besteht in der **Implementierung durch Arrays**. Der wesentliche Unterschied zur Listenimplementierung liegt darin, dass der Speicherplatz statisch festgelegt werden muss. Der hier gezeigte Stack kann exakt 100 Elemente speichern, was u.U. zum Überlauf oder zu Platzverschwendung führen kann."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.575,
+            0.842,
+            0.664
+          ],
+          "content": "Der Vorteil der Arrays liegt jedoch in der einfacheren Stack-Implementierung. Bzgl. Push und Pop beachte man, dass Inkrementieren und Dekrementieren des Stack-Pointers zueinander **asymmetrisch** erfolgen müssen (Push: einfügen, dann inkrementieren, Pop: dekrementieren, dann lesen), da per Definition der Stack-Pointer immer auf das nächste freie Element im Array verweisen soll."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "248"
+        }
+      ]
+    },
+    {
+      "page_idx": 248,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.37,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiel‐Anwendung"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.709,
+            0.262
+          ],
+          "sub_type": "text",
+          "content": "• Auswertung geklammerter **arithmetischer Ausdrücke** $- \\mathrm { ~ z . B . ~ } ( ( \\mathrm { ~ 6 ~ } ^ { * } ( \\mathrm { ~ 4 ~ } ^ { * } \\mathrm { ~ 2 8 } ) ) + ( \\mathrm { ~ 9 ~ } \\mathrm { - } ( ( \\mathrm { ~ 1 2 ~ } / \\mathrm { ~ 4 } ) ^ { * } \\mathrm { ~ 2 } ) ) )$\n• **Innere Ausdrücke** vor äußeren auszuwerten\n• Speicherung von Zwischenergebnissen notwendig\n• **Zwei Stacks**: Operanden‐ und Operatorstack\n• Abarbeitung eines Ausdrucks **von links nach rechts**:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.197,
+            0.268,
+            0.779,
+            0.399
+          ],
+          "sub_type": "text",
+          "content": "${ \\bf \\nabla } _ { \\nu } \\left( { \\bf \\nabla } ^ { \\prime } \\right)$ keine Aktion\n– Operand: Push auf Operandenstack\n– Operator: Push auf Operatorstack\n${ \\bf \\Phi } _ { \\nu } ) ^ { \\prime \\prime } ;$ Pop des obersten Operators, Pop der obersten beiden Operanden, Ausdruck auswerten, Push Ergebnis auf Operandenstack"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**249**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.48,
+            0.812,
+            0.553
+          ],
+          "content": "Mittels Stacks kann man einen einfachen “**Taschenrechner**” implementieren, welcher komplexe arithmetische Ausdrücke auswertet und dabei die Klammerung beachtet. Beim Durchlauf durch den Ausdruck ist folgende **Fallunterscheidung** zu machen:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.149,
+            0.556,
+            0.834,
+            0.753
+          ],
+          "sub_type": "text",
+          "content": "(1) Öffnende Klammer: ein neuer Teilausdruck beginnt, aber es ist nichts zu speichern oder auszuwerten\n(2) Operand: man befindet sich “mitten” in einem Ausdruck, und der Operand muss gespeichert werden\n(3) Operator: man befindet sich “mitten” in einem Ausdruck, und der Operator muss gespeichert werden\n(4) Schließende Klammer: Ende eines Teilausdrucks, der zuletzt gespeicherte Operator muss auf die zuletzt gespeicherten Operanden angewendet werden, und das Ergebnis muss (als evtl. Operand für andere noch offene Teilausdrücke) gespeichert werden"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "249"
+        }
+      ]
+    },
+    {
+      "page_idx": 249,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.242,
+            0.101
+          ],
+          "level": 2,
+          "content": "Beispiel"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.277,
+            0.112,
+            0.679,
+            0.134
+          ],
+          "content": "\\left(\\left(6 ^ {*} (4 ^ {*} 2 8)\\right) + (9 - \\left((1 2 / 4) ^ {*} 2\\right))\\right)",
+          "image_source": "../../raw/pages_0225-0256/images/page_249_equation_1.jpg"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.214,
+            0.174,
+            0.368,
+            0.436
+          ],
+          "content": "| 6 |\n| --- |\n| 6 4 |\n| 6 4 28 |\n| 6 112 |\n| 672 |\n| 672 9 |\n| 672 9 12 |\n| 672 9 12 4 |\n| 672 9 3 |\n| 672 9 3 2 |\n| 672 9 6 |\n| 672 3 |\n| 675 |",
+          "captions": [
+            {
+              "bbox": [
+                0.209,
+                0.148,
+                0.347,
+                0.163
+              ],
+              "content": "Operandenstack"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_249_table_3.jpg"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.542,
+            0.174,
+            0.653,
+            0.436
+          ],
+          "content": "| * |\n| --- |\n| ** |\n| * |\n| (leer) |\n| + |\n| +- |\n| +-/ |\n| +- |\n| +-* |\n| +- |\n| +(leer) |",
+          "captions": [
+            {
+              "bbox": [
+                0.527,
+                0.148,
+                0.646,
+                0.163
+              ],
+              "content": "Operatorstack"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_249_table_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.445
+          ],
+          "content": "**250**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.439,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.813,
+            0.533
+          ],
+          "content": "Das Beispiel zeigt die **Entwicklung der beiden Stacks**. Jede neue Zeile entspricht dabei neuen, gemäß der obigen Fallunterscheidung angenommenen Stack-Zuständen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "250"
+        }
+      ]
+    },
+    {
+      "page_idx": 250,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.351,
+            0.171,
+            0.646,
+            0.196
+          ],
+          "level": 2,
+          "content": "8. Lineare Datentypen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.254,
+            0.371,
+            0.32
+          ],
+          "sub_type": "text",
+          "content": "8.1 Listen\n8.2 Stacks\n**8.3 Queues**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**251**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "251"
+        }
+      ]
+    },
+    {
+      "page_idx": 251,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.241,
+            0.1
+          ],
+          "level": 2,
+          "content": "Queues"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.17,
+            0.117,
+            0.735,
+            0.156
+          ],
+          "content": "**Def**.: Eine **Queue** (Warteschlange) ist ein ADT, der folgende Grundoperationen unterstützt:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.171,
+            0.158,
+            0.705,
+            0.197
+          ],
+          "sub_type": "text",
+          "content": "1. Einfügen eines neuen Elementes $( , \\mathsf { P u t } ^ { n } )$\n2. Entfernen des zuerst eingefügten Elementes $( , \\mathsf { G e t } ^ { n } )$"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.163,
+            0.215,
+            0.83,
+            0.306
+          ],
+          "sub_type": "text",
+          "content": "• Verbreitete Datenstruktur, z.B.\n– Warteschlange von auszuführenden Prozessen\n– Kommunikationspuffer z.B. für Druckaufträge\n• **FIFO‐Prinzip**: first in, first out $( . ,$ zuerst gekommen, zuerst bedient“)"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.147,
+            0.319,
+            0.853,
+            0.421
+          ],
+          "sub_type": "text_image",
+          "content": "DEZZEN\nnach Originalrezept",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_251_image_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**252**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.48,
+            0.839,
+            0.551
+          ],
+          "content": "**Queues** haben eine gewisse Verwandtschaft mit Stacks. Der Zugriff erfolgt jedoch quasi umgekehrt: Statt des zuletzt eingefügten Elementes wird immer das zuerst eingefügte Element entnommen (FIFO). Auch hier betrachten wir die Queue zunächst als ADT."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.557,
+            0.848,
+            0.593
+          ],
+          "content": "Außer im wirklichen Leben (s. Foto) begegnet man Warteschlangen in sehr vielen IT-Anwendungen, z.B. bei der **Synchronisation paralleler Prozesse**."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.598,
+            0.837,
+            0.814
+          ],
+          "content": "**Beispiel: Druckerbetrieb**. Ein Drucker (Prozess 1) interagiert mit einer Menge von Benutzern (Prozesse 2…N). Jeder Prozess arbeitet mit seiner eigenen Geschwindigkeit, und Interaktionen finden nur gelegentlich und zu unvorhersagbaren Zeitpunkten statt. Damit das Gesamtsystem Drucker/Benutzer sinnvoll funktioniert, müssen die Prozesse synchronisiert werden. Möchte Prozess i (i > 1) drucken, so kann Prozess 1 zufällig gerade beschäftigt sein. Damit keine Aufträge verloren gehen, müssen diese in einem Speicher zwischengelagert (gepuffert) werden. Außerdem ist es “fair”, dass zuerst abgesandte Druckaufträge auch als erstes abgearbeitet werden. Daher ist eine Queue als Puffer sehr geeignet (bei einem Stack als Puffer würde immer der letzte Auftraggeber gewinnen, wodurch die “Fleissigen bestraft” und die “Nachzügler bevorzugt” würden)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.818,
+            0.825,
+            0.89
+          ],
+          "content": "Dieses Beispiel ließe sich auch für die Interaktion (Informations- und Auftragsaustausch) zwischen den Benutzern selbst fortsetzen. Eine Queue wird dann als Puffermodell allerdings nicht mehr ausreichen, da es in diesem Fall weitere Kriterien für “Fairness” gibt, z.B. Prioritäten."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "252"
+        }
+      ]
+    },
+    {
+      "page_idx": 252,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.284,
+            0.1
+          ],
+          "level": 2,
+          "content": "Put und Get"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.312,
+            0.229,
+            0.366,
+            0.244
+          ],
+          "content": "put D"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.313,
+            0.273,
+            0.366,
+            0.287
+          ],
+          "content": "put C"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.313,
+            0.316,
+            0.365,
+            0.331
+          ],
+          "content": "put B"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.315,
+            0.359,
+            0.368,
+            0.374
+          ],
+          "content": "put A"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.414,
+            0.153,
+            0.574,
+            0.41
+          ],
+          "sub_type": "text_image",
+          "content": "queue\nD\nC\nB\nA",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_252_image_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.62,
+            0.359,
+            0.692,
+            0.373
+          ],
+          "content": "get → A"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**253**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.48,
+            0.841,
+            0.551
+          ],
+          "content": "Für den Zugriff auf eine Queue existieren zwei Funktionen Put und Get. Put hängt ein Element an das Ende der Queue, Get entfernt das erste Element aus der Queue. Ähnlich wie beim Stack sind auch hier die folgenden Sondersituationen zu vermeiden:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.149,
+            0.557,
+            0.771,
+            0.598
+          ],
+          "sub_type": "text",
+          "content": "• Der Versuch, etwas an eine “volle” Queue mittels Put anzuhängen\n• Der Versuch, etwas aus einer leeren Queue mittels Get zu entnehmen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "253"
+        }
+      ]
+    },
+    {
+      "page_idx": 253,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.284,
+            0.1
+          ],
+          "level": 2,
+          "content": "Put und Get"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.47,
+            0.165,
+            0.521,
+            0.178
+          ],
+          "content": "**queue**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.485,
+            0.274,
+            0.501,
+            0.286
+          ],
+          "content": "D"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.486,
+            0.318,
+            0.5,
+            0.33
+          ],
+          "content": "C"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.486,
+            0.361,
+            0.499,
+            0.373
+          ],
+          "content": "B"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.621,
+            0.36,
+            0.689,
+            0.373
+          ],
+          "content": "get → B"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.437,
+            0.172,
+            0.445
+          ],
+          "content": "**254**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.439,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "254"
+        }
+      ]
+    },
+    {
+      "page_idx": 254,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.284,
+            0.1
+          ],
+          "level": 2,
+          "content": "Put und Get"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.47,
+            0.165,
+            0.521,
+            0.178
+          ],
+          "content": "**queue**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.485,
+            0.318,
+            0.5,
+            0.33
+          ],
+          "content": "D"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.486,
+            0.361,
+            0.5,
+            0.373
+          ],
+          "content": "C"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.621,
+            0.36,
+            0.691,
+            0.373
+          ],
+          "content": "get → C"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**255**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.439,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "255"
+        }
+      ]
+    },
+    {
+      "page_idx": 255,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.533,
+            0.102
+          ],
+          "level": 2,
+          "content": "Queue‐Implementierung durch Listen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.125,
+            0.557,
+            0.215
+          ],
+          "sub_type": "text",
+          "content": "Queue‐Elemente = Listenelemente\n• Put = Einfügen am Listenende\n• Get = Entfernen des ersten Elementes\n• Queue für beliebigen Elementtyp T:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.263,
+            0.224,
+            0.524,
+            0.436
+          ],
+          "sub_type": "code",
+          "content": "```c\nList L;\n\nvoid Put(T* item,listptr L)\n{\n    AppendLast(item, L);\n}\n\nT* Get(listptr L)\n{\n    T* item;\n\n    if (IsEmpty(*L)) return NULL;\n\n    item = L->first->data;\n    Delete(item, L);\n\n    return item;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**256**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.714,
+            0.129,
+            0.761,
+            0.42
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Stage 1\"] --> B[\"Stage 2\"]\n  B --> C[\"Stage 3\"]\n  C --> D[\"Stage 4\"]\n  D --> E[\"Stage 5\"]\n```",
+          "captions": [],
+          "footnotes": [
+            {
+              "bbox": [
+                0.675,
+                0.439,
+                0.816,
+                0.447
+              ],
+              "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+            }
+          ],
+          "image_source": "../../raw/pages_0225-0256/images/page_255_image_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.479,
+            0.731,
+            0.517
+          ],
+          "content": "Ähnlich zu den Stacks lassen sich auch Queues leicht mittels **Listen** implementieren. Der Zugriff erfolgt dann per Put und Get."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "256"
+        }
+      ]
+    },
+    {
+      "page_idx": 256,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.541,
+            0.102
+          ],
+          "level": 2,
+          "content": "Queue‐Implementierung durch Arrays"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.148,
+            0.161,
+            0.827,
+            0.449
+          ],
+          "sub_type": "bar_stacked",
+          "content": "| Kategorie | Wert 1 | Wert 2 | Wert 3 | Wert 4 | Wert 5 | Wert 6 | Wert 7 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Stack (Verwendung) | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% |\n| Stack (Tendenziellem) | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% |\n| Stack (Speichereich) | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% |\n| Stack (Spaicherausnutzung) | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% |\n| Queue (Wandert) | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% |\n| Queue (Weiter nach rechts) | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% |\n| Queue (Schlechte Speicherausnutzung) | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% |\n| Queue (Spaicherausnutzung 257) | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% |\n\n© T. Gemmeke, IDS, RWTH; R. Leupers, SSS",
+          "captions": [
+            {
+              "bbox": [
+                0.164,
+                0.123,
+                0.803,
+                0.159
+              ],
+              "content": "Betrachte Dynamik von Queues im Vergleich zu Stacks in Array‐Implementierung:"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_256_chart_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.837,
+            0.553
+          ],
+          "content": "Bei der Array-Implementierung von Queues ist eine **Besonderheit** zu beachten: Die anfangs genutzten Speicherplätze würden im Zeitablauf nicht mehr weiter verwendet und somit für die spätere Verwendung vergeudet. Eine solche “naive” Implementierung scheidet daher meist aus."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "257"
+        }
+      ]
+    },
+    {
+      "page_idx": 257,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.541,
+            0.102
+          ],
+          "level": 2,
+          "content": "Queue‐Implementierung durch Arrays"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.124,
+            0.728,
+            0.144
+          ],
+          "content": "• Lösung: **ringförmiges** Array bzw. **zyklische** Adressierung"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.296,
+            0.161,
+            0.688,
+            0.426
+          ],
+          "sub_type": "text_image",
+          "content": "A[N-1] A[0]",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_257_image_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**258**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.848,
+            0.605
+          ],
+          "content": "Der Trick besteht darin, den für die Queue reservierten Speicherbereich (das Array) als **ringförmige** Struktur zu betrachten. D.h. der Nachfolger von A[N-1] wird per Definition zu A[0] statt A[N]. Die aktiven Elemente in der Queue können sich dann an beliebigen Stellen im Array befinden, und die Anfangselemente ab A[0] werden automatisch wiederverwendet, sobald die Grenze A[N] überschritten wird. Natürlich sind hierbei **Überlaufsituationen** (d.h. das Überschreiben von noch aktiven Elementen durch Put) zu vermeiden."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "258"
+        }
+      ]
+    },
+    {
+      "page_idx": 258,
+      "blocks": [
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.426,
+            0.371
+          ],
+          "sub_type": "text",
+          "content": "Zwei **Zeiger** (Array‐Indizes) first und last verweisen auf aktuellen Anfang (‐1) und Ende (+1) der Queue\nVerwendung des Modulo‐Operators (%) zur **zyklischen Adressierung**\nPrüfung auf **Über‐ und Unterlauf** (overflow, underflow) erforderlich"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.459,
+            0.114,
+            0.829,
+            0.433
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define MAX 100\n\ntypedef struct q\n{ T* elems[MAX];\n    int first, last; } queue;\n\nvoid Init(queue* q)\n{\n    q->first = 0;\n    q->last = 1;\n}\n\nvoid Put(T* item,queue* q)\n{\n    if (q->last == q->first) overflow();\n    else {\n        q->elems[q->last] = item;\n        q->last = (q->last+1) % MAX;\n    }\n}\n\nT* Get(queue* q)\n{\n    q->first = (q->first+1) % MAX;\n    if (q->first == q->last) underflow();\n    else return q->elems[q->first];\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.161,
+                0.083,
+                0.541,
+                0.102
+              ],
+              "content": "Queue‐Implementierung durch Arrays"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**259**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.828,
+            0.569
+          ],
+          "content": "Da der Speicher immer linear adressiert wird, muss die zyklische Adressierung anderweitig nachgebildet werden. Hierzu kann der **%-Operator** verwendet werden, welcher den Rest bei der ganzzahligen Division liefert. Damit wird gewährleistet, dass bei Put und Get niemals der Speicherbereich A[0…MAX-1] verlassen wird."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.574,
+            0.841,
+            0.737
+          ],
+          "content": "Die **Überlaufbehandlung** (normalerweise: Ausgabe einer Fehlermeldung) wird hier nicht weiter vertieft. Eine leere Queue wird dadurch gekennzeichnet, dass sich first und last um 1 unterscheiden (siehe Init-Funktion). Der Überlauf lässt sich somit durch einen Vergleich von first und last erkennen: Der last-Zeiger soll stets auf das nächste freie Element zeigen. Ist er bei Put identisch zum first-Zeiger, so wird die Queue als “voll” betrachtet (theoretisch würde jedoch noch ein zusätzliches Element hineinpassen, wenn man das Array bis zum letzten Feld füllt). Analog bei Get: Erreicht man durch Inkrementieren von first die Position last, so gibt es nichts mehr zu entnehmen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "259"
+        }
+      ]
+    },
+    {
+      "page_idx": 259,
+      "blocks": [
+        {
+          "type": "chart",
+          "bbox": [
+            0.144,
+            0.073,
+            0.855,
+            0.451
+          ],
+          "sub_type": "state_timeline",
+          "content": "| Step | Outcome |\n| --- | --- |\n| 1 | first |\n| 2 | last |\n| 3 | frei |\n| 4 | verwendet |\n| 5 | second |\n| 6 | third |\n| 7 | fourth |\n| 8 | fifth |\n| 9 | sixth |\n| 10 | seventh |\n| 11 | eighth |\n| 12 | fifth |\n| 13 | sixth |\n| 14 | fifth |\n| 15 | sixth |\n| 16 | fifth |\n| 17 | sixth |\n| 18 | fifth |\n| 19 | sixth |\n| 20 | fifth |\n| 21 | sixth |\n| 22 | fifth |\n| 23 | sixth |\n| 24 | fifth |\n| 25 | sixth |\n| 26 | fifth |\n| 27 | sixth |\n| 28 | fifth |\n| 29 | sixth |\n| 30 | fifth |\n| 31 | sixth |\n| 32 | fifth |\n| 33 | sixth |\n| 34 | fifth |\n| 35 | sixth |\n| 36 | fifth |\n| 37 | sixth |\n| 38 | fifth |\n| 39 | sixth |\n| 40 | fifth |\n| 41 | sixth |\n| 42 | fifth |\n| 43 | sixth |\n| 44 | fifth |\n| 45 | sixth |\n| 46 | fifth |\n| 47 | sixth |\n| 48 | fifth |\n| 49 | sixth |\n| 50 | fifth |\n| 51 | sixth |\n| 52 | fifth |\n| 53 | sixth |\n| 54 | fifth |\n| 55 | sixth |\n| 56 | fifth |\n| 57 | sixth |\n| 58 | fifth |\n| 59 | sixth |\n| 60 | fifth |\n| 61 | sixth |\n| 62 | fifth |\n| 63 | sixth |\n| 64 | fifth |\n| 65 | sixth |\n| 66 | fifth |\n| 67 | sixth |\n| 68 | fifth |\n| 69 | sixth |\n| 70 | fifth |\n| 71 | sixth |\n| 72 | fifth |\n| 73 | sixth |\n| 74 | fifth |\n| 75 | sixth |\n| 76 | fifth |\n| 77 | sixth |\n| 78 | fifth |\n| 79 | sixth |\n| 80 | fifth |\n| 81 | sixth |\n| 82 | fifth |\n| 83 | sixth |\n| 84 | fifth |\n| 85 | sixth |\n| 86 | fifth |\n| 87 | sixth |\n| 88 | fifth |\n| 89 | sixth |\n| 90 | fifth |\n| 91 | sixth |\n| 92 | fifth |\n| 93 | sixth |\n| 94 | fifth |\n| 95 | sixth |\n| 96 | fifth |\n| 97 | sixth |\n| 98 | fifth |\n| 99 | sixth |\n| 100 | fifth |\n\n© T. Gemmeke, IDS, RWTH; R. Leupers, SSS",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_259_chart_0.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.711,
+            0.499
+          ],
+          "content": "**Beispiel-Zustände** einer Queue nach verschiedenen Operationen:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.504,
+            0.386,
+            0.52
+          ],
+          "content": "Queue 1: Zustand nach Init"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.527,
+            0.46,
+            0.544
+          ],
+          "content": "Queue 2: nach Put einiger Elemente"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.55,
+            0.461,
+            0.567
+          ],
+          "content": "Queue 3: nach Get einiger Elemente"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.574,
+            0.787,
+            0.591
+          ],
+          "content": "Queue 4: Put weiterer Elemente, last-Zeiger geht zurück auf Array-Anfang"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.597,
+            0.427,
+            0.613
+          ],
+          "content": "Queue 5: Get weiterer Elemente"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.619,
+            0.825,
+            0.656
+          ],
+          "content": "Queue 6: Put weiterer Elemente, aktive Elemente befinden sich nun sowohl am Ende als auch am Anfang des Arrays"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "260"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "Microsoft PowerPoint - GGI1_W26.pptx",
+      "authors": [
+        "gemmeke"
+      ],
+      "created_at": "2026-10-06T18:10:39+02:00",
+      "modified_at": "2026-10-06T18:10:39+02:00",
+      "creator_application": "PScript5.dll Version 5.2.2",
+      "producer_application": "Acrobat Distiller 20.0 (Windows)",
+      "page_count": 355,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 228,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 229,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 230,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 231,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 232,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 233,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 234,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 235,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 236,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 237,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 238,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 239,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 240,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 241,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 242,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 243,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 244,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 245,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 246,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 247,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 248,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 249,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 250,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 251,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 252,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 253,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 254,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 255,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 256,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 257,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 258,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 259,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

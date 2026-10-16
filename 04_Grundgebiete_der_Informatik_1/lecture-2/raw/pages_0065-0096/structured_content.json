@@ -1,0 +1,3418 @@
+{
+  "pages": [
+    {
+      "page_idx": 64,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.375,
+            0.102
+          ],
+          "level": 2,
+          "content": "Type cast mit Zeigern"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.577,
+            0.419
+          ],
+          "sub_type": "text",
+          "content": "Zeiger sind im Prinzip **identisch** mit (positiven) Integer‐Zahlen\nDaher können Zeiger und int ineinander **umgewandelt** werden\nDiese Eigenschaft von C/C++ bringt große **Flexibilität**, birgt jedoch auch **Gefahren**, z.B. möglicher Zugriff auf geschützte Speicherbereiche"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.197,
+            0.21,
+            0.478,
+            0.334
+          ],
+          "sub_type": "code",
+          "content": "```txt\np = (int*)x;\nx = *p;\n- lädt x mit dem Inhalt von Speicherstelle 1234\nx = (int)q;\n- lädt x mit 2000\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.629,
+            0.12,
+            0.831,
+            0.419
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"0\"] --> B[\"x = 1234\"]\n  B --> C[\"...\"]\n  D[\"q = 2000\"] --> E[\"p = 1000\"]\n  E --> F[\"2000\"]\n  F --> G[\"N\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_64_image_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**65**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.588
+          ],
+          "content": "Die Identität von Zeigern und int-Zahlen (genauer gesagt: unsigned int, denn die Adressen sind immer positiv) resultiert daraus, dass Zahlen und Zeiger im Speicher die gleiche Darstellung haben. Die **Wertebereiche** müssen jedoch nicht immer gleich sein, abhängig von der zugrunde liegenden Computerarchitektur. So könnten unsigned int-Zahlen bspw. im Wertebereich [0,65535] liegen (bei 16-Bit-Darstellung), wogegen der Speicher 32-Bit-Adressen (d.h. [0, 2<sup>32</sup>-1]) haben kann."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "65"
+        }
+      ]
+    },
+    {
+      "page_idx": 65,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.372,
+            0.102
+          ],
+          "level": 2,
+          "content": "Wozu dienen Zeiger?"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.119,
+            0.816,
+            0.407
+          ],
+          "sub_type": "text",
+          "content": "Allgemein: falls mittels eines **einzigen Objektes** (Zeiger) im Programmverlauf auf **verschiedene andere Objekte** zugegriffen werden soll\nOder falls (in der maschinennahen Programmierung) Zugriffe auf **vorgegebene feste Speicherstellen** notwendig sind\nVor allem sind Zeiger sinnvoll bei **dynamischen** (d.h. zur Laufzeit erzeugten) Datenstrukturen\nDatenobjekte, deren Größe während der Programmentwicklung noch nicht feststeht und die daher **nicht statisch deklariert** werden können\nHierfür kann dynamisch (d.h. während der Programmlaufzeit) Speicher angefordert und wieder freigegeben werden\n• Der Speicherbereich hierfür heißt **Heap** (Halde, Haufen)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**66**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.843,
+            0.606
+          ],
+          "content": "Ist z.B. eine **Datenbank** zu implementieren, so kann der Programmierer nicht genau wissen, wie viele Datensätze später im Betrieb einmal zu speichern sind. Die statische Vorabreservierung eines möglichst großen Speicherbereichs wäre zwar denkbar, aber ineffizient (wegen Platzverschwendung) und unsicher (wegen möglicher Überläufe). Daher wäre dies ein typischer Anwendungsfall für **dynamische Datenstrukturen**, bei denen der notwendige Speicherbereich erst zur Programmlaufzeit ermittelt und reserviert wird."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.611,
+            0.835,
+            0.738
+          ],
+          "content": "In der **maschinennahen Programmierung** kann es vorkommen, dass auf ganz bestimmte (konstante) Adressen zugegriffen werden muss. Ist z.B. bekannt, dass ein bestimmtes Gerät einen zu verarbeitenden Wert immer an Adresse 1000 hinterlegt, so gäbe es mit Hilfe normaler Variablendeklarationen keine Möglichkeit, hierauf zuzugreifen, da der Compiler die Variablenadressen selbst bestimmt. Mit Hilfe einer Deklaration wie $\\mathrm{int^{*}p=(int^{*})1000;}$ kann jedoch mittels Zeiger p auf die gewünschte Adresse direkt zugegriffen werden."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "66"
+        }
+      ]
+    },
+    {
+      "page_idx": 66,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.31,
+            0.102
+          ],
+          "level": 2,
+          "content": "Heap‐Speicher"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.544,
+            0.38
+          ],
+          "sub_type": "text",
+          "content": "Programmcode und Variablen im **statischen** Speicherbereich\n• Zugriff auf den **Heap** wie folgt:\nAnforderung von Heap‐Speicher mittels Funktion malloc (memory allocation)\nint\\* p = (int\\*) malloc(1000);\n– p zeigt dann auf Anfang von freiem 1000‐Byte Heap‐Block\n– Adresse eines freien Blockes wird von malloc **automatisch** ermittelt (z.B. 5000)"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.59,
+            0.119,
+            0.825,
+            0.426
+          ],
+          "sub_type": "bar_stacked",
+          "content": "| Component | Relative Area |\n| --- | --- |\n| p = 5000 | N/A |\n| H | N/A |\n| E | N/A |\n| A | N/A |\n| P | N/A |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_66_chart_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**67**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.569
+          ],
+          "content": "Im Falle der Standard-Library-Funktion „**malloc**“ ist ein type cast notwendig. Da die malloc-Funktion nicht „wissen“ kann, welcher Datentyp im Speicher abgelegt werden soll, gibt sie zunächst einmal einen „generischen“ Zeiger vom Typ „void\\*“ zurück. Dieser kann dann (optional) explizit auf den gewünschten Typ (hier „int\\*“) gecastet werden."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.575,
+            0.842,
+            0.665
+          ],
+          "content": "„malloc“ kann auch eine Fehlermeldung zurückgeben, falls **kein freier Speicher** mehr gefunden werden kann. Da heutige Computer mit Speicher meist sehr großzügig ausgestattet sind, ist ein solcher Fehler jedoch oft ein Hinweis auf einen Bug, z.B. malloc-Aufruf in einer Endlosschleife, welcher zwangsläufig irgendwann nicht mehr erfolgreich ausgeführt werden kann."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "67"
+        }
+      ]
+    },
+    {
+      "page_idx": 67,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.31,
+            0.102
+          ],
+          "level": 2,
+          "content": "Heap‐Speicher"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.635,
+            0.189
+          ],
+          "sub_type": "text",
+          "content": "Adressen **5000‐5999** durch malloc reserviert \\*p = 1234; weist 1234 an erste Speicherzelle im Block zu"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.216,
+            0.611,
+            0.275
+          ],
+          "content": "Da die an malloc übergebene **Blockgröße** variabel ist, kann Heap‐Speicher immer **passend** angefordert werden"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.304,
+            0.639,
+            0.405
+          ],
+          "content": "Nach Verwendung sollte der Heap‐Block auch wieder **freigegeben** werden, um den Speicherplatz für andere Zwecke wiederverwenden zu können: free(p); // Block 5000-5999 freigeben"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**68**"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.642,
+            0.119,
+            0.847,
+            0.427
+          ],
+          "sub_type": "bar_stacked",
+          "content": "| Stage | Value |\n| --- | --- |\n| Initial State | 0 |\n| Transition | p = 5000 |\n| Final Step | 1234 |\n| Intermediate Level | 5000 |\n| Intermediate Level | 6000 |\n| Final Level | N |",
+          "captions": [
+            {
+              "bbox": [
+                0.675,
+                0.438,
+                0.816,
+                0.446
+              ],
+              "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_67_chart_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.832,
+            0.606
+          ],
+          "content": "„free“ ist das Gegenstück zu „malloc“. Die explizite **Freigabe von nicht mehr benötigten Speicherbereichen** ist bei ausreichend großem Speicher nicht unbedingt notwendig, es ist jedoch schlechter Programmierstil, so zu verfahren. Führt z.B. der Aufruf von „free“ zu einer Fehlermeldung, so ist dies ein sicherer Hinweis darauf, dass die Speicherverwaltung im Programm falsch angelegt ist. Ohne explizites „free“ könnte dies eine zeitlang unbemerkt bleiben und irgendwann zu einem fatalen Absturz führen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "68"
+        }
+      ]
+    },
+    {
+      "page_idx": 68,
+      "blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            0.153,
+            0.075,
+            0.891,
+            0.466
+          ],
+          "sub_type": "text_image",
+          "content": "#include <stdlib.h>\n#include <stdio.h>\n\nint main( void ) {\n    int* p;\n    printf(\"Any memory        @ %p: %d_%d_%d\\n\", p, p[0], p[1], p[2]);\n    p = (int*) malloc(1000);\n    printf(\"Allocated memory   @ %p: %d_%d_%d\\n\", p, p[0], p[1], p[2]);\n    p[0] = 4;\n    p[1] = 7;\n    p[2] = 11;\n    printf(\"Initialized memory @ %p: %d_%d_%d\\n\", p, p[0], p[1], p[2]);\n    free(p);\n    printf(\"Deallocated memory @ %p: %d_%d_%d\\n\", p, p[0], p[1], p[2]);\n    return 0;\n}\n\n#include <cstdio>\n#include <memory>\nusing namespace std;\nint main( void ) {\n    int* p;\n    printf(\"Any memory       @ %p: %d_%d_%d\\n\", p, p[0], p[1], p[2]);\n    p = new int[250];\n    printf(\"Allocated memory   @ %p: %d_%d_%d\\n\", p, p[0], p[1], p[2]);\n    p[0] = 4;\n    p[1] = 7;\n    p[2] = 11;\n    printf(\"Initialized memory @ %p: %d_%d_%d\\n\", p, p[0], p[1], p[2]);\n    delete [] p;\n    printf(\"Deallocated memory @ %p: %d_%d_%d\\n\", p, p[0], p[1], p[2]);\n    return 0;\n}",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_68_image_0.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.849,
+            0.516
+          ],
+          "content": "Whether you use c or C++, dynamic memory allocation uses different commands. The result is the same."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.545,
+            0.85,
+            0.617
+          ],
+          "content": "Please note: the first printf statement can lead to a program crash as the pointer p is not initialized and my point to areas outside the allocated memory space. Sometimes variables are automatically initialized to zero - accessing the address zero also results in a crash."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "69"
+        }
+      ]
+    },
+    {
+      "page_idx": 69,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.173,
+            0.086,
+            0.319,
+            0.103
+          ],
+          "level": 2,
+          "content": "Smart Pointer"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.828,
+            0.087,
+            0.864,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.257,
+            0.144,
+            0.744,
+            0.453
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <iostream>\n#include <memory>\n#include <sys/resource.h>\nusing namespace std;\n\n// get memory footprint\nlong get_mem() {\n    struct rusage is;\n    getrusage(RUSAGE_SELF, &is);\n    return is.ru_maxrss; // in KB\n\n}\n\nvoid subA() {\n    int a; int* pa = &a;\n}\n\nvoid subB() {\n    int* pa = new int;\n    // delete pa; // free memory space, no automatic deallocation\n}\n\nvoid subC() { unique_ptr<int> pa = make_unique<int>(); }\n\nint main( void ) {\n    long mem_base = get_mem();\n    cout << \"Memory base usage: \" << mem_base << endl;\n\n    for( long i=0; i<10000000; i++ ) {\n        subA();\n        if( i%1000000 == 0) cout << \"Addt'l allocation: \" << get_mem() - mem_base << endl;\n    }\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.175,
+                0.122,
+                0.314,
+                0.138
+              ],
+              "content": "• Motivation"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.451,
+            0.178,
+            0.46
+          ],
+          "content": "**70**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.756,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.85,
+            0.515
+          ],
+          "content": "subA creates a local integer variable. Itself as well as the local pointer to it get deleted, once we leave the context."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.521,
+            0.85,
+            0.611
+          ],
+          "content": "In subB the local pointer pa points to a newly requested memory location of size integer. The local pointer variable is deleted as we leave the context. However, the memory location allocated with new is not freed up. Missing the explicit delete command, there is no reference to this memory location available to the program – a memory leak is created."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.617,
+            0.851,
+            0.706
+          ],
+          "content": "subC uses a smart pointer, that keeps track of its usage. The original assignment increases the number of references to the allocated memory location by one. Leaving the context, the deletion of the local smart pointer reduces the reference count to zero, which automatically triggers memory management routine to freeup the memory resource."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.992
+          ],
+          "content": "70"
+        }
+      ]
+    },
+    {
+      "page_idx": 70,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.173,
+            0.086,
+            0.319,
+            0.103
+          ],
+          "level": 2,
+          "content": "Smart Pointer"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.827,
+            0.087,
+            0.862,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.175,
+            0.129,
+            0.356,
+            0.148
+          ],
+          "level": 2,
+          "content": "• Unique Pointer"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.197,
+            0.158,
+            0.88,
+            0.434
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  #include <iostream>\n  #include <memory>\n  using namespace std;\n\n  subC() {\n    unique_ptr<string> subC() {\n      unique_ptr<string> p = make_unique<string>(\"unique\");\n      return p;\n    }\n  int main( void ) {\n    unique_ptr<string> pu = subC();\n    unique_ptr<string> pu2;\n\n    if( pu != nullptr ) cout << \"Unique pointer pu: \" << *pu << endl;\n    if( pu2 != nullptr ) cout << \"Unique pointer pu2: \" << *pu2 << endl;\n\n    cout << \"Moving ownership from pu to pu2 ...\" << endl;\n    pu2 = move(pu);\n\n    if( pu ) cout << \"Unique pointer pu: \" << *pu << endl;\n    if( pu2 ) cout << \"Unique pointer pu2: \" << *pu2 << endl;\n\n    return 0;\n  }\n  #Anmerkung:\n  Unique pointers können als Rückgabewert verwendet werden, falls der aktuelle Besitzer nur temporäre Gültigkeit im lokalen Kontext hat.\n\n  ##Object Diagrams\n  pu --> obj\n  pu2 --> x\n  move() --> move()\n  pu --> x\n  pu2 --> obj\n\n  Im 2. Beispiel ist die Überprüfung auf Gültigkeit vereinfacht.\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_70_image_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.45,
+            0.178,
+            0.46
+          ],
+          "content": "**71**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.756,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.831,
+            0.517
+          ],
+          "content": "Unique pointers assure that an object can only be owned by a single pointer. No other pointer can reference the same object."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.521,
+            0.847,
+            0.592
+          ],
+          "content": "The move() method is used to explicitly move ownership of an object from one pointer to another. If an object is owned by a temporary unique pointer, the object can be transferred using a return expression without explicitly requiring a call to move()."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.598,
+            0.791,
+            0.634
+          ],
+          "content": "As best practice, objects handled by unique pointers should be created with make\\_unique."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "71"
+        }
+      ]
+    },
+    {
+      "page_idx": 71,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.173,
+            0.086,
+            0.319,
+            0.103
+          ],
+          "level": 2,
+          "content": "Smart Pointer"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.827,
+            0.087,
+            0.862,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.226,
+            0.161,
+            0.791,
+            0.43
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <iostream>\n#include <memory>\nusing namespace std;\n\nvoid show( shared_ptr<string>& p0, shared_ptr<string>& p1 ) {\n    if( p0 != nullptr ) cout << \"Shared pointer p0: '\" << *p0 << \"''' << endl;\n    if( p1 != nullptr ) cout << \"Shared pointer p1: '\" << *p1 << \"''' << endl;\n    cout << \" Ptr of p0 use count: \" << p0.use_count() << endl;\n    cout << \" Ptr of p1 use count: \" << p1.use_count() << endl << endl;\n}\n\nint main( void )\n{\n    shared_ptr<string> ptr0 = make_shared<string>(\"shared\");\n    shared_ptr<string> ptr1;\n    show(ptr0, ptr1);\n\n    cout << \"Duplicating reference to object ...\" << endl;\n    ptr1 = ptr0;\n    show(ptr0, ptr1);\n\n    ptr0 = make_shared<string>(\"something new\");\n    show(ptr0, ptr1);\n\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.175,
+                0.129,
+                0.353,
+                0.145
+              ],
+              "content": "• Shared Pointer"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.45,
+            0.178,
+            0.46
+          ],
+          "content": "**72**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.756,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.823,
+            0.534
+          ],
+          "content": "Shared pointers shared\\_ptr allow object ownership by multiple pointers. An internal counter keeps track whether there is still a pointer referencing it. If the count is down to zero, the object is automatically deleted."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "72"
+        }
+      ]
+    },
+    {
+      "page_idx": 72,
+      "blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            0.153,
+            0.075,
+            0.891,
+            0.467
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"#include <iostream>\"] --> B[\"Einen weak pointer zu de-referenzieren ist etwas kompliziert. Es benötigt eine temporäre Kopie der Referenz. Diese wird durch die Methode lock() erreicht.\"]\n  C[\"#include <memory>\"] --> D[\"using namespace std;\"]\n  D --> E[\"void show( shared_ptr<string>& p0, weak_ptr<string>& p1 ) {<br>    if( p0 != nullptr ) cout << &quot;Shared pointer p0: '&quot; << *p0 << &quot;' << endl;<br>    if( !p1.expired() ) cout << &quot;Weak pointer p1: '&quot; << *(p1.lock()) << &quot;' << endl;<br>    cout << &quot; Ptr of p0 use count: &quot; << p0.use_count() << endl;<br>    cout << &quot; Ptr of p1 use count: &quot; << p1.use_count() << endl << endl;<br>  }<br>  E --> F[&quot;int main( void ){<br>  D --> G[&quot;shared_ptr<string> ptr0 = make_shared<string>(&quot;shared&quot;);<br>  G --> H[&quot;weak_ptr<string> ptr1;<br>  H --> I[&quot;show(ptr0, ptr1);<br>  I --> J[&quot;cout << &quot;Duplicating reference to object ...&quot; << endl;<br>  J --> K[&quot;ptr1 = ptr0;<br>  K --> L[&quot;show(ptr0, ptr1);<br>  L --> M[&quot;ptr0 = make_shared<string>(&quot;something new&quot;);<br>  M --> N[&quot;show(ptr0, ptr1);<br>  N --> O[&quot;return 0;\"]\n  end\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_72_image_0.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.851,
+            0.536
+          ],
+          "content": "Weak pointers weak\\_ptr can also point to objects owned by shared pointers. However, they do not add to the count metric. If no shared pointer is referencing the object, it is deleted. The weak pointer is then pointing to an invalid address."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.562,
+            0.853,
+            0.67
+          ],
+          "content": "In the figure, example obj1 points to obj2, which points itself to obj3. If obj3 used a shared\\_ptr to point back to obj2, the re-assignment of obj1 to obj4 would lose any reference to the other two objects. However, the system could not identify the two objects being obsolete – a memory leak is created. With the indicated weak pointer, obj2 looses any reference to it. Once obj2 is deleted also obj3 is up for removal."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "73"
+        }
+      ]
+    },
+    {
+      "page_idx": 73,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.205,
+            0.17,
+            0.795,
+            0.196
+          ],
+          "level": 2,
+          "content": "3. Elementare Datentypen und Anweisungen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.202,
+            0.251,
+            0.818,
+            0.36
+          ],
+          "sub_type": "text",
+          "content": "3.1 Einführung\n3.2 Variablen und Konstanten\n3.3 Zeiger\n**3.4 Arithmetische und logische Operationen und Zuweisungen**\n3.5 Kontrollanweisungen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.151,
+            0.437,
+            0.167,
+            0.446
+          ],
+          "content": "74"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.488,
+            0.98,
+            0.511,
+            0.992
+          ],
+          "content": "74"
+        }
+      ]
+    },
+    {
+      "page_idx": 74,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.563,
+            0.102
+          ],
+          "level": 2,
+          "content": "Arithmetische und logische Operationen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.122,
+            0.825,
+            0.409
+          ],
+          "sub_type": "text",
+          "content": "Auf Variablen und Konstanten können verschiedene **Rechenoperationen** angewendet werden\n• Multiplikative Operationen haben **Vorrang** – Der **Ausdruck** a\\*b+c/d entspricht (a\\*b) + (c/d)\nDiese primitiven Rechenoperationen sind in der Programmiersprache „eingebaut“\nKomplexere Operationen sind in **Libraries** verfügbar oder werden vom **Programmierer definiert**\nZ.B. Standard‐Library math.h – sin, cos, tan, pow (power), sqrt (square root), ...\n**Ergebnisse** der Operationen haben einen bestimmten DT, der sich aus dem Operator und den Argumenttypen ergibt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.198,
+            0.161,
+            0.564,
+            0.2
+          ],
+          "content": "\\begin{array}{l} - +, -, *, / \\\\ - \\% (\\text {modulo, nicht bei float - Werten}) \\end{array}",
+          "image_source": "images/page_74_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**75**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.842,
+            0.586
+          ],
+          "content": "Die **Datentypen von Operationsergebnissen** werden im Compiler mittels bestimmter Regeln hergeleitet (die sog. usual arithmetic conversions, s. C-Dokumentation). Zu beachten ist hierbei auch die definierte Präzedenz (Reihenfolge der Auswertung) der Operatoren. Bei Library-Funktionen ist (wie auch bei allen anderen C-Funktionen) der Ergebnistyp explizit in der Deklaration enthalten."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "75"
+        }
+      ]
+    },
+    {
+      "page_idx": 75,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.296,
+            0.102
+          ],
+          "level": 2,
+          "content": "Zuweisungen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.164,
+            0.123,
+            0.367,
+            0.141
+          ],
+          "level": 2,
+          "content": "• Allgemeine Form:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.197,
+            0.145,
+            0.524,
+            0.225
+          ],
+          "sub_type": "text",
+          "content": "– Ziel = Ausdruck\n– = ist der Zuweisungsoperator\n– Ausdruck wird berechnet, Wert wird in Ziel gespeichert"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.164,
+            0.229,
+            0.315,
+            0.245
+          ],
+          "level": 2,
+          "content": "Kurzformen:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.197,
+            0.251,
+            0.524,
+            0.336
+          ],
+          "sub_type": "code",
+          "content": "```matlab\n- ++, -:-: Increment, Decrement\n    x++ entspricht x = x+1\n- +=, *=, ...\n    x += y entspricht x = x+y\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.547,
+            0.113,
+            0.7,
+            0.258
+          ],
+          "sub_type": "code",
+          "content": "```c\nint main()\n{\n    int a,b;\n    int c,d;\n\n    a = 1;\n    b = 2;\n\n    c = a+b;\n    d = c+1;\n    d = d+1;\n    printf(\"%d\", d);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.547,
+            0.264,
+            0.818,
+            0.43
+          ],
+          "sub_type": "code",
+          "content": "```c\nreturn 0;\n}\n#define a 1\n#define b 2\n\nint main()\n{\n    int c,d;\n\n    c = a+b;\n    d = c+1;\n    d++;\n    printf(\"%d\", d);\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.167,
+            0.446
+          ],
+          "content": "**76**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.828,
+            0.587
+          ],
+          "content": "In der Sprache C gibt es verschiedene Elemente, die aus Zeiten resultieren, in denen die Compiler noch nicht sehr leistungsfähig waren. Ein Beispiel sind die **Kurzformen** für Zuweisungen wie $_ { 2 ^ { x + + } }$ statt $\\mathbf { x } = \\mathbf { x } + 1 ^ { \\circ \\circ }$ . Hierdurch wurde der Compiler angewiesen, einen speziellen Assemblerbefehl (increment) statt eines normalen Additionsbefehls zu erzeugen, wodurch u.U. effizienterer Code generiert werden konnte."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.593,
+            0.825,
+            0.683
+          ],
+          "content": "Moderne optimierende Compiler werden jedoch stets die beste Alternative wählen, unabhängig von der genauen Formulierung des Programms. Allerdings kann es je nach Verwendung von Kurz- oder Langformen zu unterschiedlichen **Seiteneffekten** kommen (auf die hier nicht weiter eingegangen werden soll), welche die Optimierung einschränken können."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "76"
+        }
+      ]
+    },
+    {
+      "page_idx": 76,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.563,
+            0.102
+          ],
+          "level": 2,
+          "content": "Arithmetische und logische Operationen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.811,
+            0.4
+          ],
+          "sub_type": "text",
+          "content": "• **Vergleichsoperationen**\nErgebnis einer Vergleichsoperation ist stets ein **Boolescher Wert** (true oder false)\nBoolescher DT in C: \\_Bool – Äquivalenzen aus stdbool.h:\n• **Schiebeoperationen** (shift)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.197,
+            0.149,
+            0.506,
+            0.188
+          ],
+          "sub_type": "code",
+          "content": "```txt\n>, >=, <, <=\n== (Gleichheit), != (Ungleichheit)\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.235,
+            0.281,
+            0.382,
+            0.326
+          ],
+          "sub_type": "code",
+          "content": "```txt\n• bool := _Bool\n• false := 0\n• true := 1\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.197,
+            0.356,
+            0.337,
+            0.397
+          ],
+          "sub_type": "code",
+          "content": "```txt\n>> Rechtsshift\n<< Linksshift\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**77**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.825,
+            0.553
+          ],
+          "content": "Man beachte, dass aufgrund der Konvention bzgl. **Boolescher Datentypen** es genau eine Möglichkeit zur Darstellung von „false“ gibt (die 0), aber sehr viele verschiedene für „true“. Auch dies kann eine Fehlerquelle bei der Programmierung sein."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.979,
+            0.511,
+            0.992
+          ],
+          "content": "77"
+        }
+      ]
+    },
+    {
+      "page_idx": 77,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.563,
+            0.102
+          ],
+          "level": 2,
+          "content": "Arithmetische und logische Operationen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.643,
+            0.231
+          ],
+          "sub_type": "text",
+          "content": "• Shift‐Operationen nützlich für\n– Zugriff auf einzelne Bits eines Wertes\n– Vereinfachung von Rechenoperationen, z.B.\n• x >> 1 entspricht x/2\n• x << 2 entspricht x\\*4"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.237,
+            0.692,
+            0.256
+          ],
+          "content": "Rechtsshift abhängig vom DT des ersten Arguments:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.195,
+            0.261,
+            0.569,
+            0.278
+          ],
+          "content": "– **Logisches** Shift: Auffüllen links mit 0"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.195,
+            0.285,
+            0.717,
+            0.302
+          ],
+          "content": "– **Arithmetisches** Shift: Auffüllen links mit Vorzeichen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.309,
+            0.795,
+            0.328
+          ],
+          "content": "• Beispiel: unsigned char a = 128; signed char b = -128;"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.179,
+            0.378,
+            0.363,
+            0.433
+          ],
+          "sub_type": "other",
+          "content": "| Row | Column 1 | Column 2 | Column 3 | Column 4 | Column 5 |\n| --- | --- | --- | --- | --- | --- |\n| 1 | 1 | 0 | 0 | 0 | 0 |\n| 2 | — | — | — | — | — |\n| 3 | — | — | — | — | — |\n| 4 | — | — | — | — | — |\n| 5 | — | — | — | — | — |\n| 6 | — | — | — | — | — |\n| 7 | — | — | — | — | — |\n| 8 | — | — | — | — | — |\n| 9 | — | — | — | — | — |\n| 10 | — | — | — | — | — |\n\nVorzeichen bei b",
+          "captions": [
+            {
+              "bbox": [
+                0.179,
+                0.34,
+                0.305,
+                0.368
+              ],
+              "content": "Binärdarstellung von a und b"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_77_chart_13.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.368,
+            0.362,
+            0.534,
+            0.416
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_77_image_14.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.553,
+            0.362,
+            0.738,
+            0.418
+          ],
+          "sub_type": "text_image",
+          "content": "0 1 0 0 0 0 0 0\n1 1 0 0 0 0 0 0",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_77_image_15.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.759,
+            0.368,
+            0.809,
+            0.381
+          ],
+          "content": "\\mathbf {a} = 6 4",
+          "image_source": "images/page_77_equation_16.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.76,
+            0.398,
+            0.815,
+            0.412
+          ],
+          "content": "\\mathbf {b} = - 6 4",
+          "image_source": "images/page_77_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.167,
+            0.445
+          ],
+          "content": "**78**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.845,
+            0.57
+          ],
+          "content": "Bzgl. des Beispiels sei auf die o.g. **2er-Komplement**-Darstellung verwiesen. Die Bitfolge „10000000“ kann also unterschiedliche Interpretationen als Dezimalzahl haben, je nach Deklaration (signed bzw. unsigned). Bei Zahlen muss daher der richtige Shift-Modus (arithmetisch oder logisch) verwendet werden, um falsche Ergebnisse zu vermeiden (wie z.B. -128/2 = 64)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.575,
+            0.828,
+            0.647
+          ],
+          "content": "Da jedoch auf C-Ebene keine separaten Operatoren hierfür existieren, sorgt der Compiler automatisch hierfür. Ein Grundverständnis der Shifts ist jedoch notwendig, um den Compiler bei Bedarf dazu zwingen zu können, den gewünschten Modus zu verwenden."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.513,
+            0.993
+          ],
+          "content": "78"
+        }
+      ]
+    },
+    {
+      "page_idx": 78,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.563,
+            0.102
+          ],
+          "level": 2,
+          "content": "Arithmetische und logische Operationen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.123,
+            0.825,
+            0.251
+          ],
+          "sub_type": "text",
+          "content": "• &: bitweise **UND‐Verknüpfung**\n• |: bitweise **ODER‐Verknüpfung**\n• ^: bitweise **Exklusiv‐ODER‐Verknüpfung** (XOR, „entweder...oder“)\n• Prüfen, Setzen oder Löschen **einzelner Bits** von Werten\n• Bsp.:\n– signed char a = -64, b = 0xFF; // oder b = -1;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.177,
+            0.295,
+            0.38,
+            0.32
+          ],
+          "content": "a: **1 1 0 0 0 0 0 0**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.177,
+            0.328,
+            0.379,
+            0.35
+          ],
+          "content": "**1 1 1 1 1 1 1 1**b:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.196,
+            0.37,
+            0.379,
+            0.394
+          ],
+          "content": "**1 1 0 0 0 0 0 0**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.264,
+            0.399,
+            0.314,
+            0.412
+          ],
+          "content": "a & b"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.419,
+            0.295,
+            0.602,
+            0.32
+          ],
+          "content": "**1 1 0 0 0 0 0 0**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.419,
+            0.328,
+            0.602,
+            0.35
+          ],
+          "content": "**1 1 1 1 1 1 1 1**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.419,
+            0.37,
+            0.602,
+            0.394
+          ],
+          "content": "**1 1 1 1 1 1 1 1**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.486,
+            0.399,
+            0.537,
+            0.412
+          ],
+          "content": "a | b"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.642,
+            0.295,
+            0.825,
+            0.32
+          ],
+          "content": "**1 1 0 0 0 0 0 0**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.642,
+            0.328,
+            0.825,
+            0.35
+          ],
+          "content": "**1 1 1 1 1 1 1 1**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.642,
+            0.37,
+            0.825,
+            0.394
+          ],
+          "content": "**0 0 1 1 1 1 1 1**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.709,
+            0.399,
+            0.76,
+            0.412
+          ],
+          "content": "a ^ b"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.167,
+            0.445
+          ],
+          "content": "**79**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.838,
+            0.587
+          ],
+          "content": "Die gezeigten bitweisen logischen Operationen werden meist in der **maschinennahen Programmierung** verwendet, um einzelne Bits abzufragen oder zu manipulieren. Möchte man z.B. Bit Nr. 3 in einer bestimmten Speicherstelle auf 1 setzen, ohne die übrigen Bits zu verändern, so kann dies durch eine ODER-Verknüpfung mit einem Bitstring erfolgen, der an der 3. Stelle eine 1 hat und sonst nur Nullen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "79"
+        }
+      ]
+    },
+    {
+      "page_idx": 79,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.439,
+            0.102
+          ],
+          "level": 2,
+          "content": "Typumwandlung (type cast)"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.117,
+            0.777,
+            0.409
+          ],
+          "sub_type": "text",
+          "content": "Beispiel: – int a = 10, b; float pi = 3.14; – b = pi + a;\nWelche Typen werden verwendet? – a wird in intern in float umgewandelt (10.0 = 1E1) – pi + a ergibt float‐Resultat (13.14) – Resultat wird in int zurückverwandelt (13)\nIn C/C++ gibt es umfangreiche **type cast‐Regeln** für alle Kombinationen der primitiven DT\nViele Einzelheiten der Typumwandlung sind jedoch **compilerabhängig** (und damit eine „beliebte“ Fehlerquelle) !\n**Expliziter** type cast durch Programmierer: – Ziel = (Typ) Ausdruck;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**80**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.843,
+            0.57
+          ],
+          "content": "In manchen Sprachen wird eine implizite Typumwandlung nur erlaubt, wenn dadurch keine Daten verloren gehen. Dann sollte insbes. von expliziten type casts, d.h. verlustbehafteten Typumwandlungen, sparsamer Gebrauch gemacht werden. Die mangelnde Standardisierung der **type casts** ist sicher eine Schwäche der Sprache C."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "80"
+        }
+      ]
+    },
+    {
+      "page_idx": 80,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.204,
+            0.17,
+            0.795,
+            0.196
+          ],
+          "level": 2,
+          "content": "3. Elementare Datentypen und Anweisungen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.201,
+            0.251,
+            0.806,
+            0.36
+          ],
+          "sub_type": "text",
+          "content": "3.1 Einführung\n3.2 Variablen und Konstanten\n3.3 Zeiger\n3.4 Arithmetische und logische Operationen und Zuweisungen\n**3.5 Kontrollanweisungen**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.167,
+            0.446
+          ],
+          "content": "**81**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "81"
+        }
+      ]
+    },
+    {
+      "page_idx": 81,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.376,
+            0.102
+          ],
+          "level": 2,
+          "content": "Kontrollanweisungen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.163,
+            0.122,
+            0.757,
+            0.181
+          ],
+          "sub_type": "text",
+          "content": "Bisher: Alle Anweisungen (statements) werden **sequentiell** abgearbeitet\n• Kontrollanweisungen ermöglichen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.195,
+            0.185,
+            0.748,
+            0.203
+          ],
+          "content": "– **bedingte Ausführung** von Code mittels Verzweigungen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.196,
+            0.207,
+            0.721,
+            0.225
+          ],
+          "content": "– **wiederholte Ausführung** von Code mittels Schleifen"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.171,
+            0.244,
+            0.294,
+            0.411
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Statement 1\"] --> B[\"Statement 2\"]\n  B --> C[\"Statement 3\"]\n  C --> D[\"Statement 4\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_81_image_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**82**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.339,
+            0.238,
+            0.611,
+            0.419
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Statement 1\"] -->|\"Bedingung true\"| B[\"Statement 2\"]\n  A -->|\"Bedingung false\"| C[\"Statement 3\"]\n  B --> D[\"Statement 4\"]\n  C --> D\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_81_image_8.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.631,
+            0.237,
+            0.845,
+            0.418
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Statement 1\"] --> B[\"Statement 2\"]\n  B --> C[\"Statement 3\"]\n  C --> D[\"Statement 4\"]\n  C -.->|\"holung solange\\nBedingung true\"| B\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_81_image_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.775,
+            0.517
+          ],
+          "content": "Bedingte und wiederholte Ausführung sind **Grundelemente** fast aller Programmiersprachen, wenngleich die genaue Syntax unterschiedlich ist."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "82"
+        }
+      ]
+    },
+    {
+      "page_idx": 82,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.442,
+            0.102
+          ],
+          "level": 2,
+          "content": "Verzweigungen: if‐then‐else"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.5,
+            0.166
+          ],
+          "sub_type": "text",
+          "content": "Beispiel: Maximumsberechnung\n• Allgemeine Formen:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.197,
+            0.17,
+            0.45,
+            0.307
+          ],
+          "sub_type": "code",
+          "content": "```txt\n- if ( expression ) {\n    statement*\n}\n- if ( expression ) {\n    statement*\n} else { statement*\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.163,
+            0.313,
+            0.495,
+            0.393
+          ],
+          "sub_type": "text",
+          "content": "Bedingung muss true oder false ergeben (0 ≙ false)\n„Beliebter“ Fehler bei Gleichheitstest:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.197,
+            0.4,
+            0.538,
+            0.418
+          ],
+          "content": "– if (a = b) statt if (a == b)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.568,
+            0.16,
+            0.788,
+            0.385
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n\nint main(void)\n{\n    int a, b, max;\n\n    // Einlesen von a und b\n    scanf(\"%d %d\", &a, &b);\n\n    if (a > b) {\n        max = a;\n    } else // d.h. a <= b\n        max = b;\n    }\n\n    printf(\"max = %d\", max);\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**83**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.823,
+            0.516
+          ],
+          "content": "Wir greifen hier wieder auf die **regulären Ausdrücke** zurück: statement\\* steht hier also für beliebig viele (auch 0) Anweisungen bzw. Statements."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.521,
+            0.848,
+            0.629
+          ],
+          "content": "Bei nur einem Statement darf auf die **{}-Klammerung** in den Zweigen von if/else verzichtet werden, um Schreibarbeit zu sparen. Da sich hierdurch –inbes. bei späteren Codeänderungen- jedoch leicht Fehler einschleichen, sollte man grundsätzlich immer die {}-Klammerung verwenden. (Dieser Hinweis wird allerdings aus Platzgründen in diesem Skript leider auch nicht konsequent angewandt.)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.633,
+            0.828,
+            0.67
+          ],
+          "content": "**Übungsfrage**: was passiert konkret im Programm, wenn fälschlicherweise $\\mathbf { , } \\mathbf { a } =$ b“ statt $\\mathsf { , a } = = \\mathsf { b } ^ { \\mathsf { \\epsilon } \\mathsf { \\epsilon } }$ für den Gleichheitstest verwendet wird?"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "83"
+        }
+      ]
+    },
+    {
+      "page_idx": 83,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.442,
+            0.102
+          ],
+          "level": 2,
+          "content": "Verzweigungen: if‐then‐else"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.124,
+            0.584,
+            0.164
+          ],
+          "content": "Komplexere Bedingungen können durch **logische Verknüpfungen** geprüft werden"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.195,
+            0.169,
+            0.586,
+            0.272
+          ],
+          "sub_type": "text",
+          "content": "– ODER‐Operator ||: **mindestens eine** der Teilbedingungen muss true sein\n– UND‐Operator &&: **alle** Teilbedingungen müssen true sein"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.613,
+            0.083,
+            0.837,
+            0.291
+          ],
+          "sub_type": "code",
+          "content": "```c\nint a, b, c, x, y;\n/* ... */\nif (a > 10) {\n    if (b >= 20) {\n        if (c == 30) {\n            x++;\n        }\n    }\n}\n\nif (a < 40) {\n    y--;\n} else if (b <= 50) {\n    y--;\n} else if (c != 60) {\n    y--;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.188,
+            0.306,
+            0.557,
+            0.417
+          ],
+          "sub_type": "code",
+          "content": "```c\nint a, b, c, x, y;\n/* ... */\nif ((a > 10) && (b >= 20) && (c == 30)) {\n    x++;\n}\n\nif ((a < 40) || (b <= 50) || (c != 60)) {\n    y--;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.167,
+            0.446
+          ],
+          "content": "**84**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.832,
+            0.587
+          ],
+          "content": "In bestimmten Fällen sollte man sich der sog. **Short-Circuit-Auswertung** der logischen Verknüpfungen bewusst sein: Dies bedeutet, dass nur soviel von einer komplexen Bedingung ausgewertet wird wie nötig, um das Gesamtresultat zu kennen. Wenn bspw. bei einem Ausdruck der Form „a || b || c“ bereits der Teilausdruck a als true erkannt wurde, so werden b und c nicht mehr ausgeführt. Analog bei $\\scriptstyle { \\mathfrak { p } } ^ { \\mathbf { a } }$ && b && $\\mathbf { c } ^ { \\mathfrak { c } \\mathfrak { c } }$ und a = false."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.593,
+            0.845,
+            0.682
+          ],
+          "content": "In den gezeigten Codebeispielen ist dies ohne weitere Bedeutung, denn die Short-Circuit-Auswertung führt lediglich zu einer schnelleren Programmbearbeitung. Fehlerträchtig ist sie allerdings u.U. bei **Seiteneffekten** in den Teilausdrücken. Beispiel: „f(x) || g(y)“ für zwei Funktionen f und g. Wird die Auswertung nach f(x) abgebrochen, so ergibt sich evtl. ein anderes (unerwartetes!)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.683,
+            0.844,
+            0.718
+          ],
+          "content": "Programmverhalten als wenn g(y) noch ausgewertet worden wäre (und dabei z.B. eine globale Variable schreibt, die später noch gelesen wird)."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "84"
+        }
+      ]
+    },
+    {
+      "page_idx": 84,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.389,
+            0.101
+          ],
+          "level": 2,
+          "content": "Dangling else‐Problem"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.8,
+            0.393
+          ],
+          "sub_type": "text",
+          "content": "• Betrachte folgenden Code: if (a > 100) if (b > 50) x++; else x--;\n**Zwei Möglichkeiten** der Interpretation: – Wird x-- ausgeführt, falls (a <= 100) ?\n(1) if (a > 100) if (b > 50) x++; <u>else</u> x--;\n– Oder falls (a > 100) && (b <= 50) ?\n(2) if (a > 100) if (b > 50) x++; <u>else</u> x--;\n• **Konvention**: else gehört immer zum innersten freien if, d.h. Version (2) ist richtig\n**Besser**: Vermeidung von Fehlern durch expliziten Gebrauch der **Blockstruktur** { statement\\* } in der Programmierung – if (a > 100) { if (b > 50) x++; else x--; }"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**85**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.75,
+            0.517
+          ],
+          "content": "Auch das „dangling else“ ist eine häufige **Fehlerquelle** (nicht nur) bei Programmieranfängern."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "85"
+        }
+      ]
+    },
+    {
+      "page_idx": 85,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.084,
+            0.375,
+            0.102
+          ],
+          "level": 2,
+          "content": "Verzweigungen: goto"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.119,
+            0.699,
+            0.198
+          ],
+          "sub_type": "text",
+          "content": "Verzweigung auch über **Labels** und goto**‐Statements** möglich\nEin Label ist eine symbolische **Sprungmarke** im Code\n• Syntax:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.197,
+            0.203,
+            0.668,
+            0.243
+          ],
+          "sub_type": "text",
+          "content": "– ID: statement (ID ist Bezeichner des Labels)\n– goto ID; (Sprung nach Position ID)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.291,
+            0.354,
+            0.309
+          ],
+          "content": "• Labels und gotos"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.196,
+            0.313,
+            0.737,
+            0.393
+          ],
+          "sub_type": "text",
+          "content": "– beeinträchtigen die **Lesbarkeit** des Programms\n– sind ein „historisches Relikt“ in Programmiersprachen\n– sind nicht notwendig und sollten nur bei **zwingenden Gründen** eingesetzt werden"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.446
+          ],
+          "content": "**86**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.848,
+            0.588
+          ],
+          "content": "**Labels und gotos** haben direkte Entsprechungen im Assemblercode. Daher war es früher üblich, Kontrollfluss mit diesen Mitteln zu beschreiben. Aufgrund der Unübersichtlichkeit des Codes werden sie allerdings heute kaum mehr verwendet. Man findet sie meist nur noch in automatisch generierten C-Programmen, deren Korrektheit dann vorausgesetzt werden kann und die nicht mehr für Modifikationen durch den menschlichen Programmierer vorgesehen sind."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "86"
+        }
+      ]
+    },
+    {
+      "page_idx": 86,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.401,
+            0.102
+          ],
+          "level": 2,
+          "content": "Verzweigungen: switch"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.163,
+            0.124,
+            0.803,
+            0.235
+          ],
+          "sub_type": "text",
+          "content": "Häufiger Fall: **Fallunterscheidung** über eine bestimmte Variable mit jeweils konstantem Vergleichswert\n• Normale Implementierung: **Kette** von if‐then‐else Statements\n• Gültig, aber umständlich\n• Bsp.: Umrechung von römischen Ziffern:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.334,
+            0.263,
+            0.642,
+            0.407
+          ],
+          "sub_type": "code",
+          "content": "```txt\nchar digit, int value;\n\n/* ... */\n\nif (digit == 'I') value = 1;\nelse if (digit == 'V') value = 5;\nelse if (digit == 'X') value = 10;\nelse if (digit == 'L') value = 50;\nelse if (digit == 'C') value = 100;\nelse if (digit == 'D') value = 500;\nelse if (digit == 'M') value = 1000;\nelse printf(\"Keine gültige Ziffer!\");\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**87**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "87"
+        }
+      ]
+    },
+    {
+      "page_idx": 87,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.401,
+            0.102
+          ],
+          "level": 2,
+          "content": "Verzweigungen: switch"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.125,
+            0.491,
+            0.367
+          ],
+          "sub_type": "text",
+          "content": "• **Kompaktere** Implementierung: switch‐Statement\nAllgemeine Form: switch (Ausdruck) {case Konstante<sub>1</sub>: statement\\* /\\* … \\*/ case Konstante<sub>n</sub>: statement\\* default: statement\\*}"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.493,
+            0.158,
+            0.792,
+            0.359
+          ],
+          "sub_type": "code",
+          "content": "```txt\nchar digit, int value;\n\n/* ... */\n\nswitch (digit)\n{\n    case 'I': value = 1;     break;\n    case 'V': value = 5;     break;\n    case 'X': value = 10;     break;\n    case 'L': value = 50;     break;\n    case 'C': value = 100;     break;\n    case 'D': value = 500;     break;\n    case 'M': value = 1000; break;\n    default:\n        printf(\"Keine gültige ziffer!\");\n        break;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.17,
+            0.38,
+            0.747,
+            0.424
+          ],
+          "sub_type": "text",
+          "content": "• break: sofortiges Verlassen des ganzen switch‐Statements\n• default: Code im „sonst“‐Fall (optional)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**88**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.839,
+            0.534
+          ],
+          "content": "Ein verbreiteter Fehler ist das „Vergessen“ des **break-Statements** in jedem case-Zweig. Wird das gesamte switch-Statement nicht nach dem ersten erfolgreichen Test verlassen, so kann unerwünschtes Programmverhalten auftreten."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.539,
+            0.774,
+            0.575
+          ],
+          "content": "Der **default-Zweig** trifft immer dann zu, wenn alle anderen Tests negativ verlaufen sind. Er muss jedoch nicht vorhanden sein."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.58,
+            0.819,
+            0.633
+          ],
+          "content": "Das switch-Statement ist nicht nur eine kompaktere (und damit besser lesbare) Variante einer Kette von if-Statements. Es kann vom Compiler auch in **effizienteren Assemblercode** übersetzt werden."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "88"
+        }
+      ]
+    },
+    {
+      "page_idx": 88,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.255,
+            0.099
+          ],
+          "level": 2,
+          "content": "Schleifen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.822,
+            0.211
+          ],
+          "sub_type": "text",
+          "content": "• Wiederholte Ausführung einer Anweisungsfolge\nBsp.: Berechnung der Fakultätsfunktion\n• Ohne Schleife: Code muss bei Änderung von 𝑛 modifiziert werden"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.374,
+            0.169,
+            0.586,
+            0.185
+          ],
+          "content": "n! := 1 \\times 2 \\times \\dots \\times n",
+          "image_source": "images/page_88_equation_4.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.321,
+            0.224,
+            0.655,
+            0.427
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define N 10\n\n    /* ... */\n\n    int fact, count;\n\n    count = 0;\n    fact = 1;\n\n    count++;\n    fact *= count;\n\n    /* ... N-fache wiederholung */\n\n    count++;\n    fact *= count;\n    printf(\"factorial(%d) = %d\", N, fact);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**89**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.83,
+            0.533
+          ],
+          "content": "Selbst die **#define-Anweisung** nützt in diesem Fall nicht viel, da der Code in Abhängigkeit von N immer manuell dupliziert werden müsste. Schleifen dienen dazu, solche Redundanzen zu vermeiden."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "89"
+        }
+      ]
+    },
+    {
+      "page_idx": 89,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.255,
+            0.1
+          ],
+          "level": 2,
+          "content": "Schleifen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.808,
+            0.215
+          ],
+          "sub_type": "text",
+          "content": "Flexiblere Variante\n• Code zwischen L1 und L2 wird wiederholt bis Zähler größer als N\nUmdefinieren von N (#define) reicht aus\n• Jedoch: **schlechter Programmierstil**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.238,
+            0.244,
+            0.45,
+            0.287
+          ],
+          "content": "(gotos sollten nicht verwendet werden!)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.553,
+            0.198,
+            0.822,
+            0.377
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define N 10\n    /* ... */\n\n    int fact, count;\n\n    count = 0;\n    fact = 1;\n\nL1: if (count >= N) goto L2;\n    count++;\n    fact *= count;\n    goto L1;\n\nL2: printf(\"factorial(%d) = %d\",\n        N, fact);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.388,
+            0.714,
+            0.427
+          ],
+          "content": "• C/C++ bietet drei Formen von **strukturierten Schleifen** – for, while, do"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**90**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.798,
+            0.534
+          ],
+          "content": "Wie später gezeigt wird, sind die drei **Schleifenformen** in C im Prinzip äquivalent, daher ist die konkrete Wahl eine Sache des Geschmacks und des guten Programmierstils. Generell kann man sich wie folgt orientieren:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.149,
+            0.539,
+            0.754,
+            0.602
+          ],
+          "sub_type": "text",
+          "content": "• for-Schleife, falls die Anzahl der Durchläufe von vornherein feststeht\n• do-Schleife, falls mindestens ein Durchlauf stattfinden muss\n• while-Schleife: sonst"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.992
+          ],
+          "content": "90"
+        }
+      ]
+    },
+    {
+      "page_idx": 90,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.3,
+            0.1
+          ],
+          "level": 2,
+          "content": "for‐Schleifen"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.486,
+            0.162,
+            0.824,
+            0.294
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define N 10\n\n    /* ... */\n\n    int fact, count;\n\n    fact = 1;\n    for (count = 1; count <= N; count++) {\n        fact *= count;\n    }\n    printf(\"factorial(%d) = %d\", N, fact);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.151,
+            0.111,
+            0.824,
+            0.437
+          ],
+          "sub_type": "text",
+          "content": "• Allgemeine Form: for (expr1; expr2; expr3) { statement\\* }\n• expr1: – Wird vor Schleifenbeginn einmal ausgeführt → Initialisierung\n• expr2: – Bedingung für jeden Durchlauf (jede Iteration)\n• expr3: – Wird nach statement\\* ausgeführt\n• Nach expr3 wird an den Schleifenanfang **zurückgesprungen**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.167,
+            0.445
+          ],
+          "content": "**91**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.439,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.83,
+            0.57
+          ],
+          "content": "Die häufigste Form der for-Schleife ist die hier gezeigte, d.h. es gibt einen **Schleifenzähler** (hier: count), welcher in Ausdruck1 auf einen Startwert gesetzt wird. Ausdruck2 prüft, ob die obere Grenze erreicht worden ist, und ggf. wird abgebrochen. Ansonsten wird der Zähler in Ausdruck3 modifiziert (wie hier: häufig inkrementiert)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.575,
+            0.828,
+            0.663
+          ],
+          "content": "Die allg. Form der for-Schleife lässt aber **beliebige Ausdrücke** zu. Man könnte daher auch viel komplexere Berechnungen durchführen oder den gesamten Schleifenkörper (statement\\*) im for-Statement selbst unterbringen. Dies würde jedoch keine Verbesserung des Codes bewirken, sondern lediglich schlechtere Lesbarkeit."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.486,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "91"
+        }
+      ]
+    },
+    {
+      "page_idx": 91,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.3,
+            0.1
+          ],
+          "level": 2,
+          "content": "for‐Schleifen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.154,
+            0.113,
+            0.772,
+            0.18
+          ],
+          "sub_type": "text",
+          "content": "Warum ist count = 1 ein **Ausdruck**?\n– In C sind auch Zuweisungen Ausdrücke\n– Das Ergebnis von $\\_ ZieI = A u s d r u c k ^ { \\prime \\prime }$ ist per Definition $\\ , Z   i e ^ { i \\prime \\prime }$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.153,
+            0.185,
+            0.775,
+            0.223
+          ],
+          "content": "Der Wert von expr1 wird bei for‐Schleifen jedoch verworfen, nur der **Seiteneffekt** einer Zuweisung ist relevant"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.154,
+            0.228,
+            0.729,
+            0.265
+          ],
+          "content": "Zwei spezielle Statements für Ausnahmefälle in Schleifen erlaubt"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.273,
+            0.533,
+            0.291
+          ],
+          "content": "– break: verlässt Schleife komplett"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.187,
+            0.297,
+            0.565,
+            0.314
+          ],
+          "content": "– continue: verlässt aktuelle Iteration"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.154,
+            0.321,
+            0.55,
+            0.339
+          ],
+          "content": "• Wie goto mit Vorsicht zu gebrauchen!"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.596,
+            0.274,
+            0.831,
+            0.404
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"for (...; ..., ...) {<br>  A -->|&quot;/* ... */&quot;| B[&quot;continue&quot;;<br>  A -->|&quot;/* ... */&quot;| C[&quot;break&quot;;<br>  A -->|&quot;/* ... */&quot;| D[&quot;*\"]\n  B --> E[\"/* ... */\"]\n  C --> F[\"*\"]\n  D --> G[\"/* ... */\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_91_image_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**92**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.823,
+            0.57
+          ],
+          "content": "Die Tatsache, dass in C **Zuweisungen** der Form $\\mathbf { \\nabla } _ { \\mathbf { \\nabla } ^ { \\mathbf { a } } } = \\mathbf { b } ^ { \\mathbf { \\nabla } ^ { \\mathbf { a } } }$ auch gleichzeitig **Ausdrücke** mit dem Wert a sind, ist sicher etwas gewöhnungsbedürftig. In den meisten Fällen wird dieser Wert auch verworfen, da man nur an der Durchführung der Zuweisung an sich interessiert ist. Sinnvoll ist es aber manchmal, bestimmte Zwischenergebnisse zu speichern. Beispiel:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.274,
+            0.576,
+            0.428,
+            0.593
+          ],
+          "content": "\\text {int} \\mathrm{a}, \\mathrm{b}, \\mathrm{c}, \\mathrm{d}, \\mathrm{e}, \\mathrm{x};",
+          "image_source": "images/page_91_equation_14.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.275,
+            0.598,
+            0.474,
+            0.616
+          ],
+          "content": "\\mathrm{a} = \\mathrm{b} + \\mathrm{c} + (\\mathrm{x} = \\mathrm{d} + \\mathrm{e});",
+          "image_source": "images/page_91_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.621,
+            0.834,
+            0.71
+          ],
+          "content": "Hier wird der Ausdruck $\\mathbf { \\nabla } _ { 2 } \\mathbf { b } + \\mathbf { c } + \\mathbf { d } + \\mathbf { e } ^ { \\mathbf { \\nabla } \\mathbf { c } }$ in a gespeichert, und zusätzlich wird der Teilausdruck $\\mathbf { \\nabla } _ { \\mathbf { \\nabla } ^ { \\prime } } \\mathbf { d } + \\mathbf { c } ^ { \\epsilon \\epsilon }$ in x gespeichert. Dieser könnte dann woanders wiederverwendet werden, ohne neu berechnet werden zu müssen. Dieser Programmierstil ist aber nicht zu empfehlen, denn man könnte auch (etwas klarer) schreiben"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.274,
+            0.716,
+            0.428,
+            0.734
+          ],
+          "content": "\\text {int} \\mathrm{a}, \\mathrm{b}, \\mathrm{c}, \\mathrm{d}, \\mathrm{e}, \\mathrm{x};",
+          "image_source": "images/page_91_equation_17.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.275,
+            0.74,
+            0.363,
+            0.756
+          ],
+          "content": "\\mathrm{x} = \\mathrm{d} + \\mathrm{e};",
+          "image_source": "images/page_91_equation_18.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.275,
+            0.764,
+            0.394,
+            0.78
+          ],
+          "content": "\\mathrm{a} = \\mathrm{b} + \\mathrm{c} + \\mathrm{x};",
+          "image_source": "images/page_91_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.786,
+            0.701,
+            0.805
+          ],
+          "content": "und x stünde wie oben für weitere Berechnungen zur Verfügung."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.486,
+            0.98,
+            0.512,
+            0.993
+          ],
+          "content": "92"
+        }
+      ]
+    },
+    {
+      "page_idx": 92,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.322,
+            0.1
+          ],
+          "level": 2,
+          "content": "while‐Schleifen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.122,
+            0.545,
+            0.43
+          ],
+          "sub_type": "text",
+          "content": "for‐Schleifen werden vor allem für eine **feste Anzahl** von Iterationen verwendet\nSoll die Schleife ausgeführt werden, <u>solange</u> eine bestimmte **Bedingung** gilt, so ist eine while‐Schleife besser\nAllgemeine Form: while (expression) {statement\\*}\nexpression wird ausgewertet – Falls nicht null, so wird die Schleife betreten Nach statement\\* wird an den Anfang zurückgesprungen, und expression wird erneut geprüft"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**93**"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.568,
+            0.182,
+            0.822,
+            0.363
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define N 10\n\n    /* ... */\n\n    int fact, count;\n\n    fact = 1; count = 1;\n\n    while(count <= N) {\n        fact *= count;\n        count++;\n    }\n\n    printf(\"factorial(%d) = %d\",\n        N, fact);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.83,
+            0.57
+          ],
+          "content": "Auch in while-Schleifen sind **break** und **continue** erlaubt. Break ist (im Gegensatz zu for-Schleifen) bei while-Schleifen sogar verbreitet: Wenn die Abbruchbedingung sehr komplex ist, die Anzahl der Durchläufe nicht feststeht, und es mehrere Stellen im Schleifenkörper gibt, an denen die Schleife verlassen werden soll, so programmiert man häufig nach dem Schema:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.275,
+            0.574,
+            0.49,
+            0.733
+          ],
+          "sub_type": "code",
+          "content": "```txt\nwhile(1) // „für immer“\n{ ...\n    if (Bedingung1) break;\n    ....\n    if (Bedingung2) break;\n    ....\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.738,
+            0.823,
+            0.79
+          ],
+          "content": "Man muss allerdings aufpassen, dass keine echte **Endlosschleife** (siehe später) entsteht, d.h. dass eine Abbruchbedingung nach endlicher Zeit auch tatsächlich erfüllt ist."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.797,
+            0.775,
+            0.833
+          ],
+          "content": "Die Verwendung von continue ist bei sauberem Programmierstil dagegen unüblich und überflüssig."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "93"
+        }
+      ]
+    },
+    {
+      "page_idx": 93,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.286,
+            0.1
+          ],
+          "level": 2,
+          "content": "do‐Schleifen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.151,
+            0.113,
+            0.564,
+            0.43
+          ],
+          "sub_type": "text",
+          "content": "Ebenfalls für Schleifen mit **unbekannter Anzahl** von Iterationen\n• **Unterschied** zu while: Mindestens eine Iteration findet statt\nAllgemeine Form: do { statement\\* } while (expression)\nstatement\\* wird ausgeführt, und expression wird ausgewertet\nFalls true, so wird an den Anfang zurückgesprungen\nBsp.: **Mindestens eine** Benutzereingabe wird erwartet\nbreak, continue können bei while‐ und do‐Schleifen ebenfalls verwendet werden"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**94**"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.581,
+            0.281,
+            0.842,
+            0.37
+          ],
+          "sub_type": "code",
+          "content": "```txt\nchar c;\n/* ... */\n\ndo {\n    scanf(\"%c\",&c);\n    /* Berechnung auf c */\n} while (c != 'q'); // quit?\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.845,
+            0.553
+          ],
+          "content": "Die do-Schleife bietet sich an, wenn zunächst einmal **eine Iteration** durchzuführen ist, bevor die Abbruchbedingung getestet werden kann (wie im gezeigten Beispiel). Unter den drei Schleifenformen in C ist sie aber in der Praxis die am seltensten gebrauchte."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.486,
+            0.98,
+            0.511,
+            0.992
+          ],
+          "content": "94"
+        }
+      ]
+    },
+    {
+      "page_idx": 94,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.164,
+            0.117,
+            0.834,
+            0.412
+          ],
+          "sub_type": "algorithm",
+          "content": "- for würde als einziges Schleifenkonstrukt ausreichen\n- Jede Schleifenform lässt sich in die anderen umsetzen, z.B.\n    while (Ausdruck) { statement\\* }\nentspricht\n    for (;Ausdruck;) { statement\\* }\n\n    for (expr1; expr2; expr3) { statement\\* }\nentspricht\n    expr1;\n    while (expr2) { statement\\* expr3; }\n\n- Jedoch ist aus Gründen der Programm-Lesbarkeit die jeweils am besten geeignete Variante zu bevorzugen\n- Der Einsatz von strukturierten Schleifen (for, while, do) und der Verzicht auf Sprünge (goto) führt beim Übersetzen auch oft zu besserem Maschinencode",
+          "captions": [
+            {
+              "bbox": [
+                0.161,
+                0.082,
+                0.486,
+                0.101
+              ],
+              "content": "Äquivalenz von for, while, do"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.446
+          ],
+          "content": "95"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "95"
+        }
+      ]
+    },
+    {
+      "page_idx": 95,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.319,
+            0.1
+          ],
+          "level": 2,
+          "content": "Endlosschleifen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.491,
+            0.333
+          ],
+          "sub_type": "text",
+          "content": "Falls die Abbruchbedingung einer Schleife nie erfüllt ist, **terminiert** das Programm nicht\nCompiler kann dies i.A. **nicht bemerken**\nBei Ausführung: Ab einem gewissen Zeitpunkt **kein Programmfortschritt** mehr zu beobachten\n• **Abhilfe**:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.195,
+            0.34,
+            0.443,
+            0.404
+          ],
+          "sub_type": "text",
+          "content": "– Programmabbruch\n– Erneutes Starten unter Debugger‐Kontrolle"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.536,
+            0.167,
+            0.824,
+            0.334
+          ],
+          "sub_type": "code",
+          "content": "```txt\nwhile ((a > 10) || (b > 20)) {\n    if ( /* ... */ ) {\n        /* ... */\n        a = 100;\n        /* ... */\n    } else {\n        /* ... */\n        b = 30;\n        /* ... */\n    }\n    /* danach Bedingung\n        stets erfüllt */\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**96**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.57
+          ],
+          "content": "Terminiert ein Programm nicht wie gewünscht nach „vernünftiger“ Zeit, so handelt es sich meist um einen Bug aufgrund einer **Endlosschleife**. Im gezeigten Beispiel könnte man dies theoretisch vorab im Compiler erkennen, aber im allg. ist dies praktisch nicht möglich. Mit Hilfe eines Debuggers lässt sich das Problem aber meist schnell finden und beseitigen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.486,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "96"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "Microsoft PowerPoint - GGI1_W26.pptx",
+      "authors": [
+        "gemmeke"
+      ],
+      "created_at": "2026-10-06T18:10:39+02:00",
+      "modified_at": "2026-10-06T18:10:39+02:00",
+      "creator_application": "PScript5.dll Version 5.2.2",
+      "producer_application": "Acrobat Distiller 20.0 (Windows)",
+      "page_count": 355,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 64,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 65,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 66,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 67,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 68,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 69,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 70,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 71,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 72,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 73,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 74,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 75,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 76,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 77,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 78,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 79,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 80,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 81,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 82,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 83,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 84,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 85,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 86,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 87,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 88,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 89,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 90,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 91,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 92,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 93,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 94,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 95,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

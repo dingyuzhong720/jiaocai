@@ -10,5 +10,5 @@
 | C++ Primer Plus 第6版 中文版 | — | 待解析／整理 |
 | 数据结构与算法分析 C++语言描述 第4版 | — | 待解析／整理 |
 | [Grundgebiete der Informatik 1 – Folien](lecture-1/) | 355 | [ZIP](https://github.com/dingyuzhong720/jiaocai/releases/download/mineru-advanced-2026-10-16/lecture-1.mineru-advanced.zip) |
-| Grundgebiete der Informatik 1 – Folien mit Kommentaren | — | 待解析／整理 |
+| [Grundgebiete der Informatik 1 – Folien mit Kommentaren](lecture-2/) | 355 | [ZIP](https://github.com/dingyuzhong720/jiaocai/releases/download/mineru-advanced-2026-10-16/lecture-2.mineru-advanced.zip) |
 | [Grundgebiete der Informatik 1 – Vorlesung 3](lecture-3/) | 48 | [ZIP](https://github.com/dingyuzhong720/jiaocai/releases/download/mineru-advanced-2026-10-16/lecture-3.mineru-advanced.zip) |

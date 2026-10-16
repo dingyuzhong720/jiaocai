@@ -1,0 +1,1941 @@
+--- PDF page 277 ---
+277
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+10. Graphen
+10.1 Definition und Grapheigenschaften
+10.2 Berechnung kürzester Pfade
+10.3 Datenstrukturen zur Graphrepräsentation
+10.4 Graphdurchläufe
+10.5 Spannbäume
+277
+
+
+--- PDF page 278 ---
+278
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Graphen
+• Graph: graphische Darstellung einer Menge von Objekten und 
+deren Beziehungen (d.h. Relation)
+• Bsp.: topologische Information einer Landkarte
+Schlesw.
+Meckl.
+HH
+Nieders.
+HB
+Brandenb.
+B
+Sachsen‐A.
+Sachsen
+Thür.
+NRW
+Rheinl.
+Saarl.
+Baden‐W.
+Hessen
+Bayern
+278
+Das Beispiel zeigt, wie ein Graph abstrakte Information speichern kann. Ist man 
+z.B. nur an der Frage interessiert, welche Bundesländer benachbart sind (aber
+nicht an der Länge und Gestalt der Grenzen), so genügt die topologische
+Information, d.h. die “Vernetzung” der Länder untereinander. 
+Diese wird durch den hier gezeigten Graphen erfasst. Jeder “Knoten” steht für
+ein Land, und jede “Kante” (Verbindung) zwischen zwei Ländern weist auf deren
+Nachbarschaft hin.
+
+
+--- PDF page 279 ---
+279
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Graphen
+• Bei Graphen meist 𝑅⊆𝐴 ൈ 𝐴 für gegebene Menge 𝐴(“Knoten”)
+• “aRb” als Schreibweise für ሺ𝑎, 𝑏ሻ  𝑅, “Kante” zwischen 𝑎und 𝑏
+im Graphen
+• Spezialfall symmetrische Relation: aRb bRa
+Def.: Eine (binäre) Relation 𝑅ist eine Teilmenge des kartesischen 
+Produktes zweier Mengen: 𝑅⊆𝐴 ൈ 𝐵 
+Def.: Ein (gerichteter) Graph 𝐺 ൌ ሺ𝑉, 𝐸ሻbesteht aus 
+einer Menge 𝑉von Knoten (vertices) und 
+einer Menge 𝐸von Kanten (edges) mit 𝐸⊆𝑉ൈ𝑉.
+Def.: Gilt für alle Kanten ሺ𝑢, 𝑣ሻ eines Graphen 𝐺 ൌ ሺ𝑉, 𝐸ሻ
+ሺ𝑢, 𝑣ሻ  𝐸  ሺ𝑣, 𝑢ሻ  𝐸
+so heißt 𝐺ungerichtet. Schreibweise: ሼ𝑢, 𝑣ሽ  𝐸.
+279
+Standardmäßig sind Graphen aufgrund des Relationsbegriffes gerichtet, d.h. die 
+Kanten weisen in eine bestimmte Richtung. Graphisch werden die Kanten dann
+als Pfeil dargestellt. 
+Eine symmetrische Relation führt dagegen zu einem ungerichteten Graphen. 
+Alle Kanten haben “beide” Richtungen, und werden daher nur als eine einzige
+richtungslose Kante gezeichnet.
+
+
+--- PDF page 280 ---
+280
+Pfade in Graphen
+• Bsp. Landkarte: 
+Knoten = Bundesländer
+• Ungerichteter Graph, da 
+Nachbarschafts‐
+Beziehung symmetrisch
+• Pfad = „Reiseweg“ von 
+einem Land in ein 
+anderes
+• Im folgenden: 
+Betrachtung 
+ungerichteter Graphen
+Def.: Eine Folge ሺ𝑣ଵ, … , 𝑣௡ሻ von Knoten eines Graphen 𝐺 ൌ 𝑉, 𝐸
+heißt Pfad, falls für alle 𝑖 ൌ 1 … 𝑛െ1: ሼ𝑣௜, 𝑣௜ାଵሽ  𝐸.
+Schlesw.
+Meckl.
+HH
+Nieders.
+HB
+Brandenb.
+B
+Sachsen‐A.
+Sachsen
+Thür.
+NRW
+Rheinl.
+Saarl.
+Baden‐W.
+Hessen
+Bayern
+280
+Ein Pfad ist eine zusammenhängende Folge von Knoten in einem Graphen. 
+Zwei durch eine Kante verbundene Knoten heißen “adjazent”. 
+
+
+--- PDF page 281 ---
+281
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Zusammenhang und Zyklen
+• Bsp. Landkarte:
+– zusammenhängend
+– nicht zyklenfrei
+Def.: Ein Graph 𝐺 ൌ ሺ𝑉, 𝐸ሻ heißt zusammenhängend, falls zwischen 
+zwei beliebigen Knoten 𝑢, 𝑣  𝑉 mindestens ein Pfad existiert.
+Def.: Ein Graph 𝐺 ൌ ሺ𝑉, 𝐸ሻ heißt zyklenfrei, falls zwischen zwei 
+beliebigen Knoten 𝑢, 𝑣  𝑉 höchstens ein Pfad existiert.
+Schlesw.
+Meckl.
+HH
+Nieders.
+HB
+Brandenb.
+B
+Sachsen‐A.
+Sachsen
+Thür.
+NRW
+Rheinl.
+Saarl.
+Baden‐W.
+Hessen
+Bayern
+281
+Im Beispiel bedeutet zusammenhängend, dass jedes Land von jedem anderen 
+aus (evtl. über andere Länder) erreichbar ist. Nicht zyklenfrei bedeutet, dass es 
+Rundreisen gibt.
+
+
+--- PDF page 282 ---
+282
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Graphen und Bäume, Kantengewichte
+Def.: Ein zusammenhängender, zyklenfreier
+Graph 𝐺ൌሺ𝑉, 𝐸ሻ heißt Baum.
+Nicht zusammenhängend
+Nicht zyklenfrei
+Baum
+Def.: Ein Graph 𝐺ൌሺ𝑉, 𝐸, 𝑤ሻ mit 
+einer Abbildung 𝑤: 𝐸→ℝ heißt (kanten)gewichteter Graph.
+1
+7
+9
+11
+282
+Kantengewichte werden z.B. verwendet, um Entfernungen zwischen zwei 
+Knoten zu repräsentieren.
+
+
+--- PDF page 283 ---
+283
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+10. Graphen
+10.1 Definition und Grapheigenschaften
+10.2 Berechnung kürzester Pfade
+10.3 Datenstrukturen zur Graphrepräsentation
+10.4 Graphdurchläufe
+10.5 Spannbäume
+283
+
+
+--- PDF page 284 ---
+284
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel‐Anwendung: Navigationssystem
+• Knoten = Geographische Orte
+• Kanten = Straßenverbindungen
+• Kantengewichte = Länge bzw. Fahrtdauer
+• Gesucht: 
+kürzester Pfad von 𝐴nach 𝐵gemäß Summe der Kantengewichte
+https://ndla.no/
+284
+Eine Teilfunktion eines Navigationssystems ist es, die kürzeste bzw. schnellste
+Verbindung zwischen zwei Orten über andere Orte zu bestimmen. Dabei sind
+geographische Einzelheiten zunächst belanglos, daher ist ein kantengewichteter
+Graph ein geeignetes Modell einer Strassenkarte.
+Die Kantengewichte spiegeln dabei entweder direkt die Entfernung zweier Orte
+wider (falls die kürzeste Strecke gesucht ist), oder sie sind noch mit der zu
+erwartenden Durchschnittsgeschwindigkeit gewichtet (falls der schnellste Weg 
+gewünscht ist). Z.B. können sich erhebliche Umwege lohnen, sofern man dann
+Autobahnen benutzen kann.
+
+
+--- PDF page 285 ---
+285
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Bestimmung kürzester Pfade
+• Dijkstra‐Algorithmus (single source shortest path)
+• Bestimmung der kürzesten Pfade von einem Startknoten 𝒗𝟎aus zu 
+allen anderen Graphknoten
+• Idee: 
+– In jedem Schritt Betrachtung einer „Nachbarschaft“ 𝑁von 𝑣଴, 
+innerhalb derer die kürzesten Pfade zu 𝑣଴bereits bekannt sind
+– Schrittweise Erweiterung von 𝑵um den jeweils am nächsten 
+an 𝑁liegenden Knoten
+285
+Der Dijkstra-Algorithmus findet alle kürzesten Wege von einem Startknoten aus 
+gesehen auf einmal. Die Grundidee ist es, eine “Wellenausbreitung” (als ob man 
+einen Stein am Startpunkt ins Wasser werfen würde) vom Startknoten aus 
+vorzunehmen und dabei neue minimale Entfernungen vom Startknoten aus 
+erreichter Knoten zu protokollieren.
+
+
+--- PDF page 286 ---
+286
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Ablauf des Dijkstra‐Algorithmus
+• Bisher bekannter min. Abstand dist(u,v) zwischen zwei Knoten 
+kann durch neue Zwischenknoten verkürzt werden
+A
+C
+B
+10
+10
+dist(A,C) = 20
+A
+C
+B
+10
+10
+D
+12
+6
+dist(A,C) = 18
+Def.: Ist 𝐺 ൌ ሺ𝑉, 𝐸ሻ ein Graph und ሼ𝑢, 𝑣ሽ  𝐸, so heißt 𝑣Nachfolger
+von 𝑢, und 𝑢heißt Vorgänger von 𝑣.
+bereits
+betrachteter
+Bereich
+Graph G
+Alle Nachfolger
+bereits betrachtet
+Nachfolger noch
+nicht betrachtet
+𝒗𝟎
+Kürzeste Pfade 
+von 𝑣଴aus
+286
+Aufgrund der Kantengewichte kann es sinnvoll sein, “Umwege” über andere
+Knoten zu nehmen, um einen bestimmten Knoten mit minimalen Kosten zu
+erreichen. D.h. der Abstand eines Knotens vom Startknoten hängt nicht
+unmittelbar damit zusammen, wie viele Zwischenknoten besucht werden müssen.
+Während der Abarbeitung des Algorithmus zerfällt der Graph in verschiedene
+Regionen: Der “blaue” Bereich, in dessen Zentrum der Startknoten liegt, wurde
+bereits vollständig abgearbeitet, und alle kürzesten Wege darin sind bekannt. 
+Der “grüne” Bereich bildet die Grenze von Knoten, die noch weiter untersucht
+werden müssen. Durch “orangene” Kanten werden jeweils die aktuell bekannten
+kürzesten Wege dargestellt.
+Die Definition von Vorgänger und Nachfolger in ungerichteten Graphen ist
+natürlich “richtungslos”: Da für jede Kante (u,v) auch die Kante (v,u) in E 
+enthalten ist, sind u und v gegenseitig Vorgänger und Nachfolger. Man könnte sie
+auch einfach als “Nachbarknoten” im Graphen definieren.
+
+
+--- PDF page 287 ---
+287
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Dijkstra‐Algorithmus
+• Pseudo‐Code: abstrakter Code für Algorithmus, nicht direkt 
+compilier‐ und ausführbar!
+• Vorauss.: Datenstruktur für Graphen (graph) und Mengen (set) 
+verfügbar
+• graph unterstützt Zugriff auf Knoten und Kanten (s. später)
+• set unterstützt übliche Mengenoperationen 
+• Variablen:
+– dist[v] bezeichnet den aktuell min. Abstand von Knoten 𝑣
+zum Startknoten
+– cost(u,v) bezeichnet Gewichtung der Kante ሼ𝑢, 𝑣ሽ
+– Mengen BLUE, GREEN und ORANGE bezeichnen blaue und 
+grüne Knoten sowie orangene Kanten
+• Orangene Kanten bilden stets einen Baum von aktuell kürzesten 
+Pfaden vom Startknoten aus
+287
+Da der komplette Algorithmus als C-Code zu komplex zur Darstellung an dieser
+Stelle ist, greifen wir auf “Pseudo-Code” zurück. Hierunter versteht man eine
+Programmdarstellung, die nur die wesentlichen Schritte des Algorithmus abstrakt
+darstellt. 
+Programmdetails und die Implementierung der einzelnen benutzten
+Datenstrukturen werden als bekannt oder “leicht ergänzbar” vorausgesetzt. Die 
+genaue Implementierung der Datenstruktur Graph wird jedoch erst etwas später
+erläutert.
+
+
+--- PDF page 288 ---
+288
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Dijkstra‐Algorithmus
+void shortest_path(graph G = (V = {v0,...,vn},E))
+{ 
+set BLUE = {}, GREEN = {v0}, ORANGE = {}; dist[v0] = 0;
+while (GREEN != {}) { // solange noch unbearbeitete Knoten
+v = MinDist(GREEN); // v GREEN mit min. dist-Wert
+Insert(v, BLUE);   // BLUE = BLUE {v}
+Delete(v, GREEN);   // GREEN = GREEN \ {v}
+for (u Succ(v)) { // für alle Nachfolger u von v
+if (!(u GREEN BLUE)) { // neuer Knoten erreicht
+Insert({u,v}, ORANGE);
+Insert(u, GREEN);
+dist[u] = dist[v] + cost(u,v);
+} else if (u GREEN) {    // u erneut erreicht
+if (dist[v] + cost(u,v) < dist[u]) {
+Insert({u,v}, ORANGE);
+e = PreviousEdge(u);   // vorher orangene Kante zu u
+Delete(e, ORANGE);     // ORANGE = ORANGE \ {e}
+dist[u] = dist[v] + cost(u,v);
+}
+}    
+}
+}
+}
+288
+Der Algorithmus arbeitet in folgenden Schritten:
+Zunächst werden die verwendeten Mengen initialisiert. Die äußere while-Schleife
+läuft dann solange, bis alle Knoten untersucht worden sind und somit alle 
+kürzesten Pfade bestimmt sind.
+Der Knoten v mit minimalem dist-Wert wird aus der GREEN-Menge in die 
+BLUE überführt. Für diesen wird anschließend geprüft (indem alle Nachfolger
+betrachtet werden), ob er zu neuen kürzesten Wegen beitragen kann.
+Fall 1 (if): Der Knoten u wurde bisher noch gar nicht erreicht. Der kürzeste Weg
+zu u führt somit per Definition über v, und die Distanz wird entsprechend
+vermerkt.
+Fall 2 (else): u wurde bereits auf einem anderen Weg erreicht. Ist der neue Weg
+zu u über v kürzer als der bisher bekannte, so wird der Wert dist[u] entsprechend
+aktualisiert und die Menge der orangenen Kanten demzufolge angepasst.
+Der Ablauf wird in den folgenden Folien am Beispiel verdeutlicht.
+
+
+--- PDF page 289 ---
+289
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel
+𝒗𝟎
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+𝒗𝟎
+1
+4
+5
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+𝒗𝟎
+1
+4
+5
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+𝒗𝟎
+4
+1
+3
+4
+5
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+289
+Schritt 1: v0 ist Startknoten und wird dann zum ersten blauen Knoten.
+Schritt 2: Die drei Nachfolger von v0 gelangen in die grüne Menge.
+Schritt 3: Der mit 1 markierte Knoten besitzt den minimalen dist-Wert und wird
+daher zum nächsten blauen Knoten. Im folgenden werden die Knoten immer mit
+dem aktuell bekannten minimalen dist-Wert markiert.
+Schritt 4: Zwei weitere Nachfolgerknoten gelangen in die grüne Menge und 
+werden mit dist-Werten markiert.
+
+
+--- PDF page 290 ---
+290
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel (Fortsetzung)
+𝒗𝟎
+6
+4
+1
+3
+4
+5
+8
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+𝒗𝟎
+4
+1
+3
+4
+5
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+𝒗𝟎
+4
+1
+3
+4
+5
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+𝒗𝟎
+4
+1
+3
+4
+5
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+290
+Schritt 1: Der mit 3 markierte Knoten wird der nächste blaue Knoten.
+Schritt 2: Der linke mit 4 markierte Knoten wird der nächste blaue Knoten. Er 
+besitzt aber keine weiteren Nachfolger mehr.
+Schritt 3: Der rechte mit 4 markierte Knoten wird der nächste blaue Knoten. 
+Schritt 4: Seine Nachfolger werden erfasst und mit den dist-Werten 6 und 8 
+markiert. Der bereits mit 5 markierte Knoten ist zwar auch Nachfolger, er kann
+jedoch vom 4er-Knoten nur mit Distanz 2 erreicht werden (d.h. insges. mit
+Kosten 6) und behält daher seine alte Markierung.
+
+
+--- PDF page 291 ---
+291
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+𝒗𝟎
+6
+4
+1
+3
+4
+10
+5
+7
+10
+8
+7
+7
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+𝒗𝟎
+6
+4
+1
+3
+4
+10
+5
+8
+7
+7
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+𝒗𝟎
+6
+4
+1
+3
+4
+10
+5
+8
+7
+7
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+𝒗𝟎
+6
+4
+1
+3
+4
+5
+8
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+Beispiel (Fortsetzung)
+291
+Schritt 1: Der mit 5 markierte Knoten weist aktuell den minimalen dist-Wert in 
+der grünen Menge auf und wird daher zum blauen Knoten.
+Schritt 2: Die Nachfolger gelangen in die grüne Menge und werden markiert.
+Schritt 3: Der mit 6 markierte Knoten wird zum blauen Knoten.
+Schritt 4: Die beiden bisher unerreichten Nachfolger von Knoten 6 werden erfasst.
+
+
+--- PDF page 292 ---
+292
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+𝒗𝟎
+6
+4
+1
+3
+4
+8
+5
+7
+10
+8
+7
+7
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+𝒗𝟎
+6
+4
+1
+3
+4
+8
+5
+7
+10
+8
+7
+7
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+𝒗𝟎
+6
+4
+1
+3
+4
+8
+5
+7
+10
+8
+7
+7
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+𝒗𝟎
+6
+4
+1
+3
+4
+10
+5
+7
+10
+8
+7
+7
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+Beispiel (Fortsetzung)
+292
+Schritt 1: Der linke 7er-Knoten wird (willkürlich, da es noch zwei weitere 7er-
+Knoten gibt) der nächste blaue Knoten.
+Schritt 2: Der bisher mit 10 markierte Knoten erhält die neue Markierung 8, da 
+über den 7er-Knoten ein neuer minimaler Weg gefunden wurde.
+Schritt 3: Der mittlere 7er-Knoten wird zum blauen Knoten.
+Schritt 4: Der rechte 7er-Knoten wird zum blauen Knoten.
+
+
+--- PDF page 293 ---
+293
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+𝒗𝟎
+6
+4
+1
+3
+4
+8
+5
+7
+9
+8
+7
+7
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+Beispiel (Fortsetzung), Laufzeit
+• In jedem Durchlauf der while‐Schleife wird ein Knoten „blau“
+• Aufwand für jeden Knoten:
+– Bestimmung des bzgl. dist min. „grünen“ Knotens: 𝒪ሺ𝑉ሻ
+– Behandlung aller 𝒪ሺ𝑉ሻNachfolger: jeweils 𝒪ሺ1ሻ
+• Gesamt: 𝓞𝑽𝟐
+• Geschicktere Implementierung möglich: 𝒪ሺ𝐸log 𝑉ሻ, d.h. besser 
+im Fall  𝐸≪𝑉ଶ( 𝐸stets beschränkt durch  𝑉ଶ)
+𝒗𝟎
+6
+4
+1
+3
+4
+8
+5
+7
+9
+8
+7
+7
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+…
+293
+Schritt 1: Der rechte bisher mit 10 markierte Knoten erhält die Markierung 9, da 
+er vom rechten 7er-Knoten mit Distanz 2 erreichbar ist
+Schritt 2 etc.: Die übrigen Knoten gelangen letztlich auch in die blaue Menge, 
+wodurch sich aber keine neuen kürzesten Wege mehr ergeben
+Man versuche die Aufwandsanalyse für den einfachen Fall O(|V|2) am 
+Pseudocode nachzuvollziehen.
+Da ein Graph nie mehr als |V|2 Kanten haben kann, wird die u.g. “geschicktere” 
+Implementierung (ohne nähere Erläuterung hier) meist schneller zum Ergebnis
+führen.
+
+
+--- PDF page 294 ---
+294
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+10. Graphen
+10.1 Definition und Grapheigenschaften
+10.2 Berechnung kürzester Pfade
+10.3 Datenstrukturen zur Graphrepräsentation
+10.4 Graphdurchläufe
+10.5 Spannbäume
+294
+
+
+--- PDF page 295 ---
+295
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Graphrepräsentation
+• Datenstrukturen zur internen Speicherung von Graphen
+• Gebräuchlich vor allem: Adjazenzmatrix und Adjazenzlisten
+• Existiert zwischen zwei Graphknoten 𝑢und 𝑣eine Kante
+𝑒 ൌ ሼ𝑢, 𝑣ሽ, so heißen 𝑢und 𝑣adjazent
+Def.: Ist 𝐺 ൌ ሺ𝑉, 𝐸ሻ ein Graph mit Knotenmenge 𝑉 ൌ ሼ𝑣ଵ, … , 𝑣௡ሽ, 
+so heißt die ሺ𝑛ൈ𝑛ሻ‐Matrix 𝐴 ൌ ሺ𝑎௜௝ሻmit 
+𝑎௜௝ൌ1, falls ሼ𝑣௜, 𝑣௝ሽ  𝐸
+𝑎௜௝ൌ0, sonst
+Adjazenzmatrix zu 𝐺.
+• 𝑎௜௝ൌ1 zeigt an, dass zwischen zwei Knoten 𝑣௜und 𝑣௝eine Kante 
+existiert
+• 𝑎௜௝ൌ0 zeigt an, dass keine Kante vorhanden ist
+• Knoten werden implizit gespeichert
+295
+Graphen auf dem Papier zu zeichnen ist sehr intuitiv, aber wie werden Graphen 
+als Datenstruktur zur Verarbeitung durch ein Programm am besten intern 
+gespeichert?
+Eine Methode besteht darin, anzugeben welche Knotenpaare durch eine Kante 
+verbunden (adjazent) sind. Hierfür genügt ein Bit pro Paar (1 = verbunden, 0 = 
+nicht verbunden), was dann unmittelbar zur Adjazenzmatrix führt.
+Die Knoten werden dabei gar nicht explizit gespeichert: Die Adjazenzmatrix ist 
+ein zweidimensionales Array, und durch die Anzahl der Zeilen bzw. Spalten ist 
+klar, wieviele Knoten vorhanden sind. Natürlich können bei Bedarf noch weitere 
+Informationen über die Knoten (z.B. Markierungen) noch anderweitig separat 
+gespeichert werden.
+Übung: Wie könnte man bei der Darstellung von ungerichteten Graphen (anstelle 
+von gerichteten) Platz in der Adjazenzmatrix sparen?
+
+
+--- PDF page 296 ---
+296
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel für Adjazenzmatrix
+• Bei kantengewichteten Graphen: 
+– Kantengewicht statt 0/1 in Matrix eintragen
+– spezieller Wert (z.B. ∞), falls keine Kante vorhanden
+9
+6
+10
+12
+11
+8
+2
+3
+5
+7
+13
+1
+4
+13
+12
+11
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+1
+0
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+0
+1
+2
+0
+0
+0
+1
+1
+0
+0
+1
+0
+1
+0
+1
+1
+3
+0
+0
+0
+0
+0
+0
+0
+1
+0
+0
+1
+0
+0
+4
+0
+0
+0
+0
+0
+0
+1
+1
+0
+0
+0
+0
+0
+5
+0
+0
+0
+1
+0
+0
+1
+0
+1
+1
+1
+0
+0
+6
+0
+0
+0
+0
+0
+0
+0
+1
+1
+0
+0
+0
+0
+7
+0
+0
+1
+0
+1
+0
+0
+0
+0
+0
+0
+0
+0
+8
+0
+1
+0
+0
+0
+1
+0
+0
+0
+0
+1
+0
+0
+9
+1
+1
+0
+0
+0
+0
+0
+1
+0
+0
+1
+0
+0
+10
+0
+1
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0
+0
+11
+0
+0
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+12
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+13
+296
+
+
+--- PDF page 297 ---
+297
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Eigenschaften und Implementierung
+• Vorteil: Adjazenz zweier Knoten kann in Zeit 𝓞ሺ𝟏ሻgeprüft werden
+• Nachteil: Hoher Platzbedarf (𝓞ሺ𝑽𝟐ሻ), unabhängig von  𝐸
+• C‐Implementierung:
+• Bedingter Ausdruck in C: 
+Bedingung „?“ then‐Ausdruck „:“ else‐Ausdruck
+• Kürzere Schreibweise als if-then-else
+#define N 100
+int adj_matrix[N][N];
+int adjacent(int i, int j)
+{
+return adj_matrix[i][j] == 1 ? 1 : 0;
+}
+297
+Der Adjazenztest geht in O(1), da der Arrayzugriff in einem Schritt erfolgen 
+kann. 
+Jedoch führt die Adjazenzmatrix oft zur Platzverschwendung: Sind nur wenige 
+Kanten im Graphen vorhanden, so besteht sie fast nur aus 0en. Besser wäre es 
+dann offenbar, die (nur wenigen) Kanten explizit zu speichern.
+Die C-Implementierung der Adjazenzmatrix ist denkbar einfach. Hier wird auch 
+ein neues C-Sprachelement eingeführt: Möchte man einem bestimmten Objekt 
+einen Wert in Abhängigkeit von einer Bedingung zuweisen, so spart der bedingte 
+Ausdruck etwas Schreibarbeit. 
+Das Gegenstück zur gezeigten Implementierung von “adjacent” wäre dann unter 
+expliziter Verwendung von if-else:
+if (adj_matrix[i][j] == 1) return 1;
+else return 0;
+
+
+--- PDF page 298 ---
+298
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Adjazenzlisten
+• Für jeden Knoten Liste seiner Nachbarn speichern
+• Array von verketteten Listen
+NULL
+Knoten
+𝒗𝒊
+Nachbar 1 
+von 𝒗𝒊
+Nachbar 2 
+von 𝒗𝒊
+Nachbar 3 
+von 𝒗𝒊
+1:  2, 3
+2:  1, 3
+3:  1, 2, 4, 6, 9, 10
+4:  3, 6
+5:  6, 7
+6:  3, 4, 5, 7, 10
+7:  5, 6
+8:  9, 11
+9:  3, 8, 12
+10: 3, 6, 12, 13
+11: 8, 12
+12: 9, 10, 11
+13: 10
+9
+6
+10
+12
+11
+8
+2
+3
+5
+7
+13
+1
+4
+298
+Eine Alternative zur Adjazenzmatrix bilden Adjazenzlisten. Bei dieser 
+Datenstruktur werden nur die Graphkanten explizit abgespeichert. Jeder Knoten 
+besitzt eine Liste seiner Nachbarn. Sind nur wenige Kanten vorhanden, so kann 
+dies erheblich Platz sparen.
+
+
+--- PDF page 299 ---
+299
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Eigenschaften und Implementierung
+• Vorteil: Speicherplatzbedarf nur 𝒪ሺ𝑉൅𝐸ሻ
+• Nachteil: Test auf Adjazenz erfordert im worst case 𝒪ሺ𝑉ሻ
+• Auch Mischformen und alternative Graphrepräsentationen
+möglich
+• Auswahl je nach Häufigkeit der gewünschten Graphoperationen
+#define N 100
+List adj_list[N];
+int adjacent(int i, int j)
+{
+List L;
+L = adj_list[i];
+return IsIn(j, L);
+}
+299
+Die Auswahl zwischen Adjazenzmatrix und Adjazenzlisten muss sich (wie bei 
+allen anderen Datenstrukturen auch) nach den Anforderungen der Operationen
+richten. Steht z.B. die Minimierung des Speicherplatzes im Vordergrund, so sind 
+Adjazenzlisten oft die bessere Wahl. Die Platzersparnis erkauft man sich jedoch 
+mit einem höheren Aufwand beim Adjazenztest.
+
+
+--- PDF page 300 ---
+300
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+10. Graphen
+10.1 Definition und Grapheigenschaften
+10.2 Berechnung kürzester Pfade
+10.3 Datenstrukturen zur Graphrepräsentation
+10.4 Graphdurchläufe
+10.5 Spannbäume
+300
+
+
+--- PDF page 301 ---
+301
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Graphdurchläufe
+• Gesucht: Algorithmus, der alle Knoten eines Graphen der Reihe 
+nach „besucht“
+• Anwendungen u.a.:
+– Systematisches Bearbeiten aller Graphknoten
+– Prüfen ob Graph zusammenhängend ist
+• Beispiel: garbage collection
+• Aufsammeln und Freigabe von nicht mehr benötigtem dynamisch 
+angeforderten Heap‐Speicher (garbage)
+• Als Graph‐Modell:
+– Speicherblöcke = Knoten
+– Verweis (Zeiger) auf Speicherblock = Kante
+• Idee: Block von Programmvariablen aus nicht mehr erreichbar 
+→Block nicht mehr benötigt, daher Freigabe
+301
+Graphdurchläufe werden häufig benötigt. Für den Zusammenhangstest bspw. 
+beginnt man den Durchlauf an einem beliebigen Knoten. Werden dann im 
+Durchlauf letztlich alle Knoten erreicht, so ist der Graph offensichtlich 
+zusammenhängend.
+Die Notwendigkeit zur garbage collection (Müllabfuhr) ergibt sich aus der 
+fortwährenden Anforderung und Wiederfreigabe von Speicherblöcken auf dem 
+Heap. Ein Programm “weiss” nicht, ob ein bestimmter Speicherblock später noch 
+benötigt wird. Spätestens wenn der Heapspeicher knapp wird, sollte eine garbage 
+collection durchgeführt werden, um nicht mehr benötigten Speicher wieder 
+freizugeben.
+Ein Speicherblock kann sicher dann als nicht mehr benötigt angesehen werden, 
+wenn es keinen Zeiger mehr gibt, der auf den Block verweist. Der Block ist 
+dann nicht mehr zugreifbar und somit offenbar überflüssig. 
+Es genügt jedoch nicht, die statischen im Programm selbst deklarierten 
+Zeigervariablen zu betrachten, da sich Zeiger auch häufig auf dem Heap selbst 
+befinden (z.B. bei Listen). Vielmehr muss geprüft werden, welche 
+Speicherblöcke von Zeigervariablen aus erreichbar sind, welche dann wiederum 
+indirekt über diese Blöcke erreichbar sind, usw.
+
+
+--- PDF page 302 ---
+302
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Entstehung von garbage
+• Blöcke 1 und 2 anschließend nicht mehr erreichbar
+• Jedoch nicht als „frei“ markiert, da nicht mittels free explizit 
+freigegeben
+• Falls malloc irgendwann im Programmverlauf keinen freien 
+Speicherplatz mehr liefert, so muss eine garbage collection
+durchgeführt werden
+• Besserer Programmierstil: immer Verwendung von free
+p
+q
+1
+2
+NULL
+4
+NULL
+3
+NULL
+p
+q
+void f(T* item)
+{ 
+nodeptr p,q;
+p = newnode(item);
+q = newnode(item);
+p->next = q;
+p = newnode(item);
+q = newnode(item);
+}
+Das einfache Beispiel zeigt, wie garbage entstehen kann. Da die zuerst an p und 
+q zugewiesenen Speicherblöcke nicht freigegeben wurden, sind sie nach der 
+zweiten Zuweisung an p und q nicht mehr erreichbar.
+
+
+--- PDF page 303 ---
+303
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Garbage collection
+p = ...
+q = ...
+r = ...
+Im Programm
+deklarierte 
+Zeigervariablen
+Heap
+Nicht erreichte Knoten freigeben
+303
+Die Idee ist es, einen Graphdurchlauf ausgehend von den deklarierten
+Zeigervariablen aus durchzuführen. Zu Anfang werden alle Speicherblöcke als
+“nicht mehr benötigt” angesehen. Sind Blöcke jedoch noch (direkt oder indirekt) 
+über Zeiger erreichbar, so werden sie als “noch benötigt” markiert. Alle übrigen
+Blöcke können dann freigegeben werden.
+
+
+--- PDF page 304 ---
+304
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Graphdurchläufe
+• Prinzipiell zwei Möglichkeiten für Graphdurchlauf:
+– Depth First Search (DFS, Tiefensuche): ausgehend vom 
+Startknoten möglichst lange Pfade verfolgen, oder
+– Breadth First Search (BFS, Breitensuche): ausgehend vom 
+Startknoten weitere Knoten in der Reihenfolge wachsenden 
+Abstands vom Startpunkt besuchen
+1
+2
+3
+4
+5
+6
+7
+8
+9
+1
+2
+3
+4
+5
+6
+7
+8
+9
+DFS
+1
+2
+4
+8
+5
+6
+3
+7
+9
+BFS
+1
+2
+3
+4
+5
+6
+7
+8
+9
+304
+Beim DFS ist die Idee, einen Pfad möglichst lange “in die Tiefe” zu verfolgen.
+Beim BFS dagegen versucht man, alle Pfade gleichmäßig (ebenenweise, also 
+zunächst “in der Breite”) abzuarbeiten.
+
+
+--- PDF page 305 ---
+305
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+DFS ‐ Depth first search
+• Algorithmus als Pseudo‐Code
+• Vorauss.: 
+– Graphimplementierung verfügbar
+– Knoten durch integer‐Zahlen identifiziert
+int visited[N]; // implizit mit 0 initialisiert
+void dfs(int v) // DFS beginnend bei v
+{ int w;
+visited[v] = 1; // markiere v als besucht
+process(v);     // Verarbeitung von v
+for ({v,w} E) // für alle Nachbarn w
+{ // rekursiver Aufruf von dfs:
+if (!visited[w]) dfs(w);
+}
+}
+int main(void)
+{ 
+int v;
+for (v = 0; v < N; v++) 
+if (!visited[v]) dfs(v);
+return 0;
+}
+305
+Der DFS-Durchlauf wird durch die main-Funktion ausgelöst. Für einen
+gegebenen Knoten v übernimmt dann die Funktion dfs die Tiefensuche. 
+v wird als besucht markiert und auf irgendeine Weise verarbeitet (process). 
+Anschließend werden die Nachfolger von v besucht. Durch die Rekursion wird
+die gewünschte DFS-Reihenfolge sichergestellt. 
+Ist der Graph zusammenhängend, so genügt ein einziger dfs-Aufruf von main 
+aus, um alle Knoten zu erreichen. Andernfalls werden weitere Teile des Graphen
+erst durch weitere gezielte Aufrufe erreicht. Daher muss die main-Funktion einen
+dfs-Aufruf für alle Knoten v starten.
+
+
+--- PDF page 306 ---
+306
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+BFS – Breadth First Search
+• In BFS werden die 
+Knoten „ebenenweise“ 
+besucht
+• Verwendung einer 
+Queue (Kap. 8) 
+• Queue speichert noch zu 
+bearbeitende Knoten 
+auf nächster Ebene, 
+während 
+„Geschwisterknoten“ 
+auf selber Ebene gerade 
+bearbeitet werden
+int visited[N];
+void bfs(int v) // BFS ab Knoten v
+{ 
+int w; Queue Q;
+visited[v] = 1; 
+process(v);
+Put(v,Q);
+while (!IsEmpty(Q)) {
+v = Get(Q);
+for ({v,w} E) {
+if (!visited[w]) {
+visited[w] = 1; 
+process(w);
+Put(w,Q);
+}
+}
+}
+}
+void main()
+{ 
+int v;
+for (v = 0; v < N; v++) 
+if (!visited[v]) bfs(v);
+}
+306
+Beim BFS-Durchlauf kommt die bereits bekannte Queue-Datenstruktur zum 
+Einsatz. Die Steuerung von main aus erfolgt wie beim DFS. Durch das Einfügen 
+verarbeiteter Knoten in die Queue wird jedoch sichergestellt, dass der Graph 
+“ebenenweise” abgearbeitet wird.
+
+
+--- PDF page 307 ---
+307
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Laufzeitanalyse
+• Annahme: Graphdarstellung als 
+Adjazenzlisten
+• DFS:
+– Aufruf für alle Knoten aus main: 
+𝒪ሺ𝑉ሻ
+– Einmalige Bearbeitung aller Kanten 
+in for: 𝒪ሺ𝐸ሻ
+– Gesamt: 𝒪ሺ𝑉൅𝐸ሻ
+• BFS
+– Aufruf für alle Knoten aus main, 
+jeder Knoten einmal in der Queue: 
+𝒪ሺ𝑉ሻ
+– Einmalige Bearbeitung aller Kanten 
+in for: 𝒪ሺ𝐸ሻ
+– Gesamt: 𝒪ሺ|𝑉| ൅𝐸ሻ
+void dfs(int v)
+{ 
+int w;
+visited[v] = 1; 
+process(v);     
+for ({v,w} E) {
+if (!visited[w]) dfs(w);
+}
+}
+void bfs(int v)
+{ 
+int w; Queue Q;
+visited[v] = 1; 
+process(v);
+Put(v,Q);
+while (!IsEmpty(Q)) {
+v = Get(Q);
+for ({v,w} E) {
+if (!visited[w]) {
+visited[w] = 1; 
+process(w);
+Put(w,Q);
+}
+}
+}
+}   
+307
+Die Laufzeitanalyse ist in diesem Fall sehr einfach, und wie man sieht
+unterscheiden sich DFS und BFS nicht in der Effizienz, sondern nur im Ergebnis
+der Durchlaufreihenfolge. Bei der Queue wird natürlich vorausgesetzt, dass Put 
+und Get in jeweils O(1) erfolgen.
+
+
+--- PDF page 308 ---
+308
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+10. Graphen
+10.1 Definition und Grapheigenschaften
+10.2 Berechnung kürzester Pfade
+10.3 Datenstrukturen zur Graphrepräsentation
+10.4 Graphdurchläufe
+10.5 Spannbäume
+308
+
+
+--- PDF page 309 ---
+309
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Spannbäume
+• Anwendung: z.B. Leitungsplanung zur Elektrifizierung entlegener 
+Ortschaften
+• Graphmodellierung:
+– Ortschaften = Knoten
+– Entfernungsmaß = Kantengewichte
+• Zur Vernetzung müssen nicht alle möglichen Leitungen realisiert 
+werden, es müssen nur alle Knoten erreicht werden
+• Mit möglichst geringen Gesamt‐Leitungskosten 
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+309
+Ein Spannbaum dient dazu, alle Knoten in einem Graphen miteinander zu
+verbinden. Häufig wird ein Gesamtnetz mit kürzestmöglichen Verbindungen
+gesucht, z.B. um Leitungskosten zu minimieren. Wiederum spielt die genaue
+Geographie keine Rolle, so dass z.B. ein Graphmodell einer Landschaft ausreicht. 
+Die Kantengewichte spiegeln dann neben den Entfernungen z.B. auch
+Landschaftsmerkmale wieder (z.B. ob Hindernisse wie Flüsse oder Berge zu
+überwinden sind).
+
+
+--- PDF page 310 ---
+310
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Minimale Spannbäume
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+Def.: Ein Spannbaum in einem ungerichteten, zusammenhängenden 
+und kantengewichteten Graphen 𝐺 ൌ ሺ𝑉, 𝐸, 𝑤ሻist ein 
+zyklenfreier, zusammenhängender Teilgraph 𝐺ᇱൌ𝑉ᇱ, 𝐸ᇱ, 𝑤
+mit 𝑉ᇱൌ𝑉und 𝐸ᇱ⊆𝐸.
+Def.: Ein minimaler Spannbaum in einem ungerichteten, 
+zusammenhängenden und kantengewichteten 
+Graphen 𝐺ൌሺ𝑉, 𝐸, 𝑤ሻist ein Spannbaum mit minimaler 
+Kantengewichtssumme unter allen Spannbäumen zu 𝐺.
+1
+2
+3
+2
+1
+2
+1
+2
+4
+3
+1
+2
+310
+Der Spannbaum umfasst gemäß Definition alle Knoten eines Graphen und 
+bedient sich zur Vernetzung der Knoten einer Teilmenge der Kantenmenge E.
+Analog zum minimalen kann man auch einen maximalen Spannbaum definieren.
+Das Beispiel zeigt einen Graphen und einen dazugehörigen minimalen 
+Spannbaum (gibt es noch weitere?)
+
+
+--- PDF page 311 ---
+311
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Kruskal‐Algorithmus
+•
+Idee: 
+–
+fortgesetzte Auswahl von Kanten mit geringem Gewicht
+–
+dabei Zyklen vermeiden
+1. Beginne mit leerem Spannbaum 𝑇
+2. Bilde Liste 𝐿der Graphkanten von 𝐺, sortiert nach 
+aufsteigendem Gewicht (s. Sortieralgorithmen)
+3. Betrachte jeweils nächstgrößere Kante 𝑒in 𝐿
+4. Falls Einfügen von 𝑒in 𝑇einen Zyklus verursachen würde:   
+𝑒als ungültig betrachten und verwerfen
+5. Sonst: 𝑒in 𝑇einfügen
+6. Fortsetzen ab 3, bis 𝑇insgesamt 𝒏െ𝟏Kanten enthält
+𝑇bildet dann einen minimalen Spannbaum zu 𝐺
+311
+Für das Spannbaumproblem sind effiziente Algorithmen bekannt. Einer davon ist 
+der Kruskal-Algorithmus.
+Es handelt sich um einen Greedy-Algorithmus (greedy = gierig, siehe auch Kap. 
+11). Dies bedeutet, dass keine globale Suche nach der optimalen Lösung 
+stattfindet, sondern in jeder Situation immer die nächstbeste Verbesserung 
+gewählt wird. 
+Im Falle der Spannbaumkonstruktion besteht das “gierige” Vorgehen darin, 
+immer die nächste Kante mit geringstem Gewicht zu betrachten. Ist diese gültig, 
+so wird sie den bisherigen (Teil-)Spannbaum hinzugefügt.
+Greedy-Algorithmen sind häufig Heuristiken, d.h. sie liefern auf der Basis 
+bestimmter einfacher Regeln zur Vorgehensweise meist (aber nicht garantiert) 
+eine gute bis optimale Lösung. Der Kruskal-Algorithmus ist jedoch ein 
+Spezialfall eines Greedy-Algorithmus, der immer die optimale Lösung findet.
+
+
+--- PDF page 312 ---
+312
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Kruskal‐Algorithmus
+Graph MinSpanningTree(Graph G = (V,E))
+{ 
+Graph T; List L; Edge e;
+T = {};
+L = Sort(E); // sortierte Kantenliste
+while (#Kanten in T < #Knoten in G – 1 && !IsEmpty(L)) { 
+e = FirstElem(L); // nächst-günstigste Kante
+Delete(e,L);
+if (!Cycle(e,T)) { // kein Zyklus in T {e} ?
+T = T {e};
+}
+}
+if (#Kanten in T < #Knoten in G – 1) {
+/* keine verfügbaren Kanten mehr, d.h.
+G ist nicht zusammenhängend */
+printf("Fehler – kein Spannbaum möglich!");
+} 
+return T;
+}
+312
+Der Algorithmus beginnt mit einem leeren Baum T und sortiert zunächst die Liste 
+der Kanten nach aufsteigendem Gewicht (z.B. per Quicksort). 
+Ein kompletter Spannbaum für einen Graphen mit |V| Knoten muss immer |V|-1 
+Kanten besitzen. Die while-Schleife läuft daher, bis diese Kantenzahl erreicht ist 
+(und solange überhaupt noch unbetrachtete Kanten verfügbar sind).
+Die jeweils nächste Kante aus der sortierten Liste wird betrachtet. Sie ist dann 
+gültig, wenn das Hinzufügen zum aktuellen Teil-Spannbaum T keinen Zyklus 
+hervorrufen würde.
+
+
+--- PDF page 313 ---
+313
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel
+9
+6
+10
+12
+11
+8
+2
+3
+5
+7
+13
+1
+4
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+𝑇ൌሼሽ
+Sortierte Kantenliste:
+𝐿ൌሼሼ1,2ሽ, ሼ4,6ሽ, ሼ5,6ሽ, ሼ9,12ሽ, ሼ1,3ሽ, ሼ3,4ሽ,  
+     ሼ5,7ሽ, ሼ3,10ሽ, ሼ6,10ሽ, ሼ11,12ሽ, ሼ3,6ሽ, 
+     ሼ8,11ሽ, ሼ10,12ሽ, ሼ6,7ሽ, ሼ8,9ሽ, ሼ10,13ሽ,
+     ሼ2,3ሽ, ሼ3,9ሽሽ
+9
+6
+10
+12
+11
+8
+2
+3
+5
+7
+13
+1
+4
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+𝑇ൌሼሼ1,2ሽሽ
+𝐿ൌሼሼ4,6ሽ, ሼ5,6ሽ, ሼ9,12ሽ, ሼ1,3ሽ, ሼ3,4ሽ, 
+     ሼ5,7ሽ, ሼ3,10ሽ, ሼ6,10ሽ, ሼ11,12ሽ, ሼ3,6ሽ,
+     ሼ8,11ሽ, ሼ10,12ሽ, ሼ6,7ሽ, ሼ8,9ሽ, ሼ10,13ሽ,
+     ሼ2,3ሽ, ሼ3,9ሽሽ
+313
+Kanten mit gleichem Gewicht können willkürlich sortiert werden. In diesem 
+Beispiel wird die am weitesten links stehende mit 1 markierte Kante als erste 
+Kante in den Spannbaum eingefügt.
+
+
+--- PDF page 314 ---
+314
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel
+9
+6
+10
+12
+11
+8
+2
+3
+5
+7
+13
+1
+4
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+𝑇ൌሼሼ1,2ሽ, ሼ4,6ሽሽ
+𝐿ൌሼሼ5,6ሽ, ሼ9,12ሽ, ሼ1,3ሽ, ሼ3,4ሽ,
+     ሼ5,7ሽ, ሼ3,10ሽ, ሼ6,10ሽ, ሼ11,12ሽ, ሼ3,6ሽ,
+     ሼ8,11ሽ, ሼ10,12ሽ, ሼ6,7ሽ, ሼ8,9ሽ, ሼ10,13ሽ,
+     ሼ2,3ሽ, ሼ3,9ሽሽ
+5
+9
+6
+10
+12
+11
+8
+2
+3
+5
+7
+13
+1
+4
+1
+2
+3
+3
+2
+4
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+ሼ6,10ሽ, ሼ3,6ሽ, ሼ6,7ሽ, ሼ8,9ሽ bilden Zyklen !
+𝑇ൌሼሼ1,2ሽ, ሼ4,6ሽ, ሼ5,6ሽ, ሼ9,12ሽ, ሼ1,3ሽ, ሼ3,4ሽ,
+     ሼ5,7ሽ, ሼ3,10ሽ, ሼ11,12ሽ, ሼ8,11ሽ, ሼ10,12ሽ,
+     ሼ10,13ሽሽ
+𝐿ൌሼሼ2,3ሽ, ሼ3,9ሽሽ
+…
+314
+Bei Kante {6,10} taucht zum ersten Mal ein Konflikt auf: Sie würde einen Zyklus 
+(4,3,10,6) bewirken und ist daher unzulässig. Der Spannbaum wird mit gültigen 
+Kanten gemäß der Reihenfolge aufsteigenden Gewichts vervollständigt.
+
+
+--- PDF page 315 ---
+315
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Laufzeitanalyse
+• Sortieren: 𝒪ሺ𝐸log 𝐸ሻ
+• while‐Schleife:
+– max.  𝐸Durchläufe
+– Entnahme und 
+Löschen von 𝑒: 𝒪ሺ1ሻ
+– Test auf Zyklus: bei 
+Verwendung spezieller 
+Datenstruktur 
+(„union/find“) 
+praktisch in 𝒪ሺ1ሻ
+• Gesamtlaufzeit:       
+𝒪𝐸log 𝐸
+Graph MinSpanningTree(Graph G = (V,E))
+{ 
+Graph T; List L; Edge e;
+T = {};
+L = Sort(E); 
+while (#Kanten in T < #Knoten in G – 1 &&
+!IsEmpty(L)) {
+e = FirstElem(L); 
+Delete(e, L);
+if (!Cycle(e, T)) { T = T {e}; }
+}
+if (#Kanten in T < #Knoten in G – 1) {
+printf("Fehler – kein Spannbaum möglich!");
+} 
+return T;
+}
+315
+Die Laufzeit wird dominiert durch den Sortierschritt zu Anfang, welcher 
+bekanntlich O(N log N) bei N Objekten benötigt.
+Die while-Schleife benötigt tendenziell weniger Zeit, jedoch unter der 
+Voraussetzung, dass eine effiziente Implementierung des Zyklustest erfolgt 
+(“union/find”-Datenstruktur, hier nicht weiter erläutert).

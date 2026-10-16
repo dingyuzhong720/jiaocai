@@ -1,0 +1,4365 @@
+{
+  "pages": [
+    {
+      "page_idx": 276,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.418,
+            0.17,
+            0.583,
+            0.194
+          ],
+          "level": 2,
+          "content": "10. Graphen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.257,
+            0.254,
+            0.652,
+            0.273
+          ],
+          "level": 2,
+          "content": "10.1 Definition und Grapheigenschaften"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.278,
+            0.707,
+            0.368
+          ],
+          "sub_type": "text",
+          "content": "10.2 Berechnung kürzester Pfade\n10.3 Datenstrukturen zur Graphrepräsentation\n10.4 Graphdurchläufe\n10.5 Spannbäume"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**277**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "277"
+        }
+      ]
+    },
+    {
+      "page_idx": 277,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.251,
+            0.101
+          ],
+          "level": 2,
+          "content": "Graphen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.123,
+            0.793,
+            0.181
+          ],
+          "sub_type": "text",
+          "content": "Graph: graphische Darstellung einer **Menge von Objekten und deren Beziehungen** (d.h. Relation)\n• Bsp.: **topologische Information** einer Landkarte"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.179,
+            0.182,
+            0.825,
+            0.439
+          ],
+          "sub_type": "flowchart",
+          "content": "This image displays a map of Germany and its associated network diagram, illustrating the relationships between German states and their respective cities.",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_277_image_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.445
+          ],
+          "content": "**278**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.439,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.834,
+            0.552
+          ],
+          "content": "Das Beispiel zeigt, wie ein Graph abstrakte Information speichern kann. Ist man z.B. nur an der Frage interessiert, welche Bundesländer benachbart sind (aber nicht an der Länge und Gestalt der Grenzen), so genügt die **topologische Information**, d.h. die “Vernetzung” der Länder untereinander."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.557,
+            0.849,
+            0.61
+          ],
+          "content": "Diese wird durch den hier gezeigten Graphen erfasst. Jeder “**Knoten**” steht für ein Land, und jede “**Kante**” (Verbindung) zwischen zwei Ländern weist auf deren Nachbarschaft hin."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "278"
+        }
+      ]
+    },
+    {
+      "page_idx": 278,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.251,
+            0.101
+          ],
+          "level": 2,
+          "content": "Graphen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.121,
+            0.79,
+            0.161
+          ],
+          "content": "**Def**.: Eine (binäre) **Relation** 𝑅 ist eine Teilmenge des kartesischen Produktes zweier Mengen: $R \\subseteq A   \\times   B$"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.173,
+            0.83,
+            0.265
+          ],
+          "sub_type": "text",
+          "content": "• Bei Graphen meist $R \\subseteq A   \\times   A$ für gegebene Menge 𝐴 ( $( \\mathsf { K n o t e n } ^ { \\prime \\prime } )$\n• $\" aRb\"$ als Schreibweise für $( a , b ) \\in R ,$ “**Kante**” zwischen 𝑎 und 𝑏 im Graphen\n• Spezialfall symmetrische Relation: $\\mathsf { a R b } \\Rightarrow \\mathsf { b R a }$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.296,
+            0.726,
+            0.357
+          ],
+          "content": "**Def**.: Ein **(gerichteter) Graph** $G \\; = \\; ( V , E )$ besteht aus einer Menge 𝑉 von **Knoten** (vertices) und einer Menge 𝐸 von **Kanten** $( e d g e s )$ mit $E \\subseteq V \\times V .$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.369,
+            0.724,
+            0.429
+          ],
+          "content": "**Def**.: Gilt für alle Kanten $( u , v )$ eines Graphen $G \\; = \\; ( V , E )$ $(u,v) \\in E \\Rightarrow (v,u) \\in E$ so heißt 𝐺 **ungerichtet**. **Schreibweise**: $\\{ u , v \\} \\in E .$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**279**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.834,
+            0.534
+          ],
+          "content": "Standardmäßig sind Graphen aufgrund des Relationsbegriffes **gerichtet**, d.h. die Kanten weisen in eine bestimmte Richtung. Graphisch werden die Kanten dann als Pfeil dargestellt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.539,
+            0.818,
+            0.594
+          ],
+          "content": "Eine symmetrische Relation führt dagegen zu einem **ungerichteten** Graphen. Alle Kanten haben “beide” Richtungen, und werden daher nur als eine einzige richtungslose Kante gezeichnet."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "279"
+        }
+      ]
+    },
+    {
+      "page_idx": 279,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.337,
+            0.102
+          ],
+          "level": 2,
+          "content": "Pfade in Graphen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.121,
+            0.808,
+            0.163
+          ],
+          "content": "**Def**.: Eine Folge $( v _ { 1 } , \\ldots , v _ { n } )$ von Knoten eines Graphen $G \\; = \\; ( V , E )$ heißt **Pfad**, falls für alle $i \\; = \\; 1 \\ldots n - 1 \\colon \\{ v _ { i } , v _ { i + 1 } \\} \\in E .$"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.159,
+            0.175,
+            0.427,
+            0.407
+          ],
+          "sub_type": "text",
+          "content": "Bsp. Landkarte: Knoten = Bundesländer\n**Ungerichteter Graph**, da Nachbarschafts‐Beziehung symmetrisch\n• **Pfad** ${ \\sf = { \\sf , } { \\sf R e i s e w e g } ^ { \\prime \\prime } }$ von einem Land in ein anderes\nIm folgenden: Betrachtung **ungerichteter** Graphen"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.437,
+            0.171,
+            0.845,
+            0.43
+          ],
+          "sub_type": "flowchart",
+          "content": "This diagram illustrates a hierarchical classification or relationship structure among German states, with 'Nieders.' (National Living) being the most prominent category.",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_279_image_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**280**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.802,
+            0.517
+          ],
+          "content": "Ein Pfad ist eine **zusammenhängende Folge** von Knoten in einem Graphen. Zwei durch eine Kante verbundene Knoten heißen “adjazent”."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "280"
+        }
+      ]
+    },
+    {
+      "page_idx": 280,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.435,
+            0.102
+          ],
+          "level": 2,
+          "content": "Zusammenhang und Zyklen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.121,
+            0.829,
+            0.162
+          ],
+          "content": "**Def**.: Ein Graph 𝐺 ൌ ሺ𝑉, 𝐸ሻ heißt **zusammenhängend**, falls zwischen zwei beliebigen Knoten 𝑢, 𝑣  𝑉 mindestens ein Pfad existiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.196,
+            0.781,
+            0.236
+          ],
+          "content": "**Def**.: Ein Graph 𝐺 ൌ ሺ𝑉, 𝐸ሻ heißt **zyklenfrei**, falls zwischen zwei beliebigen Knoten 𝑢, 𝑣  𝑉 höchstens ein Pfad existiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.259,
+            0.329,
+            0.277
+          ],
+          "content": "• Bsp. Landkarte:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.185,
+            0.282,
+            0.4,
+            0.325
+          ],
+          "sub_type": "text",
+          "content": "– zusammenhängend\n– nicht zyklenfrei"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.462,
+            0.244,
+            0.775,
+            0.439
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Nieders.\"] --> B[\"HH\"]\n  A --> C[\"Schlesw.\"]\n  A --> D[\"Meckl.\"]\n  A --> E[\"Brandenb.\"]\n  A --> F[\"Sachsen-A.\"]\n  A --> G[\"HB\"]\n  A --> H[\"NRW\"]\n  A --> I[\"Rheinl.\"]\n  A --> J[\"Saarl.\"]\n  A --> K[\"Hessen\"]\n  A --> L[\"Baden-W.\"]\n  A --> M[\"Thür.\"]\n  A --> N[\"Sachsen\"]\n  A --> O[\"Bayern\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_280_image_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**281**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.828,
+            0.534
+          ],
+          "content": "Im Beispiel bedeutet **zusammenhängend**, dass jedes Land von jedem anderen aus (evtl. über andere Länder) erreichbar ist. **Nicht zyklenfrei** bedeutet, dass es Rundreisen gibt."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "281"
+        }
+      ]
+    },
+    {
+      "page_idx": 281,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.541,
+            0.102
+          ],
+          "level": 2,
+          "content": "Graphen und Bäume, Kantengewichte"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.121,
+            0.584,
+            0.161
+          ],
+          "content": "**Def**.: Ein zusammenhängender, zyklenfreier Graph $G = ( V , E )$ heißt **Baum**."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.151,
+            0.167,
+            0.827,
+            0.287
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_281_image_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.293,
+            0.777,
+            0.334
+          ],
+          "content": "**Def**.: Ein Graph $G = ( V , E , w )$ mit einer Abbildung 𝑤: 𝐸 → ℝ heißt **(kanten)gewichteter Graph**."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.368,
+            0.339,
+            0.589,
+            0.434
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Node 1\"] --> B[\"Node 7\"]\n  B --> C[\"Node 9\"]\n  C --> D[\"Node 11\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_281_image_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**282**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.789,
+            0.516
+          ],
+          "content": "**Kantengewichte** werden z.B. verwendet, um Entfernungen zwischen zwei Knoten zu repräsentieren."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "282"
+        }
+      ]
+    },
+    {
+      "page_idx": 282,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.418,
+            0.17,
+            0.583,
+            0.194
+          ],
+          "level": 2,
+          "content": "10. Graphen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.254,
+            0.708,
+            0.369
+          ],
+          "sub_type": "text",
+          "content": "10.1 Definition und Grapheigenschaften\n**10.2 Berechnung kürzester Pfade**\n10.3 Datenstrukturen zur Graphrepräsentation\n10.4 Graphdurchläufe\n10.5 Spannbäume"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**283**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "283"
+        }
+      ]
+    },
+    {
+      "page_idx": 283,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.566,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiel‐Anwendung: Navigationssystem"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.159,
+            0.118,
+            0.845,
+            0.3
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_283_image_1.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.163,
+            0.318,
+            0.593,
+            0.406
+          ],
+          "sub_type": "text",
+          "content": "• **Knoten** = Geographische Orte\n**Kanten** = Straßenverbindungen\n• **Kantengewichte** = Länge bzw. Fahrtdauer\n• **Gesucht**:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.204,
+            0.409,
+            0.828,
+            0.428
+          ],
+          "content": "kürzester Pfad von 𝐴 nach 𝐵 gemäß Summe der Kantengewichte"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**284**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.83,
+            0.552
+          ],
+          "content": "Eine Teilfunktion eines **Navigationssystems** ist es, die kürzeste bzw. schnellste Verbindung zwischen zwei Orten über andere Orte zu bestimmen. Dabei sind geographische Einzelheiten zunächst belanglos, daher ist ein kantengewichteter Graph ein geeignetes Modell einer Strassenkarte."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.557,
+            0.836,
+            0.646
+          ],
+          "content": "Die **Kantengewichte** spiegeln dabei entweder direkt die Entfernung zweier Orte wider (falls die kürzeste Strecke gesucht ist), oder sie sind noch mit der zu erwartenden Durchschnittsgeschwindigkeit gewichtet (falls der schnellste Weg gewünscht ist). Z.B. können sich erhebliche Umwege lohnen, sofern man dann Autobahnen benutzen kann."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "284"
+        }
+      ]
+    },
+    {
+      "page_idx": 284,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.447,
+            0.101
+          ],
+          "level": 2,
+          "content": "Bestimmung kürzester Pfade"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.834,
+            0.299
+          ],
+          "sub_type": "text",
+          "content": "• **Dijkstra‐Algorithmus** (single source shortest path)\nBestimmung der kürzesten Pfade von einem Startknoten $v _ { 0 }$ aus zu allen anderen Graphknoten\n• Idee:\n– In jedem Schritt Betrachtung einer „**Nachbarschaft**“ 𝑁 von $v _ { 0 } ,$ innerhalb derer die kürzesten Pfade zu $v _ { 0 }$ bereits bekannt sind\n– Schrittweise **Erweiterung von** 𝑵 um den jeweils am nächsten an 𝑁 liegenden Knoten"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.162,
+            0.325,
+            0.836,
+            0.43
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Initial State\"] --> B[\"Final State\"]\n  B --> C[\"Final State\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.151,
+                0.436,
+                0.172,
+                0.445
+              ],
+              "content": "285"
+            }
+          ],
+          "footnotes": [
+            {
+              "bbox": [
+                0.674,
+                0.438,
+                0.816,
+                0.446
+              ],
+              "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+            }
+          ],
+          "image_source": "../../raw/pages_0257-0288/images/page_284_image_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.57
+          ],
+          "content": "Der **Dijkstra-Algorithmus** findet alle kürzesten Wege von einem Startknoten aus gesehen auf einmal. Die Grundidee ist es, eine “Wellenausbreitung” (als ob man einen Stein am Startpunkt ins Wasser werfen würde) vom Startknoten aus vorzunehmen und dabei neue minimale Entfernungen vom Startknoten aus erreichter Knoten zu protokollieren."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "285"
+        }
+      ]
+    },
+    {
+      "page_idx": 285,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.479,
+            0.102
+          ],
+          "level": 2,
+          "content": "Ablauf des Dijkstra‐Algorithmus"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.124,
+            0.791,
+            0.163
+          ],
+          "content": "**Bisher bekannter** min. Abstand dist(u,v) zwischen zwei Knoten kann durch neue Zwischenknoten **verkürzt** werden"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.188,
+            0.172,
+            0.808,
+            0.251
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"A\"] -->|\"10\"| B[\"B\"]\n  B -->|\"10\"| C[\"C\"]\n  A -->|\"12\"| D[\"D\"]\n  B -->|\"10\"| E[\"E\"]\n  C -->|\"6\"| F[\"F\"]\n  D -->|\"10\"| G[\"G\"]\n  E -->|\"10\"| H[\"H\"]\n  F -->|\"10\"| I[\"I\"]\n  G -->|\"10\"| J[\"J\"]\n  H -->|\"10\"| K[\"K\"]\n  I -->|\"10\"| L[\"L\"]\n  J -->|\"10\"| M[\"M\"]\n  K -->|\"10\"| N[\"N\"]\n  L -->|\"10\"| O[\"O\"]\n  M -->|\"10\"| P[\"P\"]\n  N -->|\"10\"| Q[\"Q\"]\n  O -->|\"10\"| R[\"R\"]\n  P -->|\"10\"| S[\"S\"]\n  Q -->|\"10\"| T[\"T\"]\n  R -->|\"10\"| U[\"U\"]\n  S -->|\"10\"| V[\"V\"]\n  T -->|\"10\"| W[\"W\"]\n  U -->|\"10\"| X[\"X\"]\n  V -->|\"10\"| Y[\"Y\"]\n  W -->|\"10\"| Z[\"Z\"]\n  X -->|\"10\"| AA[\"AA\"]\n  Y -->|\"10\"| AB[\"AB\"]\n  Z -->|\"10\"| AC[\"AC\"]\n  AA -->|\"10\"| AD[\"AD\"]\n  AB -->|\"10\"| AE[\"AE\"]\n  AD -->|\"10\"| AF[\"AF\"]\n  AE -->|\"10\"| AG[\"AG\"]\n  AF -->|\"10\"| AH[\"AH\"]\n  AG -->|\"10\"| AI[\"AI\"]\n  AH -->|\"10\"| AJ[\"AJ\"]\n  AI -->|\"10\"| AK[\"AK\"]\n  AJ -->|\"10\"| AL[\"AL\"]\n  AK -->|\"10\"| AM[\"AM\"]\n  AJ -->|\"10\"| AN[\"AN\"]\n  AL -->|\"10\"| AO[\"AO\"]\n  AM -->|\"10\"| AP[\"AP\"]\n  AN -->|\"10\"| AQ[\"AQ\"]\n  AO -->|\"10\"| AR[\"AR\"]\n  AP -->|\"10\"| AS[\"AS\"]\n  AQ -->|\"10\"| AT[\"AT\"]\n  AO -->|\"10\"| AU[\"AU\"]\n  AP -->|\"10\"| AV[\"AV\"]\n  AU -->|\"10\"| AW[\"AW\"]\n  AO -->|\"10\"| AX[\"AX\"]\n  AU -->|\"10\"| AY[\"AY\"]\n  AO -->|\"10\"| AZ[\"AZ\"]\n  AU -->|\"10\"| AY2[\"AY2\"]\n  AO -->|\"10\"| AZ2[\"AZ2\"]\n  AU -->|\"10\"| AZ2[\"AZ2\"]\n  AO -->|\"10\"| AZ3[\"AZ3\"]\n  AU -->|\"10\"| AZ4[\"AZ4\"]\n  AO -->|\"10\"| AZ5[\"AZ5\"]\n  AU -->|\"10\"| AZ6[\"AZ6\"]\n  AO -->|\"10\"| AZ7[\"AZ7\"]\n  AU -->|\"10\"| AZ8[\"AZ8\"]\n  AO -->|\"10\"| AZ9[\"AZ9\"]\n  AU -->|\"10\"| AZ10[\"AZ10\"]\n  AO -->|\"10\"| AZ11[\"AZ11\"]\n  AU -->|\"10\"| AZ12[\"AZ12\"]\n  AO -->|\"10\"| AZ13[\"AZ13\"]\n  AU -->|\"10\"| AZ14[\"AZ14\"]\n  AO -->|\"10\"| AZ15[\"AZ15\"]\n  AU -->|\"10\"| AZ16[\"AZ16\"]\n  AO -->|\"10\"| AZ17[\"AZ17\"]\n  AU -->|\"10\"| AZ18[\"AZ18\"]\n  AO -->|\"10\"| AZ19[\"AZ19\"]\n  AU -->|\"10\"| AZ20[\"AZ20\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_285_image_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.261,
+            0.828,
+            0.302
+          ],
+          "content": "**Def**.: Ist 𝐺 ൌ ሺ𝑉, 𝐸ሻ ein Graph und ሼ𝑢, 𝑣ሽ  𝐸, so heißt 𝑣 **Nachfolger** von 𝑢, und 𝑢 heißt **Vorgänger** von 𝑣."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.151,
+            0.31,
+            0.476,
+            0.445
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  v0[\"v0\"] --> Node1[\"Node 1\"]\n  v0 --> Node2[\"Node 2\"]\n  v0 --> Node3[\"Node 3\"]\n  v0 --> Node4[\"Node 4\"]\n  v0 --> Node5[\"Node 5\"]\n  Node1 --> Node6[\"Node 6\"]\n  Node2 --> Node7[\"Node 7\"]\n  Node3 --> Node8[\"Node 8\"]\n  Node4 --> Node9[\"Node 9\"]\n  Node5 --> Node10[\"Node 10\"]\n  Node6 --> Node11[\"Node 11\"]\n  Node7 --> Node12[\"Node 12\"]\n  Node8 --> Node13[\"Node 13\"]\n  Node9 --> Node14[\"Node 14\"]\n  Node10 --> Node15[\"Node 15\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_285_image_4.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.686,
+            0.33,
+            0.719,
+            0.354
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.554,
+                0.342,
+                0.618,
+                0.356
+              ],
+              "content": "Graph G"
+            },
+            {
+              "bbox": [
+                0.548,
+                0.39,
+                0.623,
+                0.425
+              ],
+              "content": "bereits betrachteter Bereich"
+            },
+            {
+              "bbox": [
+                0.726,
+                0.327,
+                0.831,
+                0.35
+              ],
+              "content": "Alle Nachfolger bereits betrachtet"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_285_image_7.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.686,
+            0.363,
+            0.718,
+            0.386
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.724,
+                0.362,
+                0.819,
+                0.385
+              ],
+              "content": "Nachfolger noch nicht betrachtet"
+            },
+            {
+              "bbox": [
+                0.685,
+                0.405,
+                0.771,
+                0.43
+              ],
+              "content": "Kürzeste Pfade von 𝑣଴ aus"
+            }
+          ],
+          "footnotes": [
+            {
+              "bbox": [
+                0.675,
+                0.438,
+                0.816,
+                0.446
+              ],
+              "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+            }
+          ],
+          "image_source": "../../raw/pages_0257-0288/images/page_285_image_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.845,
+            0.552
+          ],
+          "content": "Aufgrund der **Kantengewichte** kann es sinnvoll sein, “Umwege” über andere Knoten zu nehmen, um einen bestimmten Knoten mit minimalen Kosten zu erreichen. D.h. der Abstand eines Knotens vom Startknoten hängt nicht unmittelbar damit zusammen, wie viele Zwischenknoten besucht werden müssen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.557,
+            0.833,
+            0.611
+          ],
+          "content": "Während der Abarbeitung des Algorithmus zerfällt der Graph in verschiedene **Regionen**: Der “blaue” Bereich, in dessen Zentrum der Startknoten liegt, wurde bereits vollständig abgearbeitet, und alle kürzesten Wege darin sind bekannt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.616,
+            0.838,
+            0.67
+          ],
+          "content": "Der “grüne” Bereich bildet die Grenze von Knoten, die noch weiter untersucht werden müssen. Durch “orangene” Kanten werden jeweils die aktuell bekannten kürzesten Wege dargestellt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.675,
+            0.844,
+            0.747
+          ],
+          "content": "Die Definition von **Vorgänger** und **Nachfolger** in ungerichteten Graphen ist natürlich “richtungslos”: Da für jede Kante (u,v) auch die Kante (v,u) in E enthalten ist, sind u und v gegenseitig Vorgänger und Nachfolger. Man könnte sie auch einfach als “Nachbarknoten” im Graphen definieren."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "286"
+        }
+      ]
+    },
+    {
+      "page_idx": 286,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.37,
+            0.102
+          ],
+          "level": 2,
+          "content": "Dijkstra‐Algorithmus"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.796,
+            0.277
+          ],
+          "sub_type": "text",
+          "content": "**Pseudo‐Code**: abstrakter Code für Algorithmus, nicht direkt compilier‐ und ausführbar!\nVorauss.: Datenstruktur für **Graphen** (graph) und **Mengen** (set) verfügbar\n• graph unterstützt Zugriff auf Knoten und Kanten (s. später)\nset unterstützt übliche Mengenoperationen\n• Variablen:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.197,
+            0.284,
+            0.794,
+            0.322
+          ],
+          "content": "– dist[v] bezeichnet den aktuell min. Abstand von Knoten 𝑣 zum Startknoten"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.198,
+            0.328,
+            0.718,
+            0.348
+          ],
+          "content": "– cost(u,v) bezeichnet Gewichtung der Kante ሼ𝑢, 𝑣ሽ"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.197,
+            0.353,
+            0.786,
+            0.391
+          ],
+          "content": "– Mengen **BLUE, GREEN und ORANGE** bezeichnen blaue und grüne Knoten sowie orangene Kanten"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.397,
+            0.813,
+            0.433
+          ],
+          "content": "Orangene Kanten bilden stets einen **Baum von aktuell kürzesten Pfaden** vom Startknoten aus"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**287**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.842,
+            0.551
+          ],
+          "content": "Da der komplette Algorithmus als C-Code zu komplex zur Darstellung an dieser Stelle ist, greifen wir auf “**Pseudo-Code**” zurück. Hierunter versteht man eine Programmdarstellung, die nur die wesentlichen Schritte des Algorithmus abstrakt darstellt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.557,
+            0.83,
+            0.628
+          ],
+          "content": "Programmdetails und die Implementierung der einzelnen benutzten Datenstrukturen werden als bekannt oder “leicht ergänzbar” vorausgesetzt. Die genaue Implementierung der Datenstruktur Graph wird jedoch erst etwas später erläutert."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "287"
+        }
+      ]
+    },
+    {
+      "page_idx": 287,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.191,
+            0.12,
+            0.81,
+            0.429
+          ],
+          "sub_type": "code",
+          "content": "```txt\nvoid shortest_path(graph G = (V = {v0,...,vn},E))\n{\n    set BLUE = {}, GREEN = {v0}, ORANGE = {}; dist[v0] = 0;\n\n    while (GREEN != {}) { // solange noch unbearbeitete Knoten\n        v = MinDist(GREEN); // v ∈ GREEN mit min. dist-Wert\n        Insert(v, BLUE);   // BLUE = BLUE ∪ {v}\n        Delete(v, GREEN);   // GREEN = GREEN \\ {v}\n\n        for (u ∈ Succ(v)) { // für alle Nachfolger u von v\n            if (!(u ∈ GREEN ∪ BLUE)) { // neuer Knoten erreicht\n                Insert({u,v}, ORANGE);\n                Insert(u, GREEN);\n                dist[u] = dist[v] + cost(u,v);\n            } else if (u ∈ GREEN) {      // u erneut erreicht\n                if (dist[v] + cost(u,v) < dist[u]) {\n                    Insert({u,v}, ORANGE);\n                    e = PreviousEdge(u);   // vorher orangene Kante zu u\n                    Delete(e, ORANGE);     // ORANGE = ORANGE \\ {e}\n                    dist[u] = dist[v] + cost(u,v);\n                }\n            }\n        }\n    }\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.37,
+                0.102
+              ],
+              "content": "Dijkstra‐Algorithmus"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**288**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.571,
+            0.498
+          ],
+          "content": "Der Algorithmus arbeitet in folgenden **Schritten**:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.504,
+            0.847,
+            0.556
+          ],
+          "content": "Zunächst werden die verwendeten Mengen initialisiert. Die äußere while-Schleife läuft dann solange, bis alle Knoten untersucht worden sind und somit alle kürzesten Pfade bestimmt sind."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.563,
+            0.821,
+            0.616
+          ],
+          "content": "Der Knoten v mit minimalem dist-Wert wird aus der GREEN-Menge in die BLUE überführt. Für diesen wird anschließend geprüft (indem alle Nachfolger betrachtet werden), ob er zu neuen kürzesten Wegen beitragen kann."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.621,
+            0.836,
+            0.674
+          ],
+          "content": "**Fall 1** (if): Der Knoten u wurde bisher noch gar nicht erreicht. Der kürzeste Weg zu u führt somit per Definition über v, und die Distanz wird entsprechend vermerkt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.68,
+            0.836,
+            0.735
+          ],
+          "content": "**Fall 2** (else): u wurde bereits auf einem anderen Weg erreicht. Ist der neue Weg zu u über v kürzer als der bisher bekannte, so wird der Wert dist[u] entsprechend aktualisiert und die Menge der orangenen Kanten demzufolge angepasst."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.739,
+            0.717,
+            0.758
+          ],
+          "content": "Der Ablauf wird in den folgenden Folien am **Beispiel** verdeutlicht."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "288"
+        }
+      ]
+    },
+    {
+      "page_idx": 288,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.244,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiel"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.169,
+            0.119,
+            0.783,
+            0.427
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_288_image_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**289**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.744,
+            0.497
+          ],
+          "content": "Schritt 1: v0 ist Startknoten und wird dann zum ersten blauen Knoten."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.504,
+            0.726,
+            0.522
+          ],
+          "content": "Schritt 2: Die drei Nachfolger von v0 gelangen in die grüne Menge."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.527,
+            0.836,
+            0.579
+          ],
+          "content": "Schritt 3: Der mit 1 markierte Knoten besitzt den minimalen dist-Wert und wird daher zum nächsten blauen Knoten. Im folgenden werden die Knoten immer mit dem aktuell bekannten minimalen dist-Wert markiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.586,
+            0.797,
+            0.621
+          ],
+          "content": "Schritt 4: Zwei weitere Nachfolgerknoten gelangen in die grüne Menge und werden mit dist-Werten markiert."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "289"
+        }
+      ]
+    },
+    {
+      "page_idx": 289,
+      "blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            0.168,
+            0.119,
+            0.783,
+            0.427
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.379,
+                0.102
+              ],
+              "content": "Beispiel (Fortsetzung)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_289_image_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**290**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.741,
+            0.497
+          ],
+          "content": "Schritt 1: Der mit 3 markierte Knoten wird der nächste blaue Knoten."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.504,
+            0.815,
+            0.539
+          ],
+          "content": "Schritt 2: Der linke mit 4 markierte Knoten wird der nächste blaue Knoten. Er besitzt aber keine weiteren Nachfolger mehr."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.545,
+            0.797,
+            0.562
+          ],
+          "content": "Schritt 3: Der rechte mit 4 markierte Knoten wird der nächste blaue Knoten."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.568,
+            0.823,
+            0.64
+          ],
+          "content": "Schritt 4: Seine Nachfolger werden erfasst und mit den dist-Werten 6 und 8 markiert. Der bereits mit 5 markierte Knoten ist zwar auch Nachfolger, er kann jedoch vom 4er-Knoten nur mit Distanz 2 erreicht werden (d.h. insges. mit Kosten 6) und behält daher seine alte Markierung."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "290"
+        }
+      ]
+    },
+    {
+      "page_idx": 290,
+      "blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            0.168,
+            0.119,
+            0.783,
+            0.427
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.379,
+                0.102
+              ],
+              "content": "Beispiel (Fortsetzung)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_290_image_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**291**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.823,
+            0.516
+          ],
+          "content": "Schritt 1: Der mit 5 markierte Knoten weist aktuell den minimalen dist-Wert in der grünen Menge auf und wird daher zum blauen Knoten."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.521,
+            0.806,
+            0.539
+          ],
+          "content": "Schritt 2: Die Nachfolger gelangen in die grüne Menge und werden markiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.545,
+            0.692,
+            0.561
+          ],
+          "content": "Schritt 3: Der mit 6 markierte Knoten wird zum blauen Knoten."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.568,
+            0.851,
+            0.586
+          ],
+          "content": "Schritt 4: Die beiden bisher unerreichten Nachfolger von Knoten 6 werden erfasst."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "291"
+        }
+      ]
+    },
+    {
+      "page_idx": 291,
+      "blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            0.168,
+            0.119,
+            0.783,
+            0.427
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.379,
+                0.102
+              ],
+              "content": "Beispiel (Fortsetzung)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_291_image_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**292**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.819,
+            0.516
+          ],
+          "content": "Schritt 1: Der linke 7er-Knoten wird (willkürlich, da es noch zwei weitere 7er-Knoten gibt) der nächste blaue Knoten."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.521,
+            0.82,
+            0.557
+          ],
+          "content": "Schritt 2: Der bisher mit 10 markierte Knoten erhält die neue Markierung 8, da über den 7er-Knoten ein neuer minimaler Weg gefunden wurde."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.563,
+            0.661,
+            0.579
+          ],
+          "content": "Schritt 3: Der mittlere 7er-Knoten wird zum blauen Knoten."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.586,
+            0.647,
+            0.602
+          ],
+          "content": "Schritt 4: Der rechte 7er-Knoten wird zum blauen Knoten."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "292"
+        }
+      ]
+    },
+    {
+      "page_idx": 292,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.467,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiel (Fortsetzung), Laufzeit"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.16,
+            0.112,
+            0.788,
+            0.259
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_292_image_1.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.165,
+            0.274,
+            0.787,
+            0.316
+          ],
+          "sub_type": "text",
+          "content": "• In jedem Durchlauf der while**‐Schleife** wird ein Knoten $\\mathsf { , b l a u ^ { \\prime \\prime } }$\n• Aufwand **für jeden Knoten**:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.197,
+            0.321,
+            0.775,
+            0.365
+          ],
+          "sub_type": "text",
+          "content": "– Bestimmung des bzgl. dist min. $\\mathsf { { \\mathsf { { \\mathsf { { \\mathsf { { \\mathsf { { \\mathsf { { \\mathsf { { \\mathsf { { \\mathsf { { \\mathsf { } { \\mathsf { } { \\mathsf { } { \\mathsf { \\mathsf { { \\mathsf { } { \\mathsf { } } { \\mathsf { } { \\mathsf { \\mathsf { } { \\mathsf { } { \\mathsf { } } { \\mathsf { \\mathsf { } { \\mathsf { } } { \\mathsf { \\mathsf { } { \\mathsf { } } { \\mathsf { } } { \\mathsf { \\mathsf { } } { \\mathsf { \\mathsf { } } { \\mathsf { } \\mathsf { } } { \\mathsf { \\mathsf { } } \\mathsf { } } { \\mathsf { \\mathsf { } \\mathsf { } } \\mathsf { } \\mathsf { } \\mathsf { } \\mathsf { } \\mathsf { } \\mathsf { } \\mathsf { } \\mathsf { } \\mathsf { } \\mathsf } } \\mathsf { \\mathsf { } \\mathsf { } \\mathsf } } \\mathsf { \\mathsf { } \\mathsf } } \\mathsf { \\mathsf } } \\mathsf { \\mathsf } } \\mathsf { \\mathsf } } \\mathsf } } } } } } } } } } } } } } { } } } } } } } \\mathsf { { } } } \\mathsf { { } } } \\mathsf { { } } \\mathsf { } } \\mathsf { { } } \\mathsf{ { } } \\mathsf{ } \\mathsf{ } } \\mathsf{ { } } \\mathsf{ } \\mathsf{ } \\mathsf{ } \\mathsf{ } \\mathsf{ } \\mathsf{ } \\mathsf{ } \\mathsf{ } }$ Knotens: $\\mathcal { O } ( | V | )$\n– Behandlung aller $\\mathcal { O } ( | V | )$ Nachfolger: jeweils $\\mathcal { O } ( 1 )$"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.165,
+            0.369,
+            0.831,
+            0.435
+          ],
+          "sub_type": "text",
+          "content": "• Gesamt: $\\mathcal { O } \\big ( | V | ^ { 2 } \\big )$\n• **Geschicktere** Implementierung möglich: $\\mathcal { O } ( | E | \\log \\lvert V \\rvert )$ , d.h. besser im Fall $| E | \\ll | V | ^ { 2 }$ ( 𝐸 stets beschränkt durch $| V | ^ { 2 } )$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.445
+          ],
+          "content": "**293**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.834,
+            0.515
+          ],
+          "content": "Schritt 1: Der rechte bisher mit 10 markierte Knoten erhält die Markierung 9, da er vom rechten 7er-Knoten mit Distanz 2 erreichbar ist"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.521,
+            0.815,
+            0.557
+          ],
+          "content": "Schritt 2 etc.: Die übrigen Knoten gelangen letztlich auch in die blaue Menge, wodurch sich aber keine neuen kürzesten Wege mehr ergeben"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.563,
+            0.755,
+            0.597
+          ],
+          "content": "Man versuche die **Aufwandsanalyse** für den einfachen Fall $\\mathrm { O } ( | \\mathrm { V } | ^ { 2 } )$ am Pseudocode nachzuvollziehen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.604,
+            0.828,
+            0.656
+          ],
+          "content": "Da ein Graph nie mehr als $| \\mathbf { V } | ^ { 2 }$ Kanten haben kann, wird die u.g. “geschicktere” Implementierung (ohne nähere Erläuterung hier) meist schneller zum Ergebnis führen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "293"
+        }
+      ]
+    },
+    {
+      "page_idx": 293,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.418,
+            0.17,
+            0.583,
+            0.194
+          ],
+          "level": 2,
+          "content": "10. Graphen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.254,
+            0.718,
+            0.368
+          ],
+          "sub_type": "text",
+          "content": "10.1 Definition und Grapheigenschaften\n10.2 Berechnung kürzester Pfade\n**10.3 Datenstrukturen zur Graphrepräsentation**\n10.4 Graphdurchläufe\n10.5 Spannbäume"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**294**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "294"
+        }
+      ]
+    },
+    {
+      "page_idx": 294,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.373,
+            0.102
+          ],
+          "level": 2,
+          "content": "Graphrepräsentation"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.121,
+            0.769,
+            0.214
+          ],
+          "sub_type": "text",
+          "content": "Datenstrukturen zur **internen Speicherung** von Graphen\n• Gebräuchlich vor allem: **Adjazenzmatrix** und **Adjazenzlisten**\n• Existiert zwischen zwei Graphknoten 𝑢 und 𝑣 eine Kante $e \\; = \\; \\{ u , v \\}$ , so heißen 𝑢 und 𝑣 **adjazent**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.225,
+            0.812,
+            0.268
+          ],
+          "content": "**Def**.: Ist $G \\; = \\; ( V , E )$ ein Graph mit Knotenmenge $V   =   \\{ v _ { 1 } , \\ldots , v _ { n } \\} ,$ so heißt die $( n \\times n ) \\mathrm { - } \\mathsf { M a t r i x }   A \\; = \\; ( a _ { i j } )$ mit"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.235,
+            0.269,
+            0.49,
+            0.29
+          ],
+          "content": "a _ {i j} = 1, \\text {falls} \\{v _ {i}, v _ {j} \\} \\in E",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_6.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.235,
+            0.291,
+            0.389,
+            0.311
+          ],
+          "content": "a _ {i j} = 0, \\text {sonst}",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.312,
+            0.373,
+            0.33
+          ],
+          "content": "**Adjazenzmatrix** zu 𝐺."
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.159,
+            0.337,
+            0.813,
+            0.427
+          ],
+          "sub_type": "text",
+          "content": "• $a _ { i j } = 1$ zeigt an, dass zwischen zwei Knoten $v _ { i }$ und $v _ { j }$ **e**ine Kante existiert\n• $a _ { i j } = 0$ zeigt an, dass **keine Kante** vorhanden ist\n• Knoten werden **implizit** gespeichert"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**295**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.825,
+            0.534
+          ],
+          "content": "Graphen auf dem Papier zu zeichnen ist sehr intuitiv, aber wie werden Graphen als **Datenstruktur** zur Verarbeitung durch ein Programm am besten intern gespeichert?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.539,
+            0.823,
+            0.593
+          ],
+          "content": "Eine Methode besteht darin, anzugeben welche Knotenpaare durch eine Kante verbunden (adjazent) sind. Hierfür genügt ein Bit pro Paar (1 = verbunden, $0 =$ nicht verbunden), was dann unmittelbar zur **Adjazenzmatrix** führt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.598,
+            0.838,
+            0.687
+          ],
+          "content": "Die Knoten werden dabei gar nicht explizit gespeichert: Die Adjazenzmatrix ist ein **zweidimensionales Array**, und durch die Anzahl der Zeilen bzw. Spalten ist klar, wieviele Knoten vorhanden sind. Natürlich können bei Bedarf noch weitere Informationen über die Knoten (z.B. Markierungen) noch anderweitig separat gespeichert werden."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.692,
+            0.845,
+            0.73
+          ],
+          "content": "**Übung**: Wie könnte man bei der Darstellung von ungerichteten Graphen (anstelle von gerichteten) Platz in der Adjazenzmatrix sparen?"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "295"
+        }
+      ]
+    },
+    {
+      "page_idx": 295,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.434,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiel für Adjazenzmatrix"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.156,
+            0.159,
+            0.413,
+            0.306
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  1[\"1\"] --> 3[\"3\"]\n  2[\"2\"] --> n3[\"3\"]\n  n3 --> 4[\"4\"]\n  n3 --> 6[\"6\"]\n  n3 --> 8[\"8\"]\n  n3 --> 9[\"9\"]\n  n3 --> 10[\"10\"]\n  n4[\"4\"] --> 5[\"5\"]\n  n6[\"6\"] --> 7[\"7\"]\n  n6 --> n10[\"10\"]\n  n8[\"8\"] --> 11[\"11\"]\n  n9[\"9\"] --> 12[\"12\"]\n  n10 --> 13[\"13\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_295_image_1.jpg"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.425,
+            0.123,
+            0.842,
+            0.335
+          ],
+          "content": "|  | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| 1 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n| 2 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n| 3 | 1 | 1 | 0 | 1 | 0 | 1 | 0 | 0 | 1 | 1 | 0 | 0 | 0 |\n| 4 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n| 5 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |\n| 6 | 0 | 0 | 1 | 1 | 1 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 0 |\n| 7 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n| 8 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 1 | 0 | 0 |\n| 9 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 0 |\n| 10 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 1 |\n| 11 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 0 |\n| 12 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 0 | 0 |\n| 13 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_295_table_2.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.163,
+            0.353,
+            0.513,
+            0.372
+          ],
+          "level": 2,
+          "content": "• Bei kantengewichteten Graphen:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.195,
+            0.377,
+            0.724,
+            0.42
+          ],
+          "sub_type": "text",
+          "content": "– Kantengewicht statt 0/1 in Matrix eintragen\n– spezieller Wert (z.B. ∞), falls keine Kante vorhanden"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**296**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "296"
+        }
+      ]
+    },
+    {
+      "page_idx": 296,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.524,
+            0.102
+          ],
+          "level": 2,
+          "content": "Eigenschaften und Implementierung"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.162,
+            0.116,
+            0.827,
+            0.185
+          ],
+          "sub_type": "text",
+          "content": "• **Vorteil**: Adjazenz zweier Knoten kann in Zeit 𝓞ሺ𝟏ሻ geprüft werden\n• **Nachteil**: Hoher Platzbedarf $( \\mathcal { O } ( | V | ^ { 2 } ) )$ , unabhängig von 𝐸\nC‐Implementierung:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.321,
+            0.219,
+            0.648,
+            0.316
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define N 100\n\nint adj_matrix[N][N];\n\nint adjacent(int i, int j)\n{\n    return adj_matrix[i][j] == 1 ? 1 : 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.365,
+            0.677,
+            0.43
+          ],
+          "sub_type": "text",
+          "content": "**Bedingter Ausdruck** in C:\nBedingung $_ { \\nu } 2 ^ { \\prime \\prime }$ then‐Ausdruck „:“ else‐Ausdruck\n• Kürzere Schreibweise als if-then-else"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**297**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.806,
+            0.515
+          ],
+          "content": "Der **Adjazenztest** geht in O(1), da der Arrayzugriff in einem Schritt erfolgen kann."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.521,
+            0.834,
+            0.576
+          ],
+          "content": "Jedoch führt die Adjazenzmatrix oft zur **Platzverschwendung**: Sind nur wenige Kanten im Graphen vorhanden, so besteht sie fast nur aus 0en. Besser wäre es dann offenbar, die (nur wenigen) Kanten explizit zu speichern."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.58,
+            0.845,
+            0.651
+          ],
+          "content": "Die C-Implementierung der Adjazenzmatrix ist denkbar einfach. Hier wird auch ein neues C-Sprachelement eingeführt: Möchte man einem bestimmten Objekt einen Wert in Abhängigkeit von einer Bedingung zuweisen, so spart der **bedingte Ausdruck** etwas Schreibarbeit."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.657,
+            0.838,
+            0.693
+          ],
+          "content": "Das Gegenstück zur gezeigten Implementierung von “adjacent” wäre dann unter expliziter Verwendung von if-else:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.276,
+            0.722,
+            0.393,
+            0.739
+          ],
+          "content": "else return 0;"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "297"
+        }
+      ]
+    },
+    {
+      "page_idx": 297,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.308,
+            0.101
+          ],
+          "level": 2,
+          "content": "Adjazenzlisten"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.117,
+            0.674,
+            0.159
+          ],
+          "sub_type": "text",
+          "content": "• Für jeden Knoten **Liste seiner Nachbarn** speichern\n• **Array** von verketteten **Listen**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.229,
+            0.164,
+            0.737,
+            0.226
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Knoten\\nvi\"] --> B[\"Nachbar 1\\nvon vi\"]\n  B --> C[\"Nachbar 2\\nvon vi\"]\n  C --> D[\"Nachbar 3\\nvon vi\"]\n  D --> E[\"NULL\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_297_image_4.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.175,
+            0.261,
+            0.436,
+            0.407
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  1[\"1\"] --> 3[\"3\"]\n  2[\"2\"] --> n3[\"3\"]\n  n3 --> 4[\"4\"]\n  n3 --> 6[\"6\"]\n  n3 --> 8[\"8\"]\n  n3 --> 9[\"9\"]\n  n3 --> 10[\"10\"]\n  n4[\"4\"] --> 5[\"5\"]\n  n6[\"6\"] --> 7[\"7\"]\n  n6 --> n10[\"10\"]\n  n8[\"8\"] --> 11[\"11\"]\n  n9[\"9\"] --> 12[\"12\"]\n  n10 --> 13[\"13\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_297_image_5.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.477,
+            0.23,
+            0.594,
+            0.434
+          ],
+          "sub_type": "text",
+          "content": "**1:  2, 3**\n**2:  1, 3**\n**3:  1, 2, 4, 6, 9, 10**\n**4:  3, 6**\n**5:  6, 7**\n**6:  3, 4, 5, 7, 10**\n**7:  5, 6**\n**8:  9, 11**\n**9:  3, 8, 12**\n**10: 3, 6, 12, 13**\n**11: 8, 12**\n**12: 9, 10, 11**\n**13: 10**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.83,
+            0.553
+          ],
+          "content": "Eine Alternative zur Adjazenzmatrix bilden **Adjazenzlisten**. Bei dieser Datenstruktur werden nur die Graphkanten explizit abgespeichert. Jeder Knoten besitzt eine Liste seiner Nachbarn. Sind nur wenige Kanten vorhanden, so kann dies erheblich Platz sparen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "298"
+        }
+      ]
+    },
+    {
+      "page_idx": 298,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.524,
+            0.102
+          ],
+          "level": 2,
+          "content": "Eigenschaften und Implementierung"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.162,
+            0.123,
+            0.756,
+            0.169
+          ],
+          "sub_type": "text",
+          "content": "• **Vorteil**: Speicherplatzbedarf nur 𝒪ሺ 𝑉 ൅ 𝐸 ሻ\n• **Nachteil**: Test auf Adjazenz erfordert im worst case 𝒪ሺ 𝑉 ሻ"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.334,
+            0.192,
+            0.554,
+            0.326
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define N 100\n\nList adj_list[N];\n\nint adjacent(int i, int j)\n{\n    List L;\n\n    L = adj_list[i];\n    return IsIn(j, L);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.165,
+            0.357,
+            0.807,
+            0.421
+          ],
+          "sub_type": "text",
+          "content": "• Auch **Mischformen** und **alternative Graphrepräsentationen** möglich\nAuswahl je nach **Häufigkeit** der gewünschten Graphoperationen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**299**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.843,
+            0.57
+          ],
+          "content": "Die Auswahl zwischen Adjazenzmatrix und Adjazenzlisten muss sich (wie bei allen anderen Datenstrukturen auch) nach den **Anforderungen der Operationen** richten. Steht z.B. die Minimierung des Speicherplatzes im Vordergrund, so sind Adjazenzlisten oft die bessere Wahl. Die Platzersparnis erkauft man sich jedoch mit einem höheren Aufwand beim Adjazenztest."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "299"
+        }
+      ]
+    },
+    {
+      "page_idx": 299,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.418,
+            0.17,
+            0.583,
+            0.194
+          ],
+          "level": 2,
+          "content": "10. Graphen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.254,
+            0.709,
+            0.369
+          ],
+          "sub_type": "text",
+          "content": "10.1 Definition und Grapheigenschaften\n10.2 Berechnung kürzester Pfade\n10.3 Datenstrukturen zur Graphrepräsentation\n**10.4 Graphdurchläufe**\n10.5 Spannbäume"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**300**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "300"
+        }
+      ]
+    },
+    {
+      "page_idx": 300,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.333,
+            0.101
+          ],
+          "level": 2,
+          "content": "Graphdurchläufe"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.12,
+            0.82,
+            0.415
+          ],
+          "sub_type": "text",
+          "content": "**Gesucht**: Algorithmus, der alle Knoten eines Graphen der Reihe nach „besucht“\n• Anwendungen u.a.:\n– Systematisches **Bearbeiten** aller Graphknoten\n– Prüfen ob Graph **zusammenhängend** ist\nBeispiel: **garbage collection**\nAufsammeln und Freigabe von nicht mehr benötigtem dynamisch angeforderten Heap‐Speicher (garbage)\n• Als **Graph‐Modell**:\n– Speicherblöcke = Knoten\n– Verweis (Zeiger) auf Speicherblock = Kante\n**Idee**: Block von Programmvariablen aus nicht mehr erreichbar → Block nicht mehr benötigt, daher Freigabe"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**301**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.816,
+            0.553
+          ],
+          "content": "Graphdurchläufe werden häufig benötigt. Für den **Zusammenhangstest** bspw. beginnt man den Durchlauf an einem beliebigen Knoten. Werden dann im Durchlauf letztlich alle Knoten erreicht, so ist der Graph offensichtlich zusammenhängend."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.557,
+            0.843,
+            0.664
+          ],
+          "content": "Die Notwendigkeit zur **garbage collection** (Müllabfuhr) ergibt sich aus der fortwährenden Anforderung und Wiederfreigabe von Speicherblöcken auf dem Heap. Ein Programm “weiss” nicht, ob ein bestimmter Speicherblock später noch benötigt wird. Spätestens wenn der Heapspeicher knapp wird, sollte eine garbage collection durchgeführt werden, um nicht mehr benötigten Speicher wieder freizugeben."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.669,
+            0.825,
+            0.724
+          ],
+          "content": "Ein Speicherblock kann sicher dann als nicht mehr benötigt angesehen werden, **wenn es keinen Zeiger mehr gibt, der auf den Block verweist**. Der Block ist dann nicht mehr zugreifbar und somit offenbar überflüssig."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.729,
+            0.833,
+            0.817
+          ],
+          "content": "Es genügt jedoch nicht, die statischen im Programm selbst deklarierten Zeigervariablen zu betrachten, da sich Zeiger auch häufig auf dem Heap selbst befinden (z.B. bei Listen). Vielmehr muss geprüft werden, welche Speicherblöcke von Zeigervariablen aus erreichbar sind, welche dann wiederum indirekt über diese Blöcke erreichbar sind, usw."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "301"
+        }
+      ]
+    },
+    {
+      "page_idx": 301,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.404,
+            0.102
+          ],
+          "level": 2,
+          "content": "Entstehung von garbage"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.207,
+            0.12,
+            0.75,
+            0.252
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_301_image_1.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.163,
+            0.269,
+            0.774,
+            0.421
+          ],
+          "sub_type": "text",
+          "content": "Blöcke 1 und 2 anschließend **nicht mehr erreichbar**\nJedoch nicht als $\\mathrm { , f r e i ^ { \\prime \\prime } }$ markiert, da nicht mittels free explizit **freigegeben**\nFalls malloc irgendwann im Programmverlauf **keinen freien Speicherplatz** mehr liefert, so muss eine garbage collection durchgeführt werden\n• **Besserer Programmierstil**: immer Verwendung von free"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.837,
+            0.534
+          ],
+          "content": "Das einfache Beispiel zeigt, wie **garbage** entstehen kann. Da die zuerst an p und q zugewiesenen Speicherblöcke nicht freigegeben wurden, sind sie nach der zweiten Zuweisung an p und q nicht mehr erreichbar."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "302"
+        }
+      ]
+    },
+    {
+      "page_idx": 302,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.349,
+            0.101
+          ],
+          "level": 2,
+          "content": "Garbage collection"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.234,
+            0.118,
+            0.758,
+            0.264
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"p = ...\"] --> B[\"State 1\"]\n  C[\"q = ...\"] --> D[\"State 2\"]\n  E[\"r = ...\"] --> F[\"State 3\"]\n  B --> G[\"State 4\"]\n  D --> H[\"State 5\"]\n  F --> I[\"State 6\"]\n  G --> J[\"State 7\"]\n  H --> K[\"State 8\"]\n  I --> L[\"State 9\"]\n  J --> M[\"State 10\"]\n  K --> N[\"State 11\"]\n  L --> O[\"State 12\"]\n  M --> P[\"State 13\"]\n  N --> Q[\"State 14\"]\n  O --> R[\"State 15\"]\n  P --> S[\"State 16\"]\n  Q --> T[\"State 17\"]\n  R --> U[\"State 18\"]\n  S --> V[\"State 19\"]\n  T --> W[\"State 20\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.164,
+                0.12,
+                0.281,
+                0.164
+              ],
+              "content": "Im Programm deklarierte Zeigervariablen"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_302_image_2.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.291,
+            0.29,
+            0.65,
+            0.4
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Top Node\"] --> B[\"Left Path\"]\n  A --> C[\"Middle Path\"]\n  A --> D[\"Bottom Path\"]\n  B --> E[\"Central Node\"]\n  C --> E\n  D --> E\n  E --> F[\"Right Path\"]\n  E --> G[\"Bottom Node\"]\n  F --> H[\"Final Output\"]\n  G --> I[\"Final Output\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.527,
+                0.411,
+                0.77,
+                0.425
+              ],
+              "content": "Nicht erreichte Knoten freigeben"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_302_image_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**303**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.838,
+            0.57
+          ],
+          "content": "Die Idee ist es, einen **Graphdurchlauf** ausgehend von den deklarierten Zeigervariablen aus durchzuführen. Zu Anfang werden alle Speicherblöcke als “nicht mehr benötigt” angesehen. Sind Blöcke jedoch noch (direkt oder indirekt) über Zeiger erreichbar, so werden sie als “noch benötigt” markiert. Alle übrigen Blöcke können dann freigegeben werden."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "303"
+        }
+      ]
+    },
+    {
+      "page_idx": 303,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.333,
+            0.101
+          ],
+          "level": 2,
+          "content": "Graphdurchläufe"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.124,
+            0.674,
+            0.143
+          ],
+          "content": "• Prinzipiell zwei Möglichkeiten für Graphdurchlauf:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.194,
+            0.148,
+            0.796,
+            0.251
+          ],
+          "sub_type": "text",
+          "content": "– **Depth First Search** (DFS, **Tiefensuche**): ausgehend vom Startknoten möglichst lange Pfade verfolgen, oder\n– **Breadth First Search** (BFS, **Breitensuche**): ausgehend vom Startknoten weitere Knoten in der Reihenfolge wachsenden Abstands vom Startpunkt besuchen"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.171,
+            0.262,
+            0.425,
+            0.43
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  1[\"1\"] --> 2[\"2\"]\n  1[\"1\"] --> 3[\"3\"]\n  2[\"2\"] --> 4[\"4\"]\n  3[\"3\"] --> 5[\"5\"]\n  4[\"4\"] --> 6[\"6\"]\n  5[\"5\"] --> 8[\"8\"]\n  6[\"6\"] --> 7[\"7\"]\n  7[\"7\"] --> 8[\"8\"]\n  8[\"8\"] --> 9[\"9\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.443,
+                0.273,
+                0.476,
+                0.286
+              ],
+              "content": "DFS"
+            },
+            {
+              "bbox": [
+                0.452,
+                0.289,
+                0.466,
+                0.301
+              ],
+              "content": "1"
+            },
+            {
+              "bbox": [
+                0.452,
+                0.305,
+                0.466,
+                0.316
+              ],
+              "content": "2"
+            },
+            {
+              "bbox": [
+                0.452,
+                0.32,
+                0.466,
+                0.331
+              ],
+              "content": "4"
+            },
+            {
+              "bbox": [
+                0.452,
+                0.335,
+                0.466,
+                0.346
+              ],
+              "content": "8"
+            },
+            {
+              "bbox": [
+                0.452,
+                0.35,
+                0.466,
+                0.361
+              ],
+              "content": "5"
+            },
+            {
+              "bbox": [
+                0.452,
+                0.365,
+                0.466,
+                0.376
+              ],
+              "content": "6"
+            },
+            {
+              "bbox": [
+                0.452,
+                0.38,
+                0.466,
+                0.391
+              ],
+              "content": "3"
+            },
+            {
+              "bbox": [
+                0.452,
+                0.395,
+                0.466,
+                0.406
+              ],
+              "content": "7"
+            },
+            {
+              "bbox": [
+                0.452,
+                0.41,
+                0.466,
+                0.421
+              ],
+              "content": "9"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_303_image_5.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.527,
+            0.263,
+            0.781,
+            0.43
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  1[\"1\"] --> 2[\"2\"]\n  1[\"1\"] --> 3[\"3\"]\n  2[\"2\"] --> 4[\"4\"]\n  3[\"3\"] --> 5[\"5\"]\n  4[\"4\"] --> 8[\"8\"]\n  5[\"5\"] --> 8[\"8\"]\n  6[\"6\"] --> 8[\"8\"]\n  7[\"7\"] --> 8[\"8\"]\n  8[\"8\"] --> 9[\"9\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.794,
+                0.272,
+                0.825,
+                0.284
+              ],
+              "content": "BFS"
+            },
+            {
+              "bbox": [
+                0.803,
+                0.288,
+                0.817,
+                0.3
+              ],
+              "content": "1"
+            },
+            {
+              "bbox": [
+                0.803,
+                0.304,
+                0.817,
+                0.316
+              ],
+              "content": "2"
+            },
+            {
+              "bbox": [
+                0.803,
+                0.32,
+                0.817,
+                0.331
+              ],
+              "content": "3"
+            },
+            {
+              "bbox": [
+                0.803,
+                0.335,
+                0.817,
+                0.346
+              ],
+              "content": "4"
+            },
+            {
+              "bbox": [
+                0.803,
+                0.35,
+                0.817,
+                0.36
+              ],
+              "content": "5"
+            },
+            {
+              "bbox": [
+                0.803,
+                0.364,
+                0.817,
+                0.375
+              ],
+              "content": "6"
+            },
+            {
+              "bbox": [
+                0.803,
+                0.379,
+                0.817,
+                0.39
+              ],
+              "content": "7"
+            },
+            {
+              "bbox": [
+                0.803,
+                0.394,
+                0.817,
+                0.405
+              ],
+              "content": "8"
+            },
+            {
+              "bbox": [
+                0.803,
+                0.409,
+                0.817,
+                0.42
+              ],
+              "content": "9"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_303_image_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**304**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.821,
+            0.538
+          ],
+          "content": "Beim **DFS** ist die Idee, einen Pfad möglichst lange “in die Tiefe” zu verfolgen. Beim **BFS** dagegen versucht man, alle Pfade gleichmäßig (ebenenweise, also zunächst “in der Breite”) abzuarbeiten."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "304"
+        }
+      ]
+    },
+    {
+      "page_idx": 304,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.395,
+            0.101
+          ],
+          "level": 2,
+          "content": "DFS ‐ Depth first search"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.113,
+            0.472,
+            0.153
+          ],
+          "sub_type": "text",
+          "content": "• Algorithmus als **Pseudo‐Code**\n• Vorauss.:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.192,
+            0.161,
+            0.611,
+            0.202
+          ],
+          "sub_type": "text",
+          "content": "– Graphimplementierung verfügbar\n– Knoten durch integer‐Zahlen identifiziert"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.23,
+            0.204,
+            0.626,
+            0.441
+          ],
+          "sub_type": "code",
+          "content": "```c\nint visited[N]; // implizit mit 0 initialisiert\n\nvoid dfs(int v) // DFS beginnend bei v\n{ int w;\n  visited[v] = 1; // markiere v als besucht\n  process(v);      // Verarbeitung von v\n  for ({v,w} ∈ E) // für alle Nachbarn w\n  { // rekursiver Aufruf von dfs:\n    if (!visited[w]) dfs(w);\n  }\n}\n\nint main(void)\n{\n  int v;\n  for (v = 0; v < N; v++)\n    if (!visited[v]) dfs(v);\n\n  return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**305**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.759,
+            0.516
+          ],
+          "content": "Der DFS-Durchlauf wird durch die main-Funktion ausgelöst. Für einen gegebenen Knoten v übernimmt dann die Funktion dfs die Tiefensuche."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.521,
+            0.788,
+            0.539
+          ],
+          "content": "v wird als besucht markiert und auf irgendeine Weise verarbeitet (process)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.54,
+            0.83,
+            0.576
+          ],
+          "content": "Anschließend werden die Nachfolger von v besucht. Durch die **Rekursion** wird die gewünschte DFS-Reihenfolge sichergestellt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.58,
+            0.842,
+            0.651
+          ],
+          "content": "Ist der Graph **zusammenhängend**, so genügt ein einziger dfs-Aufruf von main aus, um alle Knoten zu erreichen. Andernfalls werden weitere Teile des Graphen erst durch weitere gezielte Aufrufe erreicht. Daher muss die main-Funktion einen dfs-Aufruf für alle Knoten v starten."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "305"
+        }
+      ]
+    },
+    {
+      "page_idx": 305,
+      "blocks": [
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.432,
+            0.37
+          ],
+          "sub_type": "text",
+          "content": "In BFS werden die Knoten „ebenenweise“besucht\nVerwendung einer **Queue** (Kap. 8)\nQueue speichert **noch zu bearbeitende Knoten auf nächster Ebene**, während „Geschwisterknoten“auf selber Ebene gerade bearbeitet werden"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.497,
+            0.117,
+            0.785,
+            0.425
+          ],
+          "sub_type": "code",
+          "content": "```c\nint visited[N];\n\nvoid bfs(int v) // BFS ab Knoten v\n{\n    int w; Queue Q;\n    visited[v] = 1;\n    process(v);\n    Put(v,Q);\n    while (!IsEmpty(Q)) {\n        v = Get(Q);\n        for ({v,w} ∈ E) {\n            if (!visited[w]) {\n                visited[w] = 1;\n                process(w);\n                Put(w,Q);\n            }\n        }\n    }\n}\n\nvoid main()\n{\n    int v;\n    for (v = 0; v < N; v++)\n        if (!visited[v]) bfs(v);\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.422,
+                0.1
+              ],
+              "content": "BFS – Breadth First Search"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**306**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.836,
+            0.553
+          ],
+          "content": "Beim BFS-Durchlauf kommt die bereits bekannte **Queue-Datenstruktur** zum Einsatz. Die Steuerung von main aus erfolgt wie beim DFS. Durch das Einfügen verarbeiteter Knoten in die Queue wird jedoch sichergestellt, dass der Graph “ebenenweise” abgearbeitet wird."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "306"
+        }
+      ]
+    },
+    {
+      "page_idx": 306,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.319,
+            0.102
+          ],
+          "level": 2,
+          "content": "Laufzeitanalyse"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.123,
+            0.56,
+            0.284
+          ],
+          "sub_type": "text",
+          "content": "Annahme: Graphdarstellung als **Adjazenzlisten**\n**DFS**:\n– Aufruf für alle Knoten aus main: 𝒪ሺ 𝑉 ሻ\n– Einmalige Bearbeitung aller Kanten in for: 𝒪ሺ 𝐸 ሻ\n– **Gesamt**: 𝒪ሺ 𝑉 ൅ 𝐸 ሻ"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.288,
+            0.228,
+            0.303
+          ],
+          "content": "**BFS**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.197,
+            0.308,
+            0.555,
+            0.363
+          ],
+          "content": "– Aufruf für alle Knoten aus main, jeder Knoten einmal in der Queue: 𝒪ሺ 𝑉 ሻ"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.197,
+            0.367,
+            0.56,
+            0.403
+          ],
+          "content": "– Einmalige Bearbeitung aller Kanten in for: 𝒪ሺ 𝐸 ሻ"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.197,
+            0.406,
+            0.435,
+            0.426
+          ],
+          "content": "– **Gesamt**: 𝒪ሺ|𝑉| ൅ 𝐸 ሻ"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.579,
+            0.115,
+            0.818,
+            0.224
+          ],
+          "sub_type": "code",
+          "content": "```txt\nvoid dfs(int v)\n{\n    int w;\n    visited[v] = 1;\n    process(v);\n    for ({v,w} ∈ E) {\n        if (!visited[w]) dfs(w);\n    }\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.58,
+            0.233,
+            0.785,
+            0.435
+          ],
+          "sub_type": "code",
+          "content": "```txt\nvoid bfs(int v)\n{\n    int w; Queue Q;\n    visited[v] = 1;\n    process(v);\n    Put(v,Q);\n    while (!IsEmpty(Q)) {\n        v = Get(Q);\n        for ({v,w} ∈ E) {\n            if (!visited[w]) {\n                visited[w] = 1;\n                process(w);\n                Put(w,Q);\n            }\n        }\n    }\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**307**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.439,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.838,
+            0.553
+          ],
+          "content": "Die **Laufzeitanalyse** ist in diesem Fall sehr einfach, und wie man sieht unterscheiden sich DFS und BFS nicht in der Effizienz, sondern nur im Ergebnis der Durchlaufreihenfolge. Bei der Queue wird natürlich vorausgesetzt, dass Put und Get in jeweils O(1) erfolgen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "307"
+        }
+      ]
+    },
+    {
+      "page_idx": 307,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.418,
+            0.17,
+            0.583,
+            0.194
+          ],
+          "level": 2,
+          "content": "10. Graphen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.254,
+            0.709,
+            0.369
+          ],
+          "sub_type": "text",
+          "content": "10.1 Definition und Grapheigenschaften\n10.2 Berechnung kürzester Pfade\n10.3 Datenstrukturen zur Graphrepräsentation\n10.4 Graphdurchläufe\n**10.5 Spannbäume**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**308**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "308"
+        }
+      ]
+    },
+    {
+      "page_idx": 308,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.295,
+            0.101
+          ],
+          "level": 2,
+          "content": "Spannbäume"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.115,
+            0.813,
+            0.279
+          ],
+          "sub_type": "text",
+          "content": "Anwendung: z.B. **Leitungsplanung** zur Elektrifizierung entlegener Ortschaften\n• **Graphmodellierung**:\n– Ortschaften = Knoten\n– Entfernungsmaß = Kantengewichte\nZur **Vernetzung** müssen nicht alle möglichen Leitungen realisiert werden, es müssen nur alle Knoten erreicht werden\n• Mit **möglichst geringen** Gesamt‐Leitungskosten"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.249,
+            0.285,
+            0.825,
+            0.446
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Initial Map\"] --> B[\"Network Diagram\"]\n  B --> C[\"Unified Network Graph\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_308_image_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**309**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.606
+          ],
+          "content": "Ein **Spannbaum** dient dazu, alle Knoten in einem Graphen miteinander zu verbinden. Häufig wird ein Gesamtnetz mit kürzestmöglichen Verbindungen gesucht, z.B. um Leitungskosten zu minimieren. Wiederum spielt die genaue Geographie keine Rolle, so dass z.B. ein Graphmodell einer Landschaft ausreicht. Die Kantengewichte spiegeln dann neben den Entfernungen z.B. auch Landschaftsmerkmale wieder (z.B. ob Hindernisse wie Flüsse oder Berge zu überwinden sind)."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "309"
+        }
+      ]
+    },
+    {
+      "page_idx": 309,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.393,
+            0.101
+          ],
+          "level": 2,
+          "content": "Minimale Spannbäume"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.16,
+            0.117,
+            0.82,
+            0.196
+          ],
+          "content": "**Def**.: Ein **Spannbaum** in einem ungerichteten, zusammenhängenden und kantengewichteten Graphen $G \\; = \\; ( V , E , w )$ ist ein zyklenfreier, zusammenhängender Teilgraph $G ^ { \\prime } = ( V ^ { \\prime } , E ^ { \\prime } , w )$ mit $V ^ { \\prime } = V$ und $E ^ { \\prime } \\subseteq E$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.16,
+            0.208,
+            0.709,
+            0.286
+          ],
+          "content": "**Def**.: Ein **minimaler Spannbaum** in einem ungerichteten, zusammenhängenden und kantengewichteten Graphen $G = ( V , E , w )$ ist ein Spannbaum mit minimaler Kantengewichtssumme unter allen Spannbäumen zu 𝐺."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.149,
+            0.293,
+            0.818,
+            0.449
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Node 1\"] --> B[\"Node 2\"]\n  A --> C[\"Node 3\"]\n  A --> D[\"Node 4\"]\n  A --> E[\"Node 5\"]\n  B --> F[\"Node 1\"]\n  B --> G[\"Node 2\"]\n  C --> H[\"Node 3\"]\n  C --> I[\"Node 4\"]\n  D --> J[\"Node 5\"]\n  E --> K[\"Node 6\"]\n  F --> L[\"Output Node\"]\n  G --> L\n  H --> L\n  I --> L\n  J --> L\n  K --> L\n  L --> M[\"Final Output Node\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_309_image_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.845,
+            0.581
+          ],
+          "content": "Der **Spannbaum** umfasst gemäß Definition alle Knoten eines Graphen und bedient sich zur Vernetzung der Knoten einer Teilmenge der Kantenmenge E. Analog zum minimalen kann man auch einen **maximalen** Spannbaum definieren. Das **Beispiel** zeigt einen Graphen und einen dazugehörigen minimalen Spannbaum (gibt es noch weitere?)"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "310"
+        }
+      ]
+    },
+    {
+      "page_idx": 310,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.367,
+            0.102
+          ],
+          "level": 2,
+          "content": "Kruskal‐Algorithmus"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.164,
+            0.125,
+            0.25,
+            0.141
+          ],
+          "level": 2,
+          "content": "Idee:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.194,
+            0.148,
+            0.772,
+            0.191
+          ],
+          "content": "fortgesetzte Auswahl von Kanten mit geringem Gewicht – dabei Zyklen vermeiden"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.196,
+            0.757,
+            0.399
+          ],
+          "sub_type": "text",
+          "content": "1. Beginne mit **leerem** Spannbaum 𝑇\n2. Bilde Liste 𝐿 der Graphkanten von 𝐺, **sortiert nach aufsteigendem Gewicht** (s. Sortieralgorithmen)\n3. Betrachte jeweils **nächstgrößere** Kante 𝑒 in 𝐿\n4. Falls Einfügen von 𝑒 in 𝑇 einen **Zyklus** verursachen würde: 𝑒 als ungültig betrachten und verwerfen\n5. Sonst: 𝑒 in 𝑇 **einfügen**\n6. Fortsetzen ab 3, bis 𝑇 insgesamt 𝒏 െ 𝟏 **Kanten** enthält\n𝑇 bildet dann einen **minimalen Spannbaum** zu 𝐺"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**311**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.841,
+            0.516
+          ],
+          "content": "Für das Spannbaumproblem sind effiziente Algorithmen bekannt. Einer davon ist der **Kruskal-Algorithmus**."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.521,
+            0.844,
+            0.592
+          ],
+          "content": "Es handelt sich um einen **Greedy-Algorithmus** (greedy = gierig, siehe auch Kap. 11). Dies bedeutet, dass keine globale Suche nach der optimalen Lösung stattfindet, sondern in jeder Situation immer die nächstbeste Verbesserung gewählt wird."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.598,
+            0.835,
+            0.653
+          ],
+          "content": "Im Falle der **Spannbaumkonstruktion** besteht das “gierige” Vorgehen darin, immer die nächste Kante mit geringstem Gewicht zu betrachten. Ist diese gültig, so wird sie den bisherigen (Teil-)Spannbaum hinzugefügt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.657,
+            0.814,
+            0.73
+          ],
+          "content": "Greedy-Algorithmen sind häufig **Heuristiken**, d.h. sie liefern auf der Basis bestimmter einfacher Regeln zur Vorgehensweise meist (aber nicht garantiert) eine gute bis optimale Lösung. Der Kruskal-Algorithmus ist jedoch ein Spezialfall eines Greedy-Algorithmus, der immer die optimale Lösung findet."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "311"
+        }
+      ]
+    },
+    {
+      "page_idx": 311,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.249,
+            0.136,
+            0.752,
+            0.402
+          ],
+          "sub_type": "code",
+          "content": "```txt\nGraph MinSpanningTree(Graph G = (V,E))\n{\n    Graph T; List L; Edge e;\n    T = {};\n    L = Sort(E); // sortierte Kantenliste\n\n    while (#Kanten in T < #Knoten in G - 1 && !IsEmpty(L)) {\n        e = FirstElem(L); // nächst-günstigste Kante\n        Delete(e,L);\n        if (!Cycle(e,T)) { // kein Zyklus in T ∪ {e} ?\n            T = T ∪ {e};\n        }\n    }\n\n    if (#Kanten in T < #Knoten in G - 1) {\n        /* keine verfügbaren Kanten mehr, d.h.\n            G ist nicht zusammenhängend */\n        printf(\"Fehler - kein Spannbaum möglich!\");\n    }\n    return T;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.367,
+                0.102
+              ],
+              "content": "Kruskal‐Algorithmus"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**312**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.849,
+            0.517
+          ],
+          "content": "Der Algorithmus beginnt mit einem leeren Baum T und sortiert zunächst die Liste der Kanten nach **aufsteigendem Gewicht** (z.B. per Quicksort)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.521,
+            0.844,
+            0.576
+          ],
+          "content": "Ein **kompletter Spannbaum** für einen Graphen mit |V| Knoten muss immer |V|-1 Kanten besitzen. Die while-Schleife läuft daher, bis diese Kantenzahl erreicht ist (und solange überhaupt noch unbetrachtete Kanten verfügbar sind)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.58,
+            0.817,
+            0.633
+          ],
+          "content": "Die jeweils nächste Kante aus der sortierten Liste wird betrachtet. Sie ist dann **gültig**, wenn das Hinzufügen zum aktuellen Teil-Spannbaum T keinen Zyklus hervorrufen würde."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "312"
+        }
+      ]
+    },
+    {
+      "page_idx": 312,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.244,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiel"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.164,
+            0.131,
+            0.432,
+            0.427
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_312_image_1.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.475,
+            0.125,
+            0.533,
+            0.142
+          ],
+          "content": "T = \\{\\}",
+          "image_source": "../../raw/pages_0289-0320/images/page_312_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.476,
+            0.143,
+            0.648,
+            0.156
+          ],
+          "content": "Sortierte Kantenliste:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.482,
+            0.158,
+            0.829,
+            0.226
+          ],
+          "content": "\\begin{array}{c} L = \\{\\{1, 2 \\}, \\{4, 6 \\}, \\{5, 6 \\}, \\{9, 1 2 \\}, \\{1, 3 \\}, \\{3, 4 \\}, \\\\ \\{5, 7 \\}, \\{3, 1 0 \\}, \\{6, 1 0 \\}, \\{1 1, 1 2 \\}, \\{3, 6 \\}, \\\\ \\{8, 1 1 \\}, \\{1 0, 1 2 \\}, \\{6, 7 \\}, \\{8, 9 \\}, \\{1 0, 1 3 \\}, \\\\ \\{2, 3 \\}, \\{3, 9 \\} \\} \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_312_equation_4.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.513,
+            0.232,
+            0.564,
+            0.272
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_312_image_5.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.482,
+            0.293,
+            0.579,
+            0.309
+          ],
+          "content": "T = \\{\\{1, 2 \\} \\}",
+          "image_source": "../../raw/pages_0289-0320/images/page_312_equation_6.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.482,
+            0.31,
+            0.801,
+            0.376
+          ],
+          "content": "\\begin{array}{c} L = \\{\\{4, 6 \\}, \\{5, 6 \\}, \\{9, 1 2 \\}, \\{1, 3 \\}, \\{3, 4 \\}, \\\\ \\{5, 7 \\}, \\{3, 1 0 \\}, \\{6, 1 0 \\}, \\{1 1, 1 2 \\}, \\{3, 6 \\}, \\\\ \\{8, 1 1 \\}, \\{1 0, 1 2 \\}, \\{6, 7 \\}, \\{8, 9 \\}, \\{1 0, 1 3 \\}, \\\\ \\{2, 3 \\}, \\{3, 9 \\} \\} \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_312_equation_7.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.513,
+            0.393,
+            0.564,
+            0.433
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_312_image_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**313**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.808,
+            0.535
+          ],
+          "content": "Kanten mit gleichem Gewicht können willkürlich sortiert werden. In diesem Beispiel wird die am weitesten links stehende mit 1 markierte Kante als erste Kante in den Spannbaum eingefügt."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "313"
+        }
+      ]
+    },
+    {
+      "page_idx": 313,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.244,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiel"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.164,
+            0.131,
+            0.432,
+            0.427
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_313_image_1.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.459,
+            0.129,
+            0.606,
+            0.146
+          ],
+          "content": "T = \\{\\{1, 2 \\}, \\{4, 6 \\} \\}",
+          "image_source": "../../raw/pages_0289-0320/images/page_313_equation_2.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.46,
+            0.147,
+            0.779,
+            0.214
+          ],
+          "content": "\\begin{array}{c} L = \\{\\{5, 6 \\}, \\{9, 1 2 \\}, \\{1, 3 \\}, \\{3, 4 \\}, \\\\ \\{5, 7 \\}, \\{3, 1 0 \\}, \\{6, 1 0 \\}, \\{1 1, 1 2 \\}, \\{3, 6 \\}, \\\\ \\{8, 1 1 \\}, \\{1 0, 1 2 \\}, \\{6, 7 \\}, \\{8, 9 \\}, \\{1 0, 1 3 \\}, \\\\ \\{2, 3 \\}, \\{3, 9 \\} \\} \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_313_equation_3.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.513,
+            0.228,
+            0.564,
+            0.268
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_313_image_4.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.459,
+            0.282,
+            0.781,
+            0.3
+          ],
+          "content": "\\{6, 1 0 \\}, \\{3, 6 \\}, \\{6, 7 \\}, \\{8, 9 \\} \\text {   bilden   Zyklen   !   }",
+          "image_source": "../../raw/pages_0289-0320/images/page_313_equation_5.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.459,
+            0.315,
+            0.807,
+            0.365
+          ],
+          "content": "\\begin{array}{c} T = \\{\\{1, 2 \\}, \\{4, 6 \\}, \\{5, 6 \\}, \\{9, 1 2 \\}, \\{1, 3 \\}, \\{3, 4 \\}, \\\\ \\{5, 7 \\}, \\{3, 1 0 \\}, \\{1 1, 1 2 \\}, \\{8, 1 1 \\}, \\{1 0, 1 2 \\}, \\\\ \\{1 0, 1 3 \\} \\} \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_313_equation_6.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.46,
+            0.366,
+            0.604,
+            0.382
+          ],
+          "content": "L = \\{\\{2, 3 \\}, \\{3, 9 \\} \\}",
+          "image_source": "../../raw/pages_0289-0320/images/page_313_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**314**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.536
+          ],
+          "content": "Bei Kante {6,10} taucht zum ersten Mal ein Konflikt auf: Sie würde einen Zyklus (4,3,10,6) bewirken und ist daher **unzulässig**. Der Spannbaum wird mit gültigen Kanten gemäß der Reihenfolge aufsteigenden Gewichts vervollständigt."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "314"
+        }
+      ]
+    },
+    {
+      "page_idx": 314,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.319,
+            0.102
+          ],
+          "level": 2,
+          "content": "Laufzeitanalyse"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.426,
+            0.166
+          ],
+          "sub_type": "text",
+          "content": "• **Sortieren**: 𝒪ሺ 𝐸 log 𝐸 ሻ\n• while**‐Schleife**:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.197,
+            0.172,
+            0.442,
+            0.34
+          ],
+          "sub_type": "text",
+          "content": "– max. 𝐸 Durchläufe\n– Entnahme und Löschen von 𝑒: 𝒪ሺ1ሻ\n– Test auf Zyklus: bei Verwendung spezieller Datenstruktur („**union/find**“) praktisch in 𝒪ሺ1ሻ"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.345,
+            0.376,
+            0.384
+          ],
+          "content": "• **Gesamtlaufzeit**: 𝒪 𝐸 log 𝐸"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.447,
+            0.143,
+            0.839,
+            0.381
+          ],
+          "sub_type": "code",
+          "content": "```txt\nGraph MinSpanningTree(Graph G = (V,E))\n{\n    Graph T; List L; Edge e;\n\n    T = {};\n    L = Sort(E);\n\n    while (#Kanten in T < #Knoten in G - 1 &&\n        !IsEmpty(L)) {\n        e = FirstElem(L);\n        Delete(e, L);\n        if (!Cycle(e, T)) { T = T ∪ {e}; }\n    }\n\n    if (#Kanten in T < #Knoten in G - 1) {\n        printf(\"Fehler - kein Spannbaum möglich!\");\n    }\n\n    return T;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**315**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.78,
+            0.517
+          ],
+          "content": "Die Laufzeit wird dominiert durch den **Sortierschritt** zu Anfang, welcher bekanntlich O(N log N) bei N Objekten benötigt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.521,
+            0.795,
+            0.575
+          ],
+          "content": "Die while-Schleife benötigt tendenziell weniger Zeit, jedoch unter der Voraussetzung, dass eine effiziente Implementierung des **Zyklustest** erfolgt (“union/find”-Datenstruktur, hier nicht weiter erläutert)."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "315"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "Microsoft PowerPoint - GGI1_W26.pptx",
+      "authors": [
+        "gemmeke"
+      ],
+      "created_at": "2026-10-06T18:10:39+02:00",
+      "modified_at": "2026-10-06T18:10:39+02:00",
+      "creator_application": "PScript5.dll Version 5.2.2",
+      "producer_application": "Acrobat Distiller 20.0 (Windows)",
+      "page_count": 355,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 276,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 277,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 278,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 279,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 280,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 281,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 282,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 283,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 284,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 285,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 286,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 287,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 288,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 289,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 290,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 291,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 292,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 293,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 294,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 295,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 296,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 297,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 298,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 299,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 300,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 301,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 302,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 303,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 304,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 305,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 306,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 307,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 308,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 309,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 310,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 311,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 312,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 313,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 314,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

@@ -1,0 +1,4274 @@
+{
+  "pages": [
+    {
+      "page_idx": 315,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.238,
+            0.17,
+            0.761,
+            0.196
+          ],
+          "level": 2,
+          "content": "11. Techniken zum Algorithmenentwurf"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.257,
+            0.254,
+            0.542,
+            0.272
+          ],
+          "level": 2,
+          "content": "11.1 Rekursion und Iteration"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.278,
+            0.667,
+            0.391
+          ],
+          "sub_type": "text",
+          "content": "11.2 Backtracking\n11.3 Kombinatorische Optimierung\n11.4 Schwierige Probleme und Heuristiken\n11.5 Dynamische Programmierung\n11.6 Branch and Bound"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**316**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.845,
+            0.568
+          ],
+          "content": "In diesem Kapitel sollen einige **Grundrezepte** für den Algorithmenentwurf vorgestellt werden, welche sich häufig für eine gegebene neue Problemstellung abwandeln lassen, um so zu einer guten und/oder effizienten Lösung zu kommen. Aus Zeitgründen können diese „Programmierparadigmen“ natürlich hier nur ansatzweise behandelt werden."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "316"
+        }
+      ]
+    },
+    {
+      "page_idx": 316,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.398,
+            0.1
+          ],
+          "level": 2,
+          "content": "Rekursion und Iteration"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.124,
+            0.57,
+            0.143
+          ],
+          "content": "• **Rekursion**: lat. recurrere (zurücklaufen)"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.194,
+            0.148,
+            0.819,
+            0.278
+          ],
+          "sub_type": "text",
+          "content": "– Definition einer Funktion f mittels f selbst\n– Im Programm: Berechnung von f durch erneuten Aufruf von f (mit anderen Parametern)\n– Häufig elegante und kompakte Funktionsdefinition\n– Nachteile: Höherer Speicherbedarf durch Laufzeit‐Stack sowie evtl. Gefahr von Endlosschleifen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.285,
+            0.53,
+            0.303
+          ],
+          "content": "• **Iteration**: lat. iterare (wiederholen)"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.194,
+            0.308,
+            0.763,
+            0.395
+          ],
+          "sub_type": "text",
+          "content": "– Berechnung einer Funktion f durch einzelne Schritte auf bestimmter Datenstruktur\n– Typischerweise als Schleife (z.B. for) realisiert\n– Vor‐ und Nachteile komplementär zur Rekursion"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**317**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.83,
+            0.533
+          ],
+          "content": "**Rekursion** ist uns bereits an verschiedenen Stellen begegnet (siehe z.B. DFS-Durchlauf durch Graphen). Das Gegenstück dazu ist die **Iteration**, welche ohne einen Stack auskommt."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "317"
+        }
+      ]
+    },
+    {
+      "page_idx": 317,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.427,
+            0.101
+          ],
+          "level": 2,
+          "content": "Beispiel: Fakultätsfunktion"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.123,
+            0.484,
+            0.402
+          ],
+          "sub_type": "text",
+          "content": "• Siehe auch Kap. 3\n• 𝐟𝐚𝐜𝐭 𝒏 ൌ 𝟏 ൈ 𝟐 ൈ … ൈ 𝒏\nLaufzeit für beide Algorithmen 𝓞ሺ𝒏ሻ\nRekursive Variante ist **kompakter**\nWird mittels **Laufzeit‐Stack** abgearbeitet (s. Kap. 8)\nD.h. **Zusatzaufwand** für Stack‐Bereitstellung und „Aufräumen“\nDaneben: Compiler können Schleifen oft gut **optimieren**\nIterative Variante daher praktisch meist **schneller**"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.55,
+            0.133,
+            0.79,
+            0.267
+          ],
+          "sub_type": "code",
+          "content": "```c\nint factorial(int n)\n{\n    int i, fact;\n\n    fact = 1;\n    for (i = 2; i <= n; i++) {\n        fact *= i;\n    }\n\n    return fact;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.538,
+                0.112,
+                0.6,
+                0.125
+              ],
+              "content": "Iterativ"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.551,
+            0.322,
+            0.745,
+            0.407
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint factorial(int n)\n{\n    if (n <= 1)\n        return 1;\n    else return\n        n * factorial(n-1);\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.542,
+                0.293,
+                0.615,
+                0.307
+              ],
+              "content": "Rekursiv"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**318**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "318"
+        }
+      ]
+    },
+    {
+      "page_idx": 318,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.42,
+            0.101
+          ],
+          "level": 2,
+          "content": "Beispiel: Fibonacci‐Zahlen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.109,
+            0.66,
+            0.153
+          ],
+          "content": "für 𝑛 ൑ 1 für 𝑛 ൐ 1"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.163,
+            0.191,
+            0.726,
+            0.297
+          ],
+          "sub_type": "text",
+          "content": "• **Fibonacci‐Folge**: ሺ0, 1, 1, 2, 3, 5, 8, 13, 21, 34, … ሻ\n• Viele Anwendungen in der **Mathematik**\nAuch in der **Natur** zu beobachten\n• Siehe http://www.youtube.com/watch?v=iPKUe‐69PdA"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.599,
+            0.154,
+            0.854,
+            0.276
+          ],
+          "sub_type": "natural_image",
+          "content": "Close-up of a sunflower with yellow petals and green seedling, showing a bee pollinating the egg (no text or symbols visible)",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_318_image_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.195,
+            0.364,
+            0.384,
+            0.383
+          ],
+          "content": "**„Naive“ Rekursion:**"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.411,
+            0.327,
+            0.671,
+            0.416
+          ],
+          "sub_type": "code",
+          "content": "```lisp\nint fib(int n)\n{\n    if (n <= 1)\n        return 1;\n    else\n        return fib(n-1) + fib(n-2);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**319**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.847,
+            0.553
+          ],
+          "content": "Bei einer rekursiven Implementierung einer Funktion muss sorgfältig auf die **Laufzeit** geachtet werden, wofür die Folge der Fibonacci-Zahlen ein gutes Beispiel bildet. Jedes Folgeglied (bis auf die beiden ersten) ergibt sich als Summe der letzten beiden Folgeglieder."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.557,
+            0.833,
+            0.647
+          ],
+          "content": "Die hier gezeigte “naive” Rekursion ergibt sich unmittelbar aus der Definition, weist aber ein sehr schlechtes **Laufzeitverhalten** auf, da sehr viele redundante Berechnungen stattfinden: In der Berechnung von fib(n-1) ist ja die Berechnung von fib(n-2) bereits enthalten. Dies wird aber von der hier gezeigten Funktion nicht ausgenutzt."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "319"
+        }
+      ]
+    },
+    {
+      "page_idx": 319,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.319,
+            0.102
+          ],
+          "level": 2,
+          "content": "Laufzeitanalyse"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.159,
+            0.109,
+            0.808,
+            0.316
+          ],
+          "sub_type": "flowchart",
+          "content": "This flowchart illustrates a multi-branch data structure or neural network architecture with five fully connected nodes (fib(0) to fib(5)) and their corresponding outputs.",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_319_image_1.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.322,
+            0.77,
+            0.385
+          ],
+          "sub_type": "text",
+          "content": "• Aufruf von fib erfordert i.a. **zwei rekursive Aufrufe** von fib\n• Rekursionsbaum wächst **exponentiell**!\n• Zeitbedarf für Aufruf fib(n):"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.197,
+            0.388,
+            0.378,
+            0.408
+          ],
+          "content": "– 𝒪ሺ1ሻ für 𝑛 ൑ 1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.196,
+            0.41,
+            0.739,
+            0.429
+          ],
+          "content": "– Zeit für fib(n-1) + Zeit für fib(n-2) + 1 für Addition"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**320**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.838,
+            0.517
+          ],
+          "content": "Am **Rekursionsbaum** sieht man sehr gut, wie viele gleiche Teilbäume er enthält und damit wie viele redundante Berechnungen erfolgen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "320"
+        }
+      ]
+    },
+    {
+      "page_idx": 320,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.319,
+            0.102
+          ],
+          "level": 2,
+          "content": "Laufzeitanalyse"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.255,
+            0.167,
+            0.591,
+            0.183
+          ],
+          "content": "T (n) \\geq \\mathrm{fib} (n) = \\mathrm{fib} (n - 1) + \\mathrm{fib} (n - 2)",
+          "image_source": "../../raw/pages_0321-0352/images/page_320_equation_2.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.302,
+            0.185,
+            0.671,
+            0.351
+          ],
+          "content": "\\begin{array}{l} \\geq 2 \\times \\operatorname{fib} (n - 2) \\\\ = 2 \\times (\\text {fib} (n - 3) + \\text {fib} (n - 4)) \\\\ = 2 \\times \\mathrm{fib} (n - 3) + 2 \\times \\mathrm{fib} (n - 4) \\\\ \\geq 4 \\times \\operatorname{fib} (n - 4) \\\\ \\dots \\\\ \\geq 2 ^ {k - 1} \\times \\operatorname{fib} (n - 2 (k - 1)) [ \\text {setze} n = 2 k ] \\\\ = 2 ^ {k - 1} \\times \\operatorname{fib} (n - 2 (1 / _ {2} n - 1)) = 2 ^ {k - 1} \\times \\operatorname{fib} (2) \\\\ = 2 ^ {k - 1} \\\\ = 2 ^ {n / 2 - 1} = 1 / 2 \\times 2 ^ {n / 2} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0321-0352/images/page_320_equation_3.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.355,
+            0.751,
+            0.399
+          ],
+          "sub_type": "text",
+          "content": "• ${ \\mathsf { A l s o } } \\; T ( n ) \\; = \\; { \\mathcal { O } } ( 2 ^ { n } )$ (mindestens)\n• Zusätzlicher Overhead für **Stackverwaltung** (konst. Faktor)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**321**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.516
+          ],
+          "content": "Die Laufzeit T(n) zur Berechnung von fib(n) lässt sich aufgrund des o.g. Ansatzes **mit Hilfe der Fibonacci-Folge selbst** abschätzen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.521,
+            0.794,
+            0.557
+          ],
+          "content": "T(n) ist (wegen +1) sicher größer als fib(n). Da stets $\\mathrm{fitb(n-1)>fitb(n-2)}$ gilt, ergeben sich die weiteren hier gezeigten **Abschätzungen nach unten**."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.562,
+            0.838,
+            0.616
+          ],
+          "content": "In jedem Schritt verdoppelt sich der konstante Faktor $( 2 { , } 4 { , } 8 { , } 1 6 { , } \\ldots 2 ^ { \\mathrm { k - 1 } } )$ . Für 2k = n kann die Rekursion zurückgeführt werden auf fib(2) = 1. Somit ergibt sich die im vorherigen Bild angedeutete **exponentielle Laufzeit**."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "321"
+        }
+      ]
+    },
+    {
+      "page_idx": 321,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.569,
+            0.102
+          ],
+          "level": 2,
+          "content": "Iterative Berechnung der Fibonacci‐Folge"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.162,
+            0.124,
+            0.813,
+            0.185
+          ],
+          "sub_type": "text",
+          "content": "**Problem** der rekursiven Version: Bei Berechnung von fibሺ𝑛ሻ wird Teilfolge fibሺ𝑛 െ 2ሻ stets unnötig **doppelt** berechnet\n• **Iterative** Version:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.31,
+            0.192,
+            0.516,
+            0.371
+          ],
+          "sub_type": "code",
+          "content": "```c\nint fib(int n)\n{\n    int f1, f2, f;\n    if (n <= 1) return 1;\n\n    f1 = 1;\n    f2 = 0;\n    for (i=2; i<=n; i++) {\n        f = f1 + f2;\n        f2 = f1;\n        f1 = f;\n    }\n\n    return f;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.167,
+            0.38,
+            0.432,
+            0.424
+          ],
+          "sub_type": "text",
+          "content": "• Laufzeit 𝓞ሺ𝟏ሻ für 𝑛 ൑ 1\nLaufzeit 𝓞ሺ𝒏ሻ sonst"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**322**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.845,
+            0.516
+          ],
+          "content": "Die **iterative Version** vermeidet die Mehrfachberechnungen und berechnet fib(n) so in wesentlich kürzerer (nämlich linearer) Zeit."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.521,
+            0.781,
+            0.556
+          ],
+          "content": "Bei Bedarf noch etwas schneller geht es allerdings mittels der Formel von Moivre-Binet."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "322"
+        }
+      ]
+    },
+    {
+      "page_idx": 322,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.238,
+            0.17,
+            0.761,
+            0.196
+          ],
+          "level": 2,
+          "content": "11. Techniken zum Algorithmenentwurf"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.254,
+            0.668,
+            0.392
+          ],
+          "sub_type": "text",
+          "content": "11.1 Rekursion und Iteration\n11.3 Kombinatorische Optimierung\n11.4 Schwierige Probleme und Heuristiken\n11.5 Dynamische Programmierung\n11.6 Branch and Bound"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.258,
+            0.278,
+            0.434,
+            0.296
+          ],
+          "level": 2,
+          "content": "11.2 Backtracking"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**323**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "323"
+        }
+      ]
+    },
+    {
+      "page_idx": 323,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.294,
+            0.102
+          ],
+          "level": 2,
+          "content": "Backtracking"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.166,
+            0.111,
+            0.393,
+            0.151
+          ],
+          "sub_type": "text",
+          "content": "• „Rücksetzverfahren“\n• **Grundprinzip**:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.197,
+            0.155,
+            0.831,
+            0.233
+          ],
+          "sub_type": "text",
+          "content": "– Ausbau von Teillösung zu Gesamtlösung\n– „Raten“, falls Weg zur Gesamtlösung nicht feststeht\n– Rücknahme früherer Entscheidungen, falls keine Gesamtlösung erreichbar"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.166,
+            0.239,
+            0.337,
+            0.257
+          ],
+          "content": "• **Eigenschaften**:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.197,
+            0.26,
+            0.81,
+            0.318
+          ],
+          "sub_type": "text",
+          "content": "– Existierende Lösung wird garantiert gefunden, indem notfalls alle Möglichkeiten ausprobiert werden\n– Dieser Fall führt jedoch zu schlechtem Laufzeitverhalten"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.339,
+            0.28,
+            0.357
+          ],
+          "content": "Analogie:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.187,
+            0.369,
+            0.354,
+            0.418
+          ],
+          "sub_type": "text",
+          "content": "• DFS in Graphen\n• TL = Teillösung"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.456,
+            0.33,
+            0.71,
+            0.427
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  TL1[\"TL1\"] --> TL2[\"TL2\"]\n  TL1 --> TL3[\"TL3\"]\n  TL2 --> TL4[\"TL4\"]\n  TL2 --> TL5[\"TL5\"]\n  TL3 --> TL6[\"TL6\"]\n  TL3 --> TL7[\"TL7\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0321-0352/images/page_323_image_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**324**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.83,
+            0.586
+          ],
+          "content": "Beim Lösen eines komplexen Problems ist der Lösungsweg häufig nicht von vornherein klar. Es müssen daher Entscheidungen auf der Basis unvollständiger Information getroffen (d.h. es müssen Varianten “ausprobiert”) werden, um überhaupt bei der Lösung voranzukommen. Diese Entscheidungen können sich später als falsch herausstellen, so dass man auf einen früheren Punkt “**zurücksetzen**” muss."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.593,
+            0.842,
+            0.68
+          ],
+          "content": "Man kann dies vergleichen mit der Wegsuche in einem **Labyrinth**: Hat man von einem bestimmten Punkt A aus einen falschen Weg weiterverfolgt, so muss man zu A zurückgehen, und von dort aus Alternativen verfolgen. Führen alle Wege von A aus nicht zum Erfolg, so muss man zu einem noch früheren Rücksetzpunkt zurücklaufen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "324"
+        }
+      ]
+    },
+    {
+      "page_idx": 324,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.553,
+            0.101
+          ],
+          "level": 2,
+          "content": "Beispiel aus der technischen Informatik"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.111,
+            0.793,
+            0.265
+          ],
+          "sub_type": "text",
+          "content": "Schaltkreise für Boolesche Funktionen\n• **Boolesche Funktion** ist eine Abbildung $f :   \\{ 0 { , } 1 \\} ^ { 2 }   \\to   \\{ 0 { , } 1 \\}$\n• **Schaltkreis** = Hardware‐Implementierung einer Booleschen Funktion\nEinfache Funktionen $\\left( f : \\left\\{ 0 { , } 1 \\right\\} \\times \\left\\{ 0 { , } 1 \\right\\} \\rightarrow \\left\\{ 0 { , } 1 \\right\\} \\right)$ werden durch **Logikgatter** realisiert, z.B. AND, OR, NOR\n• Komplexe Funktionen durch **Zusammensetzen** von Gattern"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.219,
+            0.278,
+            0.361,
+            0.32
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0321-0352/images/page_324_image_7.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.226,
+            0.337,
+            0.361,
+            0.379
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0321-0352/images/page_324_image_8.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.226,
+            0.393,
+            0.361,
+            0.434
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0321-0352/images/page_324_image_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**325**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.823,
+            0.551
+          ],
+          "content": "**Boolesche Funktionen** bilden ein Grundkonzept in der technischen Informatik und werden in der Hardware durch **Schaltkreise** realisiert. Aus diesen Schaltkreisen lassen sich beliebig komplexe Funktionen (und letztlich ganze Computer) aufbauen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.557,
+            0.84,
+            0.629
+          ],
+          "content": "Das Grundelement eines Schaltkreises ist ein **logisches Gatter**. Dieses berechnet eine einfache Verknüpfung auf zwei Eingabebits, z.B. AND. Jede komplexe Funktion lässt sich auf einfache Gatterfunktionen zurückführen, bspw. kann eine bestimmte Anordnung von Gattern eine Addition von Binärzahlen durchführen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "325"
+        }
+      ]
+    },
+    {
+      "page_idx": 325,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.411,
+            0.1
+          ],
+          "level": 2,
+          "content": "Testen von Schaltkreisen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.121,
+            0.82,
+            0.234
+          ],
+          "sub_type": "text",
+          "content": "Bei der Herstellung von **integrierten Schaltkreisen** (integrated circuit, IC) als Silizium‐Chips können Fehler auftreten\n• **Fehlermodell**: eine beliebige Leitung im Schaltkreis ist (z.B. durch Kurzschluss) immer konstant 0 oder 1\n• Beispiel:"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.185,
+            0.253,
+            0.784,
+            0.419
+          ],
+          "sub_type": "text_image",
+          "content": "A\nB\nC\nD\nE\nF\nG\nH\nI\nJ\nJ immer = 1?\nf(A, ..., F)\nK\nK",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0321-0352/images/page_325_image_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**326**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.787,
+            0.534
+          ],
+          "content": "Leider können bei der Herstellung von Schaltkreisen **Produktionsfehler** vorkommen, die die Funktion beeinträchtigen. Daher muss jede integrierte Schaltung vor der Auslieferung **getestet** werden."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.539,
+            0.82,
+            0.629
+          ],
+          "content": "Da man in eine integrierte Schaltung (welche heute aus Millionen oder gar Milliarden von Transistoren besteht) nicht hineinschauen kann, muss man eine einfache **Annahme** treffen, welche Fehler vorliegen können. Z.B. kann man annehmen, dass es irgendwo ein fehlerhaftes Gatter gibt, welches immer eine Konstante (0 oder 1) statt der gewünschten Funktion berechnet."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.634,
+            0.833,
+            0.67
+          ],
+          "content": "Im **Beispiel** soll festgestellt werden, ob die Leitung J immer den Wert 1 hat, was auf einen Fehler hinweisen würde."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "326"
+        }
+      ]
+    },
+    {
+      "page_idx": 326,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.411,
+            0.1
+          ],
+          "level": 2,
+          "content": "Testen von Schaltkreisen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.119,
+            0.8,
+            0.244
+          ],
+          "sub_type": "text",
+          "content": "Nur **Ein‐ und Ausgänge** der Schaltung können gesetzt bzw. gemessen werden, jedoch keine internen Leitungen\n• Wie kann 𝑱 ൌ 𝟏 getestet werden?\nGeeigneten binären **Eingabevektor** (𝐴 െ 𝐹) wählen, so dass im korrekten Fall 𝐽 ൌ 0\n• Beobachten der **Ausgabe** 𝐿"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.162,
+            0.248,
+            0.775,
+            0.432
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  Input[\"Input Signal\"] --> A[\"A\"]\n  Input --> B[\"B\"]\n  Input --> C[\"C\"]\n  Input --> D[\"D\"]\n  Input --> E[\"E\"]\n  Input --> F[\"F\"]\n  A --> G[\"G\"]\n  B --> G\n  C --> H[\"H\"]\n  D --> H\n  E --> I[\"I\"]\n  F --> K[\"K\"]\n  G --> J[\"J\"]\n  H --> I\n  I --> J\n  J --> L[\"L\"]\n  K --> L\n  L --> Output[\"Output: Ausgang\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.151,
+                0.436,
+                0.172,
+                0.445
+              ],
+              "content": "327"
+            }
+          ],
+          "footnotes": [
+            {
+              "bbox": [
+                0.674,
+                0.438,
+                0.816,
+                0.447
+              ],
+              "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+            }
+          ],
+          "image_source": "../../raw/pages_0321-0352/images/page_326_image_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.848,
+            0.553
+          ],
+          "content": "Das Problem ist, dass auf die Leitung J **nicht direkt zugegriffen** werden kann. Man muss daher die Eingänge A-F geeignet mit 0en und 1en beschalten, um den Fehler beobachtbar zu machen. Außerdem muss der Wert von J durch das rechte Gatter geleitet werden, damit er letztlich auf der Ausgangsleitung L sichtbar wird."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "327"
+        }
+      ]
+    },
+    {
+      "page_idx": 327,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.486,
+            0.102
+          ],
+          "level": 2,
+          "content": "Bestimmung des Eingabevektors"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.121,
+            0.775,
+            0.264
+          ],
+          "sub_type": "text",
+          "content": "• Setze 𝑱 ൌ 𝟎, sonst Fehler nicht messbar\n$J = G   \\mathtt { N O R }   I , \\mathtt { a l s o \\: z . B . }   G = 1 , I = 1$\n$G = A   \\mathrm { A N D }   B ,   \\mathrm { a l s o }   A = 1 , B = 1$\n$I = H   \\mathtt { 0 R }   E ,   \\mathtt { a l s o \\: z . B . }   H = 1 , E = 0$\n$H = C \\mathrm { A N D }   D , \\mathrm { a l s o }   C = 1 , D = 1$\n• Dieser Vektor 𝐴 െ 𝐸 erzwingt 𝐽 ൌ 0, **falls Schaltkreis korrekt**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.199,
+            0.271,
+            0.745,
+            0.436
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"A\"] -->|1| B[\"B\"]\n  B -->|1| C[\"C\"]\n  C -->|1| D[\"D\"]\n  D -->|1| E[\"E\"]\n  E -->|0| F[\"F\"]\n  F -->|0| G[\"G\"]\n  G -->|1| H[\"H\"]\n  H --> I[\"I\"]\n  I -->|1| J[\"J\"]\n  J -->|0| K[\"K\"]\n  K --> L[\"L\"]\n  L --> M[\"M\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0321-0352/images/page_327_image_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**328**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.77,
+            0.516
+          ],
+          "content": "Folgende Schritte werden durchgeführt, um eine **korrekte Belegung** der Eingänge herbeizuführen:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.148,
+            0.521,
+            0.834,
+            0.668
+          ],
+          "sub_type": "text",
+          "content": "1. Es muss J = 0 erzwungen werden, da bei J = 1 der fehlerhafte Fall nicht vom fehlerfreien zu unterscheiden wäre.\n2. J ergibt sich als NOR-Funktion (“weder…noch”) von G und I. Daher führt $\\mathbf { z . B .   G } = 1$ und I = 1 zu J = 0.\n3. Für eine 1 auf Leitung G müssen A und B auf 1 gesetzt werden.\n4. Für eine 1 auf I müssen H oder E auf 1 gesetzt werden (oder beide).\n5. Für H = 1 müssen C und D auf 1 gesetzt werden."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.673,
+            0.804,
+            0.729
+          ],
+          "content": "Hiermit wird $\\mathbf { J } = 0$ im **fehlerfreien Fall** sichergestellt. Ob die Schaltung tatsächlich fehlerfrei ist, lässt sich jedoch erst feststellen, wenn Leitung J beobachtet werden kann. Dies kann nur indirekt über Leitung L erfolgen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "328"
+        }
+      ]
+    },
+    {
+      "page_idx": 328,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.423,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beobachtung der Ausgabe"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.123,
+            0.713,
+            0.264
+          ],
+          "sub_type": "text",
+          "content": "• 𝐾 ൌ 1 impliziert 𝐿 ൌ 1, unabhängig von 𝐽\n• Also 𝐾 ൌ 0 zu setzen\n• 𝐾 ൌ 𝐼 OR 𝐹, also 𝐹 ൌ 0, 𝐼 ൌ 0 (Widerspruch zu 𝐼 ൌ 1)\nBacktracking:\nDann ist 𝑳 ൌ 𝟎 ⇔ **Fehler** 𝑱 ൌ 𝟏 **liegt nicht vor**"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.206,
+            0.22,
+            0.419,
+            0.238
+          ],
+          "content": "I = 0, H = 0, C = 0",
+          "image_source": "../../raw/pages_0321-0352/images/page_328_equation_6.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.199,
+            0.271,
+            0.745,
+            0.436
+          ],
+          "sub_type": "text_image",
+          "content": "A\nB\nC\nD\nE\nF\n1\n1\nG 1\n1\n0\nJ\nI\n0\nK\n0\nL\nF",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0321-0352/images/page_328_image_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**329**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.841,
+            0.534
+          ],
+          "content": "Da L als OR-Funktion berechnet wird, darf K nicht gleich 1 sein, um den Wert von J auf L beobachtbar zu machen. Dies führt dann zu der Anforderung I = 0 im Widerspruch zu der früher gewählten Belegung."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.539,
+            0.803,
+            0.593
+          ],
+          "content": "An dieser Stelle wird also **Backtracking** erforderlich. Das Setzen von I = 0 erfordert Änderungen von H und C. Schießlich wird hiermit das gewünschte Ergebnis erzielt."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "329"
+        }
+      ]
+    },
+    {
+      "page_idx": 329,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.238,
+            0.17,
+            0.761,
+            0.196
+          ],
+          "level": 2,
+          "content": "11. Techniken zum Algorithmenentwurf"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.254,
+            0.668,
+            0.392
+          ],
+          "sub_type": "text",
+          "content": "11.1 Rekursion und Iteration\n11.2 Backtracking\n**11.3 Kombinatorische Optimierung**\n11.4 Schwierige Probleme und Heuristiken\n11.5 Dynamische Programmierung\n11.6 Branch and Bound"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**330**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "330"
+        }
+      ]
+    },
+    {
+      "page_idx": 330,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.462,
+            0.102
+          ],
+          "level": 2,
+          "content": "Kombinatorische Optimierung"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.8,
+            0.275
+          ],
+          "sub_type": "text",
+          "content": "Konstruktion einer **Lösung eines Problems** durch Auswahl einer **Teilmenge** einer **Menge von diskreten Elementen**\nJede gültige Lösung muss einer Menge von **Randbedingungen** genügen\n**Gesucht**: Lösung, die bzgl. einer **Zielfunktion** optimal ist (d.h. minimal oder maximal, je nach Problemstellung)\n• **Beispiel**: minimaler Spannbaum in einem Graphen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.197,
+            0.281,
+            0.527,
+            0.298
+          ],
+          "content": "– Menge der diskreten Elemente:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.235,
+            0.304,
+            0.391,
+            0.318
+          ],
+          "content": "• alle Graphkanten"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.197,
+            0.325,
+            0.371,
+            0.343
+          ],
+          "content": "– Gültige Lösung:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.235,
+            0.348,
+            0.583,
+            0.363
+          ],
+          "content": "• Alle Knoten werden genau einmal erfasst"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.235,
+            0.368,
+            0.551,
+            0.383
+          ],
+          "content": "• Zusammenhängend und keine Zyklen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.197,
+            0.389,
+            0.343,
+            0.405
+          ],
+          "content": "– Zielfunktion:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.235,
+            0.412,
+            0.537,
+            0.427
+          ],
+          "content": "• Summe der Kantengewichte → min"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**331**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.82,
+            0.553
+          ],
+          "content": "Die Lösung **kombinatorischer Optimierungsprobleme** gehört zu den häufigsten Anwendungen in der Informatik. Daher steht hierfür -je nach Schwierigkeitsgrad des Problems- eine Reihe von Algorithmen-Grundrezepten zur Verfügung."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.557,
+            0.825,
+            0.613
+          ],
+          "content": "**Beispiel**: Das Spannbaumproblem kann mittels eines Greedy-Verfahrens gelöst werden. Dies ist jedoch ein eher einfacher Fall. Die meisten wichtigen Optimierungsprobleme sind leider wesentlich schwieriger zu lösen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "331"
+        }
+      ]
+    },
+    {
+      "page_idx": 331,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.559,
+            0.102
+          ],
+          "level": 2,
+          "content": "Optimierung durch Greedy‐Algorithmen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.123,
+            0.528,
+            0.18
+          ],
+          "sub_type": "text",
+          "content": "• Greedy = gierig\nAusgehend von Teillösung wähle Fortsetzung, welche zum **aktuellen**"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.188,
+            0.182,
+            0.492,
+            0.217
+          ],
+          "level": 2,
+          "content": "Zeitpunkt den größten Gewinn verspricht"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.221,
+            0.333,
+            0.238
+          ],
+          "content": "Eigenschaften:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.197,
+            0.243,
+            0.486,
+            0.3
+          ],
+          "sub_type": "text",
+          "content": "– Meist **geringe Laufzeit**\n– Optimale Lösung evtl. **nicht gefunden**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.305,
+            0.478,
+            0.323
+          ],
+          "content": "Beispiel: **Kruskal‐Algorithmus**"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.197,
+            0.327,
+            0.511,
+            0.407
+          ],
+          "sub_type": "text",
+          "content": "– Greedy: wähle stets nächstbilligste Kante\n– Laufzeit 𝒪ሺ 𝐸 log 𝐸 ሻ\n– Optimum garantiert gefunden"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.518,
+            0.188,
+            0.845,
+            0.379
+          ],
+          "sub_type": "code",
+          "content": "```txt\nGraph MinSpanningTree(Graph G = (V,E))\n{\n    Graph T; List L; Edge e;\n\n    T = {};\n    L = Sort(E);\n\n    while (#Kanten in T < #Knoten in G-1\n        && !IsEmpty(L)) {\n        e = FirstElem(L);\n        Delete(e,L);\n        if (!Cycle(e,T)) {\n            T = T ∪ {e};\n        }\n    }\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**332**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.812,
+            0.552
+          ],
+          "content": "Wie bereits erwähnt, ist der Kruskal-Algorithmus nicht unbedingt typisch für Greedy-Algorithmen, da er das Optimum garantiert immer findet. Oft werden **Greedy-Heuristiken** eingesetzt, welche nur näherungsweise zum Optimum führen, aber dafür stets sehr effizient sind."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "332"
+        }
+      ]
+    },
+    {
+      "page_idx": 332,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.473,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiel: Münzwechselproblem"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.123,
+            0.567,
+            0.438
+          ],
+          "sub_type": "text",
+          "content": "• Landeswährung enthält Münzen zu $\\pmb { n } _ { 1 } , \\dots , \\pmb { n } _ { k }$ **Einheiten**\n$n _ { 1 } > n _ { 2 }   \\ldots   > n _ { k }$\n$\\operatorname { \\mathsf { S t e t s } } \\pmb { n } _ { \\pmb { k } } = \\pmb { 1 } ,$ , sonst nicht alle Beträge wechselbar\n• Z.B. **Euro/Cent**:\n**Problem**: Auszahlung von Betrag 𝑁 mit verfügbaren Münzen\n• **Diskrete Elemente**: Münzen\n**Gültige Lösung**: Menge von Münzen mit Gesamtwert 𝑁\n• **Zielfunktion**: möglichst wenige Münzen verwenden"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**333**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.581,
+            0.147,
+            0.818,
+            0.283
+          ],
+          "sub_type": "natural_image",
+          "content": "Collection of scattered Euro and Italian coins on a white background (no text or symbols visible)",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0321-0352/images/page_332_image_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.845,
+            0.57
+          ],
+          "content": "Das **Münzwechselproblem** ist ebenfalls ein gutes Beispiel für die Anwendung von Greedy-Algorithmen. Möchte man einen gewissen Betrag auszahlen, so wird man dies i.d.R. mit einer minimalen Anzahl von Münzen tun wollen. Bei einer “gut entworfenen” Stückelung der Münzen führt das Greedy-Verfahren zum Erfolg."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "333"
+        }
+      ]
+    },
+    {
+      "page_idx": 333,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.367,
+            0.102
+          ],
+          "level": 2,
+          "content": "Greedy‐Algorithmus"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.112,
+            0.811,
+            0.244
+          ],
+          "sub_type": "text",
+          "content": "• **Strategie**: immer möglichst viele „große“ Münzen wählen, bevor man zu „kleineren“ greift\n„Untere Gaußklammerfunktion“: 𝐟𝐥𝐨𝐨𝐫ሺ𝒙ሻ = größte ganze Zahl, die nicht größer ist als 𝑥\n• Führt bei „guten“ Stückelungen immer zum **Optimum**\n• **Schlechte Stückelung**: z.B. $n _ { 1 } = 2 n _ { 2 } + 1 , \\quad n _ { 2 } > 1 , \\quad n _ { 3 } = 1$"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.206,
+            0.283,
+            0.436,
+            0.432
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid change(int N)\n{\n    int W, i;\n\n    W = N;\n    for (i=1; i<=k; i++) {\n        f = floor(W/n_i);\n        wähle f Münzen\n        der Einheit n_i;\n        W -= n_i * f;\n    }\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.219,
+                0.262,
+                0.383,
+                0.276
+              ],
+              "content": "Greedy‐Münzwechsel"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.497,
+            0.292,
+            0.785,
+            0.421
+          ],
+          "sub_type": "algorithm",
+          "content": "z.B. $n_2 = 10$, $N = 30$, $n_1 = 21$\n1 Münze zu Wert 21\ndann $W = 30 - 21 = 9$\n9 Münzen zu Wert 1\nZusammen 10 Münzen\nAusreichend wären 3 Münzen Wert 10",
+          "captions": [
+            {
+              "bbox": [
+                0.548,
+                0.261,
+                0.768,
+                0.277
+              ],
+              "content": "Schlechter Fall, z.B. 𝑁 ൌ 3𝑛<sub>ଶ</sub>"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**334**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.479,
+            0.806,
+            0.516
+          ],
+          "content": "**Übung**: Man entwerfe einen Algorithmus, welcher auch bei der “schlechten” Stückelung die minimale Anzahl von Münzen ermittelt."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "334"
+        }
+      ]
+    },
+    {
+      "page_idx": 334,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.238,
+            0.17,
+            0.761,
+            0.196
+          ],
+          "level": 2,
+          "content": "11. Techniken zum Algorithmenentwurf"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.254,
+            0.675,
+            0.392
+          ],
+          "sub_type": "text",
+          "content": "11.1 Rekursion und Iteration\n11.2 Backtracking\n11.3 Kombinatorische Optimierung\n**11.4 Schwierige Probleme und Heuristiken**\n11.5 Dynamische Programmierung\n11.6 Branch and Bound"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**335**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "335"
+        }
+      ]
+    },
+    {
+      "page_idx": 335,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.577,
+            0.102
+          ],
+          "level": 2,
+          "content": "Komplexität von Optimierungsproblemen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.834,
+            0.299
+          ],
+          "sub_type": "text",
+          "content": "Für viele wichtige kombinatorische Optimierungsprobleme ist bekannt, dass sie **nicht in akzeptabler Zeit optimal lösbar** sind, da ihre Laufzeit (höchstwahrscheinlich) mindestens in 𝒪ሺ2௡ሻ liegt\nSog. **NP‐vollständige** Probleme\n**Rechenbeispiel**: Problemgröße 𝑛 ൌ 64, schneller Rechner führt 2<sup>32</sup> Operationen/sec aus\n**Rechenzeit**: 2<sup>32</sup> sec ≈ 136 Jahre\n• **Prinzipielle Möglichkeiten**:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.196,
+            0.304,
+            0.834,
+            0.392
+          ],
+          "sub_type": "text",
+          "content": "1. Optimale Lösung (brute force) für kleine Werte von n\n2. Optimale Lösung, und dafür sorgen, dass worst case möglichst selten eintritt\n3. Gute, aber nicht notwendig optimale Lösung berechnen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**336**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.825,
+            0.57
+          ],
+          "content": "Intuitiv bedeutet der Begriff “**NP-vollständig**”, dass es einen nichtdeterministischen Algorithmus gibt (d.h. einen der “richtig raten” kann), welcher das Problem effizient (in O(n<sup>k</sup>)) löst. Ob es auch einen entsprechenden deterministischen (und damit auch praktisch implementierbaren) Algorithmus gibt, ist allerdings unbekannt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.575,
+            0.825,
+            0.663
+          ],
+          "content": "Sehr viele wichtige Optimierungsprobleme fallen in die Kategorie der NP-vollständigen Probleme. Ob diese überhaupt effizient lösbar sind, ist eins der größten offenen Probleme der theoretischen Informatik (**P = NP Problem**). Es wird jedoch allgemein vermutet, dass NP-vollständige Probleme nicht effizient lösbar sind."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.669,
+            0.838,
+            0.777
+          ],
+          "content": "Ob ein Problem NP-vollständig ist oder nicht, lässt sich mathematisch oft relativ einfach zeigen. Die Einstufung eines Problems kann somit Auskunft geben, ob die Suche nach einem effizienten Algorithmus überhaupt sinnvoll ist. In der Tat wäre das Auffinden eines solchen Algorithmus für ein NP-vollständiges Problem eine Sensation, denn dieser Algorithmus könnte dann **alle anderen NP-vollständigen** Probleme ebenfalls effizient lösen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "336"
+        }
+      ]
+    },
+    {
+      "page_idx": 336,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.524,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiele NP‐vollständiger Probleme"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.163,
+            0.123,
+            0.473,
+            0.141
+          ],
+          "level": 2,
+          "content": "• Traveling salesman problem:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.194,
+            0.145,
+            0.571,
+            0.22
+          ],
+          "sub_type": "text",
+          "content": "– Modell: Graph mit Kantengewichten\n– Gesucht: Kürzester Rundweg (Zyklus), der alle Knoten genau einmal enthält"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.163,
+            0.225,
+            0.346,
+            0.243
+          ],
+          "level": 2,
+          "content": "• Graph‐Färbung:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.195,
+            0.247,
+            0.543,
+            0.34
+          ],
+          "sub_type": "text",
+          "content": "– Modell: ungerichteter Graph\n– Gesucht: Färbung der Knoten mit min. Anzahl Farben, so dass benachbarte Knoten unterschiedliche Farben haben"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.163,
+            0.345,
+            0.55,
+            0.361
+          ],
+          "level": 2,
+          "content": "• Erfüllbarkeit Boolescher Funktionen:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.195,
+            0.367,
+            0.579,
+            0.403
+          ],
+          "content": "– Gibt es für Funktion 𝑓 eine Eingabe 𝑥 mit 𝑓ሺ𝑥ሻ ൌ 1?"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.587,
+            0.148,
+            0.833,
+            0.334
+          ],
+          "sub_type": "text_image",
+          "content": "North Sea\nBremenhaven\nEmden\nDeuishurg\nEssen\nDüsseldorf\nKöln\nBenn\nFrankfurt\nam Main\nWiesbaden\nMannheim\nKatsruhe\nStuttgart\nMünchen\nZugspitze\nNiederland\nKiel\nLubeck\nHamburg\nBremen\nHannoverz\nBerlin\nMagdeburg\nLeipzig\nDresden\nRostock\nPOL.\nCZECH REPUBLIC\nAUSTRIA\nSWITZ.\nLIECH.\n54\n54\n51\n48\n48\n0 50 100 km\n0 50 100 ml",
+          "captions": [
+            {
+              "bbox": [
+                0.587,
+                0.342,
+                0.801,
+                0.402
+              ],
+              "content": "Kürzester Rundweg über die 15 größten Städte Deutschlands (von > 43 \\* 10<sup>9</sup> möglichen)   [Wikipedia]"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0321-0352/images/page_336_image_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**337**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.834,
+            0.553
+          ],
+          "content": "Hier sind nur drei von **tausenden** bereits als NP-vollständig nachgewiesenen Problem aufgeführt. Einige davon sind eher exotisch, aber sehr viele haben Anwendungen in der täglichen Praxis. Daher sind Lösungsverfahren hierfür von großem Interesse."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "337"
+        }
+      ]
+    },
+    {
+      "page_idx": 337,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.577,
+            0.102
+          ],
+          "level": 2,
+          "content": "Komplexität von Optimierungsproblemen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.677,
+            0.165
+          ],
+          "sub_type": "text",
+          "content": "• Zur Kategorie 3 gehören **heuristische Algorithmen**\n• **Heuristik**:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.194,
+            0.172,
+            0.794,
+            0.306
+          ],
+          "sub_type": "text",
+          "content": "– Kompromiss zwischen Rechenaufwand und Lösungsqualität\n– Basierend auf **problemspezifischem Wissen** und „Daumenregeln\n– **Greedy‐Algorithmen** sind oft Heuristiken\n– Gewünscht: möglichst oft sehr gute Lösung\n– **Nachteil**: Lösung kann auch beliebig schlecht sein"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.313,
+            0.663,
+            0.331
+          ],
+          "content": "Außerdem möglich: **Approximationsalgorithmen**"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.194,
+            0.336,
+            0.813,
+            0.399
+          ],
+          "sub_type": "text",
+          "content": "– Garantie, dass Lösungsqualität nicht um mehr als bestimmten Faktor vom Optimum abweicht\n– Faktor = „**Güte**“ des Approximationsalgorithmus"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**338**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.828,
+            0.551
+          ],
+          "content": "Die Kunst beim Entwurf von **Heuristiken** besteht darin, mit einem effizienten Algorithmus möglichst oft und möglichst gut an das Optimum heranzukommen und dabei das Vorkommen von “Ausreißern” mit sehr schlechter Lösung zu minimieren."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.557,
+            0.811,
+            0.61
+          ],
+          "content": "Bei **Approximationsalgorithmen** gibt es keine Ausreißer, denn man kann nachweisen, dass eine bestimmte Güte nie unterschritten wird. Eine Heuristik kann in der Praxis natürlich oft wesentlich bessere Dienste leisten."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.616,
+            0.813,
+            0.67
+          ],
+          "content": "Man sieht, dass es bei der Auswahl eines Lösungsverfahrens außer auf das Problem selbst auch auf die konkreten Anforderungen an die Laufzeit und die Lösungsqualität ankommt."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "338"
+        }
+      ]
+    },
+    {
+      "page_idx": 338,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.372,
+            0.101
+          ],
+          "level": 2,
+          "content": "Beispiel für Heuristik"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.763,
+            0.234
+          ],
+          "sub_type": "text",
+          "content": "**Gegeben**: kantengewichteter **vollständiger**\nGraph $G = ( V , E , w )$ , d.h. für alle Knoten 𝑢, 𝑣 gilt $\\{ u , v \\} \\in E$\n• **Gesucht**: Pfad $P \\; = \\; ( v _ { 1 } , \\ldots , v _ { n } )$ in $G _ { \\perp }$ der\n– jeden Knoten in 𝑉 genau einmal enthält und\n– eine maximale Kantengewichtssumme besitzt"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.24,
+            0.692,
+            0.259
+          ],
+          "content": "• Vergleiche minimaler (bzw. maximaler) Spannbaum:"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.149,
+            0.293,
+            0.825,
+            0.449
+          ],
+          "sub_type": "flowchart",
+          "content": "This diagram illustrates a hierarchical tree structure transformation, showing how multiple nodes (labeled 1-5) are grouped and then connected to form a single node.",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0321-0352/images/page_338_image_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.836,
+            0.515
+          ],
+          "content": "Bei einem **vollständigen Graphen** sind alle Knoten paarweise durch eine Kante verbunden."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "339"
+        }
+      ]
+    },
+    {
+      "page_idx": 339,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.424,
+            0.101
+          ],
+          "level": 2,
+          "content": "Maximal gewichteter Pfad"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.113,
+            0.793,
+            0.29
+          ],
+          "sub_type": "text",
+          "content": "• Man kann zeigen: Problem ist **NP‐vollständig**\n• Ausnutzung der **Ähnlichkeit** zum Spannbaumproblem\n– Pfad = „entarteter“ (d.h. linearer) Spannbaum\n– Modifikation des **Kruskal‐Algorithmus**: nächste Kante 𝑒 nur gültig, falls\n• Kein Zyklus entsteht\n• **Keine Verzweigungen** entstehen (d.h. kein „echter“ Baum)\n– Erzeugt heuristisch **gute Lösungen** in kurzer Zeit"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.149,
+            0.294,
+            0.849,
+            0.449
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Node 0\"] --> B[\"Central Node\"]\n  B --> C[\"Final Network Structure\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0321-0352/images/page_339_image_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.819,
+            0.553
+          ],
+          "content": "Der linke Graph ist zeichnerisch **kein vollständiger Graph** (da er sonst zu unübersichtlich würde), man kann jedoch voraussetzen, dass alle nicht explizit gezeigten Kanten das Gewicht 0 haben, und somit nichts zum Gewicht des gesuchten Pfades beitragen könnten."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.557,
+            0.844,
+            0.665
+          ],
+          "content": "Man beachte, dass durch die **Abwandlung des Kruskal-Algorithmus** (d.h. Hinzunahme des Tests auf Verzweigungen) aus einem optimalen Algorithmus eine echte Heuristik wird, d.h. es entstehen nicht immer optimale Lösungen. Dies folgt schon allein aus der Tatsache, dass der Kruskal-Algorithmus eine Laufzeit von O(N log N) (N = Anzahl der Graphkanten, s.o.) hat. Mit dieser Laufzeit kann offenbar kein NP-vollständiges Problem optimal gelöst werden."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "340"
+        }
+      ]
+    },
+    {
+      "page_idx": 340,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.238,
+            0.17,
+            0.761,
+            0.196
+          ],
+          "level": 2,
+          "content": "11. Techniken zum Algorithmenentwurf"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.254,
+            0.668,
+            0.392
+          ],
+          "sub_type": "text",
+          "content": "11.1 Rekursion und Iteration\n11.2 Backtracking\n11.3 Kombinatorische Optimierung\n11.4 Schwierige Probleme und Heuristiken\n**11.5 Dynamische Programmierung**\n11.6 Branch and Bound"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**341**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "341"
+        }
+      ]
+    },
+    {
+      "page_idx": 341,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.459,
+            0.102
+          ],
+          "level": 2,
+          "content": "Dynamische Programmierung"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.124,
+            0.757,
+            0.163
+          ],
+          "content": "**Effizientes exaktes Lösen** von Optimierungsproblemen mit folgender Eigenschaft:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.195,
+            0.168,
+            0.802,
+            0.208
+          ],
+          "content": "– Die optimale Lösung des Gesamtproblems kann effizient aus **optimalen Lösungen von Teilproblemen** berechnet werden"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.213,
+            0.491,
+            0.231
+          ],
+          "content": "• Beispiel aus dem **Compilerbau**:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.196,
+            0.237,
+            0.827,
+            0.378
+          ],
+          "sub_type": "text",
+          "content": "– Rechner besitzt elementare **Maschinenbefehle** (Assemblerbefehle, s. Kap. 1), z.B. Addition oder Multiplikation zweier Zahlen\n– **Optimale Befehlsauswahl**: Wie kann ein komplexer arithmetischer Ausdruck in der Programmiersprache C am schnellsten mit den verfügbaren Assemblerbefehlen berechnet werden?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**342**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.849,
+            0.606
+          ],
+          "content": "Die **Befehlsauswahl** ist ein zentraler Teil eines Compiler-Backends, welches den zielprozessorspezifischen Teil eines Compilers darstellt. Das Problem kann als ein **Muster-Überdeckungsproblem** aufgefasst werden. Der arithmetische Ausdruck kann als Baum dargestellt werden, und die einzelnen Maschinenbefehle entsprechen ebenfalls kleinen baumförmigen Mustern. Die Befehlsauswahl besteht darin, den Ausdrucksbaum möglichst effizient (d.h. mit wenigen oder “billigen” Befehlsmustern) zu überdecken."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "342"
+        }
+      ]
+    },
+    {
+      "page_idx": 342,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.409,
+            0.101
+          ],
+          "level": 2,
+          "content": "Beispiel: Befehlsauswahl"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.157,
+            0.122,
+            0.486,
+            0.161
+          ],
+          "sub_type": "text",
+          "content": "• Ausdruck: (a \\* b) + (c \\* d)\n• Befehle:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.19,
+            0.167,
+            0.292,
+            0.182
+          ],
+          "content": "– Modell:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.227,
+            0.187,
+            0.641,
+            0.267
+          ],
+          "sub_type": "text",
+          "content": "• Rechner lädt Variablen (var) aus dem Speicher (load) und speichert Werte in Registern (r1, r2, r3)\n• Jeder Befehl besitzt ein Kostenmaß (z.B. Zeit zur Ausführung)"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.191,
+            0.27,
+            0.643,
+            0.376
+          ],
+          "sub_type": "text",
+          "content": "– load: r1 = var, Kosten 1\n– add: r1 = +(r1,r2), Kosten 2\n– mul: r1 = \\*(r1,r2), Kosten 2\n– copy: ri = rj, Kosten 1\n– muladd: r1 = +(\\*(r1,r2),r3), Kosten 3"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**343**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.597,
+            0.125,
+            0.848,
+            0.245
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"var\"] --> B[\"*\"]\n  C[\"var\"] --> B\n  D[\"var\"] --> E[\"*\"]\n  F[\"var\"] --> E\n  B --> G[\"+\"]\n  E --> G\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.699,
+                0.254,
+                0.774,
+                0.266
+              ],
+              "content": "Abstrakte"
+            },
+            {
+              "bbox": [
+                0.699,
+                0.269,
+                0.815,
+                0.282
+              ],
+              "content": "Darstellung des"
+            },
+            {
+              "bbox": [
+                0.699,
+                0.285,
+                0.802,
+                0.296
+              ],
+              "content": "Ausdrucks als"
+            },
+            {
+              "bbox": [
+                0.7,
+                0.3,
+                0.745,
+                0.311
+              ],
+              "content": "Baum"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0321-0352/images/page_342_image_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.843,
+            0.553
+          ],
+          "content": "In diesem Beispiel stehen sechs Maschinenbefehle zur Verfügung. Eine **optimale Befehlsauswahl** wird versuchen, den muladd-Befehl zu bevorzugen, da er eine Überdeckung von + und \\* mit Kosten 3 erlaubt (statt insges. 4 bei getrennter Überdeckung mittels add und mul)."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "343"
+        }
+      ]
+    },
+    {
+      "page_idx": 343,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.409,
+            0.101
+          ],
+          "level": 2,
+          "content": "Beispiel: Befehlsauswahl"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.164,
+            0.116,
+            0.264,
+            0.131
+          ],
+          "level": 2,
+          "content": "• Ansatz:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.197,
+            0.137,
+            0.517,
+            0.265
+          ],
+          "sub_type": "text",
+          "content": "– Ausdrucksbaum mit möglichst „billiger“ Menge von Befehlen überdecken\n– Lösung für den gesamten Ausdrucksbaum aus optimalen Lösungen für seine Teilbäume bestimmen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.164,
+            0.271,
+            0.465,
+            0.288
+          ],
+          "level": 2,
+          "content": "• Für jeden Teilbaum merken:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.197,
+            0.293,
+            0.581,
+            0.425
+          ],
+          "sub_type": "text",
+          "content": "– Welcher Befehl an dessen Wurzel passt $(z.B. ,,+ ''$ mittels „add“ zu überdecken, $v ^ { \\star ^ { \\prime \\prime } }$ mittels $, \\mathsf { m u l }   ^ { \\prime \\prime } )$\n– In welchem Register das Ergebnis des Teilbaums gespeichert wird\n– Welche Gesamtkosten hierbei entstehen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**344**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.577,
+            0.113,
+            0.843,
+            0.269
+          ],
+          "sub_type": "flowchart",
+          "content": "This diagram illustrates a system process involving multiple variables (var) and operations such as loading, multiplication, addition, and multiplication add.",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0321-0352/images/page_343_image_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.593,
+            0.288,
+            0.688,
+            0.3
+          ],
+          "content": "var**‐Knoten:**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.593,
+            0.309,
+            0.78,
+            0.324
+          ],
+          "content": "**Überdeckung mit „**load“"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.593,
+            0.332,
+            0.809,
+            0.347
+          ],
+          "content": "**Ergebnis dann in Register** r1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.593,
+            0.355,
+            0.664,
+            0.367
+          ],
+          "content": "**Kosten: 1**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.593,
+            0.376,
+            0.846,
+            0.392
+          ],
+          "content": "**Überdeckung mit „**copy r1, $r 2 ^ { n }$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.593,
+            0.399,
+            0.809,
+            0.414
+          ],
+          "content": "**Ergebnis dann in Register** r2"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.593,
+            0.422,
+            0.664,
+            0.434
+          ],
+          "content": "**Kosten: 2**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.439,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.586
+          ],
+          "content": "Aufgrund der Baumstruktur ist das Problem der Befehlsauswahl sehr gut für die **dynamische Programmierung** zugänglich. Die optimale Auswahl für jeden Knoten k hängt nämlich nicht vom gesamten Restbaum ab, sondern nur von der optimalen Auswahl für die Kinder von k. Diese lokal optimalen Lösungen können dann zu einer Gesamtlösung des bei k beginnenden Teilbaums zusammengesetzt werden."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "344"
+        }
+      ]
+    },
+    {
+      "page_idx": 344,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.409,
+            0.101
+          ],
+          "level": 2,
+          "content": "Beispiel: Befehlsauswahl"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.148,
+            0.131,
+            0.827,
+            0.35
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"load: r1,1\\ncopy: r1,r2,2\\ncopy: r3,r2,2\"] --> B[\"mul: r1,r2,1+2+2=5\\ncopy: r1,r2,5+1=6\\ncopy: r1,r3,5+1=6\"]\n  C[\"load: r1,1\\ncopy: r1,r2,2\\ncopy: r1,r3,2\"] --> B\n  D[\"load: r1,1\\ncopy: r1,r2,2\\ncopy: r1,r3,2\"] --> E[\"mul: r1,r2,1+2+2=5\\ncopy: r2, 5+1=6\\ncopy: r3, 5+1=6\"]\n  F[\"load: r1,1\\ncopy: r1,r2,2\\ncopy: r1,r3,2\"] --> E\n  G[\"add: r1, 5+6+1+2=14\\nmuladd: r1, 1+2+6+3=12\"] --> H[\"Billigste Lösung\"]\n  style A fill:#f9f9f9,color:white\n  style C fill:#f9f9f9,color:white\n  style D fill:#f9f9f9,color:white\n  style F fill:#f9f9f9,color:white\n  style G fill:#f9f9f9,color:white\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.23,
+                0.111,
+                0.489,
+                0.127
+              ],
+              "content": "Überdeckung des Ausdrucksbaums"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0321-0352/images/page_344_image_2.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.357,
+            0.66,
+            0.419
+          ],
+          "sub_type": "text",
+          "content": "Aus dieser Lösung kann die **optimale Assembler‐Befehlsfolge** unmittelbar konstruiert werden\n• **Laufzeit**: 𝒪ሺ𝑛ሻ bei n Baumknoten"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**345**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.479,
+            0.848,
+            0.587
+          ],
+          "content": "**Überdeckung der var-Knoten**: Ein load-Befehl sorgt dafür, dass die Variable var in Register r1 geladen wird. Die Kosten hierfür betragen 1. Mittels copy kann der Wert von var auch zusätzlich noch von r1 in ein anderes Register kopiert werden (bspw. r2 oder r3), wofür eine zusätzliche Kosteneinheit anfällt, also insges. 2. Diese Information ist identisch für alle 4 var-Knoten und wird als Tabelle am jeweiligen var-Knoten vermerkt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.592,
+            0.85,
+            0.718
+          ],
+          "content": "**Überdeckung der \\*-Knoten**: Hierfür ist der mul-Befehl geeignet. Er erfordert, dass das linke Argument sich in r1 befindet und das rechte inr2. Die Kosten hierfür sind bereits aus den darüberliegenden Tabellen bekannt: 1 bzw. 2, zusammen 3. Mit den Kosten für mul selbst (2) ergeben sich also Gesamtkosten 5, um das Ergebnis eines bei \\* beginnenden Teilbaums in r1 abzuspeichern. Zusätzlich kann wie oben der Wert nach r2 oder r3 kopiert werden, wofür wieder je eine zusätzliche Kosteneinheit anfällt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.722,
+            0.842,
+            0.832
+          ],
+          "content": "**Überdeckung des +-Knotens**: Hierfür kann der add-Befehl eingesetzt werden. Er erfordert, dass das linke Argument sich in r1 befindet und das rechte in r2. Die Kosten hierfür sind bereits aus den darüberliegenden Tabellen bekannt: 5 bzw. 6, zusammen 11. Mit den Kosten für add selbst (2) ergeben sich also Gesamtkosten 13, um das Ergebnis eines bei + beginnenden Teilbaums in r1 abzuspeichern. Billiger geht es mit dem muladd-Befehl, bei dem sich Gesamtkosten 12 ergeben."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "345"
+        }
+      ]
+    },
+    {
+      "page_idx": 345,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.238,
+            0.17,
+            0.761,
+            0.196
+          ],
+          "level": 2,
+          "content": "11. Techniken zum Algorithmenentwurf"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.254,
+            0.668,
+            0.392
+          ],
+          "sub_type": "text",
+          "content": "11.1 Rekursion und Iteration\n11.2 Backtracking\n11.3 Kombinatorische Optimierung\n11.4 Schwierige Probleme und Heuristiken\n11.5 Dynamische Programmierung\n**11.6 Branch and Bound**"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "346"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "346"
+        }
+      ]
+    },
+    {
+      "page_idx": 346,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.347,
+            0.1
+          ],
+          "level": 2,
+          "content": "Branch and Bound"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.122,
+            0.81,
+            0.429
+          ],
+          "sub_type": "text",
+          "content": "• „Verzweigung und Schranke“\n**Exaktes Lösen** schwieriger (NP‐vollständiger) Optimierungsprobleme\n• **Idee**:\n– Lösen eines „schwierigen“ kombinatorischen Optimierungsproblems entspricht Durchlauf eines **Entscheidungsbaumes**\n– Entscheidungsbaum typischerweise **exponentiell groß**\n– „**Beschneidung**“ des Baumes verringert Laufzeit ohne Verlust an Optimalität\nÄhnliches Konzept auch bei **Spielbäumen** (TicTacToe, Dame, Schach, …)\n**Charakteristik**:\n– Im worst case exponentielle Laufzeit\n– Im average case wesentlich schneller"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**347**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.845,
+            0.553
+          ],
+          "content": "**Branch and Bound** ist ein sehr elegantes Verfahren zum Lösen NP-vollständiger Optimerungsprobleme. Durch eine geschickte Beschneidung des Lösungsraumes (d.h. Weglassen von Lösungen, welche sowieso nicht zum Optimum führen können) kann erheblich Zeit eingespart werden."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.557,
+            0.849,
+            0.647
+          ],
+          "content": "Bei einem kombinatorischen Optimierungsproblem müssen fortlaufend **Entscheidungen** getroffen werden, z.B. mit welchem Wert eine bestimmte Variable zu belegen ist. Die Suche kann als Baumstruktur aufgefasst werden: Jede Entscheidung entspricht einem Baumknoten, und bei N alternativen Möglichkeiten hat der Knoten N Nachfolger."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.652,
+            0.823,
+            0.743
+          ],
+          "content": "Branch and Bound nutzt nun aus, dass nicht alle (normalerweise exponentiell vielen) Nachfolger weiterverfolgt werden müssen, um das Optimum zu finden, sondern man versucht, die erfolgversprechendsten Wege zuerst zu verfolgen. Leider gelingt das nicht immer, und im **worst case** muss doch der ganze Entscheidungsbaum abgesucht werden."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "347"
+        }
+      ]
+    },
+    {
+      "page_idx": 347,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.365,
+            0.102
+          ],
+          "level": 2,
+          "content": "Entscheidungsbaum"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.159,
+            0.114,
+            0.83,
+            0.174
+          ],
+          "sub_type": "text",
+          "content": "Annahme: Vektor $V = ( x _ { 1 } , \\ldots , x _ { n } )$ von 0/1‐Variablen so zu wählen, dass eine Kostenfunktion $f ( V )$ minimiert wird\n• **Entscheidungsbaum**: Festlegen jeweils einer Variable"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.176,
+            0.203,
+            0.834,
+            0.422
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"(x1, ..., xn)\"] -->|\"xi = 0\"| B[\"(x1, ..., xi-1, 0, xi+1, ..., xn)\"]\n  A -->|\"xi = 1\"| C[\"(x1, ..., xi-1, 1, xi+1, ..., xn)\"]\n  B -->|\"xi+1 = 0\"| D[\"(x1, ..., xi-1, 0, 0, xi+2, ..., xn)\"]\n  B -->|\"xi+1 = 1\"| E[\"(x1, ..., xi-1, 0, 1, xi+2, ..., xn)\"]\n  D -->|\"xi+2 = 0\"| F[\"(x1, ..., xi-1, 0, 1, 0, xi+3, ..., xn)\"]\n  E -->|\"xi+2 = 1\"| G[\"((x1, ..., xi-1, 0, 1, 1, xi+3, ..., xn))\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0321-0352/images/page_347_image_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**348**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.834,
+            0.552
+          ],
+          "content": "Bei diesem Beispielproblem besteht jede **Entscheidung** darin, eine **Belegung einer 0/1-Variable** festzulegen. An der Wurzel sind alle Variablen frei, und auf jeder Stufe wird genau eine Variable mit 0 oder 1 belegt. Offenbar hat der Baum exponentielle Größe in der Anzahl der Variablen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "348"
+        }
+      ]
+    },
+    {
+      "page_idx": 348,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.269,
+            0.1
+          ],
+          "level": 2,
+          "content": "Schranken"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.834,
+            0.316
+          ],
+          "sub_type": "text",
+          "content": "Während der Verzweigung: Berechnung von **oberen** (upper bound, 𝑈) und **unteren Schranken** (lower bound, 𝐿) für die Kostenfunktion 𝑓 an jedem Knoten 𝐾, so dass im Teilbaum unterhalb von 𝐾\n– in jedem Fall **mindestens Kosten** 𝑳 entstehen\n– garantiert eine Lösung mit **Kosten höchstens** 𝑼 existiert\n**Bound**: Besitzt Knoten 𝐾 eine **untere Schranke** 𝑳**, welche größer ist als das kleinste bisher bekannte U**, dann kann der Teilbaum unterhalb von 𝐾 von der Suche **ausgeschlossen** werden, ohne dass eine optimale Lösung verloren geht"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.321,
+            0.273,
+            0.339
+          ],
+          "content": "• **Wichtig**:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.195,
+            0.344,
+            0.778,
+            0.388
+          ],
+          "sub_type": "text",
+          "content": "– Schranken sind schnell zu berechnen (sonst zu aufwendig)\n– Schranken sind „scharf“ (sonst kein effektives Bound)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**349**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.838,
+            0.516
+          ],
+          "content": "Mit Hilfe der **Schranken** lässt sich oft schnell feststellen, welche Bereiche eines Baums noch von Interesse sind, da sich dort das Optimum “verbergen” könnte."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.521,
+            0.844,
+            0.575
+          ],
+          "content": "Das Verfahren funktioniert jedoch nur dann gut, wenn man gute Algorithmen zur Schrankenberechnung (d.h. schnell und/oder scharf) findet. Dies ist in der Tat der schwierigste Teil beim Entwurf eines Branch and Bound-Algorithmus."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "349"
+        }
+      ]
+    },
+    {
+      "page_idx": 349,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.347,
+            0.101
+          ],
+          "level": 2,
+          "content": "Beispiel für Bound"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.159,
+            0.144,
+            0.827,
+            0.384
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"(x₁, ..., xₙ)\"] -->|\"xᵢ = 0\"| B[\"(x₁, ..., xᵢ₋₁, 0, xᵢ₊₁, ..., xₙ)\"]\n  A -->|\"xᵢ = 1\"| C[\"(x₁, ..., xᵢ₋₁, ..., xᵢ₊₁, ..., xₙ)\"]\n  B -->|\"xᵢ₊₁ = 0\"| D[\"(x₁, ..., xᵢ₋₁, 0, 0, xᵢ₊₂, ..., xₙ)\"]\n  B -->|\"xᵢ₊₁ = 1\"| E[\"(x₁, ..., xᵢ₋₁, 0, 1, xᵢ₊₂, ..., xₙ)\"]\n  D -->|\"xᵢ₊₂ = 0\"| F[\"(x₁, ..., xᵢ₋₁, 0, ..., 0, xᵢ₊₃, ..., xₙ)\"]\n  E -->|\"xᵢ₊₂ = 1\"| G[\"((x₁, ..., xᵢ₋₁, 0, 1, 1, xᵢ₊₃, ..., xₙ))\"]\n  F -->|\"xᵢ₊₂ = 0\"| H[\"(x₁, ..., xᵢ₋₁, 0, ..., 0, xᵢ₊₃, ..., xₙ)\"]\n  G -->|\"L = 11\\nU = 20\"| I[\"(x₁, ..., xᵢ₋₁, ..., xₙ)\"]\n  H -->|\"L = 25\\nU = 30\"| J[\"(x₁, ..., xᵢ₋₁, ..., xₙ)\"]\n  J -->|\"L = 10\\nU = 50\"| K[\"(x₁, ..., xᵢ₋₁, ..., xₙ)\"]\n  K -->|\"L = 30\\nU = 40\"| L\n  style A fill:#f9f9f9,stroke:#333\n  style B fill:#f9f9f9,stroke:#333\n  style D fill:#f9f9f9,stroke:#333\n  style E fill:#f9f9f9,stroke:#333\n  style F fill:#f9f9f9,stroke:#333\n  style G fill:#f9f9f9,stroke:#333\n  style H fill:#f9f9f9,stroke:#333\n  style I fill:#f9f9f9,stroke:#333\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0321-0352/images/page_349_image_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**350**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.798,
+            0.514
+          ],
+          "content": "Gesucht ist hier die Variablenbelegung V, welche eine **Kostenfunktion** f(V) minimiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.521,
+            0.845,
+            0.61
+          ],
+          "content": "Beim Knoten rechts unten sind zwar erst 3 Variablen belegt, man weiss jedoch (U = 20), dass das Endergebnis die Kosten 20 in diesem Teilbaum nie übersteigen kann. Daher können die durchgestrichenen Teilbäume bereits zu diesem Zeitpunkt außer Betracht gelassen werden, da sie Kosten von mindestens 25 bzw. 30 bewirken würden."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.616,
+            0.799,
+            0.653
+          ],
+          "content": "Beim übrigen Teilbaum (ganz links) muss noch weitergesucht werden, da er theoretisch eine noch bessere Lösung liefern könnte (wegen L = 10)."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "350"
+        }
+      ]
+    },
+    {
+      "page_idx": 350,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.588,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiel: max. gewichteter Pfad in Graphen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.117,
+            0.817,
+            0.155
+          ],
+          "content": "**Branch**: bestimmte Kante wird in den Pfad aufgenommen (sofern gültig) oder aber explizit ausgeschlossen"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.148,
+            0.165,
+            0.818,
+            0.449
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  Start[\"Start Node\"] --> Path1[\"Path 1\"]\n  Start --> Path2[\"Path 2\"]\n  Start --> Path3[\"Path 3\"]\n  Path1 --> Node1_1[\"1\"]\n  Path1 --> Node2_1[\"2\"]\n  Path1 --> Node3_1[\"3\"]\n  Path1 --> Node4_1[\"4\"]\n  Node1_1 --> Node5_1[\"5\"]\n  Node2_1 --> Node6_1[\"6\"]\n  Node3_1 --> Node7_1[\"7\"]\n  Node4_1 --> Node8_1[\"8\"]\n  Node5_1 --> Node9_1[\"9\"]\n  Node6_1 --> Node10_1[\"10\"]\n  Node7_1 --> Node11_1[\"11\"]\n  Node8_1 --> Node12_1[\"12\"]\n  Node9_1 --> Node13_1[\"13\"]\n  Node10_1 --> Node14_1[\"14\"]\n  Node11_1 --> Node15_1[\"15\"]\n  Node12_1 --> Node16_1[\"16\"]\n  Node13_1 --> Node17_1[\"17\"]\n  Node14_1 --> Node18_1[\"18\"]\n  Node15_1 --> Node19_1[\"19\"]\n  Node16_1 --> Node20_1[\"20\"]\n  Node17_1 --> Node21_1[\"21\"]\n  Node18_1 --> Node22_1[\"22\"]\n  Node19_1 --> Node23_1[\"23\"]\n  Node20_1 --> Node24_1[\"24\"]\n  Node21_1 --> Node25_1[\"25\"]\n  Node22_1 --> Node26_1[\"26\"]\n  Node23_1 --> Node27_1[\"27\"]\n  Node24_1 --> Node28_1[\"28\"]\n  Node25_1 --> Node29_1[\"29\"]\n  Node26_1 --> Node30_1[\"30\"]\n  Node27_1 --> Node31_1[\"31\"]\n  Node28_1 --> Node32_1[\"32\"]\n  Node29_1 --> Node33_1[\"33\"]\n  Node30_1 --> Node34_1[\"34\"]\n  Node31_1 --> Node35_1[\"35\"]\n  Node32_1 --> Node36_1[\"36\"]\n  Node33_1 --> Node37_1[\"37\"]\n  Node34_1 --> Node38_1[\"38\"]\n  Node35_1 --> Node39_1[\"39\"]\n  Node36_1 --> Node40_1[\"40\"]\n  Node37_1 --> Node41_1[\"41\"]\n  Node38_1 --> Node42_1[\"42\"]\n  Node39_1 --> Node43_1[\"43\"]\n  Node40_1 --> Node44_1[\"44\"]\n  Node41_1 --> Node45_1[\"45\"]\n  Node42_1 --> Node46_1[\"46\"]\n  Node43_1 --> Node47_1[\"47\"]\n  Node44_1 --> Node48_1[\"48\"]\n  Node45_1 --> Node49_1[\"49\"]\n  Node46_1 --> Node50_1[\"50\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0321-0352/images/page_350_image_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.847,
+            0.551
+          ],
+          "content": "Alternativ zu dem o.g. abgewandelten Kruskal-Algorithmus zu **Pfadbestimmung** kann man auch Branch and Bound einsetzen. Während es sich bei dem o.g. Algorithmus ja um eine Heuristik handelt, würde dies immer das Optimum bestimmen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.557,
+            0.823,
+            0.61
+          ],
+          "content": "Der **Entscheidungsbaum** ergibt sich einfach dadurch, dass man für jede Kante im Graphen festlegen muss, ob sie Teil des ausgewählten Pfades sein soll oder nicht."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "351"
+        }
+      ]
+    },
+    {
+      "page_idx": 351,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.588,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiel: max. gewichteter Pfad in Graphen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.825,
+            0.414
+          ],
+          "sub_type": "text",
+          "content": "Effiziente Berechnung der Schranken?\n**Gegeben**: Graph mit 𝑛 Knoten und Teillösung mit 𝑘 bereits fest gewählten Kanten\n• **Obere Schranke** 𝑼:\n– Im besten Falle könnten noch die 𝑛 െ 𝑘 െ 1 „schwersten“unter den noch nicht betrachteten Kanten hinzugefügt werden – Optimale Lösung kann höchstens schlechter sein\n• **Untere Schranke** 𝑳:\n– Setze Teillösung mittels Heuristik durch Hinzunahme von 𝑛 െ 𝑘 െ 1 Kanten zu Gesamtlösung fort – Optimale Lösung kann höchstens besser werden\n**Maximierungsproblem**: Falls für einen Knoten der Wert von 𝑈 kleiner ist als bisher bestes 𝐿, so kann der Teilbaum entfallen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**352**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.84,
+            0.515
+          ],
+          "content": "Die **Berechnung von U** ist sehr schnell, da man lediglich einige Kantengewichte aufsummieren muss."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.521,
+            0.821,
+            0.573
+          ],
+          "content": "Die **Berechnung von L** könnte sich der bekannten Heuristik bedienen, welche ebenfalls recht schnell arbeitet. Da sie gute Ergebnisse liefert, wird L i.a. auch scharf sein."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "352"
+        }
+      ]
+    },
+    {
+      "page_idx": 352,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.163,
+            0.083,
+            0.307,
+            0.1
+          ],
+          "level": 2,
+          "content": "Bildnachweise"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.128,
+            0.757,
+            0.395
+          ],
+          "sub_type": "text",
+          "content": "#20 Petr Kratochvil , „frau‐sitzt‐mit‐laptop “, publicdomainpictures.net\n„PC‐CPU‐Feld‐Vektor‐Bild“, publicdomainvectors.org\n#23 Ldorfman ‐ According to a work of Johanna Pung made for Wikimedia Deutschland –\nOwn work, CC BY‐SA 3.0,\ncommons.wikimedia.org/w/index.php?curid=21837408\n#32 Max Pixel, “Medical Cold Fever Thermometer Temperature Digital“, maxpixel.net\n#143 Tim Reckmann, „Kreditkarte“, CC‐BY 2.0, ccnull.de\n#163 MartinStr, „blasen‐wasser‐sprudelnd‐lufblasen‐230014“, pixabay.com\n#213 ACBahn, „Warteschlange Eisdiele“, commons.wikimedia.org, CC GNU 1.2\n#245 „gps‐navigation‐garmin‐gerät‐304842“, pixabay.com\nopenstreetmap.de, Open Database Licence (ODbL) 1.0\n#270 „Grundsätzliche Informationen zum Netzausbau”, www.buergerdialog‐stromnetz.de\n#280 wirestock, „closeup‐bee‐sunflower‐field‐sunligh”, freepik.com\n#294 „money\\_coins\\_loose\\_change\\_euro\\_cent\\_specie\\_metal\\_money\\_finance”, pxhere.com"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**353**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "353"
+        }
+      ]
+    },
+    {
+      "page_idx": 353,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.356,
+            0.1
+          ],
+          "level": 2,
+          "content": "Literaturnachweise"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.119,
+            0.831,
+            0.252
+          ],
+          "sub_type": "text",
+          "content": "B.W. Kernighan, D.M. Ritchie: Programmieren in C, 2. Auflage, Hanser, 1990, ISBN 3‐446‐15497‐3\nR. Sedgewick: Algorithmen in C++, Teil 1‐4, Addison‐Wesley, 2002, ISBN 3‐8273‐7026‐4\n• K. Loudon: Mastering Algorithms with C, 1. Auflage, O‘Reilly, 1999, ISBN 978‐1‐56592‐453‐6"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**354**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "354"
+        }
+      ]
+    },
+    {
+      "page_idx": 354,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.173,
+            0.086,
+            0.606,
+            0.105
+          ],
+          "level": 2,
+          "content": "Stichwortregister zu C++ Sprachelementen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.293,
+            0.115,
+            0.693,
+            0.129
+          ],
+          "content": "• Abstrakte Datentypen 138"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.293,
+            0.131,
+            0.692,
+            0.145
+          ],
+          "content": "• Ausgabe 39"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.293,
+            0.146,
+            0.402,
+            0.159
+          ],
+          "content": "• Funktionen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.305,
+            0.162,
+            0.692,
+            0.176
+          ],
+          "content": "– Lambda 119"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.305,
+            0.178,
+            0.692,
+            0.192
+          ],
+          "content": "– Overloading 153"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.293,
+            0.193,
+            0.692,
+            0.207
+          ],
+          "content": "• Klassen 140"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.306,
+            0.209,
+            0.692,
+            0.222
+          ],
+          "content": "– (De)Constructor 142"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.306,
+            0.224,
+            0.692,
+            0.237
+          ],
+          "content": "– Public vs. Private 144"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.306,
+            0.239,
+            0.692,
+            0.253
+          ],
+          "content": "– Inheritance 147"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.293,
+            0.255,
+            0.692,
+            0.269
+          ],
+          "content": "• Libraries 34"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.305,
+            0.271,
+            0.692,
+            0.285
+          ],
+          "content": "– Using & namespace 40"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.293,
+            0.286,
+            0.692,
+            0.315
+          ],
+          "content": "• Loops – Iterators 129"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.293,
+            0.317,
+            0.692,
+            0.346
+          ],
+          "content": "• Polymorphie – Statisch 113"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.305,
+            0.348,
+            0.692,
+            0.362
+          ],
+          "content": "– Dynamisch 149"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.293,
+            0.363,
+            0.692,
+            0.377
+          ],
+          "content": "• Smart Pointer 70"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.306,
+            0.379,
+            0.692,
+            0.393
+          ],
+          "content": "– Unique 71"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.306,
+            0.394,
+            0.692,
+            0.408
+          ],
+          "content": "– Shared 72"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.306,
+            0.41,
+            0.692,
+            0.424
+          ],
+          "content": "– Weak 73"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.293,
+            0.425,
+            0.733,
+            0.439
+          ],
+          "content": "• Streams ,39 155"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.293,
+            0.44,
+            0.692,
+            0.455
+          ],
+          "content": "• Template 117"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.45,
+            0.184,
+            0.46
+          ],
+          "content": "**355**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.757,
+            0.453,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "355"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "Microsoft PowerPoint - GGI1_W26.pptx",
+      "authors": [
+        "gemmeke"
+      ],
+      "created_at": "2026-10-06T18:10:39+02:00",
+      "modified_at": "2026-10-06T18:10:39+02:00",
+      "creator_application": "PScript5.dll Version 5.2.2",
+      "producer_application": "Acrobat Distiller 20.0 (Windows)",
+      "page_count": 355,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 315,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 316,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 317,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 318,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 319,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 320,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 321,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 322,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 323,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 324,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 325,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 326,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 327,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 328,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 329,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 330,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 331,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 332,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 333,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 334,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 335,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 336,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 337,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 338,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 339,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 340,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 341,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 342,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 343,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 344,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 345,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 346,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 347,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 348,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 349,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 350,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 351,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 352,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 353,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 354,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

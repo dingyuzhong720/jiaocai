@@ -1,0 +1,3178 @@
+{
+  "pages": [
+    {
+      "page_idx": 256,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.541,
+            0.102
+          ],
+          "level": 2,
+          "content": "Queue‐Implementierung durch Arrays"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.148,
+            0.161,
+            0.827,
+            0.449
+          ],
+          "sub_type": "bar_stacked",
+          "content": "| Kategorie | Wert 1 | Wert 2 | Wert 3 | Wert 4 | Wert 5 | Wert 6 | Wert 7 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Stack (Verwendung) | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% |\n| Stack (Tendenziellem) | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% |\n| Stack (Speichereich) | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% |\n| Stack (Spaicherausnutzung) | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% |\n| Queue (Wandert) | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% |\n| Queue (Weiter nach rechts) | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% |\n| Queue (Schlechte Speicherausnutzung) | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% |\n| Queue (Spaicherausnutzung 257) | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% | ~10% |\n\n© T. Gemmeke, IDS, RWTH; R. Leupers, SSS",
+          "captions": [
+            {
+              "bbox": [
+                0.164,
+                0.123,
+                0.803,
+                0.159
+              ],
+              "content": "Betrachte Dynamik von Queues im Vergleich zu Stacks in Array‐Implementierung:"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_256_chart_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.837,
+            0.553
+          ],
+          "content": "Bei der Array-Implementierung von Queues ist eine **Besonderheit** zu beachten: Die anfangs genutzten Speicherplätze würden im Zeitablauf nicht mehr weiter verwendet und somit für die spätere Verwendung vergeudet. Eine solche “naive” Implementierung scheidet daher meist aus."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "257"
+        }
+      ]
+    },
+    {
+      "page_idx": 257,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.541,
+            0.102
+          ],
+          "level": 2,
+          "content": "Queue‐Implementierung durch Arrays"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.124,
+            0.728,
+            0.144
+          ],
+          "content": "• Lösung: **ringförmiges** Array bzw. **zyklische** Adressierung"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.296,
+            0.161,
+            0.688,
+            0.426
+          ],
+          "sub_type": "text_image",
+          "content": "A[N-1] A[0]",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_257_image_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**258**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.848,
+            0.605
+          ],
+          "content": "Der Trick besteht darin, den für die Queue reservierten Speicherbereich (das Array) als **ringförmige** Struktur zu betrachten. D.h. der Nachfolger von A[N-1] wird per Definition zu A[0] statt A[N]. Die aktiven Elemente in der Queue können sich dann an beliebigen Stellen im Array befinden, und die Anfangselemente ab A[0] werden automatisch wiederverwendet, sobald die Grenze A[N] überschritten wird. Natürlich sind hierbei **Überlaufsituationen** (d.h. das Überschreiben von noch aktiven Elementen durch Put) zu vermeiden."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "258"
+        }
+      ]
+    },
+    {
+      "page_idx": 258,
+      "blocks": [
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.426,
+            0.371
+          ],
+          "sub_type": "text",
+          "content": "Zwei **Zeiger** (Array‐Indizes) first und last verweisen auf aktuellen Anfang (‐1) und Ende (+1) der Queue\nVerwendung des Modulo‐Operators (%) zur **zyklischen Adressierung**\nPrüfung auf **Über‐ und Unterlauf** (overflow, underflow) erforderlich"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.459,
+            0.114,
+            0.829,
+            0.433
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define MAX 100\n\ntypedef struct q\n{ T* elems[MAX];\n    int first, last; } queue;\n\nvoid Init(queue* q)\n{\n    q->first = 0;\n    q->last = 1;\n}\n\nvoid Put(T* item,queue* q)\n{\n    if (q->last == q->first) overflow();\n    else {\n        q->elems[q->last] = item;\n        q->last = (q->last+1) % MAX;\n    }\n}\n\nT* Get(queue* q)\n{\n    q->first = (q->first+1) % MAX;\n    if (q->first == q->last) underflow();\n    else return q->elems[q->first];\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.161,
+                0.083,
+                0.541,
+                0.102
+              ],
+              "content": "Queue‐Implementierung durch Arrays"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**259**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.828,
+            0.569
+          ],
+          "content": "Da der Speicher immer linear adressiert wird, muss die zyklische Adressierung anderweitig nachgebildet werden. Hierzu kann der **%-Operator** verwendet werden, welcher den Rest bei der ganzzahligen Division liefert. Damit wird gewährleistet, dass bei Put und Get niemals der Speicherbereich A[0…MAX-1] verlassen wird."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.574,
+            0.841,
+            0.737
+          ],
+          "content": "Die **Überlaufbehandlung** (normalerweise: Ausgabe einer Fehlermeldung) wird hier nicht weiter vertieft. Eine leere Queue wird dadurch gekennzeichnet, dass sich first und last um 1 unterscheiden (siehe Init-Funktion). Der Überlauf lässt sich somit durch einen Vergleich von first und last erkennen: Der last-Zeiger soll stets auf das nächste freie Element zeigen. Ist er bei Put identisch zum first-Zeiger, so wird die Queue als “voll” betrachtet (theoretisch würde jedoch noch ein zusätzliches Element hineinpassen, wenn man das Array bis zum letzten Feld füllt). Analog bei Get: Erreicht man durch Inkrementieren von first die Position last, so gibt es nichts mehr zu entnehmen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "259"
+        }
+      ]
+    },
+    {
+      "page_idx": 259,
+      "blocks": [
+        {
+          "type": "chart",
+          "bbox": [
+            0.144,
+            0.073,
+            0.855,
+            0.451
+          ],
+          "sub_type": "state_timeline",
+          "content": "| Step | Outcome |\n| --- | --- |\n| 1 | first |\n| 2 | last |\n| 3 | frei |\n| 4 | verwendet |\n| 5 | second |\n| 6 | third |\n| 7 | fourth |\n| 8 | fifth |\n| 9 | sixth |\n| 10 | seventh |\n| 11 | eighth |\n| 12 | fifth |\n| 13 | sixth |\n| 14 | fifth |\n| 15 | sixth |\n| 16 | fifth |\n| 17 | sixth |\n| 18 | fifth |\n| 19 | sixth |\n| 20 | fifth |\n| 21 | sixth |\n| 22 | fifth |\n| 23 | sixth |\n| 24 | fifth |\n| 25 | sixth |\n| 26 | fifth |\n| 27 | sixth |\n| 28 | fifth |\n| 29 | sixth |\n| 30 | fifth |\n| 31 | sixth |\n| 32 | fifth |\n| 33 | sixth |\n| 34 | fifth |\n| 35 | sixth |\n| 36 | fifth |\n| 37 | sixth |\n| 38 | fifth |\n| 39 | sixth |\n| 40 | fifth |\n| 41 | sixth |\n| 42 | fifth |\n| 43 | sixth |\n| 44 | fifth |\n| 45 | sixth |\n| 46 | fifth |\n| 47 | sixth |\n| 48 | fifth |\n| 49 | sixth |\n| 50 | fifth |\n| 51 | sixth |\n| 52 | fifth |\n| 53 | sixth |\n| 54 | fifth |\n| 55 | sixth |\n| 56 | fifth |\n| 57 | sixth |\n| 58 | fifth |\n| 59 | sixth |\n| 60 | fifth |\n| 61 | sixth |\n| 62 | fifth |\n| 63 | sixth |\n| 64 | fifth |\n| 65 | sixth |\n| 66 | fifth |\n| 67 | sixth |\n| 68 | fifth |\n| 69 | sixth |\n| 70 | fifth |\n| 71 | sixth |\n| 72 | fifth |\n| 73 | sixth |\n| 74 | fifth |\n| 75 | sixth |\n| 76 | fifth |\n| 77 | sixth |\n| 78 | fifth |\n| 79 | sixth |\n| 80 | fifth |\n| 81 | sixth |\n| 82 | fifth |\n| 83 | sixth |\n| 84 | fifth |\n| 85 | sixth |\n| 86 | fifth |\n| 87 | sixth |\n| 88 | fifth |\n| 89 | sixth |\n| 90 | fifth |\n| 91 | sixth |\n| 92 | fifth |\n| 93 | sixth |\n| 94 | fifth |\n| 95 | sixth |\n| 96 | fifth |\n| 97 | sixth |\n| 98 | fifth |\n| 99 | sixth |\n| 100 | fifth |\n\n© T. Gemmeke, IDS, RWTH; R. Leupers, SSS",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_259_chart_0.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.711,
+            0.499
+          ],
+          "content": "**Beispiel-Zustände** einer Queue nach verschiedenen Operationen:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.504,
+            0.386,
+            0.52
+          ],
+          "content": "Queue 1: Zustand nach Init"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.527,
+            0.46,
+            0.544
+          ],
+          "content": "Queue 2: nach Put einiger Elemente"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.55,
+            0.461,
+            0.567
+          ],
+          "content": "Queue 3: nach Get einiger Elemente"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.574,
+            0.787,
+            0.591
+          ],
+          "content": "Queue 4: Put weiterer Elemente, last-Zeiger geht zurück auf Array-Anfang"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.597,
+            0.427,
+            0.613
+          ],
+          "content": "Queue 5: Get weiterer Elemente"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.619,
+            0.825,
+            0.656
+          ],
+          "content": "Queue 6: Put weiterer Elemente, aktive Elemente befinden sich nun sowohl am Ende als auch am Anfang des Arrays"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "260"
+        }
+      ]
+    },
+    {
+      "page_idx": 260,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.435,
+            0.171,
+            0.563,
+            0.192
+          ],
+          "level": 2,
+          "content": "9. Bäume"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.254,
+            0.554,
+            0.318
+          ],
+          "sub_type": "text",
+          "content": "**9.1 Definition und Darstellung**\n9.2 Baumdurchläufe\n9.3 Suchbäume"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**261**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "261"
+        }
+      ]
+    },
+    {
+      "page_idx": 261,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.163,
+            0.084,
+            0.236,
+            0.1
+          ],
+          "level": 2,
+          "content": "Bäume"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.169,
+            0.117,
+            0.754,
+            0.158
+          ],
+          "content": "**Def**.: Ein **Baum** besteht aus einem ausgezeichneten Knoten 𝑟 (**Wurzel**, root) und $k   \\geq   0$ disjunkten Bäumen $T _ { 1 } , \\ldots , T _ { k }$"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.163,
+            0.168,
+            0.804,
+            0.275
+          ],
+          "sub_type": "text",
+          "content": "Bäume sind eine äußerst verbreitete Datenstruktur mit einer **Vielzahl von Anwendungen**\nZ.B. Darstellung von **Hierarchien** (Firmen‐Organigramm), Eltern‐Kind‐Beziehung (Stammbaum), Dateisysteme u.v.m.\nSiehe auch Baumdarstellung von Arrays in **Heapsort**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.174,
+            0.281,
+            0.843,
+            0.434
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_261_image_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.445
+          ],
+          "content": "**262**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.821,
+            0.516
+          ],
+          "content": "Bäume werden **rekursiv** definiert. Unterhalb der Wurzel befinden sich weitere Bäume. Auf der untersten Ebene haben die Bäume dann keine “Kinder” mehr."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.521,
+            0.808,
+            0.575
+          ],
+          "content": "Eine weitverbreitete Baum-Anwendung sind **Directory-Systeme** zur Dateiverwaltung. Erst durch die durch den Datei-Baum induzierte Hierarchie werden tausende von Dateien auf einer Festplatte übersichtlich."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "262"
+        }
+      ]
+    },
+    {
+      "page_idx": 262,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.286,
+            0.1
+          ],
+          "level": 2,
+          "content": "Binärbäume"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.124,
+            0.628,
+            0.143
+          ],
+          "content": "• Spezialfall: Bäume mit max. **zwei Teilbäumen**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.169,
+            0.159,
+            0.775,
+            0.22
+          ],
+          "content": "**Def**.: Ein **Binärbaum** $B \\; = \\; ( r , B _ { L } , B _ { R } )$ ist entweder leer oder besteht aus einer Wurzel 𝑟 sowie einem linken und rechten Teilbaum $B _ { L }$ bzw. $B _ { R }$"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.235,
+            0.443,
+            0.4
+          ],
+          "sub_type": "text",
+          "content": "Z.B. Heap im Heapsort‐Algorithmus: jeder Knoten besitzt max. zwei „Kinder“\nZ.B. geschachteltes if-then-else‐Statement\nZ.B. graphische Darstellung eines **Münzwurf‐Prozesses**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.464,
+            0.233,
+            0.825,
+            0.433
+          ],
+          "sub_type": "flowchart",
+          "content": "This flowchart illustrates a hierarchical classification or grouping structure, starting from an initial category (11) and branching into multiple sub-categories with associated numerical values.",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_262_image_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**263**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.672,
+            0.498
+          ],
+          "content": "Der Spezialfall **Binärbaum** wird ebenfalls rekursiv definiert."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "263"
+        }
+      ]
+    },
+    {
+      "page_idx": 263,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.427,
+            0.102
+          ],
+          "level": 2,
+          "content": "Darstellung als C‐Datentyp"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.328,
+            0.128,
+            0.536,
+            0.177
+          ],
+          "sub_type": "code",
+          "content": "```c\ntypedef struct tr {\n    T* data;\n    struct tr *left,*right;\n} btree, *btreeptr;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.201,
+            0.793,
+            0.237
+          ],
+          "content": "Bäume als dynamische Datenstruktur, ähnlich zu Listen: Zeiger data auf **Nutzdaten** eines beliebigen Typs T"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.241,
+            0.742,
+            0.276
+          ],
+          "content": "Zeiger left und right verweisen auf **linken** und **rechten** Teilbaum"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.166,
+            0.281,
+            0.794,
+            0.429
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"btreeptr\"] --> B[\"data\"]\n  B --> C[\"Objekt vom Typ T\"]\n  B --> D[\"left\"]\n  B --> E[\"right\"]\n  D --> F[\"NULL\"]\n  E --> G[\"NULL\"]\n  F -.-> H[\"NULL-Zeiger\"]\n  G -.-> H\n  style A fill:#fff,stroke:#333,stroke-width:2px\n  style B fill:#fff,stroke:#333,stroke-width:2px\n  style C fill:#fff,stroke:#333,stroke-width:2px\n  style D fill:#fff,stroke:#333,stroke-width:2px\n  style E fill:#fff,stroke:#333,stroke-width:2px\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_263_image_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**264**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.816,
+            0.535
+          ],
+          "content": "Binärbäume lassen sich leicht als **C-struct** implementieren. Ähnlich zu Listen verweist ein Zeiger “data” auf das im Knoten abzuspeichernde Nutzdatum. Daneben verweisen “left” und “right” auf die Kinder."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "264"
+        }
+      ]
+    },
+    {
+      "page_idx": 264,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.435,
+            0.171,
+            0.563,
+            0.192
+          ],
+          "level": 2,
+          "content": "9. Bäume"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.255,
+            0.254,
+            0.548,
+            0.319
+          ],
+          "sub_type": "text",
+          "content": "9.1 Definition und Darstellung\n**9.2 Baumdurchläufe**\n9.3 Suchbäume"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**265**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "265"
+        }
+      ]
+    },
+    {
+      "page_idx": 265,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.33,
+            0.1
+          ],
+          "level": 2,
+          "content": "Baumdurchläufe"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.791,
+            0.404
+          ],
+          "sub_type": "text",
+          "content": "Häufige Anwendung: **Durchlaufen** eines Baumes, d.h. Besuchen/Verarbeiten aller Knoten in bestimmter Reihenfolge\n• Z.B. beim Kopieren von Dateisystemen\n• Sei $B \\; = \\; ( r , B _ { L } , B _ { R } )$\n• L bezeichnet Durchlauf des **linken** Teilbaums $B _ { L }$\n• R bezeichnet Durchlauf des **rechten** Teilbaums $B _ { R }$\n• W bezeichnet Bearbeitung der **Wurzel** 𝑟\nDrei prinzipielle Durchlaufschemata:\n– **Inorder**: L W R\n– **Preorder**: W L R\n– **Postorder**: L R W\n• In/Pre/Post bzgl. des Zeitpunkts der Wurzel‐Bearbeitung"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**266**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.813,
+            0.534
+          ],
+          "content": "Die **Bezeichnung** eines Baumdurchlaufs richtet sich danach, zu welchem Zeitpunkt bzgl. des linken und des rechten Teilbaums die Wurzel besucht/verarbeitet wird, z.B. zwischen den Teilbäumen im Falle von Inorder."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "266"
+        }
+      ]
+    },
+    {
+      "page_idx": 266,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.171,
+            0.136,
+            0.49,
+            0.402
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid visit(T* item)\n{ // Verarbeitung von item\n}\n\nvoid preorder(btreeptr b)\n{\n    if (b == NULL) return;\n\n    visit(b->data);\n    preorder(b->left);\n    preorder(b->right);\n}\n\nvoid inorder(btreeptr b)\n{\n    if (b == NULL) return;\n\n    inorder(b->left);\n    visit(b->data);\n    inorder(b->right);\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.589,
+                0.102
+              ],
+              "content": "Rekursive Implementierung der Durchläufe"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.527,
+            0.128,
+            0.79,
+            0.234
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid postorder(btreeptr b)\n{\n    if (b == NULL) return;\n\n    postorder(b->left);\n    postorder(b->right);\n    visit(b->data);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.516,
+            0.253,
+            0.825,
+            0.417
+          ],
+          "sub_type": "text",
+          "content": "Laufzeit: 𝓞ሺ# Knotenሻ\nInterner Ablauf der Rekursion: **Laufzeit‐Stack** für Funktionsaufrufe (vgl. Kap. 8)\n**Übung**: nicht‐rekursive Implementierung mittels expliziter Stack‐Datenstruktur"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**267**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.785,
+            0.516
+          ],
+          "content": "Die Funktion “visit” steht hier als **Platzhalter** für eine beliebige Funktion, welche ein Datum vom Typ T verarbeitet (z.B. Ausgabe des Datums)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.521,
+            0.838,
+            0.574
+          ],
+          "content": "Die Durchläufe selbst lassen sich aufgrund der Baumstruktur sehr leicht rekursiv implementieren. Ein **leerer Baum** soll dabei durch einen NULL-Zeiger repräsentiert werden, damit die Rekursion terminiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.58,
+            0.811,
+            0.67
+          ],
+          "content": "Eine Rekursion lässt sich prinzipiell immer auflösen, indem der implizite **Laufzeitstack** bei der C-Programmausführung durch einen **explizit programmierten Stack** ersetzt wird. Dies erfordert jedoch zusätzlichen Programmieraufwand, daher ist die Programmierung mittels Rekursion in der Regel die elegantere Variante."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "267"
+        }
+      ]
+    },
+    {
+      "page_idx": 267,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.506,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiel: Inorder‐Durchlauf (L W R)"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.168,
+            0.113,
+            0.62,
+            0.314
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"A\"] --> B[\"B\"]\n  A[\"A\"] --> C[\"C\"]\n  B[\"B\"] --> D[\"D\"]\n  B[\"B\"] --> E[\"E\"]\n  C[\"C\"] --> F[\"F\"]\n  C[\"C\"] --> G[\"G\"]\n  E[\"E\"] --> H[\"H\"]\n  E[\"E\"] --> I[\"I\"]\n  G[\"G\"] --> J[\"J\"]\n  G[\"G\"] --> K[\"K\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_267_image_1.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.597,
+            0.133,
+            0.796,
+            0.217
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid inorder(btreeptr b)\n{\n    if (b == NULL) return;\n    inorder(b->left);\n    visit(b->data);\n    inorder(b->right);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.166,
+            0.337,
+            0.607,
+            0.404
+          ],
+          "sub_type": "text",
+          "content": "• Inorder‐Reihenfolge:     D B H E I A F C J G K\n• Preorder‐Reihenfolge:   A B D E H I C F G J K\n• Postorder‐Reihenfolge: D H I E B F J K G C A"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.445
+          ],
+          "content": "**268**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "268"
+        }
+      ]
+    },
+    {
+      "page_idx": 268,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.435,
+            0.171,
+            0.563,
+            0.192
+          ],
+          "level": 2,
+          "content": "9. Bäume"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.255,
+            0.254,
+            0.548,
+            0.319
+          ],
+          "sub_type": "text",
+          "content": "9.1 Definition und Darstellung\n9.2 Baumdurchläufe\n**9.3 Suchbäume**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**269**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "269"
+        }
+      ]
+    },
+    {
+      "page_idx": 269,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.544,
+            0.101
+          ],
+          "level": 2,
+          "content": "Mengendarstellung durch Binärbäume"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.783,
+            0.232
+          ],
+          "sub_type": "text",
+          "content": "**Mengenoperationen** (vgl. Listen, Kap. 8): Einfügen, Löschen, Suchen (gemäß **Suchschlüssel** oder key), Schnitt, Vereinigung\nIn vielen Anwendungen insbes. schnelle Implementierung von **Einfügen, Löschen, Suchen** erforderlich\nBeispiel: **Symboltabelle** im C‐Compiler"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.197,
+            0.236,
+            0.806,
+            0.39
+          ],
+          "sub_type": "text",
+          "content": "– Symboltabelle verwaltet **Informationen zu den Identifiern** (Variablen, Funktionen, etc.) eines Programms, z.B. Datentyp und Speicherbedarf\n– **Variablendeklaration** für ID bewirkt **neuen Eintrag** in Symboltabelle mit Suchschlüssel ID\n– **Variablenverwendung** bewirkt **Suchen** nach ID\n– Variable **nicht mehr benötigt**: ID aus Symboltabelle **löschen**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**270**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.841,
+            0.624
+          ],
+          "content": "Bei großen Datenmengen sind Listen zur **Mengenverwaltung** zu ineffizient. Da z.B. ein Compiler in der Regel sehr schnell arbeiten soll, benötigt er spezielle Datenstrukturen zur Verwaltung größerer Mengen von Objekten. Eine häufige Operation in einem Compiler ist bspw. das Suchen eines Variablennamens in der **Symboltabelle**. Anhand des gefundenen Objektes kann der Compiler dann Attribute wie den Datentyp bestimmen, was wiederum für die Codeerzeugung wichtig ist. Da ein Programm tausende von Variablen enthalten kann, muss diese Operation sehr effizient sein."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "270"
+        }
+      ]
+    },
+    {
+      "page_idx": 270,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.281,
+            0.1
+          ],
+          "level": 2,
+          "content": "Suchbäume"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.109,
+            0.82,
+            0.306
+          ],
+          "sub_type": "text",
+          "content": "**Komplexität** der Mengenoperationen bei Listenimplementierung typischerweise 𝒪ሺ𝑁ሻ bei 𝑁 Elementen\n• Zu **aufwendig** für häufigen Gebrauch\n• Sortiertes Array: Suchen in Zeit 𝒪ሺlog 𝑁ሻ per **binärer Suche**, jedoch Einfügen und Löschen aufwendig\nBinäre Suche: Berechnung eines **Entscheidungsbaums**, d.h. in jedem Schritt Verzweigung in linkes oder rechtes Teilarray\n**Idee bei binären Suchbäumen**: Entscheidungsbaum als explizite Datenstruktur"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.182,
+            0.313,
+            0.72,
+            0.371
+          ],
+          "content": "**Def**.: Sei $B \\; = \\; ( r , B _ { L } , B _ { R } )$ ein Binärbaum und bezeichne keyሺ𝑛ሻ den Suchschlüssel für jeden Knoten 𝑛. 𝐵 heißt **Suchbaum**, falls gilt:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.218,
+            0.374,
+            0.593,
+            0.433
+          ],
+          "sub_type": "text",
+          "content": "1. Für alle $n \\in B _ { L } { : } \\operatorname { k e y } ( n ) < \\operatorname { k e y } ( r )$\n2. Für alle $n \\in B _ { R } : \\operatorname { k e y } ( n ) > \\operatorname { k e y } ( r )$\n3. $B _ { L }$ und $B _ { R }$ sind Suchbäume"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**271**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.569
+          ],
+          "content": "Der Datentyp **Suchbaum** ähnelt dem Konzept der binären Suche in sortierten Arrays. Alle Schlüssel im Suchbaum sind auf spezielle Weise angeordnet: links stehen alle Schlüssel die bzgl. der gegebenen **Ordnungsrelation** kleiner sind als die Wurzel, und rechts stehen alle größeren Schlüssel. Hierbei wird vorausgesetzt, dass bei den Daten kein **Mehrfachvorkommen** von Schlüsseln erlaubt ist."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.575,
+            0.837,
+            0.629
+          ],
+          "content": "Somit kann an jedem Punkt durch einen einfachen Vergleich festgestellt werden, in welchem Teilbaum die Suche fortgesetzt werden soll. Die Größe des noch zu untersuchenden Restbaumes **halbiert** sich dabei tendenziell in jedem Schritt."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "271"
+        }
+      ]
+    },
+    {
+      "page_idx": 271,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.244,
+            0.101
+          ],
+          "level": 2,
+          "content": "Beispiel"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.124,
+            0.748,
+            0.163
+          ],
+          "content": "• Suchbaum für Monatsnamen, geordnet entsprechend der **lexikographischen** Reihenfolge:"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.278,
+            0.153,
+            0.817,
+            0.37
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  JAN[\"JAN\"] --> FEB[\"FEB\"]\n  JAN --> MAR[\"MAR\"]\n  FEB --> APR[\"APR\"]\n  APR --> AUG[\"AUG\"]\n  AUG --> DEZ[\"DEZ\"]\n  MAR --> MAI[\"MAI\"]\n  MAR --> SEP[\"SEP\"]\n  MAI --> JUN[\"JUN\"]\n  JUN --> JUL[\"JUL\"]\n  SEP --> OKT[\"OKT\"]\n  OKT --> NOV[\"NOV\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_271_image_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.367,
+            0.264,
+            0.387
+          ],
+          "content": "• **Übung**:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.194,
+            0.392,
+            0.76,
+            0.434
+          ],
+          "sub_type": "text",
+          "content": "– Welcher Baum ergibt sich bei umgekehrter Reihenfolge?\n– Wie kann man mittels Suchbäumen sortieren?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**272**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.781,
+            0.534
+          ],
+          "content": "Der hier gezeigte Suchbaum ergibt sich durch Einfügen der Monatsnamen entsprechend der Reihenfolge das Jahresablaufes unter Verwendung der lexikographischen Ordnungsrelation."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.539,
+            0.807,
+            0.592
+          ],
+          "content": "Probieren Sie auch einmal andere **Einfügereihenfolgen** (z.B. direkt nach der lexikographischen Reihenfolge) aus. Man sieht, dass die Struktur des resultierenden Suchbaums erhebliche Unterschiede aufweisen kann."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "272"
+        }
+      ]
+    },
+    {
+      "page_idx": 272,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.157,
+            0.135,
+            0.49,
+            0.361
+          ],
+          "sub_type": "code",
+          "content": "```c\nbtreeptr insert(T* item, btreeptr b)\n{\n    btreeptr n;\n\n    if (b == NULL) {\n        n = (btreeptr)malloc(sizeof(btree));\n        n->data = item;\n        n->left = NULL; n->right = NULL;\n        return n;\n    }\n\n    if (key(item) < key(b->data))\n        b->left = insert(item,b->left);\n\n    if (key(item) > key(b->data))\n        b->right = insert(item,b->right);\n\n    return b;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.417,
+                0.102
+              ],
+              "content": "Einfügen eines Elementes"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.516,
+            0.14,
+            0.847,
+            0.358
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  JAN[\"JAN\"] --> FEB[\"FEB\"]\n  FEB --> APR[\"APR\"]\n  APR --> AUG[\"AUG\"]\n  AUG --> DEZ[\"DEZ\"]\n  MAR[\"MAR\"] --> MAI[\"MAI\"]\n  MAR --> SEP[\"SEP\"]\n  MAI --> JUN[\"JUN\"]\n  SEP --> OKT[\"OKT\"]\n  JUN --> JUL[\"JUL\"]\n  OKT --> NOV[\"NOV\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_272_image_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.388,
+            0.466,
+            0.407
+          ],
+          "content": "Beispiel: Einfügen von „DEZ“"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**273**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.831,
+            0.534
+          ],
+          "content": "Die **insert-Funktion** arbeitet folgendermaßen: Ist der gegebene Baum b leer, so wird ein neuer Knoten (mit NULL-Zeigern als Nachfolgern) erzeugt und als Ergebnisbaum zurückgegeben."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.539,
+            0.845,
+            0.629
+          ],
+          "content": "Ansonsten wird geprüft, ob das neue Element item in den linken oder den rechten Teilbaum gehört. Ist z.B. der linke der richtige, so wird der left-Zeiger des aktuellen Knotens b ersetzt durch den **Ergebnisbaum**, der sich beim Aufruf von insert für den linken Teilbaum ergibt. Dieser Ergebnisbaum besitzt dann das Element item als neues **Blatt** (d.h. Knoten auf unterster Ebene, ohne Nachfolger)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.634,
+            0.814,
+            0.672
+          ],
+          "content": "Man beachte, dass der Baum immer “nach unten” wächst, d.h. neue Elemente werden stets an **Blattpositionen** eingefügt."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "273"
+        }
+      ]
+    },
+    {
+      "page_idx": 273,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.084,
+            0.402,
+            0.1
+          ],
+          "level": 2,
+          "content": "Suchen eines Elementes"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.171,
+            0.139,
+            0.449,
+            0.295
+          ],
+          "sub_type": "code",
+          "content": "```c\nT* search(T* item, btreeptr b)\n{\n    if (b == NULL) return NULL;\n\n    if (key(item) == key(b->data))\n        return b->data;\n\n    if (key(item) < key(b->data))\n        return search(item,b->left);\n\n    if (key(item) > key(b->data))\n        return search(item,b->right);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.514,
+            0.14,
+            0.847,
+            0.356
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  JAN[\"JAN\"] --> MAR[\"MAR\"]\n  MAR --> MAI[\"MAI\"]\n  MAR --> SEP[\"SEP\"]\n  MAR --> OKT[\"OKT\"]\n  APR[\"APR\"] --> AUG[\"AUG\"]\n  AUG --> DEZ[\"DEZ\"]\n  JUN[\"JUN\"] --> JUL[\"JUL\"]\n  JUN --> NOV[\"NOV\"]\n  OKT --> NOV\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_273_image_2.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.151,
+            0.337,
+            0.77,
+            0.419
+          ],
+          "sub_type": "text",
+          "content": "**Beispiel**: Suchen von „NOV“\n**Aufwand**: Länge des Pfades von der Wurzel zum gesuchten Element (bzw. zu der Stelle, an der sich das Element befinden müsste)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**274**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.845,
+            0.515
+          ],
+          "content": "Das Suchen im Suchbaum arbeitet völlig analog zur **binären Suche** in Arrays. Es können vier Fälle auftreten:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.149,
+            0.521,
+            0.807,
+            0.626
+          ],
+          "sub_type": "text",
+          "content": "1. Der Baum b ist leer, dann war die Suche erfolglos, und es wird NULL als Ergebnis zurückgegeben.\n2. Der aktuelle Knoten b entält das gesuchte Element.\n3. Es ist im linken Teilbaum (rekursiv) weiterzusuchen.\n4. Es ist im rechten Teilbaum (rekursiv) weiterzusuchen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "274"
+        }
+      ]
+    },
+    {
+      "page_idx": 274,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.541,
+            0.101
+          ],
+          "level": 2,
+          "content": "Laufzeitanalyse für binäre Suchbäume"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.157,
+            0.119,
+            0.622,
+            0.309
+          ],
+          "sub_type": "text",
+          "content": "**Löschen eines Elementes**: gleiches Prinzip, jedoch etwas aufwendiger beim Löschen von inneren Baumknoten (Wiederherstellung der Baumstruktur notwendig)\n• Aufwand bestimmt durch **max. Pfadlänge** im Baum\nDiese ist wiederum bestimmt durch die **Reihenfolge** der Einfügeoperationen (siehe Bsp. Monatsnamen)\n• Extremfälle:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.191,
+            0.314,
+            0.66,
+            0.387
+          ],
+          "content": "**a) ausgeglichener Baum**: Höhe der Teilbäume unterscheidet sich max. um 1, auf jeder Ebene verdoppelt sich die Anzahl der Knoten, daher Suchzeit 𝒪ሺlog 𝑛ሻ bei n Knoten"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.192,
+            0.39,
+            0.586,
+            0.41
+          ],
+          "content": "**b) entarteter Baum**: wie Liste, d.h. 𝒪ሺ𝑛ሻ"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.624,
+            0.156,
+            0.844,
+            0.255
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Node 1\"] --> B[\"Node 2\"]\n  B --> C[\"Node 3\"]\n  B --> D[\"Node 4\"]\n  B --> E[\"Node 5\"]\n  C --> F[\"Node 6\"]\n  D --> G[\"Node 7\"]\n  E --> H[\"Node 8\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_274_image_8.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.695,
+            0.27,
+            0.822,
+            0.411
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"\"] --> B[\"\"]\n  B --> C[\"\"]\n  C --> D[\"\"]\n  D --> E[\"\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_274_image_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**275**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.854,
+            0.516
+          ],
+          "content": "Bei einem **ausgeglichenen** Suchbaum sind die Teilbäume optimal “ausbalanciert”, und es wird eine minimale Suchzeit garantiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.521,
+            0.813,
+            0.557
+          ],
+          "content": "Der worst case ist der **entartete** Baum, welcher im Wesentlichen die gleichen Eigenschaften wie eine lineare Liste aufweist."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "275"
+        }
+      ]
+    },
+    {
+      "page_idx": 275,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.541,
+            0.101
+          ],
+          "level": 2,
+          "content": "Laufzeitanalyse für binäre Suchbäume"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.121,
+            0.839,
+            0.393
+          ],
+          "sub_type": "text",
+          "content": "Man kann zeigen: Bei einem aus **zufälligen Schlüsseln** aufgebauten binären Suchbaum liegt die Suchzeit im average case bei 𝒪ሺlog 𝑛ሻ\n• **Jedoch**: nicht garantiert, worst case ist stets 𝒪ሺ𝑛ሻ\nAusgeglichene binäre Suchbäume (**AVL‐Bäume**): 𝒪ሺlog 𝑛ሻ worst case für Suchen, Einfügen, Löschen garantiert\n• Weitere Suchbaumstrukturen für **spezielle Anwendungen**\n• Z.B. Verwaltung großer Mengen in **externen Dateien** (Files)\n– **Zugriffszeit** = Zeit für Positionierung im File + Zeit für Übertragung der Daten in den Hauptspeicher\n– Daher Übertragung von großen **zusammenhängenden Datenblöcken** statt einzelner Knoten sinnvoll\n– Datenstruktur: **B‐Bäume**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**276**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.816,
+            0.553
+          ],
+          "content": "Bei **AVL-Bäumen** (benannt nach den Erfindern) wird durch einen geringen Zusatzaufwand beim Einfügen und Löschen einzelner Elemente sichergestellt, dass stets eine optimale Baumstruktur vorliegt. Dadurch wird der worst case ausgeschlossen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.557,
+            0.836,
+            0.684
+          ],
+          "content": "Ist die Suchzeit in einer Datei nicht vernachlässigbar gegenüber der Zeit, die der eigentliche Datentransport benötigt, so sollte auf weiterentwickelte Datenstrukturen zurückgegriffen werden. Bei **B-Bäumen** kann statt in 2 Richtungen in k>2 Richtungen verzweigt werden. Jeder Knoten besteht aus einem ganzen Block von Einzelelementen. Hierdurch wird die Suche in Files insgesamt effizienter, da die externe Suchzeit (z.B. auf der Festplatte statt im Hauptspeicher) nicht so häufig anfällt wie bei binären Suchbäumen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "276"
+        }
+      ]
+    },
+    {
+      "page_idx": 276,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.418,
+            0.17,
+            0.583,
+            0.194
+          ],
+          "level": 2,
+          "content": "10. Graphen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.257,
+            0.254,
+            0.652,
+            0.273
+          ],
+          "level": 2,
+          "content": "10.1 Definition und Grapheigenschaften"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.278,
+            0.707,
+            0.368
+          ],
+          "sub_type": "text",
+          "content": "10.2 Berechnung kürzester Pfade\n10.3 Datenstrukturen zur Graphrepräsentation\n10.4 Graphdurchläufe\n10.5 Spannbäume"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**277**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "277"
+        }
+      ]
+    },
+    {
+      "page_idx": 277,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.251,
+            0.101
+          ],
+          "level": 2,
+          "content": "Graphen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.123,
+            0.793,
+            0.181
+          ],
+          "sub_type": "text",
+          "content": "Graph: graphische Darstellung einer **Menge von Objekten und deren Beziehungen** (d.h. Relation)\n• Bsp.: **topologische Information** einer Landkarte"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.179,
+            0.182,
+            0.825,
+            0.439
+          ],
+          "sub_type": "flowchart",
+          "content": "This image displays a map of Germany and its associated network diagram, illustrating the relationships between German states and their respective cities.",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_277_image_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.445
+          ],
+          "content": "**278**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.439,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.834,
+            0.552
+          ],
+          "content": "Das Beispiel zeigt, wie ein Graph abstrakte Information speichern kann. Ist man z.B. nur an der Frage interessiert, welche Bundesländer benachbart sind (aber nicht an der Länge und Gestalt der Grenzen), so genügt die **topologische Information**, d.h. die “Vernetzung” der Länder untereinander."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.557,
+            0.849,
+            0.61
+          ],
+          "content": "Diese wird durch den hier gezeigten Graphen erfasst. Jeder “**Knoten**” steht für ein Land, und jede “**Kante**” (Verbindung) zwischen zwei Ländern weist auf deren Nachbarschaft hin."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "278"
+        }
+      ]
+    },
+    {
+      "page_idx": 278,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.251,
+            0.101
+          ],
+          "level": 2,
+          "content": "Graphen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.121,
+            0.79,
+            0.161
+          ],
+          "content": "**Def**.: Eine (binäre) **Relation** 𝑅 ist eine Teilmenge des kartesischen Produktes zweier Mengen: $R \\subseteq A   \\times   B$"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.173,
+            0.83,
+            0.265
+          ],
+          "sub_type": "text",
+          "content": "• Bei Graphen meist $R \\subseteq A   \\times   A$ für gegebene Menge 𝐴 ( $( \\mathsf { K n o t e n } ^ { \\prime \\prime } )$\n• $\" aRb\"$ als Schreibweise für $( a , b ) \\in R ,$ “**Kante**” zwischen 𝑎 und 𝑏 im Graphen\n• Spezialfall symmetrische Relation: $\\mathsf { a R b } \\Rightarrow \\mathsf { b R a }$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.296,
+            0.726,
+            0.357
+          ],
+          "content": "**Def**.: Ein **(gerichteter) Graph** $G \\; = \\; ( V , E )$ besteht aus einer Menge 𝑉 von **Knoten** (vertices) und einer Menge 𝐸 von **Kanten** $( e d g e s )$ mit $E \\subseteq V \\times V .$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.369,
+            0.724,
+            0.429
+          ],
+          "content": "**Def**.: Gilt für alle Kanten $( u , v )$ eines Graphen $G \\; = \\; ( V , E )$ $(u,v) \\in E \\Rightarrow (v,u) \\in E$ so heißt 𝐺 **ungerichtet**. **Schreibweise**: $\\{ u , v \\} \\in E .$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**279**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.834,
+            0.534
+          ],
+          "content": "Standardmäßig sind Graphen aufgrund des Relationsbegriffes **gerichtet**, d.h. die Kanten weisen in eine bestimmte Richtung. Graphisch werden die Kanten dann als Pfeil dargestellt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.539,
+            0.818,
+            0.594
+          ],
+          "content": "Eine symmetrische Relation führt dagegen zu einem **ungerichteten** Graphen. Alle Kanten haben “beide” Richtungen, und werden daher nur als eine einzige richtungslose Kante gezeichnet."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "279"
+        }
+      ]
+    },
+    {
+      "page_idx": 279,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.337,
+            0.102
+          ],
+          "level": 2,
+          "content": "Pfade in Graphen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.121,
+            0.808,
+            0.163
+          ],
+          "content": "**Def**.: Eine Folge $( v _ { 1 } , \\ldots , v _ { n } )$ von Knoten eines Graphen $G \\; = \\; ( V , E )$ heißt **Pfad**, falls für alle $i \\; = \\; 1 \\ldots n - 1 \\colon \\{ v _ { i } , v _ { i + 1 } \\} \\in E .$"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.159,
+            0.175,
+            0.427,
+            0.407
+          ],
+          "sub_type": "text",
+          "content": "Bsp. Landkarte: Knoten = Bundesländer\n**Ungerichteter Graph**, da Nachbarschafts‐Beziehung symmetrisch\n• **Pfad** ${ \\sf = { \\sf , } { \\sf R e i s e w e g } ^ { \\prime \\prime } }$ von einem Land in ein anderes\nIm folgenden: Betrachtung **ungerichteter** Graphen"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.437,
+            0.171,
+            0.845,
+            0.43
+          ],
+          "sub_type": "flowchart",
+          "content": "This diagram illustrates a hierarchical classification or relationship structure among German states, with 'Nieders.' (National Living) being the most prominent category.",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_279_image_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**280**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.802,
+            0.517
+          ],
+          "content": "Ein Pfad ist eine **zusammenhängende Folge** von Knoten in einem Graphen. Zwei durch eine Kante verbundene Knoten heißen “adjazent”."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "280"
+        }
+      ]
+    },
+    {
+      "page_idx": 280,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.435,
+            0.102
+          ],
+          "level": 2,
+          "content": "Zusammenhang und Zyklen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.121,
+            0.829,
+            0.162
+          ],
+          "content": "**Def**.: Ein Graph 𝐺 ൌ ሺ𝑉, 𝐸ሻ heißt **zusammenhängend**, falls zwischen zwei beliebigen Knoten 𝑢, 𝑣  𝑉 mindestens ein Pfad existiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.196,
+            0.781,
+            0.236
+          ],
+          "content": "**Def**.: Ein Graph 𝐺 ൌ ሺ𝑉, 𝐸ሻ heißt **zyklenfrei**, falls zwischen zwei beliebigen Knoten 𝑢, 𝑣  𝑉 höchstens ein Pfad existiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.259,
+            0.329,
+            0.277
+          ],
+          "content": "• Bsp. Landkarte:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.185,
+            0.282,
+            0.4,
+            0.325
+          ],
+          "sub_type": "text",
+          "content": "– zusammenhängend\n– nicht zyklenfrei"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.462,
+            0.244,
+            0.775,
+            0.439
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Nieders.\"] --> B[\"HH\"]\n  A --> C[\"Schlesw.\"]\n  A --> D[\"Meckl.\"]\n  A --> E[\"Brandenb.\"]\n  A --> F[\"Sachsen-A.\"]\n  A --> G[\"HB\"]\n  A --> H[\"NRW\"]\n  A --> I[\"Rheinl.\"]\n  A --> J[\"Saarl.\"]\n  A --> K[\"Hessen\"]\n  A --> L[\"Baden-W.\"]\n  A --> M[\"Thür.\"]\n  A --> N[\"Sachsen\"]\n  A --> O[\"Bayern\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_280_image_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**281**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.828,
+            0.534
+          ],
+          "content": "Im Beispiel bedeutet **zusammenhängend**, dass jedes Land von jedem anderen aus (evtl. über andere Länder) erreichbar ist. **Nicht zyklenfrei** bedeutet, dass es Rundreisen gibt."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.517,
+            0.993
+          ],
+          "content": "281"
+        }
+      ]
+    },
+    {
+      "page_idx": 281,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.541,
+            0.102
+          ],
+          "level": 2,
+          "content": "Graphen und Bäume, Kantengewichte"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.121,
+            0.584,
+            0.161
+          ],
+          "content": "**Def**.: Ein zusammenhängender, zyklenfreier Graph $G = ( V , E )$ heißt **Baum**."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.151,
+            0.167,
+            0.827,
+            0.287
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_281_image_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.293,
+            0.777,
+            0.334
+          ],
+          "content": "**Def**.: Ein Graph $G = ( V , E , w )$ mit einer Abbildung 𝑤: 𝐸 → ℝ heißt **(kanten)gewichteter Graph**."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.368,
+            0.339,
+            0.589,
+            0.434
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Node 1\"] --> B[\"Node 7\"]\n  B --> C[\"Node 9\"]\n  C --> D[\"Node 11\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_281_image_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**282**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.789,
+            0.516
+          ],
+          "content": "**Kantengewichte** werden z.B. verwendet, um Entfernungen zwischen zwei Knoten zu repräsentieren."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "282"
+        }
+      ]
+    },
+    {
+      "page_idx": 282,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.418,
+            0.17,
+            0.583,
+            0.194
+          ],
+          "level": 2,
+          "content": "10. Graphen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.254,
+            0.708,
+            0.369
+          ],
+          "sub_type": "text",
+          "content": "10.1 Definition und Grapheigenschaften\n**10.2 Berechnung kürzester Pfade**\n10.3 Datenstrukturen zur Graphrepräsentation\n10.4 Graphdurchläufe\n10.5 Spannbäume"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.172,
+            0.446
+          ],
+          "content": "**283**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.482,
+            0.98,
+            0.518,
+            0.993
+          ],
+          "content": "283"
+        }
+      ]
+    },
+    {
+      "page_idx": 283,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.566,
+            0.102
+          ],
+          "level": 2,
+          "content": "Beispiel‐Anwendung: Navigationssystem"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.159,
+            0.118,
+            0.845,
+            0.3
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_283_image_1.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.163,
+            0.318,
+            0.593,
+            0.406
+          ],
+          "sub_type": "text",
+          "content": "• **Knoten** = Geographische Orte\n**Kanten** = Straßenverbindungen\n• **Kantengewichte** = Länge bzw. Fahrtdauer\n• **Gesucht**:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.204,
+            0.409,
+            0.828,
+            0.428
+          ],
+          "content": "kürzester Pfad von 𝐴 nach 𝐵 gemäß Summe der Kantengewichte"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**284**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.83,
+            0.552
+          ],
+          "content": "Eine Teilfunktion eines **Navigationssystems** ist es, die kürzeste bzw. schnellste Verbindung zwischen zwei Orten über andere Orte zu bestimmen. Dabei sind geographische Einzelheiten zunächst belanglos, daher ist ein kantengewichteter Graph ein geeignetes Modell einer Strassenkarte."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.557,
+            0.836,
+            0.646
+          ],
+          "content": "Die **Kantengewichte** spiegeln dabei entweder direkt die Entfernung zweier Orte wider (falls die kürzeste Strecke gesucht ist), oder sie sind noch mit der zu erwartenden Durchschnittsgeschwindigkeit gewichtet (falls der schnellste Weg gewünscht ist). Z.B. können sich erhebliche Umwege lohnen, sofern man dann Autobahnen benutzen kann."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "284"
+        }
+      ]
+    },
+    {
+      "page_idx": 284,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.447,
+            0.101
+          ],
+          "level": 2,
+          "content": "Bestimmung kürzester Pfade"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.834,
+            0.299
+          ],
+          "sub_type": "text",
+          "content": "• **Dijkstra‐Algorithmus** (single source shortest path)\nBestimmung der kürzesten Pfade von einem Startknoten $v _ { 0 }$ aus zu allen anderen Graphknoten\n• Idee:\n– In jedem Schritt Betrachtung einer „**Nachbarschaft**“ 𝑁 von $v _ { 0 } ,$ innerhalb derer die kürzesten Pfade zu $v _ { 0 }$ bereits bekannt sind\n– Schrittweise **Erweiterung von** 𝑵 um den jeweils am nächsten an 𝑁 liegenden Knoten"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.162,
+            0.325,
+            0.836,
+            0.43
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Initial State\"] --> B[\"Final State\"]\n  B --> C[\"Final State\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.151,
+                0.436,
+                0.172,
+                0.445
+              ],
+              "content": "285"
+            }
+          ],
+          "footnotes": [
+            {
+              "bbox": [
+                0.674,
+                0.438,
+                0.816,
+                0.446
+              ],
+              "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+            }
+          ],
+          "image_source": "images/page_284_image_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.57
+          ],
+          "content": "Der **Dijkstra-Algorithmus** findet alle kürzesten Wege von einem Startknoten aus gesehen auf einmal. Die Grundidee ist es, eine “Wellenausbreitung” (als ob man einen Stein am Startpunkt ins Wasser werfen würde) vom Startknoten aus vorzunehmen und dabei neue minimale Entfernungen vom Startknoten aus erreichter Knoten zu protokollieren."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "285"
+        }
+      ]
+    },
+    {
+      "page_idx": 285,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.479,
+            0.102
+          ],
+          "level": 2,
+          "content": "Ablauf des Dijkstra‐Algorithmus"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.124,
+            0.791,
+            0.163
+          ],
+          "content": "**Bisher bekannter** min. Abstand dist(u,v) zwischen zwei Knoten kann durch neue Zwischenknoten **verkürzt** werden"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.188,
+            0.172,
+            0.808,
+            0.251
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"A\"] -->|\"10\"| B[\"B\"]\n  B -->|\"10\"| C[\"C\"]\n  A -->|\"12\"| D[\"D\"]\n  B -->|\"10\"| E[\"E\"]\n  C -->|\"6\"| F[\"F\"]\n  D -->|\"10\"| G[\"G\"]\n  E -->|\"10\"| H[\"H\"]\n  F -->|\"10\"| I[\"I\"]\n  G -->|\"10\"| J[\"J\"]\n  H -->|\"10\"| K[\"K\"]\n  I -->|\"10\"| L[\"L\"]\n  J -->|\"10\"| M[\"M\"]\n  K -->|\"10\"| N[\"N\"]\n  L -->|\"10\"| O[\"O\"]\n  M -->|\"10\"| P[\"P\"]\n  N -->|\"10\"| Q[\"Q\"]\n  O -->|\"10\"| R[\"R\"]\n  P -->|\"10\"| S[\"S\"]\n  Q -->|\"10\"| T[\"T\"]\n  R -->|\"10\"| U[\"U\"]\n  S -->|\"10\"| V[\"V\"]\n  T -->|\"10\"| W[\"W\"]\n  U -->|\"10\"| X[\"X\"]\n  V -->|\"10\"| Y[\"Y\"]\n  W -->|\"10\"| Z[\"Z\"]\n  X -->|\"10\"| AA[\"AA\"]\n  Y -->|\"10\"| AB[\"AB\"]\n  Z -->|\"10\"| AC[\"AC\"]\n  AA -->|\"10\"| AD[\"AD\"]\n  AB -->|\"10\"| AE[\"AE\"]\n  AD -->|\"10\"| AF[\"AF\"]\n  AE -->|\"10\"| AG[\"AG\"]\n  AF -->|\"10\"| AH[\"AH\"]\n  AG -->|\"10\"| AI[\"AI\"]\n  AH -->|\"10\"| AJ[\"AJ\"]\n  AI -->|\"10\"| AK[\"AK\"]\n  AJ -->|\"10\"| AL[\"AL\"]\n  AK -->|\"10\"| AM[\"AM\"]\n  AJ -->|\"10\"| AN[\"AN\"]\n  AL -->|\"10\"| AO[\"AO\"]\n  AM -->|\"10\"| AP[\"AP\"]\n  AN -->|\"10\"| AQ[\"AQ\"]\n  AO -->|\"10\"| AR[\"AR\"]\n  AP -->|\"10\"| AS[\"AS\"]\n  AQ -->|\"10\"| AT[\"AT\"]\n  AO -->|\"10\"| AU[\"AU\"]\n  AP -->|\"10\"| AV[\"AV\"]\n  AU -->|\"10\"| AW[\"AW\"]\n  AO -->|\"10\"| AX[\"AX\"]\n  AU -->|\"10\"| AY[\"AY\"]\n  AO -->|\"10\"| AZ[\"AZ\"]\n  AU -->|\"10\"| AY2[\"AY2\"]\n  AO -->|\"10\"| AZ2[\"AZ2\"]\n  AU -->|\"10\"| AZ2[\"AZ2\"]\n  AO -->|\"10\"| AZ3[\"AZ3\"]\n  AU -->|\"10\"| AZ4[\"AZ4\"]\n  AO -->|\"10\"| AZ5[\"AZ5\"]\n  AU -->|\"10\"| AZ6[\"AZ6\"]\n  AO -->|\"10\"| AZ7[\"AZ7\"]\n  AU -->|\"10\"| AZ8[\"AZ8\"]\n  AO -->|\"10\"| AZ9[\"AZ9\"]\n  AU -->|\"10\"| AZ10[\"AZ10\"]\n  AO -->|\"10\"| AZ11[\"AZ11\"]\n  AU -->|\"10\"| AZ12[\"AZ12\"]\n  AO -->|\"10\"| AZ13[\"AZ13\"]\n  AU -->|\"10\"| AZ14[\"AZ14\"]\n  AO -->|\"10\"| AZ15[\"AZ15\"]\n  AU -->|\"10\"| AZ16[\"AZ16\"]\n  AO -->|\"10\"| AZ17[\"AZ17\"]\n  AU -->|\"10\"| AZ18[\"AZ18\"]\n  AO -->|\"10\"| AZ19[\"AZ19\"]\n  AU -->|\"10\"| AZ20[\"AZ20\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_285_image_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.261,
+            0.828,
+            0.302
+          ],
+          "content": "**Def**.: Ist 𝐺 ൌ ሺ𝑉, 𝐸ሻ ein Graph und ሼ𝑢, 𝑣ሽ  𝐸, so heißt 𝑣 **Nachfolger** von 𝑢, und 𝑢 heißt **Vorgänger** von 𝑣."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.151,
+            0.31,
+            0.476,
+            0.445
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  v0[\"v0\"] --> Node1[\"Node 1\"]\n  v0 --> Node2[\"Node 2\"]\n  v0 --> Node3[\"Node 3\"]\n  v0 --> Node4[\"Node 4\"]\n  v0 --> Node5[\"Node 5\"]\n  Node1 --> Node6[\"Node 6\"]\n  Node2 --> Node7[\"Node 7\"]\n  Node3 --> Node8[\"Node 8\"]\n  Node4 --> Node9[\"Node 9\"]\n  Node5 --> Node10[\"Node 10\"]\n  Node6 --> Node11[\"Node 11\"]\n  Node7 --> Node12[\"Node 12\"]\n  Node8 --> Node13[\"Node 13\"]\n  Node9 --> Node14[\"Node 14\"]\n  Node10 --> Node15[\"Node 15\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_285_image_4.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.686,
+            0.33,
+            0.719,
+            0.354
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.554,
+                0.342,
+                0.618,
+                0.356
+              ],
+              "content": "Graph G"
+            },
+            {
+              "bbox": [
+                0.548,
+                0.39,
+                0.623,
+                0.425
+              ],
+              "content": "bereits betrachteter Bereich"
+            },
+            {
+              "bbox": [
+                0.726,
+                0.327,
+                0.831,
+                0.35
+              ],
+              "content": "Alle Nachfolger bereits betrachtet"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_285_image_7.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.686,
+            0.363,
+            0.718,
+            0.386
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.724,
+                0.362,
+                0.819,
+                0.385
+              ],
+              "content": "Nachfolger noch nicht betrachtet"
+            },
+            {
+              "bbox": [
+                0.685,
+                0.405,
+                0.771,
+                0.43
+              ],
+              "content": "Kürzeste Pfade von 𝑣଴ aus"
+            }
+          ],
+          "footnotes": [
+            {
+              "bbox": [
+                0.675,
+                0.438,
+                0.816,
+                0.446
+              ],
+              "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+            }
+          ],
+          "image_source": "images/page_285_image_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.845,
+            0.552
+          ],
+          "content": "Aufgrund der **Kantengewichte** kann es sinnvoll sein, “Umwege” über andere Knoten zu nehmen, um einen bestimmten Knoten mit minimalen Kosten zu erreichen. D.h. der Abstand eines Knotens vom Startknoten hängt nicht unmittelbar damit zusammen, wie viele Zwischenknoten besucht werden müssen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.557,
+            0.833,
+            0.611
+          ],
+          "content": "Während der Abarbeitung des Algorithmus zerfällt der Graph in verschiedene **Regionen**: Der “blaue” Bereich, in dessen Zentrum der Startknoten liegt, wurde bereits vollständig abgearbeitet, und alle kürzesten Wege darin sind bekannt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.616,
+            0.838,
+            0.67
+          ],
+          "content": "Der “grüne” Bereich bildet die Grenze von Knoten, die noch weiter untersucht werden müssen. Durch “orangene” Kanten werden jeweils die aktuell bekannten kürzesten Wege dargestellt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.675,
+            0.844,
+            0.747
+          ],
+          "content": "Die Definition von **Vorgänger** und **Nachfolger** in ungerichteten Graphen ist natürlich “richtungslos”: Da für jede Kante (u,v) auch die Kante (v,u) in E enthalten ist, sind u und v gegenseitig Vorgänger und Nachfolger. Man könnte sie auch einfach als “Nachbarknoten” im Graphen definieren."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "286"
+        }
+      ]
+    },
+    {
+      "page_idx": 286,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.37,
+            0.102
+          ],
+          "level": 2,
+          "content": "Dijkstra‐Algorithmus"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.796,
+            0.277
+          ],
+          "sub_type": "text",
+          "content": "**Pseudo‐Code**: abstrakter Code für Algorithmus, nicht direkt compilier‐ und ausführbar!\nVorauss.: Datenstruktur für **Graphen** (graph) und **Mengen** (set) verfügbar\n• graph unterstützt Zugriff auf Knoten und Kanten (s. später)\nset unterstützt übliche Mengenoperationen\n• Variablen:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.197,
+            0.284,
+            0.794,
+            0.322
+          ],
+          "content": "– dist[v] bezeichnet den aktuell min. Abstand von Knoten 𝑣 zum Startknoten"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.198,
+            0.328,
+            0.718,
+            0.348
+          ],
+          "content": "– cost(u,v) bezeichnet Gewichtung der Kante ሼ𝑢, 𝑣ሽ"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.197,
+            0.353,
+            0.786,
+            0.391
+          ],
+          "content": "– Mengen **BLUE, GREEN und ORANGE** bezeichnen blaue und grüne Knoten sowie orangene Kanten"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.397,
+            0.813,
+            0.433
+          ],
+          "content": "Orangene Kanten bilden stets einen **Baum von aktuell kürzesten Pfaden** vom Startknoten aus"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.445
+          ],
+          "content": "**287**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.842,
+            0.551
+          ],
+          "content": "Da der komplette Algorithmus als C-Code zu komplex zur Darstellung an dieser Stelle ist, greifen wir auf “**Pseudo-Code**” zurück. Hierunter versteht man eine Programmdarstellung, die nur die wesentlichen Schritte des Algorithmus abstrakt darstellt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.557,
+            0.83,
+            0.628
+          ],
+          "content": "Programmdetails und die Implementierung der einzelnen benutzten Datenstrukturen werden als bekannt oder “leicht ergänzbar” vorausgesetzt. Die genaue Implementierung der Datenstruktur Graph wird jedoch erst etwas später erläutert."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "287"
+        }
+      ]
+    },
+    {
+      "page_idx": 287,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.191,
+            0.12,
+            0.81,
+            0.429
+          ],
+          "sub_type": "code",
+          "content": "```txt\nvoid shortest_path(graph G = (V = {v0,...,vn},E))\n{\n    set BLUE = {}, GREEN = {v0}, ORANGE = {}; dist[v0] = 0;\n\n    while (GREEN != {}) { // solange noch unbearbeitete Knoten\n        v = MinDist(GREEN); // v ∈ GREEN mit min. dist-Wert\n        Insert(v, BLUE);   // BLUE = BLUE ∪ {v}\n        Delete(v, GREEN);   // GREEN = GREEN \\ {v}\n\n        for (u ∈ Succ(v)) { // für alle Nachfolger u von v\n            if (!(u ∈ GREEN ∪ BLUE)) { // neuer Knoten erreicht\n                Insert({u,v}, ORANGE);\n                Insert(u, GREEN);\n                dist[u] = dist[v] + cost(u,v);\n            } else if (u ∈ GREEN) {      // u erneut erreicht\n                if (dist[v] + cost(u,v) < dist[u]) {\n                    Insert({u,v}, ORANGE);\n                    e = PreviousEdge(u);   // vorher orangene Kante zu u\n                    Delete(e, ORANGE);     // ORANGE = ORANGE \\ {e}\n                    dist[u] = dist[v] + cost(u,v);\n                }\n            }\n        }\n    }\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.162,
+                0.083,
+                0.37,
+                0.102
+              ],
+              "content": "Dijkstra‐Algorithmus"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.172,
+            0.446
+          ],
+          "content": "**288**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.571,
+            0.498
+          ],
+          "content": "Der Algorithmus arbeitet in folgenden **Schritten**:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.504,
+            0.847,
+            0.556
+          ],
+          "content": "Zunächst werden die verwendeten Mengen initialisiert. Die äußere while-Schleife läuft dann solange, bis alle Knoten untersucht worden sind und somit alle kürzesten Pfade bestimmt sind."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.563,
+            0.821,
+            0.616
+          ],
+          "content": "Der Knoten v mit minimalem dist-Wert wird aus der GREEN-Menge in die BLUE überführt. Für diesen wird anschließend geprüft (indem alle Nachfolger betrachtet werden), ob er zu neuen kürzesten Wegen beitragen kann."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.621,
+            0.836,
+            0.674
+          ],
+          "content": "**Fall 1** (if): Der Knoten u wurde bisher noch gar nicht erreicht. Der kürzeste Weg zu u führt somit per Definition über v, und die Distanz wird entsprechend vermerkt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.68,
+            0.836,
+            0.735
+          ],
+          "content": "**Fall 2** (else): u wurde bereits auf einem anderen Weg erreicht. Ist der neue Weg zu u über v kürzer als der bisher bekannte, so wird der Wert dist[u] entsprechend aktualisiert und die Menge der orangenen Kanten demzufolge angepasst."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.739,
+            0.717,
+            0.758
+          ],
+          "content": "Der Ablauf wird in den folgenden Folien am **Beispiel** verdeutlicht."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.979,
+            0.518,
+            0.993
+          ],
+          "content": "288"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "Microsoft PowerPoint - GGI1_W26.pptx",
+      "authors": [
+        "gemmeke"
+      ],
+      "created_at": "2026-10-06T18:10:39+02:00",
+      "modified_at": "2026-10-06T18:10:39+02:00",
+      "creator_application": "PScript5.dll Version 5.2.2",
+      "producer_application": "Acrobat Distiller 20.0 (Windows)",
+      "page_count": 355,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 256,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 257,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 258,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 259,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 260,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 261,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 262,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 263,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 264,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 265,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 266,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 267,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 268,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 269,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 270,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 271,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 272,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 273,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 274,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 275,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 276,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 277,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 278,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 279,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 280,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 281,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 282,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 283,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 284,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 285,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 286,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 287,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

@@ -1,0 +1,1031 @@
+--- PDF page 229 ---
+229
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+8. Lineare Datentypen
+8.1 Listen
+8.2 Stacks
+8.3 Queues
+229
+
+
+--- PDF page 230 ---
+230
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Mengendarstellung
+• Problemstellung: Verwaltung einer Menge von Objekten   
+𝐴 ൌ ሼ𝑎1, … , 𝑎௡ሽ vom Typ T
+• Gewünschte Operationen:
+– Suchen, Einfügen und Entfernen von Elementen
+– Vereinigung und Durchschnitt zweier Mengen 𝐴und 𝐵
+• Prinzipiell wäre ein Array als Datenstruktur geeignet
+• Jedoch zwei Probleme:
+– Einfügen eines neuen Elementes an einer bestimmten Position 
+erfordert aufwendige Umordnung
+– Größe der Menge muss statisch feststehen
+(Bspw. Deklaration: T A[100]; erlaubt max. 100 Elemente)
+Verschieben
+230
+Eine sehr häufige Anwendung in der Informatik ist die Verwaltung von Mengen, 
+z.B. in Datenbanken. Grundsätzlich sind hierfür sehr viele Datenstrukturen 
+geeignet. Es kommt jedoch immer auf die gewünschten Mengenoperationen an, 
+welche Datenstruktur sich als besonders effizient erweist.
+
+
+--- PDF page 231 ---
+231
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Verkettete Listen
+• Verwendung von Zeigern (siehe Kap. 3)
+• Modellierung eines Knotens für ein Element vom Typ T:
+typedef struct node { 
+T* data; struct node* next; } *nodeptr;
+• data ist Zeiger auf Listenelement vom Typ T
+• next ist Zeiger auf Nachfolgerknoten
+Def.: Eine (verkettete) Liste ist entweder leer oder besteht aus 
+einer Referenz auf einen Knoten, der ein Element und eine 
+Referenz auf eine verkettete Liste enthält.
+nodeptr
+Rest‐Liste
+Objekt vom
+Typ T
+data
+next
+231
+Eine Liste ist generell eine rekursive Datenstruktur. Sie besteht aus einem
+“Kopf” (dem ersten Knoten) und einer Restliste. Die Bezeichnung “verkettet” 
+rührt daher, dass die Elemente wie in einer Kette aneinandergereiht sind, wobei
+jeweils ein Element per Zeiger auf das nächste Element verweist. 
+In einer Liste sind “Nutzdaten” eines beliebigen Typs T gespeichert. T ist
+variabel und für die Listenimplementierung auch nicht von Belang.
+
+
+--- PDF page 232 ---
+232
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Verkettete Listen
+• Liste im Speicher (vgl. Kap. 3)
+• Liste = 1. Element + Restliste
+• Darstellung einer leeren Liste:
+#define NULL 0
+• Zeigerwert NULL bedeutet, dass der Zeiger 
+„nirgendwohin“ zeigt
+• Speicherzugriff per NULL‐Zeiger ist 
+unzulässig, führt i.A. zum 
+Programmabsturz
+data
+next
+data
+next
+T
+Adr.
+0
+NULL
+Listenende
+232
+Rechts wird gezeigt, wie eine Liste tatsächlich im Speicher abgelegt sein könnte. 
+Der obere data-Zeiger verweist auf ein Nutzdatum vom Typ T. Der zugehörige
+next-Zeiger verweist auf den nächsten Listenknoten, welcher sich theoretisch an 
+beliebiger Stelle im Speicher (genauer gesagt: im Heap-Bereich) befinden kann. 
+Auch der nächste data-Zeiger verweist dann auf ein Objekt vom Typ T, und der 
+zugehörige next-Zeiger verweist wiederum auf den Nachfolgerknoten in der 
+Liste.
+Zur Kennzeichnung des Listenendes wird der next-Zeiger des letzten Knotens
+mit NULL belegt. Diese spezielle “0” ist ein ausgezeichneter Zeigerwert, der 
+immer so interpretiert wird, dass er “auf nichts” zeigt. Er darf daher auch nicht
+dereferenziert werden. Ein Anwendungsprogramm, welches Listen benutzt, fragt
+daher häufig durch einen expliziten Vergleich mit NULL ab, ob der letzte Knoten
+erreicht worden ist, bspw. nach folgendem Schema:
+nodeptr n;
+n = “erster Knoten in Liste”;
+while (n != NULL) /* Abbruch bei Listenende */
+{ “verarbeite Objekt n->data”; /* n != NULL) */
+n = n->next;  /* n weitersetzen */
+}
+
+
+--- PDF page 233 ---
+233
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Listenoperationen
+• Definition des Datentyps Liste, Elemente vom Typ T
+• Erzeugung einer leeren Liste und Leerheitstest
+NULL
+L.first
+L.last
+typedef struct node { 
+T* data; 
+struct node* next; } Node, *nodeptr;
+typedef struct list {
+nodeptr first, last; } List, *listptr;
+List L;
+void Init(listptr L)
+{ 
+L->first = NULL; L->last = NULL; 
+}
+int IsEmpty(List L)
+{ 
+return (L.first == NULL && L.last == NULL); 
+}
+233
+Die Datenstruktur “List” bedient sich der Datenstruktur “Node” für Listenknoten
+und besteht nur aus zwei Zeigern: einem auf das erste und einem auf das letzte
+Listenelement.
+Die Datentypen "nodeptr" und "listptr" stellen Zeigertypen auf die jeweiligen 
+Datenstrukturen Node und List dar.
+Per Definition sollen bei einer leeren Liste beide Zeiger gleich NULL sein. Beim
+Leerheitstest (Funktion “IsEmpty”) wird daher diese Eigenschaft geprüft.
+Auf den “last”-Zeiger könnte in einer Listenimplementierung prinzipiell auch
+verzichtet werden, auf “first” dagegen nicht. Übungsaufgabe: Warum ist das so, 
+und welche Funktionen müssten dann wie angepasst werden?
+
+
+--- PDF page 234 ---
+234
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Listenoperationen
+• Einfügen eines neuen Listenelements vom Typ T am Listenanfang
+NULL
+vorher
+NULL
+nachher
+• Funktion „malloc“ (siehe Kap. 3) stellt dynamisch Speicherplatz 
+auf dem Heap bereit 
+• Funktion „sizeof“ berechnet die erforderliche Anzahl von Bytes 
+(hier z.B. insges. 8 Bytes bei 32‐Bit‐Zeigern)
+nodeptr newnode(T* item)
+{ 
+nodeptr np;
+np = (nodeptr)malloc(sizeof(Node));
+np->data = item;
+np->next = NULL;
+return np;
+}
+234
+Die Funktion newnode soll ein Nutzdatum item vom Typ T in einen Listenknoten
+einkapseln. Zunächst wird per malloc passender Speicherplatz auf dem Heap 
+angefordert, dann wird der Anfang dieses Speicherblocks an die Zeigervariable
+np zugewiesen. 
+Die Komponenten des neuen Knotens werden passend initialisiert, d.h. data zeigt
+auf das Nutzdatum, und next wird – da über die Einbettung von np in eine Liste
+noch nichts weiteres bekannt ist – mit NULL belegt. 
+Anschließend wird np als Zeiger auf den nun fertigen Listenknoten per return 
+zurückgeliefert.
+
+
+--- PDF page 235 ---
+235
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Einfügen am Listenanfang
+void AppendFirst(T* item, listptr L)
+{ 
+nodeptr np = newnode(item);
+if (IsEmpty(*L)) { 
+L->first = np; L->last = np;
+} else {
+np->next = L->first;
+L->first = np;
+}
+}
+NULL
+NULL
+L->first
+L->last
+np
+NULL
+L->first
+L->last
+np
+NULL
+L->first
+L->last
+235
+Die Skizze zeigt den Ablauf beim Einfügen am Listenanfang. Zunächst wird 
+mittels “newnode” ein neuer Knoten “np” erzeugt, welcher das Nutzdatum “item” 
+einkapselt.
+Der Nachfolgerzeiger “next” von “np” wird auf das ursprünglich erste Element 
+der Liste L umgelenkt. Abschließend wird “np” zum neuen Listenanfang
+gemacht, d.h. der Zeiger L->first wird entsprechend umgesetzt. 
+Der Sonderfall, dass die Liste L leer ist (IsEmpty-Funktion) wird vorab 
+abgefangen. In diesem Fall wird “np” gleichzeitig zum ersten und letzten 
+Listenelement.
+
+
+--- PDF page 236 ---
+236
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Einfügen am Listenende
+void AppendLast(T* item, listptr L)
+{ 
+nodeptr np = newnode(item);
+if (IsEmpty(*L)) { 
+L->first = np; L->last = np;
+} else { 
+L->last->next = np;
+L->last = np;
+}
+}
+NULL
+NULL
+L->first
+np
+L->last
+NULL
+L->first
+np
+L->last
+NULL
+L->first
+L->last
+236
+Analog kann man wie in der Skizze gezeigt das neue Element “np” am 
+Listenende anfügen. Die Zeiger werden entsprechend “umgebogen”, und auch
+hier ist evtl. der Spezialfall einer leeren Liste L vorab zu behandeln.
+
+
+--- PDF page 237 ---
+237
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Prüfen ob Element in Liste enthalten
+• Laufzeit bei N‐elementiger Liste:
+– Best case: O(1)
+– Worst case: O(N)
+– Average case: O(N/2) = O(N)
+int IsIn(T* item, List L)
+{ 
+nodeptr np;
+if (IsEmpty(L)) return 0; // false
+np = L.first;
+while (np != NULL) { 
+if (Equal(np->data, item)) return 1; // true
+np = np->next;
+}
+return 0; // false
+}
+Sequentielle Suche
+NULL
+237
+Zum Auffinden des Elementes “item” wird die Liste von links nach rechts
+durchlaufen. Ist die Liste leer, so kann “item” trivialerweise nicht enthalten sein. 
+Ansonsten wird eine while-Schleife durchlaufen, welche terminiert, sobald per 
+NULL-Zeiger das Listenende angezeigt wird.
+Die Equal-Funktion (hier nicht weiter vertieft) soll prüfen, ob es sich bei dem 
+aktuellen betrachteten Element um das gesuchte handelt. Man beachte, dass ein
+Vergleich per  “==“-Operator i.a. nicht funktionieren wird: Da es sich bei T um 
+einen beliebigen komplexen Datentyp handeln kann, welcher dann
+komponentenweise verglichen werden müsste, ist ein einfacher Zeigervergleich
+unzulässig. Es ist auch – je nach Implementierung – denkbar, dass verschiedene
+Zeiger auf das gesuchte Datum “*item” zeigen, d.h. “*(np->data)” und “*item” 
+sind evtl. identisch, obwohl die Zeiger “np->data” und “item” durchaus
+verschieden sein könnten.
+Bei positivem Vergleich wird sofort 1 (wahr) per return zurückgeliefert. Wurde
+das Listenende erreicht, so wird 0 (falsch) zurückgegeben.
+
+
+--- PDF page 238 ---
+238
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Einfügen hinter ein bestimmtes Listenelement
+// item2 hinter item1 einfügen
+void InsertBehind(T* item1, 
+T* item2, listptr L)
+{ 
+nodeptr np, newnp;
+if (!IsIn(item1,*L)) { 
+printf(„Fehler!“); return;
+}
+np = L->first;
+while (np != NULL) {
+if (Equal(np->data,item1)) {
+newnp = newnode(item2);
+newnp->next = np->next;
+np->next = newnp;
+if (np == L->last) {
+L->last = newnp; 
+}
+break;
+}
+np = np->next;
+}
+}
+NULL
+NULL
+np
+newnp
+NULL
+np
+newnp
+238
+Zum Auffinden des Elementes “item” wird die Liste von links nach rechts
+durchlaufen. Ist die Liste leer, so kann “item” trivialerweise nicht enthalten sein. 
+Ansonsten wird eine while-Schleife durchlaufen, welche terminiert, sobald per 
+NULL-Zeiger das Listenende angezeigt wird.
+Die Equal-Funktion (hier nicht weiter vertieft) soll prüfen, ob es sich bei dem 
+aktuellen betrachteten Element um das gesuchte handelt. Man beachte, dass ein
+Vergleich per  “= =“-Operator i.a. nicht funktionieren wird: Da es sich bei T um 
+einen beliebigen komplexen Datentyp handeln kann, welcher dann
+komponentenweise verglichen werden müsste, ist ein einfacher Zeigervergleich
+unzulässig. Es ist auch –je nach Implementierung- denkbar, dass verschiedene
+Zeiger auf das gesuchte Datum “*item” zeigen, d.h.
+“*(np->data)” und “*item” 
+sind evtl. identisch, obwohl die Zeiger “np->data” und “item” durchaus
+verschieden sein könnten.
+Bei positivem Vergleich wird sofort 1 (wahr) per return zurückgeliefert. Wurde
+das Listenende erreicht, so wird 0 (falsch) zurückgegeben.
+
+
+--- PDF page 239 ---
+239
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Löschen eines Listenelementes
+void Delete(T* item, listptr L)
+{ 
+nodeptr np1, np2;
+if (IsEmpty(*L)) return;
+np1 = L->first;
+if (Equal(np1->data,item)) {
+L->first = np1->next;
+if (L->first == NULL)
+L->last = NULL;
+free(np1);
+return;
+}
+np2 = np1->next;
+while (np2 != NULL) {
+if (Equal(np2->data,item)) { 
+np1->next = np2->next;
+if (np2 == L->last)
+L->last = np1; 
+free(np2);
+break;
+}
+np1 = np2;
+np2 = np2->next;
+}
+}
+NULL
+np2
+np1
+NULL
+np2
+np1
+239
+Das Löschen eines Elementes “item” aus Liste L ist etwas komplizierter, da 
+verschiedene Fälle zu betrachten sind.
+Ist L leer, so braucht nichts unternommen zu werden (bzw. es liegt
+möglicherweise sogar ein Fehler vor).
+Ist “item” zufälligerweise das erste Listenelement, so muss L->first angepasst
+werden. Außerdem kann durch das Löschen (per “free”, dem Gegenstück zu
+“malloc”) die Liste ganz leer werden, was wiederum einen “reset” des Zeigers
+“L->last” notwendig macht.
+Der Normalfall ist, dass “irgendwo” innerhalb der Liste zu löschen ist. Um das 
+gesuchte Element aushängen zu können, muss die Liste mittels zweier (synchron
+und jeweils um eine Position versetzt laufender) Zeiger “np1” und “np2” 
+durchlaufen werden. Auch hier ist der Sonderfall zu betrachten, dass “item” 
+zufällig das letzte Listenelement ist.
+
+
+--- PDF page 240 ---
+240
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Zusammenfügen zweier Listen
+• Falls Liste als Mengendarstellung: entspricht Vereinigung
+• Evtl. Mehrfachvorkommen von Elementen ausschließen
+listptr Union(listptr L1, listptr L2)
+{ 
+if (IsEmpty(*L2)) return L1;
+if (IsEmpty(*L1)) return L2;
+L1->last->next = L2->first;
+L1->last = L2->last;
+return L1;
+}
+L1:
+NULL
+L2:
+240
+Die Vereinigung zweier Listen geschieht einfach durch Aneinanderhängen. 
+Sonderfälle treten nur ein, wenn eine der beiden Listen zufällig leer ist.
+Man beachte, dass durch das Aneinanderhängen keine neue Liste mit Kopien von 
+Elementen aus den alten Listen erzeugt wird. 
+Zu beachten ist, ob mit Hilfe der Listen Mengen (im mathematischen Sinn) oder
+andere Daten zu verwalten sind. Bei Mengen gibt es kein Mehrfachvorkommen
+von Elementen, so dass u.U. zusätzlich sichergestellt werden muss, dass in der 
+Vereinigung alle Elemente höchstens einmal vorhanden sind (Übungsaufgabe: 
+wie lässt sich dies implementieren?)
+
+
+--- PDF page 241 ---
+241
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Schnittmengenberechnung mittels Listen
+listptr Intersect(listptr L1, listptr L2)
+{ 
+nodeptr np;
+listptr L = (listptr)malloc(sizeof(List));
+Init(L);
+np = L1->first;
+while (np != NULL) {
+if (IsIn(np->data, *L2)) AppendLast(np->data, L);
+np = np->next;
+}
+return L;
+}
+B
+C
+L1:
+A
+E
+NULL
+D
+B
+D
+L2:
+G
+NULL
+E
+B
+L:
+E
+NULL
+D
+241
+Analog zur Vereinigung lassen sich Schnittmengen berechnen. Im Gegensatz zur 
+Funktion Union wird in der Funktion Intersect eine neue Liste mit Kopien von 
+Elementen aus den beiden alten Listen generiert. 
+Zunächst wird eine neue Liste L erzeugt, welche den Schnitt von L1 und L2 
+aufnehmen soll. Anschließend wird L1 elementweise durchlaufen, und es wird
+jeweils geprüft, ob das aktuelle Element auch in L2 enthalten ist. Falls ja, so 
+gehört es in die Schnittmengenliste L.
+
+
+--- PDF page 242 ---
+242
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+8. Lineare Datentypen
+8.1 Listen
+8.2 Stacks
+8.3 Queues
+242
+
+
+--- PDF page 243 ---
+243
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Stacks
+• Stacks sind eine grundlegende Datenstruktur in vielen 
+Anwendungen
+– Ablagesystem auf Professorenschreibtisch
+– Compiler‐Frontend (Analyse des Quellprogramms)
+– Abarbeitung von C‐Funktionsaufrufen
+• Aufgrund der Pop‐Operation auch als LIFO‐Datenstruktur
+bezeichnet (last in, first out)
+• Stack als ADT, d.h. verschiedene Implementierungen möglich (z.B. 
+Listen und Arrays)
+Def.: Ein Stack (Stapel) ist ein ADT, der folgende 
+Grundoperationen unterstützt:
+1. Einfügen eines neuen Elementes („Push“)
+2. Entfernen des zuletzt eingefügten Elementes („Pop“)
+243
+Der Stack ist eine Datenstruktur, auf die nur “von oben” zugegriffen werden
+kann. “Push” legt etwas auf den Stapel, und “Pop” nimmt das oberste Element 
+herunter.
+In diesem Fall unterscheiden wir genauer zwischen dem Stack als abstrakter
+Datentyp (ADT) und seiner Implementierung. Aus ADT-Sicht ist nur von Belang, 
+dass der Stack Daten speichern kann, und dass Push und Pop das Gewünschte tun. 
+Die eigentliche Realisierung als Programm ist unabhängig von dieser Sichtweise
+(und sollte es auch sein). Glücklicherweise kennen wir bereits zwei konkrete
+Datenstrukturen zur Stack-Implementierung.
+
+
+--- PDF page 244 ---
+244
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+stack
+EC
+pop → E
+push E
+push C
+Push und Pop
+push A
+push B
+push D
+pop → A
+pop → C
+pop → D
+pop → B
+A
+B
+D
+244
+Die Animation veranschaulicht eine willkürliche Folge von Stack-Zugriffen an 
+einem Beispiel. Push und Pop müssen bei typischen Stapeln nicht immer
+abwechselnd erfolgen. Zu Vermeiden sind jedoch zwei Sondersituationen: 
+(1) Der Versuch, etwas auf einen “vollen” Stack abzulegen
+(2) Der Versuch, etwas von einem leeren Stack zu entnehmen
+
+
+--- PDF page 245 ---
+245
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Laufzeit‐Stack für C‐Funktionsaufrufe
+• Siehe auch Kap. 5
+• Funktion f wird durch 
+Aufruf von g unterbrochen
+und später fortgesetzt
+• g kann ihrerseits weitere
+Funktionen aufrufen
+• Umgebung zur 
+Programmausführung muss 
+einen Stack noch aktiver
+Funktionen verwalten
+• Funktionsaufruf = Push
+• Funktionsende = Pop
+Statement f1
+Statement f2
+Statement f3
+Statement f4
+Statement g1
+Statement g2
+Funktion f
+Funktion g
+Zeit
+Aufruf
+Rücksprung
+245
+Das Konzept der Funktionsaufrufe in C wird über Stacks realisiert. Wird ein 
+Programm ausgeführt, so ist dabei stets (für den Programmierer nicht direkt 
+sichtbar) ein (Laufzeit-)Stack aktiv, auf dem Rücksprungpunkte aus Funktionen 
+abgespeichert sind. 
+Da Funktionsaufrufe beliebig verschachtelt sein können, aber jede Funktion stets 
+zur jeweils letzten aufrufenden Funktion zurückkehren muss, ist ein Stack genau 
+die richtige Datenstruktur für diesen Zweck. Bei einem Aufruf von g aus f bspw. 
+wird per Push auf dem Stack die aktuelle Position in f gespeichert. Nun wird g 
+abgearbeitet (was evtl. zu weiteren Pushs führt), und der Rücksprung erfolgt dann 
+nach f an die per Pop zu bestimmende Stelle.
+
+
+--- PDF page 246 ---
+246
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Laufzeit‐Stack für C‐Funktionsaufrufe
+main
+main
+f
+main
+f
+g
+main
+f
+g
+h
+main
+f
+g
+h
+i
+main
+f
+g
+h
+main
+f
+g
+main
+f
+main
+main
+g
+main
+g
+h
+main
+g
+h
+i
+main
+g
+h
+main
+g
+main
+main
+h
+main
+h
+i
+...
+main
+void f(void)
+{ 
+g(); 
+}
+void g(void)
+{ 
+h(); 
+}
+void h(void)
+{ 
+i(); 
+}
+void i(void)
+{ 
+}
+int main(void)
+{
+f();
+g();
+h();
+return 0;
+}
+246
+Das Beispiel zeigt, wie sich der Laufzeit-Stack für ein gegebenes (hier sicherlich 
+nicht weiter sinnvolles) Programm entwickelt. Bei einer korrekten 
+Programmabarbeitung sollte am Ende in jedem Fall der gleiche Stack-Zustand
+wie am Anfang herrschen (d.h. es ist lediglich die main-Funktion aktiv).
+Bei manchen Programmierfehlern (z.B. Schreiben in ein lokales Array jenseits 
+seiner Grenzen) kann der Laufzeitstack beschädigt (d.h. mit ungültigen Daten 
+gefüllt) werden. Als Folge könnte eine Funktion ihre richtige Rücksprungadresse 
+“vergessen”, was unweigerlich zu einem Programmabsturz führt.
+
+
+--- PDF page 247 ---
+247
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Stack‐Implementierung durch Listen
+• Elemente auf Stack = Listenelemente
+• Push = Einfügen am Listenanfang
+• Pop = Entfernen des ersten Elementes
+• Stack für beliebigen Elementtyp T:
+List L;
+void Push(T* item,listptr L)
+{ 
+AppendFirst(item, L); 
+}
+T* Pop(listptr L)
+{ 
+T* item;
+if (IsEmpty(*L)) return NULL;
+item = L->first->data;
+Delete(item, L);
+return item;
+}
+247
+Stacks lassen sich wie gezeigt sehr leicht durch Listen implementieren. Der 
+Unterschied zu einer “normalen” Liste liegt lediglich darin, dass man auf sie nur 
+per Push und Pop zugreift, wodurch die Funktionalität des ADT Stack 
+gewährleistet wird.
+
+
+--- PDF page 248 ---
+248
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Stack‐Implementierung durch Arrays
+• Vorgabe der max. Stack‐
+Größe notwendig
+• Elemente auf Stack = 
+Arrayelemente
+• „top“ verweist stets auf das 
+nächste freie Element (top = 
+„Stack‐Pointer“)
+• Push = Einfügen und 
+Erhöhen von top um 1
+• Pop = Entfernen und 
+Erniedrigen von top um 1
+• Prüfen auf Überlauf (im 
+Gegensatz zu Listen!)
+#define MAX 100
+typedef struct stk 
+{ T* elems[MAX]; int top; } stack;
+void Init(stack* s)
+{ s->top = 0; }
+int IsEmpty(stack s)
+{ return (s.top == 0); }
+void Push(T* item,stack* s)
+{ 
+if (s->top == MAX)
+printf(„Stack voll!“);
+s->elems[s->top] = item;
+s->top++;
+}
+T* Pop(stack* s)
+{ 
+if (IsEmpty(*s)) return NULL;
+s->top--;
+return s->elems[s->top];
+}
+248
+Eine andere Variante besteht in der Implementierung durch Arrays. Der 
+wesentliche Unterschied zur Listenimplementierung liegt darin, dass der 
+Speicherplatz statisch festgelegt werden muss. Der hier gezeigte Stack kann exakt 
+100 Elemente speichern, was u.U. zum Überlauf oder zu Platzverschwendung 
+führen kann. 
+Der Vorteil der Arrays liegt jedoch in der einfacheren Stack-Implementierung. 
+Bzgl. Push und Pop beachte man, dass Inkrementieren und Dekrementieren des 
+Stack-Pointers zueinander asymmetrisch erfolgen müssen (Push: einfügen, dann 
+inkrementieren, Pop: dekrementieren, dann lesen), da per Definition der Stack-
+Pointer immer auf das nächste freie Element im Array verweisen soll.
+
+
+--- PDF page 249 ---
+249
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel‐Anwendung
+• Auswertung geklammerter arithmetischer Ausdrücke
+– z.B. (( 6 * ( 4 * 28)) + ( 9 ‐ (( 12 / 4) * 2)))
+• Innere Ausdrücke vor äußeren auszuwerten
+• Speicherung von Zwischenergebnissen notwendig 
+• Zwei Stacks: Operanden‐ und Operatorstack
+• Abarbeitung eines Ausdrucks von links nach rechts:
+– „(“: keine Aktion
+– Operand: Push auf Operandenstack
+– Operator: Push auf Operatorstack
+– „)“: Pop des obersten Operators, Pop der obersten beiden 
+Operanden, Ausdruck auswerten, Push Ergebnis auf 
+Operandenstack
+249
+Mittels Stacks kann man einen einfachen “Taschenrechner” implementieren, 
+welcher komplexe arithmetische Ausdrücke auswertet und dabei die 
+Klammerung beachtet. Beim Durchlauf durch den Ausdruck ist folgende
+Fallunterscheidung zu machen:
+(1) Öffnende Klammer: ein neuer Teilausdruck beginnt, aber es ist nichts zu
+speichern oder auszuwerten
+(2) Operand: man befindet sich “mitten” in einem Ausdruck, und der Operand 
+muss gespeichert werden
+(3) Operator: man befindet sich “mitten” in einem Ausdruck, und der Operator 
+muss gespeichert werden
+(4) Schließende Klammer: Ende eines Teilausdrucks, der zuletzt gespeicherte
+Operator muss auf die zuletzt gespeicherten Operanden angewendet werden, 
+und das Ergebnis muss (als evtl. Operand für andere noch offene
+Teilausdrücke) gespeichert werden
+
+
+--- PDF page 250 ---
+250
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel
+(( 6 * ( 4 * 28)) + ( 9 ‐ (( 12 / 4) * 2)))
+Operandenstack
+Operatorstack
+6
+6 4
+6 4 28
+6 112
+672
+672 9
+672 9 12
+672 9 12 4
+672 9 3
+672 9 3 2
+672 9 6
+672 3
+675
+*
+* *
+*
+(leer)
++
++ ‐
++ ‐ /
++ ‐
++ ‐ *
++ ‐
++
+(leer)
+250
+Das Beispiel zeigt die Entwicklung der beiden Stacks. Jede neue Zeile
+entspricht dabei neuen, gemäß der obigen Fallunterscheidung angenommenen
+Stack-Zuständen.
+
+
+--- PDF page 251 ---
+251
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+8. Lineare Datentypen
+8.1 Listen
+8.2 Stacks
+8.3 Queues
+251
+
+
+--- PDF page 252 ---
+252
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Queues
+• Verbreitete Datenstruktur, z.B.
+– Warteschlange von auszuführenden Prozessen
+– Kommunikationspuffer z.B. für Druckaufträge
+• FIFO‐Prinzip: first in, first out („zuerst gekommen, zuerst bedient“)
+Def.: Eine Queue (Warteschlange) ist ein ADT, der folgende 
+Grundoperationen unterstützt:
+1. Einfügen eines neuen Elementes („Put“)
+2. Entfernen des zuerst eingefügten Elementes („Get“)
+252
+Queues haben eine gewisse Verwandtschaft mit Stacks. Der Zugriff erfolgt 
+jedoch quasi umgekehrt: Statt des zuletzt eingefügten Elementes wird immer das 
+zuerst eingefügte Element entnommen (FIFO). Auch hier betrachten wir die 
+Queue zunächst als ADT.
+Außer im wirklichen Leben (s. Foto) begegnet man Warteschlangen in sehr vielen 
+IT-Anwendungen, z.B. bei der Synchronisation paralleler Prozesse. 
+Beispiel: Druckerbetrieb. Ein Drucker (Prozess 1) interagiert mit einer Menge 
+von Benutzern (Prozesse 2…N). Jeder Prozess arbeitet mit seiner eigenen 
+Geschwindigkeit, und Interaktionen finden nur gelegentlich und zu 
+unvorhersagbaren Zeitpunkten statt. Damit das Gesamtsystem Drucker/Benutzer 
+sinnvoll funktioniert, müssen die Prozesse synchronisiert werden. Möchte 
+Prozess i (i > 1) drucken, so kann Prozess 1 zufällig gerade beschäftigt sein. 
+Damit keine Aufträge verloren gehen, müssen diese in einem Speicher 
+zwischengelagert (gepuffert) werden. Außerdem ist es “fair”, dass zuerst 
+abgesandte Druckaufträge auch als erstes abgearbeitet werden. Daher ist eine 
+Queue als Puffer sehr geeignet (bei einem Stack als Puffer würde immer der 
+letzte Auftraggeber gewinnen, wodurch die “Fleissigen bestraft” und die 
+“Nachzügler bevorzugt” würden). 
+Dieses Beispiel ließe sich auch für die Interaktion (Informations- und 
+Auftragsaustausch) zwischen den Benutzern selbst fortsetzen. Eine Queue wird 
+dann als Puffermodell allerdings nicht mehr ausreichen, da es in diesem Fall 
+weitere Kriterien für “Fairness” gibt, z.B. Prioritäten.
+
+
+--- PDF page 253 ---
+253
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+queue
+C
+put C
+Put und Get
+put A
+put B
+put D
+get → A
+A
+B
+D
+253
+Für den Zugriff auf eine Queue existieren zwei Funktionen Put und Get. Put 
+hängt ein Element an das Ende der Queue, Get entfernt das erste Element aus 
+der Queue. Ähnlich wie beim Stack sind auch hier die folgenden 
+Sondersituationen zu vermeiden: 
+•
+Der Versuch, etwas an eine “volle” Queue mittels Put anzuhängen
+•
+Der Versuch, etwas aus einer leeren Queue mittels Get zu entnehmen
+
+
+--- PDF page 254 ---
+254
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Put und Get
+D
+queue
+get → B
+B
+C
+254
+
+
+--- PDF page 255 ---
+255
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Put und Get
+queue
+get → C
+C
+D
+255
+
+
+--- PDF page 256 ---
+256
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Queue‐Implementierung durch Listen
+• Queue‐Elemente = Listenelemente
+• Put = Einfügen am Listenende
+• Get = Entfernen des ersten Elementes
+• Queue für beliebigen Elementtyp T:
+List L;
+void Put(T* item,listptr L)
+{ 
+AppendLast(item, L); 
+}
+T* Get(listptr L)
+{ 
+T* item;
+if (IsEmpty(*L)) return NULL;
+item = L->first->data;
+Delete(item, L);
+return item;
+}
+256
+Ähnlich zu den Stacks lassen sich auch Queues leicht mittels Listen
+implementieren. Der Zugriff erfolgt dann per Put und Get.
+
+
+--- PDF page 257 ---
+257
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Queue‐Implementierung durch Arrays
+• Betrachte Dynamik von Queues im Vergleich zu Stacks in Array‐
+Implementierung:
+Stack: verwendet 
+tendenziell immer 
+den gleichen 
+Speicherbereich
+Queue: „wandert“ 
+tendenziell immer 
+weiter nach rechts, 
+daher schlechte 
+Speicherausnutzung
+257
+Bei der Array-Implementierung von Queues ist eine Besonderheit zu beachten: 
+Die anfangs genutzten Speicherplätze würden im Zeitablauf nicht mehr weiter
+verwendet und somit für die spätere Verwendung vergeudet. Eine solche “naive” 
+Implementierung scheidet daher meist aus.
+
+
+--- PDF page 258 ---
+258
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Queue‐Implementierung durch Arrays
+• Lösung: ringförmiges Array bzw. zyklische Adressierung
+A[0]
+A[N-1]
+258
+Der Trick besteht darin, den für die Queue reservierten Speicherbereich (das 
+Array) als ringförmige Struktur zu betrachten. D.h. der Nachfolger von A[N-1] 
+wird per Definition zu A[0] statt A[N]. Die aktiven Elemente in der Queue 
+können sich dann an beliebigen Stellen im Array befinden, und die 
+Anfangselemente ab A[0] werden automatisch wiederverwendet, sobald die 
+Grenze A[N] überschritten wird. Natürlich sind hierbei Überlaufsituationen (d.h.
+das Überschreiben von noch aktiven Elementen durch Put) zu vermeiden.
+
+
+--- PDF page 259 ---
+259
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Queue‐Implementierung durch Arrays
+• Zwei Zeiger (Array‐
+Indizes) first und last
+verweisen auf aktuellen 
+Anfang (‐1) und Ende 
+(+1) der Queue
+• Verwendung des 
+Modulo‐Operators (%) 
+zur zyklischen
+Adressierung
+• Prüfung auf Über‐ und 
+Unterlauf (overflow, 
+underflow) erforderlich
+#define MAX 100
+typedef struct q 
+{ T* elems[MAX]; 
+int first, last; } queue;
+void Init(queue* q)
+{ 
+q->first = 0; 
+q->last = 1; 
+}
+void Put(T* item,queue* q)
+{ 
+if (q->last == q->first) overflow();
+else { 
+q->elems[q->last] = item;
+q->last = (q->last+1) % MAX;
+}
+}
+T* Get(queue* q)
+{ 
+q->first = (q->first+1) % MAX;
+if (q->first == q->last) underflow();  
+else return q->elems[q->first];
+}
+259
+Da der Speicher immer linear adressiert wird, muss die zyklische Adressierung
+anderweitig nachgebildet werden. Hierzu kann der %-Operator verwendet
+werden, welcher den Rest bei der ganzzahligen Division liefert. Damit wird
+gewährleistet, dass bei Put und Get niemals der Speicherbereich A[0…MAX-1] 
+verlassen wird. 
+Die Überlaufbehandlung (normalerweise: Ausgabe einer Fehlermeldung) wird
+hier nicht weiter vertieft. Eine leere Queue wird dadurch gekennzeichnet, dass
+sich first und last um 1 unterscheiden (siehe Init-Funktion). Der Überlauf lässt
+sich somit durch einen Vergleich von first und last erkennen: Der last-Zeiger soll
+stets auf das nächste freie Element zeigen. Ist er bei Put identisch zum first-
+Zeiger, so wird die Queue als “voll” betrachtet (theoretisch würde jedoch noch
+ein zusätzliches Element hineinpassen, wenn man das Array bis zum letzten Feld 
+füllt). Analog bei Get: Erreicht man durch Inkrementieren von first die Position 
+last, so gibt es nichts mehr zu entnehmen.
+
+
+--- PDF page 260 ---
+260
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel‐Ablauf
+first
+last
+frei
+verwendet
+260
+Beispiel-Zustände einer Queue nach verschiedenen Operationen:
+Queue 1: Zustand nach Init
+Queue 2: nach Put einiger Elemente
+Queue 3: nach Get einiger Elemente
+Queue 4: Put weiterer Elemente, last-Zeiger geht zurück auf Array-Anfang
+Queue 5: Get weiterer Elemente
+Queue 6: Put weiterer Elemente, aktive Elemente befinden sich nun sowohl am 
+Ende als auch am Anfang des Arrays

@@ -1,0 +1,1886 @@
+# 3. Elementare Datentypen und Anweisungen
+
+原始 PDF 第 47–96 页。
+
+## 3. Elementare Datentypen und Anweisungen
+
+## 3.1 Einführung
+
+3.2 Variablen und Konstanten
+3.3 Zeiger
+3.4 Arithmetische und logische Operationen und Zuweisungen
+3.5 Kontrollanweisungen
+
+47
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+47
+
+---
+
+## Datentypen ‐ Einführung
+
+**Def**.: Ein **Datentyp** (**DT**) ist eine Menge von Werten und eine <u>Sammlung von Operationen auf diesen Werten.</u>
+
+Beispiel: **natürliche Zahlen** 1, 2, 3, ... – Operationen: +, ‐, \*, /, ...
+Beispiel: **Zeichenketten** (Strings) über Alphabet A‐Z – Operationen:
+• Bestimme Stringlänge
+• Ordne Strings alphabetisch an
+•...
+
+Beispiel: Menge von **Personen‐Stammdaten** (Name, Geburtsdatum, Adresse, ...)
+
+– Operationen:
+
+• Finde Teilmenge aller Personen älter als 50 Jahre
+• Finde Teilmenge aller Personen, die in Aachen wohnen
+•...
+
+**48**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Man beachte, dass durch die Definition des **Datentyps** Werte und Operationen zu einer Einheit zusammengefasst werden. Dies ist wichtig, da reine Daten ohne Operationen hierauf (z.B. Abfragen, Berechnungen oder Modifikationen) an sich wertlos sind.
+
+48
+
+---
+
+## Datentypen ‐ Einführung
+
+## Def.: Ein abstrakter Datentyp (ADT) ist ein Datentyp der nur über eine Schnittstelle zugänglich ist.
+
+• Funktion vs. Implementierung des Datentyps
+• Nur Funktion nach außen von Interesse
+• Implementierung kann sich evtl. ändern
+Beispiel: DT „Punkt“ in C
+• Koordinaten:
+struct point { float x; float y; }
+Operation „Euklidischer Abstand“:
+
+```lisp
+float dist(struct point a, struct point b)
+{
+    float dx, dy;
+    dx = a.x - b.x;
+    dy = a.y - b.y;
+    return sqrt(dx*dx + dy*dy);
+}
+```
+
+![](../../raw/pages_0033-0064/images/page_48_image_11.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+a
+dist(a,b)
+b
+x
+</details>
+
+**49**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Beim **ADT** wird die Implementierung explizit außen vor gehalten, d.h. für einen ADT kann es viele verschiedene Implementierungen z.B. als C-Code geben. Programme, die den ADT benutzen, sehen aufgrund des Interfaces nichts von seiner „inneren“ Implementierung. So ist es z.B. möglich, den ADT im Laufe der Zeit durch eine andere/bessere Implementierung zu ersetzen, ohne dass alle Programme entsprechend angepasst werden müssen.
+
+Im Beispiel kann die Funktion „dist“ zwar als (Teil des) **Interface** aufgefasst werden, jedoch ist die Implementierung als C-struct auch nach außen sichtbar, so dass man bei schlechtem Programmierstil explizit auf die Koordinaten x und y zugreifen könnte.
+
+49
+
+---
+
+## Datentypen ‐ Einführung
+
+In der C‐Version sind Daten (point) und Operationen (dist) **getrennt**
+Programme könnten (und i.d.R.: werden) ohne „dist“ auch **direkt** auf die x‐ und y‐Koordinaten zugreifen
+Ändert sich die interne Implementierung von point, so wäre evtl. ein Großteil des **übrigen Programmcodes** betroffen
+• **ADT‐Version** in C++: (siehe Kapitel 5)
+• Daten und Operationen per Konstruktion (class) **vereinigt**
+Interne Daten nur über Schnittstelle verfügbar!
+
+```txt
+class point {
+    private:      // interne Repräsentation nicht nach außen sichtbar
+        float x, y; // oder andere interne Repräsentation
+    public:      // Schnittstelle für Benutzer von „point“
+        float dist(point);
+        /* ... */
+};
+```
+
+**50**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+In der **C++ Version** des Beispiel-ADT werden die Koordinaten x und y durch das Schlüsselwort „private“ vor direktem Zugriff von außen geschützt. D.h. dass ein Programm, welches versucht, diese direkt zuzugreifen, vom Compiler mit einer Fehlermeldung zurückgewiesen wird. Nur die unter „public“ sichtbaren Interface-Operationen sind nach außen verfügbar. Auf diese Weise kann der Programmierer des ADT für die gewünschte „Einkapselung“ der ADT-Daten sorgen.
+
+50
+
+---
+
+## Objekte in C
+
+Variablen, Konstanten und Programmcode (Funktionen) werden im **Speicher** abgelegt
+Ein **Objekt** ist ein benannter Speicherbereich
+Auf Objekte wird direkt (per **Namen**) oder indirekt (per **Zeiger**) zugegriffen; Zeiger (symbolische Adressen) sind selbst Objekte
+Der **benötigte Speicherplatz** eines Objektes sowie die darauf **zulässigen Operationen** hängen vom Typ ab
+Im Speicher befinden sich nur **Binärzahlen**; Interpretation ist den Operationen überlassen
+
+Vereinfachtes Speichermodell
+
+![](../../raw/pages_0033-0064/images/page_50_image_8.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph LR
+  A["Konstante a"] --> B["Variable x"]
+  A --> C["Variable y"]
+  D["f"] --> E["Funktion f"]
+  D --> F["Funktion g"]
+  D --> G["Zeiger p"]
+  D --> H["Zeiger q"]
+  I["x"] --> J["weitere Objekte"]
+  K["q"] --> L["N"]
+```
+</details>
+
+**51**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Der Speicher ist das „Gedächtnis“ eines Programms. Er wird aus
+
+Programmierersicht als eine lineare Folge von **Speicherplätzen** aufgefasst. In der Realität ist die Speicherarchitektur wesentlich komplexer, dies wird jedoch hier nicht weiter betrachtet.
+
+Jeder Speicherplatz besitzt eine **Adresse**, ähnlich zu einer Hausnummer, unter der er angesprochen (d.h. gelesen oder geschrieben) werden kann. Der Inhalt eines Speicherplatzes bleibt erhalten, solange vom Programm kein neuer Wert hineingeschrieben wird (oder die Stromversorgung unterbrochen wird).
+
+Im Beispiel laufen die Adressen von 0 bis N. In den ersten Speicherplätzen sind Konstanten und Variablen abgelegt. Auch die **Software** selbst befindet sich im Speicher (z.B. die Funktionen f und g).
+
+Eine Besonderheit sind **Zeiger** (siehe Ende Kap.3). Diese verweisen auf andere Objekte im Speicher. Befindet sich z.B. die Funktion g an Adresse 1000 im Speicher, so hätte der Zeiger q den Wert 1000. Dies wird durch den Pfeil vom Zeigerobjekt q (welches sich an beliebiger Stelle im Speicher befinden kann) auf die Funktion g angedeutet.
+
+Programmieranfängern bereitet das Verständnis der Zeiger erfahrungsgemäß oft große Schwierigkeiten. Da sie aber ein äußerst wichtiges
+
+**Programmierhilfsmittel** darstellen, ist eine nähere (und vor allem praktische) Beschäftigung mit diesem Thema zwingend notwendig.
+
+51
+
+---
+
+## Basis‐Datentypen in C
+
+• char: **Zeichen** (character) = 1 Byte (8 Bits)
+• int: **ganze Zahl** (integer)
+
+– short int: kleinerer Wertebereich (mind. 16 Bit)
+– long int: größerer Wertebereich (mind. 32 Bit)
+
+• float: **Fließkommazahl** (floating point)
+
+– Aufteilung in Exponenten und Mantisse
+– z.B. „12.34E10“ ൌ 12,34 ⋅ 10<sup>ଵ</sup>଴
+– double: größerer Wertebereich
+– long double: noch größerer Wertebereich
+
+• char und ganze Zahlen können **vorzeichenbehaftet** (Standardfall) oder **vorzeichenlos** sein:
+
+– signed short int  ሾെ2<sup>ଵ</sup>଺ି<sup>ଵ</sup>, 2<sup>ଵ</sup>଺ି<sup>ଵ</sup> െ 1ሿ ൌ ሾെ32768, 32767ሿ
+– unsigned short int  ሾ0, 2<sup>ଵ</sup>଺ െ 1ሿ ൌ ሾ0, 65535ሿ
+
+**52**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Alle Datentypen in C können auf die **Basis-Datentypen** zurückgeführt werden. Diese sind Sprachelemente von C und somit dem Compiler implizit bekannt.
+
+Je nach Anwendung verwendet man bei Zahlen-Datentypen solche mit oder ohne **Vorzeichen**. Der darstellbare Wertebereich ist durch die Anzahl der Bits beschränkt. Ist z.B. von vornherein bekannt, dass eine Variable niemals negative Werte annehmen kann, so kann durch die Verwendung von „unsigned“ eine bessere Ausnutzung des Wertebereichs erreicht werden.
+
+Ganze Zahlen werden meist im **2er-Komplement** dargestellt. In diesem Format lassen sich bestimmte mathematische Operationen einfach in Hardware realisieren. Der jeweils halbe Wertebereich wird für negative bzw. positive Zahlen verwendet. Das erste Bit gibt das Vorzeichen an („1“ = negativ“). Da die 0 als positive Zahl aufgefasst wird, ergibt sich eine kleine Asymmetrie im Wertebereich.
+
+**Beispiel**: 2er-Komplement bei 3-Bit-Zahlen
+
+$$
+0 0 0 = 0 \quad 1 0 0 = - 4
+$$
+
+$$
+0 0 1 = 1 \quad 1 0 1 = - 3
+$$
+
+$$
+0 1 0 = 2 \quad 1 1 0 = - 2
+$$
+
+$$
+0 1 1 = 3 \quad 1 1 1 = - 1
+$$
+
+Die Negation einer Zahl erfolgt durch Invertieren der Bits und anschließender Addition von 1. Z.B. -2 = Inv(010) + 1 = 101 + 1 = 110
+
+52
+
+---
+
+## 3. Elementare Datentypen und Anweisungen
+
+3.1 Einführung
+**3.2 Variablen und Konstanten**
+3.3 Zeiger
+3.4 Arithmetische und logische Operationen und Zuweisungen
+3.5 Kontrollanweisungen
+
+53
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+53
+
+---
+
+## Variablen
+
+## • Variablen
+
+– speichern Werte eines bestimmten **Datentyps**
+– müssen vor Verwendung **vereinbart** werden
+
+• z.B. float a, b; char x, y; double e, f;
+
+– besitzen einen eindeutigen **Namen**
+– Name sollte über **Verwendung** Aufschluss geben!
+
+• z.B. int counter; ist besser als int c;
+
+## • Schlüsselwörter sind als Namen nicht erlaubt
+
+– z.B. for, while, goto, int, float, ... sind in C/C++ reserviert
+
+## • Je nach Compiler:
+
+– Es sind nur die ersten 31 Zeichen **signifikant**
+– z.B. int einLangerVariablenName1234567890, einLangerVariablenName1234567891 gelten als gleich
+
+**54**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Wird eine Variable verwendet, ohne vorher vereinbart worden zu sein, so erzeugt der Compiler eine Fehlermeldung. Die **Deklaration** dient dazu, eindeutig festzulegen welche Variablen welchen Typs im Programm verwendet werden. Auf diese Weise werden Fehler vermieden. Darüber hinaus kann der Compiler mit Hilfe der Vereinbarung bestimmen, wieviel Speicherplatz für die Variablen zu reservieren ist.
+
+**Variablennamen** sind in C zwar quasi beliebig. Aussagekräftige Namen sind jedoch dringend zu empfehlen. Ein Programm, welches nur Variablennamen wie a, b, c, d etc. verwendet, kann nach einiger Zeit von niemandem mehr verstanden werden.
+
+Manche C-Compiler betrachten auch mehr als 31 Zeichen als signifikant. Dies sollte jedoch nicht unbedingt ausgenutzt werden, da darunter die **Portierbarkeit** des Codes auf andere Rechner/Compiler-Plattformen beeinträchtigt wird. Zwar ist C als höhere Programmiersprache prinzipiell rechnerunabhängig, aber im Detail gilt dies leider nicht. Ein weiteres Beispiel hierfür ist die nicht eindeutige Standardisierung der Datentyp-Bitbreiten (Bsp. int: „16 Bits oder mehr“). So kann ein Programm auf verschiedenen Rechnern durchaus verschiedenes Verhalten zeigen.
+
+54
+
+---
+
+## Variablen
+
+• Aufbau von Variablennamen (Identifier‐Syntax)
+• Kompakte Beschreibung mit **regulären Ausdrücken**
+• Z.B. zulässig:
+– int x, XX, y\_, a\_42;
+• Z.B. unzulässig:
+– int 0Z, 1234\_x, return;
+
+```txt
+- letter = "a" | "b" | ... | "z" | "A" | "B" | ... | "Z" | "_"
+    - letter = ein Buchstabe oder „_"
+- digit = "0" | ... | "9"
+    - digit = eine Dezimalziffer
+- identifier = letter { letter | digit }
+    - identifier = ein letter, gefolgt von beliebig vielen Elementen (auch 0)
+    letter oder digit
+```
+
+**55**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+**Identifier** sind eindeutige Namen für Variablen, Konstanten, Datentypen, Funktionen etc. Mittels **regulärer Ausdrücke** (RAs) können bestimmte Sprachen (wie hier die Sprache der möglichen C-Identifier) kompakt beschrieben werden.
+
+Grundlage für RAs ist immer ein **Alphabet**. Im Falle von C ist dies eine Teilmenge der sog. ASCII-Zeichen, welche aus Buchstaben, Ziffern und einigen Sonderzeichen bestehen. Jedes Element des Alphabets ist per Definition selbst schon ein RA.
+
+Aus zwei beliebigen gegebenen RAs R1 und R2 kann man einen neuen, komplexeren RA R3 mittels dreier Regeln formen:
+
+**1) Alternative**: R3 = R1 | R2 (R3 darf aus R1 oder R2 bestehen)
+**2) Konkatenation** R3 = R1 R2 (R3 besteht aus dem Hintereinanderschalten von R1 und R2)
+**3) Kleene‘sche Hülle**: R3 = {R1} (oder auch in vielen Sprachen (R1)\* ) (R3 besteht aus beliebig vielen Wiederhholungen von R1)
+
+Mit Hilfe dieser Definition kann der **Aufbau** (oder die Syntax) von C-Identifiern wie gezeigt leicht erklärt werden: Jeder Identifier muss zu Beginn einen „letter“ (Buchstabe oder Unterstrich „\_“) haben, gefolgt von beliebig vielen weiteren Zeichen des Alphabetes. Man beachte jedoch die praktische Einschränkung auf 31 signifikante Zeichen, sowie das Verbot, Schlüsselwörter als Identifier zu verwenden.
+
+Für eine genauere Erläuterung des RA-Begriffes sei hier auf spätere Vorlesungen (z.B. ASK oder Compilerbau) verwiesen.
+
+55
+
+---
+
+## Variablen‐Vereinbarung
+
+• Vereinbarung vor erster Verwendung der Variable
+
+– Deklaration ermöglicht **Korrektheitsprüfungen** durch Compiler
+– Definition allokiert benötigten **Speicherplatz**
+
+• **Allgemeine Form** der Vereinbarung:
+
+– Typ ID (, ID)\* ;
+– Typ darf sein:
+
+• Basis‐DT (Schlüsselwort): char, int, float, ...
+• Zusammengesetzter DT (Zeiger, Array, Struct, ...)
+• Benutzerdefinierter DT
+
+– typedef unsigned long int UL;
+– Macht UL als Abkürzung für unsigned long int bekannt
+– Hilfreich vor allem bei zusammengesetzten DT
+
+```c
+int main(void)
+{
+    /* Variablen-
+        Vereinbarungen */
+
+    /* ... */
+
+    /* Anweisungen mit
+        Variablen-
+        Verwendung */
+
+    return 0;
+}
+```
+
+**56**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Wir werden das Konzept der RAs im folgenden gelegentlich weiterverwenden. Z.B. hier bei der Vorstellung der Syntax von Vereinbarungen. Eine **Vereinbarung** setzt im wesentlichen einen Datentyp in Verbindung zu einem Identifier. Um Schreibarbeit zu sparen, reicht es bei mehreren gleichartigen Variablen, den Typnamen nur einmal zu nennen (daher die \*-Konstruktion).
+
+Verwendet man den Zusatz „**typedef**“ in einer Vereinbarung, so wird dadurch ein Datentyp unter einem neuen (und meist kürzeren) Namen bekannt gemacht. Dies spart Schreibarbeit und verbessert die Programm-Lesbarkeit.
+
+Generell sollte in einem Programm immer **Redundanz** vermieden werden. D.h. falls bestimmte Programmelemente mehrfach vorkommen, so sollten diese unter einem eindeutigen Namen möglichst nur einmal abgelegt und dann per Namen ggf. mehrfach instanziiert werden (vgl. auch die Verwendung von Makros im C-Präprozessor).
+
+56
+
+---
+
+## Konstanten
+
+• Falls Werte sich innerhalb eines Programms nie ändern, so werden diese als **Konstanten** statt Variablen dargestellt
+Bessere **Lesbarkeit**, mehr **Optimierungsmöglichkeiten**
+• Konstanten benötigen keine explizite Definition, da ihr **Typ implizit** ist; Beispiele:
+
+12345: ganze Zahl (int)
+12345U: vorzeichenlose ganze Zahl (unsigned int)
+0xAFFE: ganze Zahl in Hexcode (int)
+123.45:    Fließkommazahl (double)
+123E-2:   Fließkommazahl (double)
+'a': Zeichen (char)
+"String": Zeichenkette (Array aus char, s. später) int‐Konstante als regulärer Ausdruck: "0" | ( [ "‐" ], dnz, { d } )
+
+**57**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Für eine genaue Auflistung des möglichen **Aufbaus von C-Konstanten** und deren Datentypen sei auf die C-Dokumentation verwiesen.
+
+57
+
+---
+
+## Weitere Formen von Konstanten
+
+• **Symbolische Konstanten** im Präprozessor
+– #define MAXCOUNT 1000
+– Alle Vorkommen von MAXCOUNT im Programm werden durch 1000 ersetzt
+– Bessere Lesbarkeit und Wartbarkeit des Codes
+
+• **Konstante Ausdrücke**
+
+– MAXCOUNT + 1, MAXCOUNT \* 2, ...
+– Werden vom Compiler vorab ausgerechnet, nicht zur Programm‐Laufzeit (compile time‐Konstante)
+
+• **Konstante Variablen**
+
+– const int a = 100; (const ist ein type qualifier)
+– Variable a darf kein neuer Wert zugewiesen werden
+– Effekt: Ablage von a im read only‐Speicher (ROM)
+
+**58**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Die **Präprozessorkonstanten** sind ein Spezialfall der echten Konstanten aus der vorherigen Folie, denn der Präprozessor nimmt nur eine rein textuelle Ersetzung vor.
+
+Mit „compile time“ bezeichnet man den Zeitpunkt, zu dem der Compiler läuft (im Gegensatz zur „runtime“, d.h. Programm-Laufzeit). Hat der Präprozessor MAXCOUNT z.B. durch 1000 ersetzt, so steht anschließend der Ausdruck 1000+1 im Programm. Das Ergebnis wird auf jedem Rechner 1001 sein. Daher kann der Compiler dies bereits (ein einziges Mal) ausrechnen, um später (vielfach) „runtime“ zu sparen.
+
+**Konstante Variablen** sind Objekte im Speicher, die nicht modifiziert werden dürfen. Der Compiler kann dies prüfen und ggf. eine Fehlermeldung ausgeben. Beim Speicher unterscheidet man ROM (read only) und RAM (random access memory). Letzterer kann beliebig zugegriffen werden. ROM-Speicher ist jedoch platzsparender.
+
+58
+
+---
+
+## 3. Elementare Datentypen und Anweisungen
+
+3.1 Einführung
+
+3.2 Variablen und Konstanten
+
+**3.3 Zeiger**
+
+3.4 Arithmetische und logische Operationen und Zuweisungen
+
+3.5 Kontrollanweisungen
+
+![](../../raw/pages_0033-0064/images/page_58_image_6.jpg)
+
+![](../../raw/pages_0033-0064/images/page_58_image_7.jpg)
+
+59
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+59
+
+---
+
+## Zeiger
+
+**Def**.: Ein **Zeiger** (engl. pointer) ist eine Variable, die die <u>Speicheradresse einer Variablen enthält.</u>
+
+Zeiger gehören zu den **wichtigsten Konzepten** in C/C++ zur Definition komplexer und effizienter Datentypen
+Zeiger gehören (leider) auch zu den **häufigsten Fehlerquellen** bei der Programmierung
+• Bsp.:
+– Der spezielle Zeigerwert NULL (0) wird oft verwendet, um einen „leeren“ Zeiger anzuzeigen (#define NULL 0)
+– Der Versuch, einen Wert an Adresse 0 zu schreiben, führt in aller Regel zum **Programmabsturz**
+– Enthält ein Zeiger einen sonstigen illegalen Wert, so kann sogar der **Programmcode** selbst überschrieben werden
+
+**60**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Das Grundproblem bei der Programmierung mit Zeigern ist, dass bei mangelndem Verständnis ihrer Funktionsweise (oder einfach aus mangelnder Sorgfalt bei der Programmierung) die Zeiger „außer Kontrolle“ geraten können. Jedes Programm besitzt einen **Speicherbereich**, der ihm „gehört“, und in dem es seine Daten ablegt. Zeitgleich können auch noch andere Programme und Daten im Speicher vorhanden sein, welche natürlich nicht beeinflusst werden dürfen. Da ein Zeiger jeden beliebigen Wert annehmen kann, kann er bei fehlerhaftem Gebrauch insbes. auf einen Speicherbereich zeigen, der einem anderen Programm gehört. Der Versuch, auf diesen Bereich zuzugreifen, führt in aller Regel zum **Programmabsturz**.
+
+Meist wird dieser Fehler vom Betriebssystem abgefangen und dem Benutzer gemeldet. Bei einfacheren Computersystemen kann es jedoch auch einen „totalen“ Absturz geben, über dessen Ursache dann zunächst einmal nichts bekannt ist. Derartige Bugs sind auch mit Debuggern oft schwer zu beheben, so dass bei der Programmierung mit Zeigern große **Sorgfalt** geboten ist. Es ist besser, eine Stunde länger in die saubere Programmierung zu investieren, als sich anschließend viele Stunden per Debugger auf Fehlersuche zu machen.
+
+60
+
+---
+
+## Zeiger
+
+• Alle **Programm‐Objekte** liegen im Speicher (s.o.)
+• Jedes Objekt besitzt eine **Adresse** im Speicher (wie eine Hausnummer)
+Häufig werden Objekte **per Namen** zugegriffen (z.B. Variable ${ { } _ { v } } { { \times } ^ { \prime \prime } } )$
+Oft ist auch der **indirekte Zugriff** auf ein Objekt über seine Adresse sinnvoll
+• Objekt‐Adressen werden in **Zeigern** gespeichert
+Zeiger sind selbst Objekte mit Adressen, daher sind auch **Zeiger auf Zeiger** möglich
+
+![](../../raw/pages_0033-0064/images/page_60_image_8.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph LR
+  A["Vereinfachtes Speichermodell"] --> B["Variable x"]
+  A --> C["Zeiger p"]
+  B -.-> D["..."]
+  C -.-> E["N"]
+  D --> F["0"]
+```
+</details>
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+**61**
+
+Die gezeigte Struktur im Speicher würde bspw. durch das folgende Programm bewirkt (zur genauen Syntax s. folgende Folien):
+
+int $x ; \quad //$ normale int-Variable
+
+$\mathrm{int}^* \mathrm{p}; \quad //$ Zeiger auf einen int-Wert im Speicher
+
+$\mathrm{p}=\&\mathrm{x}; \quad // \mathrm{p}=\mathrm{Adresse}(\mathrm{x}), \quad \mathrm{d.h.} \quad , \mathrm{p}$ auf x zeigen lassen“
+
+Anschließend können $_ { 2 3 } \mathrm { { x } ^ { 6 6 } }$ und ${ \cos ^ { * } p ^ { \cos } }$ synonym verwendet werden. Man sagt auch $_ { 2 3 } \mathrm { { x } ^ { 6 6 } }$ und ${ \cos ^ { 4 } p ^ { 6 0 } }$ sind **Decknamen**, d.h. verschiedene Namen für das gleiche Objekt, welches sich an der Adresse von x im Speicher befindet.
+
+61
+
+---
+
+## Zeigervereinbarung und ‐operationen
+
+• Zeiger werden mittels \* deklariert
+• Typ \* ID; vereinbart einen Zeiger auf ein Objekt vom Typ Typ
+• Bsp.: int \* p; int \*\* q;
+• Symbol \* gehört syntaktisch zu ID, nicht zum Typ, z.B.
+Äquivalent wäre: typedef int\* intptr; intptr p, q;
+
+```c
+int * p, q;
+vereinbart einen int-Zeiger p und
+    eine int-Variable q, aber
+    int *p,*q;
+vereinbart zwei int-Zeiger
+```
+
+![](../../raw/pages_0033-0064/images/page_61_image_8.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph LR
+  A["0"] --> B["x = 1234"]
+  B --> C["..."]
+  D["q = 2000"] --> E["p = 1000"]
+  E --> F["2000"]
+  F --> G["N"]
+```
+</details>
+
+**62**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Die Deklaration „int\*\* q“ ist zu lesen wie „(int\*)\* q“, d.h. q ist ein Zeiger auf „int\*“, somit ein **Zeiger auf einen Zeiger auf int**. Im Beispiel zeigt q auf p und p wiederum auf x. Synonyme Ausdrücke wären hier also „x“, „\*p“ und „\*\*q“.
+
+Die C-Syntax ist in diesem Fall sicher nicht optimal lesbar, so dass bei komplexen Zeigerdeklarationen möglichst auf „typedef“-Deklarationen zurückgegriffen werden sollte, um komplexe Deklarationen nur einmal hinschreiben zu müssen. Die Minimierung der Redundanz beseitigt unnötige Fehlerquellen.
+
+62
+
+---
+
+## Zeigerdeklaration und ‐operationen
+
+• **Annahme**: Adresse von Objekt x in Zeiger p gespeichert
+Wie erfolgt der Zugriff auf x? – \*‐Operator – Ausdruck \*pointer liefert Objekt x
+• **Beispiel**: \*p liefert den Wert 1234 (int) \*q liefert den Wert 1000 (intptr)
+**Schreibzugriff** per \*: \*p = 4321; überschreibt x mit 4321 \*\*q = 5678; überschreibt x mit 5678
+Vergleiche Syntax der **Vereinbarung** – int \*p; – **implizite** Deklaration von p als Zeiger
+
+**63**
+
+![](../../raw/pages_0033-0064/images/page_62_image_8.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph LR
+  A["0"] --> B["x = 1234"]
+  B --> C["..."]
+  D["q = 2000"] --> E["p = 1000"]
+  E --> F["2000"]
+  F --> G["N"]
+```
+</details>
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Der „\*“-Operator (nicht zu verwechseln mit dem „\*“-Operator für Zahlen, d.h. Multiplikation) „**dereferenziert**“ einen Zeiger. Somit ist auch die Syntax der Zeigerdeklaration besser zu verstehen: „int \*p“ kann als Deklaration einer int-Variable aufgefasst werden, die jedoch keinen eigenen Namen besitzt, sondern nur indirekt über den Zeiger p angesprochen werden kann (Man beachte, dass diese „int-Variable“ dann keinen festen Platz im Speicher hat, da p prinzipiell „überall“ hinzeigen kann).
+
+63
+
+---
+
+## Adressoperator
+
+Zeiger auf x wird auch als **Referenz** auf x bezeichnet
+\*‐Operator heißt auch **Dereferenzierung** (indirection)
+Erzeugung von Referenzen durch den **Adressoperator** &
+& und \* sind invers zueinander: – \*(&x) = x
+• & nur auf **Objekte** anzuwenden, \* nur auf **Zeiger**
+
+```matlab
+p = &x;
+- An p wird die Adresse von x zugewiesen
+  (p „zeigt“ dann auf x)
+q = &p;
+- An q wird die Adresse von p zugewiesen
+```
+
+![](../../raw/pages_0033-0064/images/page_63_image_8.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph LR
+  A["x = 1234"] --> B["q = 2000"]
+  A --> C["p = 1000"]
+  D["..."] -.-> E["n=2000\nN"]
+  F["0"] --> A
+  F --> C
+```
+</details>
+
+**64**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Es ist also z.B. unzulässig, den $\cos ^ { \theta ^ { \mathrm { d } } }$ -Operator (nicht zu verwechseln mit der logischen UND-Verknüpfung $_ { 0 } \theta ^ { 6 6 }$ **zweimal** hintereinander $( 0 , 0 , 0 , 1 )$ auf ein Objekt x anzuwenden, denn eine Adresse $, \ell x ^ { \epsilon }$ ist selbst kein Objekt mehr. Mehrfache „indirection“ wie $\mathrm { z . B . ~ , * * * p ^ { \omega } }$ ist dagegen zulässig, vorausgesetzt, dass der Ausdruck $\mathrm { s ^ { * * } p ^ { \mathrm { \textell o } } }$ ein Zeiger ist.
+
+64
+
+---
+
+## Type cast mit Zeigern
+
+Zeiger sind im Prinzip **identisch** mit (positiven) Integer‐Zahlen
+Daher können Zeiger und int ineinander **umgewandelt** werden
+Diese Eigenschaft von C/C++ bringt große **Flexibilität**, birgt jedoch auch **Gefahren**, z.B. möglicher Zugriff auf geschützte Speicherbereiche
+
+```txt
+p = (int*)x;
+x = *p;
+- lädt x mit dem Inhalt von Speicherstelle 1234
+x = (int)q;
+- lädt x mit 2000
+```
+
+![](../../raw/pages_0065-0096/images/page_64_image_6.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph LR
+  A["0"] --> B["x = 1234"]
+  B --> C["..."]
+  D["q = 2000"] --> E["p = 1000"]
+  E --> F["2000"]
+  F --> G["N"]
+```
+</details>
+
+**65**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Die Identität von Zeigern und int-Zahlen (genauer gesagt: unsigned int, denn die Adressen sind immer positiv) resultiert daraus, dass Zahlen und Zeiger im Speicher die gleiche Darstellung haben. Die **Wertebereiche** müssen jedoch nicht immer gleich sein, abhängig von der zugrunde liegenden Computerarchitektur. So könnten unsigned int-Zahlen bspw. im Wertebereich [0,65535] liegen (bei 16-Bit-Darstellung), wogegen der Speicher 32-Bit-Adressen (d.h. [0, 2<sup>32</sup>-1]) haben kann.
+
+65
+
+---
+
+## Wozu dienen Zeiger?
+
+Allgemein: falls mittels eines **einzigen Objektes** (Zeiger) im Programmverlauf auf **verschiedene andere Objekte** zugegriffen werden soll
+Oder falls (in der maschinennahen Programmierung) Zugriffe auf **vorgegebene feste Speicherstellen** notwendig sind
+Vor allem sind Zeiger sinnvoll bei **dynamischen** (d.h. zur Laufzeit erzeugten) Datenstrukturen
+Datenobjekte, deren Größe während der Programmentwicklung noch nicht feststeht und die daher **nicht statisch deklariert** werden können
+Hierfür kann dynamisch (d.h. während der Programmlaufzeit) Speicher angefordert und wieder freigegeben werden
+• Der Speicherbereich hierfür heißt **Heap** (Halde, Haufen)
+
+**66**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Ist z.B. eine **Datenbank** zu implementieren, so kann der Programmierer nicht genau wissen, wie viele Datensätze später im Betrieb einmal zu speichern sind. Die statische Vorabreservierung eines möglichst großen Speicherbereichs wäre zwar denkbar, aber ineffizient (wegen Platzverschwendung) und unsicher (wegen möglicher Überläufe). Daher wäre dies ein typischer Anwendungsfall für **dynamische Datenstrukturen**, bei denen der notwendige Speicherbereich erst zur Programmlaufzeit ermittelt und reserviert wird.
+
+In der **maschinennahen Programmierung** kann es vorkommen, dass auf ganz bestimmte (konstante) Adressen zugegriffen werden muss. Ist z.B. bekannt, dass ein bestimmtes Gerät einen zu verarbeitenden Wert immer an Adresse 1000 hinterlegt, so gäbe es mit Hilfe normaler Variablendeklarationen keine Möglichkeit, hierauf zuzugreifen, da der Compiler die Variablenadressen selbst bestimmt. Mit Hilfe einer Deklaration wie $\mathrm{int^{*}p=(int^{*})1000;}$ kann jedoch mittels Zeiger p auf die gewünschte Adresse direkt zugegriffen werden.
+
+66
+
+---
+
+## Heap‐Speicher
+
+Programmcode und Variablen im **statischen** Speicherbereich
+• Zugriff auf den **Heap** wie folgt:
+Anforderung von Heap‐Speicher mittels Funktion malloc (memory allocation)
+int\* p = (int\*) malloc(1000);
+– p zeigt dann auf Anfang von freiem 1000‐Byte Heap‐Block
+– Adresse eines freien Blockes wird von malloc **automatisch** ermittelt (z.B. 5000)
+
+![](../../raw/pages_0065-0096/images/page_66_chart_8.jpg)
+
+<details>
+<summary>bar_stacked</summary>
+
+| Component | Relative Area |
+| --- | --- |
+| p = 5000 | N/A |
+| H | N/A |
+| E | N/A |
+| A | N/A |
+| P | N/A |
+</details>
+
+**67**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Im Falle der Standard-Library-Funktion „**malloc**“ ist ein type cast notwendig. Da die malloc-Funktion nicht „wissen“ kann, welcher Datentyp im Speicher abgelegt werden soll, gibt sie zunächst einmal einen „generischen“ Zeiger vom Typ „void\*“ zurück. Dieser kann dann (optional) explizit auf den gewünschten Typ (hier „int\*“) gecastet werden.
+
+„malloc“ kann auch eine Fehlermeldung zurückgeben, falls **kein freier Speicher** mehr gefunden werden kann. Da heutige Computer mit Speicher meist sehr großzügig ausgestattet sind, ist ein solcher Fehler jedoch oft ein Hinweis auf einen Bug, z.B. malloc-Aufruf in einer Endlosschleife, welcher zwangsläufig irgendwann nicht mehr erfolgreich ausgeführt werden kann.
+
+67
+
+---
+
+## Heap‐Speicher
+
+Adressen **5000‐5999** durch malloc reserviert \*p = 1234; weist 1234 an erste Speicherzelle im Block zu
+
+Da die an malloc übergebene **Blockgröße** variabel ist, kann Heap‐Speicher immer **passend** angefordert werden
+
+Nach Verwendung sollte der Heap‐Block auch wieder **freigegeben** werden, um den Speicherplatz für andere Zwecke wiederverwenden zu können: free(p); // Block 5000-5999 freigeben
+
+**68**
+
+![](../../raw/pages_0065-0096/images/page_67_chart_6.jpg)
+
+<details>
+<summary>bar_stacked</summary>
+
+| Stage | Value |
+| --- | --- |
+| Initial State | 0 |
+| Transition | p = 5000 |
+| Final Step | 1234 |
+| Intermediate Level | 5000 |
+| Intermediate Level | 6000 |
+| Final Level | N |
+</details>
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+„free“ ist das Gegenstück zu „malloc“. Die explizite **Freigabe von nicht mehr benötigten Speicherbereichen** ist bei ausreichend großem Speicher nicht unbedingt notwendig, es ist jedoch schlechter Programmierstil, so zu verfahren. Führt z.B. der Aufruf von „free“ zu einer Fehlermeldung, so ist dies ein sicherer Hinweis darauf, dass die Speicherverwaltung im Programm falsch angelegt ist. Ohne explizites „free“ könnte dies eine zeitlang unbemerkt bleiben und irgendwann zu einem fatalen Absturz führen.
+
+68
+
+---
+
+![](../../raw/pages_0065-0096/images/page_68_image_0.jpg)
+
+<details>
+<summary>text_image</summary>
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int main( void ) {
+    int* p;
+    printf("Any memory        @ %p: %d_%d_%d\n", p, p[0], p[1], p[2]);
+    p = (int*) malloc(1000);
+    printf("Allocated memory   @ %p: %d_%d_%d\n", p, p[0], p[1], p[2]);
+    p[0] = 4;
+    p[1] = 7;
+    p[2] = 11;
+    printf("Initialized memory @ %p: %d_%d_%d\n", p, p[0], p[1], p[2]);
+    free(p);
+    printf("Deallocated memory @ %p: %d_%d_%d\n", p, p[0], p[1], p[2]);
+    return 0;
+}
+
+#include <cstdio>
+#include <memory>
+using namespace std;
+int main( void ) {
+    int* p;
+    printf("Any memory       @ %p: %d_%d_%d\n", p, p[0], p[1], p[2]);
+    p = new int[250];
+    printf("Allocated memory   @ %p: %d_%d_%d\n", p, p[0], p[1], p[2]);
+    p[0] = 4;
+    p[1] = 7;
+    p[2] = 11;
+    printf("Initialized memory @ %p: %d_%d_%d\n", p, p[0], p[1], p[2]);
+    delete [] p;
+    printf("Deallocated memory @ %p: %d_%d_%d\n", p, p[0], p[1], p[2]);
+    return 0;
+}
+</details>
+
+Whether you use c or C++, dynamic memory allocation uses different commands. The result is the same.
+
+Please note: the first printf statement can lead to a program crash as the pointer p is not initialized and my point to areas outside the allocated memory space. Sometimes variables are automatically initialized to zero - accessing the address zero also results in a crash.
+
+69
+
+---
+
+## Smart Pointer
+
+C++
+
+• Motivation
+
+```cpp
+#include <iostream>
+#include <memory>
+#include <sys/resource.h>
+using namespace std;
+
+// get memory footprint
+long get_mem() {
+    struct rusage is;
+    getrusage(RUSAGE_SELF, &is);
+    return is.ru_maxrss; // in KB
+
+}
+
+void subA() {
+    int a; int* pa = &a;
+}
+
+void subB() {
+    int* pa = new int;
+    // delete pa; // free memory space, no automatic deallocation
+}
+
+void subC() { unique_ptr<int> pa = make_unique<int>(); }
+
+int main( void ) {
+    long mem_base = get_mem();
+    cout << "Memory base usage: " << mem_base << endl;
+
+    for( long i=0; i<10000000; i++ ) {
+        subA();
+        if( i%1000000 == 0) cout << "Addt'l allocation: " << get_mem() - mem_base << endl;
+    }
+    return 0;
+}
+```
+
+**70**
+
+© T. Gemmeke, IDS, RWTH
+
+subA creates a local integer variable. Itself as well as the local pointer to it get deleted, once we leave the context.
+
+In subB the local pointer pa points to a newly requested memory location of size integer. The local pointer variable is deleted as we leave the context. However, the memory location allocated with new is not freed up. Missing the explicit delete command, there is no reference to this memory location available to the program – a memory leak is created.
+
+subC uses a smart pointer, that keeps track of its usage. The original assignment increases the number of references to the allocated memory location by one. Leaving the context, the deletion of the local smart pointer reduces the reference count to zero, which automatically triggers memory management routine to freeup the memory resource.
+
+70
+
+---
+
+## Smart Pointer
+
+C++
+
+## • Unique Pointer
+
+![](../../raw/pages_0065-0096/images/page_70_image_3.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph TD
+  #include <iostream>
+  #include <memory>
+  using namespace std;
+
+  subC() {
+    unique_ptr<string> subC() {
+      unique_ptr<string> p = make_unique<string>("unique");
+      return p;
+    }
+  int main( void ) {
+    unique_ptr<string> pu = subC();
+    unique_ptr<string> pu2;
+
+    if( pu != nullptr ) cout << "Unique pointer pu: " << *pu << endl;
+    if( pu2 != nullptr ) cout << "Unique pointer pu2: " << *pu2 << endl;
+
+    cout << "Moving ownership from pu to pu2 ..." << endl;
+    pu2 = move(pu);
+
+    if( pu ) cout << "Unique pointer pu: " << *pu << endl;
+    if( pu2 ) cout << "Unique pointer pu2: " << *pu2 << endl;
+
+    return 0;
+  }
+  #Anmerkung:
+  Unique pointers können als Rückgabewert verwendet werden, falls der aktuelle Besitzer nur temporäre Gültigkeit im lokalen Kontext hat.
+
+  ##Object Diagrams
+  pu --> obj
+  pu2 --> x
+  move() --> move()
+  pu --> x
+  pu2 --> obj
+
+  Im 2. Beispiel ist die Überprüfung auf Gültigkeit vereinfacht.
+```
+</details>
+
+**71**
+
+© T. Gemmeke, IDS, RWTH
+
+Unique pointers assure that an object can only be owned by a single pointer. No other pointer can reference the same object.
+
+The move() method is used to explicitly move ownership of an object from one pointer to another. If an object is owned by a temporary unique pointer, the object can be transferred using a return expression without explicitly requiring a call to move().
+
+As best practice, objects handled by unique pointers should be created with make\_unique.
+
+71
+
+---
+
+## Smart Pointer
+
+C++
+
+• Shared Pointer
+
+```cpp
+#include <iostream>
+#include <memory>
+using namespace std;
+
+void show( shared_ptr<string>& p0, shared_ptr<string>& p1 ) {
+    if( p0 != nullptr ) cout << "Shared pointer p0: '" << *p0 << "''' << endl;
+    if( p1 != nullptr ) cout << "Shared pointer p1: '" << *p1 << "''' << endl;
+    cout << " Ptr of p0 use count: " << p0.use_count() << endl;
+    cout << " Ptr of p1 use count: " << p1.use_count() << endl << endl;
+}
+
+int main( void )
+{
+    shared_ptr<string> ptr0 = make_shared<string>("shared");
+    shared_ptr<string> ptr1;
+    show(ptr0, ptr1);
+
+    cout << "Duplicating reference to object ..." << endl;
+    ptr1 = ptr0;
+    show(ptr0, ptr1);
+
+    ptr0 = make_shared<string>("something new");
+    show(ptr0, ptr1);
+
+    return 0;
+}
+```
+
+**72**
+
+© T. Gemmeke, IDS, RWTH
+
+Shared pointers shared\_ptr allow object ownership by multiple pointers. An internal counter keeps track whether there is still a pointer referencing it. If the count is down to zero, the object is automatically deleted.
+
+72
+
+---
+
+![](../../raw/pages_0065-0096/images/page_72_image_0.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph TD
+  A["#include <iostream>"] --> B["Einen weak pointer zu de-referenzieren ist etwas kompliziert. Es benötigt eine temporäre Kopie der Referenz. Diese wird durch die Methode lock() erreicht."]
+  C["#include <memory>"] --> D["using namespace std;"]
+  D --> E["void show( shared_ptr<string>& p0, weak_ptr<string>& p1 ) {<br>    if( p0 != nullptr ) cout << &quot;Shared pointer p0: '&quot; << *p0 << &quot;' << endl;<br>    if( !p1.expired() ) cout << &quot;Weak pointer p1: '&quot; << *(p1.lock()) << &quot;' << endl;<br>    cout << &quot; Ptr of p0 use count: &quot; << p0.use_count() << endl;<br>    cout << &quot; Ptr of p1 use count: &quot; << p1.use_count() << endl << endl;<br>  }<br>  E --> F[&quot;int main( void ){<br>  D --> G[&quot;shared_ptr<string> ptr0 = make_shared<string>(&quot;shared&quot;);<br>  G --> H[&quot;weak_ptr<string> ptr1;<br>  H --> I[&quot;show(ptr0, ptr1);<br>  I --> J[&quot;cout << &quot;Duplicating reference to object ...&quot; << endl;<br>  J --> K[&quot;ptr1 = ptr0;<br>  K --> L[&quot;show(ptr0, ptr1);<br>  L --> M[&quot;ptr0 = make_shared<string>(&quot;something new&quot;);<br>  M --> N[&quot;show(ptr0, ptr1);<br>  N --> O[&quot;return 0;"]
+  end
+```
+</details>
+
+Weak pointers weak\_ptr can also point to objects owned by shared pointers. However, they do not add to the count metric. If no shared pointer is referencing the object, it is deleted. The weak pointer is then pointing to an invalid address.
+
+In the figure, example obj1 points to obj2, which points itself to obj3. If obj3 used a shared\_ptr to point back to obj2, the re-assignment of obj1 to obj4 would lose any reference to the other two objects. However, the system could not identify the two objects being obsolete – a memory leak is created. With the indicated weak pointer, obj2 looses any reference to it. Once obj2 is deleted also obj3 is up for removal.
+
+73
+
+---
+
+## 3. Elementare Datentypen und Anweisungen
+
+3.1 Einführung
+3.2 Variablen und Konstanten
+3.3 Zeiger
+**3.4 Arithmetische und logische Operationen und Zuweisungen**
+3.5 Kontrollanweisungen
+
+74
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+74
+
+---
+
+## Arithmetische und logische Operationen
+
+Auf Variablen und Konstanten können verschiedene **Rechenoperationen** angewendet werden
+• Multiplikative Operationen haben **Vorrang** – Der **Ausdruck** a\*b+c/d entspricht (a\*b) + (c/d)
+Diese primitiven Rechenoperationen sind in der Programmiersprache „eingebaut“
+Komplexere Operationen sind in **Libraries** verfügbar oder werden vom **Programmierer definiert**
+Z.B. Standard‐Library math.h – sin, cos, tan, pow (power), sqrt (square root), ...
+**Ergebnisse** der Operationen haben einen bestimmten DT, der sich aus dem Operator und den Argumenttypen ergibt
+
+$$
+\begin{array}{l} - +, -, *, / \\ - \% (\text {modulo, nicht bei float - Werten}) \end{array}
+$$
+
+**75**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Die **Datentypen von Operationsergebnissen** werden im Compiler mittels bestimmter Regeln hergeleitet (die sog. usual arithmetic conversions, s. C-Dokumentation). Zu beachten ist hierbei auch die definierte Präzedenz (Reihenfolge der Auswertung) der Operatoren. Bei Library-Funktionen ist (wie auch bei allen anderen C-Funktionen) der Ergebnistyp explizit in der Deklaration enthalten.
+
+75
+
+---
+
+## Zuweisungen
+
+## • Allgemeine Form:
+
+– Ziel = Ausdruck
+– = ist der Zuweisungsoperator
+– Ausdruck wird berechnet, Wert wird in Ziel gespeichert
+
+## Kurzformen:
+
+```matlab
+- ++, -:-: Increment, Decrement
+    x++ entspricht x = x+1
+- +=, *=, ...
+    x += y entspricht x = x+y
+```
+
+```c
+int main()
+{
+    int a,b;
+    int c,d;
+
+    a = 1;
+    b = 2;
+
+    c = a+b;
+    d = c+1;
+    d = d+1;
+    printf("%d", d);
+```
+
+```c
+return 0;
+}
+#define a 1
+#define b 2
+
+int main()
+{
+    int c,d;
+
+    c = a+b;
+    d = c+1;
+    d++;
+    printf("%d", d);
+
+    return 0;
+}
+```
+
+**76**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+In der Sprache C gibt es verschiedene Elemente, die aus Zeiten resultieren, in denen die Compiler noch nicht sehr leistungsfähig waren. Ein Beispiel sind die **Kurzformen** für Zuweisungen wie $_ { 2 ^ { x + + } }$ statt $\mathbf { x } = \mathbf { x } + 1 ^ { \circ \circ }$ . Hierdurch wurde der Compiler angewiesen, einen speziellen Assemblerbefehl (increment) statt eines normalen Additionsbefehls zu erzeugen, wodurch u.U. effizienterer Code generiert werden konnte.
+
+Moderne optimierende Compiler werden jedoch stets die beste Alternative wählen, unabhängig von der genauen Formulierung des Programms. Allerdings kann es je nach Verwendung von Kurz- oder Langformen zu unterschiedlichen **Seiteneffekten** kommen (auf die hier nicht weiter eingegangen werden soll), welche die Optimierung einschränken können.
+
+76
+
+---
+
+## Arithmetische und logische Operationen
+
+• **Vergleichsoperationen**
+Ergebnis einer Vergleichsoperation ist stets ein **Boolescher Wert** (true oder false)
+Boolescher DT in C: \_Bool – Äquivalenzen aus stdbool.h:
+• **Schiebeoperationen** (shift)
+
+```txt
+>, >=, <, <=
+== (Gleichheit), != (Ungleichheit)
+```
+
+```txt
+• bool := _Bool
+• false := 0
+• true := 1
+```
+
+```txt
+>> Rechtsshift
+<< Linksshift
+```
+
+**77**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Man beachte, dass aufgrund der Konvention bzgl. **Boolescher Datentypen** es genau eine Möglichkeit zur Darstellung von „false“ gibt (die 0), aber sehr viele verschiedene für „true“. Auch dies kann eine Fehlerquelle bei der Programmierung sein.
+
+77
+
+---
+
+## Arithmetische und logische Operationen
+
+• Shift‐Operationen nützlich für
+– Zugriff auf einzelne Bits eines Wertes
+– Vereinfachung von Rechenoperationen, z.B.
+• x >> 1 entspricht x/2
+• x << 2 entspricht x\*4
+
+Rechtsshift abhängig vom DT des ersten Arguments:
+
+– **Logisches** Shift: Auffüllen links mit 0
+
+– **Arithmetisches** Shift: Auffüllen links mit Vorzeichen
+
+• Beispiel: unsigned char a = 128; signed char b = -128;
+
+Binärdarstellung von a und b
+
+![](../../raw/pages_0065-0096/images/page_77_chart_13.jpg)
+
+<details>
+<summary>other</summary>
+
+| Row | Column 1 | Column 2 | Column 3 | Column 4 | Column 5 |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 1 | 0 | 0 | 0 | 0 |
+| 2 | — | — | — | — | — |
+| 3 | — | — | — | — | — |
+| 4 | — | — | — | — | — |
+| 5 | — | — | — | — | — |
+| 6 | — | — | — | — | — |
+| 7 | — | — | — | — | — |
+| 8 | — | — | — | — | — |
+| 9 | — | — | — | — | — |
+| 10 | — | — | — | — | — |
+
+Vorzeichen bei b
+</details>
+
+![](../../raw/pages_0065-0096/images/page_77_image_14.jpg)
+
+![](../../raw/pages_0065-0096/images/page_77_image_15.jpg)
+
+<details>
+<summary>text_image</summary>
+
+0 1 0 0 0 0 0 0
+1 1 0 0 0 0 0 0
+</details>
+
+$$
+\mathbf {a} = 6 4
+$$
+
+$$
+\mathbf {b} = - 6 4
+$$
+
+**78**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Bzgl. des Beispiels sei auf die o.g. **2er-Komplement**-Darstellung verwiesen. Die Bitfolge „10000000“ kann also unterschiedliche Interpretationen als Dezimalzahl haben, je nach Deklaration (signed bzw. unsigned). Bei Zahlen muss daher der richtige Shift-Modus (arithmetisch oder logisch) verwendet werden, um falsche Ergebnisse zu vermeiden (wie z.B. -128/2 = 64).
+
+Da jedoch auf C-Ebene keine separaten Operatoren hierfür existieren, sorgt der Compiler automatisch hierfür. Ein Grundverständnis der Shifts ist jedoch notwendig, um den Compiler bei Bedarf dazu zwingen zu können, den gewünschten Modus zu verwenden.
+
+78
+
+---
+
+## Arithmetische und logische Operationen
+
+• &: bitweise **UND‐Verknüpfung**
+• |: bitweise **ODER‐Verknüpfung**
+• ^: bitweise **Exklusiv‐ODER‐Verknüpfung** (XOR, „entweder...oder“)
+• Prüfen, Setzen oder Löschen **einzelner Bits** von Werten
+• Bsp.:
+– signed char a = -64, b = 0xFF; // oder b = -1;
+
+a: **1 1 0 0 0 0 0 0**
+
+**1 1 1 1 1 1 1 1**b:
+
+**1 1 0 0 0 0 0 0**
+
+a & b
+
+**1 1 0 0 0 0 0 0**
+
+**1 1 1 1 1 1 1 1**
+
+**1 1 1 1 1 1 1 1**
+
+a | b
+
+**1 1 0 0 0 0 0 0**
+
+**1 1 1 1 1 1 1 1**
+
+**0 0 1 1 1 1 1 1**
+
+a ^ b
+
+**79**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Die gezeigten bitweisen logischen Operationen werden meist in der **maschinennahen Programmierung** verwendet, um einzelne Bits abzufragen oder zu manipulieren. Möchte man z.B. Bit Nr. 3 in einer bestimmten Speicherstelle auf 1 setzen, ohne die übrigen Bits zu verändern, so kann dies durch eine ODER-Verknüpfung mit einem Bitstring erfolgen, der an der 3. Stelle eine 1 hat und sonst nur Nullen.
+
+79
+
+---
+
+## Typumwandlung (type cast)
+
+Beispiel: – int a = 10, b; float pi = 3.14; – b = pi + a;
+Welche Typen werden verwendet? – a wird in intern in float umgewandelt (10.0 = 1E1) – pi + a ergibt float‐Resultat (13.14) – Resultat wird in int zurückverwandelt (13)
+In C/C++ gibt es umfangreiche **type cast‐Regeln** für alle Kombinationen der primitiven DT
+Viele Einzelheiten der Typumwandlung sind jedoch **compilerabhängig** (und damit eine „beliebte“ Fehlerquelle) !
+**Expliziter** type cast durch Programmierer: – Ziel = (Typ) Ausdruck;
+
+**80**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+In manchen Sprachen wird eine implizite Typumwandlung nur erlaubt, wenn dadurch keine Daten verloren gehen. Dann sollte insbes. von expliziten type casts, d.h. verlustbehafteten Typumwandlungen, sparsamer Gebrauch gemacht werden. Die mangelnde Standardisierung der **type casts** ist sicher eine Schwäche der Sprache C.
+
+80
+
+---
+
+## 3. Elementare Datentypen und Anweisungen
+
+3.1 Einführung
+3.2 Variablen und Konstanten
+3.3 Zeiger
+3.4 Arithmetische und logische Operationen und Zuweisungen
+**3.5 Kontrollanweisungen**
+
+**81**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+81
+
+---
+
+## Kontrollanweisungen
+
+Bisher: Alle Anweisungen (statements) werden **sequentiell** abgearbeitet
+• Kontrollanweisungen ermöglichen
+
+– **bedingte Ausführung** von Code mittels Verzweigungen
+
+– **wiederholte Ausführung** von Code mittels Schleifen
+
+![](../../raw/pages_0065-0096/images/page_81_image_6.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph TD
+  A["Statement 1"] --> B["Statement 2"]
+  B --> C["Statement 3"]
+  C --> D["Statement 4"]
+```
+</details>
+
+**82**
+
+![](../../raw/pages_0065-0096/images/page_81_image_8.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph TD
+  A["Statement 1"] -->|"Bedingung true"| B["Statement 2"]
+  A -->|"Bedingung false"| C["Statement 3"]
+  B --> D["Statement 4"]
+  C --> D
+```
+</details>
+
+![](../../raw/pages_0065-0096/images/page_81_image_9.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph TD
+  A["Statement 1"] --> B["Statement 2"]
+  B --> C["Statement 3"]
+  C --> D["Statement 4"]
+  C -.->|"holung solange\nBedingung true"| B
+```
+</details>
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Bedingte und wiederholte Ausführung sind **Grundelemente** fast aller Programmiersprachen, wenngleich die genaue Syntax unterschiedlich ist.
+
+82
+
+---
+
+## Verzweigungen: if‐then‐else
+
+Beispiel: Maximumsberechnung
+• Allgemeine Formen:
+
+```txt
+- if ( expression ) {
+    statement*
+}
+- if ( expression ) {
+    statement*
+} else { statement*
+}
+```
+
+Bedingung muss true oder false ergeben (0 ≙ false)
+„Beliebter“ Fehler bei Gleichheitstest:
+
+– if (a = b) statt if (a == b)
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    int a, b, max;
+
+    // Einlesen von a und b
+    scanf("%d %d", &a, &b);
+
+    if (a > b) {
+        max = a;
+    } else // d.h. a <= b
+        max = b;
+    }
+
+    printf("max = %d", max);
+
+    return 0;
+}
+```
+
+**83**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Wir greifen hier wieder auf die **regulären Ausdrücke** zurück: statement\* steht hier also für beliebig viele (auch 0) Anweisungen bzw. Statements.
+
+Bei nur einem Statement darf auf die **{}-Klammerung** in den Zweigen von if/else verzichtet werden, um Schreibarbeit zu sparen. Da sich hierdurch –inbes. bei späteren Codeänderungen- jedoch leicht Fehler einschleichen, sollte man grundsätzlich immer die {}-Klammerung verwenden. (Dieser Hinweis wird allerdings aus Platzgründen in diesem Skript leider auch nicht konsequent angewandt.)
+
+**Übungsfrage**: was passiert konkret im Programm, wenn fälschlicherweise $\mathbf { , } \mathbf { a } =$ b“ statt $\mathsf { , a } = = \mathsf { b } ^ { \mathsf { \epsilon } \mathsf { \epsilon } }$ für den Gleichheitstest verwendet wird?
+
+83
+
+---
+
+## Verzweigungen: if‐then‐else
+
+Komplexere Bedingungen können durch **logische Verknüpfungen** geprüft werden
+
+– ODER‐Operator ||: **mindestens eine** der Teilbedingungen muss true sein
+– UND‐Operator &&: **alle** Teilbedingungen müssen true sein
+
+```c
+int a, b, c, x, y;
+/* ... */
+if (a > 10) {
+    if (b >= 20) {
+        if (c == 30) {
+            x++;
+        }
+    }
+}
+
+if (a < 40) {
+    y--;
+} else if (b <= 50) {
+    y--;
+} else if (c != 60) {
+    y--;
+}
+```
+
+```c
+int a, b, c, x, y;
+/* ... */
+if ((a > 10) && (b >= 20) && (c == 30)) {
+    x++;
+}
+
+if ((a < 40) || (b <= 50) || (c != 60)) {
+    y--;
+}
+```
+
+**84**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+In bestimmten Fällen sollte man sich der sog. **Short-Circuit-Auswertung** der logischen Verknüpfungen bewusst sein: Dies bedeutet, dass nur soviel von einer komplexen Bedingung ausgewertet wird wie nötig, um das Gesamtresultat zu kennen. Wenn bspw. bei einem Ausdruck der Form „a || b || c“ bereits der Teilausdruck a als true erkannt wurde, so werden b und c nicht mehr ausgeführt. Analog bei $\scriptstyle { \mathfrak { p } } ^ { \mathbf { a } }$ && b && $\mathbf { c } ^ { \mathfrak { c } \mathfrak { c } }$ und a = false.
+
+In den gezeigten Codebeispielen ist dies ohne weitere Bedeutung, denn die Short-Circuit-Auswertung führt lediglich zu einer schnelleren Programmbearbeitung. Fehlerträchtig ist sie allerdings u.U. bei **Seiteneffekten** in den Teilausdrücken. Beispiel: „f(x) || g(y)“ für zwei Funktionen f und g. Wird die Auswertung nach f(x) abgebrochen, so ergibt sich evtl. ein anderes (unerwartetes!)
+
+Programmverhalten als wenn g(y) noch ausgewertet worden wäre (und dabei z.B. eine globale Variable schreibt, die später noch gelesen wird).
+
+84
+
+---
+
+## Dangling else‐Problem
+
+• Betrachte folgenden Code: if (a > 100) if (b > 50) x++; else x--;
+**Zwei Möglichkeiten** der Interpretation: – Wird x-- ausgeführt, falls (a <= 100) ?
+(1) if (a > 100) if (b > 50) x++; <u>else</u> x--;
+– Oder falls (a > 100) && (b <= 50) ?
+(2) if (a > 100) if (b > 50) x++; <u>else</u> x--;
+• **Konvention**: else gehört immer zum innersten freien if, d.h. Version (2) ist richtig
+**Besser**: Vermeidung von Fehlern durch expliziten Gebrauch der **Blockstruktur** { statement\* } in der Programmierung – if (a > 100) { if (b > 50) x++; else x--; }
+
+**85**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Auch das „dangling else“ ist eine häufige **Fehlerquelle** (nicht nur) bei Programmieranfängern.
+
+85
+
+---
+
+## Verzweigungen: goto
+
+Verzweigung auch über **Labels** und goto**‐Statements** möglich
+Ein Label ist eine symbolische **Sprungmarke** im Code
+• Syntax:
+
+– ID: statement (ID ist Bezeichner des Labels)
+– goto ID; (Sprung nach Position ID)
+
+• Labels und gotos
+
+– beeinträchtigen die **Lesbarkeit** des Programms
+– sind ein „historisches Relikt“ in Programmiersprachen
+– sind nicht notwendig und sollten nur bei **zwingenden Gründen** eingesetzt werden
+
+**86**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+**Labels und gotos** haben direkte Entsprechungen im Assemblercode. Daher war es früher üblich, Kontrollfluss mit diesen Mitteln zu beschreiben. Aufgrund der Unübersichtlichkeit des Codes werden sie allerdings heute kaum mehr verwendet. Man findet sie meist nur noch in automatisch generierten C-Programmen, deren Korrektheit dann vorausgesetzt werden kann und die nicht mehr für Modifikationen durch den menschlichen Programmierer vorgesehen sind.
+
+86
+
+---
+
+## Verzweigungen: switch
+
+Häufiger Fall: **Fallunterscheidung** über eine bestimmte Variable mit jeweils konstantem Vergleichswert
+• Normale Implementierung: **Kette** von if‐then‐else Statements
+• Gültig, aber umständlich
+• Bsp.: Umrechung von römischen Ziffern:
+
+```txt
+char digit, int value;
+
+/* ... */
+
+if (digit == 'I') value = 1;
+else if (digit == 'V') value = 5;
+else if (digit == 'X') value = 10;
+else if (digit == 'L') value = 50;
+else if (digit == 'C') value = 100;
+else if (digit == 'D') value = 500;
+else if (digit == 'M') value = 1000;
+else printf("Keine gültige Ziffer!");
+```
+
+**87**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+87
+
+---
+
+## Verzweigungen: switch
+
+• **Kompaktere** Implementierung: switch‐Statement
+Allgemeine Form: switch (Ausdruck) {case Konstante<sub>1</sub>: statement\* /\* … \*/ case Konstante<sub>n</sub>: statement\* default: statement\*}
+
+```txt
+char digit, int value;
+
+/* ... */
+
+switch (digit)
+{
+    case 'I': value = 1;     break;
+    case 'V': value = 5;     break;
+    case 'X': value = 10;     break;
+    case 'L': value = 50;     break;
+    case 'C': value = 100;     break;
+    case 'D': value = 500;     break;
+    case 'M': value = 1000; break;
+    default:
+        printf("Keine gültige ziffer!");
+        break;
+}
+```
+
+• break: sofortiges Verlassen des ganzen switch‐Statements
+• default: Code im „sonst“‐Fall (optional)
+
+**88**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Ein verbreiteter Fehler ist das „Vergessen“ des **break-Statements** in jedem case-Zweig. Wird das gesamte switch-Statement nicht nach dem ersten erfolgreichen Test verlassen, so kann unerwünschtes Programmverhalten auftreten.
+
+Der **default-Zweig** trifft immer dann zu, wenn alle anderen Tests negativ verlaufen sind. Er muss jedoch nicht vorhanden sein.
+
+Das switch-Statement ist nicht nur eine kompaktere (und damit besser lesbare) Variante einer Kette von if-Statements. Es kann vom Compiler auch in **effizienteren Assemblercode** übersetzt werden.
+
+88
+
+---
+
+## Schleifen
+
+• Wiederholte Ausführung einer Anweisungsfolge
+Bsp.: Berechnung der Fakultätsfunktion
+• Ohne Schleife: Code muss bei Änderung von 𝑛 modifiziert werden
+
+$$
+n! := 1 \times 2 \times \dots \times n
+$$
+
+```c
+#define N 10
+
+    /* ... */
+
+    int fact, count;
+
+    count = 0;
+    fact = 1;
+
+    count++;
+    fact *= count;
+
+    /* ... N-fache wiederholung */
+
+    count++;
+    fact *= count;
+    printf("factorial(%d) = %d", N, fact);
+```
+
+**89**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Selbst die **#define-Anweisung** nützt in diesem Fall nicht viel, da der Code in Abhängigkeit von N immer manuell dupliziert werden müsste. Schleifen dienen dazu, solche Redundanzen zu vermeiden.
+
+89
+
+---
+
+## Schleifen
+
+Flexiblere Variante
+• Code zwischen L1 und L2 wird wiederholt bis Zähler größer als N
+Umdefinieren von N (#define) reicht aus
+• Jedoch: **schlechter Programmierstil**
+
+(gotos sollten nicht verwendet werden!)
+
+```c
+#define N 10
+    /* ... */
+
+    int fact, count;
+
+    count = 0;
+    fact = 1;
+
+L1: if (count >= N) goto L2;
+    count++;
+    fact *= count;
+    goto L1;
+
+L2: printf("factorial(%d) = %d",
+        N, fact);
+```
+
+• C/C++ bietet drei Formen von **strukturierten Schleifen** – for, while, do
+
+**90**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Wie später gezeigt wird, sind die drei **Schleifenformen** in C im Prinzip äquivalent, daher ist die konkrete Wahl eine Sache des Geschmacks und des guten Programmierstils. Generell kann man sich wie folgt orientieren:
+
+• for-Schleife, falls die Anzahl der Durchläufe von vornherein feststeht
+• do-Schleife, falls mindestens ein Durchlauf stattfinden muss
+• while-Schleife: sonst
+
+90
+
+---
+
+## for‐Schleifen
+
+```c
+#define N 10
+
+    /* ... */
+
+    int fact, count;
+
+    fact = 1;
+    for (count = 1; count <= N; count++) {
+        fact *= count;
+    }
+    printf("factorial(%d) = %d", N, fact);
+```
+
+• Allgemeine Form: for (expr1; expr2; expr3) { statement\* }
+• expr1: – Wird vor Schleifenbeginn einmal ausgeführt → Initialisierung
+• expr2: – Bedingung für jeden Durchlauf (jede Iteration)
+• expr3: – Wird nach statement\* ausgeführt
+• Nach expr3 wird an den Schleifenanfang **zurückgesprungen**
+
+**91**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Die häufigste Form der for-Schleife ist die hier gezeigte, d.h. es gibt einen **Schleifenzähler** (hier: count), welcher in Ausdruck1 auf einen Startwert gesetzt wird. Ausdruck2 prüft, ob die obere Grenze erreicht worden ist, und ggf. wird abgebrochen. Ansonsten wird der Zähler in Ausdruck3 modifiziert (wie hier: häufig inkrementiert).
+
+Die allg. Form der for-Schleife lässt aber **beliebige Ausdrücke** zu. Man könnte daher auch viel komplexere Berechnungen durchführen oder den gesamten Schleifenkörper (statement\*) im for-Statement selbst unterbringen. Dies würde jedoch keine Verbesserung des Codes bewirken, sondern lediglich schlechtere Lesbarkeit.
+
+91
+
+---
+
+## for‐Schleifen
+
+Warum ist count = 1 ein **Ausdruck**?
+– In C sind auch Zuweisungen Ausdrücke
+– Das Ergebnis von $\_ ZieI = A u s d r u c k ^ { \prime \prime }$ ist per Definition $\ , Z   i e ^ { i \prime \prime }$
+
+Der Wert von expr1 wird bei for‐Schleifen jedoch verworfen, nur der **Seiteneffekt** einer Zuweisung ist relevant
+
+Zwei spezielle Statements für Ausnahmefälle in Schleifen erlaubt
+
+– break: verlässt Schleife komplett
+
+– continue: verlässt aktuelle Iteration
+
+• Wie goto mit Vorsicht zu gebrauchen!
+
+![](../../raw/pages_0065-0096/images/page_91_image_10.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph LR
+  A["for (...; ..., ...) {<br>  A -->|&quot;/* ... */&quot;| B[&quot;continue&quot;;<br>  A -->|&quot;/* ... */&quot;| C[&quot;break&quot;;<br>  A -->|&quot;/* ... */&quot;| D[&quot;*"]
+  B --> E["/* ... */"]
+  C --> F["*"]
+  D --> G["/* ... */"]
+```
+</details>
+
+**92**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Die Tatsache, dass in C **Zuweisungen** der Form $\mathbf { \nabla } _ { \mathbf { \nabla } ^ { \mathbf { a } } } = \mathbf { b } ^ { \mathbf { \nabla } ^ { \mathbf { a } } }$ auch gleichzeitig **Ausdrücke** mit dem Wert a sind, ist sicher etwas gewöhnungsbedürftig. In den meisten Fällen wird dieser Wert auch verworfen, da man nur an der Durchführung der Zuweisung an sich interessiert ist. Sinnvoll ist es aber manchmal, bestimmte Zwischenergebnisse zu speichern. Beispiel:
+
+$$
+\text {int} \mathrm{a}, \mathrm{b}, \mathrm{c}, \mathrm{d}, \mathrm{e}, \mathrm{x};
+$$
+
+$$
+\mathrm{a} = \mathrm{b} + \mathrm{c} + (\mathrm{x} = \mathrm{d} + \mathrm{e});
+$$
+
+Hier wird der Ausdruck $\mathbf { \nabla } _ { 2 } \mathbf { b } + \mathbf { c } + \mathbf { d } + \mathbf { e } ^ { \mathbf { \nabla } \mathbf { c } }$ in a gespeichert, und zusätzlich wird der Teilausdruck $\mathbf { \nabla } _ { \mathbf { \nabla } ^ { \prime } } \mathbf { d } + \mathbf { c } ^ { \epsilon \epsilon }$ in x gespeichert. Dieser könnte dann woanders wiederverwendet werden, ohne neu berechnet werden zu müssen. Dieser Programmierstil ist aber nicht zu empfehlen, denn man könnte auch (etwas klarer) schreiben
+
+$$
+\text {int} \mathrm{a}, \mathrm{b}, \mathrm{c}, \mathrm{d}, \mathrm{e}, \mathrm{x};
+$$
+
+$$
+\mathrm{x} = \mathrm{d} + \mathrm{e};
+$$
+
+$$
+\mathrm{a} = \mathrm{b} + \mathrm{c} + \mathrm{x};
+$$
+
+und x stünde wie oben für weitere Berechnungen zur Verfügung.
+
+92
+
+---
+
+## while‐Schleifen
+
+for‐Schleifen werden vor allem für eine **feste Anzahl** von Iterationen verwendet
+Soll die Schleife ausgeführt werden, <u>solange</u> eine bestimmte **Bedingung** gilt, so ist eine while‐Schleife besser
+Allgemeine Form: while (expression) {statement\*}
+expression wird ausgewertet – Falls nicht null, so wird die Schleife betreten Nach statement\* wird an den Anfang zurückgesprungen, und expression wird erneut geprüft
+
+**93**
+
+```c
+#define N 10
+
+    /* ... */
+
+    int fact, count;
+
+    fact = 1; count = 1;
+
+    while(count <= N) {
+        fact *= count;
+        count++;
+    }
+
+    printf("factorial(%d) = %d",
+        N, fact);
+```
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Auch in while-Schleifen sind **break** und **continue** erlaubt. Break ist (im Gegensatz zu for-Schleifen) bei while-Schleifen sogar verbreitet: Wenn die Abbruchbedingung sehr komplex ist, die Anzahl der Durchläufe nicht feststeht, und es mehrere Stellen im Schleifenkörper gibt, an denen die Schleife verlassen werden soll, so programmiert man häufig nach dem Schema:
+
+```txt
+while(1) // „für immer“
+{ ...
+    if (Bedingung1) break;
+    ....
+    if (Bedingung2) break;
+    ....
+}
+```
+
+Man muss allerdings aufpassen, dass keine echte **Endlosschleife** (siehe später) entsteht, d.h. dass eine Abbruchbedingung nach endlicher Zeit auch tatsächlich erfüllt ist.
+
+Die Verwendung von continue ist bei sauberem Programmierstil dagegen unüblich und überflüssig.
+
+93
+
+---
+
+## do‐Schleifen
+
+Ebenfalls für Schleifen mit **unbekannter Anzahl** von Iterationen
+• **Unterschied** zu while: Mindestens eine Iteration findet statt
+Allgemeine Form: do { statement\* } while (expression)
+statement\* wird ausgeführt, und expression wird ausgewertet
+Falls true, so wird an den Anfang zurückgesprungen
+Bsp.: **Mindestens eine** Benutzereingabe wird erwartet
+break, continue können bei while‐ und do‐Schleifen ebenfalls verwendet werden
+
+**94**
+
+```txt
+char c;
+/* ... */
+
+do {
+    scanf("%c",&c);
+    /* Berechnung auf c */
+} while (c != 'q'); // quit?
+```
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Die do-Schleife bietet sich an, wenn zunächst einmal **eine Iteration** durchzuführen ist, bevor die Abbruchbedingung getestet werden kann (wie im gezeigten Beispiel). Unter den drei Schleifenformen in C ist sie aber in der Praxis die am seltensten gebrauchte.
+
+94
+
+---
+
+Äquivalenz von for, while, do
+
+<div class="docvortex-algorithm" style="white-space: pre-wrap; font-family:monospace;">
+- for würde als einziges Schleifenkonstrukt ausreichen
+- Jede Schleifenform lässt sich in die anderen umsetzen, z.B.
+    while (Ausdruck) { statement* }
+entspricht
+    for (;Ausdruck;) { statement* }
+
+    for (expr1; expr2; expr3) { statement* }
+entspricht
+    expr1;
+    while (expr2) { statement* expr3; }
+
+- Jedoch ist aus Gründen der Programm-Lesbarkeit die jeweils am besten geeignete Variante zu bevorzugen
+- Der Einsatz von strukturierten Schleifen (for, while, do) und der Verzicht auf Sprünge (goto) führt beim Übersetzen auch oft zu besserem Maschinencode
+</div>
+
+95
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+95
+
+---
+
+## Endlosschleifen
+
+Falls die Abbruchbedingung einer Schleife nie erfüllt ist, **terminiert** das Programm nicht
+Compiler kann dies i.A. **nicht bemerken**
+Bei Ausführung: Ab einem gewissen Zeitpunkt **kein Programmfortschritt** mehr zu beobachten
+• **Abhilfe**:
+
+– Programmabbruch
+– Erneutes Starten unter Debugger‐Kontrolle
+
+```txt
+while ((a > 10) || (b > 20)) {
+    if ( /* ... */ ) {
+        /* ... */
+        a = 100;
+        /* ... */
+    } else {
+        /* ... */
+        b = 30;
+        /* ... */
+    }
+    /* danach Bedingung
+        stets erfüllt */
+}
+```
+
+**96**
+
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+
+Terminiert ein Programm nicht wie gewünscht nach „vernünftiger“ Zeit, so handelt es sich meist um einen Bug aufgrund einer **Endlosschleife**. Im gezeigten Beispiel könnte man dies theoretisch vorab im Compiler erkennen, aber im allg. ist dies praktisch nicht möglich. Mit Hilfe eines Debuggers lässt sich das Problem aber meist schnell finden und beseitigen.
+
+96

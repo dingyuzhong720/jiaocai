@@ -1,0 +1,3682 @@
+{
+  "pages": [
+    {
+      "page_idx": 32,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.251,
+            0.1
+          ],
+          "level": 2,
+          "content": "Libraries"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.122,
+            0.836,
+            0.39
+          ],
+          "sub_type": "text",
+          "content": "• Von vielen Programmen häufig wiederverwendeter Code wird in Bibliotheken (Libraries) abgelegt\n• Library‐Code wird nur einmal compiliert und kann dann von allen Programmen eingebunden werden\n• Dies erfolgt nach der Assemblierung durch den Linker\n• C besitzt insges. 29 Standard‐Libraries, z.B.:\n– stdio: Ein‐ und Ausgabe\n– math: Mathematische Funktionen\n– string: String‐Manipulation\nDurch Einbinden einer Header‐Datei (z.B. „stdio.h“) werden die Library‐Funktionen dem benutzenden Programm bekannt gemacht\nProgrammierer können (und sollten) auch eigene, benutzerspezifische Libraries anlegen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**33**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.821,
+            0.569
+          ],
+          "content": "Beim Einstieg in die C-Programmierung ist es sinnvoll, sich ein wenig mit den **Standard-Libraries** vertraut zu machen. Zum einen werden viele Funktionen von den meisten Programmen benötigt (z.B. für Ein- und Ausgabe von Daten), zum anderen findet man evtl. nützliche Funktionen, die man dann nicht selbst programmieren muss."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.575,
+            0.842,
+            0.664
+          ],
+          "content": "**Libraries** sind eine spezielle Form des Maschinencodes. Sie stellen selbst keine ausführbaren Programme dar. Vielmehr sucht der Compiler (eigentlich: der Linker) anhand von Funktionsnamen (s. auch Kap. 5), ob sich für eine bestimmte Funktion Code in der Library befindet. Falls ja, so wird dieser Code verwendet, ansonsten wird eine Fehlermeldung ausgegeben."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "33"
+        }
+      ]
+    },
+    {
+      "page_idx": 33,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.173,
+            0.085,
+            0.524,
+            0.105
+          ],
+          "level": 2,
+          "content": "Standardbibliothek C++ ‐ Beispiele"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.827,
+            0.086,
+            0.862,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.174,
+            0.118,
+            0.687,
+            0.433
+          ],
+          "sub_type": "text",
+          "content": "• **Zeichenketten und Streams**\n– string, iomanip, iostream, cstdio\n• **Abtrakte Datentypen / Container**\n– vector, array, (forward\\_)list, queue, stack\n– (unordered\\_)set, (unordered\\_) map\n– iteratoren\n• **Smart Pointer**\n– unique\\_prt\n– shared\\_prt\n– weak\\_ptr\n• **Algorithmen**\n– for\\_each, sort, copy, find & search, transform\n• **Funktoren**\n– multiplies, negate, …"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.45,
+            0.178,
+            0.46
+          ],
+          "content": "**34**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.702,
+            0.452,
+            0.848,
+            0.461
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "34"
+        }
+      ]
+    },
+    {
+      "page_idx": 34,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.34,
+            0.17,
+            0.658,
+            0.196
+          ],
+          "level": 2,
+          "content": "2. Einführendes Beispiel"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.261,
+            0.254,
+            0.576,
+            0.32
+          ],
+          "sub_type": "text",
+          "content": "2.1 Temperaturumrechnung\n**2.2 Analyse des Beispiels**\n2.3 Ausführung und Fehlersuche"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.167,
+            0.446
+          ],
+          "content": "**35**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "35"
+        }
+      ]
+    },
+    {
+      "page_idx": 35,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.42,
+            0.102
+          ],
+          "level": 2,
+          "content": "Analyse des C‐Programms"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.111,
+            0.825,
+            0.436
+          ],
+          "sub_type": "text",
+          "content": "• **Einbinden** der Standard‐Library zur Ein/Ausgabe\n– #include &lt;stdio.h&gt;\n– Ermöglicht Kommunikation des Programms mit der Außenwelt (z.B. Benutzer)\n– Siehe C‐Präprozessor\n• **Kommentare**\n– /\\* Umwandlung … \\*/\n– // untere Grenze …\n– Erläuterung der Programmfunktion für Entwickler\n– Text innerhalb /\\* … \\*/ und in einer Zeile nach // wird vom Compiler ignoriert\n• **Hauptfunktion** main\n– int main() { … }\n– Alle Anweisungen innerhalb { … } gehören zu main\n– main wird nach Programmstart immer direkt aufgerufen\n– Im Allg. ruft main dann weitere Funktionen auf"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**36**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.834,
+            0.534
+          ],
+          "content": "Die Standard-Libraries sind dem Compiler nicht automatisch bekannt. Vielmehr muss mit Hilfe eines **include-Statements** deklariert werden, dass man eine bestimmte Library verwenden möchte. Diese kann auch benutzerdefiniert sein."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.539,
+            0.838,
+            0.682
+          ],
+          "content": "**Kommentare** sind ein (leider oft vernachlässigtes) Mittel, Programme sauber zu dokumentieren, so dass auch nach längerer Zeit noch Wartungsarbeiten möglich sind. Zwar kann man einem Programm auch eine separate Dokumentation zur Seite stellen. Jedoch sind Kommentare oft praktischer, da sie sich direkt an der richtigen Stelle im Programm befinden, wodurch auch die Konsistenz zwischen Programmtext und Dokumentation gefördert wird. Für das eigentliche Programmverhalten sind Kommentare aber vollkommen bedeutungslos, da sie der Compiler einfach „überliest“."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.687,
+            0.828,
+            0.777
+          ],
+          "content": "Die **main-Funktion** ist der Einstiegspunkt eines jeden C-Programms. Sie kann sich an beliebiger Stelle im Programmtext befinden, definiert aber immer eindeutig, wo bei der Programmausführung begonnen wird. Im einfachsten Fall (wie im aktuellen Beispiel) besteht das gesamte Programm lediglich aus der main-Funktion."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "36"
+        }
+      ]
+    },
+    {
+      "page_idx": 36,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.42,
+            0.102
+          ],
+          "level": 2,
+          "content": "Analyse des C‐Programms"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.166,
+            0.115,
+            0.456,
+            0.133
+          ],
+          "level": 2,
+          "content": "• Variablen‐Vereinbarungen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.199,
+            0.135,
+            0.754,
+            0.24
+          ],
+          "sub_type": "text",
+          "content": "– int fahr, celsius;\n– Variablen sind benannte Speicherplätze für Werte\n– Können lesend und schreibend zugegriffen werden\n– Variablen müssen vor Verwendung vereinbart werden\n– Hier: Verwendung von ganzzahligen (integer) Variablen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.166,
+            0.244,
+            0.325,
+            0.261
+          ],
+          "level": 2,
+          "content": "• Zuweisungen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.199,
+            0.263,
+            0.595,
+            0.319
+          ],
+          "sub_type": "text",
+          "content": "– lower = 0;\n– upper = 300;\n– Schreiben von Werten in die Variablen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.166,
+            0.324,
+            0.272,
+            0.34
+          ],
+          "level": 2,
+          "content": "• Schleife"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.199,
+            0.343,
+            0.825,
+            0.421
+          ],
+          "sub_type": "text",
+          "content": "– while (fahr <= upper) { /\\* ... \\*/ }\n– while ist (wie auch int) ein **C‐Schlüsselwort**\n– Code innerhalb { … } wird solange wiederholt, bis Bedingung nicht mehr erfüllt"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**37**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.841,
+            0.57
+          ],
+          "content": "Die Semantik von **Zuweisungen** ist recht einfach. Der Wert auf der rechten Seite von “=„ wird an die linke Seite (meist eine Variable) zugewiesen. Der Operator “=„ in C ist also nicht mit dem mathematischen Gleichheitsoperator zu verwechseln. Dieser heißt in C „==“, was auch eine verbreitete Fehlerquelle bei der Programmierung darstellt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.575,
+            0.833,
+            0.647
+          ],
+          "content": "**Schleifen** sind ein extrem wichtiges Programmierelement. Im Beispiel müsste man ohne Schleife sämtliche Tabelleneinträge durch separate Anweisungen ausgeben – eine mühselige Angelegenheit. Mit Hilfe der Schleife muss man den hierfür notwendigen Code jedoch nur ein einziges Mal hinschreiben."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.652,
+            0.837,
+            0.796
+          ],
+          "content": "**C-Schlüsselwörter** bilden den Kern der Programmiersprache C. Sie haben für den Compiler eine vordefinierte Bedeutung und weisen ihn an, bestimmte Code-Strukturen zu generieren (z.B. eine Schleife im Falle von „while“ oder Platz für eine ganzzahlige Variable im Falle von „int“). Daher dürfen Variablennamen nicht mit den C-Schlüsselwörtern übereinstimmen, ansonsten wird eine Fehlermeldung erzeugt. Umgekehrt wird der Compiler versuchen, alle Zeichenfolgen, die kein Schlüsselwort sind, als Variablennamen o.ä. zu interpretieren."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "37"
+        }
+      ]
+    },
+    {
+      "page_idx": 37,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.42,
+            0.102
+          ],
+          "level": 2,
+          "content": "Analyse des C‐Programms"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.164,
+            0.125,
+            0.321,
+            0.143
+          ],
+          "level": 2,
+          "content": "• Umrechnung"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.197,
+            0.146,
+            0.551,
+            0.187
+          ],
+          "sub_type": "code",
+          "content": "```txt\n- celsius = 5 * (fahr-32) / 9;\n- Rechenoperationen auf Variablen\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.164,
+            0.193,
+            0.277,
+            0.211
+          ],
+          "level": 2,
+          "content": "• Ausgabe"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.197,
+            0.214,
+            0.675,
+            0.334
+          ],
+          "sub_type": "code",
+          "content": "```txt\n- printf(\"%d\\t%d\\n\", fahr, celsius);\n- Formatierte Ausgabe:\n  - fahr als Integer-Zahl (erstes %d als Platzhalter)\n  - Tabulator \\t\n  - celsius als Integer-Zahl (zweites %d als Platzhalter)\n  - Zeilenumbruch \\n\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.164,
+            0.341,
+            0.651,
+            0.359
+          ],
+          "level": 2,
+          "content": "• Vorbereitung des nächsten Schleifendurchlaufs"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.197,
+            0.362,
+            0.715,
+            0.404
+          ],
+          "sub_type": "code",
+          "content": "```txt\n- fahr = fahr + step;\n- fahr wird um step erhöht, bis upper überschritten\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**38**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.834,
+            0.57
+          ],
+          "content": "Die **printf-Funktion** aus der Standard-Library sieht auf den ersten Blick etwas kryptisch aus, ist aber eine mächtige, generische Funktion zur Ausgabe verschiedenster Daten. Standardmäßig gibt „printf“ die Daten auf dem Bildschirm aus. Die verwandte Funktion „fprintf“ funktioniert sehr ähnlich, gibt jedoch die Daten in Dateien (Files) aus, z.B. auf der Festplatte."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.575,
+            0.848,
+            0.646
+          ],
+          "content": "Der printf-Funktion werden stets zwei Parameter übergeben: (1) die Art der Ausgabe der Daten (z.B. ganzzahlig, Fließkomma, Hexadezimal) und (2) die auszugebenden Daten selbst. Für eine genaue Auflistung der printf-Möglichkeiten sei auf die **C-Dokumentation** verwiesen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "38"
+        }
+      ]
+    },
+    {
+      "page_idx": 38,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.174,
+            0.087,
+            0.264,
+            0.105
+          ],
+          "level": 2,
+          "content": "Ausgabe"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.828,
+            0.087,
+            0.862,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.175,
+            0.119,
+            0.417,
+            0.137
+          ],
+          "level": 2,
+          "content": "• Formatierte Ausgabe"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.218,
+            0.153,
+            0.703,
+            0.304
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <iostream>  // std::cout, std::right, std::endl\n#include <iomanip>   // std::setw\n\nint main() {\n    int val = 65;\n\n    std::cout << \"Formatted output using C++\" << std::endl;\n    std::cout << \"-start-\" << std::endl;\n    std::cout << std::right;  // right-adjusted (manipulator)\n    std::cout << \"\"\" << std::setw(10) << val << \"\"\" << std::endl;\n    std::cout << \"-end-\" << std::endl;\n\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.223,
+                0.139,
+                0.316,
+                0.151
+              ],
+              "content": "Classic C++"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.218,
+            0.329,
+            0.74,
+            0.447
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <cstdio> // printf; for c library: <stdio.h>, no \"using ...\" using namespace std;\n\nint main() {\n    int val = 65;\n\n    printf(\"Now using C++11:\\n\");\n    printf(\"-start-\\n'%10d'\\n-end-\\n\", val);\n\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.223,
+                0.315,
+                0.333,
+                0.327
+              ],
+              "content": "C++11 oder c"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.45,
+            0.178,
+            0.46
+          ],
+          "content": "**39**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.756,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.789,
+            0.517
+          ],
+          "content": "Printing to the console is fundamentally a stream of bytes sent to a specific destination. C++ embraces this concept."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.521,
+            0.81,
+            0.573
+          ],
+          "content": "However, detailed output formatting becomes unnecessarily complex. Hence, C++11 has introduced the cstdio library that includes the printf function known from c."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "39"
+        }
+      ]
+    },
+    {
+      "page_idx": 39,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.175,
+            0.086,
+            0.265,
+            0.103
+          ],
+          "level": 2,
+          "content": "Libraries"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.828,
+            0.087,
+            0.862,
+            0.1
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.219,
+            0.143,
+            0.788,
+            0.265
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <string>\n#include <iostream>\n\nint main( void ) {\n\n    std::string msg = \"Hello world!\";\n\n    std::cout << msg << std::endl;\n\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.176,
+                0.122,
+                0.426,
+                0.141
+              ],
+              "content": "• Using und namespace"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.45,
+            0.178,
+            0.46
+          ],
+          "content": "**40**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.557,
+            0.287,
+            0.765,
+            0.302
+          ],
+          "content": "std::cout ⭢ cout"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.756,
+            0.452,
+            0.848,
+            0.46
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.747,
+            0.517
+          ],
+          "content": "Referring to a specific function of the used libraries can sometimes be cumbersome to type and read considering the additional prefix."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.521,
+            0.785,
+            0.539
+          ],
+          "content": "This can be simplified by adding those to the local namespace with using."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.545,
+            0.83,
+            0.598
+          ],
+          "content": "Be careful when applying using namespace, as it brings many functions and variables to the scope of the program. Thereby conflicts with your own symbols of functions and variables may occur."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.627,
+            0.772,
+            0.646
+          ],
+          "content": "(Please note: the comma separated list in using requires at least C++17.)"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "40"
+        }
+      ]
+    },
+    {
+      "page_idx": 40,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.314,
+            0.102
+          ],
+          "level": 2,
+          "content": "C‐Präprozessor"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.122,
+            0.816,
+            0.225
+          ],
+          "sub_type": "text",
+          "content": "• C‐Präprozessor (cpp) läuft **vor dem Compiler** über den Quellcode (C‐nach‐C‐Übersetzung)\n• cpp‐Anweisungen beginnen mit Zeichen #\n• cpp‐Verwendung erhöht **Lesbarkeit** der Programme\n• Vor allem folgende Anwendungen:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.195,
+            0.228,
+            0.774,
+            0.247
+          ],
+          "content": "– **Symbolische Definitionen** (Konvention: Großbuchstaben)"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.235,
+            0.248,
+            0.682,
+            0.279
+          ],
+          "sub_type": "text",
+          "content": "• #define UPPER 300\n• Alle Vorkommen von UPPER werden durch 300 ersetzt"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.197,
+            0.285,
+            0.298,
+            0.3
+          ],
+          "content": "– **Makros**"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.235,
+            0.303,
+            0.68,
+            0.334
+          ],
+          "sub_type": "text",
+          "content": "• #define MAX(a,b) (a > b) ? a : b\n• Alle Vorkommen von MAX(..., ...) werden ersetzt"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.196,
+            0.339,
+            0.774,
+            0.374
+          ],
+          "content": "– **Einbinden** von Standard‐Libraries (und allgemein Header‐Dateien mit Deklarationen)"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.235,
+            0.376,
+            0.731,
+            0.408
+          ],
+          "sub_type": "text",
+          "content": "• #include &lt;stdio.h&gt;\n• Datei stdio.h wird an dieser Stelle ins Programm eingefügt"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**41**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.838,
+            0.533
+          ],
+          "content": "In der Praxis muss der **Präprozessor** nicht separat vor dem Compiler aufgerufen werden. Vielmehr tut dies der Compileraufruf selbständig, und der Compiler arbeitet dann auf dem „vorverarbeiteten“ Code."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.539,
+            0.845,
+            0.629
+          ],
+          "content": "Von **symbolischen Definitionen** per #define sollte reger Gebrauch gemacht werden, um die Lesbarkeit der Programme zu erhöhen und Änderungen zu vereinfachen. Die #define-Anweisungen befinden sich typischerweise am Anfang des Programmtextes. Daher können z.B. neue Werte für Programmparameter einfach und lokal begrenzt eingestellt werden."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.634,
+            0.838,
+            0.723
+          ],
+          "content": "Die **#include-Anweisungen** können theoretisch zum Einbinden von beliebigem Programmtext benutzt werden. Dies würde allerdings nicht unbedingt zur Lesbarkeit beitragen. Daher werden sie in der Praxis nur zum Einbinden sog. Header Files verwendet, welche dem Programm die in einer Library verfügbaren Elemente bekannt machen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.486,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "41"
+        }
+      ]
+    },
+    {
+      "page_idx": 41,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.34,
+            0.17,
+            0.658,
+            0.196
+          ],
+          "level": 2,
+          "content": "2. Einführendes Beispiel"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.257,
+            0.254,
+            0.576,
+            0.321
+          ],
+          "sub_type": "text",
+          "content": "2.1 Temperaturumrechnung\n2.2 Analyse des Beispiels\n**2.3 Ausführung und Fehlersuche**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.167,
+            0.446
+          ],
+          "content": "**42**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "42"
+        }
+      ]
+    },
+    {
+      "page_idx": 42,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.082,
+            0.422,
+            0.102
+          ],
+          "level": 2,
+          "content": "Übersetzung und Ausgabe"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.52,
+            0.364
+          ],
+          "sub_type": "text",
+          "content": "Programm in **Textdatei** „temp.c“gespeichert\n• Aufruf des **C‐Compilers** (z.B. aus Linux shell)\n– cc temp.c (je nach Compiler)\n– **Präprozessor** und **Assembler** werden implizit aufgerufen\n– **Zielprogramm** $\\scriptstyle { \\boldsymbol { \\upsilon } } ^ { \\mathsf { a } }$ .out“ wird erzeugt\n– **Ausführung** von ${ \\boldsymbol { \\nu } } ^ { \\mathsf { a } } .$ .out“generiert die gezeigte Ausgabe"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.599,
+            0.135,
+            0.805,
+            0.424
+          ],
+          "content": "| 0 | -17 |\n| --- | --- |\n| 20 | -6 |\n| 40 | 4 |\n| 60 | 15 |\n| 80 | 26 |\n| 100 | 37 |\n| 120 | 48 |\n| 140 | 60 |\n| 160 | 71 |\n| 180 | 82 |\n| 200 | 93 |\n| 220 | 104 |\n| 240 | 115 |\n| 260 | 126 |\n| 280 | 137 |\n| 300 | 148 |",
+          "captions": [
+            {
+              "bbox": [
+                0.66,
+                0.116,
+                0.726,
+                0.13
+              ],
+              "content": "Ausgabe"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_42_table_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.167,
+            0.445
+          ],
+          "content": "**43**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.439,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.825,
+            0.517
+          ],
+          "content": "Sofern noch keine Erfahrung mit **Dateien** und **Compilerbenutzung** vorhanden ist, sollten diese Dinge unbedingt praktisch geübt werden!"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.521,
+            0.816,
+            0.575
+          ],
+          "content": "Kurzanleitungen verschiedener gängiger C/C++-Entwicklungsumgebungen finden Sie im Lernraum mit einigen Informationen zu den ersten Schritten zur Erstellung, Übersetzung und Ausführung eines C-Programms."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "43"
+        }
+      ]
+    },
+    {
+      "page_idx": 43,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.401,
+            0.102
+          ],
+          "level": 2,
+          "content": "Fehlerhafte Programme"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.162,
+            0.116,
+            0.834,
+            0.18
+          ],
+          "sub_type": "text",
+          "content": "• **Möglichkeit 1**: Programm entspricht nicht dem C‐Standard\nDerartige Fehler werden vom Compiler (oder auch Linker) bemerkt und dem Programmierer mitgeteilt"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.302,
+            0.191,
+            0.763,
+            0.426
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  #include <stdio.h>\n  /* Umwandlung von Fahrenheit in Celsius\n    fuer fahr = 0, 20, ..., 300 */\n  int mein()\n  {\n    int fahrigt *, celsius */;\n    int lower, upper, step;\n\n    lower = 0; // untere Grenze der Temperaturtabelle\n    upper = 300; // obere Grenze\n    step = 20; // Schrittweite\n\n    fahr = lower\n    while (fahr <= upper) {\n        celsius = 5 * (fahr-32) ** 9;\n        printf(\"%d\\t%d\\n\", fahr, celsius);\n        fahr = fahr + step;\n    }\n\n    return 0;\n  }\n  FehlendeMainFunktion[\"Fehlende main-Funktion\"] --> VariableNichtDeklariert[\"Variable nicht deklariert\"]\n  UnbekannterOperator[\"Unbekannter Operator\"] --> SemikolonVergessen[\"Semikolon vergessen\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_43_image_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**44**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.83,
+            0.534
+          ],
+          "content": "Vor allem am Anfang ist es sehr wahrscheinlich, dass man beim Programmieren **Fehler** macht. Die Frage ist nun, inwieweit man durch den Compiler Unterstützung bei der Fehlersuche bekommt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.539,
+            0.836,
+            0.611
+          ],
+          "content": "Die hier gezeigte Möglichkeit ist der „beste Fall“, denn der Compiler zeigt anhand von Fehlermeldungen recht genau, was (und wo, d.h. in welcher Programmzeile) schiefgegangen ist. So kann man den Fehler leicht beheben und den Compiler erneut aufrufen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.992
+          ],
+          "content": "44"
+        }
+      ]
+    },
+    {
+      "page_idx": 44,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.4,
+            0.102
+          ],
+          "level": 2,
+          "content": "Fehlerhafte Programme"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.162,
+            0.116,
+            0.816,
+            0.18
+          ],
+          "sub_type": "text",
+          "content": "**Möglichkeit 2**: Programm ist gültig (d.h. compilierbar), führt aber nicht die gewünschte Funktion aus (es hat „Bugs“)\n• Wesentlich schwieriger zu finden und zu beheben!"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.304,
+            0.196,
+            0.692,
+            0.427
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n\n/* Umwandlung von Fahrenheit in Celsius\n    fuer fahr = 0, 20, ..., 300   */\nint main()\n{\n    int fahr, celsius;\n    int lower, upper, step;\n\n    lower = 0; // untere Grenze der Temperaturtabelle\n    upper = 300; // obere Grenze\n    step  = 20; // Schrittweite\n\n    fahr  = lower;\n    while (fahr <= upper)  {\n        celsius = 5 * (fahr+32) / 9;\n        printf(\"%d\\t%d\\n\", fahr, celsius);\n        fahr = fahr + step;\n    }\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.572,
+            0.274,
+            0.816,
+            0.349
+          ],
+          "sub_type": "other",
+          "content": "| Kategorie | Wert |\n| --- | --- |\n| Temperaturtabelle | N/A |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_44_chart_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.446
+          ],
+          "content": "**45**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.841,
+            0.606
+          ],
+          "content": "Da der Compiler nicht wissen kann, was der Programmierer ursprünglich implementieren wollte, kann es leicht zu **Bugs** kommen. Die meisten Software-Pakete haben Bugs, und manche werden erst sehr spät oder nie entdeckt. Zur Minimierung der Anzahl der Bugs hilft nur umfangreiches Testen und – bei nicht offensichtlichen Bugs – die geschickte Eingrenzung der Fehlerstelle, z.B. durch das temporäre Einstreuen zusätzlicher printf-Anweisungen zur Kontrolle von (sonst nach außen unsichtbaren) Zwischenergebnissen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "45"
+        }
+      ]
+    },
+    {
+      "page_idx": 45,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.4,
+            0.102
+          ],
+          "level": 2,
+          "content": "Fehlerhafte Programme"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.125,
+            0.402,
+            0.416
+          ],
+          "sub_type": "text",
+          "content": "• Programm unter Kontrolle eines **Debuggers** ausführen\nErmöglicht **Einzelschrittmodus**, Beobachtung von **Variablen** u.v.m.\nHilfreich vor allem bei **Endlosschleifen** und **Programmabstürzen**\nDebugger kann Programmverhalten beeinflussen („**Heisenbugs**“)"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.442,
+            0.116,
+            0.845,
+            0.429
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_45_image_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.167,
+            0.446
+          ],
+          "content": "**46**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.823,
+            0.534
+          ],
+          "content": "Im Gegensatz zum gezeigten Bespiel sind manche Bugs sehr schwer zu finden. Das sog. „Debugging“ nimmt oft mehr Zeit in Anspruch als die eigentliche Programmierung!"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.539,
+            0.838,
+            0.663
+          ],
+          "content": "Daneben wird ein Bug oft durch das komplexe Zusammenspiel verschiedener Programmteile bewirkt. Gerät das Programm in eine **Endlosschleife**, so „passiert“ nach außen nichts mehr, ohne dass ein Fehler direkt sichtbar wird. Ein **Absturz** ist ein unkontrollierter Programmabbruch aufgrund eines unzulässigen Programmverhaltens (z.B. Zugriff auf geschützte Speicherbereiche). Die genaue Absturzstelle (und noch weniger die Ursache) ist ebenfalls nicht direkt nach außen sichtbar."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.669,
+            0.833,
+            0.832
+          ],
+          "content": "In diesen Fällen hilft nur ein **Debugger-Werkzeug** weiter. Der Debugger ermöglicht eine kontrollierte Ausführung eines Programms unter „ständiger Beobachtung“ des Programmierers. Hiermit können die meisten Bugs relativ schnell gefunden werden. Im schlimmsten Fall arbeitet ein Programm unter Debugger-Kontrolle jedoch anders als das ursprüngliche Programm. Dies liegt daran, dass der Debugger selbst ein Programm ist, welches auf unerwünschte Weise mit dem fehlerhaften Programm interagieren kann. Denkbar ist natürlich auch, dass der Debugger selbst Bugs hat. In jedem Fall muss dann noch tiefer in die „Debugging-Trickkiste“ gegriffen werden."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.836,
+            0.846,
+            0.873
+          ],
+          "content": "**Literaturhinweis**: Grötker/Holtmann/Keding/Wloka: „The Developer´s Guide to Debugging“, Springer, 2008, ISBN 978-1-4020-5539-3"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.512,
+            0.993
+          ],
+          "content": "46"
+        }
+      ]
+    },
+    {
+      "page_idx": 46,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.204,
+            0.17,
+            0.795,
+            0.196
+          ],
+          "level": 2,
+          "content": "3. Elementare Datentypen und Anweisungen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.204,
+            0.252,
+            0.352,
+            0.271
+          ],
+          "level": 2,
+          "content": "3.1 Einführung"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.204,
+            0.274,
+            0.804,
+            0.359
+          ],
+          "sub_type": "text",
+          "content": "3.2 Variablen und Konstanten\n3.3 Zeiger\n3.4 Arithmetische und logische Operationen und Zuweisungen\n3.5 Kontrollanweisungen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.151,
+            0.437,
+            0.167,
+            0.446
+          ],
+          "content": "47"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.992
+          ],
+          "content": "47"
+        }
+      ]
+    },
+    {
+      "page_idx": 47,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.409,
+            0.102
+          ],
+          "level": 2,
+          "content": "Datentypen ‐ Einführung"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.168,
+            0.116,
+            0.75,
+            0.155
+          ],
+          "content": "**Def**.: Ein **Datentyp** (**DT**) ist eine Menge von Werten und eine <u>Sammlung von Operationen auf diesen Werten.</u>"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.166,
+            0.692,
+            0.305
+          ],
+          "sub_type": "text",
+          "content": "Beispiel: **natürliche Zahlen** 1, 2, 3, ... – Operationen: +, ‐, \\*, /, ...\nBeispiel: **Zeichenketten** (Strings) über Alphabet A‐Z – Operationen:\n• Bestimme Stringlänge\n• Ordne Strings alphabetisch an\n•..."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.309,
+            0.692,
+            0.346
+          ],
+          "content": "Beispiel: Menge von **Personen‐Stammdaten** (Name, Geburtsdatum, Adresse, ...)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.197,
+            0.349,
+            0.351,
+            0.366
+          ],
+          "content": "– Operationen:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.234,
+            0.37,
+            0.692,
+            0.42
+          ],
+          "sub_type": "text",
+          "content": "• Finde Teilmenge aller Personen älter als 50 Jahre\n• Finde Teilmenge aller Personen, die in Aachen wohnen\n•..."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.437,
+            0.167,
+            0.445
+          ],
+          "content": "**48**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.675,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.845,
+            0.552
+          ],
+          "content": "Man beachte, dass durch die Definition des **Datentyps** Werte und Operationen zu einer Einheit zusammengefasst werden. Dies ist wichtig, da reine Daten ohne Operationen hierauf (z.B. Abfragen, Berechnungen oder Modifikationen) an sich wertlos sind."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "48"
+        }
+      ]
+    },
+    {
+      "page_idx": 48,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.409,
+            0.102
+          ],
+          "level": 2,
+          "content": "Datentypen ‐ Einführung"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.168,
+            0.128,
+            0.798,
+            0.168
+          ],
+          "level": 2,
+          "content": "Def.: Ein abstrakter Datentyp (ADT) ist ein Datentyp der nur über eine Schnittstelle zugänglich ist."
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.185,
+            0.599,
+            0.429
+          ],
+          "sub_type": "text",
+          "content": "• Funktion vs. Implementierung des Datentyps\n• Nur Funktion nach außen von Interesse\n• Implementierung kann sich evtl. ändern\nBeispiel: DT „Punkt“ in C\n• Koordinaten:\nstruct point { float x; float y; }\nOperation „Euklidischer Abstand“:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.197,
+            0.326,
+            0.597,
+            0.429
+          ],
+          "sub_type": "code",
+          "content": "```lisp\nfloat dist(struct point a, struct point b)\n{\n    float dx, dy;\n    dx = a.x - b.x;\n    dy = a.y - b.y;\n    return sqrt(dx*dx + dy*dy);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.587,
+            0.235,
+            0.807,
+            0.377
+          ],
+          "sub_type": "text_image",
+          "content": "y\na\ndist(a,b)\nb\nx",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_48_image_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**49**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.841,
+            0.588
+          ],
+          "content": "Beim **ADT** wird die Implementierung explizit außen vor gehalten, d.h. für einen ADT kann es viele verschiedene Implementierungen z.B. als C-Code geben. Programme, die den ADT benutzen, sehen aufgrund des Interfaces nichts von seiner „inneren“ Implementierung. So ist es z.B. möglich, den ADT im Laufe der Zeit durch eine andere/bessere Implementierung zu ersetzen, ohne dass alle Programme entsprechend angepasst werden müssen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.593,
+            0.841,
+            0.664
+          ],
+          "content": "Im Beispiel kann die Funktion „dist“ zwar als (Teil des) **Interface** aufgefasst werden, jedoch ist die Implementierung als C-struct auch nach außen sichtbar, so dass man bei schlechtem Programmierstil explizit auf die Koordinaten x und y zugreifen könnte."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.486,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "49"
+        }
+      ]
+    },
+    {
+      "page_idx": 49,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.409,
+            0.102
+          ],
+          "level": 2,
+          "content": "Datentypen ‐ Einführung"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.122,
+            0.836,
+            0.407
+          ],
+          "sub_type": "text",
+          "content": "In der C‐Version sind Daten (point) und Operationen (dist) **getrennt**\nProgramme könnten (und i.d.R.: werden) ohne „dist“ auch **direkt** auf die x‐ und y‐Koordinaten zugreifen\nÄndert sich die interne Implementierung von point, so wäre evtl. ein Großteil des **übrigen Programmcodes** betroffen\n• **ADT‐Version** in C++: (siehe Kapitel 5)\n• Daten und Operationen per Konstruktion (class) **vereinigt**\nInterne Daten nur über Schnittstelle verfügbar!"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.197,
+            0.262,
+            0.835,
+            0.363
+          ],
+          "sub_type": "code",
+          "content": "```txt\nclass point {\n    private:      // interne Repräsentation nicht nach außen sichtbar\n        float x, y; // oder andere interne Repräsentation\n    public:      // Schnittstelle für Benutzer von „point“\n        float dist(point);\n        /* ... */\n};\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**50**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.588
+          ],
+          "content": "In der **C++ Version** des Beispiel-ADT werden die Koordinaten x und y durch das Schlüsselwort „private“ vor direktem Zugriff von außen geschützt. D.h. dass ein Programm, welches versucht, diese direkt zuzugreifen, vom Compiler mit einer Fehlermeldung zurückgewiesen wird. Nur die unter „public“ sichtbaren Interface-Operationen sind nach außen verfügbar. Auf diese Weise kann der Programmierer des ADT für die gewünschte „Einkapselung“ der ADT-Daten sorgen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "50"
+        }
+      ]
+    },
+    {
+      "page_idx": 50,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.286,
+            0.101
+          ],
+          "level": 2,
+          "content": "Objekte in C"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.123,
+            0.554,
+            0.41
+          ],
+          "sub_type": "text",
+          "content": "Variablen, Konstanten und Programmcode (Funktionen) werden im **Speicher** abgelegt\nEin **Objekt** ist ein benannter Speicherbereich\nAuf Objekte wird direkt (per **Namen**) oder indirekt (per **Zeiger**) zugegriffen; Zeiger (symbolische Adressen) sind selbst Objekte\nDer **benötigte Speicherplatz** eines Objektes sowie die darauf **zulässigen Operationen** hängen vom Typ ab\nIm Speicher befinden sich nur **Binärzahlen**; Interpretation ist den Operationen überlassen"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.576,
+            0.137,
+            0.821,
+            0.434
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Konstante a\"] --> B[\"Variable x\"]\n  A --> C[\"Variable y\"]\n  D[\"f\"] --> E[\"Funktion f\"]\n  D --> F[\"Funktion g\"]\n  D --> G[\"Zeiger p\"]\n  D --> H[\"Zeiger q\"]\n  I[\"x\"] --> J[\"weitere Objekte\"]\n  K[\"q\"] --> L[\"N\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.577,
+                0.119,
+                0.8,
+                0.134
+              ],
+              "content": "Vereinfachtes Speichermodell"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_50_image_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.167,
+            0.446
+          ],
+          "content": "**51**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.704,
+            0.498
+          ],
+          "content": "Der Speicher ist das „Gedächtnis“ eines Programms. Er wird aus"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.499,
+            0.847,
+            0.551
+          ],
+          "content": "Programmierersicht als eine lineare Folge von **Speicherplätzen** aufgefasst. In der Realität ist die Speicherarchitektur wesentlich komplexer, dies wird jedoch hier nicht weiter betrachtet."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.557,
+            0.848,
+            0.629
+          ],
+          "content": "Jeder Speicherplatz besitzt eine **Adresse**, ähnlich zu einer Hausnummer, unter der er angesprochen (d.h. gelesen oder geschrieben) werden kann. Der Inhalt eines Speicherplatzes bleibt erhalten, solange vom Programm kein neuer Wert hineingeschrieben wird (oder die Stromversorgung unterbrochen wird)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.634,
+            0.83,
+            0.688
+          ],
+          "content": "Im Beispiel laufen die Adressen von 0 bis N. In den ersten Speicherplätzen sind Konstanten und Variablen abgelegt. Auch die **Software** selbst befindet sich im Speicher (z.B. die Funktionen f und g)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.693,
+            0.842,
+            0.783
+          ],
+          "content": "Eine Besonderheit sind **Zeiger** (siehe Ende Kap.3). Diese verweisen auf andere Objekte im Speicher. Befindet sich z.B. die Funktion g an Adresse 1000 im Speicher, so hätte der Zeiger q den Wert 1000. Dies wird durch den Pfeil vom Zeigerobjekt q (welches sich an beliebiger Stelle im Speicher befinden kann) auf die Funktion g angedeutet."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.787,
+            0.83,
+            0.824
+          ],
+          "content": "Programmieranfängern bereitet das Verständnis der Zeiger erfahrungsgemäß oft große Schwierigkeiten. Da sie aber ein äußerst wichtiges"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.824,
+            0.819,
+            0.86
+          ],
+          "content": "**Programmierhilfsmittel** darstellen, ist eine nähere (und vor allem praktische) Beschäftigung mit diesem Thema zwingend notwendig."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "51"
+        }
+      ]
+    },
+    {
+      "page_idx": 51,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.083,
+            0.382,
+            0.102
+          ],
+          "level": 2,
+          "content": "Basis‐Datentypen in C"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.594,
+            0.168
+          ],
+          "sub_type": "text",
+          "content": "• char: **Zeichen** (character) = 1 Byte (8 Bits)\n• int: **ganze Zahl** (integer)"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.197,
+            0.171,
+            0.629,
+            0.208
+          ],
+          "sub_type": "text",
+          "content": "– short int: kleinerer Wertebereich (mind. 16 Bit)\n– long int: größerer Wertebereich (mind. 32 Bit)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.213,
+            0.573,
+            0.232
+          ],
+          "content": "• float: **Fließkommazahl** (floating point)"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.197,
+            0.235,
+            0.579,
+            0.311
+          ],
+          "sub_type": "text",
+          "content": "– Aufteilung in Exponenten und Mantisse\n– z.B. „12.34E10“ ൌ 12,34 ⋅ 10<sup>ଵ</sup>଴\n– double: größerer Wertebereich\n– long double: noch größerer Wertebereich"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.317,
+            0.816,
+            0.354
+          ],
+          "content": "• char und ganze Zahlen können **vorzeichenbehaftet** (Standardfall) oder **vorzeichenlos** sein:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.197,
+            0.357,
+            0.766,
+            0.396
+          ],
+          "sub_type": "text",
+          "content": "– signed short int  ሾെ2<sup>ଵ</sup>଺ି<sup>ଵ</sup>, 2<sup>ଵ</sup>଺ି<sup>ଵ</sup> െ 1ሿ ൌ ሾെ32768, 32767ሿ\n– unsigned short int  ሾ0, 2<sup>ଵ</sup>଺ െ 1ሿ ൌ ሾ0, 65535ሿ"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**52**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.824,
+            0.517
+          ],
+          "content": "Alle Datentypen in C können auf die **Basis-Datentypen** zurückgeführt werden. Diese sind Sprachelemente von C und somit dem Compiler implizit bekannt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.521,
+            0.842,
+            0.61
+          ],
+          "content": "Je nach Anwendung verwendet man bei Zahlen-Datentypen solche mit oder ohne **Vorzeichen**. Der darstellbare Wertebereich ist durch die Anzahl der Bits beschränkt. Ist z.B. von vornherein bekannt, dass eine Variable niemals negative Werte annehmen kann, so kann durch die Verwendung von „unsigned“ eine bessere Ausnutzung des Wertebereichs erreicht werden."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.616,
+            0.848,
+            0.722
+          ],
+          "content": "Ganze Zahlen werden meist im **2er-Komplement** dargestellt. In diesem Format lassen sich bestimmte mathematische Operationen einfach in Hardware realisieren. Der jeweils halbe Wertebereich wird für negative bzw. positive Zahlen verwendet. Das erste Bit gibt das Vorzeichen an („1“ = negativ“). Da die 0 als positive Zahl aufgefasst wird, ergibt sich eine kleine Asymmetrie im Wertebereich."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.728,
+            0.526,
+            0.746
+          ],
+          "content": "**Beispiel**: 2er-Komplement bei 3-Bit-Zahlen"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.149,
+            0.752,
+            0.48,
+            0.768
+          ],
+          "content": "0 0 0 = 0 \\quad 1 0 0 = - 4",
+          "image_source": "images/page_51_equation_23.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.15,
+            0.775,
+            0.479,
+            0.791
+          ],
+          "content": "0 0 1 = 1 \\quad 1 0 1 = - 3",
+          "image_source": "images/page_51_equation_24.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.15,
+            0.798,
+            0.478,
+            0.814
+          ],
+          "content": "0 1 0 = 2 \\quad 1 1 0 = - 2",
+          "image_source": "images/page_51_equation_25.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.15,
+            0.822,
+            0.476,
+            0.838
+          ],
+          "content": "0 1 1 = 3 \\quad 1 1 1 = - 1",
+          "image_source": "images/page_51_equation_26.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.845,
+            0.814,
+            0.88
+          ],
+          "content": "Die Negation einer Zahl erfolgt durch Invertieren der Bits und anschließender Addition von 1. Z.B. -2 = Inv(010) + 1 = 101 + 1 = 110"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "52"
+        }
+      ]
+    },
+    {
+      "page_idx": 52,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.204,
+            0.17,
+            0.795,
+            0.196
+          ],
+          "level": 2,
+          "content": "3. Elementare Datentypen und Anweisungen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.201,
+            0.251,
+            0.806,
+            0.36
+          ],
+          "sub_type": "text",
+          "content": "3.1 Einführung\n**3.2 Variablen und Konstanten**\n3.3 Zeiger\n3.4 Arithmetische und logische Operationen und Zuweisungen\n3.5 Kontrollanweisungen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.151,
+            0.437,
+            0.167,
+            0.446
+          ],
+          "content": "53"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "53"
+        }
+      ]
+    },
+    {
+      "page_idx": 53,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.261,
+            0.1
+          ],
+          "level": 2,
+          "content": "Variablen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.164,
+            0.117,
+            0.284,
+            0.133
+          ],
+          "level": 2,
+          "content": "• Variablen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.194,
+            0.141,
+            0.667,
+            0.183
+          ],
+          "sub_type": "text",
+          "content": "– speichern Werte eines bestimmten **Datentyps**\n– müssen vor Verwendung **vereinbart** werden"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.232,
+            0.187,
+            0.616,
+            0.203
+          ],
+          "content": "• z.B. float a, b; char x, y; double e, f;"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.196,
+            0.209,
+            0.697,
+            0.251
+          ],
+          "sub_type": "text",
+          "content": "– besitzen einen eindeutigen **Namen**\n– Name sollte über **Verwendung** Aufschluss geben!"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.232,
+            0.255,
+            0.571,
+            0.271
+          ],
+          "content": "• z.B. int counter; ist besser als int c;"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.163,
+            0.276,
+            0.628,
+            0.293
+          ],
+          "level": 2,
+          "content": "• Schlüsselwörter sind als Namen nicht erlaubt"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.195,
+            0.3,
+            0.648,
+            0.342
+          ],
+          "content": "– z.B. for, while, goto, int, float, ... sind in C/C++ reserviert"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.163,
+            0.349,
+            0.361,
+            0.366
+          ],
+          "level": 2,
+          "content": "• Je nach Compiler:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.195,
+            0.372,
+            0.758,
+            0.435
+          ],
+          "sub_type": "text",
+          "content": "– Es sind nur die ersten 31 Zeichen **signifikant**\n– z.B. int einLangerVariablenName1234567890, einLangerVariablenName1234567891 gelten als gleich"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**54**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.85,
+            0.587
+          ],
+          "content": "Wird eine Variable verwendet, ohne vorher vereinbart worden zu sein, so erzeugt der Compiler eine Fehlermeldung. Die **Deklaration** dient dazu, eindeutig festzulegen welche Variablen welchen Typs im Programm verwendet werden. Auf diese Weise werden Fehler vermieden. Darüber hinaus kann der Compiler mit Hilfe der Vereinbarung bestimmen, wieviel Speicherplatz für die Variablen zu reservieren ist."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.593,
+            0.842,
+            0.663
+          ],
+          "content": "**Variablennamen** sind in C zwar quasi beliebig. Aussagekräftige Namen sind jedoch dringend zu empfehlen. Ein Programm, welches nur Variablennamen wie a, b, c, d etc. verwendet, kann nach einiger Zeit von niemandem mehr verstanden werden."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.669,
+            0.837,
+            0.814
+          ],
+          "content": "Manche C-Compiler betrachten auch mehr als 31 Zeichen als signifikant. Dies sollte jedoch nicht unbedingt ausgenutzt werden, da darunter die **Portierbarkeit** des Codes auf andere Rechner/Compiler-Plattformen beeinträchtigt wird. Zwar ist C als höhere Programmiersprache prinzipiell rechnerunabhängig, aber im Detail gilt dies leider nicht. Ein weiteres Beispiel hierfür ist die nicht eindeutige Standardisierung der Datentyp-Bitbreiten (Bsp. int: „16 Bits oder mehr“). So kann ein Programm auf verschiedenen Rechnern durchaus verschiedenes Verhalten zeigen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "54"
+        }
+      ]
+    },
+    {
+      "page_idx": 54,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.083,
+            0.261,
+            0.1
+          ],
+          "level": 2,
+          "content": "Variablen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.8,
+            0.424
+          ],
+          "sub_type": "text",
+          "content": "• Aufbau von Variablennamen (Identifier‐Syntax)\n• Kompakte Beschreibung mit **regulären Ausdrücken**\n• Z.B. zulässig:\n– int x, XX, y\\_, a\\_42;\n• Z.B. unzulässig:\n– int 0Z, 1234\\_x, return;"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.194,
+            0.172,
+            0.8,
+            0.316
+          ],
+          "sub_type": "code",
+          "content": "```txt\n- letter = \"a\" | \"b\" | ... | \"z\" | \"A\" | \"B\" | ... | \"Z\" | \"_\"\n    - letter = ein Buchstabe oder „_\"\n- digit = \"0\" | ... | \"9\"\n    - digit = eine Dezimalziffer\n- identifier = letter { letter | digit }\n    - identifier = ein letter, gefolgt von beliebig vielen Elementen (auch 0)\n    letter oder digit\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**55**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.478,
+            0.793,
+            0.543
+          ],
+          "content": "**Identifier** sind eindeutige Namen für Variablen, Konstanten, Datentypen, Funktionen etc. Mittels **regulärer Ausdrücke** (RAs) können bestimmte Sprachen (wie hier die Sprache der möglichen C-Identifier) kompakt beschrieben werden."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.548,
+            0.797,
+            0.613
+          ],
+          "content": "Grundlage für RAs ist immer ein **Alphabet**. Im Falle von C ist dies eine Teilmenge der sog. ASCII-Zeichen, welche aus Buchstaben, Ziffern und einigen Sonderzeichen bestehen. Jedes Element des Alphabets ist per Definition selbst schon ein RA."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.618,
+            0.763,
+            0.652
+          ],
+          "content": "Aus zwei beliebigen gegebenen RAs R1 und R2 kann man einen neuen, komplexeren RA R3 mittels dreier Regeln formen:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.148,
+            0.655,
+            0.844,
+            0.748
+          ],
+          "sub_type": "text",
+          "content": "**1) Alternative**: R3 = R1 | R2 (R3 darf aus R1 oder R2 bestehen)\n**2) Konkatenation** R3 = R1 R2 (R3 besteht aus dem Hintereinanderschalten von R1 und R2)\n**3) Kleene‘sche Hülle**: R3 = {R1} (oder auch in vielen Sprachen (R1)\\* ) (R3 besteht aus beliebig vielen Wiederhholungen von R1)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.752,
+            0.838,
+            0.848
+          ],
+          "content": "Mit Hilfe dieser Definition kann der **Aufbau** (oder die Syntax) von C-Identifiern wie gezeigt leicht erklärt werden: Jeder Identifier muss zu Beginn einen „letter“ (Buchstabe oder Unterstrich „\\_“) haben, gefolgt von beliebig vielen weiteren Zeichen des Alphabetes. Man beachte jedoch die praktische Einschränkung auf 31 signifikante Zeichen, sowie das Verbot, Schlüsselwörter als Identifier zu verwenden."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.854,
+            0.838,
+            0.888
+          ],
+          "content": "Für eine genauere Erläuterung des RA-Begriffes sei hier auf spätere Vorlesungen (z.B. ASK oder Compilerbau) verwiesen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "55"
+        }
+      ]
+    },
+    {
+      "page_idx": 55,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.404,
+            0.102
+          ],
+          "level": 2,
+          "content": "Variablen‐Vereinbarung"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.157,
+            0.111,
+            0.669,
+            0.13
+          ],
+          "content": "• Vereinbarung vor erster Verwendung der Variable"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.189,
+            0.133,
+            0.82,
+            0.174
+          ],
+          "sub_type": "text",
+          "content": "– Deklaration ermöglicht **Korrektheitsprüfungen** durch Compiler\n– Definition allokiert benötigten **Speicherplatz**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.157,
+            0.198,
+            0.533,
+            0.218
+          ],
+          "content": "• **Allgemeine Form** der Vereinbarung:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.19,
+            0.221,
+            0.353,
+            0.261
+          ],
+          "sub_type": "text",
+          "content": "– Typ ID (, ID)\\* ;\n– Typ darf sein:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.228,
+            0.264,
+            0.448,
+            0.342
+          ],
+          "sub_type": "text",
+          "content": "• Basis‐DT (Schlüsselwort): char, int, float, ...\n• Zusammengesetzter DT (Zeiger, Array, Struct, ...)\n• Benutzerdefinierter DT"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.261,
+            0.344,
+            0.704,
+            0.389
+          ],
+          "sub_type": "text",
+          "content": "– typedef unsigned long int UL;\n– Macht UL als Abkürzung für unsigned long int bekannt\n– Hilfreich vor allem bei zusammengesetzten DT"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.591,
+            0.184,
+            0.788,
+            0.34
+          ],
+          "sub_type": "code",
+          "content": "```c\nint main(void)\n{\n    /* Variablen-\n        Vereinbarungen */\n\n    /* ... */\n\n    /* Anweisungen mit\n        Variablen-\n        Verwendung */\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**56**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.57
+          ],
+          "content": "Wir werden das Konzept der RAs im folgenden gelegentlich weiterverwenden. Z.B. hier bei der Vorstellung der Syntax von Vereinbarungen. Eine **Vereinbarung** setzt im wesentlichen einen Datentyp in Verbindung zu einem Identifier. Um Schreibarbeit zu sparen, reicht es bei mehreren gleichartigen Variablen, den Typnamen nur einmal zu nennen (daher die \\*-Konstruktion)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.575,
+            0.842,
+            0.629
+          ],
+          "content": "Verwendet man den Zusatz „**typedef**“ in einer Vereinbarung, so wird dadurch ein Datentyp unter einem neuen (und meist kürzeren) Namen bekannt gemacht. Dies spart Schreibarbeit und verbessert die Programm-Lesbarkeit."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.634,
+            0.838,
+            0.724
+          ],
+          "content": "Generell sollte in einem Programm immer **Redundanz** vermieden werden. D.h. falls bestimmte Programmelemente mehrfach vorkommen, so sollten diese unter einem eindeutigen Namen möglichst nur einmal abgelegt und dann per Namen ggf. mehrfach instanziiert werden (vgl. auch die Verwendung von Makros im C-Präprozessor)."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.512,
+            0.993
+          ],
+          "content": "56"
+        }
+      ]
+    },
+    {
+      "page_idx": 56,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.28,
+            0.1
+          ],
+          "level": 2,
+          "content": "Konstanten"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.834,
+            0.231
+          ],
+          "sub_type": "text",
+          "content": "• Falls Werte sich innerhalb eines Programms nie ändern, so werden diese als **Konstanten** statt Variablen dargestellt\nBessere **Lesbarkeit**, mehr **Optimierungsmöglichkeiten**\n• Konstanten benötigen keine explizite Definition, da ihr **Typ implizit** ist; Beispiele:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.197,
+            0.237,
+            0.714,
+            0.42
+          ],
+          "sub_type": "text",
+          "content": "12345: ganze Zahl (int)\n12345U: vorzeichenlose ganze Zahl (unsigned int)\n0xAFFE: ganze Zahl in Hexcode (int)\n123.45:    Fließkommazahl (double)\n123E-2:   Fließkommazahl (double)\n'a': Zeichen (char)\n\"String\": Zeichenkette (Array aus char, s. später) int‐Konstante als regulärer Ausdruck: \"0\" | ( [ \"‐\" ], dnz, { d } )"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**57**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.48,
+            0.801,
+            0.516
+          ],
+          "content": "Für eine genaue Auflistung des möglichen **Aufbaus von C-Konstanten** und deren Datentypen sei auf die C-Dokumentation verwiesen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "57"
+        }
+      ]
+    },
+    {
+      "page_idx": 57,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.161,
+            0.084,
+            0.486,
+            0.1
+          ],
+          "level": 2,
+          "content": "Weitere Formen von Konstanten"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.813,
+            0.23
+          ],
+          "sub_type": "text",
+          "content": "• **Symbolische Konstanten** im Präprozessor\n– #define MAXCOUNT 1000\n– Alle Vorkommen von MAXCOUNT im Programm werden durch 1000 ersetzt\n– Bessere Lesbarkeit und Wartbarkeit des Codes"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.237,
+            0.402,
+            0.254
+          ],
+          "content": "• **Konstante Ausdrücke**"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.196,
+            0.258,
+            0.731,
+            0.319
+          ],
+          "sub_type": "text",
+          "content": "– MAXCOUNT + 1, MAXCOUNT \\* 2, ...\n– Werden vom Compiler vorab ausgerechnet, nicht zur Programm‐Laufzeit (compile time‐Konstante)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.325,
+            0.393,
+            0.341
+          ],
+          "content": "• **Konstante Variablen**"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.196,
+            0.348,
+            0.734,
+            0.416
+          ],
+          "sub_type": "text",
+          "content": "– const int a = 100; (const ist ein type qualifier)\n– Variable a darf kein neuer Wert zugewiesen werden\n– Effekt: Ablage von a im read only‐Speicher (ROM)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**58**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.836,
+            0.533
+          ],
+          "content": "Die **Präprozessorkonstanten** sind ein Spezialfall der echten Konstanten aus der vorherigen Folie, denn der Präprozessor nimmt nur eine rein textuelle Ersetzung vor."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.539,
+            0.825,
+            0.647
+          ],
+          "content": "Mit „compile time“ bezeichnet man den Zeitpunkt, zu dem der Compiler läuft (im Gegensatz zur „runtime“, d.h. Programm-Laufzeit). Hat der Präprozessor MAXCOUNT z.B. durch 1000 ersetzt, so steht anschließend der Ausdruck 1000+1 im Programm. Das Ergebnis wird auf jedem Rechner 1001 sein. Daher kann der Compiler dies bereits (ein einziges Mal) ausrechnen, um später (vielfach) „runtime“ zu sparen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.652,
+            0.836,
+            0.743
+          ],
+          "content": "**Konstante Variablen** sind Objekte im Speicher, die nicht modifiziert werden dürfen. Der Compiler kann dies prüfen und ggf. eine Fehlermeldung ausgeben. Beim Speicher unterscheidet man ROM (read only) und RAM (random access memory). Letzterer kann beliebig zugegriffen werden. ROM-Speicher ist jedoch platzsparender."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "58"
+        }
+      ]
+    },
+    {
+      "page_idx": 58,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.204,
+            0.17,
+            0.795,
+            0.196
+          ],
+          "level": 2,
+          "content": "3. Elementare Datentypen und Anweisungen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.202,
+            0.252,
+            0.352,
+            0.27
+          ],
+          "content": "3.1 Einführung"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.203,
+            0.274,
+            0.492,
+            0.291
+          ],
+          "content": "3.2 Variablen und Konstanten"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.203,
+            0.296,
+            0.306,
+            0.314
+          ],
+          "content": "**3.3 Zeiger**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.202,
+            0.318,
+            0.804,
+            0.337
+          ],
+          "content": "3.4 Arithmetische und logische Operationen und Zuweisungen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.203,
+            0.34,
+            0.446,
+            0.358
+          ],
+          "content": "3.5 Kontrollanweisungen"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.286,
+            0.375,
+            0.462,
+            0.408
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_58_image_6.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.55,
+            0.364,
+            0.664,
+            0.418
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_58_image_7.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.151,
+            0.437,
+            0.167,
+            0.446
+          ],
+          "content": "59"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.675,
+            0.439,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "59"
+        }
+      ]
+    },
+    {
+      "page_idx": 59,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.227,
+            0.101
+          ],
+          "level": 2,
+          "content": "Zeiger"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.124,
+            0.687,
+            0.163
+          ],
+          "content": "**Def**.: Ein **Zeiger** (engl. pointer) ist eine Variable, die die <u>Speicheradresse einer Variablen enthält.</u>"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.176,
+            0.831,
+            0.42
+          ],
+          "sub_type": "text",
+          "content": "Zeiger gehören zu den **wichtigsten Konzepten** in C/C++ zur Definition komplexer und effizienter Datentypen\nZeiger gehören (leider) auch zu den **häufigsten Fehlerquellen** bei der Programmierung\n• Bsp.:\n– Der spezielle Zeigerwert NULL (0) wird oft verwendet, um einen „leeren“ Zeiger anzuzeigen (#define NULL 0)\n– Der Versuch, einen Wert an Adresse 0 zu schreiben, führt in aller Regel zum **Programmabsturz**\n– Enthält ein Zeiger einen sonstigen illegalen Wert, so kann sogar der **Programmcode** selbst überschrieben werden"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**60**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.659
+          ],
+          "content": "Das Grundproblem bei der Programmierung mit Zeigern ist, dass bei mangelndem Verständnis ihrer Funktionsweise (oder einfach aus mangelnder Sorgfalt bei der Programmierung) die Zeiger „außer Kontrolle“ geraten können. Jedes Programm besitzt einen **Speicherbereich**, der ihm „gehört“, und in dem es seine Daten ablegt. Zeitgleich können auch noch andere Programme und Daten im Speicher vorhanden sein, welche natürlich nicht beeinflusst werden dürfen. Da ein Zeiger jeden beliebigen Wert annehmen kann, kann er bei fehlerhaftem Gebrauch insbes. auf einen Speicherbereich zeigen, der einem anderen Programm gehört. Der Versuch, auf diesen Bereich zuzugreifen, führt in aller Regel zum **Programmabsturz**."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.664,
+            0.842,
+            0.79
+          ],
+          "content": "Meist wird dieser Fehler vom Betriebssystem abgefangen und dem Benutzer gemeldet. Bei einfacheren Computersystemen kann es jedoch auch einen „totalen“ Absturz geben, über dessen Ursache dann zunächst einmal nichts bekannt ist. Derartige Bugs sind auch mit Debuggern oft schwer zu beheben, so dass bei der Programmierung mit Zeigern große **Sorgfalt** geboten ist. Es ist besser, eine Stunde länger in die saubere Programmierung zu investieren, als sich anschließend viele Stunden per Debugger auf Fehlersuche zu machen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.992
+          ],
+          "content": "60"
+        }
+      ]
+    },
+    {
+      "page_idx": 60,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.084,
+            0.227,
+            0.101
+          ],
+          "level": 2,
+          "content": "Zeiger"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.124,
+            0.596,
+            0.384
+          ],
+          "sub_type": "text",
+          "content": "• Alle **Programm‐Objekte** liegen im Speicher (s.o.)\n• Jedes Objekt besitzt eine **Adresse** im Speicher (wie eine Hausnummer)\nHäufig werden Objekte **per Namen** zugegriffen (z.B. Variable ${ { } _ { v } } { { \\times } ^ { \\prime \\prime } } )$\nOft ist auch der **indirekte Zugriff** auf ein Objekt über seine Adresse sinnvoll\n• Objekt‐Adressen werden in **Zeigern** gespeichert\nZeiger sind selbst Objekte mit Adressen, daher sind auch **Zeiger auf Zeiger** möglich"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.631,
+            0.119,
+            0.822,
+            0.433
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Vereinfachtes Speichermodell\"] --> B[\"Variable x\"]\n  A --> C[\"Zeiger p\"]\n  B -.-> D[\"...\"]\n  C -.-> E[\"N\"]\n  D --> F[\"0\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.675,
+                0.438,
+                0.816,
+                0.446
+              ],
+              "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_60_image_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**61**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.816,
+            0.516
+          ],
+          "content": "Die gezeigte Struktur im Speicher würde bspw. durch das folgende Programm bewirkt (zur genauen Syntax s. folgende Folien):"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.274,
+            0.521,
+            0.55,
+            0.538
+          ],
+          "content": "int $x ; \\quad //$ normale int-Variable"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.274,
+            0.544,
+            0.697,
+            0.563
+          ],
+          "content": "$\\mathrm{int}^* \\mathrm{p}; \\quad //$ Zeiger auf einen int-Wert im Speicher"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.274,
+            0.568,
+            0.742,
+            0.587
+          ],
+          "content": "$\\mathrm{p}=\\&\\mathrm{x}; \\quad // \\mathrm{p}=\\mathrm{Adresse}(\\mathrm{x}), \\quad \\mathrm{d.h.} \\quad , \\mathrm{p}$ auf x zeigen lassen“"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.591,
+            0.841,
+            0.645
+          ],
+          "content": "Anschließend können $_ { 2 3 } \\mathrm { { x } ^ { 6 6 } }$ und ${ \\cos ^ { * } p ^ { \\cos } }$ synonym verwendet werden. Man sagt auch $_ { 2 3 } \\mathrm { { x } ^ { 6 6 } }$ und ${ \\cos ^ { 4 } p ^ { 6 0 } }$ sind **Decknamen**, d.h. verschiedene Namen für das gleiche Objekt, welches sich an der Adresse von x im Speicher befindet."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "61"
+        }
+      ]
+    },
+    {
+      "page_idx": 61,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.536,
+            0.102
+          ],
+          "level": 2,
+          "content": "Zeigervereinbarung und ‐operationen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.122,
+            0.605,
+            0.407
+          ],
+          "sub_type": "text",
+          "content": "• Zeiger werden mittels \\* deklariert\n• Typ \\* ID; vereinbart einen Zeiger auf ein Objekt vom Typ Typ\n• Bsp.: int \\* p; int \\*\\* q;\n• Symbol \\* gehört syntaktisch zu ID, nicht zum Typ, z.B.\nÄquivalent wäre: typedef int\\* intptr; intptr p, q;"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.197,
+            0.245,
+            0.527,
+            0.346
+          ],
+          "sub_type": "code",
+          "content": "```c\nint * p, q;\nvereinbart einen int-Zeiger p und\n    eine int-Variable q, aber\n    int *p,*q;\nvereinbart zwei int-Zeiger\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.63,
+            0.12,
+            0.831,
+            0.419
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"0\"] --> B[\"x = 1234\"]\n  B --> C[\"...\"]\n  D[\"q = 2000\"] --> E[\"p = 1000\"]\n  E --> F[\"2000\"]\n  F --> G[\"N\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_61_image_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**62**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.446
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.848,
+            0.536
+          ],
+          "content": "Die Deklaration „int\\*\\* q“ ist zu lesen wie „(int\\*)\\* q“, d.h. q ist ein Zeiger auf „int\\*“, somit ein **Zeiger auf einen Zeiger auf int**. Im Beispiel zeigt q auf p und p wiederum auf x. Synonyme Ausdrücke wären hier also „x“, „\\*p“ und „\\*\\*q“."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.539,
+            0.804,
+            0.629
+          ],
+          "content": "Die C-Syntax ist in diesem Fall sicher nicht optimal lesbar, so dass bei komplexen Zeigerdeklarationen möglichst auf „typedef“-Deklarationen zurückgegriffen werden sollte, um komplexe Deklarationen nur einmal hinschreiben zu müssen. Die Minimierung der Redundanz beseitigt unnötige Fehlerquellen."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "62"
+        }
+      ]
+    },
+    {
+      "page_idx": 62,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.517,
+            0.102
+          ],
+          "level": 2,
+          "content": "Zeigerdeklaration und ‐operationen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.122,
+            0.627,
+            0.424
+          ],
+          "sub_type": "text",
+          "content": "• **Annahme**: Adresse von Objekt x in Zeiger p gespeichert\nWie erfolgt der Zugriff auf x? – \\*‐Operator – Ausdruck \\*pointer liefert Objekt x\n• **Beispiel**: \\*p liefert den Wert 1234 (int) \\*q liefert den Wert 1000 (intptr)\n**Schreibzugriff** per \\*: \\*p = 4321; überschreibt x mit 4321 \\*\\*q = 5678; überschreibt x mit 5678\nVergleiche Syntax der **Vereinbarung** – int \\*p; – **implizite** Deklaration von p als Zeiger"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**63**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.63,
+            0.12,
+            0.831,
+            0.419
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"0\"] --> B[\"x = 1234\"]\n  B --> C[\"...\"]\n  D[\"q = 2000\"] --> E[\"p = 1000\"]\n  E --> F[\"2000\"]\n  F --> G[\"N\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.674,
+                0.438,
+                0.816,
+                0.446
+              ],
+              "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_62_image_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.821,
+            0.607
+          ],
+          "content": "Der „\\*“-Operator (nicht zu verwechseln mit dem „\\*“-Operator für Zahlen, d.h. Multiplikation) „**dereferenziert**“ einen Zeiger. Somit ist auch die Syntax der Zeigerdeklaration besser zu verstehen: „int \\*p“ kann als Deklaration einer int-Variable aufgefasst werden, die jedoch keinen eigenen Namen besitzt, sondern nur indirekt über den Zeiger p angesprochen werden kann (Man beachte, dass diese „int-Variable“ dann keinen festen Platz im Speicher hat, da p prinzipiell „überall“ hinzeigen kann)."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.993
+          ],
+          "content": "63"
+        }
+      ]
+    },
+    {
+      "page_idx": 63,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.083,
+            0.321,
+            0.102
+          ],
+          "level": 2,
+          "content": "Adressoperator"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.159,
+            0.111,
+            0.628,
+            0.407
+          ],
+          "sub_type": "text",
+          "content": "Zeiger auf x wird auch als **Referenz** auf x bezeichnet\n\\*‐Operator heißt auch **Dereferenzierung** (indirection)\nErzeugung von Referenzen durch den **Adressoperator** &\n& und \\* sind invers zueinander: – \\*(&x) = x\n• & nur auf **Objekte** anzuwenden, \\* nur auf **Zeiger**"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.194,
+            0.23,
+            0.628,
+            0.326
+          ],
+          "sub_type": "code",
+          "content": "```matlab\np = &x;\n- An p wird die Adresse von x zugewiesen\n  (p „zeigt“ dann auf x)\nq = &p;\n- An q wird die Adresse von p zugewiesen\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.63,
+            0.118,
+            0.831,
+            0.419
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"x = 1234\"] --> B[\"q = 2000\"]\n  A --> C[\"p = 1000\"]\n  D[\"...\"] -.-> E[\"n=2000\\nN\"]\n  F[\"0\"] --> A\n  F --> C\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_63_image_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.436,
+            0.167,
+            0.445
+          ],
+          "content": "**64**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.674,
+            0.438,
+            0.816,
+            0.447
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.48,
+            0.808,
+            0.57
+          ],
+          "content": "Es ist also z.B. unzulässig, den $\\cos ^ { \\theta ^ { \\mathrm { d } } }$ -Operator (nicht zu verwechseln mit der logischen UND-Verknüpfung $_ { 0 } \\theta ^ { 6 6 }$ **zweimal** hintereinander $( 0 , 0 , 0 , 1 )$ auf ein Objekt x anzuwenden, denn eine Adresse $, \\ell x ^ { \\epsilon }$ ist selbst kein Objekt mehr. Mehrfache „indirection“ wie $\\mathrm { z . B . ~ , * * * p ^ { \\omega } }$ ist dagegen zulässig, vorausgesetzt, dass der Ausdruck $\\mathrm { s ^ { * * } p ^ { \\mathrm { \\textell o } } }$ ein Zeiger ist."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.487,
+            0.98,
+            0.511,
+            0.992
+          ],
+          "content": "64"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "Microsoft PowerPoint - GGI1_W26.pptx",
+      "authors": [
+        "gemmeke"
+      ],
+      "created_at": "2026-10-06T18:10:39+02:00",
+      "modified_at": "2026-10-06T18:10:39+02:00",
+      "creator_application": "PScript5.dll Version 5.2.2",
+      "producer_application": "Acrobat Distiller 20.0 (Windows)",
+      "page_count": 355,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 32,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 33,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 34,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 35,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 36,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 37,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 38,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 39,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 40,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 41,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 42,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 43,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 44,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 45,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 46,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 47,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 48,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 49,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 50,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 51,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 52,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 53,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 54,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 55,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 56,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 57,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 58,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 59,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 60,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 61,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 62,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        },
+        {
+          "page_idx": 63,
+          "width_pt": 595.219970703125,
+          "height_pt": 842.0
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}
