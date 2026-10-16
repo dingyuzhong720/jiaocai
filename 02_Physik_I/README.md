@@ -8,7 +8,7 @@
 
 | 教材／讲义 | 页数 | 状态／下载 |
 | --- | ---: | --- |
-| Experimentalphysik Band 1 | — | 待解析／整理 |
+| [Experimentalphysik Band 1](Experimentalphysik.Band.1.M_.z-library.sk.1lib.sk.z-lib.sk/) | 419 | [ZIP](https://github.com/dingyuzhong720/jiaocai/releases/download/mineru-advanced-2026-10-16/Experimentalphysik.Band.1.M_.z-library.sk.1lib.sk.z-lib.sk.mineru-advanced.zip) |
 | [Physik – Kapitel 1, Seiten 6–12](Kapitel1.Seiten6-12.v2/) | 7 | [ZIP](https://github.com/dingyuzhong720/jiaocai/releases/download/mineru-advanced-2026-10-16/Kapitel1.Seiten6-12.v2.mineru-advanced.zip) |
 | Kurzlehrbuch Physik für Ingenieure | — | 待解析／整理 |
 | Physik für Studierende | — | 待解析／整理 |

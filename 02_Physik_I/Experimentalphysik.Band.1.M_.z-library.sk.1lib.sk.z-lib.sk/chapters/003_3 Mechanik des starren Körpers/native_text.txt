@@ -1,0 +1,2688 @@
+--- PDF page 162 ---
+3 Mechanik des starren Körpers (rigid body)
+Einleitung: Der sogenannte „starre Körper“ ist ein Modell, das über das Verhalten
+des Massenpunktes hinausgeht und spezielle räumlich ausgedehnte, materielle Ob-
+jekte beschreibt. Es handelt sich dabei um Systeme von Massenpunkten, deren Ab-
+stände voneinander sich im Laufe der Zeit nicht ändern; Deformationen jeglicher Art
+sind daher ausgeschlossen. Während ein Massenpunkt, der ja kein Volumen besitzt,
+nur eine Translation, aber keine mechanische Rotationsbewegung ausführen kann,
+kann ein ausgedehnter starrer Körper translatieren und um eine Körperachse rotie-
+ren. In der Quantenmechanik dagegen (Band V, Kapitel „Atomphysik“) wird auch
+einem punktförmigen Mikroteilchen ein Eigendrehimpuls (Spin) zugeordnet.
+Die Gesamtbewegung des starren Körpers kann als Translation seines Schwer-
+punkts und als zusätzliche Rotation um den Schwerpunkt beschrieben werden.
+Der Drehimpuls des starren Körpers ist das Produkt aus dem Trägheitstensor,
+der seine Massenverteilung berücksichtigt, und der Winkelgeschwindigkeit der
+Rotation, wobei der Drehimpulsvektor i. Allg. nicht in die Richtung der Winkel-
+geschwindigkeit weist. Zusätzlich zur Translationsenergie besitzt der rotierende
+starre Körper Rotationsenergie.
+Die Kinematik starrer Körper ist Grundlage für die technische Anwendung in
+vielen Gebieten wie der Robotik, der Fahrzeugtechnik sowie der Luft- und Raum-
+fahrt.
+3.1 Statik und Gleichgewicht (statics and equilibrium)
+Bisher haben wir den idealisierten Massenpunkt, unser Teilchen, betrachtet, jetzt
+geben wir einen Teil der Idealisierung auf: Wir betrachten ein ganzes System von
+Massepunkten, sie seien allerdings starr miteinander verbunden, d. h. Deformatio-
+nen des Gesamtkörpers (Dehnung, Biegung, Scherung) treten nicht auf. Wir kön-
+nen uns so einen ‚starren Körper‘ am besten als unregelmäßig geformten Fels-
+brocken vorstellen, dürfen aber nicht davon ausgehen, dass seine Massendichte
+homogen ist. Wir müssen also jetzt die Massenverteilung in unserem starren Körper
+berücksichtigen. Dazu zerlegen wir den Körper in kleine Volumenelemente ΔVi mit
+dem Ortsvektor r​⇀i​ und der Masse Δmi (Abb. I-3.1).
+Im starren Körper müssen alle Vektoren r​⇀i​k​ zwischen den einzelnen Volumen-
+elementen zeitlich konstant sein.
+Wir kommen dann zum Gesamtvolumen und zur Gesamtmasse, indem wir über
+die einzelnen Volumenelemente (= Massenelemente) aufsummieren, bzw. im
+Grenzübergang aufintegrieren:
+Gesamtvolumen:
+V​ =∑
+i​
+ΔV​i​
+$$%
+ΔV​i​ % 0
+V​ =∫
+V​
+d​V​
+(I-3.1)
+https://doi.org/10.1515/9783110675689-003
+
+
+--- PDF page 163 ---
+138
+3 Mechanik des starren Körpers (rigid body)
+ρ(r)
+z
+O
+y
+x
+ΔVi, Δmi
+r
+ik
+r
+i
+r
+k
+Abb. I-3.1: Zur Berücksichtigung der Massenverteilung im starren Körper.
+Gesamtmasse:
+(I-3.2)
+M​ = ∑
+i​
+Δm​i​ = ∑
+i​
+ρ​i​ΔV​i​
+$$→
+ΔV​i​ % 0
+M​ = ∫
+V​
+ρ​⋅d​V​
+dabei ist ρ​i​ = Δm​i​
+ΔV​i​
+bzw. ρ​ = d​m​
+d​V​ .
+Ist der Körper homogen, so gilt:
+M​ = ρ​∫
+V​
+d​V​ = ρ​⋅V​ .
+(I-3.3)
+Im Unterschied zum Massenpunkt hat der starre Körper zwei Bewegungsmöglich-
+keiten:
+1.
+Translation (translational motion): Alle MP eines Körpers besitzen zu jedem
+Zeitpunkt dieselbe Geschwindigkeit υ​⇀i​(t​), deren Betrag aber von der Zeit abhän-
+gen kann. Unter dem Einfluss einer resultierenden äußeren Kraft F​⇀R​ =∑
+i​
+F​⇀i​
+erfolgt die Translation beschleunigt.
+2.
+Rotation (rotational motion): Alle MP führen eine Kreisbewegung um eine mo-
+mentane Drehachse mit der Winkelgeschwindigkeit ω​⇀(t​) aus, deren Größe und
+Richtung so wie auch die Lage der Drehachse von der Zeit abhängen können.
+Unter dem Einfluss eines resultierenden äußeren Drehmoments D​⇀R​ =∑
+i​
+D​⇀i​ er-
+folgt die Rotation beschleunigt.
+Bei der Rotation tritt also das Drehmoment D​⇀an die Stelle der Kraft F​⇀.
+Die allgemeinen Gleichgewichtsbedingungen (Bedingungen für den nicht
+beschleunigten Zustand) eines starren Körpers lauten daher:
+
+
+--- PDF page 164 ---
+3.1 Statik und Gleichgewicht (statics and equilibrium)
+139
+1.
+F​⇀R​ = ∑
+i​
+F​⇀i​ = 0
+(I-3.4)
+Die translatorische Komponente der Beschleunigung verschwindet, wenn die
+Summe aller am starren Körper angreifenden Kräfte (resultierende Kraft F​⇀R​)
+verschwindet. Der lineare Impuls ist dann konstant, also p​⇀= const.
+2.
+D​⇀R​ = ∑
+i​
+D​⇀i​ = 0
+(I-3.5)
+Die rotatorische Komponente der Beschleunigung verschwindet, wenn die
+Summe aller am starren Körper angreifenden Drehmomente (resultierendes
+Drehmoment D​⇀R​) verschwindet. Der Drehimpuls ist dann konstant, also
+L​⇀= const.
+Diese beiden Gleichungen (I-3.4) und (I-3.5) enthalten auch den Fall des statischen
+Gleichgewichts:
+p​⇀= L​⇀= 0 .
+(I-3.6)
+Andererseits sind alle Kraftsysteme mit gleichem F​⇀R​ und D​⇀R​ in ihrer Wirkung
+gleichwertig.
+Es gilt: Jede an einem starren Körper angreifende Kraft F​⇀i​ ist äquivalent zu der
+durch einen beliebigen Punkt, z. B. den Schwerpunkt S (siehe Abschnitt 3.1.2), pa-
+rallel verschobenen Kraft F​⇀i​
+S​ (|F​⇀i​
+S​| = |F​⇀i​ |) und einem Kräftepaar (Drehzwilling, siehe
+nächster Abschnitt 3.3.3) aus F​⇀i​ und −F​⇀i​ (siehe Abb. I-3.1a). Daraus folgt:
+Jedes an einem starren Körper angreifende Kraftsystem kann durch eine resultie-
+rende Gesamtkraft F​⇀i​
+S​ im Schwerpunkt und ein resultierendes Kräftepaar D​⇀R​ er-
+setzt werden.
+ ≙
+  
+ S
+S
+ 
+ //
+// 
+−F
+i
+S
+F
+i
+S
+F
+i
+F
+i
+Abb. I-3.1a: Die am starren Körper angreifende Kraft F​⇀i​ ist zur parallel verschobenen Kraft F​⇀i​
+S​
+durch den Schwerpunkt S und dem Kräftepaar aus F​⇀i​ und −F​⇀i​
+S​ äquivalent.
+1
+
+
+--- PDF page 165 ---
+140
+3 Mechanik des starren Körpers (rigid body)
+3.1.1 Drehmoment und Bezugspunkt
+Das Drehmoment, das eine Kraft am starren Körper ausübt, ist i. Allg. vom Bezugs-
+punkt abhängig, es ist kein ‚freier Vektor‘.
+Wir wählen einen beliebigen Bezugspunkt B, der nicht mit dem Ursprung O
+zusammenfällt (Abb. I-3.2).
+r
+i – r
+B
+Pi
+B
+O
+r
+i
+F
+i
+r
+B
+Abb. I-3.2: Zum Drehmoment einer im Punkt P​i​ am starren Körper angreifenden Kraft F​⇀i​ .
+Für das Gesamtdrehmoment bezüglich B gilt:
+D​⇀B​
+R​ =∑
+i​
+D​⇀B​
+i​ =∑
+i​
+[(r​⇀i​ −r​⇀B​) × F​⇀i​] =∑
+i​
+r​⇀i​ × F​⇀i​ −∑
+i​
+( r​⇀B​
+⏟
+const.
+× F​⇀i​) =
+=∑
+i​
+r​⇀i​ × F​⇀i​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+∑
+i​
+D​⇀i​ b​e​z​ü​g​l​i​c​h​ (O​)
+−r​⇀B​ ×∑
+i​
+F​⇀i​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟
+G​e​s​a​m​t​k​r​a​f​t​ F​⇀R​
+(I-3.7)
+Damit erhalten wir für das Gesamtdrehmoment bezüglich B:
+D​⇀B​
+R​ =∑
+i​
+r​⇀i​ × F​⇀i​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+S​u​m​m​e​ a​l​l​e​r​
+D​r​e​h​m​o​m​e​n​t​e​ b​e​z​ü​g​l​i​c​h​ O​
+−
+r​⇀B​ × F​⇀R​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+D​r​e​h​m​o​m​e​n​t​ d​e​r​ i​n​ B​
+a​n​g​r​e​i​f​e​n​d​e​n​ G​e​s​a​m​t​k​r​a​f​t​ F​⇀R​
+b​e​z​ü​g​l​i​c​h​ O​
+.
+(I-3.8)
+Spezialfall: Das Kräftepaar (= Drehzwilling, couple)
+Führt der starre Körper keine oder eine unbeschleunigte Translationsbewegung
+aus (sein Schwerpunkt ruht also oder bewegt sich gleichförmig geradlinig), d. h.
+die resultierende Gesamtkraft verschwindet, so ist F​⇀R​ =∑
+i​
+F​⇀i​ = 0. In diesem Fall
+gilt
+D​⇀B​
+R​ =∑
+i​
+r​⇀i​ × F​⇀i​ ,
+(I-3.9)
+
+
+--- PDF page 166 ---
+3.1 Statik und Gleichgewicht (statics and equilibrium)
+141
+Abb. I-3.3: Das Kräftepaar = der Drehzwilling.
+D​⇀steht senkrecht auf der durch die Kräfte F​⇀1
+•
+ln
+α
+‧
+‧
+O
+F
+1
+F
+1 = – F
+2
+F
+2
+r
+1 – r
+2
+r
+1
+r
+2
+und (r​⇀1 −r​⇀2) aufgespannten Ebene.
+das Drehmoment ist dann vom beliebig wählbaren Bezugspunkt (= Drehpunkt) un-
+abhängig (torque). Wenn also der Schwerpunkt des starren Körpers ruht oder sich
+gleichförmig geradlinig bewegt, ist ein allfällig wirkendes Drehmoment vom Be-
+zugspunkt unabhängig, es ist dann ein ‚freier Vektor‘. Das Kraftsystem lässt sich
+dann immer auf ein Kräftepaar (Drehzwilling) reduzieren (Abb. I-3.3). Ein Kräfte-
+paar sind zwei entgegengesetzt gleiche Kräfte, die an den Punkten r​⇀1 und r​⇀2 angrei-
+fen, sodass die Beziehungen gelten:
+F​⇀1 = F​⇀, F​⇀2 = −F​⇀⇒∑
+i​
+F​⇀i​ = 0 ,
+D​⇀=∑
+i​
+D​⇀i​ = r​⇀1 × F​⇀+ r​⇀2 × (−F​⇀)
+⇒
+D​⇀= (r​⇀1 −r​⇀2) × F​⇀
+Drehmoment eines Kräftepaares
+(I-3.10)
+(Drehzwilling).
+Obwohl also keine resultierende Kraft wirkt, also F​⇀R​ =∑
+i​
+F​⇀i​ = 0 ist, gibt es ein
+resultierendes, nicht verschwindendes Drehmoment, das vom beliebigen Bezugs-
+punkt unabhängig ist. D​⇀steht normal auf der durch die Kräfte gebildeten Ebene.
+Ist D​⇀vorgegeben, so sind die Lagen der beiden Kräfte F​⇀1 und −F​⇀1 entsprechend zu
+wählen, nämlich in einer Ebene senkrecht zu D​⇀.
+Für den Betrag des Kräftepaares gilt:
+|D​⇀| = D​ = (r​1 −r​2)⋅F​⋅sin α​ = l​n​⋅F​ .
+(I-3.11)
+l​n​ ist der Normalabstand (der ‚Arm‘) des Kräftepaares.
+Kräftepaare können (als ‚reines Drehmoment‘) im starren Körper beliebig ver-
+schoben werden (freier Vektor).1 Ein frei beweglicher starrer Körper, an dem nur
+1 Es muss nur das Produkt l​n​⋅F​ erhalten bleiben, nur wenn bei der Verschiebung die Kräfte kons-
+tant sind, muss auch l​n​ erhalten bleiben. Frei verschiebbar ist eben der Vektor D​⇀, wie er zustande
+kommt ist gleichgültig!
+
+
+--- PDF page 167 ---
+4
+142
+3 Mechanik des starren Körpers (rigid body)
+Kräftepaare angreifen, dreht sich so, dass seine Drehachse durch den Massenmit-
+telpunkt geht, da dieser im Falle ∑
+i​
+F​⇀i​ = 0 stets in Ruhe bleibt (Impulssatz eines
+Teilchensystems) bzw. bei konstanter Geschwindigkeit stets ein System gefunden
+werden kann, in welchem er ruht.
+Über zwei Trinkhalme strömt Wasser aus einer drehbar aufgehängten Flasche aus (offener
+Pfeil
+unterhalb der Bilder) und verursacht als Reaktion an der Flasche einen Drehzwilling
+(voller Pfeil
+). Die Distanz der Ausströmöffnungen ist in allen drei Fällen gleich, ihre Anord-
+nung aber verschieden: symmetrisch (links), asymmetrisch (Mitte), beide Öffnungen auf einer
+Seite der Drehachse (rechts).
+Die Drehung erfolgt immer gleichartig um den ruhenden Schwerpunkt.
+Die Arbeit des Drehzwillings bzw. des Drehmoments
+Für eine Translation d​r​⇀(konstant für den ganzen Körper) verrichtet der Dreh-
+zwilling wegen F​⇀1 = −F​⇀2 keine Arbeit. Für eine Rotation um den kleinen Winkel
+d​φ​⇀= ω​⇀d​t​ gilt mit d​r​⇀1 = (ω​⇀× r​⇀1)d​t​ und d​r​⇀2 = (ω​⇀× r​⇀2)d​t​
+d​W​rot = F​⇀1 d​t​[(ω​⇀× r​⇀1) −(ω​⇀× r​⇀2)] = d​t​ F​⇀1⋅[ω​⇀× (r​⇀1 −r​⇀2)
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+r​⇀
+] =
+= d​t​ω​⇀
+⏟⏟⏟⏟⏟
+d​φ​⇀
+(r​⇀× F​⇀1)
+⏟⏟⏟⏟⏟⏟⏟⏟⏟
+D​⇀
+= D​⇀d​φ​⇀.
+(I-3.12)
+Diese Beziehung ist analog zur linearen Bewegung d​W​lin = F​⇀d​r​⇀, es entspricht also das
+Drehmoment D​⇀der Kraft F​⇀und das Drehwinkelelement d​φ​⇀dem Wegelement d​r​⇀.
+3.1.2 Der Massenmittelpunkt (= Schwerpunkt)
+Wir können die Wirkung von Kräften auf den starren Körper bezüglich seiner
+Translationsbewegung so beschreiben, dass wir ihn als MP ansehen, dessen
+Gesamtmasse M​ =∑
+i​
+Δm​i​ im Massenmittelpunkt S vereinigt ist (siehe Kapitel
+„Mechanik des Massenpunkts“, Abschnitt 2.4 ‚Massenpunktsysteme und Erhal-
+tungssätze‘, Gl. I-2.63):
+r​⇀S​ = 1
+M​ ∑
+i​
+r​⇀i​ Δm​i​
+
+
+--- PDF page 168 ---
+3.1 Statik und Gleichgewicht (statics and equilibrium)
+143
+bzw. im Grenzübergang ΔV​i​ % 0
+r​⇀S​ = 1
+M​
+∫
+V​
+r​⇀d​m​ = 1
+M​
+∫
+V​
+r​⇀⋅ρ​(r​⇀)d​V​ .
+(I-3.13)
+Liegt der Koordinatenursprung im Schwerpunkt, dann ist r​⇀S​ = 0 und daher
+∑
+i​
+r​⇀i​ Δm​i​ = 0 bzw. ∫
+V​
+r​⇀d​m​ = 0 (Schwerpunktsbedingung). Für einen homogenen
+Körper (ρ = M/V) stimmt der Massenmittelpunkt mit dem Mittelpunkt des Volu-
+mens überein:
+r​⇀S​ = 1
+V​
+∫
+V​
+r​⇀d​V​ .
+(I-3.14)
+Die Koordinaten des Massenmittelpunkts lauten also:
+x​S​ =
+∫
+V​
+ρ​⋅x​ d​V​
+∫
+V​
+ρ​ d​V​
+,
+y​S​ =
+∫
+V​
+ρ​⋅y​ d​V​
+∫
+V​
+ρ​ d​V​
+,
+z​S​ =
+∫
+V​
+ρ​⋅z​ d​V​
+∫
+V​
+ρ​ d​V​
+.
+(I-3.15)
+Wie groß ist das Drehmoment der Gewichtskraft in Bezug auf den Massenmittel-
+punkt (r​⇀B​ = r​⇀S​ , siehe Abb. I-3.2)? Es gilt
+F​⇀i​ =∑
+i​
+Δm​i​ g​⇀
+⇒
+D​↼S​
+G​ =∑(r​⇀i​ × Δm​i​ g​⇀) −r​⇀S​ ×∑
+i​
+Δm​i​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+M​
+g​⇀=
+=∑
+i​
+Δm​i​ r​⇀i​ × g​⇀−M​⋅
+r​⇀S​
+⏟
+1
+M​ ∑
+i​
+Δm​i​r​⇀i​
+× g​⇀= ∑
+i​
+Δm​i​ r​⇀i​ × g​⇀−∑Δm​i​ r​⇀i​ × g​⇀= 0 .
+(I-3.16)
+also: D​⇀S​
+G​ = 0 . Ein Körper, der im Schwerpunkt aufgehängt ist oder frei fällt (es wirkt
+keine Gesamtkraft, siehe „fallender Kasten“, Kapitel „Mechanik des Massenpunk-
+tes“, Abschnitt 2.3.2), erfährt also durch die Schwerkraft kein Drehmoment, er
+bleibt im Gleichgewicht oder fällt drehungsfrei.2
+Der Ort des Schwerpunkts wird zu jedem Zeitpunkt durch die resultierende
+Kraft des angreifenden Kraftsystems festgelegt. Die eventuell vorhandenen Kräfte-
+2 Diese Überlegungen gelten für alle parallelen Massenkräfte, also auch für die Trägheitskräfte bei
+wirkender Translationsbeschleunigung (Linearbeschleunigung) A​⇀linear : Es tritt keine Drehung um
+den Schwerpunkt bei einer Translationsbeschleunigung A​⇀linear auf, g​⇀ist oben einfach durch A​⇀linear
+zu ersetzen.
+
+
+--- PDF page 169 ---
+144
+3 Mechanik des starren Körpers (rigid body)
+paare können wegen ihrer verschwindenden Kraftsumme die Schwerpunktslage
+nicht beeinflussen; die resultierende Winkelgeschwindigkeit ω​⇀R​(t​), also die mo-
+mentane Drehachse, muss daher durch den Schwerpunkt gehen. Das gilt allerdings
+nur, wenn die Drehachse ‚frei‘ ist, also nicht durch Lager festgehalten wird.
+3.2 Kinematik und Freiheitsgrade
+(kinematics and degrees of freedom)
+3.2.1 Allgemeine Bewegung der Massenpunkte eines starren Körpers
+Um zu einer Beschreibung des Bewegungszustandes des starren Körpers zu gelan-
+gen, denken wir uns den starren Körper wieder in kleine Volumenelemente ΔVi mit
+einem Mittelpunkt Pi zerlegt, zu dem der Ortsvektor r​⇀i​ führt. Zum Schwerpunkt S
+zeigt der Vektor r​⇀S​. Wir geben jetzt auch alle jene Vektoren r​⇀i​
+S​ an, die vom Schwer-
+punkt zu den einzelnen Volumenelementen führen (Abb. I-3.4).
+Der starre Körper kann eine Translation durchführen und/oder eine Rotation
+um eine augenblickliche Drehachse. Die momentane Geschwindigkeit des Volu-
+menelements ΔVi und damit von Pi in Bezug auf das verwendete Koordinatensys-
+tem sei υ​⇀i​ , die Geschwindigkeit des Massenmittelpunktes S sei υ​⇀S​ . Dann ergibt sich
+für die Relativgeschwindigkeit υ​⇀i​
+S​ des Volumenelements in Bezug auf den Schwer-
+punkt S mit r​⇀i​
+S​ = r​⇀i​ −r​⇀S​:
+υ​⇀i​
+S​ = d​r​⇀i​
+S​
+d​t​ = υ​⇀i​ −υ​⇀S​ .
+(I-3.17)
+Wir beachten, dass die r​⇀i​
+S​ zwar andauernd ihre Richtung ändern, wenn der Körper
+mit der Winkelgeschwindigkeit ω​⇀(t​) rotiert, dass ihr Betrag |r​⇀i​
+S​| aber zeitlich kons-
+tant ist, es handelt sich ja um einen ‚starren‘ Körper. Es muss also gelten:
+d​((r​⇀i​
+S​)
+2)
+d​t​
+= 2⋅r​⇀i​
+S​ d​r​⇀i​
+S​
+d​t​ = 2⋅r​⇀i​
+S​⋅υ​⇀i​
+S​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+S​k​a​l​a​r​p​r​o​d​u​k​t​
+= 0 ,
+(I-3.18)
+also υ​⇀i​
+S​ ⊥r​⇀i​
+S​ !
+υ​⇀i​
+S​ ⊥r​⇀i​
+S​ bedeutet nur, dass υ​⇀i​
+S​ in einer Ebene ⊥zu r​⇀i​
+S​ liegt und durch Drehung
+(|r​⇀i​
+S​| = const.!) um eine durch S gehende Achse ω​⇀(t​) erfolgt, die wegen der Starrheit
+des Körpers für alle Volumenelemente ΔV​i​ identisch ist. Dieses ω​⇀(t​) bestimmt für
+einen Augenblick die gesamte Rotation des starren Körpers in einem raumfesten
+Koordinatensystem. Für die Geschwindigkeit υ​⇀i​
+S​ der Volumenelemente ΔV​i​ bei einer
+Rotationsbewegung um eine Drehachse durch S gilt daher für alle Elemente mit
+dem Ortsvektor r​⇀i​
+S​
+
+
+--- PDF page 170 ---
+3.2 Kinematik und Freiheitsgrade (kinematics and degrees of freedom)
+145
+Pi
+90°
+S
+ΔVi Δmi
+M⋅g = g⋅Σ
+i  Δmi 
+•
+ʋ
+S
+ʋ
+S
+ʋ
+i
+ʋ
+i
+S
+r
+i
+S
+r
+i
+r
+S
+O
+ω(t)
+•
+a
+S = g
+Abb. I-3.4: Zur Beschreibung des Bewegungszustandes eines starren Körpers im Erdschwerefeld.
+υ​⇀i​
+S​ = ω​⇀× r​⇀i​
+S​ .
+(I-3.19)
+υ​⇀i​
+S​ steht demnach in jedem Punkt P auf der durch ω​⇀und r​⇀i​
+S​ aufgespannten Ebene
+senkrecht und besitzt den Betrag υ​i​
+S​ = ω​⋅r​i​
+S​⋅sin​ (ω​⇀, r​⇀i​
+S​), wobei zu beachten ist,
+dass ω​⇀= ω​⇀(t​) im Allgemeinen eine Funktion der Zeit ist, also sowohl seine Größe,
+als auch seine Richtung im Laufe der Zeit ändert.
+Damit ergibt sich die allgemeine Bewegung der Volumenelemente, d. h. der
+Punkte Pi in einem Inertialsystem zu
+υ​⇀i​ = υ​⇀S​ + υ​⇀i​
+S​ = υ​⇀S​ + ω​⇀× r​⇀i​
+S​ .
+(I-3.20)
+Die allgemeine Bewegung des starren Körpers setzt sich also aus einer Translation
+des Schwerpunkts und einer Rotation um den Schwerpunkt zusammen. Die Bestim-
+mung der Rotation ω​⇀(t​) eines starren Körpers unter der Einwirkung von Kräften
+stellt das zentrale Problem der Kreiseltheorie dar.
+Zu beachten: Die Rotationsachse (durch den Schwerpunkt) braucht nicht raumfest
+zu sein, sondern kann ihre Richtung im Laufe der Zeit ändern, auch wenn keine
+Kräfte auf den Körper wirken (siehe Abschnitt 3.4 „Kreiselbewegung“).3
+3.2.2 Die Freiheitsgrade des starren Körpers
+Die Lage eines völlig frei beweglichen starren Körpers kann durch die Angabe von
+6 zeitabhängigen Koordinaten beschrieben werden:
+3 Für einen freien Körper gibt es keinen ‚Erhaltungssatz der Drehachse‘ etwa in Analogie zum
+Erhaltungssatz des linearen Impulses und des Drehimpulses.
+
+
+--- PDF page 171 ---
+146
+3 Mechanik des starren Körpers (rigid body)
+1.
+Die 3 Ortskoordinaten des Schwerpunkts r​⇀S​(t​) = {x​S​(t​),y​S​(t​),z​S​(t​)} beschreiben
+die Translation.
+2.
+3 Winkelkoordinaten, die Eulerschen Winkel φ(t), θ(t), ψ(t) beschreiben die Ro-
+tation um S (Abb. I-3.5) relativ zu einem raumfesten Koordinatensystem. Da wir
+später zur Beschreibung der Bewegung des starren Körpers das körperfeste,
+mitrotierende Koordinatensystem verwenden, bezeichnen wir die Koordinaten
+des körperfesten Systems mit (x, y, z) und jene des raumfesten Systems mit (x′,
+y′, z′) (vgl. dazu Abschnitt 3.4.3, Gl. I-3.60).4
+raumfestes System (x′, y′, z′) 
+z′
+y′
+x′
+z′
+y′
+x′
+z, ψ˙
+z
+x, ω
+a
+y, ω
+b
+körperfestes System (x, y, z) 
+φ
+φ
+ψ
+φ
+z′
+y′
+x′
+φ
+φ
+θ
+θ
+Knotenlinie
+Knotenebene
+S
+S
+S
+φ̇
+D
+90° – ψ
+θ˙
+ω
+c
+Abb. I-3.5: Die Eulerschen Winkel vermitteln zwischen dem ‚körperfesten‘, mitrotierenden
+Koordinatensystem (x, y, z) und dem ‚raumfesten‘ Koordinatensystem (x′, y′, z′). Als z-Achse im
+körperfesten System wird üblicherweise eine Hauptträgheitsachse (siehe Abschnitt 3.3.2)
+gewählt. φ… Präzessionswinkel, θ… Pendelungswinkel, ψ… Eigendrehungswinkel. ω​⇀a​, ω​⇀b​, ω​⇀c​ sind
+die Komponenten der Winkelgeschwindigkeit in Hauptachsenrichtung (siehe Abschnitt 3.4.3). ω​⇀c​
+steht normal auf der Knotenebene, in der ω​⇀a​ und ω​⇀b​ liegen. SD ist eine Hilfsrichtung normal zur
+Knotenlinie, die zur Berechnung von Gl. (I-3.60) dient.
+Insgesamt ergeben sich so für den starren Körper 6 Freiheitsgrade, 3 der Transla-
+tion und 3 der Rotation (freier Kreisel, z. B. Erdsatellit).
+Wird ein Punkt des starren Körpers festgehalten, so ist keine Translation mehr
+möglich und es bleiben nur mehr die 3 Freiheitsgrade der Rotation (z. B. ‚unter-
+stützter Kreisel‘, z. B. Kompassnadel). Erfolgt die Rotation um eine raumfeste und
+zusätzlich um eine dazu senkrechte Achse (Cardanisches Gelenk), so bleiben nur
+mehr 2 Freiheitsgrade der Rotation. Entfällt auch die Rotation um die zur raumfesten
+Achse senkrechte Achse (z. B. Turbinenwelle), dann bleibt nur mehr der Drehwin-
+kel φ der Welle als einziger Freiheitsgrad übrig.
+4 Bei Kenntnis der Eulerschen Winkel sind auch die Hauptachsen a​⇀,b​⇀,c​⇀bekannt und damit ist die
+Orientierung des Körpers im Raum (siehe Abschnitt 3.4.3) für alle Zeiten berechenbar.
+
+
+--- PDF page 172 ---
+3.3 Dynamik, Trägheitsmoment, Rotationsenergie
+147
+3.3 Dynamik, Trägheitsmoment, Rotationsenergie
+(dynamics, moment of inertia, rotational energy)
+Die Newtonsche Bewegungsgleichung müssen wir auch beim starren Körper für die
+Translationsbewegung wieder finden, zusätzlich muss aber noch eine Bewegungs-
+gleichung für die Rotation gelten.
+3.3.1 Bewegungsgleichungen des freien starren Körpers
+Wie wir schon aus Abschnitt 3.2.1 wissen, setzt sich die allgemeine Bewegung des
+starren Körpers so zusammen:
+1.
+Translation des Schwerpunkts durch eine resultierende Gesamtkraft F​⇀:
+F​⇀= d​p​⇀S​
+d​t​ = M​ d​υ​⇀S​
+d​t​
+Satz von der Bewegung des Massenmittelpunktes. (I-3.21)
+Die Translation des Schwerpunkts erfolgt so, als wäre die Gesamtmasse in
+ihm konzentriert.
+Wegen der Starrheit des Körpers bewegen sich alle seine Teile mit υ​⇀s​
+2.
+Rotation um den Schwerpunkt durch ein resultierendes Drehmoment D​⇀:
+D​⇀= d​L​⇀
+d​t​ =∑
+i​
+(r​i​
+S​ × F​⇀i​)
+Rotation um den Schwerpunkt.
+(I-3.22)
+Beim starren Körper dürfen die Kräfte F​⇀i​ in ihrer Richtung (Wirkungslinie) verscho-
+ben werden, ohne D​⇀zu ändern (Linienflüchtigkeit der Kraft); dies ermöglicht5 die
+Reduktion des gesamten Kräftesystems auf eine Einzelkraft und einen Drehzwilling
+(Kräftepaar, siehe Abschnitt 3.1.1).
+Wir sehen sofort:
+Für
+F​⇀R​ =∑
+i​
+F​⇀i​ = 0 ⇒p​⇀S​ = M​⋅υ​⇀S​ = const.
+(I-3.23)
+Wenn auf einen starren Körper keine resultierende Kraft ausgeübt wird, bleibt
+sein linearer Schwerpunktsimpuls erhalten.
+5 Zusammen mit der Einfügung von zwei entgegengesetzt gleichen Kräften F​⇀i​ und −F​⇀i​ in einem
+beliebigen Punkt (z. B. S), das entspricht einer seitlichen Verschiebung von F​⇀i​ durch S mit Erzeu-
+gung eines Kräftepaares.
+1
+1
+
+
+--- PDF page 173 ---
+1
+1
+148
+3 Mechanik des starren Körpers (rigid body)
+und
+Für
+D​⇀R​ =∑
+i​
+D​⇀i​ = 0
+⇒L​⇀= const.
+(I-3.24)
+Wenn auf einen starren Körper kein Drehmoment ausgeübt wird, bleibt sein
+Drehimpuls erhalten.
+3.3.2 Das Trägheitsmoment (moment of inertia)
+Wir verwenden jetzt ein im Schwerpunkt S verankertes körperfestes Koordinatensys-
+tem (x, y, z), das mit dem Körper mitrotiert. Das ist in vielen Fällen von Vorteil, da
+sich im starren Körper die Massenelemente Δmi nicht relativ zueinander verschie-
+ben können. Der Drehimpuls L​⇀muss aus der Bewegung der Massenelemente Δmi
+berechnet werden. Das Wesentliche dabei ist eine entsprechende Berücksichti-
+gung der Massenverteilung. Wir betrachten dazu die Rotation eines starren Kör-
+pers um seinen Schwerpunkt (O = S) und beschreiben seine Drehbewegung mit
+υ​⇀i​ = ω​⇀× r​⇀i​ .6
+Für den Drehimpuls eines einzelnen Massenelements gilt dann:
+L​⇀i​ = r​⇀i​ × p​⇀i​ = Δm​i​ (r​⇀i​ × υ​⇀i​) = Δm​i​(r​⇀i​ × (ω​⇀× r​⇀i​)) ,
+(I-3.25)
+wobei r​⇀i​ der im körperfesten Koordinatensystem mit dem Ursprung O = S darge-
+stellte Ortsvektor des Massenelementes Δm​i​ ist. L​⇀i​ ist daher der Drehimpuls des
+Massenelementes Δm​i​ im körperfesten Koordinatensystem.
+Wir erinnern uns, dass für ein Vektor-Tripelprodukt gilt:
+a​⇀× (b​⇀× c​⇀) = b​⇀⋅(a​⇀⋅c​⇀) −c​⇀⋅(a​⇀⋅b​⇀) .
+Hier ist a​⇀= r​⇀i​, b​⇀= ω​⇀, c​⇀= r​⇀i​ und damit
+L​⇀i​ = Δm​i​ r​i​
+2ω​⇀−Δm​i​ r​⇀i​ (r​⇀i​⋅ω​⇀).
+(I-3.26)
+6 Die Winkelgeschwindigkeit ω​⇀– also auch die Drehachse – gehe durch den Schwerpunkt, ist aber
+i. A. nicht körperfest: ω​⇀= ω​⇀(t​). ω​⇀beschreibt die Drehung des körperfesten Systems, also des starren
+Körpers, relativ zum raumfesten Koordinatensystem. (ω​⇀× r​⇀i​) ist daher die Drehgeschwindigkeit der
+Massenelemente Δm​i​ im raumfesten System. ω​x​,ω​y​,ω​z​ sind die Komponenten von ω​⇀im körperfesten
+System mit ω​a​ = φ​̇ sin ​θ​ sin ​ψ​ + θ​̇ cos ​ψ​, ω​b​ = φ​̇ sin ​θ​ cos ​ψ​ −θ​̇ sin ​ψ​, ω​c​ = φ​̇ cos ​θ​ + ψ​̇, wenn die Koor-
+dinatenachsen x,y,z mit den Hauptachsen des Körpers a,b,c zusammenfallen.
+
+
+--- PDF page 174 ---
+3.3 Dynamik, Trägheitsmoment, Rotationsenergie
+149
+Den gesamten Drehimpuls erhalten wir durch Integration über alle Massenele-
+mente:
+L​⇀=∫
+V​
+[r​2ω​⇀−(r​⇀⋅ω​⇀)⋅r​⇀] d​m​ =∫
+V​
+[r​2 ω​⇀−(r​⇀⋅ω​⇀)⋅r​⇀] ρ​d​V​ .
+(I-3.27)
+Wie sehen die Komponenten von L​⇀im körperfesten System aus? Dazu beachten
+wir, dass r​2 = x​2 + y​2 + z​2 und r​⇀⋅ω​⇀= x​ω​x​ + y​ω​y​ + z​ω​z​ und erhalten:
+L​x​ = ∫
+V​
+[ x​2ω​x​ + y​2ω​x​ + z​2ω​x​ −x​2ω​x​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+(y​2 + z​2)ω​x​ = (r​ 2 −x​2)ω​x​
+−x​y​ω​y​ −x​z​ω​z​]d​m​ =
+= ∫
+V​
+(r​2 −x​2)d​m​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+I​x​x​
+⋅ω​x​ −∫
+V​
+x​y​d​m​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+I​x​y​
+⋅ω​y​ −∫
+V​
+x​z​d​m​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+I​x​z​
+⋅ω​z​
+L​y​ = ∫
+V​
+[x​2ω​y​ + y​2ω​y​ + z​2ω​y​ −y​x​ω​x​ −y​2ω​y​ −y​z​ω​z​]d​m​ =
+= −∫
+V​
+y​x​d​m​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+I​y​x​
+⋅ω​x​ + ∫
+V​
+(r​2 −y​2)d​m​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+I​y​y​
+⋅ω​y​−∫
+V​
+y​z​d​m​⋅ω​z​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+I​y​z​
+L​z​ = ∫[x​2ω​z​ + y​2ω​z​ + z​2ω​z​ −z​x​ω​x​ −z​y​ω​y​ −z​2ω​z​]d​m​ =
+= −∫
+V​
+z​x​d​m​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+I​z​x​
+⋅ω​x​ −∫
+V​
+z​y​d​m​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+I​z​y​
+⋅ω​y​ + ∫
+V​
+(r​2 −z​2)d​m​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+I​z​z​
+⋅ω​z​ .
+(I-3.28)
+Die 6 Terme Inm = Imn bilden die Komponenten des Trägheitstensors I​̃ (moment of
+inertia tensor), eines symmetrischen Tensors 2. Stufe.
+Für den Drehimpuls L​⇀gilt also mit dm = ρdV nach den Regeln für die Matrizen-
+multiplikation die folgende, in ω​⇀lineare Vektorfunktion
+L​⇀= I​̃ ⋅ω​⇀
+mit
+I​̃ = ∫
+V​
+d​V​ρ​(x​,y​,z​)(
+r​2 −x​2
+−x​y​
+−x​z​
+−y​x​
+r​2 −y​2
+−y​z​
+−z​x​
+−z​y​
+r​2 −z​2)
+(I-3.29)
+
+
+--- PDF page 175 ---
+150
+3 Mechanik des starren Körpers (rigid body)
+oder ausgeschrieben
+(I-3.30)
+(
+L​x​
+L​y​
+L​z​
+) =(
+I​x​x​ = ∫
+V​
+(r​2 −x​2)
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+y​2 + z​2
+ρ​d​V​
+I​x​y​ = −∫
+V​
+x​y​ρ​d​V​
+I​x​z​ = −∫
+V​
+x​z​ρ​d​V​
+I​y​x​ = I​x​y​
+I​y​y​ = ∫
+V​
+(r​2 −y​2)
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+z​2 + x​2
+ρ​d​V​
+I​y​z​ = −∫
+V​
+y​z​ρ​d​V​
+I​z​x​ = I​x​z​
+I​z​y​ = I​y​z​
+I​z​z​ = ∫
+V​
+(r​2 −z​2)
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+y​2 + x​2
+ρ​d​V​
+)(
+ω​x​
+ω​y​
+ω​z​
+).
+Dabei sind ω​x​,ω​y​,ω​z​ die Komponenten von ω​⇀im körperfesten System (siehe Fuß-
+note 6), (x,y,z) sind die Koordinaten des Massenelements im körperfesten Koordina-
+tensystem und ρ (x,y,z) ist die Massendichte. Die 6 voneinander unabhängigen Ele-
+mente des Trägheitstensors berücksichtigen die Massenverteilung des starren
+Körpers. Ixx, Iyy, Izz heißen Trägheitsmomente, es sind die Trägheitsmomente bei
+Rotation um die feste x-, y-, z-Achse durch den Schwerpunkt (vgl. Abschnitt 3.3.4),
+sie sind stets positiv. Ixy, Iyz, Izx heißen Deviations- oder Zentrifugalmomente, sie
+können positiv oder negativ sein.
+Wichtig: Im Allgemeinen tragen alle Elemente des Trägheitstensors zum Trägheits-
+verhalten bei, der Drehimpuls liegt dann nicht in Richtung der Drehachse, d. h. der
+Winkelgeschwindigkeit: L​⇀n​i​c​h​t​ // ω​⇀!
+Beispiel: Wir betrachten eine freie Drehung um die raumfeste x-Achse, relativ
+zu welcher aber der Körper frei beweglich ist. Es gilt: ωx = ω, ωy = 0, ωz = 0.
+Wir erhalten:
+L​⇀= I​̃ ⋅ω​⇀= e​⇀x​(ω​x​I​x​x​ + ω​y​I​x​y​ + ω​z​I​x​z​) +
++ e​⇀y​(ω​x​I​y​x​ + ω​y​I​y​y​ + ω​z​I​y​z​) +
++ e​⇀z​(ω​x​I​z​x​ + ω​y​I​z​y​ + ω​z​I​z​z​) = e​⇀x​ω​I​x​x​ + e​⇀y​ω​I​x​y​ + e​⇀z​ω​I​x​z​
+L​⇀kann also trotz augenblicklicher Rotation um die x-Achse Komponenten nor-
+mal dazu haben, die von Ixy und Ixz herrühren!
+Eine anfängliche Drehung um die x-Achse bleibt daher nicht erhalten, des-
+halb der Name Deviationsmomente für Ixy, Iyz, Izx.
+Auch hier besteht wieder eine formale Analogie zwischen der linearen Bewegung
+(p​⇀= m​υ​⇀) und der Drehbewegung (L​⇀= I​̃ ⋅ω​⇀): der Drehimpuls L​⇀entspricht dem line-
+aren Impuls p​⇀, der Trägheitstensor I​̃ der skalaren Masse m und die Winkelge-
+
+
+--- PDF page 176 ---
+3.3 Dynamik, Trägheitsmoment, Rotationsenergie
+151
+schwindigkeit ω​⇀der Bahngeschwindigkeit υ​⇀. Wir beachten aber den Unterschied
+zur Translation: Der lineare Impuls p​⇀= m​υ​⇀hat immer die Richtung von υ​⇀(m ist ein
+Skalar)! Ebenso hat die Kraft F​⇀= m​a​⇀, wenn die Masse konstant bleibt, die Richtung
+des Beschleunigungsvektors a​⇀.7 Bei der Rotation eines starren Körpers muss der
+Drehimpuls aber nicht in die Richtung des Vektors der Winkelgeschwindigkeit wei-
+sen, also parallel zur Drehachse sein!
+Für den Trägheitstensor lässt sich immer ein Koordinatensystem finden, in
+dem nur mehr die Diagonalelemente von I​̃ nicht verschwinden: ‚Hauptachsen-
+transformation‘. Der Trägheitstensor nimmt dann folgende Form an:
+I​̃ = I​̃ 0 = (
+I​a​ 0 0
+0 I​b​ 0
+0 0 I​c​
+) .
+(I-3.31)
+Die aufeinander senkrecht stehenden Achsen a, b, c des entsprechenden körper-
+festen Bezugssystems nennt man Hauptträgheitsachsen (= Hauptachsen), die Träg-
+heitsmomente Ia, Ib, Ic sind die Hauptträgheitsmomente.
+Einheit des Trägheitsmoments: [I] = kg m2.
+3.3.3 Die Rotationsenergie (Rotational Energy)
+Bei der Rotation beschreiben alle Volumenelemente Kreisbogenelemente um die
+momentane Drehachse mit der Geschwindigkeit υ​⇀i​ = ω​⇀× r​⇀i​ im raumfesten System.
+Damit erhalten wir für die Rotationsenergie
+E​rot = ∑
+i​
+1
+2 m​i​⋅υ​⇀i​⋅υ​⇀i​ = 1
+2∑
+i​
+(ω​⇀× r​⇀i​)⋅m​i​ υ​⇀i​
+=⏟
+m​i​t​ (a​⇀× b​⇀)⋅c​⇀= a​⇀⋅(b​⇀× c​⇀)
+1
+2∑
+i​
+ω​⇀⋅(r​⇀i​ × m​i​ υ​⇀i​) =
+= 1
+2 ω​⇀∑
+i​
+(r​⇀i​ × m​i​ υ​⇀i​)
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+L​⇀
+= 1
+2 ω​L​⋅L​ ;
+(I-3.32)
+da ohne äußeres Drehmoment Erot und L konstant sind, so gilt dies auch für
+ωL = Abstand der Tangentialebene (invariante Ebene) vom Schwerpunkt S (siehe
+Abschnitt 3.3.6, Abb. I-3.9).
+7 Dies gilt allerdings nicht mehr für die relativistische Punktmechanik. Für relativistische Ge-
+schwindigkeiten hat die Kraft im Allgemeinen eine Komponente, die von der Richtung der Be-
+schleunigung abweicht, ist also nicht mehr parallel zu a​⇀(siehe dazu Band II, Kapitel „Relativisti-
+sche Mechanik“, Abschnitt 3.10.3).
+
+
+--- PDF page 177 ---
+152
+3 Mechanik des starren Körpers (rigid body)
+Also:
+E​rot = 1
+2 ω​⇀L​⇀= 1
+2 ω​⇀⋅I​̃ ⋅ω​⇀= 1
+2 (ω​x​,ω​y​,ω​z​)(
+I​x​x​ I​x​y​ I​x​z​
+I​y​x​ I​y​y​ I​y​z​
+I​z​x​ I​z​y​ I​z​z​
+)(
+ω​x​
+ω​y​
+ω​z​
+) =
+= 1
+2 (I​x​x​ω​x​
+2 + I​y​y​ω​y​
+2 + I​z​z​ω​z​
+2 + 2 I​x​y​ω​x​ω​y​ + 2 I​x​z​ω​x​ω​z​ + 2 I​y​z​ω​y​ω​z​) .
+(I-3.33)
+Rotationsenergie des starren Körpers
+Im Hauptachsensystem gilt für die Rotationsenergie
+E​rot = 1
+2 (I​a​ ω​a​
+2 + I​b​ ω​b​
+2 + I​c​ ω​c​
+2) .
+(I-3.34)
+Dabei sind ω​a​, ω​b​, ω​c​ die (sich zeitlich ändernden) Komponenten der Winkel-
+geschwindigkeit in Richtung der Hauptachsen.8
+Für die Translationsenergie gilt:
+E​trans = 1
+2 m​ υ​S​
+2 = 1
+2 υ​⇀S​ m​υ​⇀S​ = 1
+2 υ​⇀S​ p​⇀S​ .
+(I-3.35)
+Damit erhalten wir für die Gesamtenergie des starren Körpers:
+E​ges = E​rot + E​trans = 1
+2 ω​⇀L​⇀+ 1
+2 υ​⇀S​ p​⇀S​ = 1
+2 (ω​⇀I​̃ ω​⇀+ υ​⇀S​ m​ υ​⇀S​) .
+(I-3.36)
+Gesamtenergie des starren Körpers
+3.3.4 Rotation um eine feste Achse
+Wir nehmen als feste Achse einfach die z-Achse, dann weist ω​⇀stets in z-Richtung,
+ω​⇀= ω​⋅e​⇀z​ (Abb. I-3.6). Den Trägheitstensor berechnen wir im körperfesten System
+{e​⇀x​,e​⇀y​,e​⇀z​}, das sich mit ω​⇀relativ zum raumfesten System dreht.
+a)
+Für den Drehimpuls L​⇀gilt mit ω​⇀= {0,0,ω​}
+L​⇀= I​̃ ⋅ω​⇀= (I​x​z​⋅ω​)e​⇀x​ + (I​y​z​⋅ω​)e​⇀y​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+= L​⇀n​
++ (I​z​z​⋅ω​)e​⇀z​ ,
+(I-3.37)
+er weist also nicht in die Richtung von ω​⇀= ω​⋅e​⇀z​ . Die Komponente ⊥ω​⇀
+L​⇀n​ = L​x​e​⇀x​ + L​y​e​⇀y​ dreht sich mit dem körperfesten System um die z-Achse. Es
+8 Ist Erot zeitlich konstant (kräftefreie Bewegung), so stellt die obige Beziehung E​rot = E​ ( ω​i​) eine
+Fläche 2. Grades in den Komponenten ωi dar (‚Energieellipsoid‘), auf der die Spitze des Vektors ω​⇀
+stets liegt (siehe Abschnitt 3.3.6).
+
+
+--- PDF page 178 ---
+3.3 Dynamik, Trägheitsmoment, Rotationsenergie
+153
+S
+rn
+z
+Ly
+Lz
+Lx
+e
+x, e
+y, e
+z sind
+körperfest!
+dV, dm
+ω
+e
+y
+e
+z
+e
+x
+L
+n
+Abb. I-3.6: Rotation um eine feste Achse.
+muss daher durch die ebenfalls umlaufenden Lagerkräfte ein entsprechendes
+Drehmoment D​⇀= L​⇀̇n​ erzeugt werden.9
+b)
+Für die Rotationsenergie um die feste z-Achse gilt nach Gl. (I-3.33), da
+ω​⇀= {0,0,ω​}:
+E​rot =
+1
+2 ω​z​
+2 I​z​z​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+a​l​l​e​ a​n​d​e​r​e​n​ T​e​r​m​e​ = 0
+= 1
+2 ω​2∫
+V​
+(x​2 + y​2)
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+(N​o​r​m​a​l​a​b​s​t​a​n​d​ r​n​)2
+d​m​ = ω​2
+2
+∫
+V​
+r​n​
+2 d​m​
+(I-3.38)
+Wir sehen also jetzt, dass Izz die für die Rotationsenergie maßgebliche Körper-
+eigenschaft bei Drehung um die z-Achse ist. Analog sind Ixx und Iyy die Träg-
+heitsmomente um die x- und y-Achse. Die rn (mit x​2 + y​2 = r​n​
+2) sind die Normal-
+abstände der Volumenelemente von der festen Drehachse ω​e​⇀z​.
+Damit ergibt sich das Trägheitsmoment um die z-Achse:
+I​z​z​ = I​z​ = ∫
+V​
+r​n​
+2 d​m​ = ∫
+V​
+ρ​ r​n​
+2 d​V​ .
+(I-3.39)
+9 Für dieses Drehmoment gilt mit d​L​⇀n​ = −L​y​ d​φ​ e​⇀x​ + L​x​ d​φ​ e​⇀y​ und d​φ​ = ω​d​t​ D​⇀= L​⇀̇n​ = −ω​L​y​e​⇀x​ +
++ ω​ L​x​e​⇀y​ = ω​
+2(−I​x​z​e​⇀x​ + I​y​z​e​⇀y​) = (ω​⇀× L​⇀n​). D​⇀liegt also ebenfalls senkrecht zur Drehachse ω​⇀= ω​⋅e​⇀z​
+und eilt dem rotierenden L​⇀n​ um den Winkel π​/2 voraus (negatives Vorzeichen von Dx!), steht also
+⊥auf L​⇀n​ und daher // zu L​⇀̇n​ , wie es nach dem Drehimpulssatz sein muss. Die Lagerkräfte als Reak-
+tionskräfte liefern dann das geforderte −D​⇀. Es wird nur durch die Deviationsmomente verursacht und
+wird als Zentrifugalmoment bezeichnet (siehe Anhang A1.3). Fällt ω​⇀mit einer Hauptträgheitsachse
+zusammen (siehe Abschnitte 3.3.6 und 3.3.7), dann verschwinden Ixz und Iyz und es tritt kein Zentrifu-
+galmoment, also keine zusätzliche Lagerbeanspruchung auf (dynamisches Auswuchten von Rädern).
+
+
+--- PDF page 179 ---
+154
+3 Mechanik des starren Körpers (rigid body)
+Dies gilt für jede beliebige feste Achsenrichtung A (Isotropie des Raumes), sodass
+bei Drehung um A mit der Winkelgeschwindigkeit ω​⇀gilt:
+(I-3.40)
+Rotationsenergie und Trägheitsmoment
+E​rot = 1
+2 I​A​ω​2
+I​A​ = ∫
+V​
+r​n​
+2 d​m​
+für einen starren Körper, der um
+eine beliebige, feste Achse A rotiert.
+Beispiel: Wir betrachten das Trägheitsmoment einer massiven Kugel an einer
+Schnur bezüglich einer festen Drehachse.
+A 
+1 m 
+36 kg 
+A 
+2 m
+9 kg
+A 
+3 m 
+ 
+4 kg 
+In allen drei Fällen der Zeichnung ergibt sich das gleiche Trägheitsmoment von
+IA = 36 kg m2.
+Beispiele für Trägheitsmomente symmetrischer Körper mit homogener Masse m.
+Körper
+Trägheitsmoment
+Kugel
+2
+5
+m​r​
+2
+dünne Kreisscheibe, Rotation um
+1
+2
+m​r​
+2
+die Scheibenachse
+Zylinder, Rotation um die Zylinderachse
+1
+2
+m​r​
+2
+Quader (a,b,c), Rotation parallel zu a
+1
+12
+(b​
+2 + c​
+2)
+3.3.5 Der Steinersche Satz (parallel axes theorem)
+Wie sieht das Trägheitsmoment in Bezug auf eine Achse A′ aus, die nicht durch
+den Schwerpunkt geht?
+Entsprechend Abb. I-3.7 gilt
+I​A​′ = ∫
+V​
+(r​⇀n​ −r​⇀n​
+B​)2d​m​ = ∫
+V​
+(r​n​)2d​m​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+I​A​
+−2r​⇀n​
+B​ ∫
+V​
+r​⇀n​d​m​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+0
++ (r​⇀n​
+B​)2
+⏟⏟⏟⏟⏟⏟⏟
+= const.
+= l​2
+∫
+V​
+d​m​
+⏟⏟⏟⏟⏟⏟⏟
+m​
+(I-3.41)
+
+
+--- PDF page 180 ---
+3.3 Dynamik, Trägheitsmoment, Rotationsenergie
+155
+S = O
+B
+dV, dm
+r
+n – rB
+n
+A′
+A
+rB
+n
+r
+n
+r
+n und rB
+n liegen in einer Ebene
+senkrecht zu A und A′. Daher liegt
+auch r
+n – rB
+n in dieser Ebene.
+Abb. I-3.7: Zum Steinerschen Satz. A und A′ sind parallele, feste Achsen, A ist eine
+Schwerpunktsachse. | r​⇀n​
+B​ | = l​ ist der feste Normalabstand von A und A′.
+Der mittlere Term verschwindet nach der Definition des Schwerpunkts ∫
+V​
+r​⇀d​m​ = m​r​⇀S​,
+da hier ja gilt r​⇀S​ = 0 (S = O) und damit ∫
+V​
+r​⇀d​m​ =∫r​⇀n​d​m​ = 0 . Mit dem Abstand der Ach-
+sen l​ = r​⇀n​
+B​ bekommen wir den Steinerschen Satz:
+I​A​′ =
+I​A​
+⏟
+T​r​ä​g​h​e​i​t​s​m​o​m​e​n​t​ u​m​
+S​c​h​w​e​r​p​u​n​k​t​s​a​c​h​s​e​
++
+l​2m​
+⏟⏟⏟⏟⏟
+T​r​ä​g​h​e​i​t​s​m​o​m​e​n​t​ d​e​r​
+G​e​s​a​m​t​m​a​s​s​e​ i​n​ S​ u​m​ A​′
+Steinerscher Satz.
+(I-3.42)
+3.3.6 Trägheits- und Energieellipsoid
+Jedem symmetrischen Tensor 2. Stufe kann eine Fläche 2. Grades zugeordnet wer-
+den, das Tensorellipsoid. Das Tensorellipsoid des Trägheitstensors wird als Träg-
+heitsellipsoid bezeichnet.
+Wir betrachten eine beliebige Drehachse durch den Koordinatenursprung, der
+nicht mit dem Schwerpunkt zusammenfallen muss. Die Drehachse (gegeben durch
+den Vektor der Winkelgeschwindigkeit ω​⇀) schließe mit den Achsen des körperfesten
+Systems die Winkel α, β und γ ein: ω​⇀= {ω​⋅cos α​, ω​⋅cos β​, ω​⋅cos γ​} . Wir setzen
+die Komponenten ωx, ωy, ωz in die Formel für die Rotationsenergie (Gl. I-3.33) ein
+und erhalten die Energie für die Rotation um die Achse ω​⇀:
+E​rot = 1
+2 ω​⇀⋅I​̃ ⋅ω​⇀= 1
+2 (ω​2 cos​2α​⋅I​x​x​ + ω​2 cos​2β​⋅I​y​y​ + ω​2 cos​2γ​⋅I​z​z​ +
++ 2 ω​2 cos α​ cos β​⋅I​x​y​ + 2 ω​2 cos α​ cos γ​⋅I​x​z​ +
++ 2 ω​2 cos β​ cos γ​⋅I​y​z​) = 1
+2 I​e​⇀n​ω​2 ,
+(I-3.43)
+mit ω​⇀= ω​⋅{cos ​α​, cos ​β​, cos ​γ​} = ω​⋅e​⇀n​.
+
+
+--- PDF page 181 ---
+156
+3 Mechanik des starren Körpers (rigid body)
+Dabei ist I​e​⇀n​ das Trägheitsmoment um die Achse ω​⇀mit der Richtung
+e​⇀n​ = {cos α​, cos β​, cos γ​}, wobei |e​⇀n​ | = 1 .10 Ist also der Trägheitstensor I​̃ gegeben,
+dann erhält man das Trägheitsmoment für eine Drehachse in Richtung e​⇀n​ zu
+I​e​⇀n​ = e​⇀n​⋅I​̃ ⋅e​⇀n​ , also
+I​e​⇀n​ = I​x​x​ cos 2α​ + I​y​y​ cos 2β​ + I​z​z​ cos 2γ​ +
++ 2 I​x​y​ cos α​ cos β​ + 2 I​x​z​ cos α​ cos γ​ + 2 I​y​z​ cos β​ cos γ​ = 2 E​rot
+ω​2 .
+(I-3.44)
+Wir tragen für alle Richtungen e​⇀n​ einen Vektor R​⇀der Länge
+1
+√I​e​⇀n​
+in Richtung
+der Drehachse mit den Komponenten R​⇀= {x​ =
+1
+√I​e​⇀n​
+⋅cos α​, y​ =
+1
+√I​e​⇀n​
+⋅cos β​,
+z​ =
+1
+√I​e​⇀n​
+⋅cos γ​} ab.
+Damit
+ergibt
+sich
+für das
+Trägheitsmoment,
+wenn
+cos ​α​ = x​√I​e​⇀n​ , cos ​β​ = y​√I​e​⇀n​ , cos ​γ​ = z​√I​e​⇀n​ eingesetzt wird
+I​e​⇀n​ = I​e​⇀n​⋅x​2I​x​x​ + I​e​⇀n​⋅y​2I​y​y​ + I​e​⇀n​⋅z​2I​z​z​ + 2 I​e​⇀n​⋅x​y​I​x​y​ + 2 I​e​⇀n​⋅x​z​I​x​z​ + 2 I​e​⇀n​⋅y​z​I​y​z​
+oder
+P​(x​, y​, z​) = x​2I​x​x​ + y​2I​y​y​ + z​2I​z​z​ + 2 x​y​I​x​y​ + 2 x​z​I​x​z​ + 2 y​z​I​y​z​ = 1 .
+(I-3.45)
+Dies ist die Gleichung eines allgemeinen Ellipsoids, des Trägheitsellipsoids P(x, y, z)
+(nicht in Hauptlage). Diese Fläche 2. Ordnung P(x, y, z) gibt über die Länge seines
+Ortsvektors R​ =
+1
+√I​e​⇀n​
+die Werte der Trägheitsmomente für unterschiedliche Raum-
+richtungen der Rotationsachse an.
+Transformieren wir jetzt den Trägheitstensor I​̃ auf das Hauptachsensystem (a,
+b, c), so verschwinden die Deviationsmomente Ixy etc. und es gilt
+10 Denn (Gl. I-3.39): I​ω​ = I​e​⇀n​ = ∫
+V​
+ρ​r​n​
+2d​V​ mit
+r​n​ = r​⋅sin​(r​⇀,e​⇀n​) = |r​⇀× e​⇀n​ | = |{x​, y​, z​} × { cos ​α​, cos ​β​, cos ​γ​}| =
+= |i​⇀(y​ cos ​γ​ −z​ cos ​β​) + j​⇀(z​ cos ​α​ −x​ cos ​γ​) + k​⇀(x​ cos ​β​ −y​ cos ​α​)|
+⇒r​n​
+2 = y​
+2 cos​
+2 γ​ −2 y​z​ cos ​β​ cos ​γ​ + z​
+2 cos​
+2 β​ + z​
+2 cos​
+2 α​ −2 x​z​ cos ​α​ cos ​γ​ + x​
+2 cos​
+2 γ​ +
++ x​
+2 cos​
+2 β​ −2 x​y​ cos ​α​ cos ​β​ + y​
+2 cos​
+2 α​ = (y​
+2 + z​
+2) cos​
+2 α​ + (z​
+2 + x​
+2) cos​
+2 β​ +
++ (x​
+2 + y​
+2) cos​
+2 γ​ −2 y​z​ cos ​β​ cos ​γ​ −2 x​z​ cos ​α​ cos ​γ​ −2 x​y​ cos ​α​ cos ​β​ .
+Mit Gl. (I-3.30) folgt daraus Gl. (I-3.44).
+
+
+--- PDF page 182 ---
+3.3 Dynamik, Trägheitsmoment, Rotationsenergie
+157
+A
+P
+S
+ω
+__
+ω
+Ie
+n
+1
+_____
+N
+ ≙ L
+Tangentialebene
+P(x, y, z)
+≙ E(ωx, ωy, ωz)
+= e
+n
+Abb. I-3.8: Trägheitsellipsoid: Für den Abstand S​P​̄ vom Zentrum S zum Durchstoßpunkt P in Rich-
+tung der Drehachse A gilt
+1
+√I​e​⇀n​
+; er liefert also das Trägheitsmoment I​e​⇀n​ für diese Drehachse A.
+Der Vektor des Drehimpulses L​⇀steht senkrecht auf die Tangentialebene an das Trägheitsellip-
+soid im Punkt P. Für den Normalenvektor N​⇀auf das Trägheitsellipsoid P​(x​, y​, z​) gilt:
+N​⇀= 1
+2
+grad P​(x​, y​, z​) = e​⇀x​(x​I​x​x​ + y​I​x​y​ + z​I​x​z​) + e​⇀y​(y​I​y​y​ + x​I​x​y​ + z​I​y​z​) + e​⇀z​(z​I​z​z​ + x​I​x​z​ + y​I​y​z​) .
+Das Energieellipsoid (Poinsot-Ellipsoid) ist dem Trägheitsellipsoid ähnlich, die Achsenrichtun-
+gen sind gleich, die Abstände S​P​̄ verhalten sich wie
+1
+√I​e​⇀n​
+:
+1
+√2E​r​o​t​
+. Man erhält es nach Gl. (I-3.43),
+indem man in Gl. (I-3.45) x durch
+ω​x​
+√2 E​rot
+, y durch
+ω​y​
+√2 E​rot
+und z durch
+ω​z​
+√2 E​rot
+ersetzt. Im ω-Raum
+(ω​x​, ω​y​, ω​z​) wird das Energieellipsoid dann zu
+E​(ω​x​, ω​y​, ω​z​) =
+1
+2 E​rot
+(ω​x​
+2I​x​x​ + ω​y​
+2I​y​y​ + ω​z​
+2I​z​z​ + 2ω​x​ω​y​I​x​y​ + 2ω​x​ω​z​I​x​z​ + 2ω​y​ω​z​I​y​z​) = 1 und
+1
+2
+gradω​⇀E​(ω​x​, ω​y​, ω​z​) = L​⇀(ω​x​, ω​y​, ω​z​) = 1
+2
+⋅N​⇀(ω​x​, ω​y​, ω​z​) .
+I​a​a​2 + I​b​b​2 + I​c​c​2 = 1 .
+(I-3.46)
+Dies ist ein Ellipsoid in Hauptlage mit den Halbachsen
+A​* =
+1
+√I​a​
+,
+B​* =
+1
+√I​b​
+,
+C​* =
+1
+√I​c​
+.
+(I-3.47)
+Im körperfesten Koordinatensystem Σ′ = {a,b,c} lässt sich jedem Punkt eines starren
+Körpers ein Trägheitsellipsoid zuordnen. Üblicherweise erfolgt die Beschreibung
+der Lage des Körpers im raumfesten System asdurch Angabe des mit dem Körper
+fest verbundenen Trägheitsellipsoids um den Schwerpunkt in Hauptlage. Wenn die
+Hauptträgheitsmomente bekannt sind, kann man das Trägheitsmoment IA zu jeder
+beliebigen, durch den Punkt gehenden Achse A so finden (Abb. I-3.8): Der Abstand
+vom Zentrum des Ellipsoids zum Durchstoßpunkt der Drehachse A ist
+1
+√I​A​
+.
+
+
+--- PDF page 183 ---
+158
+3 Mechanik des starren Körpers (rigid body)
+Im Allgemeinen ist das Trägheitsellipsoid nicht rotationssymmetrisch, dies gilt
+nur dann, wenn zwei Hauptträgheitsmomente gleich groß sind.
+Wir betrachten nochmals die Rotationsenergie, jetzt im Hauptachsensystem
+(vgl. Gl. I-3.43):
+E​rot​ = 1
+2 (I​a​ω​a​
+2 + I​b​ω​b​
+2 + I​c​ω​c​
+2) .
+(I-3.48)
+Für Erot = const. (kräftefreier Körper) ist das im ω-Raum ein Ellipsoid, auf dem
+die Spitzen der Vektoren ω​⇀= {ω​x​, ω​y​, ω​z​} liegen. Man nennt es das Energieellipsoid
+(= Poinsot-Ellipsoid):
+I​a​
+2 E​rot​
+ω​a​
+2 +
+I​b​
+2 E​rot​
+ω​b​
+2 +
+I​c​
+2 E​rot​
+ω​c​
+2 = 1
+(I-3.49)
+mit den Halbachsen
+√
+2 E​rot​
+I​a​
+,
+√
+2 E​rot​
+I​b​
+,
+√
+2 E​rot​
+I​c​
+.
+ωa, ωb, ωc sind die Komponenten der Winkelgeschwindigkeit ω​⇀in Richtung der
+körperfesten Hauptachsen. Sie ändern sich bei der Bewegung des Körpers.
+Das Energieellipsoid ist eine Fläche konstanter Rotationsenergie für verschie-
+dene Drehvektoren ω​⇀durch einen Punkt des starren Körpers. Da Erot für eine feste
+Drehachse nur vom zugehörigen Trägheitsmoment abhängt, sind das Trägheits-
+ellipsoid und das Energieellipsoid zueinander ‚ähnlich‘. Ein Vergleich mit den Ach-
+sen des Trägheitsellipsoids zeigt, dass der Proportionalitätsfaktor √2 E​rot​ beträgt.
+Wir haben bereits gesehen, dass der Vektor der Winkelgeschwindigkeit
+(≙Drehachse) nicht mit dem Vektor des Drehimpulses gleichgerichtet sein muss.
+Grund dafür ist ja, dass zwischen beiden der Trägheitstensor vermittelt. Das
+Energieellipsoid (oder das Trägheitsellipsoid) ermöglicht jetzt eine graphische Er-
+mittlung der Richtung des Drehimpulses und seiner Größe (‚Poinsot-Konstruktion‘,
+‚Poinsotsche Bewegungsdarstellung‘ (nach Louis Poinsot, 1777–1859), Abb. I-3.9
+und Anhang 1). Man ermittelt den Durchstoßpunkt der Drehachse durch das Ener-
+gieellipsoid und konstruiert in diesem Punkt die Tangentialebene (‚invariable Ebe-
+ne‘, sie ist bei der Körperbewegung raumfest). Der Drehimpuls steht dann normal
+auf diese Tangentialebene an das Energieellipsoid, sein Betrag ist |L​⇀| = 2 E​rot​
+ω​L​
+. Falls
+das Ellipsoid rotationssymmetrisch ist, liegen die Figurenachse c​⇀, L​⇀und ω​⇀stets in
+einer Ebene, einer Meridianebene des Ellipsoids. Sie wird Nutationsebene genannt
+und dreht sich bei der Bewegung des Körpers um die bei einem kräftefreien Körper
+raumfeste Drehimpulsachse L​⇀, die sie ja enthält.
+
+
+--- PDF page 184 ---
+3.3 Dynamik, Trägheitsmoment, Rotationsenergie
+159
+S
+invariable 
+Ebene (projizierend)   
+ωx
+ωy
+ 
+ωz
+Figurenachse c
+Energietensor-
+fläche
+L
+ω
+ω
+L
+T
+S
+Abb. I-3.9: Poinsotsche Bewegungsdarstellung mit dem Energieellipsoid. Für die Fläche
+des Energietensors im ω-Raum gilt: E​(ω​x​, ω​y​, ω​z​) = 1 . L​⇀, ω​⇀und ω​z​ (= Figurenachse) liegen in
+einer Ebene. Da L​⇀für einen freien Körper konstant ist, ist auch die Orientierung der auf L​⇀
+senkrecht stehenden Tangentialebene invariabel ebenso wie der Abstand ω​L​ vom raumfesten
+Schwerpunkt S (vgl. Gl. I-3.32). Diese Ebene wird daher als invariable Ebene bezeichnet.
+3.3.7 Freie Achsen
+Wenn Drehimpuls und Drehachse, also ω​⇀, zusammenfallen, also wenn gilt L​⇀// ω​⇀,
+dann dreht sich der freie starre Körper wegen der Erhaltung des Drehimpulses um
+eine raumfeste Drehachse mit konstanter Winkelgeschwindigkeit, das heißt, die
+Bewegung erfolgt auch ohne festgehaltene Achse so, als würde die Achse festge-
+halten werden. Solche Achsen nennt man freie Achsen.
+Unter welchen Umständen gilt für eine nicht festgehaltene Achse L​⇀// ω​⇀? Aus
+der Poinsotschen Darstellung (Abb. I-3.9) folgt sofort:
+1.
+Der Körper rotiert um eine Hauptträgheitsachse: Die Hauptachsen sind freie
+Achsen, eine stabile Rotation ist ohne feste Achslager möglich. Im Speziellen
+ist für einen sphärischen Körper (= Kugel), für den gilt Ia = Ib = Ic, jede Schwer-
+punktsachse eine freie Achse. Körper mit kubischer Symmetrie (z. B. Würfel,
+Kugel, Oktaeder etc.) sind „dynamisch kugelsymmetrisch“.
+2.
+Der Körper ist rotationssymmetrisch. In diesem Fall ist neben der Symmetrie-
+achse auch jede Schwerpunktsachse normal zur Symmetrieachse eine freie
+Achse.
+Eine stabile Rotation erfolgt aber nur um die Achse mit dem kleinsten und dem
+größten Trägheitsmoment.11
+11 Es zeigt sich, dass bei Vorliegen von Energiedissipation eines freien Körpers, z. B. bei der Ener-
+gieabstrahlung eines rotationsstabilisierten Satelliten, auch die Achse mit dem kleinsten Trägheits-
+moment instabil wird.
+
+
+--- PDF page 185 ---
+160
+3 Mechanik des starren Körpers (rigid body)
+4
+Quader, stabile Rotation um
+Quader, instabile Rotation
+Quader, stabile Rotation um
+Achse mit Imax
+um Achse mit Imin > I > Imax
+Achse mit Imin
+4
+Stange
+Kette
+Doppelkugel
+Die Stange rotiert stabil um
+Die Kette rotiert stabil um
+Zwei Kugeln unterschied-
+die Achse mit Imax
+die Achse mit Imax
+licher Masse rotieren stabil
+um eine Achse durch den
+Mittelpunkt ihrer Verbin-
+dung.
+Diese drei Körper sind nicht momentenfrei, da der Schwerpunkt nicht unterstützt ist. Es wirkt
+daher ein Drehmoment um den Aufhängepunkt, das durch die Gewichtskraft hervorgerufen
+wird. Die Körper führen daher neben der Rotation um die Hauptträgheitsachse noch eine klei-
+ne Präzessionsbewegung aus (die Hauptträgheitsachse bewegt sich auf einem schlanken
+Kegelmantel). Die Horizontalkomponente der Fadenspannung hält der Fliehkraft das Gleichge-
+wicht, die Vertikalkomponente ist dem Gewicht gleich: Der Schwerpunkt S bleibt daher in
+Ruhe, die Systeme sind kräftefrei!
+3.4 Kreiselbewegung (motion of a top)
+Unter einem Kreisel versteht man einen um einen körperfesten Punkt rasch rotie-
+renden starren Körper mit einem festen Punkt, bei dem keine Achse festgehalten
+wird.
+Wir unterscheiden zwischen
+–
+asymmetrischem Kreisel:
+alle Hauptträgheitsmomente sind verschieden (Ia ≠Ib ≠Ic ≠Ia) und
+–
+symmetrischem Kreisel:
+2 Hauptträgheitsmomente sind gleich, das Trägheitsellipsoid (und auch das
+Energieellipsoid) ist daher ein Rotationsellipsoid. Es gibt 2 Möglichkeiten:
+Ia < Ib = Ic (prolat, langgestreckt) oder Ia = Ib < Ic (oblat, gestaucht).
+
+
+--- PDF page 186 ---
+3.4 Kreiselbewegung (motion of a top)
+161
+Kreisel
+Hauptträgheitsmomente
+Trägheitsellipsoid
+Kugel, Würfel, Tetraeder
+Ia = Ib = Ic
+Kugel
+prolat: Wellen, axialsymmetrisch,
+Ia < Ib = Ic
+lang gestrecktes
+spindelförmig lang gestreckt
+Rotationsellipsoid
+oblat: Scheiben, axialsymmetrisch,
+Ia = Ib < Ic
+gestauchtes
+tellerförmig gestaucht
+Rotationsellipsoid
+asymmetrisch
+Ia ≠Ib ≠Ic ≠Ia
+allgemeines Ellipsoid
+3.4.1 Der kräftefreie, symmetrische Kreisel
+Bei einem symmetrischen Kreisel sind also 2 Hauptträgheitsmomente gleich (z. B.
+Ia = Ib). In die Richtung der Figurenachse (= Symmetrieachse) zeigt der Vektor c​⇀.
+Wird der Kreisel im Schwerpunkt S unterstützt, so gilt ∑
+i​
+F​⇀i​
+ext = 0.12 Wird kein
+äußeres Drehmoment ausgeübt, ist also ∑
+i​
+D​⇀i​ = 0, so ist der Drehimpuls konstant,
+also L​⇀= const., d. h. der Kreisel rotiert im kräftefreien Fall so, dass die Figurenach-
+se c​⇀um die raumfeste Drehimpulsachse L​⇀rotiert und die momentane Drehachse
+ω​⇀, die Figurenachse c​⇀und der Drehimpuls L​⇀stets in einer Ebene verbleiben (vgl.
+Abschnitt 3.3.6).13 Dreht sich der Kreisel insbesondere um seine Figurenachse,
+so gilt L​⇀// ω​⇀// c​⇀, das heißt, die drei Richtungen stimmen in jeder Lage überein
+(Abb. I-3.10).
+Im allgemeinen Fall sind jedoch alle drei Richtungen verschieden:
+1.
+die raumfeste Drehimpulsachse L​⇀,
+2.
+die momentane Drehachse ω​⇀, die nicht raumfest ist,
+3.
+die Figurenachse c​⇀, die ja nur raumfest ist, wenn L​⇀in der Figurenachse liegt
+(ω​⇀// c​⇀).
+In diesem allgemeinen Fall führen die Drehachse ω​⇀und die Figurenachse c​⇀eine
+Bewegung um den raumfesten Drehimpuls aus, die Nutation genannt wird. ω​⇀und
+c​⇀beschreiben einen Kreiskegel um den raumfesten Drehimpuls L​⇀(Abb. I-3.11). In
+der Poinsotschen Beschreibung entspricht dies dem gleichförmigen Abrollen des
+rotationssymmetrischen Energieellipsoids auf der invariablen Ebene längs der
+kreisförmigen Spurbahn und der sie berührenden kreisförmigen Polbahn am Ellip-
+soid.
+12 Der Schwerpunkt eines freien Kreisels ruht, wenn die Anfangsgeschwindigkeit υ​⇀0 = 0 ist oder
+er bewegt sich konstant mit υ​⇀0 ≠0.
+13 L​⇀, ω​⇀, c​⇀liegen in einer Meridianebene des rotationssymmetrischen Energieellipsoids (vgl. Abb. I-
+3.9). Die Symmetrieachse c​⇀(Richtung von ω​z​) und ω​⇀bilden eine Meridianebene, in der auch L​⇀und
+der Normalenvektor N​⇀liegen.
+
+
+--- PDF page 187 ---
+162
+3 Mechanik des starren Körpers (rigid body)
+raumfester Drehimpuls L
+Winkelgeschwindigkeit ω
+ 
+Figurenachse c
+Kreisel 
+invariable Ebene 
+Abb. I-3.10: Kräftefreier Kreisel, der sich um seine Figurenachse dreht.
+raumfester Drehimpuls L
+Figurenachse c
+invariable Ebene
+Winkelgeschwindigkeit ω
+Spurkreis
+Abb. I-3.11: Allgemeiner, kräftefreier Kreisel mit oblatem Energieellipsoid.
+Da nach Gl. (I-3.32) die Projektion ω​⇀L​ von ω​⇀auf den Drehimpuls L​⇀konstant bleibt,
+rollt das Ellipsoid bei der momentanen Drehung um ω​⇀auf der invariablen Ebene
+so ab, dass der Berührungspunkt (= Spitze von ω​⇀) einen raumfesten Kreis um L​⇀
+auf dieser Ebene, die „Herpolhodie“, beschreibt. Auf dem bewegten Ellipsoid ent-
+steht ein körperfester Kreis (‚Polhodie‘, nicht eingezeichnet).14 Beide Kreise rollen
+aufeinander ab, ihr Berührungspunkt ist die Spitze von ω​⇀. Da der Schwerpunkt S
+fest ist, muss bei dieser Bewegung die Länge des ω​⇀-Pfeiles (also der Betrag von
+ω​⇀) konstant sein: ω​⇀muss sich auf einem Kegel um L​⇀bewegen (Rastpolkegel). Das-
+selbe gilt für die Figurenachse c​⇀, da c​⇀, ω​⇀, L​⇀stets in einer Ebene liegen (siehe Ener-
+14 Da ω​⇀L​ = const. gilt (Gl. I-3.32 und Abb. I-3.9) ist in diesem Fall auch |ω​⇀| = const. Die Bewegung
+der Figurenachse am Nutationskegel (= Nutation des Kreisels) erfolgt daher mit konstanter Winkel-
+geschwindigkeit ω.
+
+
+--- PDF page 188 ---
+3.4 Kreiselbewegung (motion of a top)
+163
+Nutationskegel
+Rastpolkegel
+Gangpolkegel 
+S
+cv
+Lv
+ωv
+Abb. I-3.12: Perizyklische Nutation des oblaten Kreisels mit dem Drehimpuls L​⇀zwischen der
+Figurenachse c​⇀und der augenblicklichen Drehachse ω​⇀. Beim prolaten Kreisel liegt ω​⇀zwischen c​⇀
+und L​⇀und der Gangpolkegel rollt außen am Rastpolkegel ab: Epizyklische Nutation. c​⇀, L​⇀und ω​⇀
+liegen in einer Ebene (grau), einer Meridialebene des rotationssymmetrischen Energieellipsoids.
+gieellipsoid, Abb. I-3.9). Die Figurenachse c​⇀ist Achse eines weiteren Kegels, des
+Gangpolkegels, der bei der Bewegung des Kreisels am Rastpolkegel gleichmäßig
+abrollt. In der Berührungslinie der beiden Kegel liegt ω​⇀(Abb. I-3.12), das dem Betra-
+ge nach konstant ist: |ω​⇀| = const.
+Bei einem kräftefreien, symmetrischen Kreisel, der sich zunächst um seine Fi-
+gurenachse c​⇀und um L​⇀dreht, kann der allgemeine Bewegungsfall leicht dadurch
+erreicht werden, dass man der Achse des Kreisels einen kurzen Schlag versetzt,
+also kurzzeitig ein Drehmoment einwirken lässt. Dadurch wird die Drehimpulsach-
+se gegenüber der momentanen Rotationsachse plötzlich um ΔL​⇀= D​⇀⋅Δt​ versetzt
+(D​⇀= r​⇀⋅K​⇀, wenn K​⇀die beim Schlag einwirkende Kraft ist und r​⇀der Abstand der
+rotierenden Scheibe vom Auflagepunkt = Schwerpunkt), da diese aufgrund der
+Massenträgheit während des kurzen Schlages ihre Lage beibehält und es kommt
+zur Nutation.15
+Die momentane Drehachse kann z. B. durch eine auf die Achse gesetzte Schei-
+be sichtbar gemacht werden, die in drei Segmente unterschiedlicher Farbe geteilt
+ist. Beim Durchstoßpunkt der Drehachse durch die Scheibe, der keine momentane
+Drehbewegung ausführt, sich aber um den raumfesten Drehimpuls L​⇀bewegt, er-
+scheint eine eindeutige Farbe, außerhalb sieht man eine Mischfarbe.
+15 Auch das „Einschalten“ eines Drehmoments durch Gewichtauflage auf die Figurenachse führt
+zu einer plötzlichen Verlagerung des ursprünglichen Drehimpulses und damit zu Nutationen, die
+sich der einsetzenden Präzession (siehe nächster Abschnitt 3.4.2, Abb. I-3.13) überlagert.
+
+
+--- PDF page 189 ---
+4
+164
+3 Mechanik des starren Körpers (rigid body)
+Vor dem Schlag:
+Nach dem Schlag (von oben auf die hintere Achse):
+L​⇀// ω​⇀// c​⇀
+Nutation der Figurenachse c​⇀(weiß) um den raumfesten
+Drehimpuls L​⇀(schwarz).
+ΔL = D ⋅ Δt = KΔt × r 
+ 
+
+
+ 
+S
+c
+L
+ω
+r
+S
+L + ΔL
+ΔL
+ω
+r
+L
+
+
+c
+
+
+KΔt
+
+Vor dem Schlag (von oben
+Nach dem Schlag (der bereits erfolgte Schlag K​⇀Δt​ ist hier mit
+gesehen):
+eingezeichnet):
+Aufgezogener Kreisel, im
+Der Kreisel nutiert asymmetrisch zur ursprünglichen Achse.
+Schwerpunkt S unterstützt
+3.4.2 Der ‚schwere Kreisel‘
+Wirkt auf den Kreisel ein Drehmoment D​⇀= d​L​⇀
+d​t​ = r​⇀× F​⇀, so bleibt der Drehimpuls
+nicht raumfest, sondern ändert seine Richtung und Größe.
+a) Der symmetrische Kreisel dreht sich ständig um seine Figurenachse c​⇀(Reguläre
+Präzession)
+Ausgangssituation: Die Richtungen von L​⇀, ω​⇀und c​⇀fallen zusammen, es tritt also
+keine Nutation auf.
+Wird der Kreisel nicht im Schwerpunkt unterstützt, so ist er ‚schwer‘, d. h. es
+wirkt ein dauerndes Drehmoment durch die Gewichtskraft:
+D​⇀= d​L​⇀
+d​t​ = r​⇀× F​⇀= r​⇀× m​g​⇀.
+(I-3.50)
+Dabei zeigt der Vektor r​⇀vom Unterstützungspunkt zum Angriffspunkt der Kraft
+(hier der Schwerpunkt).
+In unserem Fall gilt L​⇀// ω​⇀// r​⇀, daher steht der Vektor des Drehmoments D​⇀nor-
+mal auf L​⇀und m​g​⇀, der Drehimpulsvektor L​⇀, der durch die anfängliche Rotation ω​⇀
+um die Figurenachse erzeugt wird, ändert also durch das wirkende Drehmoment
+D​⇀dauernd seine Richtung auf einem Kegelmantel und wenn sich der Kreisel rasch
+dreht, also L​⇀groß ist, bleibt die Figurenachse in der Nähe von L​⇀, er präzediert
+(Abb. I-3.13).16
+16 Die stets zusätzlich vorhandenen Nutationen werden durch Reibungsmomente sehr stark ge-
+dämpft, sodass sie in diesem Fall der regulären Präzession kaum merkbar – obgleich immer vorhan-
+
+
+--- PDF page 190 ---
+3.4 Kreiselbewegung (motion of a top)
+165
+L 
+(Rotation, groß) 
+dL 
+(infolge der Schwerkraft, //D
+)
+D 
+= r × F
+F
+ = m⋅g
+L
+
+r
+A
+ωP
+ω
+S
+Abb. I-3.13: „Schwerer Kreisel“: Symmetrischer Kreisel mit sehr großem L​⇀, der sich um seine
+Figurenachse c​⇀dreht (Nutationen vernachlässigt). Er führt eine reguläre Präzessionsbewegung
+aus, er präzediert um den Unterstützungspunkt ohne merkliche Nutation. Ausgangslage: ω​⇀⊥F​⇀.
+Wir betrachten das Zeitintervall dt, in dem sich L​⇀um dφ dreht (dabei sei angenom-
+men, dass L​⇀etwa senkrecht zur Drehachse A bzw. zu g​⇀steht):
+dφ
+Lv
+dLv
+d​L​ = |d​L​⇀| = L​⋅d​φ​ ⇒d​L​
+d​t​ = L​ d​φ​
+d​t​
+(I-3.51)
+Für die Präzessionsfrequenz ωP ergibt sich in der Näherung, dass c​⇀immer ganz
+nahe bei L​⇀bleibt (vernachlässigbare Nutation)
+ω​P​
+_
+= d​φ​
+d​t​ = 1
+L​
+d​L​
+d​t​ = D​
+L​ =
+m​g​r​
+L​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+∠(r​⇀,F​⇀) = 90°
+= m​g​r​
+I​⋅ω​
+_
+=
+D​
+I​⋅ω​ ,
+(I-3.52)
+bzw. in Vektorschreibweise, wenn man berücksichtigt, dass D​⇀⊥ω​⇀und D​⇀⊥ω​⇀P​ und
+ω​⇀nicht notwendig ⊥F​⇀(bzw. ω​⇀P​)
+D​⇀= I​(ω​⇀P​ × ω​⇀)
+⇒
+D​ = I​ω​ ω​P​ sin​ (ω​⇀, ω​⇀P​) .
+(I-3.53)
+den – sind. Das Drehmoment D​⇀bewirkt ja nur eine Änderung von L​⇀und trennt daher die Vektoren
+c​⇀und ω​⇀von L​⇀, was zur Nutation um das zeitlich inkonstante L​⇀führt, wobei sich die Spitze von c​⇀
+auf einer girlandenförmigen Bahn bewegt: Pseudoreguläre Präzession.
+
+
+--- PDF page 191 ---
+4
+166
+3 Mechanik des starren Körpers (rigid body)
+Dabei ist I das Trägheitsmoment um die Figurenachse.17
+Symmetrischer, ‚schwerer‘
+Rotierender Kreisel führt eine Präzessionsbewegung aus;
+Kreisel, nicht aufgezogen
+da er sich um die Figurenachse dreht, liegt keine Nutation vor
+(wobei der Drehimpuls nicht konstant bleibt).
+Diese Präzessionsfrequenz der Figurenachse gilt nur, solange der durch die Kreisel-
+bewegung erzeugte Drehimpuls groß ist gegen den durch das Drehmoment der
+Gewichtskraft erzeugten zusätzlichen Drehimpuls. Andernfalls kann die sich nur
+langsam drehende Figurenachse der raschen Drehung der Drehimpulsachse nicht
+folgen.
+Ist das Trägheitsmoment des gesamten Kreiselsystems (= Kreisel + Lagerung)
+bezüglich der vertikalen z-Achse I​sys, z​ und präzediert der Kreisel mit ω​P​ , dann be-
+trägt der vertikale Drehimpuls L​sys, z​ = I​sys, z​⋅ω​P​ . Durch das Drehmoment der Ge-
+wichtskraft, das stets in der Horizontalebene liegt, kann L​sys, z​ nicht erzeugt wer-
+den. Aus D​z​ = 0 folgt, dass sich der vertikale Drehimpuls L​z​ des Kreiselsystems
+nicht ändern kann. Die Figurenachse c​⇀des Kreisels, um die er mit der Winkel-
+geschwindigkeit ω rotiert, muss daher um den Winkel ε nach unten kippen, damit
+die dadurch entstehende Vertikalkomponente L​z​ des Drehimpulses des gekippten
+Kreisels L​⇀c​ = I​⋅ω​⇀den „Präzessionsimpuls“ L​sys, z​ liefern kann (siehe Abb. I-3.14).
+Während der Präzessionsbewegung (ohne Nutation) bewegt sich die Figurenachse
+auf einem Kegelmantel mit dem stumpfen Winkel (180 −2 ε).
+Für ε folgt aus |L​⇀sys​, z​ | = |L​⇀z​ | : I​sys​, z​⋅ω​P​ = I​⋅ω​⋅sinε​
+⏟⏟⏟⏟⏟
+≈ε​
+und damit ε​ = I​sys, z​⋅ω​P​
+I​⋅ω​
+≪1.
+17 Gl. (I-3.53) kann auch von rechts nach links gelesen werden und besagt dann: Wird dem
+Kreisel eine Winkelgeschwindigkeit ω​⇀P​ ≠ω​⇀aufgezwungen, dann wirkt auf ihn ein Drehmoment
+D​⇀= I​(ω​⇀P​ × ω​⇀).
+
+
+--- PDF page 192 ---
+3.4 Kreiselbewegung (motion of a top)
+167
+z
+ 
+ωP
+c, Figurenachse 
+ursprünglicher Drehimpuls L
+ω
+L
+L
+z = L
+sys
+L
+ = L
+c + L
+z = L
+c + L
+sys
+ε
+
+Lc
+Abb. I-3.14: Zur Lage der Figurenachse bei der Präzessionsbewegung.
+L​⇀c​ ist der Drehimpuls des gekippten Kreisels.
+b) Allgemeiner Fall
+Wenn der Kreisel nicht um die Figurenachse rotiert, z. B. nach einem Schlag gegen
+die Achse oder nach plötzlichem Aufbringen eines Drehmoments, führt die
+Figurenachse zusätzlich eine Nutation um den präzedierenden Drehimpuls aus
+(Abb. I-3.15).
+Nutation
+L
+c
+Nutation + reguläre Präzession
+= pseudoreguläre Präzession
+reguläre Präzession
+Abb. I-3.15: Die Überlagerung der Nutation (strichliert) und der gleichzeitigen Präzession
+des Drehimpulses (volle Kurve) ergibt die pseudoreguläre Präzession.
+Beispiel: Die Erde als Kreisel.
+Wir haben im Abschnitt 2.3.4 die Erde als rotierendes Bezugssystem betrach-
+tet und dabei stillschweigend angenommen, dass die Drehachse der Erde (Pol-
+achse) raumfest ist. In Wirklichkeit stellt die Erde einen Kreisel dar, auf den
+Sonne, Mond und Planeten Kräfte ausüben. Wesentlich dabei ist, dass das ‚Geo-
+id‘ der Erde (in guter Näherung ein Rotationsellipsoid) von der Gestalt einer
+Kugel abweicht: Der Durchmesser am Äquator ist um etwa 43 000 m größer, als
+über die Pole gemessen (‚Äquatorwulst‘).
+
+
+--- PDF page 193 ---
+168
+3 Mechanik des starren Körpers (rigid body)
+Äquatorwulst 
+Äquator
+Ebene der 
+Ekliptik 
+Richtung Mond 
+Satz von der Bewegung 
+des Massenmittelpunktes 
+(Gl. I-2.64):
+bestimmt 
+die Bahngeschwindigkeit
+υE der Erde 
+(υE = 29,780 km/s).
+und Sonne 
+Erdachse
+Präzessionskegel
+23,5° 
+Drehzwilling 
+S1
+S
+S2
+F
+1
+F
+2 > F
+1
+F
+Kugel
+d
+i∑ F
+i = F
+Kugel + F
+1 + F
+2 =
+gleichf.
+Kreis-
+bewegg.
+= ME
+= ME
+d2r
+S
+dt2
+RE
+υ2
+E e
+n
+
+Die ganz überwiegend von Sonne und Mond (‚Lunisolarpräzession‘)18 auf den
+näheren (S2) und ferneren Schwerpunkt (S1) des Äquatorwulstes ausgeübten
+Kräfte sind ungleich (F ~ 1/r
+2) und erzeugen daher bezüglich des Schwerpunkts S
+ein Drehmoment D​⇀= d​⇀× (F​⇀2 −F​⇀1), das versucht, die Erdachse gegen die Achse
+der Ekliptik aufzurichten, also die ‚Schiefe der Ekliptik‘ zu verkleinern.19 Die
+Erdachse weicht jedoch dazu senkrecht aus und beschreibt einen Präzessionske-
+gel. Ein voller Umlauf der Erdachse dauert 25 780 Jahre (= Platonisches Jahr). Im
+Moment zeigt die Erdachse in Richtung Polarstern, aber in etwa 12 000 Jahren
+wird sie in Richtung Vega zeigen.
+Die auf den Äquatorwulst wirkenden Kräfte sind selbst wieder sehr kleinen
+Schwankungen unterworfen, die zu einer astronomischen Nutation führen.
+Hauptsächlich wird die Nutation der Erdachse durch den Mond verursacht, des-
+sen Achse um ca. 5,1° gegen die Ekliptikebene geneigt ist und dessen Anzie-
+hungskraft auf den Äquatorwulst daher während seiner Bahnbewegung nicht
+immer genau in dieselbe Richtung wirkt. Dies führt zu einer elliptischen Bewe-
+gung der Erdachse (‚Nutationsellipse‘), die der Präzessionsbewegung überlagert
+18 Der Frühlingspunkt (Äquinoktialpunkt, Schnittpunkt des Himmelsäquators mit der Ekliptik)
+wandert um 50,39″ im Jahr entgegen der scheinbaren Sonnenbewegung rückwärts im Tierkreis. Da-
+von werden 30″ vom Mond verursacht.
+19 Das gilt – wenn auch in geringerem Ausmaß – auch für die beiden Hälften der inneren Kugel
+links und rechts der Erdachse: Auch ohne einen „Wulst“ würde sich in dem inhomogenen Gravita-
+tionsfeld ein Drehmoment um S ergeben!
+
+
+--- PDF page 194 ---
+3.4 Kreiselbewegung (motion of a top)
+169
+ist. Die aus Präzession und Nutation zusammengesetzte Gesamtbewegung der
+Erdachse verläuft also wellenartig, ähnlich wie auf der vorhergehenden Skizze
+(Abb. I-3.15) gezeigt. Die weiter oben beschriebene Kreiselnutation und die astro-
+nomische Nutation der Erdachse haben also verschiedene Ursachen, nämlich
+einerseits das Auseinanderfallen von L​⇀und ω​⇀und andererseits das Auftreten
+kleiner zusätzlicher Drehmomente am Kreisel.
+3.4.3 Die Eulerschen Kreiselgleichungen
+Wir können die 3-dimensionale Rotation eines starren Körpers unter der Wirkung
+externer Drehmomente im ‚raumfesten‘ Koordinatensystem mit der Bewegungsglei-
+chung (I-3.22) beschreiben:
+D​⇀= d​L​⇀
+d​t​ = L​⇀̇,
+wobei
+L​⇀= I​̃ ⋅ω​⇀.
+(I-3.54)
+Für die x-Komponente gilt z. B.:
+D​x​ = L​̇x​ = d​
+d​t​ (I​x​x​ ω​x​ + I​x​y​ ω​y​ + I​x​z​ ω​z​) .
+(I-3.55)
+Im Allgemeinen sind ωx, ωy, ωz und Ixx, Ixy, Ixz, … zeitabhängig, d. h. die Bewe-
+gungsgleichung für die Rotation ist eine komplizierte Differentialgleichung zur Be-
+stimmung der ωx, ωy, ωz. Die Beschreibung wird wesentlich einfacher, wenn wir
+die Rotation im ‚körperfesten‘ Bezugssystem betrachten, das starr mit dem Körper
+verbunden ist und gegen das raumfeste Koordinatensystem mit der zeitabhängigen
+Winkelgeschwindigkeit ω​⇀(t​) rotiert, da dann der Trägheitstensor zeitunabhängig
+wird. Lassen wir die Koordinatenachsen des körperfesten Bezugssystems mit den
+Hauptachsen des Körpers zusammenfallen, so gilt
+L​⇀= {I​a​ ω​a​, I​b​ ω​b​, I​c​ ω​c​} .
+(I-3.56)
+Wir haben früher gesehen (Ableitung der Coriolis- und Zentripetalbeschleunigung,
+siehe Kapitel „Mechanik des Massenpunktes“, Abschnitt 2.3.3), dass in einem mit
+ω​⇀rotierenden Koordinatensystem für jeden Vektor bezüglich eines raumfesten Sys-
+tems, das durch den Index „fix“ bezeichnet wird, gilt:
+(d​u​⇀
+d​t​ )
+fix
+= (d​u​⇀
+d​t​ )
+rot
++ ω​⇀× u​⇀. 20
+(I-3.57)
+20 Im Kapitel „Mechanik des Massenpunktes“, Abschnitt 2.3.3 ‚Rotierende Bezugssysteme‘, wurde
+ein Vektor u mit Koordinaten in Bezug auf das rotierende System Σ′ als u′ bezeichnet. Da hier nur im
+mit dem Körper rotierenden System gearbeitet wird, wird im folgenden auf die ‚Striche‘ verzichtet.
+
+
+--- PDF page 195 ---
+170
+3 Mechanik des starren Körpers (rigid body)
+Das können wir auch hier für die Ableitung von L​⇀verwenden und erhalten so die
+Bewegungsgleichung im körperfesten System, das im raumfesten, fixen System ro-
+tiert, wenn wir D​⇀fix (ebenso wie ω​⇀) nach den körperfesten, bewegten Koordinaten-
+achsen (Hauptachsen) e​⇀a​, e​⇀b​, e​⇀c​ zerlegen
+D​⇀fix​ = (d​L​⇀
+d​t​ )
+fix
+= (d​L​⇀
+d​t​ )
+rot
++ ω​⇀× L​⇀rot .21
+(I-3.58)
+Dabei ist D​⇀fix das auf den Kreisel wirkende Drehmoment im raumfesten Koordina-
+tensystem, L​⇀rot der Drehimpuls im körperfesten System mit I​̃ als körperfestem Träg-
+heitstensor.
+Da L​⇀rot = I​̃ ⋅ω​⇀, gilt für ω​⇀× L​⇀= ω​⇀× (I​̃ ⋅ω​⇀) = |
+e​⇀a​
+e​⇀b​
+e​⇀c​
+ω​a​
+ω​b​
+ω​c​
+I​a​ ω​a​
+I​b​ ω​b​
+I​c​ ω​c​
+| , also z. B. für
+die a-Komponente:
+(ω​⇀× L​⇀)a​ = ω​b​ L​c​ −ω​c​ L​b​ = ω​b​⋅I​c​ ω​c​ −ω​c​⋅I​b​ ω​b​ = ω​b​ ω​c​(I​c​ −I​b​) .
+Ia, Ib, Ic sind die Hauptträgheitsmomente und ωa, ωb, ωc die Komponenten von
+ω​⇀in Hauptachsenrichtung im körperfesten Bezugssystem.
+Damit erhalten wir die Eulerschen Kreiselgleichungen (nach Leonhard Euler,
+1707–1783):
+(
+D​a​
+D​b​
+D​c​
+) = (
+I​a​ ω​̇a​
+I​b​ ω​̇b​
+I​c​ ω​̇c​
+) + (
+ω​b​ ω​c​(I​c​ −I​b​)
+ω​c​ ω​a​(I​a​ −I​c​)
+ω​a​ ω​b​(I​b​ −I​a​)
+) .
+(I-3.59)
+Das Drehmoment ist meist in raumfesten Koordinaten gegeben, hier aber natürlich
+nach körperfesten Koordinaten zerlegt, die beiden Seiten einer Gleichung müssen
+sich ja auf dasselbe Koordinatensystem beziehen.22 Die Eulerschen Kreiselglei-
+chungen sind nichtlineare, gekoppelte Differentialgleichungen für die körperfesten
+Winkelgeschwindigkeiten ωa, ωb, ωc.
+21 Der Index „rot“ bezeichnet den Drehimpuls im rotierenden, körperfesten System. Das körperfes-
+te System mit dem festen Schwerpunkt als Ursprung kann nur eine rotierende Bewegung mit der
+zeitabhängigen Winkelgeschwindigkeit ω​⇀(t​) = {ω​⇀a​(t​), ω​⇀b​(t​), ω​⇀c​(t​)}, ausführen, die im körperfesten
+Achsensystem e​⇀a​ , e​⇀b​ , e​⇀c​ darzustellen ist.
+22 Diese körperfesten Koordinaten sind wegen der Drehung des körperfesten Hauptachsensystems
+Funktionen der Zeit, also D​a​ = D​a​(t​) usf. Dies macht die Lösung der Gleichungen, die außerdem in
+den Variablen ω​̇c​ nichtlinear sind, nicht gerade einfach! Eine allgemeine Lösung ist derzeit nicht
+bekannt.
+
+
+--- PDF page 196 ---
+3.4 Kreiselbewegung (motion of a top)
+171
+Die früher kennen gelernten Eulerschen Winkel φ, θ und ψ (Abschnitt 3.2.2,
+Abb. I-3.5) vermitteln zwischen dem raumfesten und dem körperfesten Koordina-
+tensystem. Wenn die Funktionen φ(t), θ(t) und ψ(t) bekannt sind, ist die Lage
+des Körpers im raumfesten System zu jedem Zeitpunkt festgelegt. Zwischen der
+Winkelgeschwindigkeit ω​⇀und den Eulerschen Winkeln besteht folgender Zusam-
+menhang:23
+ω​⇀= (
+ω​a​
+ω​b​
+ω​c​
+) = (
+φ​̇ sin ​θ​ sin ​ψ​ + θ​̇ cos ​ψ​
+φ​̇ sin ​θ​ cos ​ψ​ −θ​̇ sin ​ψ​
+φ​̇ cos ​θ​ + ψ​̇
+) .
+(I-3.60)
+⇒
+φ​̇ =
+1
+sin ​θ​ (ω​a​ sin ​ψ​ + ω​b​ cos ​ψ​)
+θ​̇ = ω​a​ cos ​ψ​ −ω​b​ sin ​ψ​
+ψ​̇ = ω​c​ −cot ​θ​ (ω​a​ sin ​ψ​ + ω​b​ cos ​ψ​) .
+(I-3.60a)
+Dabei bedeuten φ​ die Drehung um die z′-Achse (φ​̇ weist in z′-Richtung), θ​ die Dre-
+hung um die Knotenlinie (θ​̇ weist in Richtung der Knotenlinie) und ψ​ die Drehung
+um die z-Achse (ψ​̇ weist in z-Richtung, siehe Abb. I-3.5).
+Wenn also die Komponenten der Winkelgeschwindigkeit in Richtung der Haupt-
+achsen ωa(t), ωb(t), ωc(t) durch Lösen der Eulerschen Gleichungen einmal bekannt
+sind, kann die zeitliche Entwicklung der Eulerschen Winkel und damit die zeitliche
+Entwicklung der Lage des starren Körpers im raumfesten System durch Integration
+des Systems der gekoppelten Differentialgleichungen (I-3.60a) und Ermittlung von
+{φ(t), θ(t), ψ(t)} zumindest grundsätzlich vollständig beschrieben werden.
+Beispiel 1: Ein starrer Körper rotiere kräftefrei um eine im Raum und im Kör-
+per feste Achse mit konstanter Winkelgeschwindigkeit ω​⇀= {ω​a​, ω​b​, ω​c​}, also
+ω​̇a​ = ω​̇b​ = ω​̇c​ = 0. Die Komponenten des konstanten Drehmoments in Richtung
+der körperfesten Hauptachsen (drehen sich auch mit ω​⇀), die vom Lager aufge-
+nommen werden müssen, sind dann:
+(
+D​a​ = ω​b​ ω​c​ (I​c​ −I​b​)
+D​b​ = ω​c​ ω​a​ (I​a​ −I​c​)
+D​c​ = ω​a​ ω​b​ (I​b​ −I​a​)
+) .
+Fällt die Drehachse in die a-Hauptachse, so gilt: ωb = ωc = 0, ωa = ω. Damit ver-
+schwinden die Komponenten des Drehmoments, also Da = Db = Dc = 0, die
+Hauptachse ist also eine freie Achse, das Lager wird nicht belastet – es braucht
+also gar nicht vorhanden zu sein! Deshalb auch der Name ‚freie Achse‘.
+23 Diese Beziehungen ergeben sich durch Projektion der Winkelgeschwindigkeiten φ​̇, θ​̇, ψ​̇, die ja
+auf die Winkelebenen φ​, ψ​, θ​ senkrecht stehen, (unter Zwischenschaltung der Hilfsrichtung S​D​̄ in
+Abb. I-3.5) auf die Hauptachsenrichtungen e​⇀a​, e​⇀b​, e​⇀c​ mit Hilfe der Eulerschen Winkel φ​, θ​, ψ​.
+
+
+--- PDF page 197 ---
+172
+3 Mechanik des starren Körpers (rigid body)
+Beispiel 2: Ein kräftefreier Körper rotiere wieder mit ω​⇀als fester Achse, die aber
+keine Hauptträgheitsachse sein soll.
+ω​⇀besitze im Hauptachsensystem die Richtung e​⇀n​ = { cos α​, cos β​, cos γ​}; dann
+gilt ω​a​ = ω​ cos α​, ω​b​ = ω​ cos β​, ω​c​ = ω​ cos γ​ . Wir setzen in die Eulergleichungen
+ein, das ergibt mit ω​⇀= const.:
+D​⇀= {
+D​a​
+D​b​
+D​c​
+} = {
+ω​2 cos β​ cos γ​ (I​c​ −I​b​)
+ω​2 cos α​ cos γ​ (I​a​ −I​c​)
+ω​2 cos α​ cos β​ (I​b​ −I​a​)}.
+Die Projektion von D​⇀auf die ω​⇀-Achse verschwindet offensichtlich, denn es
+gilt D​⇀⋅e​⇀n​ = D​a​ cos α​ + D​b​ cos β​ + D​c​ cos γ​ = 0 ,24 das heißt, das Drehmoment D​⇀
+steht senkrecht auf der Drehachse ω​⇀und rotiert als körperfester Vektor mit ω.
+Vergleiche mit Abschnitt 3.3.4, wo dasselbe Problem ohne Verwendung der
+Hauptachsen behandelt wurde: Während das Drehmoment D​⇀hier durch die
+Hauptträgheitsmomente Ia, Ib, Ic dargestellt ist, war dort die Ermittlung des
+Trägheitsmoments Izz = Iω sowie der Deviationsmomente Ixz und Iyz erforder-
+lich.25
+Zusammenfassung
+1. Die Bewegung des starren Körpers setzt sich aus einer Translation des Schwer-
+punkts (3 Freiheitsgrade) und einer Rotation um den Schwerpunkt (3 Freiheits-
+grade) zusammen. Für die Bewegung eines Massenelements i gilt:
+υ​⇀i​ = υ​⇀s​ + ω​⇀× r​⇀i​
+S​ .
+2. Für beide Bewegungsarten gilt je eine Newtonsche Bewegungsgleichung:
+F​⇀= d​p​⇀S​
+d​t​ =∑
+i​
+m​i​
+d​υ​i​
+d​t​ = M​ d​υ​
+%
+S​
+d​t​
+→
+Translation,
+wenn ∑
+i​
+F​⇀i​ = 0 ⇒Gleichgewicht (keine beschleunigte Translation).
+24 denn: (I​c​ −I​b​) + (I​a​ −I​c​) + (I​b​ −I​a​) = 0
+25 Anmerkung: Beide Beispiele zählen zu den mechanischen Problemen 1. Art, bei denen die Ge-
+schwindigkeiten υ​⇀bzw. ω​⇀vorgegeben sind und die erforderlichen Kräfte bzw. Drehmomente ge-
+sucht werden. Sie sind i. Allg. leichter zu lösen als die Probleme 2. Art, bei denen umgekehrt die
+Kräfte bzw. Momente gegeben sind und die Geschwindigkeiten υ​⇀bzw. ω​⇀gesucht werden.
+
+
+--- PDF page 198 ---
+Zusammenfassung
+173
+D​⇀= d​L​⇀
+d​t​ =∑
+i​
+(r​⇀i​
+S​ × F​⇀i​)
+→
+Rotation,
+wenn ∑
+i​
+D​⇀i​ = 0 ⇒Gleichgewicht (keine beschleunigte Rotation).
+3. Das Drehmoment ist i. Allg. vom Bezugspunkt r​⇀B​ abhängig:
+D​⇀B​
+R​
+⏟
+G​e​s​a​m​t​d​r​e​h​m​o​m​e​n​t​
+b​e​z​ü​g​l​i​c​h​ B​
+=
+∑
+i​
+r​⇀i​ × F​⇀i​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+S​u​m​m​e​ a​l​l​e​r​
+D​r​e​h​m​o​m​e​n​t​e​ b​e​z​ü​g​l​i​c​h​ O​
+−
+r​⇀B​ × F​⇀R​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+D​r​e​h​m​o​m​e​n​t​ d​e​r​ i​n​ B​
+a​n​g​r​e​i​f​e​n​d​e​n​ G​e​s​a​m​t​k​r​a​f​t​ F​⇀R​
+b​e​z​ü​g​l​i​c​h​ O​
+.
+Verschwindet aber die resultierende Gesamtkraft F​⇀R​ , so ist ein eventuell noch
+vorhandenes Drehmoment unabhängig vom Bezugspunkt (‚freier Vektor‘). Dies
+gilt insbesondere für den Drehzwilling (Kräftepaar):
+D​⇀= (r​⇀1 −r​⇀2) × F​⇀.
+4. Wesentlich für die Rotation des starren Körpers ist seine Massenverteilung. An
+die Stelle der skalaren Masse bei der Translation tritt im Falle der Rotation der
+symmetrische Trägheitstensor I​̃ :
+L​⇀= I​̃ ⋅ω​⇀
+mit
+I​̃ =∫
+V​
+d​V​ ρ​(x​,y​,z​)(
+y​2 + z​2
+−x​y​
+−x​z​
+−y​x​
+x​2 + z​2
+−y​z​
+−z​x​
+−z​y​
+x​2 + y​2) .
+5. Für die Rotation um eine feste Schwerpunktsachse A gilt:
+E​rot = 1
+2 I​A​ ω​2
+mit
+I​A​ =∫
+V​
+r​n​
+2 d​m​
+Geht die Achse A′ nicht durch den Schwerpunkt, sondern befindet sie sich im
+Abstand l​ von S, so gilt der Steinersche Satz:
+I​A​′ =
+I​A​
+⏟
+T​r​ä​g​h​e​i​t​s​m​o​m​e​n​t​
+u​m​ d​i​e​ p​a​r​a​l​l​e​l​e​
+S​c​h​w​e​r​p​u​n​k​t​s​a​c​h​s​e​
++
+l​2M​
+⏟⏟⏟⏟⏟
+T​r​ä​g​h​e​i​t​s​m​o​m​e​n​t​ d​e​r​
+G​e​s​a​m​t​m​a​s​s​e​ i​n​ S​ u​m​ A​′
+.
+
+
+--- PDF page 199 ---
+174
+3 Mechanik des starren Körpers (rigid body)
+6. Auch für die Rotationsenergie ist der Trägheitstensor maßgebend:
+E​rot = 1
+2 ω​⇀L​⇀= 1
+2 ω​⇀⋅I​̃ ⋅ω​⇀= 1
+2 (ω​x​, ω​y​, ω​z​)(
+I​x​x​ I​x​y​ I​x​z​
+I​y​x​ I​y​y​ I​y​z​
+I​z​x​ I​z​y​ I​z​z​
+)(
+ω​x​
+ω​y​
+ω​z​
+) =
+= 1
+2 (I​x​x​ ω​x​
+2 + I​y​y​ ω​y​
+2 + I​z​z​ ω​z​
+2 + 2 I​x​y​ ω​x​ ω​y​ + 2 I​x​z​ ω​x​ ω​z​ + 2 I​y​z​ ω​y​ ω​z​).
+Für Erot = const. stellt dies die Gleichung des Energieellipsoids (= Poinsot-Ellip-
+soid) im ω-Raum dar.
+7. Es kann immer ein ‚Hauptachsensystem‘ a,b,c gefunden werden, in dem gilt:
+I​̃ = I​̃0 = (
+I​a​ 0 0
+0 I​b​ 0
+0 0 I​c​
+)
+und
+E​rot = 1
+2 (I​a​ ω​a​
+2 + I​b​ ω​b​
+2 + I​c​ ω​c​
+2) .
+Ia, Ib, Ic sind die Hauptträgheitsmomente, ω​a​, ω​b​, ω​c​ die Komponenten der
+Winkelgeschwindigkeit in Richtung der Hauptachsen.
+8. Der Wert des Trägheitsmoments sowie Richtung und Größe des Drehimpulses
+können mit Hilfe des Trägheitsellipsoids bzw. des Energieellipsoids bestimmt
+werden, wenn die Hauptträgheitsmomente bekannt sind.
+9. Nutation des kräftefreien Kreisels: Momentane Drehachse ω​⇀und Figurenachse
+c​⇀des Kreisels bewegen sich auf Kegelmänteln um den raumfesten Drehimpuls
+L​⇀. Ein Kegel mit L​⇀als Achse ist raumfest (Rastpolkegel), während der zweite
+Kegel mit c​⇀als Achse sich auf dem Rastpolkegel abwälzt (Gangpolkegel), wo-
+bei die Berührungslinie der beiden Kegel die momentane Drehachse ω​⇀bildet.
+10. Präzession eines Kreisels: Ein äußeres Drehmoment D​⇀bewirkt eine dauernde
+Richtungsänderung des Drehimpulses L​⇀. Zusätzlich kommt es stets noch zur
+Nutation, die aber unmerklich klein sein kann.
+11. Die allgemeine Rotation des starren Körpers wird einfacher in körperfesten
+(mitrotierenden) Koordinaten angegeben als in raumfesten. Nimmt man als
+körperfeste Achsen die Hauptachsen, so ergeben sich als Bewegungsgleichun-
+gen der Rotation die ‚Eulerschen Kreiselgleichungen‘
+(
+D​a​
+D​b​
+D​c​
+) = (
+I​a​ ω​̇a​
+I​b​ ω​̇b​
+I​c​ ω​̇c​
+) + (
+ω​b​ ω​c​(I​c​ −I​b​)
+ω​c​ ω​a​(I​a​ −I​c​)
+ω​a​ ω​b​(I​b​ −I​a​)
+)
+zur Bestimmung von ω​⇀(t​) = {ω​a​(t​), ω​b​(t​), ω​c​(t​)} . Mit den daraus ermittelten
+Eulerschen Winkeln φ(t), θ(t), ψ(t) kann so die Bewegung des starren Körpers
+zu jedem Zeitpunkt auch im raumfesten Koordinatensystem angegeben wer-
+den.
+
+
+--- PDF page 200 ---
+Zusammenfassung
+175
+5
+Übungen:
+1.
+Eine waagrechte, kreisrunde Plattform rotiert reibungsfrei gelagert um eine
+senkrechte, durch ihren Mittelpunkt gehende Achse. Die Masse der Platt-
+form beträgt 300 kg, ihr Radius ist 2,0 m, ihr Trägheitsmoment bezüglich
+der angegebenen Achse beträgt 300 kg m
+2. Eine Person mit 60 kg Masse ro-
+tiert mit der Plattform mit und bewegt sich langsam vom Rand der Plattform
+in Richtung ihres Mittelpunkts. Vor dieser Bewegung drehte sich die Platt-
+form mit einer Winkelgeschwindigkeit von 1,5 rad/s. Wie groß ist die Win-
+kelgeschwindigkeit, wenn sich die Person nur noch 0,5 m von der Mitte ent-
+fernt befindet?
+2.
+Ein symmetrischer Kreisel mit der Masse 100 g dreht sich um seine Symmet-
+rieachse mit einer Frequenz ν = 10 s
+−1 um seine Achse. Bei Auslenkung aus
+der Vertikalen um einen Winkel β​ = 30° führt er unter dem Einfluss seines
+Gewichtes eine Präzessionsbewegung aus. Die Präzessionsfrequenz beträgt
+νp = 0,9 s
+−1, der Abstand des Fußpunktes vom Kreiselschwerpunkt ist 6 cm.
+Wie groß ist das Trägheitsmoment des Kreisels?
+3.
+Berechne die Trägheitsmomente folgender Körper:
+a)
+Eine homogene Kreisscheibe der Masse M, bezüglich der Symmetrieach-
+se und bezüglich einer dazu parallelen Achse, die durch den Halbie-
+rungspunkt des Radius geht.
+b)
+Ein aus einem dünnen, homogenen Blech geschnittenes gleichseitiges
+Dreieck bezüglich einer mit einer Dreiecksseite zusammenfallenden
+Achse.
+c)
+Ein Ellipsoid x​
+a​2 + y​
+a​2 + z​
+b​2 = 1 , das homogen mit Masse erfüllt ist und
+die Gesamtmasse M hat, bezüglich der z-Achse.
+4.
+Ein Gyrobus26 bezieht seine Energie aus einem Schwungrad (Masse m, Träg-
+heitsmoment I), das an den Endstationen aufgeladen, d. h. in schnelle Rota-
+tion versetzt wird. Wie lange kann der Bus mit einer mittleren Leistung fah-
+ren, bis das Schwungrad nur noch mit der halben ursprünglichen Winkelge-
+schwindigkeit rotiert? Berechne das Ergebnis für folgende speziellen Werte:
+Tourenzahl des Kreisels beim Start n = 3000 min
+−1, I = 250 kg m
+2, L = 20 kW.
+Warum empfiehlt es sich, zwei gegenläufig rotierende Kreisel zu verwen-
+den?
+26 Ein Gyrobus ist ein elektrisch angetriebener Autobus, der seine Energie aber nicht aus einer
+Oberleitung bezieht, sondern aus der Rotationsenergie eines mitgeführten Schwungrades. An den
+Endstationen kann das Schwungrad mit Stromabnehmern wieder elektrisch beschleunigt werden.
+
+
+--- PDF page 201 ---
+176
+3 Mechanik des starren Körpers (rigid body)
+Anhang 1 Poinsotsche Beschreibung der Starrkörperbewegung
+Während der Bewegung des freien starren Körpers rollt das mit ihm verbundene
+Energieellipsoid (= Poinsot-Ellipsoid) auf der invariablen Ebene ab, ohne zu gleiten
+(Abb. I-3.16).
+Der Abstand ω​L​ der invariablen Ebene vom raumfesten Schwerpunkt S ändert
+sich während der Bewegung nicht (siehe Gl. I-3.32). Während der Bewegung weist
+ω​⇀stets von S zum Berührungspunkt T des Ellipsoids mit der invariablen Ebene,
+der auf dem Ellipsoid die körperfeste Polbahn (Polhodie) beschreibt, die mit S als
+Pol und den Vektoren ω​⇀(t​) einen allgemeinen, körperfesten Kegel, den Polhodie-
+kegel, bildet. Die Bahn, die der Berührungspunkt T auf der invariablen Ebene be-
+schreibt (Abb. I-3.17), nennt man die Spurbahn (Herpolhodie).
+1
+2
+3
+4
+5
+7
+8
+9
+10
+11
+12
+13
+6
+Gyrobus der Schweizer Maschinenfabrik Oerlikon für die Verkehrsbetriebe Zürich um 1950 (rechts
+unten). Die Masse des Schwungrades mit 1,6 m Durchmesser (links) betrug 1,5 t, die maximale Dreh-
+zahl war 3000 U/min; das bedeutet eine Umfangsgeschwindigkeit von ca. 900 km/h. Die Achse des
+Schwungrades war mit einem 3-Phasen Asynchronmotor verbunden, der das Schwungrad in den
+Ladestationen in 2–5 min wieder auf die maximale Drehzahl beschleunigte, im Fahrbetrieb aber als
+Generator für den 52 kW Antriebsmotor wirkte. Im Normalbetrieb konnte die Drehzahl des Schwun-
+grades von 3000 U/min bis auf 2100 U/min abnehmen; damit wurde eine Reichweite von ca. 6 km
+erzielt. Stand das Schwungrad einmal still, dauerte es ca. 40 min bis die erforderliche Drehzahl
+wieder erreicht war; das Schwungrad wurde daher auch über Nacht in Rotation gehalten. Die maxi-
+male Geschwindigkeit des Gyrobusses lag bei etwa 55 km/h.
+
+
+--- PDF page 202 ---
+Anhang 1 Poinsotsche Beschreibung der Starrkörperbewegung
+177
+S
+T
+ω
+Polhodie 
+(Polbahn)
+Herpolhodie
+(Spurbahn)
+invariable Ebene
+L
+Abb. I-3.16: Poinsotsche Beschreibung der Starrkörperbewegung: Das Poinsot-Ellipsoid rollt
+auf der invariablen Ebene. (nach W. Greiner, 2008. „Klassische Mechanik II: Teilchensysteme,
+Lagrange-Hamiltonsche Dynamik, Nichtlineare Phänomene“. Verlag Harry Deutsch).
+Herpolhodie
+(Spurbahn)
+invariable Gerade
+invariable Ebene
+T (t2)
+T (t1)
+ω (t1)
+ω (t2)
+O = S
+L
+Abb. I-3-17: Invariable Ebene und invariable Gerade. (nach W. Greiner, 2008. „Klassische
+Mechanik II: Teilchensysteme, Lagrange-Hamiltonsche Dynamik, Nichtlineare Phänomene“. Verlag
+Harry Deutsch).
+Die Spurbahn ergibt von S aus den raumfesten Herpolhodiekegel, auf dem der Polho-
+diekegel längs des gemeinsamen Vektors ω​⇀abrollt. Polhodie und Herpolhodie sind
+i. A. keine geschlossenen Kurven. Ist der Körper symmetrisch, dann ist das Poinsot-
+Ellipsoid ein Rotationsellipsoid und beim Abrollen entstehen für die Polbahn und
+die Spurbahn Kreise. ω​⇀ist zwar dem Werte nach konstant ( |ω​⇀| = ω​ = const.), ändert
+aber dauernd seine Richtung, d. h. ω​⇀rotiert um die raumfeste Drehimpulsachse, die
+invariable Gerade, und bildet den Herpolhodiekegel. Auch die körperfeste Figuren-
+achse c​⇀rotiert um L​⇀und erzeugt den Nutationskegel.
+
+
+--- PDF page 203 ---
+178
+3 Mechanik des starren Körpers (rigid body)
+Anhang 2 Weiteres vom Kreisel
+A2.1 Gleichsinniger Parallelismus
+Wird ein Kreisel durch ein von außen einwirkendes Drehmoment D​⇀zu einer Bewe-
+gung seiner Achse gezwungen und ist dieses Drehmoment nach Größe und Rich-
+tung konstant, dann wird die Drehimpulsachse schließlich in die Richtung von D​⇀
+gedreht, wobei der Drehimpuls L​⇀wächst (Abb. I-3.18).
+ 
+Kreisel
+Δv
+L = Dv
+⋅dt
+Lv
+Abb. I-3.18: Zum gleichsinnigen Parallelismus. Ein von außen auf die Kreiselachse einwirkendes
+Drehmoment D​⇀dreht die Drehimpulsachse In Richtung von D​⇀. Die zunächst in Richtung L​⇀
+mit ω​⇀rotierende Figurenachse c​⇀beginnt zu nutieren; die gestrichelten Vektoren geben daher
+nicht die Lage der Figurenachse c​⇀wieder.
+Diese Erscheinung heißt Tendenz zum gleichsinnigen Parallelismus. Ist der Dreh-
+impuls des Kreisels Null (nicht aufgezogener Kreisel), dann bewirkt ein aufge-
+brachtes Drehmoment D​⇀eine Drehbeschleunigung um die Richtung des Drehmo-
+ments senkrecht zur Achse A (Achsendrehung) und der Kreisel „folgt“ dem Mo-
+ment, während der aufgezogene Kreisel dem Moment „ausweicht“.27 Versucht man
+z. B. beim aufgezogenen schweren Kreisel (siehe 3.4.2, Abb. I-3.13) die Präzessions-
+frequenz ω​P​ dadurch zu erhöhen oder zu erniedrigen, dass ein beschleunigendes
+oder verzögerndes Drehmoment D​⇀A​ in Richtung der Achse A mit der Hand ausgeübt
+wird (Drehung der Achse), dann stellt sich der Kreisel auf bzw. kippt nach unten:
+ΔL​⇀= D​⇀A​⋅d​t​ ist entweder nach oben oder nach unten gerichtet und addiert sich
+zum vorhandenen Drehimpuls L​⇀, der selbst um A präzediert). Es gelingt auf diese
+Weise nicht, die Präzessionsfrequenz ω​P​ zu verändern, der Kreisel weicht dem Mo-
+ment D​⇀A​ senkrecht aus.
+27 In beiden Fällen ist aber natürlich der Drehimpulszuwachs im Zeitelement dt: ΔL​⇀= D​⇀⋅d​t​ .
+
+
+--- PDF page 204 ---
+Anhang 2 Weiteres vom Kreisel
+179
+A2.2 Der Kreisel im mit der Präzessionsfrequenz Ω
+⇀rotierenden Bezugssystem
+In einem mit der Präzessionsfrequenz Ω⇀= ω​⇀P​ rotierenden Bezugssystem zeigt der
+Kreisel mit Winkelgeschwindigkeit ω​⇀keine Präzession. (Das ist analog zu einem
+Massenpunkt im Schwerefeld in einem mit der Erdbeschleunigung g​⇀beschleunig-
+ten Bezugssystem, dem „fallender Kasten“, siehe Kapitel „Mechanik des Massen-
+punktes, Abschnitt 2.3.2). Die Summe der auf den Kreisel wirkenden Drehmomente
+muss also Null sein, oder: Das physikalische Drehmoment D​⇀, das im Inertialsystem
+die Präzession ω​P​ verursacht, wird durch ein Trägheitsdrehmoment, das Coriolis-
+moment ω​⇀T​ , kompensiert und es gilt (siehe 3.4.2, Gl. I-3.53)
+D​⇀T​ = −D​⇀= −I​(ω​⇀P​ × ω​⇀) .
+(I-3.61)
+Ein mit Ω⇀rotierendes Bezugssystem ist also ein beschleunigtes Bezugssystem, in
+dem Trägheitsdrehmomente auftreten; so wie der „fallende Kasten“ ein beschleunig-
+tes Bezugssystem ist, in dem Trägheitskräfte F​⇀T​ = −m​⋅g​⇀auftreten. Diese Trägheits-
+drehmomente D​⇀T​ , welche aufgrund ihrer Ursache als Coriolismomente bezeichnet
+werden, sind im drehenden (beschleunigten) Bezugssystem immer vorhanden und
+sind genauso wie etwa vorhandene physikalische Drehmomente (Kräfte) zu behan-
+deln (siehe auch Kapitel „Mechanik des Massenpunkts“, Abschnitt 2.3.3).
+Beispiel 1: Im drehenden Bezugssystem wirke kein physikalisches Moment D​⇀: Im
+Inertialsystem sei der Kreisel kräftefrei. Dann wirkt im mit ω​⇀P​ rotierenden Sys-
+tem nur das Trägheitsdrehmoment D​⇀T​ = −I​(ω​⇀P​ × ω​⇀) , das den Kreisel im rotieren-
+den System mit der Winkelgeschwindigkeit −Ω⇀präzedieren lässt.
+Beispiel 2: Kreisel im rotierenden Erdsystem – Kreiselkompass.
+Die Winkelgeschwindigkeit der Erdrotation ω​⇀E​ = 2 π​
+Tag = 2 π​
+d
+nimmt jetzt im
+Coriolismoment D​⇀T​ die Stelle von ω​P​ ein: D​⇀T​ = −I​(ω​⇀P​ × ω​⇀) . Wird der Kreisel mit
+seinem Lagergehäuse fest mit der rotierenden Erde verbunden, so ist er gezwun-
+gen, die Erdrotation ω​⇀E​ voll mitzumachen, sodass er relativ zur Erde ruht. Dann
+müssen Lagerkräfte ein Zwangsmoment D​⇀Z​w​ erzeugen, welches das Coriolis-
+moment kompensiert: D​⇀Z​w​ = I​(ω​⇀E​ × ω​⇀). Ist der Kreisel andererseits so gelagert,
+dass er nur eine Komponente, die Horizontalkomponente ω​⇀E​H​ von ω​⇀E​ mitzuma-
+chen gezwungen ist (Kreiselkompass), dann wird auch nur diese Komponente
+ω​⇀E​H​ ein Zwangsmoment D​⇀′Z​w​ = I​(ω​⇀E​H​ × ω​⇀) hervorrufen, das vertikal nach oben
+zeigt (in Zenitrichtung).
+
+
+--- PDF page 205 ---
+180
+3 Mechanik des starren Körpers (rigid body)
+N
+Horizont
+A
+S
+A′
+ 
+φ
+φ
+ω
+EH
+ω
+EV
+ω
+E
+ω
+Dieses vertikale Zwangsmoment ist aber nur vorhanden, solange ω​⇀E​H​ und ω​⇀
+nicht parallel sind, die Kreiselachse also nicht in der Meridianebene der Erde
+liegt. Dann wird aber D​⇀′Z​w​ den Kreiselrahmen samt Kreisel beschleunigt um die
+Achse AA′ in die Meridianebene zurückdrehen und darüber aufgrund der Träg-
+heit hinaus schwingen, sodass die Einstellung in die Meridianebene in Form
+gedämpfter Schwingungen erfolgt. Die freie Komponente ω​⇀E​H​ von ω​⇀E​ bewirkt
+eine Präzession des Kreisels mit ω​⇀P​ = ω​⇀E​H​ , welche den Kreisel aus der Meridian-
+ebene nach Ost hinausdreht, das dadurch entstehende Zwangsmoment D​⇀′Z​w​
+führt ihn aber wieder in die N-S-Richtung zurück. Am Nordpol ist der Kreisel-
+kompass wegen des Verschwindens von ω​⇀E​H​ unwirksam. In dieser Region wird
+astronomisch bzw. heute mit GPS 28 navigiert.
+28 Global positioning system: Genaue Positionsbestimmung aus der Laufzeit von Signalen elektro-
+magnetischer Wellen zu geostationären Navigationssatelliten. Geostationärer Satellit: künstlicher
+
+
+--- PDF page 206 ---
+Anhang 2 Weiteres vom Kreisel
+181
+Bewegungsgleichung des Kreisels für kleine Winkelabweichungen α von der
+Meridianebene:
+D​⇀′Z​w​ = I​(ω​⇀E​H​ × ω​⇀) ⇒D​′Z​w​ = |D​′Z​w​| = I​⋅ω​E​H​⋅ω​⋅sin α​ ≅I​ω​E​ ω​ cos φ​
+⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟⏟
+= D​
+⋅α​ = I​A​A​′α​̈ .
+Dies ist die Schwingungsgleichung eines physikalischen Pendels mit dem Direk-
+tionsmoment (zum Richtmoment, siehe Kapitel „Deformierbare Körper“, Ab-
+schnitt 4.2.2, Beispiel ‚Torsion eines Stabes‘)
+D​ = I​ω​E​ ω​ cos φ​
+mit
+ω​E​ = 2 π​
+d =
+2 π​
+86 164 s = 7,3⋅10−5 rad s−1 .
+Die Idee zum Kreiselkompass stammt von L. Foucault (Jean Bernard Léon
+Foucault, 1819–1868) aus dem Jahre 1856. Wegen der Kleinheit des Direktions-
+moments gelang die erste praktische Ausführung erst zu Beginn des 20. Jh.s Her-
+mann Anschütz-Kaempfe (1872–1931) in einer von der beschriebenen Ausfüh-
+rung abweichenden Form, indem die Bindung an die Horizontalebene nicht
+durch einen um die Achse AA′ gelagerten Rahmen, sondern durch Pendelauf-
+hängung gesichert wird, wobei der Kreisel an einem vertikalen Arm und dieser
+an einem Schwimmer montiert ist, der in einer Quecksilberwanne allseits be-
+weglich getragen wird. Dadurch treten neben den Coriolismomenten auch noch
+physikalische Pendelmomente auf, die das Direktionsmoment vergrößern. Der
+Kreisel ist als Läufer eines Drehstrommotors mit 20 000 U/min ausgeführt und
+besitzt ein Trägheitsmoment I = 14⋅10
+−3 kg m
+2 (⌀= 0,15 m, m = 5 kg, L = 28⋅
+10
+4 kg m
+2/s). Damit ergibt sich am Äquator ein Richtmoment von D = 2⋅10
+−3 Nm.
+Zum Vergleich: Ein Fadenpendel mit l = 1 m Länge und der Masse m = 1 g besitzt
+ein Richtmoment von
+D​P​ = m​g​l​ = 10−3 kg⋅9,81 m/s2⋅1 m = 9,81⋅10−3 Nm .
+A2.3 Das Zentrifugalmoment eines Körpers, der nicht um eine
+Hauptträgheitsachse rotiert
+Ein symmetrischer Körper mit den Hauptachsen a und c rotiert um eine in Lagern
+gehaltene Achse x ≠a ≠c (Abb. I-3.19).
+Erdsatellit auf einer Bahn 35 786 km über dem Äquator („geostationäre Umlaufbahn“) mit genau
+einer Erdumrundung pro Tag. Die Position eines geostationären Satelliten ist daher in Bezug auf
+die Erdoberfläche konstant.
+
+
+--- PDF page 207 ---
+182
+3 Mechanik des starren Körpers (rigid body)
+F
+F
+a
+c
+x
+S
+l
+μ
+ω
+a
+ω
+Abb. I-3.19: Zum Zentrifugalmoment eines Körpers, der nicht um eine Hauptträgheitsachse rotiert.
+Es gilt:
+ω​a​ = ω​⋅sin μ​ ,
+ω​̇a​ = 0
+ω​b​ = 0 ,
+ω​̇b​ = 0
+(I-3.62)
+ω​c​ = ω​⋅cos μ​ ,
+ω​̇c​ = 0
+Aus den Euler-Gleichungen (Abschnitt 3.4.3, Gl (I-3.59)) folgt mit Ia = Ib < Ic
+D​a​ = 0
+−D​b​ = (I​c​ −I​a​)ω​2 sin μ​ cos μ​ = F​⋅l​
+(I-3.63)
+D​c​ = 0 .
+Diese Momente wirken im körperfesten Hauptachsensystem, das im Raum mit ω​⇀
+rotiert. Das auf den Kreisel wirkende Moment −D​b​ = F​⋅l​ wird von den Lagerkräften
+aufgenommen. Es steht senkrecht auf der durch die Hauptachsen a und c aufge-
+spannten Ebene und dreht sich mit der Winkelgeschwindigkeit ω​⇀um die Achsrich-
+tung x. −D​b​ wird Zentrifugalmoment genannt und bewirkt eine mit ω​⇀umlaufende
+Lagerbeanspruchung durch die Kraft F.
