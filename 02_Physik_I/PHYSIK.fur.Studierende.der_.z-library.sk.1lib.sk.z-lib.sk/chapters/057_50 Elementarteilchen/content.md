@@ -1,0 +1,256 @@
+# 50 Elementarteilchen
+
+原始 PDF 第 610–620 页。
+
+50
+
+Elementarteilchen
+
+Woraus ist die Welt aufgebaut? Welches sind ihre kleinsten Bausteine? Welcher Art sind die zwischen ihnen wirkenden fundamentalen Kräfte? Die Suche nach Antworten auf diese Fragen ist Gegenstand der **Elementarteilchenphysik**. Ihre Aufklärung erfordert „Mikroskope“ wachsenden Auflösungsvermögens. Mittels hochauflösender Elektronenmikroskope lassen sich bei Beschleunigungsspannungen für die Elektronen in der Größenordnung von MeV $( 1 0 ^ { 6 }$ Elektronvolt) einzelne Atome sichtbar machen. Will man aber in die subatomare Welt vordringen, z. B. die innere Struktur des Protons untersuchen, muss man räumliche Abmessungen von $\Delta x \approx 1 0 ^ { - 1 6 }$ m auflösen. Die dazu verwendeten „Geschosse“ müssen nach der Unbestimmtheitsrelation (43.24) einen Impuls $p \gtrapprox h / \Delta x$ haben. Dies erfordert Energien m $\imath v ^ { 2 } / 2 = p ^ { 2 } / ( 2 m )$ in der Größenordnung von GeV $( 1 0 ^ { 9 }   \mathrm { { \bf e V } } )$ , wie sie nur mit äußerst leistungsstarken Teilchenbeschleunigern erzeugt werden können. Die beschleunigten Teilchen dienen gleichsam als Sonden, mit denen die Struktur eines Atomkerns bzw. seiner Bestandteile „ertastet“ wird. Die Elementarteilchenphysik ist daher im Wesentlichen eine Physik hoher Energien.
+
+## 50.1 Entwicklung zum Teilchen-„Zoo“
+
+Nachdem zunächst (1932) die Kernteilchen Proton und Neutron sowie das die Atomhülle aufbauende Elektron als alleinige Elementarteilchen angesehen wurden, konnten bald danach in der **kosmischen Strahlung (Höhenstrahlung)**, einer aus dem Weltall auf die Erde einfallenden Strahlung von außerordentlich hoher Durchdringungsfähigkeit, eine Reihe neuer Teilchen unterschiedlichster Art nachgewiesen werden, von denen die meisten erst in der Erdatmosphäre entstehen, indem die primär aus dem Kosmos stammenden Teilchen mit den Atomen der Luft zusammenprallen und hier die verschiedensten Kernprozesse auslösen. Diese primären Teilchen der kosmischen Strahlung sind vorwiegend Protonen mit Energien bis zu $\mathrm { i 0 ^ { 1 1 } }$ GeV, während die sekundäre Strahlung in ihrer „harten“ Komponente, die in Erdbodennähe etwa 90% der Gesamtstrahlung ausmacht, vorwiegend aus mittelschweren Teilchen, den **Mesonen** $\pi ^ { + }$ $\pi ^ { - }$ und $\pi ^ { 0 }$ (Pionen) mit 273- bzw. 264-facher Elektronenmasse sowie den Myonen $\mu ^ { + }$ und $\mu ^ { - }$ mit 207-facher Elektronenmasse, besteht, und in ihrer „weichen“, am Erdboden nur schwach vertretenden Komponente aus Elektronen, Positronen und Gammaquanten (Photonen).
+
+Darüber hinaus konnten in der kosmischen Strahlung, aber auch in Beschleunigerexperimenten die **K-Mesonen** $\mathrm { K ^ { + } , K ^ { - } }$ und $\mathrm { K } ^ { 0 }$ **(Kaonen)**, deren Masse mit 966- bzw. 974-facher Elektronenmasse zwischen derjenigen der Pionen und der Nukleonen liegt, sowie die überschweren **Hyperonen**, z. B. $\Lambda ^ { 0 } ,   \Sigma ^ { + } ,   \Sigma ^ { - } ,   \Sigma ^ { 0 } ,   \Xi ^ { + } ,   \Xi ^ { - } ,   \Xi ^ { 0 } ,   \Omega ^ { - }$ , deren Masse (etwa 2200...3300 Elektronenmassen) die der Nukleonen mit 1840-facher Elektronenmasse übersteigt, nachgewiesen werden. Alle diese Teilchen sind instabil. So hatte man bis Ende der fünfziger Jahre des 20. Jahrhunderts mehr als hundert und bis 1965 bereits etwa 300 neue Teilchen, also einen ganzen $\mathrm{Teilchen-,Zoo^{a}}$ “, hervorgebracht, Teilchen, die wenig mit dem Aufbau der Atomkerne zu tun haben und von denen man kaum mehr annehmen durfte, sie seien alle „elementar“.
+
+---
+
+608
+
+50 Elementarteilchen
+
+Hinzu kommt, dass 1955 das Gegenstück zum Proton, das Antiproton (p), und ein Jahr spä ter auch das Antineutron (n) erzeugt und nachgewiesen werden konnte, und es bald darauf auch gelang, auf experimentellem Wege Neutrino (ν) und Antineutrino (ν) voneinander zu unterscheiden. Es war somit zu erwarten, dass auch jedes andere Teilchen ein „Spiegelbild“in Form eines **Antiteilchens** hat, wobei sich Teilchen und zugehöriges Antiteilchen durch das Vorzeichen der elektrischen Ladung und des magnetischen Moments, zusätzlich aber noch im Vorzeichen weiterer sog. ladungsartiger Quantenzahlen (B, L, S, Y , vgl. 50.2) voneinander unterscheiden. In Bezug auf Masse und Lebensdauer stimmen die Antiteilchen mit ihrem Partner überein.
+
+Teilchen und zugehöriges Antiteilchen können sich beim Zusammentreffen gegenseitig vernichten, indem eine Umwandlung ihrer Ruhmasse in Energie stattfindet, die dann in Form von Gammastrahlung in Erscheinung tritt (Annihilation, Zerstrahlung, Paarvernichtung). Umgekehrt kann aus energiereichen Gammaquanten im Kernfeld ein Teilchenpaar, bestehend aus Teilchen und Antiteilchen, gebildet werden. Dieser Paarbildungsprozess war für Elektronen und ihre Antiteilchen, die Positronen, schon seit längerer Zeit bekannt (vgl. Abschnitt 44.12).
+
+Es ist nicht ausgeschlossen, dass in anderen Teilen des Universums **Antimaterie** in makroskopischem Ausmaß existiert, die aus Antikernen, Antiatomen, Antimolekülen usw. besteht, wofür allerdings astrophysikalische Hinweise bislang fehlen. Am Kernforschungszentrum CERN gelang 1995 erstmals die Erzeugung von rund ein Dutzend Anti-Wasserstoffatomen, welche nur 30ns lang existierten und dann je in ein Antiproton und ein Antielektron zerfielen.
+
+Elektron, Myon und Neutrino, das sind die Teilchen der schwachen Wechselwirkung (vgl. 48.2), werden zusammen als **Leptonen** bezeichnet; sie besitzen halbzahligen Spin (1/2). Die Teilchen der starken Wechselwirkung (vgl. 47.6) sind die **Quarks**, aus denen die Hadronen zusammengesetzt sind (s. später in 50.3 und 50.4). Es gibt zwei verschiedene Hadronenarten, die Baryonen mit halbzahligem Spin (1/2, 3/2), zu denen die Nukleonen (Proton und Neutron) sowie die Hyperonen gehören, und die Mesonen mit ganzzahligem Spin (0 oder 1), also die Pionen, Kaonen und weitere. Baryonen zerfallen stets in Protonen oder Neutronen, Mesonen in Photonen, Elektronen und Neutrinos.
+
+## 50.2 Erhaltungssätze für Baryonenladung, Leptonenladung, Isospin, Strangeness und Hyperladung
+
+Neben den bekannten Erhaltungssätzen für Energie, Impuls und Drehimpuls sowie für die elektrische Ladung, letztere in Form der **Ladungsquantenzahl** Q = 0, +1, −1 (= Vielfaches der Elementarladung e), gelten für die Elementarteilchen noch Erhaltungssätze für eine Reihe anderer sog. ladungsartiger Quantenzahlen. (Die Bezeichnung „Ladung“ hat bei diesen allerdings nichts mit Elektrizität zu tun.) So wird jedem Baryon, etwa einem Proton oder Neutron, die **Baryonenladung (Baryonenzahl)** B = +1, einem Antibaryon B = −1 und jedem anderen Teilchen, auch den Photonen, B = 0 zugeordnet. Da Baryonen (im Gegensatz zu Mesonen) weder einzeln erzeugt werden noch durch Zerfall verschwinden können, sondern stets direkt oder über einen Umweg in Protonen oder Neutronen zerfallen, muss bei allen Reaktionen zwischen Elementarteilchen die Summe der Baryonenladungen auf beiden Seiten der Reaktionsgleichung erhalten bleiben. Ein einfaches Beispiel hierfür ist die Gleichung für die Entstehung
+
+---
+
+50.2 Erhaltungssätze für Baryonenladung, Leptonenladung und Isospin
+
+609
+
+eines $\pi ^ { + }$ -Mesons
+
+$$
+\mathrm{p} + \mathrm{p} + \text {Energie} \rightarrow \mathrm{p} + \mathrm{n} + \pi^ {+}
+$$
+
+$$
+B: 1 + 1 \quad = 1 + 1 + 0.
+$$
+
+Aus der Erhaltung der Baryonenladung folgt die Stabilität des leichtesten Baryons, des Protons. Ein entsprechender Erhaltungssatz gilt auch für das Elektron, das Positron und die übrigen Mitglieder einer jeden Leptonenfamilie (vgl. Tabelle 50.1 im folgenden Abschnitt), wobei man dem Elektron sowie dem Neutrino die dem Vorzeichen nach willkürlich festgelegte **Elektron-**Leptonenladung (Leptonenzahl) $L _ { \mathrm { e } } = + 1$ zuordnet. Das Positron als Antiteilchen zum Elektron erhält damit zwangsläufig $L _ { \mathrm { e } } = - 1$ . Auf den $\beta ^ { - }$ -Zerfallsprozess (48.2) angewandt, ergibt sich somit
+
+$$
+\mathrm{n} \rightarrow \mathrm{p} + \mathrm{e} ^ {-} + \overline {{\nu}} _ {\mathrm{e}}
+$$
+
+$$
+L _ {\mathrm{e}} \colon 0 = 0 + 1 - 1.
+$$
+
+Da Neutron und Proton Baryonen sind, haben sie die Leptonenladung 0. Man erkennt, dass dem in der Gleichung vorkommenden Neutrino $\overline { { \nu } } _ { \mathrm { e } }$ zwangsläufig $L _ { \mathrm { e } } = - 1$ zukommen muss, damit der Erhaltungssatz für die Leptonenladung erfüllt ist. Daraus ergibt sich, dass es sich bei dem entstehenden Neutrino um ein Antineutrino handelt, was durch den Querstrich über dem Symbol angedeutet ist. Analoge Erhaltungssätze gelten ebenso für die Myon-Leptonenzahl $L _ { \mu }$ und die Tauon-Leptonenzahl $L _ { \mathrm { { T } } }$
+
+Eine bereits 1932 unabhängig voneinander von HEISENBERG und IWANENKO zum Zwecke der Unterscheidung von Proton und Neutron als verschiedene Ladungszustände ein und desselben Teilchens, des Nukleons, eingeführte Quantenzahl ist der Isospin I. Es handelt sich um einen Vektor, den man sich in formaler Analogie zum mechanischen Drehimpuls der Elektronen im Atom gebildet denken kann und dessen dritte Komponente $I _ { 3 } \left( = I _ { z } \right)$ genau $( 2 I   +   1 )$ verschiedene Werte annehmen kann, denen ebenso viele Orientierungen von I im Raum entsprechen (analog zur Richtungsquantelung, vgl. 44.5). Für $I = \frac { 1 } { 2 }$ erhält man demnach $\left( 2 \cdot { \frac { 1 } { 2 } } + 1 \right) ^ { 2 } = 2$ Werte für $I _ { 3 } ,$ , und zwar $+ { \frac { 1 } { 2 } }$ für das Proton und $-\frac{1}{2}$ für das Neutron. Pionen hat man den Isospin $I = 1$ zuzuordnen, entsprechend den drei verschiedenen $I_{3} - \mathrm{Weren} + 1$ für das $\pi ^ { + }$ -Meson, 0 für das $\pi ^ { 0 }$ -Meson und −1 für das $\pi ^ { - }$ -Meson. Bei der starken Wechselwirkung bleibt der **Isospin** erhalten $( \Delta I = 0 )$ , ganz entsprechend zum mechanischen Drehimpulserhaltungssatz.
+
+**Strangeness (Seltsamkeit)** S. Es fällt auf, dass die Hyperonen und die Kaonen im Vergleich zu ihrer Erzeugungsdauer, die bei $1 0 ^ { - 2 3 }$ s liegt, eine sehr lange mittlere Lebensdauer von der Größenordnung $\stackrel { - } { 1 0 ^ { - 1 0 } }$ s haben, bevor sie zerfallen. Das bedeutet, dass die Vorgänge Erzeugung und Zerfall bei diesen Teilchen nicht mit der gleichen Wahrscheinlichkeit ablaufen. Man nennt sie daher seltsame Teilchen (strange particles). Auch entstehen diese Teilchen stets nur zu zweit, wie das Beispiel des Zusammenstoßes eines Pions mit einem Proton gemäß
+
+$$
+\pi^ {-} + \mathrm{p} + \text {Energie} \rightarrow \Lambda^ {0} + \mathrm{K} ^ {0}
+$$
+
+zeigt, wo ein $\Lambda ^ { 0 }$ -Teilchen und ein Kaon gebildet werden. Zur Kennzeichnung dieses in mehrererlei Hinsicht merkwürdigen Verhaltens dieser Teilchen wurde eine neue Quantenzahl, die Strangeness S, eingeführt (GELL-MANN, NISHIJIMA). Es ist $S = 0$ für alle „normalen“ Teilchen, $S = + 1   \mathrm { f i i r }   \mathrm { K } ^ { + }$ bzw. $\mathrm { K ^ { 0 } }$ und $S = - 1   \mathrm { f i i r }   \mathrm { K } ^ { - }$ sowie für die Hyperonen $\Lambda ^ { 0 } , \Sigma ^ { + } , \Sigma ^ { 0 }$ und $\Sigma ^ { - }$ . Auch für
+
+---
+
+610
+
+50 Elementarteilchen
+
+die Strangeness gilt ein Erhaltungssatz: Die Summe der Quantenzahlen S für alle Prozesse der starken Wechselwirkung muss konstant bleiben.
+
+Baryonenladung B und Strangeness S werden zur **Hyperladung** Y zusammengefasst:
+
+$$
+Y = B + S. \tag {50.1}
+$$
+
+Auch für sie gilt wegen der Erhaltung der Baryonenladung ein Erhaltungssatz. Isospinkomponente $I _ { 3 } ,$ Hyperladung Y und elektrische Ladungsquantenzahl $Q$ des Teilchens sind über die Beziehung
+
+$$
+Q = I _ {3} + \frac {Y}{2} \tag {50.2}
+$$
+
+miteinander verknüpft.
+
+## 50.3 Die elementaren Teilchen: Leptonen und Quarks
+
+Seit Anfang der 70er Jahre hat man ein Bild vom Aufbau der Materie, wonach **Leptonen** und **Quarks** (beide vom Spin 1/2, also Fermionen) die fundamentalen Bausteine der Natur sind. Beide Teilchenarten treten offenbar in drei „Familien“ zu je zwei Teilchen auf, die sich durch ihre Massen unterscheiden, eine leichte, eine mittelschwere und eine schwere (Tabelle 50.1). Zur ersten Leptonenfamilie gehören die bereits in Abschnitt 48.2 beschriebenen Teilchen Elektron $( \mathbf { e } ^ { - } )$ und Elektron-Neutrino $( \nu _ { \mathrm { e } } )$ , zur zweiten und dritten Leptonenfamilie zählen das My on $( \mu ^ { - } )$ und das Tauon (τ ), beide ebenfalls mit je einer negativen Elementarladung, sowie die zugehörigen Neutrinos $\nu _ { \mu }$ und $\nu _ { \tau }$ . Die Neutrinos tragen keine elektrische Ladung, die Frage nach ihrer Ruhmasse ist heute noch offen. Zu allen Teilchen gibt es Antiteilchen.
+
+1964 schlugen GELL-MANN und ZWEIG auf Grund theoretischer Überlegungen unabhängig voneinander ein Modell vor, wonach alle Hadronen, u. a. die Nukleonen Proton (p) und Neutron (n), aus „elementareren“ Teilchen, den sog. Quarks, aufgebaut sind. (Der Name „Quark“war von GELL-MANN – sicher in Unkenntnis der deutschen Bedeutung des Wortes – vorgeschlagen worden; es handelt sich um ein Phantasiewort aus dem Roman „Finnegan’s Wake von JAMES JOYCE.) Mit zwei elementaren Quarks, dem **down**- und dem **up**-Quark (abgekürzt d, u), und deren Antiquarks $\overline { { \mathbf { d } } }$ und u lassen sich dann – wie im nächsten Abschnitt gezeigt wird – die Kernbausteine Proton und Neutron zusammensetzen.
+
+Die beiden Quarks d und u bilden die erste der drei (bis jetzt bekannten) Quarkfamilien (s. Tabelle 50.1); es folgen in den beiden anderen Familien (mit steigender Masse) die Quarks **strange** (s) und **charm** (c) sowie **bottom** (b) und **top** (t, erst 1994 entdeckt). Diese sechs verschiedenen Quark-Sorten werden durch ihr **„Flavour“** (Aroma) unterschieden. Es handelt sich dabei um eine Phantasiebezeichnung für Eigenschaften der Quarks, für die wir kein anschauliches Analogon kennen. Dem Flavour „strange“ beim s-Quark kommt die Strangeness S = −1 zu (vgl. 50.2), für alle anderen Quarks ist S = 0. Alle Quarks haben die Leptonenzahl $L = 0$ und die Baryonenzahl $B = 1 / 3$ . Für die erste Quarkfamilie ist der Isospin $I = 1 / 2$ mit $I _ { 3 } = + 1 / 2$ für das u-Quark und −1/2 für das d-Quark; für alle anderen Quarks ist $I _ { 3 } = 0$ . Für die elektrische Ladung Q der Quarks errechnet man nach Gleichung (50.1) und (50.2) zur Überraschung Beträge von −1/3 und +2/3 der Elementarladung e, was im Gegensatz zu unserer bisherigen Kenntnis von der Unteilbarkeit der Elementarladung steht.
+
+---
+
+50.3 Die elementaren Teilchen: Leptonen und Quarks
+
+611
+
+## Quarks sind Fermionen (Spin 1/2) mit den Ladungsquantenzahlen –1/3 und +2/3 (bei den Antiquarks entgegengesetzte Vorzeichen). Aus ihnen lassen sich alle Hadronen (Baryonen und Mesonen) als Kombination aufbauen.
+
+Diese unsere Welt einschließlich der stabilen Materie im Kosmos, soweit er uns bekannt ist, besteht aus den Teilchen der ersten Leptonen- und Quarkfamilie; es sind dies die fünf Fermionen $\mathbf { e } ^ { - } , \nu _ { \mathbf { e } } , \overline { { \nu } } _ { \mathbf { e } } ,$ u- und d-Quark. Die Teilchen der beiden anderen Familien entstehen nur unter extremen Bedingungen und sind so instabil, dass sie sehr schnell wieder in die genannten stabilen Teilchen der ersten Familie zerfallen.
+
+Tabelle 50.1 Die elementaren Teilchen
+
+Zu jedem der aufgeführten Teilchen gibt es ein Antiteilchen (durch einen Querstrich über dem Symbol zu kennzeichnen). Die Masse ist als Vielfaches der Elektronen-Ruhmasse (0,511MeV/c<sup>2</sup>) angegeben. Das t-Quark wurde erstmals 1994 am Fermilab nachgewiesen.
+
+<table><tr><td>Familie</td><td>Leptonen</td><td>elektrische Ladungs-quantenzahl</td><td>Masse</td><td>Quarks</td><td>elektrische Ladungs-quantenzahl</td><td>Masse</td></tr><tr><td rowspan="2">1</td><td>Elektron  $e^{-}$ </td><td>-1</td><td>1</td><td>down (d)</td><td>-1/3</td><td>≈ 16</td></tr><tr><td>Elektron-Neutrino  $\nu_{e}$ </td><td>0</td><td>0 (?)</td><td>up (u)</td><td>+2/3</td><td>≈ 10</td></tr><tr><td rowspan="2">2</td><td>Myon  $\mu^{-}$ </td><td>-1</td><td>207</td><td>strange (s)</td><td>-1/3</td><td>≈ 320</td></tr><tr><td>Myon-Neutrino  $\nu_{\mu}$ </td><td>0</td><td>0 (?)</td><td>charm (c)</td><td>+2/3</td><td>≈ 3000</td></tr><tr><td rowspan="2">3</td><td>Tauon  $\tau^{-}$ </td><td>-1</td><td>3477</td><td>bottom (b)</td><td>-1/3</td><td>≈ 8500</td></tr><tr><td>Tauon-Neutrino  $\nu_{\tau}$ </td><td>0</td><td>0 (?)</td><td>top (t)</td><td>+2/3</td><td>~ 340000</td></tr></table>
+
+Die Quarkhypothese fand 1967 ihre experimentelle Bestätigung durch Streuexperimente mit hochenergetischen Elektronen, die man auf Protonen schoss (analog den Streuexperimenten mit α-Teilchen an Atomkernen nach Bild 44.1b). Aus ihnen ging hervor, dass sich im Proton tatsächlich drei punktförmige Streuzentren befinden, die als reale Quarks identifiziert werden konnten. Es ist bislang allerdings nicht gelungen, Quarks voneinander zu isolieren und als freie Teilchen nachzuweisen.
+
+Da Quarks Fermionen sind, müssen sie sich innerhalb eines Hadrons nach dem PAULI-Prinzip in einer Quantenzahl unterscheiden, was in manchen Hadronen (z. B. beim $\Omega ^ { - }$ -Teilchen) nicht der Fall zu sein schien. Dies erforderte für jedes Quarkflavour die Einführung einer zusätzlichen Quantenzahl, der sog. Farbladung $( , \mathbf { c o l o u r } ^ { a } )$ , die indes weder als Farbe im üblichen Sinne noch als elektrische Ladung zu verstehen ist. Symbolisch werden den Quarks die Farbladungszustände rot (r), grün (g) und blau (b) zugeordnet, den Antiquarks entsprechend die Farbladungen antirot (r, türkis), antigrün (g, lila) und antiblau (b, gelb). Analog zur elektrischen Neutralität, die durch gleich große positive und negative Ladungen erreicht wird, müssen bei den Hadronen entweder die zwei Colourzustände Farbe und Antifarbe oder die drei Colourzustände rot, grün und blau zusammentreffen, damit das zusammengesetzte Teilchen farblos $( , \mathrm { w e i g } ^ { a } )$ wird, entsprechend der Farbladung null. Hadronen sind nach außen hin farbneutral und können deshalb frei existieren. Dies könnte einer der Gründe dafür
+
+---
+
+612
+
+50 Elementarteilchen
+
+sein, dass einzelne Quarks nicht vorkommen. Der entscheidende Grund aber dürfte in den außerordentlich hohen Bindungskräften zwischen den Quarks zu suchen sein.
+
+Die „Farben“ der Quarks, für deren Existenz es seit 1973 experimentelle Beweise durch Messungen an Elektron-Positron-Speicherringen gibt, bestimmen das gegenseitige Verhalten der Quarks bei der starken Wechselwirkung (s. 50.5).
+
+## 50.4 Zusammengesetzte Elementarteilchen. Hadronen
+
+Die Forderung nach Neutralität der Farbladung (vgl. vorigen Abschnitt) führt zur Existenz von zwei Hadronenarten, den Mesonen und den Baryonen.
+
+**Mesonen.** Hadronen, die aus einem Quark und einem Antiquark „bestehen“, werden als Mesonen bezeichnet. Wenn die Spins der beiden Quarks antiparallel zueinander ausgerichtet sind, spricht man von skalaren Mesonen (Gesamtspin null). Sechs Quarks und sechs Antiquarks lassen sich zu 36 verschiedenen skalaren Mesonen kombinieren, von denen bisher allerdings noch nicht alle nachgewiesen wurden. Zu ihnen gehören die Pionen
+
+$$
+\pi^ {-} = (\mathrm{d} + \overline {{\mathrm{u}}}) \equiv \mathrm{d} \overline {{\mathrm{u}}} \quad \text {und} \quad \pi^ {+} = (\overline {{\mathrm{d}}} + \mathrm{u}) \equiv \overline {{\mathrm{d}}} \mathrm{u}
+$$
+
+mit Lebensdauern von $^ { 2 , 6 \cdot 1 0 ^ { - 8 } \mathrm { s } }$ . Bei Parallelität der beiden Spins handelt es sich um sog. Vektormesonen. Auch in diesem Fall werden 36 verschiedene Quarkkombinationen erwartet. Zu den bisher gefundenen gehören die Vektorkaonen
+
+$$
+\mathrm{K} ^ {* -} = (\overline {{\mathrm{u}}} + \mathrm{s}) \equiv \overline {{\mathrm{u}}} \mathrm{s} \quad \text {und} \quad \mathrm{K} ^ {* +} = (\mathrm{u} + \overline {{\mathrm{s}}}) \equiv \mathrm{u} \overline {{\mathrm{s}}}
+$$
+
+mit wesentlich kürzeren Lebensdauern von $^ { 1 , 3 \cdot 1 0 ^ { - 2 3 } } \mathrm { s }$ . Da alle Mesonen zu gleichen Teilen aus Teilchen und Antiteilchen (Materie und Antimaterie) bestehen, sind sie ausnahmslos instabil und zerfallen in Photonen und Leptonen.
+
+**Baryonen.** Hadronen, die aus drei Quarks bzw. drei Antiquarks bestehen, heißen Baryonen bzw. Antibaryonen. Parallelstellung der drei beteiligten Spins lässt 56 verschiedene Spin-3/2- Baryonen zu, von denen erst wenige gefunden wurden. Die Anzahl der möglichen Spin-1/2- Baryonen ist noch größer, da es von erheblicher Bedeutung sein kann, welche der drei Spins parallel auftreten. So hat z. B. $\Lambda ^ { 0 } \equiv \mathbf { d u s }$ mit u ↑↑ s eine mittlere Lebensdauer von $3 \cdot 1 0 ^ { - 1 0 }   \mathrm { s } ,$ während $\Sigma ^ { 0 } \equiv \mathbf { d u s }$ mit u ↑↑ d nur eine Lebensdauer von $6 \cdot 1 0 ^ { - 2 0 }$ s aufweist. Die wichtigsten Spin-1/2-Baryonen sind das Proton und das Neutron:
+
+$$
+\mathrm{p} = (\mathrm{d} + 2 \mathrm{u}) \equiv \mathrm{duu} \quad \text {und} \quad \mathrm{n} = (2 \mathrm{d} + \mathrm{u}) \equiv \mathrm{ddu}.
+$$
+
+Das freie Neutron zerfällt mit einer mittleren Lebensdauer von $( 8 7 6 \pm 2 0 )$ s; vgl. den folgenden Abschnitt.
+
+Viele der neu entdeckten Hadronen konnten als angeregte Zustände anderer Teilchen inter pretiert werden, die – wie ein angeregtes Wasserstoffatom – durch Energieabstrahlung in den Grundzustand übergehen. Diese angeregten Zustände heißen **Resonanzen**. Die Energieabgabe (bzw. auch -aufnahme) erfolgt dabei durch Emission bzw. Absorption von Photonen, Leptonen, Quarks usw., wodurch sich die verschiedenen Hadronenzustände ineinander umwandeln.
+
+---
+
+50.5 Die elementaren Kräfte (Wechselwirkungen). Feldquanten
+
+613
+
+## 50.5 Die elementaren Kräfte (Wechselwirkungen). Feldquanten
+
+Zwischen den Elementarteilchen treten vier Arten von Kräften auf, die starke, die elektromagnetische, die schwache und die Gravitationskraft. Sie sind der Schlüssel zum Verständnis der Struktur der Materie. Reichweite und relative Stärke dieser Kräfte sind in Tabelle 50.2 angegeben. Nach heutiger Sicht werden die verschiedenen Arten von Kräften oder Wechselwirkungen durch eine besondere Gruppe von Austauschteilchen, die so genannten **Feldquanten**, hervorgerufen, so wie am Beispiel des Zustandekommens der Kernkraft in Bild 47.6 veranschaulicht. Die Feldquanten unterscheiden sich ganz wesentlich von den Leptonen und Quarks: Die meisten von ihnen haben keine Ruhmasse, keine elektrische Ladung und kein magnetisches Moment, und sie haben ganzzahligen Spin, und zwar den Spin 1 (mit Ausnahme des hypothetischen Gravitons mit dem Spin 2). Alle Feldquanten sind also Bosonen; man bezeichnet sie als intermediäre Bosonen.
+
+Tabelle 50.2 Die elementaren Kräfte
+
+| Kraft | Überträger | relative Stärke | Reichweite | Wirkungsbeispiel |
+| --- | --- | --- | --- | --- |
+| Starke Wechselwirkung | Gluonen | 1 (gesetzt) | $10^{-15}$ m | Kernbindungskraft |
+| Schwache Wechselwirkung | Weakonen (Weonen)$W^{+}$, $W^{-}$, $Z^{0}$ (Zeton) | $10^{-1}$ | $10^{-18}$ m | Beta-Zerfall |
+| Elektromagnetische Wechselwirkung | Photon | $10^{-2}$ | ∞ | Bindungskraft des Kristallgitters |
+| Gravitation | Graviton | $10^{-39}$ | ∞ | Schwerkraft |
+
+Die relative Stärke bezieht sich auf die Kraft zwischen zwei Teilchen, extrapoliert auf einen Abstand von $1 0 ^ { - 1 8 }   \mathrm { m }$ (für die schwache Wechselwirkung ist sie nur etwa bei diesem Abstand bekannt).
+
+Die **Gravitationswechselwirkung** ist so schwach, dass sie in der Elementarteilchenphysik keine Rolle spielt. Das zugehörige Feldquant, das Graviton, konnte trotz vieler Bemühungen deshalb bis heute nicht nachgewiesen werden.
+
+Das Feldquant der **elektromagnetischen Wechselwirkung** ist das bereits seit langem bekannte Photon; es vermittelt die Kraft zwischen elektrischen Ladungen, z. B. zwischen Atomkern und Elektronen. Eine Veränderung der Bindungsenergie der Elektronen im Atom geschieht durch den Austausch von Photonen (Emission oder Absorption, vgl. 44.3). Die elektromagnetische Wechselwirkung tritt aber nicht nur im Bereich der Atome auf, sondern wirkt bis auf Entfernungen von Kilometern, sie füllt sozusagen den Größenbereich zwischen Atomkernen und Planetoiden aus. Alle Materie in diesem Bereich verdankt ihre Struktur den elektromagnetischen Kräften zwischen elektrisch geladenen und relativ zueinander bewegten Teilchen. Diese Kräfte sind auch allein maßgebend für das Funktionieren aller unserer technischen Geräte sowie für die Strukturen der belebten Materie und für alle physiologischen Vorgänge.
+
+Die **starke Wechselwirkung** dominiert bei sehr kleinen Abständen über alle anderen Wechselwirkungen. Sie ist aber für Systeme aus mehreren Quarks fast abgesättigt und reicht bei Hadronen nur etwa $1 0 ^ { - 1 5 }$ m weit (Kernkraft). Damit ist sie (sowie auch die unten beschriebene schwache Wechselwirkung) für die Struktur der Materie in diesem Größenbereich verantwortlich, nämlich bei Hadronen, Atomkernen und in sehr dichten kosmischen Objekten wie z. B. Neutronensternen.
+
+---
+
+614
+
+50 Elementarteilchen
+
+Austauschteilchen der starken Wechselwirkung sind die Gluonen (von engl. glue, Klebstoff), welche in acht verschiedenen Farbzuständen vorkommen und die Quarks zu „Quark-Atomen wie Proton und Neutron binden. Gluonen haben jeweils eine Farbe und eine Antifarbe. Beim Austausch eines Gluons zwischen zwei Quarks kann sich die Farbe der Quarks ändern. Zum Beispiel werden durch den Austausch eines rot-antigrünen Gluons $( \mathbf { G _ { r g } } )$ die Farben eines roten und eines grünen Quarks vertauscht, wobei eine anziehende Kraft („Farbkraft“) zwischen den beiden Quarks wirksam wird. Allgemein gilt: Gleiche Farben stoßen sich ab, ungleiche Farben oder ungleichnamige Farbvorzeichen (Antifarben) ziehen sich an. Die Theorie, die diese Wechselwirkung zu beschreiben sucht, heißt **Quantenchromodynamik** QCD (chroma, Farbe). Von der Farbkraft ist letztlich auch die Kernkraft zwischen den Nukleonen abgeleitet. Sie ergibt sich als nichtabgesättigter Anteil der starken Wechselwirkung zwischen den Quarks im Proton und Neutron (s. o.). Wegen der Wechselwirkung der Gluonen untereinander hat die starke Kraft zwischen den Quarks eine erstaunliche Besonderheit: ihre potenzielle Energie steigt mit wachsendem Abstand der Quarks voneinander. Deshalb konnte man bisher auch keine freien Quarks nachweisen.
+
+Leptonen tragen keine Farbladung, sie „spüren“ daher die starke Kraft nicht; sie unterliegen der **schwachen Wechselwirkung**. Nach der Entdeckung der elektrisch geladenen Feldquanten $\mathrm { W } ^ { + }$ und $\mathrm { W } ^ { - }$ , der sog. Weakonen, und des neutralen Zeton $Z ^ { 0 }$ im Jahre 1983 stand zweifelsfrei fest, dass die schwache Wechselwirkung zwischen Leptonen auf den Austausch dieser Teilchen zurückzuführen ist. Bei allen Prozessen der schwachen Wechselwirkung wandeln sich die beteiligten Teilchen stets in andere um, wobei – außer in neutralen Prozessen – immer eine Ladungseinheit übertragen wird, entsprechend dem Austausch eines $\mathrm { W } ^ { + }$ oder $W ^ { - }$ -Bosons. So z. B. wird der Betazerfall des freien Neutrons (48.2) $\mathrm { n } \rightarrow \mathrm { p } + \mathrm { e } ^ { - } + \overline { { \nu } } _ { \mathrm { e } }$ mit einer Halbwertszeit von 15,5min durch den Austausch eines $\mathrm { W } ^ { - }$ -Bosons beschrieben (Bild 50.1). Auf Grund der sehr kurzen Reichweite der schwachen Kraft kommt den Weakonen eine sehr große Masse zu, die etwa 90-mal so groß ist wie die des Protons.
+
+![](../../raw/pages_0609-0640/images/page_616_image_4.jpg)
+
+<details>
+<summary>chemical</summary>
+
+Feynman diagram showing particle interaction with W⁻, electron-hole, and electron-positron exchange
+</details>
+
+Bild 50.1 β-Zerfall des freien Neutrons (n) in ein Proton (p); d, u Quarks, $\overline { { \nu } } _ { \mathrm { e } }$ Anti-Elektron-Neutrino, W−-Boson
+
+**Verletzung der Parität**. Eine Besonderheit der schwachen Wechselwirkung ist, dass der Satz von der Erhaltung der Parität nicht erfüllt ist. Dieser besagt, dass jeder Naturvorgang, wenn er im Spiegel betrachtet wird, wieder ein realer Vorgang ist, d. h. in der Natur mit gleicher Wahrscheinlichkeit auftreten kann. So ist das Spiegelbild einer über starke oder elektromagnetische Wechselwirkung ablaufenden Reaktion zwischen Elementarteilchen wiederum eine physikalisch mögliche Reaktion.
+
+1957 entdeckten LEE, YANG und $\mathrm { W } \mathrm { U } ,$ dass dies für die schwache Wechselwirkung nicht zutrifft; diese Prozesse sind also nicht spiegelungsinvariant. Man spricht von einer Symmetriebrechung, hier speziell der Spiegelungssymmetrie (Parität). So sind die beim o. g. Betazerfallsprozess entstehenden Elektronen stets linkshändig, d. h., die gekrümmten Finger der linken Hand geben die Drehrichtung (Spin) des Teilchens an, wenn der Daumen in die Richtung des Teilchenimpulses (Bewegungsrichtung) zeigt. Im Spiegel betrachtet werden die emittierten Elektronen natürlich rechtshändig; aber es gibt keinen Hinweis darauf, dass ein solcher „spiegelbildlicher“ Betazerfall mit rechtshändigen Elektronen auftritt.
+
+---
+
+50.6 Standardmodell der Teilchenphysik. Vereinheitlichte Theorie der elementaren Kräfte
+
+615
+
+In dem Bestreben, das gesamte Naturgeschehen auf wenige fundamentale Kräfte zurückzuführen, gelang es 1967 GLASHOW, SALAM und WEINBERG, die elektromagnetische und die schwache Kraft zu einer einheitlichen Theorie der **elektroschwachen Wechselwirkung** zu vereinen (GSW-Theorie). Diese Theorie kann nach der Entdeckung der intermediären Bosonen $W ^ { \pm }$ und $Z ^ { 0 }$ als bestätigt angesehen werden. Schwierigkeiten ergeben sich jedoch u. a. aus der oben beschriebenen Paritätsverletzung der schwachen Wechselwirkung, woran auch die Vereinigung der schwachen mit der elektromagnetischen Kraft nichts geändert hat. Es wird jedoch vermutet, dass diese keine fundamentale Eigenschaft ist, sondern nur bei niedrigen Energien auftritt, und dass bei höheren Energien die Rechts-Links-Symmetrie zumindest teilweise wiederhergestellt sein könnte.
+
+## 50.6 Standardmodell der Teilchenphysik. Vereinheitlichte Theorie der elementaren Kräfte
+
+Die in den vorangegangenen Abschnitten skizzierten heutigen Vorstellungen vom Aufbau der Materie, wonach 6 Leptonen und 6 Quarks (vgl. Tabelle 50.1) mit ihren zugehörigen Antiteilchen die elementaren Bausteine der Natur sind und die zwischen ihnen wirkenden fundamentalen Kräfte durch die in Tabelle 50.2 aufgeführten intermediären Bosonen (Feldquanten mit halbzahligem Spin) sowie dem HIGGS-Boson (s. u.) bilden das **Standardmodell der Teilchenphysik**. Sein theoretisches Fundament ist zum einen die Theorie der elektroschwachen Wechselwirkung (GSW-Theorie), in der eine Vereinigung der elektromagnetischen und der schwachen Kraft oberhalb einer Energie von etwa 290GeV erzielt werden konnte, zum anderen die Quantenchromodynamik (QCD), welche die starke Kraft (Gluonenkraft) zwischen den Farbladungen der Quarks beschreibt.
+
+Ein entscheidendes Kriterium für die Gültigkeit des Standardmodells war der über lange Zeit noch ausstehende Nachweis der Existenz des von ENGLERT und HIGGS 1964 vorausgesagten und erst 2012 am Europäischen Forschungszentrum CERN (Schweiz) entdeckten HIGGS-Bosons, eines elektrisch neutralen Partikels mit dem Spin 0 und einer Masse von $1 2 5   \mathrm { G e V } / c ^ { 2 }$ . Ohne dieses Teilchen gäbe es keine Atome und kein Leben, denn es ist das Quant eines Feldes, das alles durchzieht und nahezu allen Elementarteilchen Masse verleiht (sog. HIGGS-Mechanismus).
+
+Es gibt aber auch schon Theorien, die über das Standardmodell hinausgehen und die noch offenen Fragen aufgreifen. So wird im Rahmen der sog. „Grand Unified Theories“ (GUT) versucht, die elektroschwache Kraft mit der starken Kraft in einer großen Symmetrie, der **Supersymmetrie** (SUSY), zu vereinen. Diese sagt die Existenz einer „Superwelt“ voraus, die eine Symmetrie zwischen Fermionen (Materiebausteinen), d. h. Leptonen und Quarks mit dem Spin 1/2, und Bosonen (Feldquanten), d. h. Photonen, Gluonen und Weakonen mit dem Spin 1, herstellt. Danach soll es zu jedem Fermion ein supersymmetrisches Boson mit dem Spin 0 geben (s-Leptonen und s-Quarks), und umgekehrt haben alle Bosonen ihre supersymmetrischen Partner mit halbzahligem Spin mit Namen wie Photino, Gluino, Wino und Zino. Die Hoffnung, die elektromagnetische, die schwache und die starke Kraft vereinigen zu können, basiert auf der Tatsache, dass die Stärken der drei Kräfte, wenn man deren Abhängigkeit von der Wechselwirkungsenergie zu großen Energien hin extrapoliert, bei etwa $1 0 ^ { 1 5 }$ GeV zusammenlaufen und dort übereinstimmen („GUT-Energie“).
+
+---
+
+616
+
+50 Elementarteilchen
+
+Ein besonders interessanter Aspekt der Supersymmetrie ist ihre Anwendung auf die EIN-STEINsche Theorie der Gravitation, auf die allgemeine Relativitätstheorie also (s. 22.4). Die Vereinigung dieser Theorie mit der Quantentheorie, die „Quantisierung der Gravitation“, ist ein bis heute ungelöstes Problem. Man geht gegenwärtig davon aus, dass die Energie, bei der die Vereinigung aller Wechselwirkungen einschließlich der Gravitation einsetzt, bei der sog. PLANCK-Energie $E _ { \mathrm { P } } = m _ { \mathrm { P } } c ^ { 2 } = c ^ { 2 } ( \hbar c / \gamma ) ^ { 1 / 2 } \approx 1 0 ^ { 1 9 }$ GeV liegt (vgl. 2.3), welche durch die experimentell ermittelte Gravitationskonstante $\gamma$ (s. Gleichung (8.3)) festgelegt wird. Oberhalb der PLANCK-Energie gilt eine höchste Symmetrie, und die daraus abgeleitete „Urkraft“ beschreibt alle Phänomene („Theory of Everything“, TOE).
+
+Geht man den umgekehrten Weg zu niedrigen Energien hin, so hat man sich also vorzustellen, dass bei Unterschreiten der PLANCK-Energie eine Entkopplung der Gravitation von den in der SUSY vereinigten Wechselwirkungen stattfindet, d. h., dass die Gravitation jetzt als separate Kraft existiert. Entsprechend wird dann bei der GUT-Energie die starke Kraft als selbstständige Wechselwirkung absepariert, und unterhalb 290GeV trennen sich die schwache und die elektromagnetische Kraft. Bei sehr kleinen Energien entkoppelt die elektromagnetische Wechselwirkung, und elektrisches und magnetisches Feld existieren unabhängig nebeneinander (vgl. die Kapitel 23 und 28).
+
+## 50.7 Kosmologie. Dunkle Materie und Dunkle Energie
+
+Die Vorgänge und Erscheinungen in der Welt der Elementarteilchen sind aufs Engste verknüpft mit der Evolution des Universums. Das **kosmologische Standardmodell** geht von einer ungeheuren Energiekonzentration mit Temperaturen bei der PLANCK-Temperatur von etwa $1 0 ^ { 3 2 }$ K (s. 2.3) kurz nach dem sog. Urknall („Big Bang“) aus, durch den unser Universum, also alle Materie, Energie, Raum und Zeit, nach neuesten Erkenntnissen vor 13,8 Milliarden Jahren aus einer ursprünglichen Singularität entstand. Während der anschließenden Expansion des Weltalls, die mit einer stetigen Abkühlung verbunden war, wurden nacheinander die im Abschnitt zuvor beschriebenen drei Energiestufen durchlaufen, wobei die bei jeder Energiestufe jeweils abseparierte Kraft das kosmische Geschehen in der folgenden Periode bestimmte.
+
+So war nach der PLANCK-Zeit (s. 2.3, etwa $1 0 ^ { - 4 3 }$ s nach dem Urknall) die PLANCK-Energie er reicht, und die Supersymmetrie wurde wirksam. Im Kosmos gab es zu diesem Zeitpunkt nur Fermionen, d. h. Quarks, Leptonen (Elektronen, Myonen, Tauonen und Neutrinos) und deren Antiteilchen, Photonen und Gravitonen sowie superschwere Bosonen, sog. X- und Y-Teilchen mit Massen von der Größenordnung der GUT-Energie. Etwa $1 0 ^ { - 3 2 }$ s nach dem Urknall dehnte sich der Raum um einen Faktor zwischen $1 0 ^ { 3 0 }$ und $1 0 ^ { 5 0 } ( \updownarrow )$ aus (sog. Inflation), woraufhin die Energiedichte des Kosmos so weit abgefallen war, dass mit Unterschreiten der GUT-Energie die Supersymmetrie gebrochen und die starke Kraft abgespalten wurde, die zu einem Quark Gluon-Plasma führte. Mit weiter sinkender Temperatur kommt es gegen Ende dieser Periode (nach etwa $1 0 ^ { - 1 0 }   \mathrm { s ) }$ zur Zerstrahlung von Quarks und Antiquarks in Elektron-Positron-Paare und Photonen, wobei wegen eines ursprünglich vorhandenen Überschusses von Quarks gegenüber Antiquarks ein kleiner Rest von Materie übrig bleibt, nämlich derjenige, aus dem spä- ter alle Galaxien mit ihren Sternen, Planeten und auch Lebewesen entstehen. Diese aus Protonen, Neutronen, Elektronen und Neutrinos bestehende „gewöhnliche“ Materie macht nur etwa 5% des gesamten Inhalts des Kosmos aus.
+
+---
+
+50.7 Kosmologie. Dunkle Materie und Dunkle Energie
+
+617
+
+In der folgenden Periode setzt die schwache Wechselwirkung ein, und die Neutrinos sind so weit abgekühlt, dass sie an den Umwandlungen nicht mehr teilnehmen; es verbleibt eine Neutrino-Hintergrundstrahlung, deren Energie heute einer Temperatur von etwa 1,9K entspricht (experimentell noch nicht nachgewiesen). Etwa eine Sekunde nach dem Urknall ist die Temperatur bis auf die Größenordnung von umgerechnet einigen MeV abgesunken, d. h. unter die Bindungsenergie von Nukleonen in Kernen, und es entstehen in einem Zeitraum von etwa 3 Minuten (Ära der Nukleosynthese) die leichten Atomkerne wie Deuterium, Helium und Lithium. Etwa 300 000 Jahre später fallen auch die Photonen aus dem Reaktionsgleichgewicht aus und erzeugen unabhängig vom übrigen Geschehen eine Hintergrundstrahlung, welche sich bis zum heutigen Tage bis auf etwa 3K abgekühlt hat (sog. 3-KELVIN-Strahlung). Schließ- lich bilden sich etwa $1 0 ^ { 6 }$ Jahre nach dem Urknall die mittelschweren Atome wie C, O und Fe. Bei der Entstehung der schweren Elemente spielen sowohl die Kernkraft als auch die schwache Kraft eine wichtige Rolle. Die Entstehung der Sterne und Galaxien, nach neuesten Erkenntnissen etwa 200 Millionen Jahre nach dem Urknall, viel früher als bislang angenommen, wird dann hauptsächlich durch die Gravitationskraft bestimmt.
+
+**Dunkle Materie. Dunkle Energie.** Wenn, wie oben dargelegt, die „gewöhnliche“ (baryonische) Materie, aus der alles uns Bekannte besteht, nur etwa 5% des Alls ausmacht, erhebt sich die Frage, woraus der Rest des Weltalls besteht. Man geht heute davon aus, dass es Unmengen an bisher unbekannter, unsichtbarer Masse, der sog. Dunklen Materie, gibt, die 23% des Universums ausmacht und neben der Schwerkraft für den notwendigen zusätzlichen Zusammenhalt unter den Himmelskörpern sorgt. Sie besteht möglicherweise aus einer besonderen Form von Elementarteilchen, den WIMPs (Weakly Interacting Massive Particles, schwach wechselwirkende massereiche Teilchen), nach denen mit verschiedenen hochempfindlichen Messverfahren intensiv gesucht wird. Ein passender Kandidat für ein WIMP könnte das leichteste supersymmetrische Teilchen Neutralino sein.
+
+Wie aus astronomischen Beobachtungen lange bekannt ist, befindet sich das Universum in ständiger Expansion. Verantwortlich dafür ist nach heutiger Auffassung die Dunkle Energie, die den Kosmos beschleunigt auseinander treibt und mit 72% den weitaus größten Anteil der Gesamtdichte von Materie und Energie im Universum ausmacht. Diese bisher unbekannte Energieform wirkt der Schwerkraft zwischen den Massen, welche die Expansion des Raumes bremst, entgegen. Nach heutiger Kenntnis dominiert dabei die Dunkle Energie, so dass sich das Universum immer schneller ausdehnt.
+
+Die angestrebte Entwicklung eines allgemein akzeptierten kosmologischen Modells wird den Zusammenhang zwischen Teilchenphysik, Kosmologie und beobachtender Astronomie weiter vertiefen. Dabei sind jedoch gegenwärtig noch viele Fragen offen (z. B. nach dem Verständnis des Urknalls), deren Beantwortung nicht nur unsere Neugier befriedigen, sondern uns zu neuen Erkenntnissen und Einsichten in die Entwicklung unseres Universums und die unser Werden und Sein bestimmenden allgemeinen Prizipien führen wird.

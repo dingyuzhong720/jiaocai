@@ -1,0 +1,1124 @@
+# 44 Atombau und Spektren
+
+原始 PDF 第 523–553 页。
+
+44
+
+Atombau und Spektren
+
+## 44.1 Die Streuexperimente von Lenard und Rutherford. Das rutherfordsche Atommodell
+
+Anfang des vorigen Jahrhunderts lag umfangreiches experimentelles Material vor, das Aufschlüsse über Größe und Bau der Atome zuließ. Dazu gehören neben spektroskopischen Daten vor allem die Ergebnisse von **Streuexperimenten** mit Elektronen (LENARD, 1903) und mit α- Teilchen (RUTHERFORD, 1911) an dünnen Metallfolien. LENARD schoss Elektronen, die in einer Gasentladungsröhre erzeugt wurden, auf Metallfolien (Dicke etwa 1 µm) und untersuchte die Absorption der Elektronen beim Durchgang durch die Folien in Abhängigkeit von der Foliendicke, der Art des Folienmaterials und der Geschwindigkeit der Elektronen. Dabei kam er zu dem Ergebnis, dass die Atome über den von ihnen beanspruchten Raum nicht homogen mit Masse ausgefüllt sind, sondern sehr „luftige“ Gebilde sind. Ihr Radius wurde zu $1 0 ^ { - 1 0 }$ bis $1 0 ^ { - 9 }$ m abgeschätzt. Nur ein geringer Teil des Atoms erwies sich für schnelle Elektronen (Beschleunigungsspannungen von etwa $1 0 ^ { 4 } \mathrm { V ) }$ als undurchdringlich. Für den Durchmesser des undurchdringlichen Teils ergab sich die Größenordnung $1 0 ^ { - \bar { 1 } 4 }$ m. Nach unseren heutigen Kenntnissen handelt es sich bei diesem Teil des Atoms um den Atomkern.
+
+Angeregt durch die Experimente LENARDS untersuchten RUTHERFORD und seine Schüler GEIGER und MARSDEN die Streuung von α-Teilchen, d. h. die Ablenkung, die diese Teilchen beim Durchgang durch eine dünne Goldfolie erfahren. Bei den α-Teilchen handelt es sich um Helium-Ionen mit doppelt-positiver Elektronenladung, wie sie von natürlich-radioaktiven Elementen wie Radium oder Polonium ausgesandt werden (vgl. 48.1). Es zeigte sich, dass die meisten α-Teilchen die Folie ohne wesentliche Ablenkung durchdringen; nur wenige von ihnen erfahren starke Richtungsänderungen, ja sogar Rückstreuungen, woraus RUTHERFORD folgerte, dass im Innern der Atome sehr kleine, positiv geladene und massereiche Zentren, die Atomkerne, existieren, durch welche die gleichfalls positiv geladenen α-Teilchen infolge der gegenseitigen elektrostatischen Abstoßung auf hyperbolischen Bahnen abgelenkt werden (Bild 44.1). Sehr starke Ablenkungen (entsprechend großen Streuwinkeln) erfahren nur jene Teilchen, die dem Kern sehr nahe kommen. Die Tatsache, dass um 180◦abgelenkte α-Teilchen beinahe ohne Geschwindigkeitsverluste reflektiert werden, bedeutet nach den Gesetzen des elastischen Stoßes, dass die Kernmasse gegenüber der Masse des α-Teilchens sehr groß sein muss.
+
+Im Falle eines zentralen Stoßes mit dem Kern kann das α-Teilchen bis auf einen minimalen Abstand $R _ { \mathrm { m i n } }$ gegen das COULOMB-Potenzial des Kerns anlaufen, bevor es reflektiert wird. Dabei wird seine gesamte kinetische Energie $E _ { \alpha }$ aufgebraucht. Durch Gleichsetzen von $E _ { \alpha }$ mit dem Gewinn an potenzieller Energie beim kleinsten Kernabstand ergibt sich nach dem COU-LOMBschen Gesetz $E _ { \alpha } = ( z Z e ^ { 2 } ) / ( 4 \pi \varepsilon _ { 0 } R _ { \mathrm { m i n } } )$ mit den Ordnungszahlen im Periodensystem der Elemente $z = 2$ für das α-Teilchen und Z für den Kern. Danach können sich die energiereichsten α-Strahlen z. B. des Poloniums $( E _ { \alpha } \approx 7 \mathrm { M e V } )$ den Kernen der Goldatome $( Z = 7 9 )$ bis auf
+
+---
+
+44.1 Die Streuexperimente von Lenard und Rutherford
+
+521
+
+$R _ { \mathrm { m i n } } \approx 3 \cdot 1 0 ^ { - 1 4 }$ m nähern. Dies ist zugleich die Größenordnung des Kernradius (vgl. das Rechenbeispiel 2 in Abschnitt 23.7).
+
+![](../../raw/pages_0513-0544/images/page_523_image_3.jpg)
+
+Bild 44.1 Ablenkung von α-Teilchen im Coulomb-Feld des Atomkerns a) beim Durchgang durch eine Metallfolie; b) bei Annäherung an einen Kern (1 kernnaher „elastischer Stoß“, 2 kernfernere Wechselwirkung)
+
+Aus den Experimenten konnte insgesamt geschlussfolgert werden:
+
+**Der Atomkern ist positiv geladen und vereinigt in sich fast die gesamte Masse des Atoms. Sein Radius beträgt etwa** $\mathbf { 1 0 ^ { - 1 4 } }$ **m, der des gesamten Atoms etwa 10-1**<strong><sup>0</sup></strong> **m.**
+
+Hiernach muss man schließen, dass das Atom weitgehend „leer“ ist. Die Streuversuche erlauben zugleich auch die Bestimmung der **Kernladungszahl** Z (in Vielfachen der Elementarladung e ausgedrückte Kernladung) der streuenden Atome (CHADWICK, 1920). Es ergab sich:
+
+**Die Kernladungszahl ist gleich der Ordnungszahl des betreffenden Elements im Periodensystem.**
+
+Da das Atom als Ganzes elektrisch neutral ist, wird der Atomkern von ebenfalls Z Elektronen, die je eine negative Elementarladung e tragen, umgeben. Diese Elektronen bilden die negativ geladene Atomhülle. Dass Elektronen Bausteine der Atome sind, folgt auch daraus, dass man die Atome ionisieren, d. h. Elektronen von ihnen abspalten kann.
+
+**Die Anzahl der Elektronen in der Atomhülle eines neutralen Atoms ist gleich der Kernladungszahl.**
+
+Diese Erkenntnisse führten RUTHERFORD zu einer modellmäßigen Vorstellung vom Bau der Atome (Atommodell). Da die Elektronen der Hülle wegen der elektrischen Anziehung zwischen Kern und Elektron unmöglich ruhen können, nahm er an, dass sie den Kern umkreisen, ähnlich wie die Planeten die Sonne (Planetenmodell des Atoms). Dieses Modell widerspricht aber in einem wesentlichen Punkt der klassischen Elektrodynamik, nach der diese Elektronen als beschleunigt bewegte elektrische Ladungen Oszillatoren darstellen, die durch Abstrahlung von elektromagnetischen Wellen – in diesem Falle Licht – dauernd Energie verlieren müssten. Die Elektronenbahnen würden schrumpfen, und die Umlauffrequenz, die in diesem Falle gleich der Frequenz des ausgestrahlten Lichts ist, müsste mit Annäherung der Elektronen an den Kern stetig zunehmen (3. KEPLERsches Gesetz). Das käme einem kontinuierlichen Spektrum mit stetig veränderlicher Wellenlänge gleich. Tatsächlich aber senden die Atome Spektren aus, die aus einzelnen (diskreten) Spektrallinien bestehen (Linienspektrum). Das RUTHERFORDsche Atommodell erwies sich also in dieser Form für die Erklärung der Atomspektren als nicht geeignet. Dennoch bildet dieses **Kern-Hülle-Modell** den Ursprung aller modernen Theorien vom Atombau.
+
+---
+
+522
+
+44 Atombau und Spektren
+
+## 44.2 Das Spektrum des Wasserstoffatoms
+
+Die augenfälligste Erscheinung, die von den Atomen ausgeht, ist die Ausstrahlung von Licht. Wird das von einem Körper ausgesandte Licht mittels eines Prismen- oder Gitterspektrographen (vgl. 41.7) in seine Farbanteile zerlegt, so erhält man das für die betreffende Atomart charakteristische **Spektrum**. Während glühende Flüssigkeiten und Festkörper sowie Gase unter hohem Druck ein kontinuierliches Spektrum aussenden, in dem innerhalb eines gewissen Bereiches alle Frequenzen bzw. Wellenlängen vorkommen (Regenbogenspektrum), emittieren zum Leuchten angeregte einatomige Gase ein **Linienspektrum** mit einzelnen, getrennt voneinander liegenden Spektrallinien. Wir richten im Folgenden unser Augenmerk auf die Deutung dieser Linienspektren, da sie uns nähere Aufschlüsse über den Bau eines Atoms geben können.
+
+Von allen Atomen sendet atomarer Wasserstoff das einfachste Spektrum aus. Als Beispiel eines teilweise im sichtbaren Spektralbereich liegenden Linienspektrums des H-Atoms ist in Bild 44.2 die sog. **BALMER-Serie** schematisch dargestellt. Wir bemerken einzelne mit $\mathrm { H } _ { \alpha } ,   \mathrm { H } _ { \beta } ,   \mathrm { H } _ { \gamma } ,$. . . bezeichnete Linien, die mit abnehmender Wellenlänge, d. h. mit zunehmender Frequenz, immer näher aneinander rücken und bei einer bestimmten Grenze, der sog. Seriengrenze, eine Häufungsstelle haben. BALMER ist es 1885 gelungen, die Frequenzen der Spektrallinien dieser Serie durch die empirische Formel
+
+$$
+f = R _ {\mathrm{H}} \left(\frac {1}{2 ^ {2}} - \frac {1}{m ^ {2}}\right) \quad (\text {Frequenzen der BALMER - Serie}) \tag {44.1}
+$$
+
+zu beschreiben, wobei für die ersten vier Linien, die im sichtbaren Teil des Spektrums liegen, $m = 3 , 4 , 5 ,$ 6 zu setzen ist. $R _ { \mathrm { H } }$ ist die **RYDBERG-Frequenz**; ihr Wert ergibt sich aus experimentellen Daten für alle Spektralserien des Wasserstoffs $( \mathbf { s } , \mathbf { u } . )$ zu $R _ { \mathrm { H } } = 3 , 2 8 9   8 4 2 \cdot 1 0 ^ { 1 5 }   \mathrm { s } ^ { - 1 }$
+
+![](../../raw/pages_0513-0544/images/page_524_chart_7.jpg)
+
+<details>
+<summary>other</summary>
+
+| Wavelength Range (nm) | Transition |
+| --- | --- |
+| 390~410 | \(H\zeta\) |
+| 410~430 | \(H\epsilon\) |
+| 430~480 | \(H\delta\) |
+| 480~490 | \(H\gamma\) |
+| 490~650 | \(H\beta\) |
+| 650~660 | \(H\alpha\) |
+</details>
+
+Bild 44.2 Linienspektrum der Balmer-Serie des Wasserstoffs
+
+Mit der weiteren Vervollkommnung der Geräte zum spektrografischen Nachweis auch solcher Linien, die nicht im sichtbaren Spektralbereich liegen, fanden später andere Forscher weitere Wasserstoffserien, die sich sämtlich durch eine zu Gleichung (44.1) analoge Beziehung, die **Serienformel des Wasserstoffspektrums**
+
+$$
+f = R _ {\mathrm{H}} \left(\frac {1}{n ^ {2}} - \frac {1}{m ^ {2}}\right), \quad m > n; m \text {und} n \text {ganzahlig}, \tag {44.2}
+$$
+
+beschreiben lassen. So erhält man, indem $n = 1$ und für die Laufzahl m der Reihe nach 2, 3, 4,. . . gesetzt wird, die Frequenzen der **LYMAN-Serie** im Ultraviolett (entdeckt 1906), deren erste Linie bei der Wellenlänge $\lambda = c / f = 121  ,  6   nm$ liegt. Mit $n = 2$ und $m = 3 ,   4 ,   5 ,   . .$ . erhält man die **BALMER-Serie** (44.1); ihre Linien liegen im Rot $( \mathrm { H } _ { \alpha } )$ , im Grün $( \mathrm { H } _ { \mathrm { \beta } } )$ , im Blau $( \mathrm { H } _ { \mathrm { Y } } )$ usw. Als weitere Serien des Wasserstoffs ergeben sich mit $n = 3$ als Festzahl die **PASCHEN-Serie** (1908),
+
+---
+
+44.2 Das Spektrum des Wasserstoffatoms
+
+523
+
+deren Linien im nahen Infrarot liegen, für $n = 4$ die BRACKETT-Serie (1922) und für $n = 5$ die **PFUND-Serie** (1924), beide im Infrarot. Viel später wurde noch eine weitere Serie mit $n = 6$ gefunden; ihre erste Linie $( m = 7 )$ liegt bei der Wellenlänge 11,7 µm.
+
+Die Serienformel (44.2) gilt nicht nur für die Emission, sondern auch für die Absorption von Licht, das von außen her auf das Atom trifft. Fällt ein Lichtquant irgendeiner beliebigen Frequenz auf das Atom, so übt es im Allgemeinen keinerlei Wirkung aus. Stimmt seine Frequenz aber mit einer solchen überein, die das Atom gemäß (44.2) selbst aussenden kann, so wird die Energie des Quants absorbiert, indem das Atom aus seinem energieärmsten Zustand mit $n = 1$ , dem **Grundzustand**, in einen energiehöheren **angeregten Zustand** übergeht (Resonanzabsorption).
+
+![](../../raw/pages_0513-0544/images/page_525_chart_4.jpg)
+
+<details>
+<summary>bar</summary>
+
+| State | Energy Level (eV) |
+| --- | --- |
+| n | -13.6 |
+| m | -10 |
+| n | -4 |
+| m | -2 |
+| n | 0 |
+| m | -1 |
+| n | 0 |
+| m | -1 |
+| n | 0 |
+| m | -1 |
+| n | 0 |
+| m | -1 |
+| n | 0 |
+| m | -1 |
+| n | 0 |
+| m | -1 |
+| n | 0 |
+| m | -1 |
+| n | 0 |
+| m | -1 |
+| n | 0 |
+| m | -1 |
+| n, m | -13.6 |
+| RH / \(1^{2}\) Grundzustand | -13.6 |
+| RH / \(2^{2}\) | -2 |
+| RH / \(3^{2}\) | -3 |
+| RH / \(4^{2}\) | -4 |
+| RH / \(1^{2}\) | -13.6 |
+</details>
+
+Bild 44.3 Termschema des Wasserstoffatoms
+
+Die verschiedenen Anregungszustände eines Atoms pflegt man in übersichtlicher Weise im sog. **Termschema** darzustellen. Die Energie des ausgestrahlten Lichtquants entstammt der Änderung der „inneren Energie“ des Atoms, die sich mit (44.2) in der Form
+
+$$
+h f = \frac {h R _ {\mathrm{H}}}{n ^ {2}} - \frac {h R _ {\mathrm{H}}}{m ^ {2}} = h (T _ {n} - T _ {m}) = E _ {m} - E _ {n} \tag {44.3}
+$$
+
+schreibt. Der Ausdruck $E _ { n } = - h R _ { \mathrm { H } } / n ^ { 2 } = - h T _ { n }$ wird als **Energieterm** bezeichnet; er kennzeichnet einen möglichen diskreten Energiezustand des Atoms. Der Ausdruck $T _ { n } = - E _ { n } / h = R _ { \mathrm { H } } / n ^ { 2 }$ heißt **Frequenzterm**. Nach (44.3) wird eine Spektralserie stets durch zwei Frequenzterme beschrieben, nämlich durch den konstanten Term $T _ { n }$ , der die betreffende Serie kennzeichnet, und den mit m veränderlichen Term $T _ { m }$ (Laufterm), der mit wachsendem m immer kleiner
+
+---
+
+524
+
+44 Atombau und Spektren
+
+werdende Werte annimmt und schließlich für m → ∞ dem Grenzwert null zustrebt. Jeder Differenz zweier Terme $T _ { n } - T _ { m } = f$ entspricht somit eine bestimmte Spektrallinie (RITZsches Kombinationsprinzip).
+
+Bild 44.3 zeigt das Termschema des Wasserstoffs. Auf der rechten Seite der Darstellung sind auf der Ordinate die Frequenzterme $T _ { n }$ aufgetragen. Sie entsprechen denjenigen Energien, die erforderlich sind, um das Atom aus dem Grundzustand $n = 1$ auf ein höheres Energieniveau anzuheben. Dem Grundzustand kommt die Energie $E _ { 1 } = - h R _ { \mathrm { H } } = - 1 3 { , } 6   \mathrm { e V   z u }$ , dem Zustand $n \to \infty$ die Energie $E _ { \infty } = 0$ . Weitere Erläuterungen s. Abschnitt 44.3.
+
+## 44.3 Das bohrsche Atommodell
+
+N. BOHR (1913) erkannte als Erster die Notwendigkeit, die Gesetze der klassischen Physik in einschneidender Weise abzuändern, um – ausgehend vom RUTHERFORDschen Atommodell – zu einem Modell für ein stabiles Atom zu gelangen, das in der Lage ist, die Linienspektren einfach gebauter Atome zu erklären. Obwohl die BOHRsche Theorie vom heutigen Standpunkt überholt ist, da sie eine merkwürdige Mischung von klassischer Mechanik und Begriffen der Quantentheorie darstellt und aus diesem Grunde logisch nicht befriedigend ist, wird sie we gen ihrer großen Anschaulichkeit und ihrer Erfolge, die sie bei der quantitativen Beschreibung der Energiezustände des Wasserstoffatoms zweifellos aufweisen kann, auch heute noch häufig benutzt.
+
+![](../../raw/pages_0513-0544/images/page_526_image_6.jpg)
+
+<details>
+<summary>text_image</summary>
+
+E₃ - E₂ = hf
+3
+2
+n = 1
+E₃
+E₂
+rₙ
++ Ze
+r
+e⁻
+Coulombkraft
+Ze²/(4πε₀r²)
+Fliehkraft
+mω²r
+</details>
+
+Bild 44.4 Bohrsches Atommodell
+
+Nach BOHR soll sich das negative Elektron um den Z-fach positiv geladenen Kern auf Kreisbahnen bewegen (Bild 44.4), wobei sich elektrostatische Anziehungskraft (COULOMB-Kraft (23.27) mit $q = e$ und $Q = Z e )$ und Zentrifugalkraft (5.6) das Gleichgewicht halten:
+
+$$
+\frac {Z e ^ {2}}{4 \pi \varepsilon_ {0} r ^ {2}} = \frac {m _ {\mathrm{e}} v ^ {2}}{r} \tag {44.4}
+$$
+
+$( m _ { \mathrm { e } }$ Elektronenmasse, v Elektronengeschwindigkeit auf der Kreisbahn mit dem Radius r ). Die Stabilität des Atoms sowie das Auftreten diskreter Energieniveaus im Atom werden im BOHRschen Modell durch einige Zusatzforderungen erzwungen, die der klassischen Mechanik und Elektrodynamik fremd sind. Es sind dies die folgenden zwei **BOHRschen Postulate**:
+
+1. Von allen klassisch möglichen Elektronenbahnen sind nur diejenigen als erlaubt anzusehen (auf denen die Elektronen strahlungsfrei kreisen können), für die der Betrag des Drehimpulses |l| der Elektronen ein ganzzahliges Vielfaches des Drehimpulsquantums $\hbar = h / ( 2 \pi )$
+
+---
+
+44.3 Das bohrsche Atommodell
+
+525
+
+(PLANCKsches Wirkungsquantum h geteilt durch 2π) ist:
+
+$$
+| \boldsymbol {l} | = m _ {\mathrm{e}} v r = n \frac {h}{2 \pi} = n \hbar \quad \text {(BOHRsche Quantenbedingung).} \tag {44.5}
+$$
+
+$n = 1 , 2 , 3 , \ldots$ heißt Quantenzahl oder (im Hinblick auf später noch einzuführende weitere Quantenzahlen) genauer **Hauptquantenzahl**; durch sie wird die jeweilige Kreisbahn festgelegt.
+
+2. Das Elektron kann von einer Bahn auf eine andere „springen“ (Quantensprünge). Bei Anregung durch Stöße oder durch Absorption eines Lichtquants springt das Elektron in eine Bahn höherer Energie. $\mathrm { ,   F \ddot { a } l l t ^ { a } }$ es von einer Bahn höherer Energie $E _ { m }$ (der Index m steht hier ebenfalls für eine Quantenzahl) auf eine Bahn niedrigerer Energie $E _ { n }$ , so wird vom Atom ein Lichtquant ausgestrahlt, dessen Energie $h f$ mit der Energiedifferenz zwischen Anfangsund Endzustand des Elektrons übereinstimmt (Bild 44.4):
+
+$$
+E _ {m} - E _ {n} = h f \quad (\text {BOHRsche Frequenzbedingung}). \tag {44.6}
+$$
+
+Damit erhalten die zunächst formalen Spektralterme $T _ { n } = - E _ { n } / h$ in (44.3) eine einfache Interpretation; sie entsprechen mithin den diskreten Energiezuständen, in denen sich die Elektronen im Atom befinden können.
+
+![](../../raw/pages_0513-0544/images/page_527_image_8.jpg)
+
+Bild 44.5 Franck-Hertz-Versuch: a) Versuchsaufbau, b) Versuchsergebnis
+
+Eine wesentliche Stütze erhielten die BOHRschen Postulate 1913 durch den experimentellen Nachweis der diskreten Energieniveaus im **FRANCK-HERTZ-Versuch** (Bild 44.5): In einer mit Quecksilberdampf gefüllten Vakuumröhre werden mittels einer Glühkatode Elektronen erzeugt und durch eine regelbare elektrische Spannung zwischen zwei Elektroden beschleunigt. Es konnte gezeigt werden, dass die Elektronen beim Zusammenstoß mit den Hg-Atomen erst dann ihre kinetische Energie an die Atome abgeben, wenn die Beschleunigungsspannung einen ganz bestimmten Wert, die sog. Anregungsspannung, erreicht, welche beim Quecksilber 4,9V beträgt. Dies entspricht einer Anhebung der Hg-Atome auf eine bestimmte Anregungsstufe um den Betrag $\Delta E = 4 . 9   \mathrm { e V } ( = 7 . 8 5 \cdot 1 0 ^ { - 1 9 }   \mathrm { J } )$ Diese absorbierte Energie wird beim Übergang vom angeregten Zustand in den Grundzustand als Anregungsleuchten wieder ausgestrahlt. Die dabei gemessene Wellenlänge $\lambda = 253{,}6{\rm nm}$ der im fernen Ultraviolett liegenden Emissionslinie folgt direkt aus der BOHRschen Frequenzbedingung (44.6) $\Delta E = h f = h c / \lambda$ . Weitere Atomanregungen treten beim Doppelten, Dreifachen usw. der Anregungsspannung durch nacheinander mehrmalige Energieabgabe eines Elektrons auf.
+
+Aus (44.4) und (44.5) berechnen sich, indem einmal $\nu ,$ das andere Mal r eliminiert wird, die Radien der erlaubten Kreisbahnen und die zugehörigen Elektronengeschwindigkeiten zu
+
+$$
+r _ {n} = \frac {\varepsilon_ {0} h ^ {2}}{\pi Z e ^ {2} m _ {\mathrm{e}}} n ^ {2} = \frac {a _ {\mathrm{H}}}{Z} n ^ {2}; \quad \nu_ {n} = \frac {Z e ^ {2}}{2 \varepsilon_ {0} h} \frac {1}{n}. \tag {44.7}
+$$
+
+---
+
+526
+
+44 Atombau und Spektren
+
+Die Bahnradien wachsen danach mit dem Quadrat der Hauptquantenzahl n an, die Elektronengeschwindigkeiten nehmen umgekehrt proportional zu n ab. Für ein im Grundzustand $( n = 1 )$ befindliches **Wasserstoffatom** $( Z = 1 )$ erhält man aus (44.7)
+
+$$
+r _ {1} (\mathrm{H}) \equiv a _ {\mathrm{H}} = 0, 5 2 9   1 7 7 \cdot 1 0 ^ {- 1 0}   \mathrm{m}; \quad \nu_ {1} (\mathrm{H}) \approx 2, 2 \cdot 1 0 ^ {6}   \mathrm{m/s}. \tag {44.8}
+$$
+
+Das Verhältnis von $\nu _ { 1 } ( \mathrm { H } )$ zur Lichtgeschwindigkeit,
+
+$$
+\alpha = \frac {v _ {1} (\mathrm{H})}{c} = \frac {e ^ {2}}{2 \varepsilon_ {0} h c} = 7, 2 9 7 3 5 \cdot 1 0 ^ {- 3} \approx \frac {1}{1 3 7},
+$$
+
+ist die SOMMERFELDsche Feinstrukturkonstante (s. 44.7). Der für den **BOHRschen Radius** $a _ { \mathrm { H } }$ erhaltene Wert befriedigt außerordentlich, da er mit dem aus Messungen nach der kinetischen Gastheorie bestimmten Radius des H-Atoms gut übereinstimmt.
+
+Aus (44.4) berechnet sich die kinetische Energie des Elektrons auf der n-ten Bahn zu
+
+$$
+E _ {\mathrm{k} (n)} = \frac {m _ {\mathrm{e}} \nu_ {n} ^ {2}}{2} = \frac {Z e ^ {2}}{8 \pi \varepsilon_ {0} r _ {n}}.
+$$
+
+Für die potenzielle Energie des Elektrons im Abstand $r _ { n }$ vom Kern erhält man
+
+$$
+E _ {\mathrm{p} (n)} = \int_ {\infty} ^ {r _ {n}} F \mathrm{d} r = \int_ {\infty} ^ {r _ {n}} \frac {Z e ^ {2}}{4 \pi \varepsilon_ {0} r ^ {2}} \mathrm{d} r = - \frac {Z e ^ {2}}{4 \pi \varepsilon_ {0} r _ {n}} = - 2 E _ {\mathrm{k} (n)}.
+$$
+
+Die **Energieniveaus im Atom** sind durch die Werte der Gesamtenergie des Elektrons auf den erlaubten Bahnen $E _ { n } = E _ { \mathbf { k } ( n ) } + E _ { \mathbf { p } ( n ) } = - E _ { \mathbf { k } ( n ) } = - Z e ^ { 2 } / ( 8 \pi \varepsilon _ { 0 } r _ { n } )$ definiert. Mit dem Radius $r _ { n }$ nach (44.7) errechnet man hierfür
+
+$$
+E _ {n} = - \frac {e ^ {4} m _ {\mathrm{e}}}{8 \varepsilon_ {0} ^ {2} h ^ {2}} \frac {Z ^ {2}}{n ^ {2}} = - 1 3, 6 \frac {Z ^ {2}}{n ^ {2}} \mathrm{eV}. \tag {44.9}
+$$
+
+Dieses Ergebnis liefert mit $Z = 1$ das richtige Energiespektrum des Wasserstoffs. Da $E _ { n }$ negativ ist, folgt, dass die Energie mit wachsendem n gegen den Wert null hin zunimmt. Die **Frequenzen der emittierten Spektrallinien** berechnen sich damit nach (44.6) zu
+
+$$
+f = Z ^ {2} R _ {\mathrm{H}} \left(\frac {1}{n ^ {2}} - \frac {1}{m ^ {2}}\right) \quad \text {mit} \quad R _ {\mathrm{H}} = \frac {e ^ {4} m _ {\mathrm{e}}}{8 \varepsilon_ {0} ^ {2} h ^ {3}} = 3, 2 8 9 8 4 2 \cdot 1 0 ^ {1 5} \mathrm{Hz}. \tag {44.10}
+$$
+
+Diese Beziehung ist für $Z = 1$ identisch mit der Serienformel des Wasserstoffspektrums (44.2). Die RYDBERG-Frequenz $R _ { \mathrm { H } }$ konnte damit auf bekannte Naturkonstanten zurückgeführt werden; der theoretische Wert stimmt sehr gut mit dem spektroskopisch ermittelten überein.
+
+**Ionisierungsenergie. Grenzkontinuum.** Wird vom Atom ein Lichtquant so hoher Energie absorbiert, dass dadurch ein Elektron aus dem Atomverband vollständig herausgelöst wird, so wird das Atom ionisiert. Dies ist beim Photoeffekt (vgl. 43.2) der Fall, wo durch Bestrahlen eines Stoffes mit Licht Elektronen aus dessen Atomen freigesetzt werden. Dieser Vorgang ist gleichbedeutend damit, dass ein Elektron von einem Zustand der Energie $E _ { n }$ in einen Zustand mit $m \to \infty ,$ d. h. bis zur Seriengrenze mit der Energie $E _ { \infty } = 0 ,$ „angehoben“ wird (vgl. Bild 44.3). Die dazu erforderliche Energie $E _ { \infty } - E _ { n } = - E _ { n } > 0$ bezeichnet man als Ionisierungsenergie oder Ionisierungsarbeit W<sub>i</sub> des Atoms; sie ist gleich der **Bindungsenergie des Elektrons** in dem zur Quantenzahl n gehörigen Zustand. Sie ist am größten für den Grundzustand mit $n = 1$ , in dem sich das Atom gewöhnlich befindet. Für das H-Atom $( Z = 1 )$ erhält man nach (44.9) $W _ { \mathrm { i } } = - E _ { 1 } = 1 3 { , } 6   \mathrm { e V }$ . Ist die Frequenz des eingestrahlten Lichtquants größer als die zur Ionisierung erforderliche Grenzfrequenz $f _ { \mathrm { G } } = W _ { \mathrm { i } } / h$ , so wird die „überschüssige“ Energie in Form von kinetischer Energie $m _ { \mathrm { e } } \upsilon ^ { 2 } / 2$ auf das freigesetzte Photoelektron übertragen.
+
+---
+
+44.3 Das bohrsche Atommodell
+
+527
+
+Den Frequenzbereich $f > f _ { \mathrm { G } }$ (in Bild 44.3 schraffiert) nennt man das **Grenzkontinuum**. Er erfasst die Energiezustände, bei denen das Elektron nicht mehr an den Wasserstoffkern gebunden ist. In diesem Bereich sind alle Energien erlaubt, was sich optisch darin äußert, dass das Spektrum keine Linienstruktur mehr zeigt.
+
+**Das BOHRsche Korrespondenzprinzip.** Es besagt, dass bei großen Werten der Quantenzahl n alle aufgestellten Quantengesetze in die entsprechenden klassischen Gesetze übergehen müssen, da dann die Quantelung physikalischer Größen (z. B. Energie oder Drehimpuls) praktisch bedeutungslos wird. Berechnet man nach (44.10) die Frequenz f für einen Übergang zwischen zwei benachbarten Zuständen n und $m = n + 1$ für den Fall, dass n eine sehr große Zahl ist, so erhält man
+
+$$
+f = R _ {\mathrm{H}} \left(\frac {1}{n ^ {2}} - \frac {1}{(n + 1) ^ {2}}\right) = R _ {\mathrm{H}} \frac {n ^ {2} + 2 n + 1 - n ^ {2}}{n ^ {2} (n + 1) ^ {2}} \approx 2 R _ {\mathrm{H}} \frac {1}{n ^ {3}};
+$$
+
+dies ist aber nach (44.7) und (44.10) gerade der Wert der Umlauffrequenz des kreisenden Elektrons
+
+$$
+f = \frac {\omega}{2 \pi} = \frac {\nu}{2 \pi r} = \frac {m _ {\mathrm{e}} e ^ {4}}{4 \varepsilon_ {0} ^ {2} h ^ {3}} \frac {1}{n ^ {3}} = 2 R _ {\mathrm{H}} \frac {1}{n ^ {3}},
+$$
+
+die sich bei großen n für benachbarte Zustände nur sehr wenig unterscheidet. Das BOHRsche Atommodell lässt also für hohe Quantenzahlen die Emission von Wellen mit sehr kleiner Frequenz, d. h. mit sehr großer Wellenlänge (z. B. im cm-Bereich) zu, wie man sie auch mit einem HERTZschen Dipol (vgl. 38.3) erzeugen kann. In diesem Frequenzbereich wird die Abstrahlung von elektromagnetischen Wellen durch die klassische Elektrodynamik, speziell durch die MAX-WELLschen Gleichungen (32.3) und (32.5), beschrieben. Es besteht also für große Quantenzahlen Übereinstimmung (Korrespondenz) zwischen den klassisch erwarteten und den quantentheoretisch berechneten Frequenzen.
+
+Die Bedeutung des BOHRschen Korrespondenzprinzips für die weitere Entwicklung der Atomtheorie lag vor der Schaffung der Quantenmechanik vor allem darin, dass es auf seiner Grund lage gelang, Aussagen auch über die Intensität und die Polarisation der Spektrallinien zu erhalten und Auswahlregeln für diese Linien aufzustellen.
+
+**Mängel des BOHRschen Modells.** Das BOHRsche Atommodell konnte in der Folge nicht gehalten werden, da es in wesentlichen Punkten experimentellen Befunden widerspricht und seine Anwendbarkeit auf solche Fälle beschränkt bleibt, wo die Reduktion auf ein Einelektronenproblem möglich ist, wie bei den Alkalimetallen. Hierfür liefert das Modell zwar die richtigen Energieniveaus, aber es stimmen z. B. die nach (44.5) erhaltenen Werte für den Elektronendrehimpuls nicht mit der Erfahrung überein (vgl. 44.4).
+
+Die BOHRsche Theorie weist aber prinzipielle Mängel auf, die damit zusammenhängen, dass in ihr Begriffe und Vorstellungen der Makrophysik auf den mikrophysikalischen Bereich übertragen werden. So ist es nach den Ausführungen in 43.5 und 43.6 absolut unreal, im Bereich der Atome die Elektronen als Punktmassen aufzufassen und für sie gemäß (44.7) definierte Flugbahnen vorzuschreiben, auf denen sie sich mit genau angebbaren Geschwindigkeiten bewegen. So fordert das HEISENBERGsche Unbestimmtheitsprinzip (43.24) bei einer Unsicherheit in der Ortsangabe des Elektrons von der Größe des Atomdurchmessers $( 1 0 ^ { - 1 0 }   \mathrm { m } )$ – wie in 43.6 an dem dort gerechneten Beispiel 2 gezeigt – eine Unbestimmtheit der Elektronengeschwindigkeit von mindestens $7 . 3   \cdot   1 0 ^ { 6 }   \mathrm { m } / \mathrm { s }$ . Die BOHRsche Theorie liefert aber für die Elektronengeschwindigkeit gemäß (44.8) einen Wert, der unterhalb dieser Schranke liegt; sie steht damit im Widerspruch zu einem grundlegenden Prinzip der Quantenmechanik.
+
+---
+
+528
+
+44 Atombau und Spektren
+
+In Abschnitt 43.5 wurde gezeigt, dass in atomaren Dimensionen allein die wellenmechanische Auffas sung Gültigkeit hat. Dies kommt in eindrucksvoller Weise in der von DE BROGLIE gegebenen Erklä- rung für die stationären Elektronenbahnen im Atom, im Besonderen die BOHRsche Kreisbahn im Wasserstoffatom, zum Ausdruck: Das Elektron umläuft den Atomkern in Form einer Welle und kommt auf der Kreisbahn mit sich selbst zur Interferenz (Bild 44.6). Ein stationärer Zustand ergibt sich nur dann, wenn der Kreisumfang ein ganzzahliges Vielfaches der DE-BROGLIE-Wellenlänge (43.20) des Elektrons ist, der Wellenzug also in sich geschlossen verläuft. Anderenfalls würde sich die Elektronenwelle durch Interferenz vernichten. Es muss also gelten $2 \pi r = n \lambda = n h / ( m _ { \mathrm { e } } \nu )$ mit $n = 1 , 2 , 3 , \ldots$ . oder $m _ { \mathrm { e } } \nu r = n h / ( 2 \pi )$ . Dies ist genau die BOHRsche Quantenbedingung (44.5), die auf der Grundlage der klassischen Physik nur mit Hilfe der Zusatzannahme strahlungsfreier Elektronenbahnen gewonnen werden konnte, jetzt aber zwanglos aus dem wellenmechanischen Modell folgt.
+
+![](../../raw/pages_0513-0544/images/page_530_image_3.jpg)
+
+Bild 44.6 Elektronenwelle um den Atomkern beim Wasserstoffatom:
+
+a) stationärer Zustand (in sich geschlossener Wellenzug);
+b) nichtstationärer Zustand (sich auslöschende Welle)
+
+## Beispiel 44.1:
+
+Ein Elektron soll nicht wie beim Wasserstoffatom durch die elektrostatische Anziehungskraft des Atomkerns, sondern durch die LORENTZ-Kraft eines konstanten Magnetfeldes (Induktion B) auf einer Kreisbahn gehalten werden (s. 28.7). Berechne durch Anwendung der BOHRschen Quantenbedingung a) den zu einer bestimmten Induktion B gehörigen kleinstmöglichen Bahnradius, b) den dazugehörigen minimalen magnetischen Fluss $\phi _ { 0 } !$
+
+Lösung: a) Für die als Radialkraft wirkende LORENTZ-Kraft gilt $m _ { \mathrm { e } } \upsilon ^ { 2 } / r = e \upsilon B$ , d. h. $m _ { \mathrm { e } } \nu = e r B$ Die Quantenbedingung lautet $m _ { \mathrm { e } } \nu = n h / ( 2 \pi r )$ . Gleichsetzen beider Ausdrücke für $m _ { \mathrm { e } } \nu$ ergibt $r = \sqrt { h / ( 2 \pi e B ) }$ . b) Die von der Elektronenbahn umschlossene Fläche ist $A = \pi r ^ { 2 }$ ; damit erhält man für den magnetischen Fluss nach (28.11) $\phi _ { 0 } = B A = h / ( 2 e ) = 2 { , } 0 7 { \cdot } 1 0 ^ { - 1 5 } \mathrm { V } { \cdot } \mathrm { s }$ . Diese Größe nennt man das magnetische Flussquant. □
+
+## Aufgabe
+
+**44.1** In welchem Verhältnis stehen die Frequenzen der von einem Wasserstoffatom und einem einfach-ionisierten Heliumatom $\mathrm { H e } ^ { + } \left( Z = 2 \right)$ emittierten Spektren?
+
+## 44.4 Die Spektren der Alkaliatome. Bahndrehimpulsquantenzahl
+
+Ein Atom, das aus einem mehrfach geladenen Kern und einer entsprechenden Anzahl von Elektronen „besteht“, vermag eine viel größere Anzahl von Spektralserien zu emittieren als das Wasserstoffatom. Am einfachsten sind die Spektren der Alkalimetalle (Lithium, Natrium, Kalium, Rubidium, Caesium). Ihre Atome ähneln in gewissem Sinne dem Wasserstoffatom; denn sie bestehen aus einem stabilen Atomrumpf , der vom Kern und dem Hauptteil der Elektronenhülle aus lauter „abgeschlossenen Elektronenschalen“ gebildet wird, und einem einzelnen Elektron, das den Rumpf umkreist und verhältnismäßig locker gebunden ist, dem Leuchtelektron oder – wegen seiner chemischen Wirkung – auch Valenzelektron genannt. Die Spektral-
+
+---
+
+44.4 Die Spektren der Alkaliatome. Bahndrehimpulsquantenzahl
+
+529
+
+linien im ultravioletten, sichtbaren und infraroten Spektralbereich kommen durch Übergänge des Leuchtelektrons zwischen den erlaubten Energieniveaus zustande.
+
+Die Alkalispektren unterscheiden sich vom Wasserstoffspektrum dadurch, dass eine größere Mannigfaltigkeit von Termwerten $T _ { n }$ (vgl. 44.2) vorkommt, so dass es nicht mehr möglich ist, die Terme durch nur eine Quantenzahl n zu charakterisieren. Im Unterschied zu $T _ { n } =$ $R _ { \mathrm { H } } / n ^ { 2 }$ für das Wasserstoffatom gehorchen (nach RYDBERG, 1900) die Termwerte der Alkaliatome dem Bildungsgesetz $T _ { n l } = R / ( n   +   a _ { l } ) ^ { 2 }$ , wobei R die RYDBERG-Frequenz des betreffenden Atoms ist. Die in dieser Termformel auftretenden Korrekturwerte $a _ { l }$ sind auf den unterschiedlichen Bahndrehimpuls l der Elektronen mit gleicher Hauptquantenzahl n zurückzuführen. Dieser kann nach der Quantentheorie und in Übereinstimmung mit dem Experiment – jedoch abweichend von der BOHRschen Theorie (44.5) – betragsmäßig nur die Werte
+
+$$
+| \boldsymbol {l} | = \sqrt {l (l + 1)} \hbar \quad \text {mit} \quad l = 0, 1, 2, 3, \dots , (n - 1) \tag {44.11}
+$$
+
+annehmen. $\hbar = h / ( 2 \pi )$ (lies: h quer) ist das PLANCKsche Drehimpulsquantum. Die diskreten l-Werte heißen **Bahndrehimpulsquantenzahlen** oder **Nebenquantenzahlen**. (Es sind dies nicht etwa die Beträge vom Bahndrehimpulsvektor l!). Die Korrekturwerte $a _ { l }$ in obiger Termformel nehmen mit wachsendem l rasch ab und mit steigender Ordnungszahl des Elements, d. h. mit steigender Anzahl der Rumpfelektronen, zu. So ist $\mathbf { z } , \mathbf { B } .$ für Lithium (2 Rumpfelektronen) $a _ { 0 } = 0 , 4 ;   a _ { 1 } = 0 , 0 1$ und für Caesium (54 Rumpfelektronen) $a _ { 0 } = 0 , 8 7 ; a _ { 1 } = 0 , 3$ . Die $a _ { 2 1 }$ - und $a _ { 3 1 }$ Werte sind nur bei den schwersten Alkaliatomen von null merklich verschieden. Aus (44.11) geht hervor, dass zu einer bestimmten Hauptquantenzahl n genau n verschiedene Elektronenzustände mit unterschiedlichem Drehimpuls gehören.
+
+## Für jede Hauptquantenzahl n gibt es n verschiedene Nebenquantenzahlen l.
+
+Ihnen allen ist beim Wasserstoffatom, wenn keine Störungen des Hüllenelektrons von außen (z. B. durch elektrische oder magnetische Felder) vorhanden sind, ein und dieselbe Energie zugeordnet; denn nach (44.9) hängt die Energie nur von der Hauptquantenzahl n ab. Solche Zustände gleicher Energie werden **„entartete“ Zustände** genannt. Es heißt dann, das durch n gekennzeichnete Energieniveau ist n-fach belegt oder (n − 1)-fach entartet.
+
+Durch Störungen der Elektronenbewegung im Atom kann die Entartung (zumindest teilweise) aufgehoben werden. Die Folge davon ist eine **Aufspaltung der Terme**, d. h., man beobachtet für jeden Energieterm nicht mehr nur eine einzelne Spektrallinie, sondern eine bestimmte Anzahl dicht nebeneinander liegender diskreter Linien von geringfügig unterschiedlicher Energie, ein sog. Multiplett. Eine solche Störung der Elektronenbewegung tritt beim Leuchtelektron in den wasserstoffähnlichen Alkaliatomen auf, indem dieses Wechselwirkungen nicht nur mit dem Atomkern, sondern auch mit den übrigen Elektronen des Atomrumpfes eingeht. Dadurch wird die Entartung der Energieniveaus aufgehoben, und es treten n verschiedene Terme $T _ { n l }$ auf, deren Energie außer von n noch von l abhängt.
+
+Eine anschauliche Erklärung fanden die Spektralterme der Alkaliatome in der von SOMMERFELD (1915) vorgenommenen Erweiterung des BOHRschen Atommodells auf den allgemeineren Fall **elliptischer Elektronenbahnen**, wonach jedem Wert der Hauptquantenzahl n gerade so viel verschiedene Ellipsenbahnen mit unterschiedlicher Exzentrizität und beim Wasserstoff gleicher Energie zugeordnet sind, wie es zum vorgegebenen n nach (44.11) verschiedene Werte für die Drehimpulsquantenzahl l gibt, nämlich genau n (Bild 44.7). Das Verhältnis von kleiner zu großer Halbachse der Ellipsen ist $( l + 1 ) / n ;$
+
+---
+
+530
+
+44 Atombau und Spektren
+
+die Bahnen mit l = 0 haben somit die größte Exzentrizität, die mit dem größten l-Wert n −1 sind Kreisbahnen.
+
+Wegen der abschirmenden Wirkung der in den „abgeschlossenen Schalen“ befindlichen Rumpfelektronen herrscht außerhalb des Rumpfes das gleiche elektrische Feld wie beim Wasserstoffatom, innerhalb aber ein stärkeres, da dort die größere Kernladung von den Rumpfelektronen nur teilweise abgeschirmt wird. Da nun die Elektronen auf elliptischen Bahnen je nach Exzentrizität der Bahnellipse vorübergehend unterschiedlich tief in den Rumpf „eintauchen“ (sog. „Tauchbahnen“), und zwar umso mehr, je kleiner l ist, wird die Energie der Bahn in Abhängigkeit von l stark beeinflusst und die Bahnentartung aufgehoben. Dabei liegen die Zustände mit kleinstem l energetisch am tiefsten.
+
+![](../../raw/pages_0513-0544/images/page_532_image_4.jpg)
+
+<details>
+<summary>text_image</summary>
+
+l=0
+n=1
+l=0
+l=1
+n=2
+l=0
+l=1
+l=2
+n=3
+</details>
+
+Bild 44.7 Mögliche Elektronenbahnen für n = 1, 2, 3
+
+Man bezeichnet die Elektronenzustände, denen die Werte $l = 0 , 1 , 2 , 3 , 4 , \ldots$ zugeordnet sind, der Reihe nach als $\mathrm { s } \mathrm { - } , \mathrm { p } \mathrm { - } , \mathrm { d } \mathrm { - } , \mathrm { f } \mathrm { - } , \mathrm { g } \mathrm { - } , \ldots \mathrm { - Z u s t i a n d e }$ . Damit lassen sich die Terme durch die Symbole 1s; 2s, 2p; 3s, 3p, 3d; 4s, . . . ; allgemein ns, np, . . . ausdrücken (die voranstehende Ziffer gibt die Hauptquantenzahl an). Die beobachteten Spektrallinien zeigen, dass nicht zwischen beliebigen dieser Zustände Strahlungsübergänge erfolgen, sondern nur zwischen solchen, bei denen sich l nur um 1 ändert (im Unterschied zu n, das sich um eine beliebige ganze Zahl ändern kann). Die nach dieser **Auswahlregel** möglichen Übergänge können aus dem Energieniveauschema (Bild 44.8) abgelesen werden, in dem der Übersichtlichkeit halber die Termfolgen für die vier in den Serien vorkommenden Zustände s, p, d und f nebeneinander gezeichnet sind.
+
+![](../../raw/pages_0513-0544/images/page_532_chart_7.jpg)
+
+<details>
+<summary>other</summary>
+
+| State | Energy Level (eV) |
+| --- | --- |
+| s1/2 | -0.5 |
+| 5s1/2 | -1.0 |
+| 4s1/2 | -2.0 |
+| 3s1/2 | -5.0 |
+| 3p3/2,1/2 | -3.0 |
+| 4p3/2,1/2 | -1.5 |
+| 3d5/2,3/2 | -1.5 |
+| 4d5/2,3/2 | -1.0 |
+| 5f7/2,5/2 | -0.5 |
+| 4f7/2,5/2 | -0.5 |
+</details>
+
+Bild 44.8 Termschema des Na-Atoms mit Feinstruktur (vgl. 44.7). Die gestrichelt gezeichneten Übergänge sind (optisch) verboten.
+
+---
+
+44.5 Richtungsquantelung des Bahndrehimpulses der Elektronen
+
+531
+
+Beim Natrium z. B. ist nur eine der zahlreichen auftretenden Spektrallinien sichtbar. Es ist die bekannte **Natrium-D-Linie** (λ ≈ 589nm), die eine gelbe Färbung der Flamme hervorruft, wenn man ein wenig Kochsalz hineinstreut. Bei genügend hoher Auflösung des Spektrometers erkennt man, dass diese aus zwei eng beieinander liegenden Linien, einem sog. Dublett, besteht (Feinstruktur der Spektrallinien, vgl. 44.7). Sie kommen durch den Übergang 3p → 3s zustande.
+
+## Aufgabe
+
+**44.2** Berechne aus der Energiedifferenz der Zustände 3s und 3p, deren Größe dem Termschema in Bild 44.8 zu entnehmen ist, die Wellenlänge der Natrium-D-Linie!
+
+## 44.5 Richtungsquantelung des Bahndrehimpulses der Elektronen
+
+Außer dem Betrag des Bahndrehimpulsvektors l ist auch seine Komponente bezüglich einer physikalisch ausgezeichneten Richtung, z. B. der Richtung eines äußeren Magnetfeldes, gequantelt. Im Allgemeinen lässt man diese Richtung mit der z-Achse zusammenfallen. Für diese **z-Komponente des Bahndrehimpulsvektors** $l _ { z }$ sind nur die folgenden (diskreten) Werte möglich:
+
+$$
+l _ {z} = m _ {l} \hbar \quad \text {mit} \quad m _ {l} = 0, \pm 1, \pm 2, \dots , \pm l. \tag {44.12}
+$$
+
+$m _ { l }$ heißt **magnetische Quantenzahl** oder **Orientierungsquantenzahl**. Sie legt (in einer halbklassischen Veranschaulichung) die Orientierung des Drehimpulses l gegenüber der z-Richtung fest (Bild 44.9). Bei gegebener Betragsquantenzahl l hat der Drehimpuls, wie aus (44.12) hervorgeht, (2l + 1) verschiedene Einstellmöglichkeiten bezüglich der z-Richtung. Ohne äußeres Feld ist daher jeder zu einem bestimmten Wert von l gehörige Term 2l-fach entartet. Beim Einschalten eines Magnetfeldes wird diese Entartung aufgehoben, und es kommt zur Feinstrukturaufspaltung der Spektrallinien (ZEEMAN-Effekt, vgl. 44.9).
+
+**Für jede Nebenquantenzahl l gibt es 2l** + **1 verschiedene magnetische Quantenzah**len (Orientierungsquantenzahlen) $m _ { l }$
+
+![](../../raw/pages_0513-0544/images/page_533_image_10.jpg)
+
+<details>
+<summary>text_image</summary>
+
+z - Richtung
+l_z = m_l ħ
+α
+√(l(l+1)ħ ħ
+</details>
+
+Bild 44.9 Richtung des quantisierten Drehimpulsvektors l in Abhängigkeit von den Quantenzahlen l und $m _ { l }$ . Für den Winkel α ergeben sich (2l + 1) diskrete Werte gemäß cos $\alpha = m _ { l } / \sqrt { l ( l + 1 ) }$
+
+Während in der klassischen Mechanik alle drei Drehimpulskomponenten $l _ { x } , l _ { y } , l _ { z }$ beliebig vorgebbare, dann aber eindeutig bestimmte Werte haben, können in der Quantenmechanik nur noch der Betrag und eine Komponente des Drehimpulses bestimmte Werte haben, die beiden anderen Komponenten sind dann notwendig unbestimmt. Dieser Sachverhalt kann in einem einfachen halbklassischen Bild veranschaulicht werden: Betrachtet man einen Drehimpuls vektor, der eine **Präzessionsbewegung** auf einem Kegelmantel um die z-Achse ausführt (Bild 44.10), so hat man gerade eine Situation, in der |l| und $l _ { z }$ feste Werte haben, während $l _ { x }$ und
+
+---
+
+532
+
+44 Atombau und Spektren
+
+$l _ { y }$ bei der Präzessionsbewegung dauernd ihr Vorzeichen wechseln. In der BOHRschen Theorie entsprechen den verschiedenen Orientierungen des Drehimpulses und damit den verschiedenen Werten der Quantenzahl $m _ { l }$ verschiedene Neigungen der Bahnebene des Elektrons gegenüber der z-Achse.
+
+![](../../raw/pages_0513-0544/images/page_534_image_3.jpg)
+
+<details>
+<summary>text_image</summary>
+
+z
+m=3
+m=2
+m=1
+m=0
+m=-1
+m=-2
+m=-3
+</details>
+
+Bild 44.10 Richtungsquantelung, dargestellt für den Fall $l = 3$ Es ergeben sich $2 l + 1 = 7$ Werte für $m _ { l }$ und damit ebenso viele Einstellmöglichkeiten für den Drehimpulsvektor.
+
+## Beispiel 44.2:
+
+Wie viel verschiedene Elektronenzustände (die sich in den Quantenzahlen l und $m _ { l }$ unterscheiden) gibt es für $n = 2 ?$
+
+Lösung: Für $n = 2$ sind nach (44.11) nur zwei l-Werte möglich, $l = 0$ und $l = 1$ . Für $l = 0$ ist nach (44.12) nur $m _ { l } = 0$ erlaubt. Für $l = 1$ kann $m _ { l }$ die drei Werte −1, 0 und +1 annehmen. Insgesamt existieren also vier mögliche Zustände $( , \mathrm { B a h n e n } ^ { a } )$ für ein Elektron mit der Hauptquantenzahl $n = 2$ □
+
+## 44.6 Das magnetische Bahnmoment der Elektronen. Bohrsches Magneton
+
+Eine auf einer Kreisbahn vom Radius r mit der Kreisfrequenz $\omega = 2 \pi / T$ umlaufende elektrische Ladung $q$ stellt einen elektrischen Kreisstrom von der Stärke $I = q / T = q \omega / ( 2 \pi )$ dar, welcher nach (28.20) ein (makroskopisches) magnetisches Dipolmoment der Größe
+
+$$
+| \boldsymbol {m} | = \mu_ {0} I \pi r ^ {2} = \frac {1}{2} \mu_ {0} q r ^ {2} \omega \tag {44.13}
+$$
+
+bewirkt. m wird als **magnetisches Bahnmoment** bezeichnet. Da der mechanische Bahndrehimpuls L der auf der Kreisbahn umlaufenden Punktladung (Masse $m _ { q } )$ dem Betrage nach gleich $| { \pmb L } | = m _ { q } r ^ { 2 } \omega$ ist, folgt durch Einsetzen in (44.13)
+
+$$
+| \boldsymbol {m} | = \frac {\mu_ {0} q | \boldsymbol {L} |}{2 m _ {q}} \quad \begin{array}{l} (\text {magnetisches Bahnmoment einer} \\ \text {kreisenden Punktladung}). \end{array} \tag {44.14}
+$$
+
+Diese Gleichung ist auch gültig, wenn in ihr anstelle der Beträge von m und L die Vektoren selbst stehen, sofern die Ladung $q$ vorzeichenbehaftet eingesetzt wird. Es folgt als sog.
+
+## magnetomechanischer Parallelismus:
+
+**Drehimpulsvektor und Vektor des magnetischen Moments einer kreisenden Punktladung sind einander gleich- bzw. entgegengerichtet und starr miteinander verbunden.**
+
+---
+
+44.7 Elektronenspin und magnetisches Spinmoment. Die Feinstruktur der Atomspektren
+
+533
+
+Wenden wir nun diese aus der Makrophysik gewonnene Beziehung auf die Elektronen im Atom an, deren Bahndrehimpulse l gemäß (44.11) und (44.12) gequantelt sind, so folgt für die **atomaren magnetischen Bahnmomente der Elektronen** $\mu _ { l }$ hinsichtlich ihres Betrages und ihrer z-Komponente
+
+$$
+\left| \boldsymbol {\mu} _ {l} \right| = \frac {\mu_ {0} e | \boldsymbol {l} |}{2 m _ {\mathrm{e}}} = \sqrt {l (l + 1)} \frac {\mu_ {0} e \hbar}{2 m _ {\mathrm{e}}} = \sqrt {l (l + 1)} \mu_ {\mathrm{B}} ^ {\prime} \tag {44.15}
+$$
+
+und
+
+$$
+\mu_ {l, z} = m _ {l} \mu_ {\mathrm{B}} ^ {\prime} = \frac {l _ {z} \mu_ {\mathrm{B}} ^ {\prime}}{\hbar}. \tag {44.16}
+$$
+
+Dabei ist
+
+$$
+\mu_ {\mathrm{B}} ^ {\prime} = \frac {\mu_ {0} e \hbar}{2 m _ {\mathrm{e}}} = 1, 1 6 5 4 0 6 \cdot 1 0 ^ {- 2 9} \mathrm{V} \cdot \mathrm{s} \cdot \mathrm{m} \quad \begin{array}{l} (\text {magnetisches Moment} \\ \text {des Elektrons auf der} \\ \text {BOHRschen Kreisbahn}). \end{array} \tag {44.17}
+$$
+
+Die Größe $\mu _ { \mathrm { B } }   =   e \hbar / ( 2 m _ { \mathrm { e } } )   =   9 { , } 2 7 4 \cdot 1 0 ^ { - 2 4 } { \mathrm { J } } \cdot { \mathrm { T } } ^ { - 1 }$ , also ohne den Faktor $\mu _ { 0 }$ in (44.17), heißt **BOHRsches Magneton**. (Diese Größe hat aber nicht die Dimension eines magnetischen Moments gemäß der Definition (28.2)).
+
+![](../../raw/pages_0513-0544/images/page_535_image_9.jpg)
+
+<details>
+<summary>text_image</summary>
+
+I
+μl
+e⁻
+</details>
+
+Bild 44.11 Richtung des Bahndrehimpulses l und des zugehörigen magnetischen Moments $\mu _ { l }$ eines kreisenden Elektrons. Die für I eingezeichnete Richtung gibt die technische Stromrichtung des zugehörigen Kreisstromes an.
+
+Die experimentellen Befunde beweisen, dass der aus der Makrophysik folgende magnetomechanische Parallelismus (44.14) auch für den atomaren Bereich gültig ist (s. Bild 44.11). Jedoch sind im Gegensatz zur Makrophysik die atomaren magnetischen Momente (ebenso wie die Drehimpulse) gequantelt. Aus (44.15) und (44.16) geht weiterhin hervor, dass alle Atome und Moleküle, deren Gesamtbahndrehimpuls (Vektorsumme aller Bahndrehimpulse der Elektronen im Atom bzw. Molekül) verschwindet, kein magnetisches Bahnmoment besitzen.
+
+## 44.7 Elektronenspin und magnetisches Spinmoment. Die Feinstruktur der Atomspektren
+
+Aus zahlreichen experimentellen Befunden geht hervor, dass das Elektron außer dem mit seiner Bewegung verknüpften Bahndrehimpuls noch einen stets konstant bleibenden Eigendrehimpuls, den sog. **Spin**, besitzt. Dieser ist eine typisch quantenphysikalische Größe. Wie das Experiment zeigt, gibt es für den Spinvektor s beim Einzelelektron nur zwei Einstellmöglichkeiten zu einem äußeren Magnetfeld (Bild 44.12a). Da sich nach (44.12) die z-Komponente des Drehimpulsvektors in atomaren Systemen immer nur um ganzzahlige Vielfache von ħ ändern kann, müssen den beiden Einstellmöglichkeiten des Spins s die **Orientierungsquantenzahlen** $m _ { s } = + \frac { 1 } { 2 }$ und $m _ { s } = - \frac { 1 } { 2 }$ zugeordnet werden:
+
+$$
+s _ {z} = m _ {s} \hbar = \pm \frac {1}{2} \hbar \quad (z - \text {Komponente des Elektronenspins}). \tag {44.18}
+$$
+
+---
+
+534
+
+44 Atombau und Spektren
+
+Für den **Betrag des Elektronenspins** gilt analog zu (44.11)
+
+$$
+\left| \boldsymbol {s} \right| = \sqrt {s (s + 1)} \hbar \quad \text {mit der Spinquantenzahl} s = \frac {1}{2}. \tag {44.19}
+$$
+
+Der Elektronenspin wird anschaulich (aus der Sicht der Quantenmechanik allerdings nicht korrekt, da es für ihn kein klassisches Analogon gibt) durch eine Kreiselbewegung des kugelförmig angenommenen Elektrons um seine Symmetrieachse interpretiert. Dieses Modell erklärt auf einfache Weise das mit dem Spin verbundene magnetische Spinmoment $\mu _ { s } ,$ , da eine rotierende geladene Kugel einem System vieler Kreisströme äquivalent ist und jeder Kreisstrom ein magnetisches Moment erzeugt (vgl. 44.6).
+
+![](../../raw/pages_0513-0544/images/page_536_image_5.jpg)
+
+Bild 44.12 Elektronenspin: a) Die beiden möglichen Spineinstellungen; b) Atomstrahlversuch von Stern und Gerlach (O Ofen, M Magnet, S Auffangschirm)
+
+Die Spinhypothese wurde 1925 von UHLENBECK und GOUDSMIT eingeführt. Den experimentellen Nachweis erbrachte bereits 1921 der **Stern-Gerlach-Versuch** (Bild 44.12b): Ein durch Verdampfung in einem Ofen (O) und anschließende scharfe Ausblendung erzeugter feiner Strahl von Silberatomen wird durch ein stark inhomogenes Magnetfeld, das mittels eines Magneten mit unterschiedlich ausgebildeten Polschuhen erzeugt wird, auf einen Schirm (S) gelenkt, wo die Atome haften bleiben. Bei den Silberatomen befindet sich ähnlich wie bei den Alkaliatomen über den abgeschlossenen Schalen des Rumpfes ein Leuchtelektron, dessen Zustand, wenn sich das Atom im Grundzustand befindet, durch die Drehimpulsquantenzahl $l = 0$ beschrieben wird. Nach (44.15) hat demnach ein Silberatom im Grundzustand kein magnetisches Bahnmoment, es sollte daher durch das Magnetfeld nicht beeinflusst werden. Trotz des Fehlens eines magnetischen Bahnmoments tritt aber eine Ablenkung der Silberatome im inhomogenen Magnetfeld auf, und zwar in Form einer Aufspaltung des Atomstrahls in zwei entgegengesetzte Richtungen. Daraus muss geschlossen werden, dass noch eine andere Art eines magnetischen Moments bei den Elektronen mit genau zwei Einstellmöglichkeiten zum Magnetfeld existiert; es ist dies das magnetische Spinmoment $\mu _ { s }$
+
+Die Größe des magnetischen Spinmoments kann aus dem STERN-GERLACH-Versuch bestimmt werden. Man findet für die z-Komponente $\mu _ { s , z }$ einen Wert von einem (nicht einem halben!) BOHRschen Magneton (44.17), d. h., es gilt
+
+$$
+\mu_ {s, z} = 2 m _ {s} \mu_ {\mathrm{B}} ^ {\prime} \quad \text {mit} \quad m _ {s} = \pm \frac {1}{2} \quad \begin{array}{l} (z - \text {Komponente des} \\ \text {magnetischen Spinmoments}). \end{array} \tag {44.20}
+$$
+
+Während der Quotient aus magnetischem Moment und zugehörigem mechanischen Drehimpuls (das sog. gyromagnetische Verhältnis) für die Bahnbewegung des Elektrons nach (44.15) und (44.16) den Wert $| \pmb { \mu } _ { l } | / | \pmb { l } | = \mu _ { l , z } / l _ { z } = \mu _ { \mathrm { B } } ^ { \prime } / \hbar$ hat, ist er beim Elektronenspin mit (44.18) und (44.20) gleich $\mu _ { s , z } / s _ { z } = | \pmb { \mu } _ { s } | / | \pmb { s } | = 2 \mu _ { \mathrm { B } } ^ { \prime } / \hbar$ (magnetomechanische Anomalie). Für den **Betrag des magnetischen Spinmoments** folgt damit
+
+$$
+\left| \boldsymbol {\mu} _ {s} \right| = \frac {2 \mu_ {\mathrm{B}} ^ {\prime}}{\hbar} \left| \boldsymbol {s} \right| = 2 \sqrt {s (s + 1)} \mu_ {\mathrm{B}} ^ {\prime} \quad \text {mit} \quad s = \frac {1}{2}. \tag {44.21}
+$$
+
+---
+
+44.8 Mehrelektronensysteme
+
+535
+
+Außer dem Elektron ist auch anderen atomaren Teilchen, so z. B. den Kernbausteinen Proton und Neutron, ein Spin mit halbzahliger Betrags- und Orientierungsquantenzahl zuzuordnen. Man bezeichnet alle Teilchen mit halbzahligem Spin als **Fermionen** (nach dem Physiker E. FERMI), im Unterschied zu den Teilchen mit ganzzahligem Spin, den **Bosonen** (nach dem Physiker J. C. BOSE). Interessant ist, dass nicht nur das Elektron und das (positiv geladene) Proton, sondern auch das elektrisch neutrale Neutron ein magnetisches Spinmoment besitzt (vgl. 47.1).
+
+**Feinstruktur durch Spin-Bahn-Kopplung.** Eine genaue Untersuchung der Spektren der Alkalimetalle zeigt, dass die in Bild 44.8 eingezeichneten Energieterme (bis auf die s-Terme) in zwei Unterterme aufgespalten sind. So z. B. besteht die bekannte gelbe Natrium-D-Linie (vgl. 44.4) aus zwei eng beieinander liegenden Linien (einem sog. Dublett), die einen Abstand von etwa 0,6nm haben. Diese **Feinstruktur** der Spektrallinien erklärt sich daraus, dass die Vektoren des Bahn- und Spindrehimpulses eines Elektrons (anschaulich gesprochen) nicht jede Lage zueinander einnehmen können. Man kommt bei den Einelektronensystemen in Übereinstimmung mit dem Experiment, wenn man den Bahndrehimpulsvektor l und den Spinvektor s des Leuchtelektrons zu einem **Gesamtdrehimpuls j** derart zusammensetzt, dass der Betrag von j nur die Werte
+
+$$
+| \boldsymbol {j} | = \sqrt {j (j + 1)} \hbar \quad \text {mit} \quad j = l + m _ {s} = l \pm \frac {1}{2} \tag {44.22}
+$$
+
+annehmen kann. j heißt **Quantenzahl des Gesamtdrehimpulses** oder **innere Quantenzahl**. Für den Gesamtdrehimpuls j gilt analog zur Richtungsquantelung des Bahndrehimpulsvektors l (vgl. 44.5) die Vorschrift, dass seine Projektionen auf die z-Richtung in Einheiten ħ die **Orientierungsquantenzahlen** $m _ { j }$ von −j bis +j in Schritten $| \Delta j | = 1$ durchlaufen:
+
+$$
+j _ {z} = m _ {j} \hbar \quad \text {mit} \quad m _ {j} = - j, - j + 1, \dots , j - 1, j. \tag {44.23}
+$$
+
+Daraus ergeben sich $( 2 j + 1 )$ Einstellungen von j gegenüber der z-Richtung. Dabei kommt bei Einelektronensystemen, bei denen nach (44.22) j stets halbzahlig und daher die Zahl der Einstellmöglichkeiten $( 2 j + 1 )$ immer geradzahlig ist, die senkrechte Einstellung zur z-Richtung $( m _ { j } = 0 )$ nicht vor.
+
+Für den s-Term (l = 0) hat j nur den einen Wert 1/2 (nicht +1/2 und −1/2), weil für die Spineinstellung wegen des fehlenden Bahndrehimpulses die Bezugsrichtung fehlt. Für den p-Term (l = 1) gibt es nach (44.22) für j die beiden Werte 1/2 und 3/2, für den d-Term (l = 2) die Werte 3/2 und 5/2 und für den f-Term $( l = 3 )$ die Werte 5/2 und 7/2. Das heißt, bis auf die s-Terme haben alle Terme der Alkaliatome Dublettcharakter.
+
+Die **Hyperfeinstruktur** der Spektrallinien entsteht durch magnetische Wechselwirkung zwischen Atomkern und Elektronen infolge unterschiedlicher Orientierungen des Spinmoments des Atomkerns (Kernspin) gegenüber dem Gesamtdrehimpuls der Elektronen. Die Hyperfeinstrukturaufspaltung der Spektrallinien ist um den Faktor $1 0 ^ { - 3 }$ kleiner als die Feinstrukturaufspaltung.
+
+## 44.8 Mehrelektronensysteme
+
+Bei Atomen mit mehreren Außenelektronen, deren Anzahl für das Spektrum des betreffenden Atoms besonders kennzeichnend ist, stellen sich die Spinvektoren s der einzelnen Elektronen parallel oder antiparallel zueinander ein und addieren sich vektoriell zum **Gesamtspin S**. Ebenso ergibt sich der **Gesamtbahndrehimpuls L** der Elektronenhülle des Atoms durch vektorielle Addition aus den Bahndrehimpulsen l aller Einzelelektronen. L und S wiederum setzen sich vektoriell zusammen zum **Gesamtelektronendrehimpuls J** des Atoms. Dieses Kopplungsschema nennt man L-S- oder RUSSELL-SAUNDERS-Kopplung. Für L, S und J gelten dabei hinsichtlich ihres Betrages (mit L, S und J als Betragsquantenzahlen) und ihrer z-Komponenten analoge Quantisierungsvorschriften wie für l, s und j
+
+---
+
+536
+
+44 Atombau und Spektren
+
+beim Einzelelektron. Da abgeschlossene Schalen in ihrer Besetzung mit Elektronen so beschaffen sind, dass sich sowohl alle Spins als auch alle Bahndrehimpulse der Einzelelektronen in ihnen gerade kompensieren, brauchen bei der Ermittlung von L und S nur die äußeren Elektronen (Leuchtelektronen) des Atoms berücksichtigt zu werden.
+
+**In „abgeschlossenen Elektronenschalen“ des Atoms kompensieren sich alle Drehimpulse und alle magnetischen Momente der Einzelelektronen. Atome, welche nur aus abgeschlossenen Schalen bestehen, haben daher kein nach außen hin wirksames magnetisches Moment.**
+
+Während bei den Atomen der Alkalimetalle Wechselwirkungen nur zwischen dem (einen) Leuchtelektron und dem Atomrumpf auftreten (vgl. 44.4), kommen bei den Atomen und Ionen mit mehr als einem Leuchtelektron die Wechselwirkungen der Leuchtelektronen untereinander hinzu. Daher werden die Spektren hier sehr viel komplizierter, was sich neben einem größeren Linienreichtum vor allem darin äußert, dass die Spektrallinien eine unterschiedliche Feinstruktur haben. Diese Feinstruktur entsteht, indem ein Energieterm, der zu einer bestimmten Hauptquantenzahl n und Bahndrehimpulsquantenzahl L gehört, infolge Wechselwirkung zwischen dem zu L gehörigen magnetischen Bahnmoment und dem zu S gehörigen magnetischen Spinmoment in mehrere Energieniveaus aufspaltet, die sich in ihren inneren Quantenzahlen J unterscheiden. Die Vielfachheit (Multiplizität) der Aufspaltung hängt daher von der Anzahl der möglichen Werte J bei festem L und S ab; sie beträgt 2S + 1.
+
+Beim Zweielektronensystem (Heliumatom, Erdalkaliatome, Wasserstoffmolekül usw.) treten zwei Termsysteme auf. Das eine ist dadurch gekennzeichnet, dass z. B. beim Heliumatom die Spinvektoren der beiden Elektronen antiparallel zueinander ausgerichtet sind (sog. Parhelium); in diesem Fall ist S = 0. Es existiert kein magnetisches Gesamtspinmoment und damit auch keine Wechselwirkung mit dem magnetischen Bahnmoment, weshalb keine Aufspaltung der Terme eintritt. Da also in diesem durch S = 0 gekennzeichneten System jeder Term L > 0 nur aus einem Energieniveau besteht (Multiplizität 1), spricht man vom **Singulettsystem**.
+
+Das zweite Termsystem ist dadurch ausgezeichnet, dass die Spinvektoren der beiden Elektronen des Heliumatoms parallel zueinander ausgerichtet sind, d. h., es ist S = 1 (sog. Orthohelium), und es sind drei Einstellmöglichkeiten von S und L möglich mit den Orientierungsquantenzahlen $m _ { S } = 1 ,   0 ,   - 1$ und den inneren Quantenzahlen $J = L + m _ { S } = 2 ,$ 1, 0 für einen P-Zustand (L = 1). Dies ergibt eine Aufspaltung der Terme in drei Energieniveaus (Multiplizität 3). Man spricht deshalb hier von einem **Triplettsystem**.
+
+In der Spektroskopie ist es üblich, die Energieniveaus durch Symbole wie $2 ^ { 3 } \mathrm { P _ { 1 } }$ usw., allgemein $n ^ { ( 2 S + 1 ) } { L _ { J } } ^ { 2 }$ zu kennzeichnen. Die erste Zahl gibt die Hauptquantenzahl an; für die Bahndrehimpulsquantenzahl L steht das zugehörige Buchstabensymbol (S, P, D, F, . . . ), an welches links oben die Multiplizität der Aufspaltung 2S + 1 angefügt wird, also 1 für Singulett, 2 für Dublett, 3 für Triplett, 4 für Quartett usw.; der untere Index kennzeichnet die innere Quantenzahl. S-Terme (L = 0) sind stets einfach; es wird jedoch in der Regel auch ihnen die Multiplizität des Termsystems beigefügt, zu dem sie gehören. So z. B. bezeichnet $1 ^ { \tilde { 2 } } \mathrm { S } _ { 1 / 2 }$ den S-Term eines Dublettsystems mit dem Gesamtdrehimpuls J = 1/2 (beim H-Atom).
+
+## 44.9 Aufspaltung der Spektrallinien im Magnetfeld (Zeeman-Effekt)
+
+Befinden sich die Atome in einem Magnetfeld, so zeigen die von ihnen emittierten Spektren eine zusätzliche Feinstrukturaufspaltung (ZEEMAN, 1896). Der einfachste Fall magnetischer Auf-
+
+---
+
+44.9 Aufspaltung der Spektrallinien im Magnetfeld (Zeeman-Effekt)
+
+537
+
+spaltung liegt bei den Atomen und Ionen mit gerader Elektronenzahl vor, die also kein resultierendes Spinmoment besitzen (z. B. Singulett-Terme des Heliumatoms, vgl. 44.8). Wir sprechen dann vom **normalen ZEEMAN-Effekt**. In diesem Fall spaltet jede Spektrallinie in drei Linien auf (normales LORENTZ-Triplett): Die ursprünglich vorhandene Linie erscheint auch bei angelegtem Magnetfeld, links und rechts von ihr befindet sich in gleichem Abstand je eine neue Linie (Bild 44.13). Der Frequenzunterschied $\Delta \omega = 2 \pi \Delta f$ zwischen den aufgespaltenen Linien hängt von der Stärke des äußeren Magnetfeldes H (bzw. Flussdichte $B = \mu _ { 0 } H )$ wie folgt ab:
+
+$$
+\Delta \omega = \frac {\Delta W}{\hbar} = \pm \frac {\mu_ {\mathrm{B}} ^ {\prime} H}{\hbar} = \pm \frac {1}{2} \frac {e}{m _ {\mathrm{e}}} B. \tag {44.24}
+$$
+
+![](../../raw/pages_0513-0544/images/page_539_image_4.jpg)
+
+<details>
+<summary>text_image</summary>
+
+ω₀ - Δω
+ω₀
+ω₀ + Δω
+</details>
+
+Bild 44.13 Aufspaltung einer Spektrallinie im Magnetfeld (normales Lorentz-Triplett beim Zeeman-Effekt)
+
+Das Magnetfeld bewirkt, dass der Bahndrehimpulsvektor L der Elektronenhülle des Atoms um die Feldrichtung präzediert (Bild 44.14). Diese Präzessionsbewegung kann mit der eines rotierenden symmetrischen Kreisels um die Richtung der Schwerkraft verglichen werden (s. Bild 11.12). Die Ursache ist in beiden Fällen ein Drehmoment M, das im Falle des „Elektronenkreisels“ dadurch zustande kommt, dass das mit L verknüpfte magnetische Dipolmoment $\mu _ { L }$ versucht, sich in die Richtung des Magnetfeldes einzustellen. Der Betrag des Drehmoments ist bei senkrechter Einstellung $( \alpha = 9 0 ^ { \circ } )$ nach (28.3) $| { \pmb M } | = | { \pmb \mu } _ { L } | H .$ Weiterhin ist nach (44.15) und (44.17) $| \pmb { \mu } _ { L } | / | \pmb { L } | = \mu _ { \mathrm { B } } ^ { \prime } / \hbar$ , womit sich die Präzessionsfrequenz, die sog. **LARMOR-Frequenz**, aus (11.17) berechnet zu
+
+$$
+\omega_ {\mathrm{L}} = \frac {| \boldsymbol {M} |}{| \boldsymbol {L} |} = \frac {| \boldsymbol {\mu} _ {L} | H}{| \boldsymbol {L} |} = \frac {\mu_ {\mathrm{B}} ^ {\prime} H}{\hbar} = \frac {e \mu_ {0} H}{2 m _ {\mathrm{e}}} = \frac {1}{2} \frac {e}{m _ {\mathrm{e}}} B. \tag {44.25}
+$$
+
+![](../../raw/pages_0513-0544/images/page_539_image_8.jpg)
+
+<details>
+<summary>text_image</summary>
+
+H
+L
+α
+</details>
+
+Bild 44.14 Larmor-Präzession des Vektors des Gesamtbahndrehimpulses L der Elektronen um die Richtung des äußeren Magnetfeldes. Der Winkel α unterliegt dabei der Richtungsquantelung (s. Bild 44.9 und 44.10).
+
+Sie ist also gerade gleich der beim normalen ZEEMAN-Effekt auftretenden Frequenzänderung (44.24). Bei Berücksichtigung der Richtungsquantelung für die Raumlage von L erhält man für die Frequenzänderung anstelle von (44.24) und $( 4 4 . 2 5 ) \: \Delta \omega = m _ { L } \omega _ { \mathrm { L } }$ , wobei die magnetische Quantenzahl $m _ { L }$ analog zu (44.12) die Werte $0 , \pm 1 , \pm 2 , \ldots , \pm L   ( L$ Gesamtdrehimpulsquantenzahl) annehmen kann. Für die Berechnung der möglichen Übergänge zwischen den Energiestufen gilt die Auswahlregel $\Delta m _ { L } = 0 ,   \pm 1$ Für L = 1, d. h. $m _ { L } = - 1 , 0 ,$ 1, erscheint daher beiderseits der Spektrallinie mit unveränderter Frequenz ω<sub>0</sub> $( m _ { L } = 0 )$ je eine weitere Linie mit der Frequenz $\omega _ { 0 } - \omega _ { \mathrm { L } }$ und $\omega _ { 0 } + \omega _ { \mathrm { L } }$ (s. Bild 44.13).
+
+Bei den meisten Atomen wird eine Aufspaltung in eine größere Zahl von Komponenten (Quartetts, Sextetts usw.) beobachtet; man spricht dann vom **anomalen ZEEMAN-Effekt**. Dieser tritt
+
+---
+
+538
+
+44 Atombau und Spektren
+
+immer dann auf, wenn die Aufspaltung vom Elektronenspin beeinflusst wird, was bei allen Atomen mit ungerader Elektronenzahl der Fall ist, wo sich die Spinvektoren nicht paarweise kompensieren.
+
+Durch sehr starke Magnetfelder wird die Kopplung zwischen L und S (vgl. 44.8) gelöst, es wird kein Gesamtdrehimpuls J gebildet. In diesem Fall präzedieren L und S für sich allein richtungsgequantelt zum äußeren Magnetfeld um die Feldrichtung (PASCHEN-BACK-Effekt). Dies führt zu einer anderen Termaufspaltung als beim ZEEMAN-Effekt.
+
+Die Aufspaltung der Spektrallinien infolge Beeinflussung der Atome durch ein elektrisches Feld nennt man STARK-Effekt.
+
+## Beispiel 44.3:
+
+Die von einer mit Helium gefüllten Gasentladungsröhre emittierten Spektrallinien zeigen, wenn die Entladungsröhre in ein Magnetfeld gebracht wird, einen normalen ZEEMAN-Effekt. Bei einer magnetischen Flussdichte von B = 1T wird mittels eines Spektralapparates eine Frequenzaufspaltung der Größe $| \Delta \omega | = 8 . 8 \cdot 1 0 ^ { 1 0 }   \mathrm { s } ^ { - 1 }$ zwischen Spektrallinie und einer der beiden auftretenden Satellitenlinien beobachtet. Man bestimme daraus die spezifische Ladung des Elektrons.
+
+Lösung: Aus (44.24) erhalten wir $e / m _ { \mathrm { e } }   =   2   | \Delta \omega | / B   =   2 \cdot 8 . 8 \cdot 1 0 ^ { 1 0 }   \mathrm { s } ^ { - 1 } / ( 1 \mathrm { V }   \cdot   \mathrm { s }   \cdot   \mathrm { m } ^ { - 2 } )   =   1 . 7 6$ $1 0 ^ { 1 1 } \mathrm { A }   \cdot   \mathrm { s } / \mathrm { k g }$ □
+
+## 44.10 Das Pauli-Prinzip und das Periodensystem der Elemente
+
+Ordnet man die chemischen Elemente nach steigenden relativen Atommassen $A _ { \Gamma }$ in mehreren Reihen so, dass jeweils eine neue Reihe mit einem solchen Element beginnt, das dem ersten Element in der vorangegangenen Reihe in seinen chemischen Eigenschaften ähnlich ist, so entsteht das von L. MEYER (1864) und D. J. MENDELEJEW (1869) entdeckte **Periodensystem der Elemente** (Tabelle 44.1 auf der folgenden Seite). Es besteht aus 7 Reihen, genannt Perioden, die untereinander angeordnet sind. Die jeweils untereinander stehenden, zu einer Gruppe gehörigen Elemente erweisen sich als chemisch verwandt. Die Elemente werden, mit dem leichtesten Element, dem Wasserstoff H, beginnend, i. Allg. mit steigender relativer Atommasse durchnummeriert; die auf diese Weise jedem Element zugeordnete „Platzziffer“ im Periodensystem heißt Ordnungszahl.
+
+In der ersten Periode befinden sich 2, in der zweiten und dritten je 8, in der vierten und fünften je 18, in der sechsten 32 Elemente; die siebente Periode ist noch unvollständig. In der 6. Periode muss man die 14 sog. seltenen Erden von der Ordnungszahl 58 (Ce) bis zur Ordnungszahl 71 (Lu) auslassen, um die Verwandtschaftsbeziehungen der Elemente innerhalb der Gruppen aufrechtzuerhalten.
+
+Die Elemente einer Gruppe zeichnen sich nicht nur durch chemische Verwandtschaft aus, sondern auch durch eine Ähnlichkeit im Aufbau der optischen Spektren. Des weiteren findet man außer der Periodizität der chemischen Eigenschaften auch eine solche hinsichtlich vieler physikalischer Eigenschaften wie Dichte, Härte, Kompressibilität, thermische Ausdehnung, Lichtbrechung, elektrische Leitfähigkeit, Magnetismus und viele andere. Diese Tatsache erklärt sich aus der Ähnlichkeit der Atome innerhalb einer Gruppe im Aufbau der Elektronenhülle.
+
+Die Erklärung für den Hüllenaufbau der Atome kann mit Hilfe der in den vorangegangenen Abschnitten behandelten vier Quantenzahlen n, l, $m _ { l }$ und $m _ { s }$ , welche die Energiezustände
+
+---
+
+44.10 Das Pauli-Prinzip und das Periodensystem der Elemente
+
+539
+
+44.1 Periodensystem der Ele
+
+densystem der Elem
+
+<table><tr><td rowspan="2">K</td><td rowspan="2">1 HWasserstoff1,0079</td><td rowspan="2" colspan="4">IIa</td><td rowspan="2" colspan="10">Legende:</td><td colspan="2">0</td><td></td></tr><tr><td colspan="2">2HeHelium4,0026022</td><td></td></tr><tr><td>L</td><td>3LiLithium6,9412-1</td><td colspan="2">4BeBeryllium9,01218312-2</td><td colspan="3">Ordnungszahl——→Symbol——→relative Atommasse (IUPAC, 2013)——→Elektronenkonfiguration——→</td><td>26FeEisen55,8452-8-14-2</td><td colspan="5">Bei nicht in der Naturvorkommenden radioaktivenElementen ist die Masse desstabilsten Isotops angegeben.</td><td>5BBor10,8112-3</td><td>6CKohlenstoff12,0112-4</td><td>7NStickstoff14,0072-5</td><td>8OSauerstoff15,9992-6</td><td>9FFluor18,9984032-7</td><td>10NeNeon20,17972-8</td></tr><tr><td>M</td><td>11NaNatrium22,9897692-8-1</td><td colspan="2">12MgMagnesium24,3052-8-2</td><td colspan="9">IIIa IVa Va Vla VIIa———VIIIa———Ib IIb</td><td>13AIAIuminium26,98152-8-3</td><td>14SiSilicium28,0862-8-4</td><td>15PPhosphor30,9737622-8-5</td><td>16SSchwefel32,0652-8-6</td><td>17CIClChlor35,4532-8-7</td><td>18ArArgon39,9482-8-8</td></tr><tr><td>N</td><td>19KKalium39,09832-8-8-1</td><td>20CaCalcium40,0782-8-8-2</td><td>21ScScandium44,9559082-8-8-9-2</td><td>22TiTitan47,8672-8-8-10-2</td><td>23VVanadium50,94152-8-8-11-2</td><td>24CrChrom51,99612-8-8-13-1</td><td>25MnMangan54,9380442-8-8-13-2</td><td>26FeEisen55,8452-8-8-14-2</td><td>27CoCobalt58,9331942-8-8-15-2</td><td>28NiNickel58,69342-8-8-16-2</td><td>29CuKupfer63,5462-8-8-18-1</td><td>30ZnZink65,382-8-8-18-2</td><td>31GaGallium69,7232-8-8-18-3</td><td>32GeGermanium72,6302-8-8-18-4</td><td>33AsArsen74,9215952-8-8-18-5</td><td>34SeSelen78,9712-8-8-18-6</td><td>35BrBrom79,9042-8-8-18-7</td><td>36KrKrypton83,7982-8-8-18-8</td></tr><tr><td>O</td><td>37RbRubidium85,46782-8-18-8-1</td><td>38SrStrontium87,622-8-18-8-2</td><td>39YYttrium88,905842-8-8-18-9-2</td><td>40ZrZirconium91,2242-8-8-18-10-2</td><td>41NbNiob92,906372-8-8-18-12-1</td><td>42MoMolybdän95,952-8-8-18-13-1</td><td>43TcTechnetium(98,91)2-8-8-18-13-2</td><td>44RuRuthenium101,072-8-8-18-15-1</td><td>45RhRhodium102,905502-8-8-18-16-1</td><td>46PdPalladium106,422-8-8-18-18</td><td>47AgSilber107,86822-8-8-18-18-1</td><td>48CdCadmium112,4142-8-8-18-18-2</td><td>49InIndium114,8182-8-8-18-18-3</td><td>50SnZinn118,7102-8-8-18-18-4</td><td>51SbAntimon121,7602-8-8-18-18-5</td><td>52TeTellur127,602-8-8-18-18-6</td><td>53Iod126,904472-8-8-18-18-7</td><td>54XeXenon131,2932-8-8-18-18-8</td></tr><tr><td>P</td><td>55CsCäsium132,9054522-8-18-18-8-1</td><td>56BaBarium137,3272-8-18-18-8-2</td><td></td><td>72HfHafnium178,492-8-18-32-10-2</td><td>73TaTantal180,947882-8-18-32-11-2</td><td>74W Wolfram183,842-8-18-32-12-2</td><td>75Re Rhenium186,2072-8-18-32-13-2</td><td>76Os Osmium190,232-8-18-32-14-2</td><td>77Ir Iridium192,2172-8-18-32-15-2</td><td>78Pt Platin195,0842-8-18-32-17-1</td><td>79Au Gold196,9665692-8-18-32-18-1</td><td>80HgQuecksilber200,5922-8-18-32-18-2</td><td>81TIThallium204,38332-8-18-32-18-3</td><td>82PbBlei207,22-8-18-32-18-4</td><td>83BiBismut208,980402-8-18-32-18-5</td><td>84PoPolonium(209)2-8-18-32-18-6</td><td>85AtAstat(210)2-8-18-32-18-7</td><td>86RnRadon(222)2-8-18-32-18-8</td></tr><tr><td>Q</td><td>87FrFrancium(223)-18-32-18-8-1</td><td>88RaRadium(226)-18-32-18-8-2</td><td></td><td>104RfRutherfordium(265)-18-32-32-10-2</td><td>105DbDubnium(268)-18-32-32-11-2</td><td>106SgSeaborgium(271)-18-32-32-12-2</td><td>107BhBohrium(270)-18-32-32-13-2</td><td>108HsHassium(277)-18-32-32-14-2</td><td>109MtMeitnerium(276)-18-32-32-15-2</td><td>110DsDarmstadtium(281)-18-32-32-17-1</td><td>111RgRöntgenium(280)-18-32-32-18-1</td><td>112CnCopernicium(285)-18-32-32-18-2</td><td>113NhNihonium(284)-18-32-32-18-3</td><td>114FlFlerovium(289)-18-32-32-18-4</td><td>115McMoscovium(288)-18-32-32-18-5</td><td>116LvLivermorium(293)-18-32-32-18-6</td><td>117TsTenness(292)-18-32-32-18-7</td><td>118OgOganesson(294)-18-32-32-18-8</td></tr></table>
+
+| 57 LaLanthan138,905472-8-18-18-9-2 | 58 CeCer140,1162-8-18-20-8-2 | 59 PrPraseodym140,907662-8-18-21-8-2 | 60 NdNeodym144,2422-8-18-22-8-2 | 61 PmPromethium(145)2-8-18-23-8-2 | 62 SmSamarium150,362-8-18-24-8-2 | 63 EuEuropium151,9642-8-18-25-8-2 | 64 GdGadolinium157,252-8-18-25-9-2 | 65 TbTerbium158,925352-8-18-27-8-2 | 66 DyDysprosium162,5002-8-18-28-8-2 | 67 HoHolmium164,930332-8-18-29-8-2 | 68 ErErbium167,2592-8-18-30-8-2 | 69 TmThulium168,934222-8-18-31-8-2 | 70 YbYtterbium173,0542-8-18-32-8-2 | 71 LuLutetium174,96682-8-18-32-9-2 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 89 AcActinium(227)-18-32-18-9-2 | 90 ThThorium232,0377-18-32-18-10-2 | 91 PaProtactinium231,03588-18-32-20-9-2 | 92 UUran238,02891-18-32-21-9-2 | 93 NpNeptunium(237)-18-32-22-9-2 | 94 PuPlutonium(244)-18-32-24-8-2 | 95 AmAmericium(243)-18-32-25-8-2 | 96 CmCurium(247)-18-32-25-9-2 | 97 BkBerkelium(247)-18-32-26-9-2 | 98 CfCalifornium(251)-18-32-28-8-2 | 99 EsEinsteinium(252)-18-32-29-8-2 | 100 FmFermium(257)-18-32-30-8-2 | 101 MdMendelevium(258)-18-32-31-8-2 | 102 NoNobelium(259)-18-32-32-8-2 | 103 LrLawrencium(262)-18-32-32-9-2 |
+
+---
+
+540
+
+44 Atombau und Spektren
+
+angeben, die ein einzelnes Elektron in der Hülle einnehmen kann, sowie auf der Grundlage des von PAULI (1925) formulierten Eindeutigkeits- oder Ausschließungsprinzips gegeben werden. Es gilt das fundamentale, die gesamte Atomphysik beherrschende
+
+## PAULI-Prinzip:
+
+**Innerhalb eines Atoms kann sich in jedem möglichen Zustand, der durch die Quan**tenzahlen $n , l , m _ { l } , m _ { s }$ **beschrieben wird, nur ein Elektron befinden.**
+
+Oder anders ausgedrückt: Innerhalb eines Atoms dürfen keine Elektronen in allen vier Quantenzahlen miteinander übereinstimmen. Folglich kann sich, wenn der betreffende Zustand schon von einem Elektron besetzt ist, ein zweites Elektron nur in einem Zustand befinden, der sich mindestens in einer der vier Quantenzahlen vom ersten unterscheidet. Diesem Prinzip sind nicht nur die Elektronen, sondern alle atomaren Teilchen mit halbzahligem Spin (also auch die Protonen und Neutronen im Atomkern und die aus ihnen zusammengesetzten Systeme) unterworfen.
+
+Demnach gehorchen auch Atomkerne mit ungerader Massenzahl dem PAULI-Prinzip, solche mit gerader Massenzahl aber nicht.
+
+Ausgehend davon, dass die Ordnungszahl Z eines Elements zugleich die Anzahl der Hüllenelektronen der betreffenden Atomart angibt, erhalten wir die Atome der einzelnen Elemente in der Reihenfolge des Periodensystems, wenn wir schrittweise, mit $Z = 1$ beginnend, jeweils ein weiteres Elektron in die Hülle einbauen. Es ist dabei üblich, alle zu einer Hauptquantenzahl n gehörenden Elektronen nahezu gleicher Energie zu einer $\mathbf { , } \mathbf { S c h a l e } ^ { \omega }$ (Hauptschale) zusammenzufassen. Man bezeichnet die zu n = 1, 2, 3, 4, 5, 6, 7 gehörigen Schalen der Reihe nach als K-, L-, M-, N-, O-, P- bzw. Q-Schale. Entsprechend der Nebenquantenzahl l unterteilen sich die Hauptschalen in **Unterschalen**.
+
+Das Wasserstoff atom (H) hat ein Elektron. Im Grundzustand (Zustand kleinster Energie) haben seine Quantenzahlen die kleinsten möglichen Werte $n = 1 ,   l = 0 ,   m _ { l } = 0 ,   m _ { s } = + \frac { 1 } { 2 }$ oder $m _ { s } = - \frac { 1 } { 2 }$ . Dieser Zustand wird durch das Symbol 1s gekennzeichnet. Das nächste Atom, das Helium (He), hat zwei Elektronen; die Quantenzahlen n = 1, l = 0, $m _ { l } = 0$ können gleich sein, jedoch muss $m _ { s }$ den $\mathrm { W e r t + } \frac { 1 } { 2 }$ für das eine Elektron und den Wert $-\frac{1}{2}$ für das andere Elektron annehmen. Dann befinden sich beide Elektronen im Zustand 1s; sie bilden zusammen eine abgeschlossene K-Schale.
+
+Beim Lithiumatom (Li), mit dem die zweite Periode beginnt, muss das dritte Elektron schon auf der folgenden Schale (L) mit den Quantenzahlen n = 2, l = 0, ml = 0, $m _ { s } = + \frac { 1 } { 2 }$ oder $m _ { s } =$ $-\frac{1}{2}$ untergebracht werden (Zustand 2s). Wie in diesem Fall gilt allgemein, dass n am Anfang einer jeden Periode um 1 zunimmt. Die ersten zwei Elektronen des Berylliumatoms (Be) gehen wieder in die K-Schale ein, die beiden anderen in die L-Schale. Das fünfte Elektron des Boratoms (B) ist „gezwungen“, ein höheres Energieniveau, nämlich 2p mit $n = 2,   l = 1,   m_s =$ $\pm { \frac { 1 } { 2 } }$ , einzunehmen. In diesem Niveau können sich im Ganzen 6 Elektronen befinden; denn für $l \stackrel { - } { = } 1$ kann $m _ { l }$ die Werte −1, 0, +1 annehmen, entsprechend drei Zuständen, von denen jeder wegen $m _ { s } = \pm \frac { 1 } { 2 }$ doppelt besetzt werden kann. Es bilden also beim Edelgas Neon (Ne), mit
+
+---
+
+44.10 Das Pauli-Prinzip und das Periodensystem der Elemente
+
+541
+
+dem die zweite Periode abschließt, 2 Elektronen die K-Schale, 2 Elektronen gehen in die erste Gruppe der L-Schale (2s) ein, 6 Elektronen in die zweite Gruppe der L-Schale (2p).
+
+Ganz allgemein gilt, dass jede Schale mit einem Alkalimetall (ein Elektron in der äußersten Schale, s-Niveau) beginnt und mit der vollständigen Besetzung des jeweiligen p-Niveaus (8 Elektronen in der äußersten Schale) abschließt, womit eine besonders stabile Elektronenkonfiguration erreicht ist. Diese ist typisch für die jeweils am Ende einer Periode stehenden Edelgase, die sich durch ihre chemische Trägheit, d. h. äußerst selten Verbindungen mit anderen Atomen einzugehen, auszeichnen. Bei jedem auf ein Edelgas folgenden Element wird stets eine neue Schale angefangen, bevor die darunter liegenden voll aufgefüllt werden (vgl. die Elektronenkonfigurationen der Edelgas- und Alkaliatome im Periodensystem, Seite 539). So z. B. beschließt Krypton $( \mathrm { K r } ,   Z = 3 6 )$ die Unterschale 4p. Es folgt jetzt aber, beginnend mit Rubidium (Rb, $Z = 3 7 )$ , erst die Besetzung der Unterschale 5s, da diese energetisch niedriger liegt als die Unterschalen 4d und 4f, die erst danach mit steigender Ordnungszahl aufgefüllt werden.
+
+Eine Besonderheit ergibt sich bei den sog. **Übergangselementen**, die allesamt Metalle sind. Beginnend mit Scandium $( \mathbf { S c } ,$ vierte Periode, $Z = 2 1 )$ wird zunächst die 3d-Unterschale, die energetisch unter der 4p-Schale liegt, aufgefüllt, bevor von Gallium (Ga, $Z = 3 1 )$ bis zum Edelgas Krypton $( \mathrm { K r } ,   Z = 3 6 )$ die 4. Schale vollständig besetzt wird $( \mathbf { s } . \mathbf { o } . )$ . Ähnliches passiert bei den “4d-Übergangsmetallen“, deren 4d-Unterschalen energetisch unter den 5p-Schalen liegen, den Lanthanoiden oder Metallen der Seltenen Erden (4f unterhalb 5d) und den Actinoiden (5f unterhalb 6d). Jedoch auch innerhalb dieser Reihen gibt es Ausnahmen, wie z. B. beim Chrom $( \mathrm { C r } ,   Z = 2 4 )$ , das auf Vanadium $( \mathrm { V } ,   Z = 2 3 )$ folgt und dabei gleich zwei 3d-Elektronen auf Kosten eines 4s-Elektrons besetzt.
+
+Allgemein ergibt sich die Zahl der Elemente, die in einer Periode enthalten sind, aus der Anzahl der nach dem PAULI-Prinzip für einen bestimmten Wert der Hauptquantenzahl n möglichen Elektronenzustände: Zu jedem Wert von l gehören nach (44.12) 2l+1 Werte von $m _ { l } ,$ , also wegen $l = 0 , 1 , 2 , \ldots , n - 1$ insgesamt $\sum _ { l = 0 } ^ { n - 1 } ( 2 l   +   1 ) ^ { l }$ Werte, womit sich wegen der beiden Möglichkeiten für den Spin die Anzahl der Elektronen, die sich mindestens in einer Quantenzahl unterscheiden, ergibt zu $2 \sum _ { l = 0 } ^ { n - 1 } ( 2 l + 1 ) = 2 [ 1 + 3 + 5 + \cdots + ( 2 n - 1 ) ] = 2 n ^ { 2 }$ (Summe einer arithmetischen Folge). Da die Reihenfolge der Auffüllung der Unterschalen
+
+$$
+[ 1 \mathrm{s} ], [ 2 \mathrm{s}, 2 \mathrm{p} ], [ 3 \mathrm{s}, 3 \mathrm{p} ], [ 4 \mathrm{s}, 3 \mathrm{d}, 4 \mathrm{p} ], [ 5 \mathrm{s}, 4 \mathrm{d}, 5 \mathrm{p} ], [ 6 \mathrm{s}, 4 \mathrm{f}, 5 \mathrm{d}, 6 \mathrm{p} ], [ 7 \mathrm{s}, 5 \mathrm{f}, 6 \mathrm{d}, 7 \mathrm{p} ]
+$$
+
+ist (die eckigen Klammern geben jeweils Beginn und Ende einer Periode an), beträgt die Anzahl der chemischen Elemente in der n-ten Hauptschale des Periodensystems: 2, $2+6=8,2+6=8,$ $2+10+6=18, 2+10+6=18, 2+14+10+6=32, 2+14+10+6=32$ (s. nachfolgendes Beispiel 44.4), oder kumulativ die richtigen Ordnungszahlen der Edelgase: 2 (He), 10 (Ne), 18 (Ar), 36 (Kr), 54 (Xe), 86 (Rn), 118 (Og).
+
+## Beispiel 44.4:
+
+Wie groß ist die Zahl der zu einem bestimmten Wert von l gehörigen Elektronen in einer Unterschale, d. h., wie viel $s - , p - , d -$ , f-Elektronen gibt es maximal?
+
+Lösung: Da es zu einem bestimmten Wert von l stets 2l + 1 Werte von $m _ { l }$ gibt, die sich noch in der Spinorientierung unterscheiden können, kann die Zahl der Elektronen in der zu l gehörigen Unterschale maximal $2 ( 2 l + 1 )$ betragen; es gibt also mit l = 0, 1, 2, 3 maximal $2 \mathrm { ~ s - ~ }$ Elektronen, 6 p-Elektronen, 10 d-Elektronen, 14 f-Elektronen usw. □
+
+---
+
+542
+
+44 Atombau und Spektren
+
+## 44.11 Die Röntgenspektren und ihre Deutung
+
+Lässt man energiereiche Elektronen, die vorher im Vakuum beschleunigt wurden (Katodenstrahlen), auf Materie aufprallen, so entsteht eine elektromagnetische Wellenstrahlung, die nach ihrem Entdecker RÖNTGEN (1895) als **RÖNTGENstrahlung** (im angelsächsischen Schrifttum als X-Strahlung) bezeichnet wird. Diese Strahlen, deren Wellenlängen je nach der kinetischen Energie der Elektronen im Bereich von etwa $1 0 ^ { - 1 2 }$ m und $1 0 ^ { - 8 }$ m liegen und damit sehr viel kürzer sind als die des sichtbaren Lichts $( \lambda \approx 0 , 5 \cdot 1 0 ^ { - 6 }   \mathrm { m } )$ , besitzen ein hohes Durchdrin gungsvermögen und u. a. die Eigenschaft, fotografische Platten zu schwärzen und Stoffe zur Fluoreszenz (Ausstrahlung von Licht) anzuregen.
+
+![](../../raw/pages_0545-0576/images/page_544_image_4.jpg)
+
+<details>
+<summary>text_image</summary>
+
+e⁻
+Glühkatode
+hfRö
+Antikatode (Anode)
+Kühlwasser
+</details>
+
+Bild 44.15 Schematischer Aufbau einer Röntgenröhre
+
+Für die praktische Erzeugung von RÖNTGENstrahlen benutzt man heute Hochvakuum-Röntgenröhren (Bild 44.15) mit Glühkatode und gegenüberliegender Anode (auch als Antikatode bezeichnet), zwischen denen die Beschleunigungsspannung für die Elektronen von etwa 15kV und darüber anliegt. Bei diesen Röhren können „Härte“ und Intensität der RÖNTGENstrahlen unabhängig voneinander geregelt werden. Die Härte ist ein Maß für die Durchdringungsfähigkeit der Strahlung und wächst mit der Höhe der Beschleunigungsspannung, also mit der Energie der auf die Antikatode auftreffenden Elektronen, während die Intensität durch die Anzahl der aus der Glühkatode austretenden Elektronen bestimmt wird, also von der Glühtemperatur der Katode abhängt, und über den Heizstrom geregelt werden kann. Nur rund 5% der kinetischen Energie der Elektronen wird in RÖNTGENstrahlung umgesetzt, der Rest wird als Wärmeenergie an die Anode abgegeben, die daher als wassergekühltes Hohlrohr ausgeführt wird.
+
+Je nach Erzeugungsprozess unterscheidet man zwischen der kontinuierlichen $( , w e i f _ { } { S e n } ^ { a } )$ RÖNTGENstrahlung oder Bremsstrahlung und der charakteristischen RÖNTGENstrahlung oder Eigenstrahlung.
+
+**Das kontinuierliche RÖNTGENspektrum.** Die Entstehung des kontinuierlichen oder Bremsspektrums wird nach der klassischen Elektrodynamik als Folge des Abbremsens der schnellen Elektronen durch die Atomkerne des Bremsmaterials (Wechselwirkung zwischen Elektronen und COULOMB-Feld des Kerns) erklärt (Bild 44.16). Strahlung der Höchstfrequenz, der sog. Grenzfrequenz $f _ { \mathrm { G } } ,$ wird dann ausgesandt, wenn das Elektron seine gesamte kinetische Energie $E _ { \mathrm { k , e } } = e U$ (U Beschleunigungsspannung) in einem einzigen, kurzzeitigen Bremsprozess einbüßt. Es gilt dann
+
+$$
+h f _ {\mathrm{G}} = E _ {\mathrm{k,e}} = e U.
+$$
+
+Wegen $\lambda = c / f$ (c Vakuumlichtgeschwindigkeit) ergibt sich damit unabhängig vom Bremsmaterial (als zugeschnittene Größengleichung, s. 2.2) eine untere **Grenzwellenlänge** von
+
+$$
+\lambda_ {\mathrm{G}} = \frac {h c}{e U} = \frac {1 2 , 3 9}{U / \mathrm{kV}} \cdot 1 0 ^ {- 1 0} \mathrm{m} \quad (\text {DUANE - HUNTsches Gesetz}). \tag {44.26}
+$$
+
+---
+
+44.11 Die Röntgenspektren und ihre Deutung
+
+543
+
+![](../../raw/pages_0545-0576/images/page_545_image_2.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph LR
+  Center(("Star")) --> L["L"]
+  L --> K["K"]
+  K --> M_Schale["M-Schale"]
+  M_Schale --> L
+  L --> Auger_Elektron["Auger-Elektron\nE_kin = E_L - E_K"]
+  Auger_Elektron --> L
+  L --> B["b) Quant einer charakteristischen\nLinie: hf_Rö = E_M - E_L"]
+```
+</details>
+
+Bild 44.16 Entstehung a) des Röntgen-Bremsstrahlungskontinuums, b) der charakteristischen Röntgenstrahlung; c) Auger-Effekt (s. 44.12)
+
+Bei 12,39kV Beschleunigungsspannung erreicht man also eine kurzwellige Grenze des Bremsspektrums bei der Wellenlänge $10^{-10}    m  = 0.1$ nm. Da die Endgeschwindigkeit der abgebremsten Elektronen zwischen null und der Anfangsgeschwindigkeit variieren kann, entsteht ein kontinuierliches Spektrum, das von $\lambda _ { \mathrm { G } }$ bis zu unendlich großen Wellenlängen reicht (Bild 44.17). Durch Beschleunigung von Elektronen in einem als Betatron bezeichneten Elektronenringbeschleuniger erhält man besonders harte RÖNTGENstrahlung von $\lambda \approx 5 \cdot 1 0 ^ { - 1 4 }$ m Wellenlänge.
+
+![](../../raw/pages_0545-0576/images/page_545_chart_5.jpg)
+
+<details>
+<summary>line</summary>
+
+| Wellenlänge \(\lambda\) (nm) | Intensität (relat. Einheiten) |
+| --- | --- |
+| ~0.065 | >10 |
+| ~0.068 | ~4 |
+| ~0.072 | >10 |
+</details>
+
+Bild 44.17 Bremsspektrum mit überlagerter charakteristischer $\mathsf { K } _ { \alpha ^ { - } }$ und $\mathsf { K } _ { \beta }$ -Strahlung einer Molybdän-Anode (Strahlungsintensität in Abhängigkeit von der Wellenlänge)
+
+**Das charakteristische RÖNTGENspektrum.** Bei genügend hoher Beschleunigungsspannung entsteht eine RÖNTGENstrahlung mit Linienstruktur, die für das jeweilige Bremsmaterial charakteristisch und der Bremsstrahlung überlagert ist (Bild 44.16b und 44.17). Der Entstehungsmechanismus dieser Strahlung ist der Gleiche wie bei den optischen Spektren, jedoch mit dem Unterschied, dass ein Elektron einer inneren (kernnahen) Elektronenschale des Atoms angeregt, d. h. durch die aufprallenden energiereichen Elektronen aus dieser „herausgeschlagen“ werden muss. Als Folge davon können Elektronen aus den äußeren Schalen in die durch die Anregung erzeugten „Löcher“ der inneren Schalen „nachrutschen“, wobei gemäß der Frequenzbedingung für die einzelnen Übergänge diskrete Spektrallinien emittiert werden. Diese RÖNTGENstrahlung ist im Unterschied zur obigen Bremsstrahlung monochromatisch.
+
+---
+
+544
+
+44 Atombau und Spektren
+
+Je nachdem, auf welcher Elektronenschale der Quantensprung des Elektrons endet, der zur Emission eines RÖNTGENquants führt, bezeichnet man die zugehörige Strahlung als $\mathrm { K } \_ , \mathrm { L } \_ \ldots$ -Strahlung. Man unterscheidet weiterhin zwischen $\operatorname { K } _ { \alpha ^ { - } } , \operatorname { K } _ { \beta ^ { - } } , \ldots$ . -Strahlung, je nachdem, ob es sich um einen Elektronenübergang von der L- zur K- oder von der M- zur K-Schale handelt usw. Entsprechend bezeichnet man $\mathbf { z } , \mathbf { B } ,$ mit $\mathrm { L } _ { \alpha }$ einen Übergang M → L und mit $\mathrm { L } _ { \beta }$ einen Übergang N → L usw.
+
+Da die Bindungsenergie der Elektronen auf den verschiedenen Schalen von der Ordnungszahl Z des betreffenden Elements abhängt, wird die charakteristische Strahlung für verschiedene Anodenmaterialien unterschiedlich sein. Für die Berechnung der Mindestenergie, die zur Anregung der Eigenstrahlung erforderlich ist, kann daher die Ionisierungsenergie des Atoms dienen, die gleich der Bindungsenergie des Elektrons in dem betreffenden Zustand ist. Nimmt man an, dass für die Elektronen der K-Schale noch die gesamte positive Ladung des Kerns wirksam ist, so ergibt sich z. B. bei Kupfer als Anodenmaterial $( Z = 2 9 )$ nach 44.3 eine Ionisierungsenergie von $E _ { \mathrm { i } } = 2 9 ^ { 2 } \cdot 1 3 , 6   \mathrm { e V } \approx 1 1   5 0 0   \mathrm { e V } ;$ d. h., die Anregungsspannung für die K-Strahlung einer RÖNTGENröhre mit Kupferanode beträgt etwa 11,5kV.
+
+Die Frequenz der $\mathrm { K } _ { \alpha }$ -Strahlung (Übergang $\mathrm { L   \rightarrow   K   }$ berechnet sich nach der Serienformel (44.10) zu
+
+$$
+f (\mathrm{K} _ {\alpha}) = R _ {\mathrm{H}} (Z - 1) ^ {2} \left(\frac {1}{1 ^ {2}} - \frac {1}{2 ^ {2}}\right) = \frac {3}{4} R _ {\mathrm{H}} (Z - 1) ^ {2} \qquad (\textbf {M O S E L E Y S c h e s G e s e t z}). \tag {44.27}
+$$
+
+Der Umstand, dass anstelle des Gliedes $Z ^ { 2 }$ hier $( Z - 1 ) ^ { 2 }$ steht, erklärt sich qualitativ leicht aus der abschirmenden Wirkung der Elektronen in der Atomhülle (vor allem des zweiten Elektrons in der K-Schale).
+
+## Die Quadratwurzel aus der Frequenz der charakteristischen RÖNTGENspektren wächst linear mit der Ordnungszahl des Elements.
+
+## Beispiel 44.5:
+
+Ein unbekanntes Metall wird als RÖNTGENanode verwendet. Von ihr wird eine $\mathrm { K } _ { \alpha ^ { - } } \mathrm { I }$ inie der Wellenlänge 0,154nm emittiert. Um welches Element handelt es sich?
+
+Lösung: Die Frequenz der $\mathrm { K } _ { \alpha }$ -Linie beträgt $f = c / \lambda \approx 1 { , } 9 3 5 \cdot 1 0 ^ { 1 8 }   \mathrm { s } ^ { - 1 }$ , womit sich aus (44.27) mit $R _ { \mathrm { H } } = 3 { , } 2 9 \cdot 1 0 ^ { 1 5 }   \mathrm { s } ^ { - 1 }$ (vgl. 44.2) die Ordnungszahl zu $Z = 1 + \sqrt { 4 f / ( 3 R _ { \mathrm { H } } ) } = 2 9$ berechnet. Es handelt sich also um das Element Kupfer (s. Periodensystem, S. 539). □
+
+## Aufgabe
+
+**44.3** Bei einer an der RÖNTGENröhre anliegenden Spannung von 40kV wird eine Grenzwellenlänge von $\lambda _ { \mathrm { G } } = 0 , 0 3 1$ nm gemessen. Bestimme daraus den Wert des PLANCKschen Wirkungsquantums h!
+
+## 44.12 Absorption und Streuung von Röntgenstrahlen
+
+**Das allgemeine Schwächungsgesetz.** Obwohl energiereiche elektromagnetische Strahlung (RÖNTGEN- und Gammastrahlung) sich durch ein großes Durchdringungsvermögen auszeichnet, wird sie dennoch beim Durchgang durch Stoffe mehr oder weniger stark geschwächt. Die Schwächung hängt einerseits von der Wellenlänge der Strahlung, andererseits von der
+
+---
+
+44.12 Absorption und Streuung von Röntgenstrahlen
+
+545
+
+Beschaffenheit des durchstrahlten Stoffes, des Absorbers, ab. Für Strahlung einer bestimmten Energie (monochromatische Strahlung) ist die Abnahme ihrer Intensität (d. h. der Anzahl der Photonen) $- \mathbf { d } J$ in einer dünnen Absorberschicht der Dicke dx der auf die Schicht auffallenden Intensität J und der Schichtdicke dx proportional:
+
+$$
+- \mathrm{d} J = \mu J \mathrm{d} x \quad \text {oder} \quad \frac {\mathrm{d} J}{J} = - \mu \mathrm{d} x.
+$$
+
+Der Proportionalitätsfaktor $\mu$ heißt **Schwächungskoeffizient**. Durch Integration über die gesamte Absorberdicke d erhalten wir, wenn $J _ { 0 }$ die anfängliche und $J _ { d }$ die nach Durchstrahlung der Dicke d noch vorhandene Intensität ist:
+
+$$
+\int_ {J _ {0}} ^ {J _ {d}} \frac {\mathrm{d} J}{J} = - \mu \int_ {0} ^ {d} \mathrm{d} x; \quad \ln \frac {J _ {d}}{J _ {0}} = - \mu d \quad \text {oder} \tag {44.28}
+$$
+
+$$
+J _ {d} = J _ {0} \mathrm{e} ^ {- \mu d} \quad (\text {Schwächungsgesetz}). \tag {44.29}
+$$
+
+Die Schwächung in Stoffen gleicher Zusammensetzung ist der Anzahl der in der Volumeneinheit des Absorbers enthaltenen Atome proportional, woraus sich die Proportionalität zwischen $\mu$ und der Absorberdichte $\varrho$ ergibt. Für eine bessere Vergleichbarkeit der Absorber untereinander hinsichtlich ihres Schwächungsverhaltens gibt man daher für Elemente im Allgemeinen den auf die Dichte bezogenen Schwächungskoeffizienten, den sog. **Massenschwächungskoeffizienten** $\mu / \varrho ,$ an.
+
+Die Schwächung der Strahlung erfolgt durch mehrere verschiedene Wechselwirkungsprozesse der Strahlung mit dem Stoff, nämlich
+
+1. durch photoelektrische (oder echte) Absorption,
+2. durch Streuung (klassische Streuung und COMPTON-Streuung),
+3. durch Paarbildung.
+
+![](../../raw/pages_0545-0576/images/page_547_chart_13.jpg)
+
+<details>
+<summary>line</summary>
+
+| Region | Description |
+| --- | --- |
+| K-Kante | Initial region for \(\tau\) vs \(\lambda\) |
+| L_I | Vertical segment of the curve |
+| L_II | Vertical segment of the curve |
+| L_III-Kante | Vertical segment of the curve |
+</details>
+
+Bild 44.18 Absorptionskanten bei der Absorption durch Photoeffekt
+
+Die **Photoabsorption** beruht auf dem in 43.2 behandelten lichtelektrischen Effekt. Die auf diesen Teilvorgang zurückzuführende Schwächung wird durch den Absorptionskoeffizienten τ ausgedrückt. Wird dieser in Abhängigkeit von der Wellenlänge der Lichtquanten dargestellt, so erhält man den in Bild 44.18 gezeichneten Verlauf mit einigen Unstetigkeitsstellen, den sog. **Absorptionskanten**. Diese entstehen durch ein plötzliches Ansteigen der Absorption, sobald die Quantenenergie der Bindungsenergie eines Elektrons gleich ist, das Elektron also unter vollständiger Absorption des Quants emittiert wird. Mit Erhöhung der Quantenenergie, d. h. mit abnehmender Wellenlänge λ, sinkt die Absorption stetig, bis das nächste, fester gebundene Elektron freigesetzt wird.
+
+---
+
+546
+
+44 Atombau und Spektren
+
+Bild 44.18 zeigt schematisch die K- und die drei L-Absorptionskanten, wobei die Indizes bei L sich auf die verschiedenen möglichen Quantenzustände der Elektronen in dieser Schale beziehen; es bedeutet $\mathrm { L _ { I } }$ den Zustand $n = 2 ,   l = 0 ,   m _ { s } = \frac { 1 } { 2 } ,   \mathrm { L _ { I I } }$ den Zustand $n = 2 ,   l = 1 ,   m _ { s } = - \frac { 1 } { 2 }$ und $\mathrm { L _ { \mathrm { I I I } } }$ den Zustand $n = 2,   l = 1,   m_s = + \frac{1}{2} (\mathrm{vgl.} 44.10)$ . Die Abhängigkeit des Absorptionskoeffizienten τ von der Wellenlänge λ und von der Ordnungszahl des Absorbers Z lässt sich außerhalb der Absorptionskanten darstellen durch
+
+$$
+\tau \sim \varrho \lambda^ {3} Z ^ {3}. \tag {44.30}
+$$
+
+Das Durchdringungsvermögen (die Härte) der RÖNTGENstrahlen wächst also mit abnehmender Wellenlänge bzw. zunehmender Frequenz oder Energie.
+
+Nicht jedes durch Photoeffekt in der K-, L-, . . . -Schale ionisierte Atom sendet eine Linie der $\mathrm { K \_ , L \_ , \ldots }$ Serie aus, wenn die Lücke durch Übergang eines Elektrons aus einer weiter außen liegenden Schale wieder aufgefüllt wird. Die bei einem solchen strahlungslosen Übergang frei werdende Energie wird oft dazu verwendet, ein Elektron desselben Atoms aus einer weiter außen liegenden Schale durch eine Art „inneren Photoeffekt“ abzuspalten. Dieses Elektron verlässt dann neben dem Photoelektron das Atom, ohne dass Fluoreszenzstrahlung festgestellt wird (**AUGER-Effekt**, s. Bild 44.16).
+
+Die **klassische Streuung** kommt dadurch zustande, dass die Elektronen im Atom unter dem Einfluss der auftreffenden monochromatischen elektromagnetischen Welle zu erzwungenen Schwingungen angeregt werden und dabei elektromagnetische Wellen von der Frequenz der auftreffenden Welle (also ohne Energieabgabe an die durchstrahlte Materie) nach allen Richtungen des Raumes abstrahlen. Die durch diesen Streuprozess hervorgerufene Schwächung wird durch den Streukoeffizienten σ beschrieben. Die Theorie ergibt, dass die Intensität des Streulichts der vierten Potenz der Frequenz proportional ist. Für den sichtbaren Bereich des Lichts bedeutet dies, dass das kurzwellige blaue Licht viel stärker gestreut wird als das langwellige rote (vgl. 39.1).
+
+Mit zunehmender Quantenenergie tritt die Schwächung durch klassische Streuung immer mehr hinter der durch **COMPTON-Streuung** zurück. Letztere beruht auf dem in 43.3 behandelten COMPTON-Effekt, durch den die eingestrahlten Lichtquanten neben einer Richtungsänderung eine Energieabnahme erfahren; sie wird ebenfalls durch den Streukoeffizienten σ erfasst.
+
+**Paarbildung.** Bei sehr hohen Quantenenergien tritt eine Schwächung der Strahlung bei der Wechselwirkung mit Stoffen auch dadurch ein, dass aus den Lichtquanten Paare von Teilchen, bestehend aus einem positiv und einem negativ geladenen Partner, erzeugt werden, sofern die Energie $h f$ eines Quants mindestens so groß ist wie die Summe der Ruhenergien $2 m _ { 0 } c ^ { 2 }$ der beiden aus ihm hervorgehenden Teilchen (Paarbildung, Materialisation der Strahlung, Bild 44.19). Bei diesem Prozess sind also die Erhaltungssätze von Energie und Ladung erfüllt. Da auch der Impulssatz erfüllt sein muss, ist neben dem Teilchenpaar ein drittes Teilchen erforderlich, das den Rückstoßimpuls aufnimmt. Der häufigste Fall ist die Entstehung eines Elektronenpaares (Elektronenzwilling), bestehend aus einem Elektron und einem Positron, die stets im COULOMB-Feld eines Atomkerns stattfindet. Die hierfür erforderliche Mindestenergie des Lichtquants ist $2 m _ { \mathrm { e } 0 } c ^ { 2 } = 1 , 0 2 2   \mathrm { M e V } .$
+
+Die Bildung derartiger Elektronenzwillinge kann z. B. in einer Nebelkammer sichtbar gemacht werden, in der die schnell bewegten Teilchen infolge Ionisation der mit Wasserdampf übersättigten Luft in
+
+---
+
+44.12 Absorption und Streuung von Röntgenstrahlen
+
+547
+
+der Kammer entlang ihrer Bahn Kondensspuren erzeugen und auf diese Weise sichtbar werden (Bild 44.20). Man erkennt die Elektronenzwillinge daran, dass die Bahnspuren bei der Bewegung der Teilchen in einem starken Magnetfeld infolge der Wirkung der LORENTZ-Kraft an bestimmten Stellen Verzweigungen aufweisen, von denen zwei in entgegengesetzte Richtung gleich gekrümmte Kreisbahnen ausgehen.
+
+![](../../raw/pages_0545-0576/images/page_549_image_3.jpg)
+
+<details>
+<summary>chemical</summary>
+
+Diagram of electron and positron scattering at 1.02 MeV, showing electron and positron interactions
+</details>
+
+Bild 44.19 Paarbildung infolge Wechselwirkung von energiereichen Lichtquanten (Gammaquanten) mit Stoffen
+
+![](../../raw/pages_0545-0576/images/page_549_image_5.jpg)
+
+<details>
+<summary>natural_image</summary>
+
+Microscopic view of cellular or particulate structures with a white arrow pointing to a specific region (no text or symbols present)
+</details>
+
+Bild 44.20 Nebelkammeraufnahme der Bildung eines Elektronenzwillings aus energiereichem Lichtquant
+
+Die durch Paarbildung hervorgerufene Schwächung wird durch den Paarbildungskoeffizienten $\varkappa$ beschrieben. Der **totale Schwächungskoeffizient** $\mu$ in (44.29) ist die Summe der einzelnen Schwächungskoeffizienten:
+
+$$
+\mu = \tau + \sigma + \varkappa . \tag {44.31}
+$$
+
+![](../../raw/pages_0545-0576/images/page_549_chart_9.jpg)
+
+<details>
+<summary>line</summary>
+
+| Energie des Photons (MeV) | \(\mu (m^{-1})\) | \(\tau (m^{-1})\) | x \((m^{-1})\) |
+| --- | --- | --- | --- |
+| 0,1 | — | ~145 | — |
+| 0,2 | — | ~130 | — |
+| 0,5 | — | ~95 | — |
+| 1 | >140 | ~75 | — |
+| 2 | ~80 | ~60 | — |
+| 5 | ~50 | ~35 | ~5 |
+| 10 | ~50 | ~25 | ~25 |
+| 20 | ~60 | ~15 | ~50 |
+| 50 | ~90 | ~5 | ~85 |
+| 100 | ~115 | ~2 | ~110 |
+| 1000 | ~140 | ~0 | ~140 |
+</details>
+
+Bild 44.21 Verlauf der Schwächungskoeffizienten von Photoabsorption τ, Compton-Streuung $\sigma$ und Paarbildung κ sowie des Gesamtschwächungskoeffizienten $\mu$ in Abhängigkeit von der Quantenenergie für Blei als Absorber
+
+Die Abhängigkeit dieser Koeffizienten von der Quantenenergie für Blei als Absorber zeigt Bild 44.21. Die Photoabsorption liefert nur bei schweren Elementen und Energien bis zu 10MeV einen Beitrag zur Gesamtabsorption; sie nimmt mit zunehmender Energie der Photonen sehr rasch ab, so dass bei Energien über 5MeV fast nur noch Streuung (wobei es sich hier wegen der hohen Quantenenergie praktisch nur um COMPTON-Streuung handelt) und Paarbildung auftritt. Doch auch die Streuung nimmt mit zunehmender Quantenenergie weiterhin sehr rasch ab, wogegen die Paarbildung oberhalb 1MeV mit der Energie merklich ansteigt. Daraus ergibt sich, dass bei allen Absorberstoffen die Gesamtschwächung mit zunehmender Energie der Photonen zunächst stark abnimmt, ein Minimum durchläuft und nach merklichem Einsetzen
+
+---
+
+548
+
+44 Atombau und Spektren
+
+der Paarbildung ansteigt. Aus dem Bild ist ersichtlich, dass für Blei das Schwächungsminimum, d. h. das Maximum der Durchdringungsfähigkeit, bei etwa 5MeV liegt; für Stahl liegt dieses bei 9MeV und für Aluminium bei 20MeV. Daraus geht hervor, dass mit fallender Ordnungszahl des Absorbers das Schwächungsminimum zu höheren Quantenenergien hin verschoben wird.
+
+## Beispiele 44.6:
+
+1. Diejenige Schichtdicke, welche die hindurchgehende Strahlung auf die Hälfte ihres Anfangswertes schwächt, ist die sog. Halbwertsdicke $d _ { 1 / 2 }$ . Berechne die Halbwertsdicke für Gammastrahlung der Energie 5MeV und Blei als Absorber!
+
+Lösung: Aus (44.28) folgt mit $J _ { d } = J _ { 0 } / 2 { : } \ln ( 1 / 2 ) = - \ln 2 = - \mu d _ { 1 / 2 }$ und hieraus $d _ { 1 / 2 } = ( \ln 2 ) / \mu .$ Aus Bild 44.21 entnimmt man als Schwächungskoeffizient von Blei für die angegebene Quantenenergie $\mu = 5 0   \mathrm { m } ^ { - 1 }$ . Damit wird $d _ { 1 / 2 } = ( 0 . 6 9 / 5 0 )   \mathrm { m } \approx 1 4   \mathrm { m m }$
+
+2. Wie viel „Halbwertsschichten“ der Dicke $d _ { 1 / 2 }$ sind erforderlich, um die Strahlung auf den 20. Teil zu schwächen?
+
+Lösung: Sind zur Schwächung auf den n-ten Teil x Halbwertsschichten nötig, d. h. $J _ { d } = J _ { 0 } / n$ für $d = x d _ { \mathrm { 1 / 2 } }$ , so folgt damit aus (44.28) mit $d _ { 1 / 2 } = ( \ln 2 ) / \mu { : }$
+
+$$
+\ln \left(\frac {1}{n}\right) = - \mu x d _ {1 / 2} = - x \ln 2 = \ln \left(\frac {1}{2}\right) ^ {x}; \quad \frac {1}{n} = \left(\frac {1}{2}\right) ^ {x}; \quad x = \frac {\lg n}{\lg 2}.
+$$
+
+Für $n = 2 0$ ergibt dies $x = 1 , 3 / 0 , 3 = 4 , 3$ Halbwertsschichten.
+
+![](../../raw/pages_0545-0576/images/page_550_image_10.jpg)
+
+## 44.13 Induzierte Emission. Maser und Laser
+
+Ein Atom kann durch ein einfallendes Lichtquant im Resonanzfall, d. h., wenn die Quantenenergie $h f$ von der Größe der Differenz zweier Energieniveaus $E _ { 1 }$ und $E _ { 2 }$ des Atoms ist (Bild 44.22), nicht nur zur Absorption des Quants veranlasst, sondern auch zur Emission zusätzlicher Quanten „gezwungen“ werden. Nichtangeregte Atome können allerdings nur Übergänge mit Absorption ausführen $( E _ { 1 } \to E _ { 2 } )$ , während angeregte Atome $( \mathbf { z } .$ B. solche im Zustand der Energie $E _ { 2 } )$ nach EINSTEIN durch ein eingestrahltes Lichtquant der Energie $h f = E _ { 2 } - E _ { 1 }$ sowohl durch Absorption in ein oberhalb $E _ { 2 }$ befindliches Niveau angehoben werden als auch unter Abstrahlung eines zusätzlichen Lichtquants der gleichen Energie $h f$ in den niedriger angeregten Zustand übergehen können. Die letztgenannten Übergänge, durch welche die Intensität (d. h. die Anzahl der Photonen) des eingestrahlten Lichts (im Gegensatz zur Absorption) vergrößert wird, nennt man erzwungene oder induzierte Übergänge; sie bewirken **induzierte (stimulierte) Emission**.
+
+Die induzierte Emission kann somit als zur Absorption inverser Prozess angesehen werden; man bezeichnet sie daher auch als negative Absorption. Die induzierten Lichtquanten sind identisch mit den erregenden und bewegen sich gleichphasig und parallel zu diesen, womit eine Verstärkung des Lichts erfolgt.
+
+Die durch ein äußeres Strahlungsfeld angeregte induzierte Emission steht andererseits im Gegensatz zu der bisher stets betrachteten **spontanen Emission**, die unabhängig von äußerer Strahlung stattfindet, indem das Atom nach einer mittleren Verweilzeit im angeregten Zustand von nur einigen $1 0 ^ { - 8 }$ s zu irgendeinem Zeitpunkt in den Grundzustand zurückkehrt. Die spontane Emission ist im Gegensatz zur induzierten als eine zufällige Erscheinung anzusehen, für die wir lediglich eine Übergangswahrscheinlichkeit abschätzen können.
+
+---
+
+44.13 Induzierte Emission. Maser und Laser
+
+549
+
+![](../../raw/pages_0545-0576/images/page_551_chart_2.jpg)
+
+<details>
+<summary>other</summary>
+
+| Level | Energy Level |
+| --- | --- |
+| Angeregtes Niveau | E2 |
+| Groundniveau | E1 |
+</details>
+
+Bild 44.22 Übergänge zwischen zwei Energiezuständen des Atoms
+
+![](../../raw/pages_0545-0576/images/page_551_chart_4.jpg)
+
+<details>
+<summary>other</summary>
+
+| Level | Description |
+| --- | --- |
+| E1 | Ground niveau |
+| E2 | Excited state (unlabeled) |
+| E3 | Excited state (unlabeled) |
+| Curve 1 | spontane Emission |
+| Curve 2 | stimulierte Emission |
+| Curve 3 | kurzlebiges Niveau / langlebiges Niveau |
+| Curve 4 | \(\lambda =\) hc/E2 - E1 |
+</details>
+
+Bild 44.23 Energietermschema eines Drei-Niveau-Lasers
+
+Bei einer großen Zahl von Atomen im thermischen Gleichgewicht, z. B. in einem Gas oder Kristall, befindet sich die überwiegende Mehrzahl der Atome im nichtangeregten Zustand, d. h., die unteren Energiestufen der Atome sind insgesamt stärker besetzt als die oberen. Es gilt nach der BOLTZMANN-Gleichung (18.16) für die Besetzungsdichten $n _ { 1 }$ und $n _ { 2 }$ , die den Energieniveaus $E _ { 1 }$ und $E _ { 2 }$ entsprechen,
+
+$$
+n _ {2} / n _ {1} = \exp {[ - (E _ {2} - E _ {1}) / k T ]}.
+$$
+
+Aus diesem Grunde überwiegt bei Einstrahlung von Licht die Schwächung desselben durch Absorption gegenüber der Verstärkung durch induzierte Emission. Sorgt man aber durch einen künstlichen Prozess dafür, dass Energie in den Atomen des Kristalls gespeichert wird, indem sich mehr Atome in einem angeregten Zustand befinden als im Grundzustand (Besetzungsinversion der Energieniveaus), so wird durch ein Strahlungsquant geeigneter Frequenz eine Lawine induzierter Quanten aus den angeregten Atomen ausgelöst, wobei die zuvor gespeicherte Energie nun der emittierten Strahlung zugute kommt und diese deshalb verstärkt.
+
+Dies ist das Prinzip des als **Laser** bezeichneten Lichtgenerators oder Quantengenerators (MAIMAN, 1960). Das Wort $,LASSER ^{\alpha}$ ist zusammengesetzt aus den Anfangsbuchstaben von „Light Amplification by Stimulated Emission of Radiation“ (Lichtverstärkung durch angeregte [erzwungene, induzierte] Emission von Strahlung). Die gleiche Erscheinung, wie sie dem im optischen Bereich $( 1 0 ^ { 1 1 }$ bis $1 0 ^ { 1 6 }$ Hz) arbeitenden Laser zu Grunde liegt, war zuvor bereits bei den Mikrowellen $( 1 0 ^ { 8 }$ bis $1 0 ^ { 1 0 }$ Hz) entdeckt worden (BASSOW, PROCHOROW, TOWNES, 1953 bis 1955); man spricht dann vom **Maser**, wobei der erste Buchstabe dieser Abkürzung für „microwave“ steht.
+
+Als besondere Eigenschaften der Laserstrahlung sind ihre strenge **Parallelität** (Divergenz von nur wenigen Bogenminuten), die mit anderen Mitteln nicht erreichbare **Monochromasie** sowie ihre **Kohärenz** hervorzuheben. Die Kohärenz ist darauf zurückzuführen, dass die induzierte mit der auslösenden Lichtwelle in Phase ist, dass also alle Atome ihre Lichtquanten „im Gleichtakt“ emittieren und nicht, wie bei der spontanen Emission in ausgedehnten Lichtquellen, statistisch mit von Atom zu Atom schwankenden Phasendifferenzen. Damit ist Licht gleicher Frequenz von zwei verschiedenen Lasern prinzipiell interferenzfähig.
+
+Die Energiezufuhr an die Atome der Lasersubstanz geschieht durch einen sog. „Pumpvorgang“, bei dem die Atome durch Einstrahlung einer intensiven elektromagnetischen Welle mit der zu dem entsprechenden Übergang gehörigen Frequenz $( , \mathrm { P u m p f r e q u e n z } ^ { a } )$ angeregt werden. Bei dem wegen seiner hohen Belastbarkeit und Ausgangsleistung häufig verwendeten Rubinlaser werden die im $\mathrm { A l _ { 2 } O _ { 3 } \cdot }$ Grundgitter des Rubins anstelle von Al-Ionen in bestimmter Dosierung eingebauten Cr-Ionen durch die Pumpenergie aus dem Grundniveau $E _ { 1 }$ zunächst in ein Hilfsniveau $E _ { 3 }$ höherer Energie gebracht (Bild 44.23). Dieses Niveau entleert sich mit einer Zeitkonstante von einigen $1 0 ^ { - 8 }$ <sub>s</sub> durch spontane
+
+---
+
+550
+
+44 Atombau und Spektren
+
+Übergänge von $E _ { 3 }$ nach dem langlebigen **metastabilen Niveau** $E _ { 2 }$ des Laserübergangs. Die lange Lebensdauer dieses Niveaus von etwa $\bar { 3   \cdot   1 0 ^ { - 3 } }$ s hat eine Besetzungszunahme zu Lasten des Grundniveaus $E _ { 1 }$ zur Folge. Bei Einstrahlung von genügend intensivem Pumplicht kommt es zur Besetzungsinversion $n _ { 2 } > n _ { 1 }$ und damit zur Lichtverstärkung für die Wellenlänge des ausgestrahlten roten Laserlichts des Rubins von $\lambda = h c / ( E _ { 2 } - E _ { 1 } ) = 6 9 4 , 3 \mathrm { n m }$
+
+Eine weitere Lichtverstärkung wird beim Laser noch dadurch erzielt, dass der Kristall als **optischer Resonator** ausgebildet wird (Bild 44.24). Der verwendete Rubin, der die Form eines zylindrischen Stäbchens von einigen Zentimetern Länge hat, ist an seinen Stirnflächen sehr genau planparallel geschliffen und mit reflektierenden Schichten versehen, wovon die eine vollständig reflektiert und die andere teildurchlässig ist. Dadurch wird erreicht, dass die den Prozess der induzierten Emission auslösenden, bei spontanen Übergängen entstehenden Photonen infolge Reflexion zwischen den verspiegelten Flä- chen in Form einer stehenden ebenen Welle in Richtung der Zylinderachse hin- und herlaufen, dabei die Atome zur induzierten Emission anregen und die erregte Strahlung durch Mehrfachreflexion immer weiter verstärken, bis bei Erreichen eines Schwellenwertes der Pumpenergie die Strahlung den Kristall an der Stirnfläche mit der teildurchlässigen Schicht in Form eines Lichtimpulses von außerordentlicher Intensität verlässt.
+
+![](../../raw/pages_0545-0576/images/page_552_image_4.jpg)
+
+<details>
+<summary>text_image</summary>
+
+Z
+B
+R
+L
+</details>
+
+Bild 44.24 Prinzipieller Aufbau eines Festkörper-Lasers (B Wendelblitzlampe in zylindrischem Reflektor, Z Zündelektrode, R Rubinkristall, L Laserstrahl)
+
+In „gütegeschalteten“ Lasern kann der Impuls extrem verkürzt werden, wodurch besonders hohe Leistungsdichten erreicht werden. Für die Güteschaltung ist eine der beiden verspiegelten Flächen zuerst verkippt und wird dann – den lawinenartigen Prozess verzögernd – erst bei extremer Besetzungsinversion ausgerichtet.
+
+Wichtige Vertreter der **Festkörper-Impulslaser** sind die oben beschriebenen Rubinlaser (Dreiniveau-Laser) mit einer maximalen Leistung im Dauerstrichbetrieb (D) von 1W, im Impulsbetrieb (I) von 1GW, und die Neodymlaser (Vierniveau-Laser) mit einer maximalen Leistung von 100W (D) bzw. von 1GW (I). Letzteres entspricht bei einer Fokussierung auf einen Durchmesser von 0,1mm einer Leistungsdichte von $1 0 ^ { 4 }   \mathrm { G W / c m ^ { 2 } }$ . Bei Verstärkung der Strahlung durch Laserverstärker um den Faktor 100, was unschwer möglich ist, wird schon eine Leistungsdichte von $10^{3} \mathrm{~TW/cm^{2}~(10^{15}W/cm^{2})}$ erreicht. Moderne Hochleistungsanlagen, wie sie speziell für die lasergesteuerte Kernfusion entwickelt wurden bzw. werden, erreichen heute bereits Leistungsdichten von $1 0 ^ { 1 8 } \mathrm { W / c m ^ { 2 } }$ . Angestrebt werden Anlagen, die diesen Wert noch um zwei Größenordnungen übertreffen. Der Wirkungsgrad von Festkörper-Impulslasern ist jedoch sehr gering; er liegt nur bei einigen Prozent.
+
+Mit **Farbstofflasern** lässt sich die Laserfrequenz über ein größeres Gebiet variieren. Um höhere Photonenenergien zu erreichen, sind nun auch im UV-Bereich arbeitende sog. **Excimer-Laser** entwickelt worden (maximale Leistung (I) 20MW).
+
+Bei einem **Halbleiter-Laser** (vgl. 46.5), bei dem die Anregung anstelle von optischem Pumpen am einfachsten durch Anlegen einer Spannung geschieht und bei dem die Energie durch den Rekombinationsprozess in der Sperrschicht der Halbleiterdiode frei wird (Rekombinationsleuchten), kann der Wirkungsgrad hingegen bis zu 95% betragen. Für den Dauerbetrieb bei Raumtemperatur eignen sich besonders die **Gaslaser**, bei denen Edelgase (He, Ne, Ar, Kr) oder andere Gase (Stickstoff, Iod, $\mathrm { C O _ { 2 } ) }$ unter einem Druck von $1 0 ^ { 2 }$ bis nahe $1 0 ^ { 5 }$ Pa in ein Quarzrohr gefüllt und durch Stoßionisation aufgepumpt werden. Ihr Wirkungsgrad liegt jedoch nur in der Größenordnung von $^ { 0 , 1 } \%$ . **Chemische Laser** erzeugen die Besetzungsinversion durch schnelle chemische Reaktionen.

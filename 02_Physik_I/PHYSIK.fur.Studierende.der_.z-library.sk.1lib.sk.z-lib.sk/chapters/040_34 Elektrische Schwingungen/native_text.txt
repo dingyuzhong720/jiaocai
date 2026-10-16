@@ -1,0 +1,508 @@
+--- PDF page 376 ---
+34
+Elektrische Schwingungen
+34.1
+Der geschlossene Schwingkreis
+Eine Parallelschaltung eines Kondensators (Kapazität C) und einer Spule (Induktivität L)
+bezeichnet man als geschlossenen Schwingkreis. Wurde der Kondensator in Bild 34.1 bei
+Schalterstellung 1 aufgeladen, kann sich die im Kondensator gespeicherte Ladung +Q und
+−Q durch einen Stromfluss i über die Spule ausgleichen, sobald der Schalter in Stellung
+2 gebracht wird. Spannung und elektrische Feldstärke des Kondensators nehmen ab, und
+gleichzeitig baut sich mit dem durch die Spule fließenden Strom ein Magnetfeld auf. Die Zu-
+nahme des magnetischen Flusses induziert eine Gegenspannung, welche nur ein gebremstes
+Anwachsen des Stromes zulässt. Sind Spannung und elektrische Feldstärke des Kondensators
+null, haben Strom und magnetische Feldstärke in der Spule ihren größten Wert erreicht. Die
+elektrische Feldenergie ist vollständig in magnetische Feldenergie umgewandelt. Mit dem
+Ladungsausgleich entfällt die Ursache des Entladestroms, und das Magnetfeld muss zusam-
+menbrechen. Die Abnahme des Magnetflusses induziert eine Spannung, die jetzt so gerichtet
+ist, dass der Strom in gleicher Richtung weiterfließt und nur allmählich abnehmen kann.
+Gleichzeitig wird der Kondensator mit umgekehrter Polarität erneut aufgeladen. Spannung
+und elektrische Feldstärke steigen entgegengesetzt zur Ausgangsrichtung an und erreichen ih-
+ren größten Wert, wenn das Magnetfeld verschwunden ist. Dann wiederholt sich der Vorgang
+mit umgekehrter Richtung und im weiteren Verlauf periodisch.
+Im Schwingkreis findet eine periodische gegenseitige Umwandlung von elektrischer
+und magnetischer Feldenergie statt (elektromagnetische Schwingung).
+Bild 34.1 Erregung eines geschlossenen elektrischen
+Schwingkreises
+Herleitung der Schwingungsdifferenzialgleichung. Induktivität und Kapazität sind im geschlossenen
+Schwingkreis parallel geschaltet. Daher sind die in der Spule induzierte Spannung (30.7) und die am
+Kondensator anliegende Spannung (23.29) gleich:
+u = −L di
+dt = q
+C .
+(34.1)
+Differenziation dieser Gleichung nach der Zeit und Umstellen ergeben
+L d2i
+dt2 + 1
+C
+dq
+dt = 0.
+
+
+--- PDF page 377 ---
+374
+34 Elektrische Schwingungen
+Mit dq/dt ≡i folgt für den Schwingkreis somit die Differenzialgleichung des harmonischen Oszillators
+(33.2) mit (33.6), in der m und k hier den Größen L und 1/C entsprechen:
+d2i
+dt2 +ω2
+0i = 0
+mit
+ω0 = 2πf0 =
+1
+p
+LC
+.
+Es ist also analog zu (33.7):
+T = 1
+f0
+= 2π
+p
+LC
+(Periodendauer der ungedämpften
+elektrischen Schwingung;
+THOMSONsche Schwingungsgleichung).
+(34.2)
+Man gewinnt den Energieerhaltungssatz für den Schwingkreis, wenn (34.1) mit i ≡dq/dt multipliziert
+und umgeformt wird. Mit (30.10) als magnetische und (24.11) als elektrische Feldenergie folgt
+Li di
+dt + 1
+C q dq
+dt = d
+dt
+µL
+2 i 2 + 1
+2C q2
+¶
+= dE
+dt = 0,
+d. h.
+E = L
+2 i 2 + 1
+2C q2 = const.
+Analogiebeziehungen. Linearer Federschwinger, Drehschwinger und elektrischer Schwing-
+kreis zeigen ohne äußere Anregung ein völlig analoges Schwingungsverhalten und werden un-
+ter dem abstrakten Begriff des harmonischen Oszillators zusammengefasst. Die Ursache da-
+für, dass äußerlich so verschiedenartige Systeme sich gleichartig verhalten, liegt in derselben
+Struktur der Energiebilanz dieser Oszillatoren begründet. Es gilt für den
+Federschwinger:
+(vgl. 33.2)
+m
+2 ˙u2 + k
+2 u2 = E = const
+Drehschwinger:
+(vgl. 33.3)
+J
+2 ˙ϕ2 + D
+2 ϕ2 = E = const
+elektrischen
+Schwingkreis:
+L
+2 i 2 + 1
+2C q2 = E = const.
+Den Energieverlusten durch Reibung bei mechanischen Schwingern entspricht beim Schwing-
+kreis die Entstehung JOULEscher Wärme in einem OHMschen Widerstand; der geschwin-
+digkeitsproportionalen Reibungskraft in (33.21) FR = β ˙u entspricht der Spannungsabfall
+uR = R ˙q = Ri am Widerstand R.
+Daraus lässt sich für das Schwingungsverhalten ein widerspruchsfreies System von Analogie-
+beziehungen aufbauen (s. Tabelle 34.1). Es genügt dann die Lösung eines Problems; die Lösung
+der beiden anderen kann durch formales Einsetzen der zeitabhängigen und zeitunabhängigen
+Größen direkt angegeben werden. Auf diese Weise können schwer darstellbare (meist mecha-
+nische) Vorgänge in technischen Anlagen, die optimiert werden sollen, durch andere (meist
+elektrische) Vorgänge modelliert werden. An den Modellen wird dann bei vergleichsweise ge-
+ringem Aufwand das Verhalten des Systems bei Änderung verschiedener Parameter unter-
+sucht.
+Beispiel 34.1:
+Mit einem Drehkondensator der veränderlichen Kapazität C = 60...390pF soll ein Schwing-
+kreis aufgebaut werden, dessen Eigenfrequenz das Frequenzband f = 400kHz bis 1MHz über-
+streicht. In welchem Bereich muss die Induktivität der Spule liegen?
+Lösung: Nach (34.2) ist L = 1/(4π2 f 2
+0 C). Mit f0 = 400kHz und C = 390pF ist L = 406µH die
+untere Grenze; mit f0 = 1MHz und C = 60pF ist L = 422µH die obere Grenze.
+□
+
+
+--- PDF page 378 ---
+34.2 Strom- und Spannungsresonanz
+375
+Tabelle 34.1 Analogiebeziehungen zwischen Größen für Translations-, Rotations- und elektrische
+Schwingungen
+Translations-
+schwingungen
+Rotationsschwin-
+gungen
+elektrische
+Schwingungen
+kinetische Energie
+m
+2 ˙u2
+J
+2 ˙ϕ2
+L
+2 i 2
+potenzielle Energie
+k
+2 u2
+D
+2 ϕ2
+1
+2C q2
+zeitabhängige Größen
+˙u
+˙ϕ
+˙q = i
+u
+ϕ
+q =
+Z
+i dt
+zeitunabhängige Konstanten
+m
+J
+L
+β
+βϕ
+R
+k
+D
+1/C
+Eigenkreisfrequenz
+ω0 =
+s
+k
+m
+ω0 =
+s
+D
+J
+ω0 =
+1
+p
+LC
+Dämpfungskonstante
+δ =
+β
+2m
+δ =
+βϕ
+2J
+δ = R
+2L
+34.2
+Strom- und Spannungsresonanz
+Ebenso wie bei mechanischen Oszillatoren kann man auch das Mitschwingen von elektrischen
+Schwingkreisen durch Erregung von außen erzwingen. Da man eine Induktivität L und eine
+Kapazität C parallel oder in Reihe schalten kann, sind zwei Möglichkeiten der Anregung zu
+unterscheiden. Bild 34.2 zeigt einen Parallelkreis, der durch einen eingespeisten Wechselstrom
+i(t), und einen Reihenkreis, der durch eine angelegte Wechselspannung u(t) von außen zu er-
+zwungenen Schwingungen angeregt wird. Beide Quellen seien ideal, d. h., die zeitlichen Ver-
+läufe von u(t) und i(t) werden durch die internen Vorgänge im Schwingkreis nicht beeinflusst.
+a)
+C
+R
+L
+i
+i
+i
+i
+L
+C
+b)
+u
+u
+u
+u
+L
+R
+C
+i
+L
+R
+C
+Bild 34.2 Anregung a) eines Parallel-
+schwingkreises durch eine Wechsel-
+stromquelle mit i = I0 sinωt, b)
+eines Reihenschwingkreises durch
+eine Wechselspannungsquelle mit
+u = U0 sinωt zu erzwungenen Schwin-
+gungen.
+Parallelschwingkreis (Bild 34.2a). Der fremderregte Parallelkreis entspricht im zeitlichen Ab-
+lauf seiner erzwungenen Schwingungen dem fremderregten Federschwinger (Bild 33.7). Durch
+den Wechselstrom i = i0 sinωt wird dem Kondensator C fortwährend Ladung q =
+Z
+i dt zu-
+und abgeführt, so wie beim Federschwinger durch den Erregerausschlag x = x0 sinωt dau-
+ernd der Aufhängepunkt seiner Feder bewegt wird. q und x sind entsprechende permanente
+Störungen des Gleichgewichtszustandes, denen Ausgleichsvorgänge des Schwingungssystems
+folgen, die jedoch vom Rhythmus der Störungen synchronisiert werden. Stimmt aber die Pe-
+
+
+--- PDF page 379 ---
+376
+34 Elektrische Schwingungen
+riodendauer des Wechselstroms und der Eigenschwingung überein (Resonanz), beginnt die
+Ladungszufuhr durch die Stromquelle immer in dem Moment, wenn die Kapazität C gerade
+mit der Entladung über die Induktivität L beginnt. Daher steigen die Stromamplituden der er-
+zwungenen Schwingung und die Schwingungsenergie von Periode zu Periode an (Einschwing-
+vorgang), bis die gleichzeitig steigenden Energieverluste im OHMschen Widerstand R die lau-
+fend zugeführten Energiemengen gerade kompensieren (eingeschwungener Zustand).
+Stromresonanz:
+Im Parallelschwingkreis werden hohe Stromstärken erzwungen, wenn dessen Eigen-
+frequenz mit der Erregerfrequenz übereinstimmt.
+Herleitung der Schwingungsgleichung: Da die Kapazität C zur Induktivität L mit dem Widerstand R
+parallel geschaltet ist (Bild 34.2a), liegt an beiden dieselbe Spannung an: uL+uR = uC . Setzt man hierin
+die Spannungsabfälle uL = L(diL/dt), uR = RiL sowie uC = (1/C)
+Z
+iC dt ein, dividiert durch L und
+differenziert einmal nach t, erhält man
+d2iL
+dt2 + R
+L
+diL
+dt =
+1
+LC iC .
+Mit Hilfe der Analogiebeziehungen in 34.1, Tabelle 34.1, und unter Berücksichtigung des Knotensatzes
+(25.17) iC = i −iL entsteht daraus die Differenzialgleichung
+d2iL
+dt2 +2δdiL
+dt +ω2
+0iL = ω2
+0i = ω2
+0i0 sinωt.
+(34.3)
+Diese ist völlig analog zur Bewegungsgleichung (33.29) des zu erzwungenen Schwingungen angeregten
+mechanischen Federschwingers, wenn dort die momentane Auslenkung u und die äußere Erregung x
+durch den Spulenstrom iL = iL0 sin(ωt −ϕ) und den Erregerstrom i = i0 sinωt ersetzt werden. Man
+beobachtet also auch hier eine Resonanzerscheinung. Es gelten daher für Amplitudengang und Pha-
+senverschiebung für den Parallelschwingkreis die gleichen Abhängigkeiten (33.31) und (33.32) von der
+Erregerfrequenz ω wie für die erzwungene Federschwingung, entsprechend den in Bild 33.8 dargestell-
+ten Verläufen mit iL0/i0 anstelle von u0/x0 für das Verhältnis von erregter Amplitude zu Erregerampli-
+tude sowie für die Phasenverschiebung ϕ zwischen dem Spulenstrom iL und dem Erregerstrom i:
+iL0
+i0
+=
+ω2
+0
+q
+(ω2
+0 −ω2)2 +(2δω)2
+=
+1
+p
+(1−ω2LC)2 +(ωRC)2
+(34.4)
+tanϕ =
+2δω
+ω2
+0 −ω2 =
+ωRC
+1−ω2LC
+für 0 ≤ϕ ≤π.
+(34.5)
+Der innerhalb des Schwingkreises fließende Strom iL0 wird im Resonanzfall sehr viel größer als der äu-
+ßere Erregerstrom i0, was in der Praxis durchaus zum Durchbrennen der Spulenwicklung führen kann.
+Anders betrachtet ist der in den Schwingkreis eingespeiste Strom betragsmäßig viel kleiner als der im
+Kreis fließende Strom; man nennt daher den Parallelkreis auch Sperrkreis. Bei Resonanz gilt iL0 ≫i0
+und somit |iC | = |i −iL| ≈|iL| ≫|i|, Spulenstrom iL und Auf- und Entladestrom des Kondensators iC
+kompensieren sich in diesem Fall. Für die Resonanzfrequenz gilt eine zu (33/33) analoge Beziehung:
+ωres = 2πfres =
+q
+ω2
+0 −2δ2 =
+s
+1
+LC −R2
+2L2
+(Resonanzkreisfrequenz
+des Parallelschwingkreises).
+(34.6)
+Für R →0 ergibt sich das Resonanzverhalten des ungedämpften Parallelschwingkreises aus Abschnitt
+34.1. Es gelten hierfür die Beziehungen iL0/i0 = 1/(1−ω2LC), ϕ = 0 und ωres = ω0 = 1/
+p
+LC.
+
+
+--- PDF page 380 ---
+34.2 Strom- und Spannungsresonanz
+377
+Reihenschwingkreis (Bild 34.2b). Induktivität bzw. Kapazität nehmen abwechselnd während
+einer Viertelperiode des Stromflusses Energie aus der Spannungsquelle auf und geben ihre
+magnetische bzw. elektrische Feldenergie in der nächsten Viertelperiode zurück. Erfolgt aber
+die Erregung mit ω = ω0 = 1/
+p
+LC (Eigenfrequenz des Schwingkreises), ist die Summe beider
+Energieformen konstant (vgl. 34.1), so dass die Zeiten der Energieaufnahme in der Induktivität
+mit denen der Energieabgabe in der Kapazität und umgekehrt zusammenfallen. Nach Durch-
+laufen des Einschwingvorganges braucht die Spannungsquelle nur noch die im Allgemeinen
+geringen Energieverluste an Schwingungsenergie im OHMschen Widerstand R laufend zu er-
+setzen. Außerhalb des Resonanzbereiches pendelt ein Teil der Schwingungsenergie zwischen
+Spannungsquelle und Schwingkreis hin und her.
+Diskussion des Resonanzverhaltens. Der im gesamten Kreis einheitliche Strom i ruft an der Kapazi-
+tät C, dem Widerstand R und der Induktivität L die Spannungsabfälle uL = L(di/dt), uR = Ri und
+uC = (1/C)
+Z
+i dt hervor. Gemäß dem Maschensatz (25.18) addieren sich die drei Spannungsabfälle
+zur Erregerspannung u = u0 sinωt:
+uL +uR +uC = L di
+dt +Ri + 1
+C
+Z
+i dt = u = u0 sinωt.
+(34.7)
+Durch Differenziation nach der Zeit t und Einsetzen der Abkürzungen gemäß Tabelle 34.1 erhält man
+daraus die Differenzialgleichung in Normalform
+d2i
+dt2 +2δ di
+dt +ω2
+0i = 2δωu0
+R
+cosωt.
+(34.8)
+Ihre Lösung erfolgt analog zu (33.29) und liefert mit ω0 und δ gemäß Tabelle 34.1:
+Ri0
+u0
+=
+2δω
+q
+(ω2
+0 −ω2)2 +(2δω)2
+=
+ωRC
+p
+(1−ω2LC)2 +(ωRC)2 (= cosϕ)
+(34.9)
+tanϕ =
+ω2 −ω2
+0
+2δω
+= ω2LC −1
+ωRC
+für −π
+2 ≤ϕ ≤π
+2 .
+(34.10)
+Bild 34.3 zeigt den Amplituden- und Phasengang der erzwungenen Schwingung. Im Gegensatz zum
+Parallelkreis hängt die Resonanzfrequenz hier nicht von der Dämpfung ab und ist gleich der Eigenfre-
+quenz des ungedämpften Schwingkreises:
+ωres = 2πfres = ω0 =
+1
+p
+LC
+(Resonanzkreisfrequenz
+des Reihenschwingkreises).
+(34.11)
+Bild 34.3 Amplitudengang (links, in nicht normierter Darstellung) und Phasenverschiebung (rechts)
+des Reihenschwingkreises in Abhängigkeit von der Erregerfrequenz ω (in Pfeilrichtung nimmt die
+Dämpfung δ zu.)
+
+
+--- PDF page 381 ---
+378
+34 Elektrische Schwingungen
+Von besonderem Interesse ist hier das Verhalten der am Kondensator anliegenden Spannung uC ge-
+genüber der äußeren Spannung u. Ersetzt man in (34.7) den Strom i mittels i = C(duC /dt) und di/dt =
+C(d2uC /dt2) durch die Spannung uC , so ergibt sich mit den Abkürzungen aus Tabelle 34.1
+d2uC
+dt2 +2δduC
+dt +ω2
+0uC = ω2
+0u = ω2
+0u0 sinωt.
+(34.12)
+Die Kondensatorspannung uC im Reihenkreis gehorcht somit derselben Gleichung (34.3) wie der Spu-
+lenstrom iL im Parallelkreis. Folglich gelten beim Reihenschwingkreis für den Amplitudengang und die
+Phasenverschiebung von uC = uC0 sin(ωt −ϕ) gegenüber der Erregerspannung u = u0 sinωt die glei-
+chen Abhängigkeiten von der Erregerfrequenz ω wie diejenigen beim Parallelschwingkreis (34.4) bzw.
+(34.5) für iL gegenüber i. Im Fall der Resonanz wächst die Spannung am Kondensator uC0 stark an
+(was zu Durchschlägen im Kondensator führen kann); es entsteht
+Spannungsresonanz:
+Im Reihenschwingkreis fallen an Induktivität und Kapazität hohe Spannungen ab,
+wenn die Erregerfrequenz mit der Resonanzfrequenz übereinstimmt.
+Beispiel 34.2:
+Man berechne die Resonanzbreite ∆ω des Reihenschwingkreises als Differenz ω2 −ω1 ≡∆ω
+derjenigen Kreisfrequenzen ω1 und ω2, bei denen die Amplitude in (34.9) auf den (1/
+p
+2)fachen
+Wert vom Maximum abfällt!
+Lösung: Aus (34.9) und (34.10) leitet man cosϕ = 1/
+q
+1+tan2 ϕ = 2δω/
+q
+(ω2
+0 −ω2)2 +(2δω)2
+ab, so dass ϕ1,2 = ±45◦bzw. tanϕ1,2 = ±1 folgt. Aus (34.10) erhält man ω2
+0 −ω2
+1 = 2δω1 und
+ω2
+2 −ω2
+0 = 2δω2, deren Addition ω2
+2 −ω2
+1 = (ω2−ω1)(ω2+ω1) = 2δ(ω2+ω1), also ∆ω = 2δ = R/L
+ergibt. Den Quotienten Q = ω0/∆ω = (1/R)
+p
+L/C bezeichnet man auch als Resonanzschärfe
+oder Güte eines Schwingkreises.
+□
+Aufgabe
+34.1
+Aus einer Spule mit der Induktivität L = 2,5H und einem Kondensator soll ein Rei-
+henschwingkreis (s. Bild 34.2b) aufgebaut werden. Der OHMsche Widerstand der Spule
+einschließlich Zuleitungen beträgt R = 300Ω. a) Wie groß muss die Kapazität C des
+Kondensators sein, wenn Resonanz zur angelegten Wechselspannung (10V/50Hz) an-
+gestrebt wird? b) Wie groß ist das logarithmische Dekrement? c) Welcher Strom fließt
+durch den Schwingkreis? d) Welche Spannung liegt am Kondensator an?
+34.3
+Erzeugung ungedämpfter elektrischer Schwingungen
+Die Erzeugung von elektrischen Schwingungen mit gleich bleibender Amplitude ist von großer
+technischer Bedeutung. Um eine ungedämpfte Schwingung aufrechtzuerhalten, muss man
+dem Schwingkreis in jeder Periode genau so viel Energie von außen zuführen, wie ihm durch
+Verluste entzogen wird. Dazu ist eine Schaltung erforderlich, welche die „Energieportionen“
+im Takt der Eigenfrequenz des Schwingkreises einspeist. Das kann mit einem Transistor ge-
+schehen (s. Bild 34.4a).
+
+
+--- PDF page 382 ---
+34.3 Erzeugung ungedämpfter elektrischer Schwingungen
+379
+Fremderregung (Verstärkerprinzip). Eine kleine Wechselspannung u1 an der Basis des Transistors
+führt zu periodischen Schwankungen des Kollektorstromes um seinen Mittelwert, d. h., dem Gleich-
+strom IC ist ein Wechselstrom i überlagert. Er bildet den Erregerwechselstrom für den Schwingkreis,
+der erzwungene Schwingungen in Stromresonanz ausführt (vgl. 34.2). Auch die Kollektorspannung er-
+leidet infolge Spannungsabfall an Induktivität L und Kapazität C periodische Schwankungen um den
+Wert der Betriebsspannung Ub, d. h., der Kollektorgleichspannung Ub ist eine Wechselspannung u2
+überlagert. Das Verhältnis von Ausgangs- zu Eingangswechselspannung definiert die Spannungsver-
+stärkung
+V = u2
+u1
+.
+(34.13)
+Die zur Verstärkung notwendige Energie wird der Betriebsspannungsquelle entzogen.
+Bild 34.4 a) Fremderregte Verstärkerschaltung, b) meissnersche Rückkopplungsschaltung mit
+Transistoren
+Zur Selbsterregung eines Schwingkreises mit einer Verstärkerstufe ist es notwendig, den Gleichlauf
+von Erregung und Schwingung zu gewährleisten, also den Kollektorwechselstrom durch die Schwin-
+gungsfrequenz selbst zu steuern und die Energieeinspeisung in der richtigen Phasenlage vorzuneh-
+men. Das gelang erstmals mit der MEISSNERschen Rückkopplungsschaltung durch eine Rückführungs-
+schleife vom Ausgang auf den Eingang einer Verstärkerstufe (Bild 34.4b). Dabei sind Schwingkreisspule
+(L) und Basiskreis- oder Rückkopplungsspule (LR) induktiv wie Primär- und Sekundärwicklung eines
+Transformators gekoppelt. Dadurch wird die Schwingwechselspannung im Verhältnis der Windungs-
+zahlen unterteilt, so dass der Bruchteil von Primär- zu Sekundärspannung des „Transformators“
+ü = u1
+u2
+(34.14)
+als Steuerwechselspannung auf die Basis des Transistors gelangt. Der darauf einsetzende Kollektor-
+wechselstrom i regt den Schwingkreis erneut und im weiteren Verlauf über die Rückführungsschleife
+periodisch an. Die richtige Phasenlage wird durch entsprechende Polung der Basiskreisspule erreicht.
+Die Selbsterregung wird entweder durch den Einschaltvorgang oder durch kleine statistische Schwan-
+kungen des Kollektorstromes in Gang gebracht und der Schwingkreis zu Eigenschwingungen angesto-
+ßen. Die kleinen Anfangsamplituden schaukeln sich wie in Bild 33.7 durch fortwährende Verstärkung
+in einem Einschwingvorgang zum stationären eingeschwungenen Zustand auf. Beide Vorgänge lassen
+sich mit einem Oszillographen gut demonstrieren.
+Zum Aufrechterhalten einer ungedämpften Schwingung genügt es, wenn das Produkt von (34.5) und
+(34.6) V ü = 1 ist. Zum Einschwingen muss V ü > 1 sein. Daraus folgt:
+V ü ≥1
+(Rückkopplungsbedingung nach BARKHAUSEN).
+Eine große Zahl von Schwingschaltungen beruht auf dem Rückkopplungsprinzip: Ein Bruchteil der
+Ausgangsspannung (-energie) eines Verstärkers wird auf den Eingang zurückgeführt und reproduziert
+nach Verstärkung die ungedämpfte Schwingung.

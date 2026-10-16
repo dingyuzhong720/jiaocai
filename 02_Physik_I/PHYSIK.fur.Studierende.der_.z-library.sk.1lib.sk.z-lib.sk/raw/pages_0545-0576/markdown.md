@@ -1,0 +1,790 @@
+## 44.11 Die Röntgenspektren und ihre Deutung
+
+Lässt man energiereiche Elektronen, die vorher im Vakuum beschleunigt wurden (Katodenstrahlen), auf Materie aufprallen, so entsteht eine elektromagnetische Wellenstrahlung, die nach ihrem Entdecker RÖNTGEN (1895) als **RÖNTGENstrahlung** (im angelsächsischen Schrifttum als X-Strahlung) bezeichnet wird. Diese Strahlen, deren Wellenlängen je nach der kinetischen Energie der Elektronen im Bereich von etwa $1 0 ^ { - 1 2 }$ m und $1 0 ^ { - 8 }$ m liegen und damit sehr viel kürzer sind als die des sichtbaren Lichts $( \lambda \approx 0 , 5 \cdot 1 0 ^ { - 6 }   \mathrm { m } )$ , besitzen ein hohes Durchdrin gungsvermögen und u. a. die Eigenschaft, fotografische Platten zu schwärzen und Stoffe zur Fluoreszenz (Ausstrahlung von Licht) anzuregen.
+
+![](images/page_544_image_4.jpg)
+
+<details>
+<summary>text_image</summary>
+
+e⁻
+Glühkatode
+hfRö
+Antikatode (Anode)
+Kühlwasser
+</details>
+
+Bild 44.15 Schematischer Aufbau einer Röntgenröhre
+
+Für die praktische Erzeugung von RÖNTGENstrahlen benutzt man heute Hochvakuum-Röntgenröhren (Bild 44.15) mit Glühkatode und gegenüberliegender Anode (auch als Antikatode bezeichnet), zwischen denen die Beschleunigungsspannung für die Elektronen von etwa 15kV und darüber anliegt. Bei diesen Röhren können „Härte“ und Intensität der RÖNTGENstrahlen unabhängig voneinander geregelt werden. Die Härte ist ein Maß für die Durchdringungsfähigkeit der Strahlung und wächst mit der Höhe der Beschleunigungsspannung, also mit der Energie der auf die Antikatode auftreffenden Elektronen, während die Intensität durch die Anzahl der aus der Glühkatode austretenden Elektronen bestimmt wird, also von der Glühtemperatur der Katode abhängt, und über den Heizstrom geregelt werden kann. Nur rund 5% der kinetischen Energie der Elektronen wird in RÖNTGENstrahlung umgesetzt, der Rest wird als Wärmeenergie an die Anode abgegeben, die daher als wassergekühltes Hohlrohr ausgeführt wird.
+
+Je nach Erzeugungsprozess unterscheidet man zwischen der kontinuierlichen $( , w e i f _ { } { S e n } ^ { a } )$ RÖNTGENstrahlung oder Bremsstrahlung und der charakteristischen RÖNTGENstrahlung oder Eigenstrahlung.
+
+**Das kontinuierliche RÖNTGENspektrum.** Die Entstehung des kontinuierlichen oder Bremsspektrums wird nach der klassischen Elektrodynamik als Folge des Abbremsens der schnellen Elektronen durch die Atomkerne des Bremsmaterials (Wechselwirkung zwischen Elektronen und COULOMB-Feld des Kerns) erklärt (Bild 44.16). Strahlung der Höchstfrequenz, der sog. Grenzfrequenz $f _ { \mathrm { G } } ,$ wird dann ausgesandt, wenn das Elektron seine gesamte kinetische Energie $E _ { \mathrm { k , e } } = e U$ (U Beschleunigungsspannung) in einem einzigen, kurzzeitigen Bremsprozess einbüßt. Es gilt dann
+
+$$
+h f _ {\mathrm{G}} = E _ {\mathrm{k,e}} = e U.
+$$
+
+Wegen $\lambda = c / f$ (c Vakuumlichtgeschwindigkeit) ergibt sich damit unabhängig vom Bremsmaterial (als zugeschnittene Größengleichung, s. 2.2) eine untere **Grenzwellenlänge** von
+
+$$
+\lambda_ {\mathrm{G}} = \frac {h c}{e U} = \frac {1 2 , 3 9}{U / \mathrm{kV}} \cdot 1 0 ^ {- 1 0} \mathrm{m} \quad (\text {DUANE - HUNTsches Gesetz}). \tag {44.26}
+$$
+
+![](images/page_545_image_2.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph LR
+  Center(("Star")) --> L["L"]
+  L --> K["K"]
+  K --> M_Schale["M-Schale"]
+  M_Schale --> L
+  L --> Auger_Elektron["Auger-Elektron\nE_kin = E_L - E_K"]
+  Auger_Elektron --> L
+  L --> B["b) Quant einer charakteristischen\nLinie: hf_Rö = E_M - E_L"]
+```
+</details>
+
+Bild 44.16 Entstehung a) des Röntgen-Bremsstrahlungskontinuums, b) der charakteristischen Röntgenstrahlung; c) Auger-Effekt (s. 44.12)
+
+Bei 12,39kV Beschleunigungsspannung erreicht man also eine kurzwellige Grenze des Bremsspektrums bei der Wellenlänge $10^{-10}    m  = 0.1$ nm. Da die Endgeschwindigkeit der abgebremsten Elektronen zwischen null und der Anfangsgeschwindigkeit variieren kann, entsteht ein kontinuierliches Spektrum, das von $\lambda _ { \mathrm { G } }$ bis zu unendlich großen Wellenlängen reicht (Bild 44.17). Durch Beschleunigung von Elektronen in einem als Betatron bezeichneten Elektronenringbeschleuniger erhält man besonders harte RÖNTGENstrahlung von $\lambda \approx 5 \cdot 1 0 ^ { - 1 4 }$ m Wellenlänge.
+
+![](images/page_545_chart_5.jpg)
+
+<details>
+<summary>line</summary>
+
+| Wellenlänge \(\lambda\) (nm) | Intensität (relat. Einheiten) |
+| --- | --- |
+| ~0.065 | >10 |
+| ~0.068 | ~4 |
+| ~0.072 | >10 |
+</details>
+
+Bild 44.17 Bremsspektrum mit überlagerter charakteristischer $\mathsf { K } _ { \alpha ^ { - } }$ und $\mathsf { K } _ { \beta }$ -Strahlung einer Molybdän-Anode (Strahlungsintensität in Abhängigkeit von der Wellenlänge)
+
+**Das charakteristische RÖNTGENspektrum.** Bei genügend hoher Beschleunigungsspannung entsteht eine RÖNTGENstrahlung mit Linienstruktur, die für das jeweilige Bremsmaterial charakteristisch und der Bremsstrahlung überlagert ist (Bild 44.16b und 44.17). Der Entstehungsmechanismus dieser Strahlung ist der Gleiche wie bei den optischen Spektren, jedoch mit dem Unterschied, dass ein Elektron einer inneren (kernnahen) Elektronenschale des Atoms angeregt, d. h. durch die aufprallenden energiereichen Elektronen aus dieser „herausgeschlagen“ werden muss. Als Folge davon können Elektronen aus den äußeren Schalen in die durch die Anregung erzeugten „Löcher“ der inneren Schalen „nachrutschen“, wobei gemäß der Frequenzbedingung für die einzelnen Übergänge diskrete Spektrallinien emittiert werden. Diese RÖNTGENstrahlung ist im Unterschied zur obigen Bremsstrahlung monochromatisch.
+
+Je nachdem, auf welcher Elektronenschale der Quantensprung des Elektrons endet, der zur Emission eines RÖNTGENquants führt, bezeichnet man die zugehörige Strahlung als $\mathrm { K } \_ , \mathrm { L } \_ \ldots$ -Strahlung. Man unterscheidet weiterhin zwischen $\operatorname { K } _ { \alpha ^ { - } } , \operatorname { K } _ { \beta ^ { - } } , \ldots$ . -Strahlung, je nachdem, ob es sich um einen Elektronenübergang von der L- zur K- oder von der M- zur K-Schale handelt usw. Entsprechend bezeichnet man $\mathbf { z } , \mathbf { B } ,$ mit $\mathrm { L } _ { \alpha }$ einen Übergang M → L und mit $\mathrm { L } _ { \beta }$ einen Übergang N → L usw.
+
+Da die Bindungsenergie der Elektronen auf den verschiedenen Schalen von der Ordnungszahl Z des betreffenden Elements abhängt, wird die charakteristische Strahlung für verschiedene Anodenmaterialien unterschiedlich sein. Für die Berechnung der Mindestenergie, die zur Anregung der Eigenstrahlung erforderlich ist, kann daher die Ionisierungsenergie des Atoms dienen, die gleich der Bindungsenergie des Elektrons in dem betreffenden Zustand ist. Nimmt man an, dass für die Elektronen der K-Schale noch die gesamte positive Ladung des Kerns wirksam ist, so ergibt sich z. B. bei Kupfer als Anodenmaterial $( Z = 2 9 )$ nach 44.3 eine Ionisierungsenergie von $E _ { \mathrm { i } } = 2 9 ^ { 2 } \cdot 1 3 , 6   \mathrm { e V } \approx 1 1   5 0 0   \mathrm { e V } ;$ d. h., die Anregungsspannung für die K-Strahlung einer RÖNTGENröhre mit Kupferanode beträgt etwa 11,5kV.
+
+Die Frequenz der $\mathrm { K } _ { \alpha }$ -Strahlung (Übergang $\mathrm { L   \rightarrow   K   }$ berechnet sich nach der Serienformel (44.10) zu
+
+$$
+f (\mathrm{K} _ {\alpha}) = R _ {\mathrm{H}} (Z - 1) ^ {2} \left(\frac {1}{1 ^ {2}} - \frac {1}{2 ^ {2}}\right) = \frac {3}{4} R _ {\mathrm{H}} (Z - 1) ^ {2} \qquad (\textbf {M O S E L E Y S c h e s G e s e t z}). \tag {44.27}
+$$
+
+Der Umstand, dass anstelle des Gliedes $Z ^ { 2 }$ hier $( Z - 1 ) ^ { 2 }$ steht, erklärt sich qualitativ leicht aus der abschirmenden Wirkung der Elektronen in der Atomhülle (vor allem des zweiten Elektrons in der K-Schale).
+
+## Die Quadratwurzel aus der Frequenz der charakteristischen RÖNTGENspektren wächst linear mit der Ordnungszahl des Elements.
+
+## Beispiel 44.5:
+
+Ein unbekanntes Metall wird als RÖNTGENanode verwendet. Von ihr wird eine $\mathrm { K } _ { \alpha ^ { - } } \mathrm { I }$ inie der Wellenlänge 0,154nm emittiert. Um welches Element handelt es sich?
+
+Lösung: Die Frequenz der $\mathrm { K } _ { \alpha }$ -Linie beträgt $f = c / \lambda \approx 1 { , } 9 3 5 \cdot 1 0 ^ { 1 8 }   \mathrm { s } ^ { - 1 }$ , womit sich aus (44.27) mit $R _ { \mathrm { H } } = 3 { , } 2 9 \cdot 1 0 ^ { 1 5 }   \mathrm { s } ^ { - 1 }$ (vgl. 44.2) die Ordnungszahl zu $Z = 1 + \sqrt { 4 f / ( 3 R _ { \mathrm { H } } ) } = 2 9$ berechnet. Es handelt sich also um das Element Kupfer (s. Periodensystem, S. 539). □
+
+## Aufgabe
+
+**44.3** Bei einer an der RÖNTGENröhre anliegenden Spannung von 40kV wird eine Grenzwellenlänge von $\lambda _ { \mathrm { G } } = 0 , 0 3 1$ nm gemessen. Bestimme daraus den Wert des PLANCKschen Wirkungsquantums h!
+
+## 44.12 Absorption und Streuung von Röntgenstrahlen
+
+**Das allgemeine Schwächungsgesetz.** Obwohl energiereiche elektromagnetische Strahlung (RÖNTGEN- und Gammastrahlung) sich durch ein großes Durchdringungsvermögen auszeichnet, wird sie dennoch beim Durchgang durch Stoffe mehr oder weniger stark geschwächt. Die Schwächung hängt einerseits von der Wellenlänge der Strahlung, andererseits von der
+
+Beschaffenheit des durchstrahlten Stoffes, des Absorbers, ab. Für Strahlung einer bestimmten Energie (monochromatische Strahlung) ist die Abnahme ihrer Intensität (d. h. der Anzahl der Photonen) $- \mathbf { d } J$ in einer dünnen Absorberschicht der Dicke dx der auf die Schicht auffallenden Intensität J und der Schichtdicke dx proportional:
+
+$$
+- \mathrm{d} J = \mu J \mathrm{d} x \quad \text {oder} \quad \frac {\mathrm{d} J}{J} = - \mu \mathrm{d} x.
+$$
+
+Der Proportionalitätsfaktor $\mu$ heißt **Schwächungskoeffizient**. Durch Integration über die gesamte Absorberdicke d erhalten wir, wenn $J _ { 0 }$ die anfängliche und $J _ { d }$ die nach Durchstrahlung der Dicke d noch vorhandene Intensität ist:
+
+$$
+\int_ {J _ {0}} ^ {J _ {d}} \frac {\mathrm{d} J}{J} = - \mu \int_ {0} ^ {d} \mathrm{d} x; \quad \ln \frac {J _ {d}}{J _ {0}} = - \mu d \quad \text {oder} \tag {44.28}
+$$
+
+$$
+J _ {d} = J _ {0} \mathrm{e} ^ {- \mu d} \quad (\text {Schwächungsgesetz}). \tag {44.29}
+$$
+
+Die Schwächung in Stoffen gleicher Zusammensetzung ist der Anzahl der in der Volumeneinheit des Absorbers enthaltenen Atome proportional, woraus sich die Proportionalität zwischen $\mu$ und der Absorberdichte $\varrho$ ergibt. Für eine bessere Vergleichbarkeit der Absorber untereinander hinsichtlich ihres Schwächungsverhaltens gibt man daher für Elemente im Allgemeinen den auf die Dichte bezogenen Schwächungskoeffizienten, den sog. **Massenschwächungskoeffizienten** $\mu / \varrho ,$ an.
+
+Die Schwächung der Strahlung erfolgt durch mehrere verschiedene Wechselwirkungsprozesse der Strahlung mit dem Stoff, nämlich
+
+1. durch photoelektrische (oder echte) Absorption,
+2. durch Streuung (klassische Streuung und COMPTON-Streuung),
+3. durch Paarbildung.
+
+![](images/page_547_chart_13.jpg)
+
+<details>
+<summary>line</summary>
+
+| Region | Description |
+| --- | --- |
+| K-Kante | Initial region for \(\tau\) vs \(\lambda\) |
+| L_I | Vertical segment of the curve |
+| L_II | Vertical segment of the curve |
+| L_III-Kante | Vertical segment of the curve |
+</details>
+
+Bild 44.18 Absorptionskanten bei der Absorption durch Photoeffekt
+
+Die **Photoabsorption** beruht auf dem in 43.2 behandelten lichtelektrischen Effekt. Die auf diesen Teilvorgang zurückzuführende Schwächung wird durch den Absorptionskoeffizienten τ ausgedrückt. Wird dieser in Abhängigkeit von der Wellenlänge der Lichtquanten dargestellt, so erhält man den in Bild 44.18 gezeichneten Verlauf mit einigen Unstetigkeitsstellen, den sog. **Absorptionskanten**. Diese entstehen durch ein plötzliches Ansteigen der Absorption, sobald die Quantenenergie der Bindungsenergie eines Elektrons gleich ist, das Elektron also unter vollständiger Absorption des Quants emittiert wird. Mit Erhöhung der Quantenenergie, d. h. mit abnehmender Wellenlänge λ, sinkt die Absorption stetig, bis das nächste, fester gebundene Elektron freigesetzt wird.
+
+Bild 44.18 zeigt schematisch die K- und die drei L-Absorptionskanten, wobei die Indizes bei L sich auf die verschiedenen möglichen Quantenzustände der Elektronen in dieser Schale beziehen; es bedeutet $\mathrm { L _ { I } }$ den Zustand $n = 2 ,   l = 0 ,   m _ { s } = \frac { 1 } { 2 } ,   \mathrm { L _ { I I } }$ den Zustand $n = 2 ,   l = 1 ,   m _ { s } = - \frac { 1 } { 2 }$ und $\mathrm { L _ { \mathrm { I I I } } }$ den Zustand $n = 2,   l = 1,   m_s = + \frac{1}{2} (\mathrm{vgl.} 44.10)$ . Die Abhängigkeit des Absorptionskoeffizienten τ von der Wellenlänge λ und von der Ordnungszahl des Absorbers Z lässt sich außerhalb der Absorptionskanten darstellen durch
+
+$$
+\tau \sim \varrho \lambda^ {3} Z ^ {3}. \tag {44.30}
+$$
+
+Das Durchdringungsvermögen (die Härte) der RÖNTGENstrahlen wächst also mit abnehmender Wellenlänge bzw. zunehmender Frequenz oder Energie.
+
+Nicht jedes durch Photoeffekt in der K-, L-, . . . -Schale ionisierte Atom sendet eine Linie der $\mathrm { K \_ , L \_ , \ldots }$ Serie aus, wenn die Lücke durch Übergang eines Elektrons aus einer weiter außen liegenden Schale wieder aufgefüllt wird. Die bei einem solchen strahlungslosen Übergang frei werdende Energie wird oft dazu verwendet, ein Elektron desselben Atoms aus einer weiter außen liegenden Schale durch eine Art „inneren Photoeffekt“ abzuspalten. Dieses Elektron verlässt dann neben dem Photoelektron das Atom, ohne dass Fluoreszenzstrahlung festgestellt wird (**AUGER-Effekt**, s. Bild 44.16).
+
+Die **klassische Streuung** kommt dadurch zustande, dass die Elektronen im Atom unter dem Einfluss der auftreffenden monochromatischen elektromagnetischen Welle zu erzwungenen Schwingungen angeregt werden und dabei elektromagnetische Wellen von der Frequenz der auftreffenden Welle (also ohne Energieabgabe an die durchstrahlte Materie) nach allen Richtungen des Raumes abstrahlen. Die durch diesen Streuprozess hervorgerufene Schwächung wird durch den Streukoeffizienten σ beschrieben. Die Theorie ergibt, dass die Intensität des Streulichts der vierten Potenz der Frequenz proportional ist. Für den sichtbaren Bereich des Lichts bedeutet dies, dass das kurzwellige blaue Licht viel stärker gestreut wird als das langwellige rote (vgl. 39.1).
+
+Mit zunehmender Quantenenergie tritt die Schwächung durch klassische Streuung immer mehr hinter der durch **COMPTON-Streuung** zurück. Letztere beruht auf dem in 43.3 behandelten COMPTON-Effekt, durch den die eingestrahlten Lichtquanten neben einer Richtungsänderung eine Energieabnahme erfahren; sie wird ebenfalls durch den Streukoeffizienten σ erfasst.
+
+**Paarbildung.** Bei sehr hohen Quantenenergien tritt eine Schwächung der Strahlung bei der Wechselwirkung mit Stoffen auch dadurch ein, dass aus den Lichtquanten Paare von Teilchen, bestehend aus einem positiv und einem negativ geladenen Partner, erzeugt werden, sofern die Energie $h f$ eines Quants mindestens so groß ist wie die Summe der Ruhenergien $2 m _ { 0 } c ^ { 2 }$ der beiden aus ihm hervorgehenden Teilchen (Paarbildung, Materialisation der Strahlung, Bild 44.19). Bei diesem Prozess sind also die Erhaltungssätze von Energie und Ladung erfüllt. Da auch der Impulssatz erfüllt sein muss, ist neben dem Teilchenpaar ein drittes Teilchen erforderlich, das den Rückstoßimpuls aufnimmt. Der häufigste Fall ist die Entstehung eines Elektronenpaares (Elektronenzwilling), bestehend aus einem Elektron und einem Positron, die stets im COULOMB-Feld eines Atomkerns stattfindet. Die hierfür erforderliche Mindestenergie des Lichtquants ist $2 m _ { \mathrm { e } 0 } c ^ { 2 } = 1 , 0 2 2   \mathrm { M e V } .$
+
+Die Bildung derartiger Elektronenzwillinge kann z. B. in einer Nebelkammer sichtbar gemacht werden, in der die schnell bewegten Teilchen infolge Ionisation der mit Wasserdampf übersättigten Luft in der Kammer entlang ihrer Bahn Kondensspuren erzeugen und auf diese Weise sichtbar werden (Bild 44.20). Man erkennt die Elektronenzwillinge daran, dass die Bahnspuren bei der Bewegung der Teilchen in einem starken Magnetfeld infolge der Wirkung der LORENTZ-Kraft an bestimmten Stellen Verzweigungen aufweisen, von denen zwei in entgegengesetzte Richtung gleich gekrümmte Kreisbahnen ausgehen.
+
+![](images/page_549_image_3.jpg)
+
+<details>
+<summary>chemical</summary>
+
+Diagram of electron and positron scattering at 1.02 MeV, showing electron and positron interactions
+</details>
+
+Bild 44.19 Paarbildung infolge Wechselwirkung von energiereichen Lichtquanten (Gammaquanten) mit Stoffen
+
+![](images/page_549_image_5.jpg)
+
+<details>
+<summary>natural_image</summary>
+
+Microscopic view of cellular or particulate structures with a white arrow pointing to a specific region (no text or symbols present)
+</details>
+
+Bild 44.20 Nebelkammeraufnahme der Bildung eines Elektronenzwillings aus energiereichem Lichtquant
+
+Die durch Paarbildung hervorgerufene Schwächung wird durch den Paarbildungskoeffizienten $\varkappa$ beschrieben. Der **totale Schwächungskoeffizient** $\mu$ in (44.29) ist die Summe der einzelnen Schwächungskoeffizienten:
+
+$$
+\mu = \tau + \sigma + \varkappa . \tag {44.31}
+$$
+
+![](images/page_549_chart_9.jpg)
+
+<details>
+<summary>line</summary>
+
+| Energie des Photons (MeV) | \(\mu (m^{-1})\) | \(\tau (m^{-1})\) | x \((m^{-1})\) |
+| --- | --- | --- | --- |
+| 0,1 | — | ~145 | — |
+| 0,2 | — | ~130 | — |
+| 0,5 | — | ~95 | — |
+| 1 | >140 | ~75 | — |
+| 2 | ~80 | ~60 | — |
+| 5 | ~50 | ~35 | ~5 |
+| 10 | ~50 | ~25 | ~25 |
+| 20 | ~60 | ~15 | ~50 |
+| 50 | ~90 | ~5 | ~85 |
+| 100 | ~115 | ~2 | ~110 |
+| 1000 | ~140 | ~0 | ~140 |
+</details>
+
+Bild 44.21 Verlauf der Schwächungskoeffizienten von Photoabsorption τ, Compton-Streuung $\sigma$ und Paarbildung κ sowie des Gesamtschwächungskoeffizienten $\mu$ in Abhängigkeit von der Quantenenergie für Blei als Absorber
+
+Die Abhängigkeit dieser Koeffizienten von der Quantenenergie für Blei als Absorber zeigt Bild 44.21. Die Photoabsorption liefert nur bei schweren Elementen und Energien bis zu 10MeV einen Beitrag zur Gesamtabsorption; sie nimmt mit zunehmender Energie der Photonen sehr rasch ab, so dass bei Energien über 5MeV fast nur noch Streuung (wobei es sich hier wegen der hohen Quantenenergie praktisch nur um COMPTON-Streuung handelt) und Paarbildung auftritt. Doch auch die Streuung nimmt mit zunehmender Quantenenergie weiterhin sehr rasch ab, wogegen die Paarbildung oberhalb 1MeV mit der Energie merklich ansteigt. Daraus ergibt sich, dass bei allen Absorberstoffen die Gesamtschwächung mit zunehmender Energie der Photonen zunächst stark abnimmt, ein Minimum durchläuft und nach merklichem Einsetzen der Paarbildung ansteigt. Aus dem Bild ist ersichtlich, dass für Blei das Schwächungsminimum, d. h. das Maximum der Durchdringungsfähigkeit, bei etwa 5MeV liegt; für Stahl liegt dieses bei 9MeV und für Aluminium bei 20MeV. Daraus geht hervor, dass mit fallender Ordnungszahl des Absorbers das Schwächungsminimum zu höheren Quantenenergien hin verschoben wird.
+
+## Beispiele 44.6:
+
+1. Diejenige Schichtdicke, welche die hindurchgehende Strahlung auf die Hälfte ihres Anfangswertes schwächt, ist die sog. Halbwertsdicke $d _ { 1 / 2 }$ . Berechne die Halbwertsdicke für Gammastrahlung der Energie 5MeV und Blei als Absorber!
+
+Lösung: Aus (44.28) folgt mit $J _ { d } = J _ { 0 } / 2 { : } \ln ( 1 / 2 ) = - \ln 2 = - \mu d _ { 1 / 2 }$ und hieraus $d _ { 1 / 2 } = ( \ln 2 ) / \mu .$ Aus Bild 44.21 entnimmt man als Schwächungskoeffizient von Blei für die angegebene Quantenenergie $\mu = 5 0   \mathrm { m } ^ { - 1 }$ . Damit wird $d _ { 1 / 2 } = ( 0 . 6 9 / 5 0 )   \mathrm { m } \approx 1 4   \mathrm { m m }$
+
+2. Wie viel „Halbwertsschichten“ der Dicke $d _ { 1 / 2 }$ sind erforderlich, um die Strahlung auf den 20. Teil zu schwächen?
+
+Lösung: Sind zur Schwächung auf den n-ten Teil x Halbwertsschichten nötig, d. h. $J _ { d } = J _ { 0 } / n$ für $d = x d _ { \mathrm { 1 / 2 } }$ , so folgt damit aus (44.28) mit $d _ { 1 / 2 } = ( \ln 2 ) / \mu { : }$
+
+$$
+\ln \left(\frac {1}{n}\right) = - \mu x d _ {1 / 2} = - x \ln 2 = \ln \left(\frac {1}{2}\right) ^ {x}; \quad \frac {1}{n} = \left(\frac {1}{2}\right) ^ {x}; \quad x = \frac {\lg n}{\lg 2}.
+$$
+
+Für $n = 2 0$ ergibt dies $x = 1 , 3 / 0 , 3 = 4 , 3$ Halbwertsschichten.
+
+![](images/page_550_image_10.jpg)
+
+## 44.13 Induzierte Emission. Maser und Laser
+
+Ein Atom kann durch ein einfallendes Lichtquant im Resonanzfall, d. h., wenn die Quantenenergie $h f$ von der Größe der Differenz zweier Energieniveaus $E _ { 1 }$ und $E _ { 2 }$ des Atoms ist (Bild 44.22), nicht nur zur Absorption des Quants veranlasst, sondern auch zur Emission zusätzlicher Quanten „gezwungen“ werden. Nichtangeregte Atome können allerdings nur Übergänge mit Absorption ausführen $( E _ { 1 } \to E _ { 2 } )$ , während angeregte Atome $( \mathbf { z } .$ B. solche im Zustand der Energie $E _ { 2 } )$ nach EINSTEIN durch ein eingestrahltes Lichtquant der Energie $h f = E _ { 2 } - E _ { 1 }$ sowohl durch Absorption in ein oberhalb $E _ { 2 }$ befindliches Niveau angehoben werden als auch unter Abstrahlung eines zusätzlichen Lichtquants der gleichen Energie $h f$ in den niedriger angeregten Zustand übergehen können. Die letztgenannten Übergänge, durch welche die Intensität (d. h. die Anzahl der Photonen) des eingestrahlten Lichts (im Gegensatz zur Absorption) vergrößert wird, nennt man erzwungene oder induzierte Übergänge; sie bewirken **induzierte (stimulierte) Emission**.
+
+Die induzierte Emission kann somit als zur Absorption inverser Prozess angesehen werden; man bezeichnet sie daher auch als negative Absorption. Die induzierten Lichtquanten sind identisch mit den erregenden und bewegen sich gleichphasig und parallel zu diesen, womit eine Verstärkung des Lichts erfolgt.
+
+Die durch ein äußeres Strahlungsfeld angeregte induzierte Emission steht andererseits im Gegensatz zu der bisher stets betrachteten **spontanen Emission**, die unabhängig von äußerer Strahlung stattfindet, indem das Atom nach einer mittleren Verweilzeit im angeregten Zustand von nur einigen $1 0 ^ { - 8 }$ s zu irgendeinem Zeitpunkt in den Grundzustand zurückkehrt. Die spontane Emission ist im Gegensatz zur induzierten als eine zufällige Erscheinung anzusehen, für die wir lediglich eine Übergangswahrscheinlichkeit abschätzen können.
+
+![](images/page_551_chart_2.jpg)
+
+<details>
+<summary>other</summary>
+
+| Level | Energy Level |
+| --- | --- |
+| Angeregtes Niveau | E2 |
+| Groundniveau | E1 |
+</details>
+
+Bild 44.22 Übergänge zwischen zwei Energiezuständen des Atoms
+
+![](images/page_551_chart_4.jpg)
+
+<details>
+<summary>other</summary>
+
+| Level | Description |
+| --- | --- |
+| E1 | Ground niveau |
+| E2 | Excited state (unlabeled) |
+| E3 | Excited state (unlabeled) |
+| Curve 1 | spontane Emission |
+| Curve 2 | stimulierte Emission |
+| Curve 3 | kurzlebiges Niveau / langlebiges Niveau |
+| Curve 4 | \(\lambda =\) hc/E2 - E1 |
+</details>
+
+Bild 44.23 Energietermschema eines Drei-Niveau-Lasers
+
+Bei einer großen Zahl von Atomen im thermischen Gleichgewicht, z. B. in einem Gas oder Kristall, befindet sich die überwiegende Mehrzahl der Atome im nichtangeregten Zustand, d. h., die unteren Energiestufen der Atome sind insgesamt stärker besetzt als die oberen. Es gilt nach der BOLTZMANN-Gleichung (18.16) für die Besetzungsdichten $n _ { 1 }$ und $n _ { 2 }$ , die den Energieniveaus $E _ { 1 }$ und $E _ { 2 }$ entsprechen,
+
+$$
+n _ {2} / n _ {1} = \exp {[ - (E _ {2} - E _ {1}) / k T ]}.
+$$
+
+Aus diesem Grunde überwiegt bei Einstrahlung von Licht die Schwächung desselben durch Absorption gegenüber der Verstärkung durch induzierte Emission. Sorgt man aber durch einen künstlichen Prozess dafür, dass Energie in den Atomen des Kristalls gespeichert wird, indem sich mehr Atome in einem angeregten Zustand befinden als im Grundzustand (Besetzungsinversion der Energieniveaus), so wird durch ein Strahlungsquant geeigneter Frequenz eine Lawine induzierter Quanten aus den angeregten Atomen ausgelöst, wobei die zuvor gespeicherte Energie nun der emittierten Strahlung zugute kommt und diese deshalb verstärkt.
+
+Dies ist das Prinzip des als **Laser** bezeichneten Lichtgenerators oder Quantengenerators (MAIMAN, 1960). Das Wort $,LASSER ^{\alpha}$ ist zusammengesetzt aus den Anfangsbuchstaben von „Light Amplification by Stimulated Emission of Radiation“ (Lichtverstärkung durch angeregte [erzwungene, induzierte] Emission von Strahlung). Die gleiche Erscheinung, wie sie dem im optischen Bereich $( 1 0 ^ { 1 1 }$ bis $1 0 ^ { 1 6 }$ Hz) arbeitenden Laser zu Grunde liegt, war zuvor bereits bei den Mikrowellen $( 1 0 ^ { 8 }$ bis $1 0 ^ { 1 0 }$ Hz) entdeckt worden (BASSOW, PROCHOROW, TOWNES, 1953 bis 1955); man spricht dann vom **Maser**, wobei der erste Buchstabe dieser Abkürzung für „microwave“ steht.
+
+Als besondere Eigenschaften der Laserstrahlung sind ihre strenge **Parallelität** (Divergenz von nur wenigen Bogenminuten), die mit anderen Mitteln nicht erreichbare **Monochromasie** sowie ihre **Kohärenz** hervorzuheben. Die Kohärenz ist darauf zurückzuführen, dass die induzierte mit der auslösenden Lichtwelle in Phase ist, dass also alle Atome ihre Lichtquanten „im Gleichtakt“ emittieren und nicht, wie bei der spontanen Emission in ausgedehnten Lichtquellen, statistisch mit von Atom zu Atom schwankenden Phasendifferenzen. Damit ist Licht gleicher Frequenz von zwei verschiedenen Lasern prinzipiell interferenzfähig.
+
+Die Energiezufuhr an die Atome der Lasersubstanz geschieht durch einen sog. „Pumpvorgang“, bei dem die Atome durch Einstrahlung einer intensiven elektromagnetischen Welle mit der zu dem entsprechenden Übergang gehörigen Frequenz $( , \mathrm { P u m p f r e q u e n z } ^ { a } )$ angeregt werden. Bei dem wegen seiner hohen Belastbarkeit und Ausgangsleistung häufig verwendeten Rubinlaser werden die im $\mathrm { A l _ { 2 } O _ { 3 } \cdot }$ Grundgitter des Rubins anstelle von Al-Ionen in bestimmter Dosierung eingebauten Cr-Ionen durch die Pumpenergie aus dem Grundniveau $E _ { 1 }$ zunächst in ein Hilfsniveau $E _ { 3 }$ höherer Energie gebracht (Bild 44.23). Dieses Niveau entleert sich mit einer Zeitkonstante von einigen $1 0 ^ { - 8 }$ <sub>s</sub> durch spontane
+
+Übergänge von $E _ { 3 }$ nach dem langlebigen **metastabilen Niveau** $E _ { 2 }$ des Laserübergangs. Die lange Lebensdauer dieses Niveaus von etwa $\bar { 3   \cdot   1 0 ^ { - 3 } }$ s hat eine Besetzungszunahme zu Lasten des Grundniveaus $E _ { 1 }$ zur Folge. Bei Einstrahlung von genügend intensivem Pumplicht kommt es zur Besetzungsinversion $n _ { 2 } > n _ { 1 }$ und damit zur Lichtverstärkung für die Wellenlänge des ausgestrahlten roten Laserlichts des Rubins von $\lambda = h c / ( E _ { 2 } - E _ { 1 } ) = 6 9 4 , 3 \mathrm { n m }$
+
+Eine weitere Lichtverstärkung wird beim Laser noch dadurch erzielt, dass der Kristall als **optischer Resonator** ausgebildet wird (Bild 44.24). Der verwendete Rubin, der die Form eines zylindrischen Stäbchens von einigen Zentimetern Länge hat, ist an seinen Stirnflächen sehr genau planparallel geschliffen und mit reflektierenden Schichten versehen, wovon die eine vollständig reflektiert und die andere teildurchlässig ist. Dadurch wird erreicht, dass die den Prozess der induzierten Emission auslösenden, bei spontanen Übergängen entstehenden Photonen infolge Reflexion zwischen den verspiegelten Flä- chen in Form einer stehenden ebenen Welle in Richtung der Zylinderachse hin- und herlaufen, dabei die Atome zur induzierten Emission anregen und die erregte Strahlung durch Mehrfachreflexion immer weiter verstärken, bis bei Erreichen eines Schwellenwertes der Pumpenergie die Strahlung den Kristall an der Stirnfläche mit der teildurchlässigen Schicht in Form eines Lichtimpulses von außerordentlicher Intensität verlässt.
+
+![](images/page_552_image_4.jpg)
+
+<details>
+<summary>text_image</summary>
+
+Z
+B
+R
+L
+</details>
+
+Bild 44.24 Prinzipieller Aufbau eines Festkörper-Lasers (B Wendelblitzlampe in zylindrischem Reflektor, Z Zündelektrode, R Rubinkristall, L Laserstrahl)
+
+In „gütegeschalteten“ Lasern kann der Impuls extrem verkürzt werden, wodurch besonders hohe Leistungsdichten erreicht werden. Für die Güteschaltung ist eine der beiden verspiegelten Flächen zuerst verkippt und wird dann – den lawinenartigen Prozess verzögernd – erst bei extremer Besetzungsinversion ausgerichtet.
+
+Wichtige Vertreter der **Festkörper-Impulslaser** sind die oben beschriebenen Rubinlaser (Dreiniveau-Laser) mit einer maximalen Leistung im Dauerstrichbetrieb (D) von 1W, im Impulsbetrieb (I) von 1GW, und die Neodymlaser (Vierniveau-Laser) mit einer maximalen Leistung von 100W (D) bzw. von 1GW (I). Letzteres entspricht bei einer Fokussierung auf einen Durchmesser von 0,1mm einer Leistungsdichte von $1 0 ^ { 4 }   \mathrm { G W / c m ^ { 2 } }$ . Bei Verstärkung der Strahlung durch Laserverstärker um den Faktor 100, was unschwer möglich ist, wird schon eine Leistungsdichte von $10^{3} \mathrm{~TW/cm^{2}~(10^{15}W/cm^{2})}$ erreicht. Moderne Hochleistungsanlagen, wie sie speziell für die lasergesteuerte Kernfusion entwickelt wurden bzw. werden, erreichen heute bereits Leistungsdichten von $1 0 ^ { 1 8 } \mathrm { W / c m ^ { 2 } }$ . Angestrebt werden Anlagen, die diesen Wert noch um zwei Größenordnungen übertreffen. Der Wirkungsgrad von Festkörper-Impulslasern ist jedoch sehr gering; er liegt nur bei einigen Prozent.
+
+Mit **Farbstofflasern** lässt sich die Laserfrequenz über ein größeres Gebiet variieren. Um höhere Photonenenergien zu erreichen, sind nun auch im UV-Bereich arbeitende sog. **Excimer-Laser** entwickelt worden (maximale Leistung (I) 20MW).
+
+Bei einem **Halbleiter-Laser** (vgl. 46.5), bei dem die Anregung anstelle von optischem Pumpen am einfachsten durch Anlegen einer Spannung geschieht und bei dem die Energie durch den Rekombinationsprozess in der Sperrschicht der Halbleiterdiode frei wird (Rekombinationsleuchten), kann der Wirkungsgrad hingegen bis zu 95% betragen. Für den Dauerbetrieb bei Raumtemperatur eignen sich besonders die **Gaslaser**, bei denen Edelgase (He, Ne, Ar, Kr) oder andere Gase (Stickstoff, Iod, $\mathrm { C O _ { 2 } ) }$ unter einem Druck von $1 0 ^ { 2 }$ bis nahe $1 0 ^ { 5 }$ Pa in ein Quarzrohr gefüllt und durch Stoßionisation aufgepumpt werden. Ihr Wirkungsgrad liegt jedoch nur in der Größenordnung von $^ { 0 , 1 } \%$ . **Chemische Laser** erzeugen die Besetzungsinversion durch schnelle chemische Reaktionen.
+
+## 45.1 Die Schrödinger-Gleichung
+
+Die Theorie von DE BROGLIE (1924), wonach einem Teilchen jedweder Art mit dem Impuls $p =$ mv eine Materiewelle der Wellenlänge $\lambda = h / p$ zugeordnet ist, ermöglichte nur die Beschreibung der Bewegung eines freien Mikroteilchens durch eine Welle. Über die örtliche und zeitliche Änderung der Amplitude der DE-BROGLIE-Wellen von freien Teilchen und insbesondere von Teilchen in Kraftfeldern, z. B. eines Elektrons im COULOMB-Feld des Atomkerns, macht diese Theorie keine Aussage. Die Weiterentwicklung der DE-BROGLIEschen Theorie in dieser Richtung gelang SCHRÖDINGER (1926) durch Aufstellung einer Wellengleichung, welche (bei Vorgabe bestimmter Randbedingungen) automatisch auf die für die Quantenphysik typische Existenz diskreter Energiezustände gebundener Teilchen führt. Diese Wellengleichung, die eine Grundlage der **Quantenmechanik** bildet, lautet
+
+$$
+- \frac {\hbar^ {2}}{2 m} \triangle \psi + (V - E) \psi = 0 \quad (\text {stationäre SCHRÖDINGER - Gleichung}) \tag {45.1}
+$$
+
+mit m als Masse, $E$ als Gesamtenergie, V als potenzieller Energie des Teilchens und $\hbar = h / ( 2 \pi )$ Als solches wollen wir im Folgenden ein Elektron betrachten. Gleichung (45.1) beschreibt dann die Ortsabhängigkeit der **Wellenfunktion des Elektrons** $\psi ( x , y , z )$ , über deren physikalische Natur sie allerdings keine Aussage macht. $\triangle$ ist der LAPLACE-Operator; in einem räumlichen kartesischen Koordinatensystem hat dieser die Form $\triangle \equiv \partial ^ { 2 } / \partial x ^ { 2 } + \partial ^ { 2 } / \partial y ^ { 2 } + \partial ^ { 2 } / \partial z ^ { 2 }$
+
+**Herleitung.** Ausgangspunkt sind die PLANCK-EINSTEIN-Beziehung (43.1) $E = h f = \hbar \omega$ und die DE-BROGLIE-Beziehung (43.20) $p = h / \lambda = \hbar k ,$ die jedem freien Mikroteilchen mit der Energie E und dem Impuls $p$ eine harmonische Materiewelle (vgl. Gleichung (36.25))
+
+$$
+\Psi = \Psi_ {0} \mathrm{e} ^ {- \mathrm{j} (\omega t - k x)} \tag {45.2}
+$$
+
+mit der Kreisfrequenz $\omega = 2 \pi f$ und der Wellenzahl $k = 2 \pi / \lambda$ zuordnet. Zur mathematischen Darstellung der Materiewelle wird hier die komplexe Form (45.2) verwendet, aus der sich der bisher bekannte Ausdruck (36.2) für die harmonische Welle mit Hilfe der EULERschen Formel (31.5) gewinnen lässt. Da zwischen Energie $E = E _ { \mathbf { k } } = m \nu ^ { 2 } / 2$ und Impuls $p = m v$ eines freien (nichtrelativistischen) Teilchens der Masse m nach (7.15) der Zusammenhang $E = p ^ { 2 } / ( 2 m )$ besteht, muss zwischen Kreisfrequenz und Wellenzahl der zugehörigen Materiewelle die Beziehung
+
+$$
+\omega = \frac {\hbar}{2 m} k ^ {2} \quad (\text {Dispersionsrelation für Materiewellen}) \tag {45.3}
+$$
+
+gelten, wie sich durch Einsetzen der Gleichungen ineinander leicht zeigen lässt. Die Dispersionsrelation $( 4 5 . 3 ) \; \omega = \omega ( k )$ ist eine quadratische Funktion von k und unterscheidet sich damit deutlich von derjenigen $\omega = c k$ für elektromagnetische Wellen im Vakuum (s. 39.2). Dies hat zur Folge, dass die Phasengeschwindigkeit (39.2) der Materiewelle $c = \omega / k = \pi \hbar / ( m \lambda )$ von ihrer Wellenlänge abhängt. Materiewellen zeigen also im Vakuum Dispersion, d. h., freie Materiewellengruppen oder Wellenpakete sind räumlich nicht stabil, sondern zerfließen im Laufe der Zeit. Als Gruppengeschwindigkeit (39.3) einer Materiewellengruppe, $c _ { \mathrm { g } } = \mathbf { d } \omega / \mathbf { d } k ,$ , erweist sich nach (45.3) die Teilchengeschwindigkeit:
+
+$c _ { \mathrm { g } } = \hbar k / m = p / m = \nu$ . Materiewellen genügen auf Grund der Dispersionsbeziehung (45.3) einer anderen Wellengleichung, als sie zum Beispiel für elektromagnetische Wellen im Vakuum gilt. Zur Ermittlung der Wellengleichung werden die partiellen Ableitungen der Wellenfunktion (45.2) gebildet:
+
+$$
+\frac {\partial \Psi}{\partial t} = - \mathrm{j} \omega \Psi_ {0} \mathrm{e} ^ {- \mathrm{j} (\omega t - k x)} = - \mathrm{j} \omega \Psi , \tag {45.4a}
+$$
+
+$$
+\frac {\partial \Psi}{\partial x} = \mathrm{j} k \Psi_ {0} \mathrm{e} ^ {- \mathrm{j} (\omega t - k x)} = \mathrm{j} k \Psi , \quad \frac {\partial^ {2} \Psi}{\partial x ^ {2}} = \mathrm{j} k \frac {\partial \Psi}{\partial x} = - k ^ {2} \Psi . \tag {45.4b,c}
+$$
+
+Stellt man (45.4a) nach $\omega$ und $(45.4c)$ nach $k ^ { 2 }$ um und setzt die erhaltenen Ausdrücke in die Dispersionsrelation (45.3) für ω und $k ^ { 2 }$ ein, erhält man die eindimensionale Wellengleichung
+
+$$
+- \frac {\hbar^ {2}}{2 m} \frac {\partial^ {2} \Psi}{\partial x ^ {2}} = \mathrm{j} \hbar \frac {\partial \Psi}{\partial t}. \tag {45.5}
+$$
+
+Im Unterschied zur Wellengleichung vom Typ (36.7), zu dem auch die Wellengleichungen (38.7) und (38.8) für elektromagnetische Felder gehören, enthält (45.5) neben der imaginären Einheit j nur die erste Zeitableitung der Wellenfunktion.
+
+Die dreidimensionale Bewegung eines Teilchens mit den Impulskomponenten $p _ { x } ,   p _ { y } ,   p _ { z }$ in einem Kraftfeld mit der potenziellen Energie $V = V ( x , y , z ; t )$ hat die Energie $E = E _ { \mathbf { k } } + E _ { \mathbf { p } } = p ^ { 2 } / ( 2 m ) + V = ( p _ { x } ^ { 2 } +$ $p _ { y } ^ { 2 }   +   p _ { z } ^ { 2 } ) / ( 2 m )   +   \stackrel { \circ } { V }$ . Mit der entsprechenden Erweiterung der DE-BROGLIE-Beziehung (43.20) für dreidimensionale Materiewellen $\pmb { p } = \hbar \pmb { k } ,$ wobei k der Wellenzahlvektor mit den Komponenten $k _ { x } ,   k _ { y } ,   k _ { z }$ ist (vgl. 36.5), folgt daraus der wellenmechanische Energieausdruck $E = \hbar \omega = \hbar ^ { 2 } ( \tilde { k _ { x } ^ { 2 } } + k _ { y } ^ { 2 } + k _ { z } ^ { 2 } ) / ( 2 m ) + V .$ Fordert man nun, dass für jede einzelne Komponente von k eine Beziehung der Form (45.4c) zwischen $k _ { x } ^ { 2 } , k _ { y } ^ { 2 } , k _ { z } ^ { 2 }$ und der jeweiligen zweiten Ableitung von $\Psi$ nach x, y bzw. z besteht, so geht dieser Energieausdruck mit (45.4a) und (45.4c) in die dreidimensionale Wellengleichung
+
+$$
+- \frac {\hbar^ {2}}{2 m} \left(\frac {\partial^ {2} \Psi}{\partial x ^ {2}} + \frac {\partial^ {2} \Psi}{\partial y ^ {2}} + \frac {\partial^ {2} \Psi}{\partial z ^ {2}}\right) + V \Psi = \mathrm{j} \hbar \frac {\partial \Psi}{\partial t} \quad \begin{array}{l} (\text {zeitabhängige} \\ \text {SCHRÖDINGER - Gleichung}) \end{array} \tag {45.6}
+$$
+
+über. Hängt die potenzielle Energie V nicht von der Zeit ab, so ist die Energie E konstant. Die Wellenfunktion zeigt in diesem Fall wie in (45.2) die periodische Zeitabhängigkeit einer harmonischen Schwingung $\mathbf { e } ^ { - \mathrm { j } \omega t }$ mit der Kreisfrequenz $\omega = E / \hbar$ und einer nur vom Ort abhängigen Wellenfunktion $\psi = \psi ( x , y , z )$ als Faktor: $\Psi = \mathrm { e } ^ { - \mathrm { j } E t / \hbar \bar { \mathrm { ~ } } } \psi ( x , y , z )$ . Eingesetzt in (45.6) ergibt sich nach entsprechender Umformung die stationäre SCHRÖDINGER-Gleichung (45.1). Die Lösungen von (45.6) bzw. (45.1) sind im Allgemeinen keine ebenen Wellen der Form (45.2) mehr, sondern sog. Wellenpakete oder, wie im Falle gebundener Teilchen in einem stationären Potenzial, stehende Wellen (s. 45.2).
+
+**Interpretation der Wellenfunktion.** Die Wellenfunktion $\psi$ spiegelt die Wellennatur des Elektrons wider; sie selbst kann nicht anschaulich interpretiert werden. Einen anschaulichen Sinn hat nur das Quadrat ihres Betrages $| \psi | ^ { 2 } = \psi \psi ^ { * }$ ; dabei ist $\psi ^ { * }$ die konjugiert komplexe Funktion. Genaue Untersuchungen ergaben, dass $| \psi | ^ { 2 }$ wie folgt statistisch zu deuten ist: Die Größe
+
+$$
+\mathrm{d} w = | \psi | ^ {2} \mathrm{d} \tau = | \psi | ^ {2} \mathrm{d} x \mathrm{d} y \mathrm{d} z \tag {45.7}
+$$
+
+gibt die Wahrscheinlichkeit dafür an, das Elektron im Volumenelement dτ um den Raumpunkt $x , y , z$ vorzufinden. Demzufolge ist $| \psi | ^ { 2 }$ die **Wahrscheinlichkeitsdichte** für den „Aufenthalt“des Elektrons an einem bestimmten Ort. Diese Eigenschaft der ψ-Funktion spiegelt die zweite, korpuskulare Seite im Verhalten der Mikroteilchen wider. Das Produkt von $| \psi | ^ { \tilde { 2 } }$ mit der Elektronenladung $e$ gibt die **Ladungsdichte** $\varrho$ am betreffenden Ort an: $\varrho ( x , y , z ) = e | \psi ( x , y , z ) | ^ { 2 }$ Das Elektron bildet demnach eine über den ganzen Raum mit unterschiedlicher Dichte verteilte Ladungswolke (richtiger: „Wahrscheinlichkeitswolke“). Aus (45.6) und der Wahrscheinlichkeitsdefinition folgt, dass ψ der Bedingung
+
+$$
+w = \int_ {(\tau)} | \psi | ^ {2} \mathrm{d} \tau = 1 \quad (\text {Normierungsbedingung für die} \psi \text {-Funktion}) \tag {45.8}
+$$
+
+genügen muss, was bedeutet, dass sich das Elektron, entsprechend der Wahrscheinlichkeit 1, mit Sicherheit im betrachteten (Gesamt-)Volumen τ aufhält.
+
+Die SCHRÖDINGER-Gleichung (45.1) beansprucht allgemeine Gültigkeit, d. h., dass auch die Gesetze der klassischen Mechanik in ihr enthalten sind, und zwar als Sonderfall, wenn die Abmessungen der in Frage kommenden Körper (Teilchen) ihre DE-BROGLIE-Wellenlängen wesentlich übersteigen, was mit dem Übergang zu makroskopischen Teilchen der Fall ist (vgl. 43.5). Deshalb kann die Grundgleichung der Quantenmechanik nur im Bereich der Mikrophy sik angewandt werden; hier spiegelt sie die objektive Realität richtig (oder, wie man zu sagen pflegt, adäquat) wider. In der Makrophysik ist ihre Anwendung i. Allg. bedeutungslos, weil sie Resultate liefert, die sich praktisch nicht von denen der klassischen Mechanik unterscheiden.
+
+## 45.2 Elektron im Kastenpotenzial
+
+Wir betrachten ein Elektron, das gezwungen ist, sich in einem winzigen „Kasten“ der linearen Ausdehnung l zu bewegen, wie er durch den Verlauf der potenziellen Energie V (x) gemäß Bild 45.1a gegeben ist. Als ein solcher Potenzialkasten oder Potenzialtopf kann z. B. ein Metallstück angesehen werden, das die Leitungselektronen in einem bestimmten Raumbereich ein schließt, den sie nicht ohne Weiteres verlassen können (vgl. 26.1). Um gänzlich zu verhindern, dass das Elektron aus dem Kasten entweicht, nehmen wir an, dass zwischen den Wänden, also im Gebiet $0 \leq x \leq l ,$ die potenzielle Energie $V = 0$ ist und an den Wänden bei $x = 0$ und $x = l$ sowie außerhalb des Kastens V gegen unendlich geht. Wir erhalten so eine rechteckige „Potenzialmulde“ mit unendlich hohen Wänden. Da damit die Wahrscheinlichkeit, das Elektron außerhalb des Kastens anzutreffen, null ist, muss die Elektronen-Wellenfunktion an den Wänden gegen null gehen, d. h. $\psi ( x ) = 0$ für $x = 0$ und x = l. Für das Gebiet zwischen den Wänden lautet die SCHRÖDINGER-Gleichung (45.1) mit $\hbar = h / ( 2 \pi )$
+
+$$
+\frac {\mathrm{d} ^ {2} \psi}{\mathrm{d} x ^ {2}} + \frac {8 \pi^ {2} m _ {\mathrm{e}}}{h ^ {2}} E \psi = 0. \tag {45.9}
+$$
+
+![](images/page_555_image_7.jpg)
+
+Bild 45.1 Verlauf der potenziellen Energie V des Elektrons a) entsprechend einem eindimensionalen „Potenzialkasten“, b) im Wasserstoffatom. $E _ { 1 }$ niedrigstes Energieniveau
+
+Sie kann durch den Ansatz
+
+$$
+\psi (x) = \psi_ {0} \sin k x \quad (k = 2 \pi / \lambda \quad \text {Wellenzahl}) \tag {45.10}
+$$
+
+befriedigt werden; denn durch Differenzieren und Einsetzen erhält man für die Gesamtenergie $E = h ^ { 2 } k ^ { 2 } / ( 8 \pi ^ { 2 } m _ { \mathrm { e } } )$ , woraus mit der DE-BROGLIE-Beziehung $h / \lambda = h k / ( 2 \pi ) = m _ { \mathrm { e } } \nu$ folgt $E = m _ { \mathrm { e } } \nu ^ { 2 } / 2 = E _ { \mathrm { k } }$ . Nun sind aber durch den Lösungsansatz (45.9) gleichzeitig auch die oben genannten Randbedingungen $\psi ( 0 ) = 0$ und $\psi ( l ) = 0$ zu erfüllen. So ergibt die zweite Randbedingung $\psi _ { 0 }$ sin $kl = 0, \mathrm{d.h.} kl = n\pi$ , woraus für die Wellenzahl k folgende diskrete **Eigenwerte** folgen:
+
+$$
+k _ {n} = n \frac {\pi}{l} \quad \text {mit} \quad n = 1, 2, 3, \dots \tag {45.11}
+$$
+
+Für die Energie (s. o.) ergibt sich damit eine Reihe diskreter **Energieeigenwerte**
+
+$$
+E _ {n} = \frac {h ^ {2}}{8 \pi^ {2} m _ {\mathrm{e}}} k _ {n} ^ {2} = \frac {h ^ {2}}{8 m _ {\mathrm{e}} l ^ {2}} n ^ {2}. \tag {45.12}
+$$
+
+Das bedeutet, dass ein Teilchen, welches in einem Potenzialkasten „eingeschlossen“ ist, nur die Quantenwerte der Energie (45.11) annehmen kann. Durch Einführung von (45.10) in (45.9) werden die sog. **Eigenfunktionen** $\psi _ { n } ( x ) = \psi _ { 0 } \sin ( n \pi x / l )$ bestimmt, deren Amplitude aus der Normierungsbedingung (45.7) folgt:
+
+$$
+\int_ {0} ^ {l} \psi_ {n} ^ {2} (x) \mathrm{d} x = \psi_ {0} ^ {2} \int_ {0} ^ {l} \sin^ {2} \frac {n \pi x}{l} \mathrm{d} x = \psi_ {0} ^ {2} \frac {l}{2} = 1; \quad \psi_ {0} = \sqrt {\frac {2}{l}}.
+$$
+
+Ganz analog den Eigenschwingungen einer Saite (vgl. 36.4) beschreiben die Eigenfunktionen $\psi _ { 1 } ,   \psi _ { 2 } ,   \psi _ { 3 } ,   . .$ . stehende Elektronenwellen, für die wegen (45.10) und $k = 2 \pi / \lambda$ gilt $\lambda / 2 = l ,$ $l / 2 , l / 3 , \ldots$ Die ersten drei Eigenfunktionen und ihre Quadrate sind in Bild 45.2 dargestellt. Die Kurven $\psi _ { n } ^ { 2 } ( x )$ veranschaulichen die Verteilung der Wahrscheinlichkeit, das Elektron an diesem oder jenem Ort x innerhalb des Kastens bei verschiedenen Energiewerten zu „finden“. Wie man erkennt, ist die Wahrscheinlichkeit, im energetisch niedrigsten Zustand (Grundzustand $n = 1 )$ das Teilchen in der Mitte des Kastens anzutreffen, am größten und für die Wände des Kastens null.
+
+![](images/page_556_image_9.jpg)
+
+Bild 45.2 Die den drei niedrigsten Energiezuständen zugeordneten stehenden Elektronenwellen $\psi _ { n }$ und die zugehörigen Wahrscheinlichkeitsdichten $\psi _ { n } ^ { 2 }$
+
+Dieses Ergebnis unterscheidet sich wesentlich von dem bei einem makroskopischen Teilchen zu erwartenden. Ein solches Teilchen können wir offensichtlich mit der gleichen Wahrscheinlichkeit an jedem beliebigen Ort des Kastens antreffen, entsprechend einem Verlauf der Kurve für die Wahrscheinlichkeitsdichte parallel zur x-Achse. Es zeigt sich ferner, dass bei einer
+
+Vergrößerung der Teilchenenergie (Anwachsen der Quantenzahl $n )$ die Maxima der Kurve $\psi _ { n } ^ { 2 }$ immer näher aneinander rücken, so dass für sehr große Werte n auch eine Verteilung erhalten wird, die einem makroskopischen Teilchen entspricht.
+
+Die niedrigste Energie, die das Elektron überhaupt haben kann, ist nach (45.11) diejenige für $n = 1$ , also $E _ { 1 } = h ^ { 2 } / ( 8 m _ { \mathrm { e } } l ^ { 2 } )$ , die Nullpunktsenergie (vgl. 43.6, Beisp. 2). Das im Kasten befindliche Elektron muss mindestens diese Nullpunktsenergie aufweisen, da es Elektronenzustände mit niedrigerer Energie nicht gibt. Nach der klassischen Theorie würde das Elektron immer dann elektromagnetische Wellen abstrahlen, wenn es gegen die Wand „prallt“ (denn dort ist es beschleunigt), und dies so lange, bis die kinetische Energie null erreicht ist. Die Tatsache aber, dass ein „Herunterfallen“ in einen energetisch niedrigeren Zustand nicht möglich ist, erklärt, warum quantenmechanisch das Wasserstoffatom stabil im Energiezustand $E _ { 1 }$ (Grundzustand) verbleiben kann.
+
+**Elektron im Coulomb-Potenzial des Wasserstoffkerns.** Die Gleichung (45.11) für die Energieniveaus des Elektrons im Kastenpotenzial unterscheidet sich wesentlich von der Gleichung (44.9) für die Energieniveaus des Wasserstoffatoms. Der Grund dafür ist der andersartige Verlauf des Potenzials im Feld des Wasserstoffkerns. Dieses bzw. die potenzielle Energie V ist hier eine Funktion des Abstandes des Elektrons vom Kern und wird – wie in Abschnitt 44.3 gezeigt wurde – durch
+
+$$
+V (r) = - \frac {e ^ {2}}{4 \pi \varepsilon_ {0} r} \tag {45.13}
+$$
+
+beschrieben. Den Verlauf dieses Potenzials zeigt Bild 45.1b. Um die genauen Werte für die Energieniveaus im H-Atom zu erhalten, muss man die SCHRÖDINGER-Gleichung (45.1) für das COULOMB-Potenzial (45.12) lösen; dies ist eine Aufgabe der höheren Mathematik. Die Rechnung führt (ohne jede Zusatzannahme, wie dies in der älteren Quantentheorie in Form der BOHRschen Postulate erforderlich war) zu den gleichen Energieniveaus für das H-Atom, wie sie durch Gleichung (44.9) beschrieben werden. Außer der Quantelung der Energie durch die Hauptquantenzahl n erhält man jedoch zusätzlich die richtige Quantelung des Bahndrehimpulses des Elektrons hinsichtlich seines Betrages und seiner Projektion auf die z-Richtung, ausgedrückt durch die Quantenzahlen l und $m _ { l }$ (<sup>s</sup>. 44.4 und 44.5).
+
+## 45.3 Das wellenmechanische Bild des Atoms
+
+Die Anwendung der Wellenmechanik auf die Elektronen im Atom führte zu einem prinzipiell neuen Atommodell, welches frei ist von den Mängeln, die dem auf der NEWTONschen Mechanik und der älteren (PLANCKschen) Quantentheorie basierenden BOHRschen Atommodell noch anhafteten. Die Interpretation der Wellenfunktion ψ bzw. ihres Betragsquadrates $| \psi | ^ { 2 }$ als Wahrscheinlichkeitsdichte für den „Aufenthalt“ des Elektrons an einer bestimmten Stelle innerhalb des Atoms bzw. für die Verteilung der Dichte der „Elektronenwolke“ (vgl. 45.1) bietet die Möglichkeit, sich eine gewisse Vorstellung vom Wellenmodell des Atoms zu machen. Denn die Gestalt der Elektronenwolke ist typisch für einen bestimmten Elektronenzustand, gekennzeichnet durch die Quantenzahlen $n ,$ l und $m _ { l }$ , und vermittelt ein anschauliches Bild davon, wo sich das Elektron im Atom bevorzugt aufhält und welche Gebiete es meidet.
+
+In Bild 45.3 unten ist die Ladungsdichte $e | \psi | ^ { 2 }$ für drei verschiedene Zustände des H-Atoms veranschaulicht, und zwar in den beiden ersten Bildern für zwei Zustände mit n = 1 und $n = 2$ , denen der Bahndrehimpuls l = 0 zukommt (sog. s-Zustand). Zustände mit dem Bahndrehimpuls null kommen in der BOHRschen Theorie (im Gegensatz zur Erfahrung) nicht vor. Das dritte Bild veranschaulicht einen Zustand mit n = 2 und l = 1 (p-Zustand). In allen drei Fällen ist $m _ { l } = 0$ Dabei hat man sich die Bilder um die vertikal in der Zeichenebene liegende Symmetrieachse rotierend zu denken, d. h., die Elektronenwolke ist in allen stabilen, stationären Zuständen des Atoms rotationssymmetrisch zum Kern. Die drehimpulsfreien s-Zustände bilden sogar eine sphärisch-symmetrische Wolke; bei ihnen zeigt $| \psi | ^ { 2 }$ also in allen räumlichen Richtungen die gleiche räumliche Verteilung.
+
+![](images/page_558_image_3.jpg)
+
+Bild 45.3 Radiale Verteilung der Elektronendichte $e | \psi | ^ { 2 }$ (gestrichelte Kurven) und der Elektronen-Aufenthaltswahrscheinlichkeit $| \psi | ^ { 2 }$ dτ (ausgezogene Kurven) für drei verschiedene Zustände des H-Atoms. Darunter: Zugehörige Modellbilder der Elektronendichte (sog. Orbitale)
+
+Das Atom wird so als ein System stehender räumlicher Wellen beschrieben, analog zu den Eigenschwingungen mechanischer Gebilde, wie Stäbe, Platten und anderer Körper, für die ebenfalls nur ganz bestimmte diskrete Werte der Frequenz, die Eigenfrequenzen, möglich sind. An stelle der Knotenpunkte eines schwingenden Stabes im eindimensionalen und der Knotenlinien einer schwingenden Membrane im zweidimensionalen Fall (CHLADNIsche Klangfiguren, vgl. 36.4) erscheinen im räumlichen Gebilde des Atoms Knotenflächen, für die $| \psi | ^ { 2 } = 0$ gilt, wo das Elektron also nicht anzutreffen ist.
+
+In Bild 45.3 oben ist für die darunter abgebildeten Zustände des H-Atoms durch die gestrichelten Kurven die radiale Verteilung der Elektronendichte $e | \psi | ^ { 2 }$ in Einheiten $a _ { \mathrm { H } }$ , des Radius der innersten BOHRschen Bahn (44.8), dargestellt. Der 1s-Zustand entspricht dem Grundzustand. Man erkennt, dass die Wellenfunktion ψ des Elektrons in diesem Fall eine stehende Welle ist, die ihr Maximum im Zentrum des Atoms hat und die zum „Rande“ des Atoms hin abfällt. Die ausgezogenen Kurven beschreiben den Verlauf der Größe $4 \pi r ^ { 2 } | \psi | ^ { 2 } ;$ sie gibt nach (45.6) d $w = | \psi | ^ { 2 } 4 \pi \tilde { r ^ { 2 } }$ dr die Wahrscheinlichkeit dafür an, das Elektron in einer Kugelschicht der Fläche $4 \pi r ^ { 2 }$ und der Dicke dr anzutreffen. Die dick ausgezogenen Abszissenabschnitte geben die Lage der Maxima der Aufenthaltswahrscheinlichkeit an.
+
+Wie man sieht, hält sich das Elektron mit überwiegender Wahrscheinlichkeit in einem Abstand vom Kern auf, der gleich dem Radius der zugehörigen BOHRschen Bahn (44.7) $r _ { n } = a _ { \mathrm { H } } n ^ { 2 }$ ist. Dies trifft besonders für den 1s- und 2p-Zustand zu, weniger gut hingegen für den 2s Zustand, dem in der SOMMERFELDschen Erweiterung des BOHRschen Atommodells (vgl. 44.4) keine kreisförmige, sondern eine elliptische Elektronenbahn zukommt.
+
+**Orbitale.** Die dem Elektron durch das wellenmechanische Modell zugewiesenen Aufenthaltsräume im Atom nennt man Orbitale (Bild 45.3, jeweils unten). Sie übernehmen gewissermaßen die Rolle der Elektronenbahnen des BOHRschen Modells. Wie man aus dem Bild erkennt, sind die Orbitale 1s und 2s kugelsymmetrisch, während das Orbital im Zustand 2p eine hantelförmige Gestalt annimmt, d. h., dass sich das Elektron mit gleicher Wahrscheinlichkeit in der einen oder anderen Hälfte des Orbitals $2 \mathrm { p }$ befinden kann. Entsprechend den drei Achsenrichtungen des Koordinatensystems kann dieses Orbital drei verschiedene, energetisch gleichwertige räumliche Lagen einnehmen, bei denen die „Hantel“ in $x - , y -$ oder z-Richtung orientiert ist, entsprechend den Einzelzuständen $2 \mathbf { p } _ { x } , 2 \mathbf { p } _ { y } , 2 \mathbf { p } _ { z } ,$ deren Orbitalformen von großer Bedeutung für das Verständnis der Atombindung (vgl. 12.3) sind.
+
+## 45.4 Der Tunneleffekt
+
+Im weiter oben behandelten Beispiel eines Teilchens im Potenzialkasten (Bild 45.1a) kann das Teilchen nicht aus dem Kasten entweichen, da es als Welle an den steilen Innenwänden vollständig reflektiert wird, was zur Bildung einer stehenden Welle im Kasten führt (stationärer Zustand). Anders verhält es sich, wenn sich das Teilchen in einem Potenzialtopf bestimmter Höhe und von nicht zu großer Wanddicke bewegt. Die Topfwand soll der Einfachheit halber die in Bild 45.4a dargestellte Form eines rechteckigen Potenzialwalls der Höhe $V _ { 0 }$ und der Breite a haben. Im Gegensatz zur klassischen Physik, wonach ein Teilchen der Energie $E < V _ { 0 }$ niemals in der Lage wäre, über den Wall hinweg in den Raum außerhalb des Potenzialtopfes zu gelangen, führt die wellenmechanische Behandlung dieses Problems zu dem Ergebnis, dass es für das Teilchen auch jenseits des Potenzialwalls eine von null verschiedene Aufenthaltswahrscheinlichkeit gibt.
+
+![](images/page_559_image_5.jpg)
+
+<details>
+<summary>text_image</summary>
+
+V(x)
+V₀
+ΔE
+E
+a)
+x
+ψ(x)
+b)
+0
+a
+x
+</details>
+
+## Bild 45.4 Tunneleffekt:
+
+a) Vom Teilchen der Energie E „durchtunnelter“ rechteckiger Potenzialwall der Höhe $V _ { 0 }$ und der Breite $^ { a , }$
+b) exponentielles Abklingen der Wellenfunktion ψ(x) innerhalb des Potenzialwalls
+
+Läuft ein Teilchen der Masse m mit der Energie E an der Stelle $x = 0$ gegen den Potenzialwall an, so klingt die Wellenfunktion (45.9) innerhalb des Potenzialwalls infolge Dämpfung wie eine aperiodische Schwingung exponentiell ab gemäß
+
+$$
+\psi (x) \sim \mathrm{e} ^ {- x q \sqrt {V _ {0} - E}} \quad \text {mit} \quad q = \sqrt {8 \pi^ {2} m / h ^ {2}}. \tag {45.14}
+$$
+
+Das Verhältnis der Amplitudenquadrate der Welle vor und hinter dem Potenzialwall ist der **Durchgangskoeffizient**
+
+$$
+D = \frac {| \psi (a) | ^ {2}}{| \psi (0) | ^ {2}} = \mathrm{e} ^ {- 2 a q \sqrt {V _ {0} - E}}. \tag {45.15}
+$$
+
+Dieser gibt an, mit welcher Wahrscheinlichkeit ein auf den Wall auftreffendes Teilchen diesen durchdringt. Bei Anwendung klassischer Vorstellungen scheint es, als ob sich das Teilchen in der Höhe E einen „Tunnel“ durch den Potenzialwall bohrte. Die Durchlässigkeit solcher Potenzialschwellen wird daher als **Tunneleffekt** bezeichnet. Sie wird, wie man Gleichung (45.15) entnimmt, mit wachsender Tunnellänge a, Teilchenmasse m und Höhe des Potenzialberges über dem Tunnel $\Delta E = V _ { 0 } - E$ rasch unmessbar klein.
+
+Eine Reihe physikalischer Vorgänge konnte erst auf der Grundlage des Tunneleffekts erklärt werden, so z. B. der α-Zerfall des Uran 238 als Folge der natürlichen Radioaktivität. Bei diesem Prozess muss ein α-Teilchen (Heliumkern mit zweifach positiver Elementarladung), das durch die Kernkräfte im Innern des Atomkerns gehalten wird, die durch die COULOMB-Abstoßung der übrigen 90 positiven Elementarladungen des Urankerns hervorgerufene Potenzialschwelle von innen nach außen „durchtunneln“ (vgl. 48.1).
+
+![](images/page_560_image_4.jpg)
+
+<details>
+<summary>text_image</summary>
+
+z
+y
+x
+I
+</details>
+
+Bild 45.5 Prinzip des Raster-Tunnel-Mikroskops
+
+Eine Anwendung des Tunneleffekts als Analysenmethode an Objekten im Nanometer-Bereich ist das **Raster-Tunnel-Mikroskop** (Bild 45.5). Mit Hilfe eines piezoelektrischen Stellelements wird eine Sonde aus Platin/Iridium oder Wolfram in z-Richtung auf 1 bis 2nm (!) an die Oberfläche einer elektrisch leitenden Probe herangeführt. Bei diesem Abstand „überlappt“ sich die Elektronenwolke des Atoms an der Sondenspitze mit der des Atoms an der gegenüberliegenden Probenoberfläche. Beim Anlegen einer geringen Spannung zwischen Sonde und Probe können die Elektronen den geringen Abstand zwischen den beiden Atomen, welcher für die Elektronen eine Potenzialbarriere darstellt, durchtunneln. Es entsteht ein „Tunnelstrom“, dessen Stärke empfindlich vom Abstand zwischen Sonde und Probe und damit vom Höhenrelief der abgetasteten Oberfläche abhängt. Indem die Sonde rasterartig in x- und y-Richtung über die Probenoberfläche mit subatomarer Rasterweite geführt wird, kann eine Abbildung der Probenoberfläche erzeugt werden, welche die atomare Struktur des Probenmaterials deutlich erkennen lässt.
+
+## Beispiel 45.1:
+
+Gesucht ist die radiale Verteilung I(r ) des Tunnelstromes von der Probenoberfläche zur Sondenspitze eines Raster-Tunnel-Mikroskops, wobei das Probenmaterial eine Elektronenaustrittsarbeit von $W _ { \mathrm { a } } = V _ { 0 } - E = 4   \mathrm { e V }$ (vgl. Bild 45.4a) und die Sondenspitze die Form eines Rotationsparaboloids $z = r ^ { 2 } / ( 2 R )$ mit $R = 100    nm$ hat (vgl. Bild 45.5)! Wie groß ist das laterale Auflösungsvermögen des Raster-Tunnel-Mikroskops?
+
+Lösung: Mit $a = z$ und $\varkappa = \sqrt { 8 \pi ^ { 2 } m _ { \mathrm { e } } ( V _ { 0 }   -   E ) / h ^ { 2 } } = \sqrt { 8 \pi ^ { 2 } m _ { \mathrm { e } } W _ { \mathsf { a } } / h ^ { 2 } }$ ergibt sich für den Durchgangskoeffizienten $(45.15)\;D=\mathrm{e}^{-2\varkappa z}$ . Für die radiale Stromverteilung $I ( r ) = I _ { 0 } D$ erhält man daraus mit $z = r ^ { 2 } / ( 2 R )$ eine GAUSS-Verteilung $I ( r ) = C  { \mathrm { e } } ^ { - r ^ { 2 } / ( 2 \sigma ^ { 2 } ) }$ mit der Standardabweichung $\sigma = \sqrt { R / ( 2 \varkappa ) } ;$ ; das laterale Auflösungsvermögen beträgt $\sigma = 2 { , } 2 \mathrm { n m }$ □
+
+# Elektrische und magnetische Eigenschaften von Festkörpern
+
+Elektrische Leitfähigkeit und Magnetismus gehören neben Festigkeit und Verformbarkeit (vgl. 13.6) zu den wichtigsten Festkörpereigenschaften. Ihre Untersuchung ist Gegenstand der **Festkörperphysik**, desjenigen Zweiges der Physik, der die vielfältigen natürlichen und technologisch geschaffenen Eigenschaften fester Körper (z. B. der Metalle und Halbleiter) von Grund auf, d. h. aus der Elektronenstruktur ihrer atomaren Bausteine und der Gitterstruktur des von ihnen gebildeten Kristallgitters, zu erklären versucht.
+
+## 46.1 Elektrische Leitfähigkeit. Das Modell des Elektronengases
+
+Messungen der elektrischen Leitfähigkeit von Festkörpern ergeben bei Raumtemperatur Werte im Bereich von etwa $1 0 ^ { - 1 8 }   \mathrm { S / m }$ (Bernstein) bis $6 2 { , } 5 { \cdot } 1 0 ^ { 6 }   \mathrm { S / m }$ (Silber). Bei sehr tiefen Temperaturen zeigen die sog. Supraleiter (s. 46.8) sogar eine unendlich große elektrische Leitfähigkeit. Zur Erklärung dieses großen Wertebereichs, den keine andere Materialeigenschaft aufweist, ist eine Untersuchung der Wechselwirkung der im Festkörper angeordneten Atome erforderlich.
+
+Zu diesem Zweck vergleichen wir zunächst ein isoliertes Atom mit einem eindimensionalen Modell des Festkörpers, der linearen Atomkette. Der energetische Zustand eines isolierten Atoms lässt sich mit Hilfe eines sog. Potenzial- oder Energietrichters veranschaulichen, der den Verlauf des Potenzials bzw. der potenziellen Energie eines Elektrons im COULOMB-Feld des Atomkerns in Abhängigkeit von der Entfernung r von diesem gemäß (45.12) durch −1/r beschreibt (Bild 45.1b).
+
+Bild 46.1 zeigt den Energietrichter eines im Grundzustand befindlichen Natriumatoms. Die Energieniveaus der K- und L-Schale sind mit Elektronen voll besetzt, während das 3s-Niveau mit einem Elektron nur halb gefüllt ist und die übrigen Niveaus der M-Schale unbesetzt sind.
+
+![](images/page_561_chart_7.jpg)
+
+<details>
+<summary>funnel</summary>
+
+| State | Energy Level (r) |
+| --- | --- |
+| M-Schale | 3d |
+| M-Schale | 3p |
+| M-Schale | 3s |
+| L-Schale | 2p |
+| L-Schale | 2s |
+| K-Schale | 1s |
+| K-Schale | \(E\rho(r) = e\varphi(r) < 0\) |
+</details>
+
+Bild 46.1 Schema des „Energietrichters“eines isolierten Na-Atoms mit Elektronenbesetzungszahlen
+
+Treten viele Einzelatome zu einem Kristall zusammen, so kommt es zu einer Überlagerung der Potenzial- bzw. Energiewerte. Den resultierenden Energieverlauf für einen eindimensionalen Natrium-„Kristall“ zeigt Bild 46.2. Im Innern des Kristalls werden die Potenzial- oder Energiewälle durch Überlagerung so weit abgebaut, dass sie die Energieniveaus der M-Schale nicht mehr unterbrechen. Infolgedessen ist das 3s-Elektron nicht mehr an einen bestimmten Atomrumpf gebunden, sondern als Kristallelektron oder Leitungselektron ohne zusätzliche Ionisierungsarbeit im ganzen Kristall frei beweglich. Da im Mittel jedes (einwertige) Kristallatom ein Elektron an den Kristall abgibt, entsteht auf diese Weise ein **Elektronengas**, das die Gesamtheit der positiven Ionen des Kristallgitters einhüllt.
+
+![](images/page_562_image_3.jpg)
+
+<details>
+<summary>text_image</summary>
+
+3d} M-Schale
+3p 3s
+2p} L-Schale
+2s
+1s K-Schale
+</details>
+
+Bild 46.2 Schema des Energieverlaufs in einem eindimensionalen Na-„Kristall“ mit frei beweglichem 3s-Elektron
+
+Diese Vorstellungen sind Grundlage der klassischen Elektronentheorie der Metalle. Mit ihrer Hilfe können wir nicht nur die große elektrische Leitfähigkeit der Metalle verstehen, sondern auch den Potenzialwall an der Metalloberfläche erklären, der das Elektronengas am Austritt aus dem Metall hindert (vgl. 26.1). Andere grundlegende Erscheinungen, wie die Temperaturabhängigkeit der Leitfähigkeit und die geringe Leitfähigkeit der Halbleiter und Isolatoren, können dagegen nur auf der Grundlage einer quantenmechanischen Verfeinerung des Modells des Festkörpers gedeutet werden.
+
+## 46.2 Bändermodell des Festkörpers. Metalle, Halbleiter, Isolatoren
+
+Von den Energieniveaus weit voneinander entfernter, isolierter Atome wissen wir, dass sie eine Folge diskreter, d. h. einzelner, scharf voneinander getrennter Linien bilden (vgl. z. B. das Termschema in Bild 44.8). Diese Energieniveaus werden beim Annähern und Zusammenrücken vieler Atome zum Festkörper durch **Austauschwechselwirkung** zunehmend in so viele Unterniveaus aufgespalten, wie Atome im Kristallgitter miteinander in Wechselwirkung treten. Diese quantenmechanisch begründete Erscheinung lässt sich auf folgende Weise klassisch veranschaulichen: Werden zwei Pendel ursprünglich gleicher Eigenfrequenz z. B. mittels einer Feder gekoppelt, so weist das nun entstandene schwingungsfähige System zwei Eigenfrequenzen auf, eine aus gleichsinniger Schwingung der Pendel resultierend, die andere aus gegensinniger Schwingung (vgl. 35.2). Dabei ist die Aufspaltung umso größer, je stärker gekoppelt wird. Bei Kopplung von N gleichen Pendeln wird analog die eine Eigenfrequenz der ungekoppelten Pendel in N Eigenfrequenzen aufgespalten.
+
+Bild 46.3a zeigt schematisch die Aufspaltung der diskreten Energieniveaus von Atomen für den Fall, dass 6 Atome einander angenähert werden. Der Atomabstand im Festkörper, der sich aus dem Gleichgewicht von Anziehungs- und Abstoßungskräften ergibt, heißt Gitterkonstante (vgl. 12.2). Die zugehörigen Energiewerte E gelten an jedem Orte x des betreffenden Festkörpers.
+
+Dabei ist zu beachten, dass die Zahl der Atome in realen Festkörpern sehr groß ist $( N \approx 1 0 ^ { 2 2 }$ je $\mathbf { c m } ^ { 3 } )$ , so dass die diskreten Energieniveaus der isolierten Atome – ganz gleich, ob diese von Elektronen besetzt sind oder nicht – in eine entsprechend große Zahl eng beieinander liegender Einzelterme aufspalten und so quasikontinuierliche Energiebänder bilden. Deshalb wird die Darstellung E(x) in Bild 46.3b **Bändermodell** des Festkörpers genannt.
+
+## Jedes Energieniveau eines aus N Atomen bestehenden Kristalls spaltet in N eng benachbarte Niveaus auf und verbreitert sich dadurch zu einem quasikontinuierlichen Energieband.
+
+Wie breit ein solches Band ist, hängt von der Lage des Niveaus in der Atomhülle ab. Die in Kernnähe sehr stark gebundenen Elektronen ergeben relativ schmale Bänder, die am weitesten außen liegenden Valenzelektronen bilden das breiteste Band, da sie am stärksten miteinander in Wechselwirkung treten.
+
+![](images/page_563_image_5.jpg)
+
+Bild 46.3 Zum Energiebändermodell: a) Aufspaltung der diskreten Energieniveaus isolierter Atome zu quasikontinuierlichen Energiebändern im Festkörper; b) Energie-Bändermodell
+
+Die Entstehung der Energiebänder folgt mit zwingender Notwendigkeit auch aus dem PAU-LI-Prinzip (vgl. 44.10), welches nicht nur für das einzelne Atom, sondern auch für den ganzen Kristall gilt. Es verlangt strikt, dass die Energiezustände aller Atome des Kristallgitters sich in ihren Quantenzahlen unterscheiden. Die Energieniveaus 1s, 2s, 2p usw. müssen daher von Atom zu Atom etwas voneinander abweichen, da sie (mit Ausnahme der beiden Spinrichtungen) nicht doppelt oder gar mehrfach besetzt werden dürfen. Befinden sich also im Kristall N Atome, so gibt es in jedem Energieband N Einzelterme, von denen jeder maximal von zwei Elektronen mit entgegengesetztem Spin besetzt werden kann.
+
+Hieraus resultieren ganz ungewöhnliche Eigenschaften für das Elektronengas: Während bei ei nem normalen, einem sog. klassischen Gas, die Energie aller Teilchen am absoluten Nullpunkt gleich null ist, können im Elektronengas den Energiewert null höchstens zwei Elektronen annehmen. Allen übrigen Elektronen werden innerhalb des gegebenen Energiebandes durch das PAULI-Prinzip Plätze höherer Energie zugewiesen. Die kinetische Energie, welche die freien Elektronen am absoluten Nullpunkt maximal annehmen können, ist beträchtlich; sie liegt bei den meisten Metallen zwischen 0,5 und 1,1aJ (3 und 7eV). Man bezeichnet sie als **Nullpunkts**oder **Fermi-Energie** $E _ { \mathrm { F } }$ (s. Bild 26.1).
+
+## Das höchste, bei der Temperatur 0 K mit Elektronen besetzte Energieniveau eines Kristalls heißt Nullpunktsenergie oder FERMI-Niveau.
+
+Dem angegebenen (oberen) Wert für $E _ { \mathrm { F } }$ entsprechen Elektronengeschwindigkeiten in der Grö- ßenordnung von $1 0 ^ { 6 }   \mathrm { m } / \mathrm { s }$ . Ein gewöhnliches Gas müsste danach bei gleich großer Teilchendichte eine Temperatur von 80 000K haben. Dieses vom klassischen Gas stark abweichende Verhalten des Elektronengases heißt Entartung.
+
+Die Besonderheiten des Elektronengases liegen darin begründet, dass die Elektronen einer anderen Statistik gehorchen als die Teilchen eines klassischen Gases. Die Statistik regelt die Besetzung der verschiedenen Energiezustände durch die Teilchen des Gases in Abhängigkeit von der Temperatur. Während im klassischen Fall die Besetzungswahrscheinlichkeit eines bestimmten Energiezustandes E bei der Temperatur $T$ durch eine Funktion der Gestalt
+
+$$
+f = \mathrm{e} ^ {- E / (k T)} \quad \begin{array}{l} (\text {Verteilungsfunktion der} \\ \text {MAXWELL - BOLTZMANN - Statistik}) \end{array} \tag {46.1}
+$$
+
+(k BOLTZMANN-Konstante) beschrieben wird (vgl. 18.3), d. h. durch eine Exponentialfunktion, die vom Anfangswert +1 an (für $E = 0 )$ abfällt (Bild 46.4a), lautet die Verteilungsfunktion der Quantenstatistik für Teilchen mit halbzahligem Spin, also z. B. für Elektronen,
+
+$$
+f = \frac {1}{\mathrm{e} ^ {(E - E _ {\mathrm{F}}) / (k T)} + 1} \quad \begin{array}{l} (\text {Verteilungsfunktion der} \\ \text {FERMI - DIRAC - Statistik}). \end{array} \tag {46.2}
+$$
+
+In Bild 46.4b ist die Verteilung (46.2) grafisch dargestellt. Danach sind bei $T = 0   \mathrm { K }$ alle untersten Quantenzustände bis zur Grenzenergie $E _ { \mathrm { F } }$ besetzt, entsprechend der Besetzungswahrscheinlichkeit $f = 1$ für $E < E _ { \mathrm { F } }$ , und alle Zustände $E > E _ { \mathrm { F } }$ leer $( f = 0 )$ . Bei höheren Temperaturen lockert die Verteilung zunehmend auf, d. $\mathbf { h } ,$ anstelle der scharfen „FERMI-Kante“ gibt es in der Umgebung der Energie $E _ { \mathrm { F } }$ einen allmählichen Übergang zwischen besetzten und unbesetzten Energieniveaus. Für Temperaturen, die über der sog. **Entartungstemperatur** $T _ { \mathrm { e } }$ liegen, welche durch $E _ { \mathrm { F } } = k T _ { \mathrm { e } }$ definiert ist und bei den Metallen weit mehr als 10 000K beträgt, geht die quantenmechanische Verteilung (46.2) in die klassische Verteilung (46.1) über, wenn in (46.2) $E _ { \mathrm { F } }$ gegenüber E und die 1 gegenüber der e-Funktion vernachlässigt werden können.
+
+![](images/page_564_image_9.jpg)
+
+Bild 46.4 a) Maxwell-Boltzmann-Verteilung, b) Fermi-Dirac-Verteilung bei $T = 0 \mathrm { K }$ (dick ausgezogen) und $T > 0 \mathrm { K } ,$ z. B. Raumtemperatur (gestrichelt gezeichnet)
+
+Eine Einteilung der Festkörper nach ihrer Fähigkeit, den elektrischen Strom zu leiten, ergibt sich nun aus den Besetzungsverhältnissen der Energiebänder. Ein vollständig besetztes Band kann zur Stromleitung nicht beitragen, da jedes Beschleunigen eines Elektrons im elektrischen Feld dieses auf ein höheres, aber schon besetztes Energieniveau heben müsste. Dies verbietet jedoch das PAULI-Prinzip. Deshalb braucht man bei der Untersuchung von Leitungsvorgängen vollständig besetzte Bänder nicht zu berücksichtigen. Das höchste Energieband, das (zumindest bei tiefen Temperaturen) vollständig gefüllt ist, wird **Valenzband** genannt. Das darauf folgende, nur teilweise gefüllte oder leere Band heißt **Leitungsband**. Die Energiewerte zwischen diesen „erlaubten“ Bändern sind für Elektronen „verboten“ und bilden eine „verbotene Zone“, die als **Energielücke** („gap“) bezeichnet wird (Bild 46.5).
+
+![](images/page_565_chart_3.jpg)
+
+<details>
+<summary>bar</summary>
+
+| Material | Energy Level |
+| --- | --- |
+| a) Metall | Leitungsband |
+| b) Metall | Energielücke |
+| c) Halbleiter | Leitungsband |
+| d) Isolator | Leitungsband |
+</details>
+
+Bild 46.5 Bändermodell für Metalle, Halbleiter und Isolatoren
+
+Ist das höchste besetzte Band nur teilweise mit Elektronen gefüllt oder wird das höchste vollständig besetzte Band von einem darüber liegenden leeren Band überlappt (Bild 46.5a und b), dann können die Elektronen beschleunigt werden und im Band höhere Plätze einnehmen; es tritt **metallische Leitfähigkeit** auf. Das heißt:
+
+## Bei den Metallen liegt das FERMI-Niveau innerhalb eines Energiebandes.
+
+Folgt auf das letzte vollständig gefüllte Band ein leeres (Bild 46.5c und d), dann ist eine elektronische Leitfähigkeit nur möglich, wenn den Elektronen z. B. durch Wärme oder Licht solche Energiebeträge zugeführt werden, dass sie die verbotene Zone zwischen Valenzband und Leitungsband überwinden können. Solche Stoffe mit genügend schmaler Energielücke (z. B. $0 , 1 2   \mathrm { a J } \approx 0 , 7   \mathrm { e V }$ bei Germanium und $0 ,   1 8   \mathrm { a J } \approx 1 ,   \mathrm { i }$ 1eV bei Silicium) werden **Halbleiter** genannt.
+
+Ist dagegen die Energielücke größer als die thermische Anregungsenergie kT bzw. die Energie der optischen Anregung hf , so bleibt das Leitungsband leer, und man spricht von einem **Isolator**.
+
+## Beispiele 46.1:
+
+1. Wie groß ist bei 300K die Besetzungswahrscheinlichkeit f für verschiedene Energieniveaus, die a) 0,01aJ $( \approx 0 , 0 6   \mathrm { e V } )$ unter dem FERMI-Niveau $E _ { \mathrm { F } }$ liegen, b) sich in der Höhe von $E _ { \mathrm { F } }$ befinden und c) 0,01aJ oberhalb von E<sub>F</sub> angeordnet sind?
+
+Lösung: Durch Einsetzen von $E - E_{\mathrm{F}} = -0,01; 0; 0,01\mathrm{a}$ J in (46.2) erhält man a) $f = 0 , 9 1 8 ;$ b) $0 , 5 ; \mathrm { c )   0 , } 0 8 2$ , entsprechend einer Besetzung von 91,8%, 50% bzw. 8,2%. Das heißt, schon dicht unterhalb des FERMI-Niveaus sind bei Raumtemperatur nahezu alle Niveaus mit Elektronen besetzt, während nur wenig darüber die meisten Niveaus unbesetzt sind.
+
+2. Wie ändert sich die Besetzungswahrscheinlichkeit von Niveaus an der unteren Kante des Leitungsbandes in Germanium und Silicium bei Temperaturerhöhung von 300 auf 500K, wenn das FERMI-Niveau in der Mitte der Energielücke (Werte s. o.) liegt?
+
+Lösung: Ist $E _ { \mathrm { C } }$ die Energie der unteren Leitungsbandkante, so folgt mit $E _ { \mathrm { C } } - E _ { \mathrm { F } } = 0 , 0 6   \mathrm { a J }$ (Ge) bzw. $E _ { \mathrm { C } }   -   E _ { \mathrm { F } }   = 0 , 0 9   \mathrm { a J }$ (Si) aus (46.2), dass sich f in Germanium von $^ { 5 , 1 \cdot 1 0 ^ { - 7 } }$ auf $^ { 1 , 7 \cdot 1 0 ^ { - 4 } }$ und in
+
+Silicium von $^ { 3 , 6 \cdot 1 0 ^ { - 1 0 } }$ auf $^ { 2 , 2 \cdot 1 0 ^ { - 6 } }$ erhöht. Die relative Zunahme der Elektronen im Leitungsband ist also beträchtlich, was den Halbleitereffekt dieser Stoffe (Anwachsen der elektrischen Leitfähigkeit bei Temperaturerhöhung) verständlich macht. □
+
+## 46.3 Elektrische Ströme in Halbleitern. Eigenleitung, Störstellenleitung
+
+Ist ein Halbleiter chemisch absolut rein, so verhält er sich bei tiefsten Temperaturen wie ein Isolator. Stromleitung ist bei solchen Stoffen nur möglich, wenn Elektronen (Symbol ⊖) durch Zufuhr von Wärme- (oder auch Licht-)Energie aus dem vollbesetzten Valenzband befreit und in das darüber liegende leere Leitungsband „angehoben“ werden (Prozess 1 in Bild 46.6). Ein Elektron im Leitungsband kann unter dem Einfluss des äußeren elektrischen Feldes am Stromfluss teilnehmen (Prozess 2). In die durch den Prozess 1 im Valenzband entstandene Lücke können nun benachbarte Elektronen nachrücken (Prozess 3), so dass sich die Lücke wie ein positiver Ladungsträger verhält und daher in der entgegengesetzten Richtung wie das Elektron wandert. Damit trägt die als **Defektelektron** oder **Loch** bezeichnete Lücke (Symbol ⊕) im Valenzband zum elektrischen Strom ebenso bei wie das Elektron im Leitungsband. Dieser Leitungsmechanismus, bei dem die Ladungsträger von Energieband zu Energieband angeregt werden, heißt **Eigenleitung**.
+
+**Ursache der Eigenleitung ist die Entstehung von freien Elektronen und Löchern durch Band-Band-Anregung im ungestörten Kristallgitter infolge Aufnahme von Wärmeenergie.**
+
+Dies erklärt, weshalb der spezifische Widerstand der Eigenleiter im Gegensatz zu den Metallen mit steigender Temperatur abnimmt. Solche Halbleiter werden daher z. B. als Widerstandsthermometer benutzt. Da auch die Bestrahlung mit Licht den Widerstand von Halbleitern herabsetzt, ist es möglich, elektrische Ströme mit Hilfe von Licht zu steuern (Widerstandsphotozellen, Selenzellen).
+
+Der chemisch reine Halbleiter ist das Grundmaterial der Halbleitertechnik. Es erhält die für die technischen Anwendungen so wertvollen Eigenschaften erst durch den kontrollierten Einbau von Fremdatomen, so genannter **Störstellen**, in das Kristallgitter (Dotierung). Dadurch kommt es zur Bildung von zusätzlichen (Stör-)Energieniveaus in der Energielücke des Halbleiters, aus denen ebenfalls Ladungsträger freigesetzt werden können, die zu einem erheblichen Anwachsen der Leitfähigkeit führen. Man spricht in diesem Falle von **Störstellenleitung**.
+
+Besondere Bedeutung haben die Substitutionsstörstellen; sie sind durch Ersetzen (Substitution) regulärer Gitterbausteine durch Fremdatome auch gezielt erzeugbar. Bringt man z. B. in das Gitter des vierwertigen Siliciums anstelle eines Si-Atoms ein fünfwertiges Atom (z. B. ein Phosphor-Atom), so sind vier der zugehörigen Elektronen in den Paarbindungen mit den Si-Nachbarn fest gebunden, während das fünfte Elektron nur relativ lose gebunden ist und vom Atom bereits bei geringer Energiezufuhr (Ionisation) abgegeben wird (Prozess 4 in Bild 46.6a). Man bezeichnet ein solches Atom daher als **Donator** (lat. „donare“ schenken, geben). Tritt dagegen an die Stelle eines Si-Atoms ein dreiwertiges Atom (z. B. ein Aluminium-Atom), so stehen für die vier Elektronenpaarbindungen mit den vier Nachbaratomen nur drei Elektronen zur Verfügung, und ein viertes Elektron wird relativ leicht eingebaut (Prozess 5 in Bild 46.6a). Das betreffende Atom heißt dann **Akzeptor** (lat. „acceptor“ Empfänger).
+
+![](images/page_567_image_3.jpg)
+
+Bild 46.6 Leitungsvorgänge im Halbleiter: a) atomistisches Modell für Silicium; b) Bändermodell mit Elektronendarstellung; c) Bändermodell mit Elektron-Loch-Darstellung (1 Elektronenbefreiung, 2 Elektronenwanderung, 3 Löcherwanderung, 4 Elektronenabgabe durch Donator, 5 Elektronenaufnahme durch Akzeptor)
+
+Da die diskreten Donator-Niveaus $E _ { \mathrm { D ^ { + } } }$ dicht unterhalb der Leitungsbandkante und die diskreten Akzeptor-Niveaus $E _ { \mathrm { A ^ { - } } }$ nur wenig oberhalb der Valenzbandkante liegen (s. Bild $^ { 4 6 . 6 \mathrm { b , c ) } }$ und zwar größenordnungsmäßig um 0,01eV, reicht die mittlere thermische Energie eines Elektrons bei Raumtemperatur von (3/2) $k T = 0$ ,039eV völlig aus, um praktisch alle Donatoren und Akzeptoren zu ionisieren, d. h. Elektronen ins Leitungsband zu heben oder Löcher im Valenzband freizusetzen (Prozesse 4 und 5 in Bild $^ { 4 6 . 6 \mathrm { b , c ) } }$
+
+**Ursache der Störstellenleitung ist das Vorhandensein von Fremdatomen im Kristallgitter des reinen Halbleiters (Donatoren und Akzeptoren) mit diskreten Energieniveaus dicht unterhalb der Leitungsbandkante (Donator-Niveaus) und wenig oberhalb der Valenzbandkante (Akzeptor-Niveaus).**
+
+Falls Ladungsträger überwiegend durch Donator-Anregung befreit werden, spricht man von einem Überschussleiter oder **n-Leiter**. In diesem Fall sind die Elektronen die sog. Majoritätsträger. Die Minoritätsträger, das sind hier die Löcher, spielen wegen ihrer wesentlich geringeren Konzentration nur eine untergeordnete Rolle.
+
+**Im n-Leiter überwiegt der Einfluss der Donatoren; der Stromfluss wird daher hauptsächlich von Elektronen getragen.**
+
+Wenn anderenfalls in einem Halbleiter die Akzeptoren dominieren, so werden durch diese mehr Elektronen aus dem energetisch niedriger liegenden Valenzband aufgenommen, als durch vorhandene Donatoren an das Leitungsband abgegeben werden. Ursache der elektrischen Leitfähigkeit sind dann vor allem die positiven Löcher als Majoritätsträger, und der Halbleiter wird als Mangelleiter oder **p-Leiter** bezeichnet.
+
+## Im p-Leiter überwiegt der Einfluss der Akzeptoren; der Stromfluss wird daher hauptsächlich von Löchern getragen.
+
+Die Konzentrationen der Ladungsträger in Halbleitern werden bei Eigenleitung ebenso wie bei Störstellenleitung durch zwei gegenläufige Prozesse bestimmt. Durch thermische Anregung oder **Generation** werden ständig neue Ladungsträger befreit. Die Anregungsgeschwindigkeit oder Generationsrate g , d. i. die Anzahl der $\mathbf { j e }$ Volumen- und Zeiteinheit befreiten Ladungsträ- ger, hängt von der thermischen Energie und damit von der Temperatur ab, so dass $g = g ( T )$ gilt. Der Gegenprozess, bei dem Elektronen aus dem Leitungsband in das Valenzband zurückfallen und sich dort mit Löchern wieder vereinigen, heißt **Rekombination**. Die Rekombinationsrate $r ,$ d. i. die Anzahl der je Volumen- und Zeiteinheit „vernichteten“ Ladungsträger, ist umso größer, je häufiger ein Elektron ein Loch trifft, d. h., je größer die Konzentration $p$ der Löcher ist. Ebenso ist die Wahrscheinlichkeit dafür, dass ein Loch auf ein Elektron trifft, der Elektronenkonzentration n proportional. Daraus folgt für die Rekombinationsrate $r = r _ { 0 } n p$ wobei die Proportionalitätskonstante $r _ { 0 }$ eine konzentrationsunabhängige Materialkonstante ist. Im Gleichgewicht muss dann die Generationsrate $g$ gleich der Rekombinationsrate r sein, also $g ( T ) = r _ { 0 } n p$ . Nach Zusammenfassen von $g$ und $r _ { 0 }$ zu einer temperaturabhängigen Materialkonstante $n _ { \mathrm { i } } ( T ) = \sqrt { g ( T ) / r _ { 0 } }$ , die die Dimension einer Konzentration hat, ergibt sich das **Massenwirkungsgesetz** der Ladungsträger in Halbleitern:
+
+$$
+n p = n _ {\mathrm{i}} ^ {2} (T) = \text {const} \quad \text {fur} \quad T = \text {const}. \tag {46.3}
+$$
+
+## Das Produkt der Konzentrationen der Elektronen und Löcher in einem Halbleiter ist bei gleich bleibender Temperatur konstant.
+
+So hat z. B. eine Erhöhung der Elektronenkonzentration durch Dotieren mit Donatoren über eine verstärkte Rekombination automatisch eine entsprechend geringere Löcherkonzentration zur Folge.
+
+Die Konstante $n _ { \mathrm { i } } ( T )$ wird Inversionsdichte genannt, da beim Übergang vom Zustand $n > n _ { \mathrm { i } } > p$ zu $n < n _ { \mathrm { i } } < p$ an der Stelle $n = n _ { \mathrm { i } } = p$ eine Umkehr (Inversion) des Leitungstyps von der n-Leitung zur p-Leitung auftritt. Auch die Bezeichnung Intrinsicdichte, Intrinsic-Konzentration oder Eigenleitungskonzentration ist gebräuchlich, da durch
+
+$$
+n = p = n _ {\mathrm{i}} (T) \tag {46.4}
+$$
+
+die Eigenleitung charakterisiert werden kann $( s , \mathbf { o } . )$ . Bei einer Temperatur von 300K hat die Intrinsicdichte in Germanium den Wert $n _ { \mathrm { i } } = 2 , 4 \cdot 1 0 ^ { 1 9 }   \mathrm { m } ^ { - 3 }$ und in Silicium $\bar { n _ { \mathrm { i } } } = 1 , 4 \cdot 1 0 ^ { 1 6 }   \mathrm { m } ^ { - 3 }$
+
+**Die Intrinsicdichte** $\pmb { n _ { i } }$ **charakterisiert die Umkehr (Inversion) des Leitungstyps von der n-Leitung** $( n > n _ { \mathrm { i } } > p )$ **zur p-Leitung** $( n < n _ { \mathrm { i } } < p )$ **an d**er Stelle $\pmb { n } = \pmb { n } _ { \mathrm { i } } = \pmb { p }$ (Zustand **der Eigenleitung).**
+
+Gleichung (46.3) könnte zu dem Trugschluss verleiten, dass z. B. ein n-Leiter negativ geladen sei, weil die Elektronenkonzentration n die Löcherkonzentration p übersteigt. Tatsächlich aber bewirken im homogenen Halbleiter die positiv geladenen Donatoren der Konzentration $n _ { \mathrm { D } } ^ { + }$ bzw. die negativ geladenen Akzeptoren der Konzentration $n _ { \mathrm { A } } ^ { - }$ eine elektrische Neutralität. Es gilt die **Neutralitätsbedingung**
+
+$$
+n + n _ {\mathrm{A} ^ {-}} = p + n _ {\mathrm{D} ^ {+}}. \tag {46.5}
+$$
+
+Im n-Leiter mit $n \gg p$ und $n _ { \mathrm { D ^ { + } } } \gg n _ { \mathrm { A ^ { - } } }$ vereinfacht sich (46.5) zu $n \approx n _ { \mathrm { D ^ { + } } }$ , und im p-Leiter gilt analog $p \approx n _ { \mathrm { A ^ { - } } }$
+
+## Beispiel 46.2:
+
+Silicium sei mit Aluminium-Atomen einer Konzentration $3   \cdot   1 0 ^ { 1 7 }   \mathrm { m } ^ { - 3 }$ dotiert. Wie groß sind die Ladungsträgerkonzentrationen n und $p ,$ wenn alle Störstellen aktiviert sind, d. h. bei Störstellenerschöpfung ? $( n _ { \mathrm { i } } = 1 , 4 \cdot 1 0 ^ { 1 6 }   \mathrm { m } ^ { - 3 } )$ )
+
+Lösung: Aluminium-Atome haben drei Außenelektronen (Gruppe IIIb des Periodensystems) und wirken deshalb im vierwertigen Silicium als Akzeptoren. Durch Einsetzen der Neutralitätsbedingung (46.5) $p   =   n + n _ { \mathrm { A } }$ in das Massenwirkungsgesetz (46.3) $n p = n _ { \mathrm { i } } ^ { 2 }$ erhält man $n ^ { 2 } + n n _ { \mathrm { A ^ { - } } } = n _ { \mathrm { i } } ^ { 2 }$ und mit $n _ { \mathrm { A ^ { - } } } = 3 \cdot 1 0 ^ { 1 7 }   \mathrm { m } ^ { - 3 }$ als Lösung $n = - ( n _ { \mathrm { A ^ { - } } } / 2 ) + \sqrt { ( n _ { \mathrm { A ^ { - } } } / 2 ) ^ { 2 } + n _ { \mathrm { i } } ^ { 2 } } = 6 { , } 5$ $1 0 ^ { 1 4 }   \mathrm { m } ^ { - 3 }$ (negatives Vorzeichen der Wurzel wäre physikalisch sinnlos). Einsetzen des Ergebnisses in (46.5) ergibt $p = 3 { , } 0 \cdot 1 0 ^ { 1 7 }   \mathrm { m } ^ { - 3 }$ . Es handelt sich um p-Silicium mit $n _ { \mathrm { A } ^ { - } } \approx p \gg n$ □
+
+## Aufgabe
+
+**46.1** Durch Dotierung von Silicium $( n _ { \mathrm { i } } = 1 , 4 \cdot 1 0 ^ { 1 6 }   \mathrm { m } ^ { - 3 } )$ mit Donatoratomen werde eine Elektronenkonzentration von $n = 1 0 ^ { 2 1 }   \mathrm { m } ^ { - 3 }$ erzeugt. Wie groß ist dann die Gesamtzahl der Ladungsträger, und auf welchen Bruchteil wird die Anzahl der Löcher reduziert?
+
+## 46.4 Der pn-Übergang
+
+Von besonderer praktischer Bedeutung sind die Erscheinungen am Übergang zwischen einem p-leitenden und einem n-leitenden Gebiet eines Halbleiterkristalls, dem sog. **pn-Übergang**. Vereinfachend betrachten wir einen symmetrischen Übergang, dessen p-leitendes Gebiet gleich stark mit Akzeptoren dotiert ist wie dessen n-leitendes Gebiet mit Donatoren. Bild 46.7 zeigt im linken Teil schematisch einen solchen pn-Übergang in drei unterschiedlichen Zuständen, rechts daneben das jeweils zugehörige Bändermodell.
+
+**Der stromlose pn-Übergang.** Wir betrachten zunächst den pn-Übergang ohne äußere Spannungsquelle (Bild 46.7a). Die hohe Konzentration von Löchern im p-Gebiet fällt am Übergang vom p- zum n-leitenden Gebiet stark ab; das dadurch bedingte Konzentrationsgefälle verursacht eine ständige Diffusion von Löchern von links nach rechts in das n-Gebiet hinein. Das entgegengesetzte Konzentrationsgefälle der Elektronen bewirkt eine Diffusion von Elektronen von rechts nach links in das p-Gebiet. Unter Berücksichtigung der Vorzeichen der Ladungsträ- ger ergibt sich so insgesamt ein nach rechts, d. h. vom p- in das n-Gebiet gerichteter elektrischer **Diffusionsstrom** (technische Stromrichtung, gleichbedeutend mit der Bewegungsrichtung der positiven Ladungsträger).
+
+Da die in das n-Gebiet eindringenden Löcher dort ebenso mit Elektronen rekombinieren wie die in das p-Gebiet eintretenden Elektronen mit den dort vorhandenen Löchern, verarmt die
+
+Umgebung des pn-Übergangs insgesamt an beweglichen Ladungsträgern, wodurch der elektrische Widerstand dieses Gebietes stark anwächst. Es entsteht eine elektrische Doppelschicht oder **Sperrschicht**. In ihr herrscht ein Überschuss an (negativen) Akzeptoren am Rande des p-Gebiets und an (positiven) Donatoren am Rande des n-Gebiets, zwischen denen sich eine elektrische Spannung, die sog. Diffusionsspannung $U _ { \mathrm { D } }$ , ausbildet, analog zur Entstehung einer Thermospannung an der Kontaktstelle zweier Metalle (vgl. 26.2). Der Diffusionsspannung entspricht ein elektrisches Feld, dessen Feldvektor E von der n- zur p-Seite zeigt. Es verursacht (unter Beachtung der Vorzeichen der Ladungsträger) einen in Feldrichtung, d. h. entgegengesetzt zum Diffusionsstrom, gerichteten **Feldstrom** (oder Driftstrom, vgl. 21.3).
+
+## Wenn am pn-Übergang keine äußere Spannung anliegt, heben sich Diffusionsstrom und Feldstrom gegenseitig auf.
+
+![](images/page_570_image_4.jpg)
+
+Bild 46.7 Schema eines pn-Übergangs (links) mit zugehörigem Bändermodell (rechts): a) stromloser Fall; b) in Sperrrichtung gepolt; c) in Durchlassrichtung gepolt
+
+Dieses dynamische Gleichgewicht der Ströme nennt man den stromlosen Fall des pn-Übergangs. Da sich Elektronen und Löcher im Gleichgewicht befinden, muss das Niveau mit der Besetzungswahrscheinlichkeit 0,5 (das FERMI-Niveau $E _ { \mathrm { F } }$ in Bild 46.4) im p- wie im n-Gebiet die gleiche energetische Lage haben und daher in Bild 46.7a als waagrechte Gerade verlaufen. Die Besetzungswahrscheinlichkeit für die untere Kante des Leitungsbandes $E _ { \mathrm { C } }$ ist im p-Gebiet geringer als im n-Gebiet, weil im p-Gebiet die Akzeptoren statt der Elektronen Träger der negativen Ladung sind. Das drückt sich im Bändermodell dadurch aus, dass $E _ { \mathrm { C } }$ im p-Gebiet weiter von $E _ { \mathrm { F } }$ entfernt ist als im n-Gebiet und eine energetische Stufe von $e U _ { \mathrm { D } }$ auftritt. Eine analoge Überlegung gilt für die obere Kante des Valenzbandes $E _ { \mathrm { V } }$
+
+**Der pn-Übergang bei Stromfluss.** Wir verbinden nun den Kristall mit einer Spannungsquelle der Spannung U in der Art, dass der Pluspol an das n-Gebiet und der Minuspol an das p-Gebiet angeschlossen wird (Bild 46.7b). Die Elektronen werden dadurch aus dem Bereich des pn-Übergangs nach rechts (zum Pluspol hin) und die Löcher nach links (zum Minuspol) herausgezogen, wodurch sich die an beweglichen Ladungsträgern verarmte Sperrschicht verbreitert und ihr elektrischer Widerstand stark zunimmt. Wie das zugehörige Bändermodell zeigt, müsste den Elektronen und Löchern gegenüber dem stromlosen Fall eine um eU grö- ßere Energie zugeführt werden, damit sie die Sperrschicht überwinden können.
+
+Im Fall entgegengesetzter Polung der Spannungsquelle werden Löcher aus dem p-Gebiet und Elektronen aus dem n-Gebiet in die Grenzschicht getrieben. Dadurch verschwindet die Sperrschicht (Bild 46.7c), und der elektrische Widerstand sinkt.
+
+```txt
+Beim Anlegen des Pluspols einer Spannungsquelle an das p-Gebiet und des n-Gebiet Minuspols an das n-Gebiet eines pn-Übergangs wird dieser in Durchlassrichtung Sperrrichtung gepolt und erhält so einen kleinen großen elektrischen Widerstand.
+```
+
+## 46.5 Halbleiterdiode, Transistor
+
+Da der elektrische Widerstand eines pn-Übergangs von der Polung der angelegten Spannung abhängt (s. o.), wirkt er als Richtleiter. Wird ein pn-Übergang in einen Wechselstromkreis eingeschaltet, so ist er während der einen Halbwelle in Durchlassrichtung, während der anderen in Sperrrichtung gepolt, und es fließt in der einen Richtung ein großer Strom, in der anderen Richtung dagegen nur der sehr kleine Sperrstrom. Der pn-Übergang wird deshalb in **Dioden** und in **Leistungsgleichrichtern** technisch genutzt.
+
+In einigen Halbleitermaterialien wird die bei der Rekombination von Elektronen und Löchern im pn-Übergang frei werdende Energie in Form von Licht abgestrahlt. Die Wellenlänge des von einer solchen **Laserdiode** emittierten Lichts hängt von der Energielücke des Materials ab und beträgt z. B. für Galliumarsenid 0,85 µm und für Indiumantimonid 5,2 µm.
+
+Halbleiterbauelemente, die aus einer Kombination von zwei hochdotierten n-Gebieten mit einem dazwischen liegenden niedrigdotierten p-Gebiet (oder umgekehrt aus zwei p-Gebieten und einem n-Gebiet) bestehen, von denen jedes mit einem eigenen Kontakt versehen ist, heißen **Transistoren**. Äußere Form, Anordnung und Schaltung der drei Gebiete können je nach Transistortyp verschieden sein. Man unterscheidet zwischen bipolaren und unipolaren Transistoren, je nachdem, ob beide Ladungsträgerarten (Elektronen und Löcher) den Stromfluss tragen oder nur eine Sorte von Ladungsträgern daran beteiligt ist. Ein **Bipolar-Transistor** kann als Serienschaltung zweier gegeneinander geschalteter pn-Übergänge aufgefasst werden. Bild
+
+46.8 zeigt den prinzipiellen Aufbau eines npn-Flächentransistors (SHOCKLEY, BARDEEN, BRAT-TAIN, 1947). Die drei nur einige Mikrometer dicken elektronen-(n)- bzw. löcher-(p)-leitenden Schichten bzw. ihre zugehörigen Elektroden heißen Emitter, Basis und Kollektor.
+
+Bei der in Bild 46.8 gezeigten Basisschaltung des Transistors als Verstärker liegt die Basis an Erdpotenzial (Massepotenzial), und der np-Übergang zwischen Emitter und Basis, der Emitterübergang, ist in Durchlassrichtung gepolt, der pn-Übergang zwischen Basis und Kollektor, der Kollektorübergang, dagegen in Sperrrichtung. Trotzdem kann ein erheblicher Strom zwischen Emitter und Kollektor fließen; denn die vom Emitter in die Basis „injizierten“ Elektronen diffundieren dort als überschüssige Minoritätsträger in Richtung zum Kollektorübergang, da sie wegen der positiven Vorspannung des Kollektors von diesem angezogen werden. Allerdings nimmt ihre Konzentration in der Basis wegen der Rekombination mit Löchern mit wachsendem Abstand vom Übergang ab, jedoch erreichen bei genügend dünner Basiszone die meisten von ihnen den Kollektorübergang. Als Minoritätsträger treten sie leicht durch den in Sperrrichtung gepolten Übergang und werden vom Kollektor „eingesammelt“. Auf diese Weise entsteht im Kollektorkreis ein Strom $I _ { \mathrm { K } }$ von fast gleicher Größe wie im Emitterkreis $I _ { \mathrm { E } }$ . Da der elektrische Widerstand des Kollektorübergangs wegen der unterschiedlichen Polung sehr viel größer ist als der des Emitterübergangs, gilt für die zugehörigen Spannungen $U _ { \mathrm { K } } \gg U _ { \mathrm { E } }$ . Mit einer relativ kleinen Eingangsleistung $U _ { \mathrm { E } } I _ { \mathrm { E } }$ kann daher eine ihr annähernd proportionale, relativ große Ausgangsleistung $U _ { \mathrm { K } } I _ { \mathrm { K } }$ erzielt werden, und ein am Emitter angelegtes Eingangssignal $U _ { \mathrm { e } }$ wird entsprechend hoch verstärkt. Bei der hier besprochenen Basisschaltung des Transistors wirkt also der Emitter gleichzeitig als Quelle für die Ladungsträger und als Steuerorgan.
+
+Da der Emitterstrom bei guten Transistoren nicht wesentlich vom Kollektorstrom verschieden ist, bestimmen sich Spannungs- und Leistungsverstärkung aus dem Verhältnis der Spannungsänderung am Arbeitswiderstand R des Kollektorstromkreises zur Spannungsänderung am Eingang (vgl. hierzu auch Abschnitt 31.6).
+
+![](images/page_572_image_5.jpg)
+
+Bild 46.8 a) Schematische Darstellung eines npn-Bipolar-Transistors mit n-leitendem Emitter, p-leitender Basis und n-leitendem Kollektor; b) Querschnitt durch einen durch Aufdampfen und fraktioniertes Ätzen hergestellten npn-Planar-Transistors (E Emitter, B Basis, K Kollektor)
+
+In Emitterschaltung, bei der ebenfalls Emitter und Basis den Eingangskreis bilden, jedoch Emitter und Kollektor über Spannungsquelle und Arbeitswiderstand zum zweiten Stromkreis zusammengeschaltet sind (Bild 31.12a), ähnelt ein solcher npn-Transistor in gewisser Hinsicht der Wirkungsweise einer **Dreielektroden-Elektronenröhre** (Triode, vgl. 31.6): Der Emitter liefert die Ladungsträger an die Basiszone und übernimmt die Funktion der Katode der Elektronenröhre; die an den Basiskontakt angelegte Signalspannung (bzw. der damit verbundene Basisstrom) steuert den Emitter-Kollektor-Strom leistungsarm, ähnlich zur Wirkung der Steuerspannung am Gitter einer Röhre, und am Kollektorkontakt werden die Ladungsträger analog wie bei der Anode der Röhre gesammelt.
+
+Ein wesentlicher Unterschied zwischen Transistor und Elektronenröhre besteht jedoch darin, dass der Steuerungsmechanismus beim Transistor nicht auf elektrostatischer Beeinflussung des Trägertransports beruht, sondern auf einer Änderung der Ladungsträgerdichten und der Stromanteile an den pn-Übergängen. Transistoren dieser Bauart sind demnach stromgesteuerte Bauelemente.
+
+Der **Unipolar-Transistor** (Feldeffekttransistor z. B. als MOSFET) besteht aus einem durchgehend einheitlichen, z. B. n-leitenden Halbleitermaterial zwischen Source- und Drain-Elektrode. Dabei hat die leitende Verbindung zwischen beiden einen sehr geringen Kanalquerschnitt, so dass deren Leitfähigkeit durch ein äußeres elektrisches Feld verändert werden kann. Dazu „saugt“ die isoliert aufgesetzte Gate-Elektrode bei positiver Aufladung zusätzlich Elektronen in den Kanal und drängt bei negativer Aufladung Elektronen aus diesem heraus. Für die Anwendung der Unipolartransistoren ist bedeutsam, dass an der Gate-Elektrode nur eine Steuerspannung anliegt, ohne dass wie beim Bipolartransistor auch ein Steuerstrom fließt, und damit auch keine elektrische Steuerleistung erforderlich ist.
+
+Durch Zusammenfassen von Halbleiterdioden, Transistoren, Widerständen usw. in einen einzigen Komplex, der jedoch als funktionelle Einheit entworfen und gefertigt und nicht aus diskreten Bauelementen zusammengesetzt wird, gelangt man zur integrierten Halbleiterschaltung. Sie weist im Vergleich zu den nach konventionellen Methoden hergestellten Schaltungen Mikrodimensionen und zugleich eine höhere Zuverlässigkeit auf. Die integrierte Schaltung bildete eine wesentliche Voraussetzung für die Entwicklung der Mikroelektronik.
+
+## 46.6 Magnetische Eigenschaften. Dia- und Paramagnetismus
+
+Das magnetische Verhalten der Stoffe liegt in den atomaren Vorgängen begründet, die sich in ihnen unter der Einwirkung eines äußeren Magnetfeldes abspielen. Schon AMPÈRE (1820) hat den Magnetismus durch die Annahme elektrischer Kreisströme in atomaren Bereichen gedeutet (AMPÈREsche Molekularströme), d. h. also auf dieselbe Weise wie das Zustandekommen des Magnetismus von stromdurchflossenen Leiterschleifen oder Spulen. Heute wissen wir, dass diese Kreisströme in Form der umlaufenden Elektronen in der Atomhülle tatsächlich vorhanden sind und dass sie zur Entstehung magnetischer Momente Anlass geben. Jedoch rührt der Magnetismus nicht nur von diesen magnetischen Bahnmomenten, sondern vor allem von den magnetischen Spinmomenten der Elektronen her. Des Weiteren haben auch die Atomkerne ein magnetisches Moment, das (allerdings in sehr geringem Maße) zum magnetischen Gesamtmoment eines Atoms beiträgt.
+
+Die entsprechenden magnetischen Momente der Bahn- und Spinbewegung sind – wie wir in 44.6 und 44.7 gesehen haben – gequantelt, ihre wirksamen Komponenten bezüglich der Richtung eines äußeren Magnetfeldes können nur ganze Vielfache des BOHRschen Magnetons $\mu _ { \mathrm { B } } ^ { \prime }$ betragen. Abgeschlossene, d. h. vollbesetzte Elektronenschalen und Unterschalen haben weder einen resultierenden Bahndrehimpuls L und ein resultierendes magnetisches Bahnmoment $\mu _ { L }$ noch einen resultierenden Spin S und ein zugehöriges magnetisches Gesamtspinmoment $\mu _ { S } ,$ da sich die Beiträge der einzelnen Elektronen gerade kompensieren (vgl. 44.8). Das magnetische Moment eines Atoms wird daher, wenn wir von dem geringen magnetischen Moment des Atomkerns absehen, von den Elektronen der nichtabgeschlossenen äußeren Schale oder durch unbesetzte Plätze in einer inneren Schale erzeugt; es ergibt sich als Summe aus resultierendem Bahnmoment $\mu _ { L }$ und resultierendem Spinmoment $\mu _ { S }$ dieser Elektronen. Wegen der magnetomechanischen Anomalie (vgl. 44.7) liefert dabei, bezogen auf die Größe des Drehimpulses, die Spinbewegung ein doppelt so großes magnetisches Moment wie die Bahnbewegung.
+
+Wasserstoff- und Alkaliatome haben z. B. kein magnetisches Bahnmoment, da ihr einzelnes äußeres s-Elektron wegen $l = 0$ keinen Drehimpuls hat; sie haben jedoch ein magnetisches Spinmoment von der Größe $\mu _ { \mathrm { B } } ^ { \prime }$ . Wasserstoffmoleküle $( \mathrm { H } _ { 2 } )$ haben dagegen kein magnetisches Moment, da sich die Spins der beiden Bindungselektronen kompensieren.
+
+**Diamagnetismus.** Die diamagnetischen Stoffe sind dadurch gekennzeichnet, dass ihre Ato me ohne äußeres Magnetfeld kein resultierendes magnetisches Moment haben, was mit einer vollständigen gegenseitigen Absättigung aller Bahn- und Spinmomente der Hüllenelektronen zu erklären ist. Lassen wir auf diese Atome ein äußeres Magnetfeld einwirken, so wird in ihnen ein magnetisches Moment hervorgerufen, das dem äußeren Feld entgegengerichtet ist. Dies rührt daher, dass die Elektronenbahnen, ähnlich wie mechanische Kreisel unter Einwirkung der Schwerkraft, eine zusätzliche Bewegung ausführen, indem sie um die Richtung des einwirkenden Magnetfeldes präzedieren (LARMOR-Präzession, vgl. Bild 44.14).
+
+Diamagnetika verhalten sich so wie ein geschlossener Leiter, in dem durch ein äußeres Magnetfeld ein elektrischer Strom induziert wird, dessen Magnetfeld dem LENZschen Gesetz zufolge so gerichtet ist, dass gegenüber dem äußeren erregenden Feld Abstoßung erfolgt. Man erkennt daher auch die diamagnetischen Stoffe daran, dass sie aus einem inhomogenen Magnetfeld herausgedrängt werden.
+
+Der diamagnetische Effekt ist bei allen Atomarten, gleichgültig welche Elektronenkonfiguration diese haben, vorhanden. Er wird aber bei denjenigen Atomen, die resultierende magnetische Momente aufweisen, durch diese völlig überdeckt. Diamagnetisch sind die meisten organischen Stoffe, fast alle Gase, viele kristalline Festkörper, darunter auch einige Metalle, wie Kupfer, Zink und Bismut. Da die Diamagnetika erst im Magnetfeld ein magnetisches Dipolmoment erhalten, ähneln sie in dieser Beziehung den Dielektrika mit Verschiebungspolarisation.
+
+**Paramagnetismus.** Im Gegensatz zu den diamagnetischen Atomen gibt es Atome, die auch ohne äußeres Magnetfeld ein permanentes magnetisches Dipolmoment haben, was auf eine nicht vollständige Kompensation der magnetischen Bahn- und Spinmomente der Hüllenelektronen zurückzuführen ist. Solche Atome nennt man paramagnetisch. Zu den Paramagnetika gehören alle Stoffe, deren Atome bzw. Moleküle eine ungerade Anzahl von Elektronen haben, so dass ihr Spin S nicht null ist, da mindestens der Spin eines Elektrons nicht kompensiert wird, sowie Stoffe, deren Atome oder Ionen teilweise gefüllte innere Elektronenschalen aufweisen, wie z. B. die sog. Übergangselemente (s. 44.10). Von den Metallen sind z. B. Aluminium, Zinn und Magnesium paramagnetisch; bei ihnen wird der Paramagnetismus vorwiegend von den weitgehend frei beweglichen Leitungselektronen hervorgerufen.
+
+Auch die Paramagnetika zeigen, ebenso wie die Diamagnetika, makroskopisch keine Magne tisierung, solange kein äußeres Magnetfeld auf sie einwirkt. Das liegt daran, dass die vorhandenen Atommomente infolge der Wärmebewegung völlig regellos orientiert sind, so dass sich ihre Wirkung nach außen hin aufhebt. Erst mit wachsender äußerer Feldstärke stellen sich die vornehmlich durch die Spinmomente verkörperten Elementarmagnete immer weiter in die Feldrichtung ein, womit eine schwache positive Magnetisierung verbunden ist. Die positive Magnetisierung ergibt sich daraus, dass der dem äußeren Feld gleich gerichtete paramagnetische Effekt sich dem stets auch vorhandenen Diamagnetismus (der eine negative Magnetisierung hervorruft) überlagert und dabei im Allgemeinen überwiegt.
+
+**Diamagnetische Stoffe werden aus einem inhomogenen Magnetfeld herausgedrängt, paramagnetische Stoffe hineingezogen.**
+
+Da die Wärmebewegung dem orientierenden Einfluss des äußeren Magnetfeldes entgegenwirkt, ist die paramagnetische Suszeptibilität temperaturabhängig. Unter Beachtung der Richtungsquantelung der möglichen Einstellungen der atomaren magnetischen Momente zum äußeren Feld liefert eine statistische Rechnung für die paramagnetische Suszeptibilität den Ausdruck
+
+$$
+\chi_ {\mathrm{m}} = \frac {N}{\mu_ {0} V} \frac {\mu^ {2}}{3 k T} = \frac {C}{T} \quad (\text {CURIESches Gesetz}). \tag {46.6}
+$$
+
+Darin ist N die Zahl der Atome im Volumen V , µ das atomare magnetische Dipolmoment, T die absolute Temperatur und k die BOLTZMANN-Konstante. C nennt man die CURIE-Konstante. Die paramagnetische Suszeptibilität nimmt demnach (bei nicht zu hoher Feldstärke) mit der absoluten Temperatur umgekehrt proportional ab. In dieser Hinsicht ähneln die Paramagnetika den Dielektrika mit Orientierungspolarisation.
+
+## 46.7 Ferromagnetismus, Antiferro- und Ferrimagnetismus
+
+Die gegenüber den dia- und paramagnetischen Stoffen unvergleichlich höhere Magnetisierung der **Ferromagnetika** schon bei kleinen Feldstärken deutet darauf hin, dass neue, bisher nicht berücksichtigte Kräfte wirksam sein müssen, die den Ferromagnetismus verursachen. In der Tat reichen zur Erklärung des Ferromagnetismus die bisher entwickelten Vorstellungen von den magnetischen Eigenschaften der Atome allein nicht aus, sondern es müssen die mit klassischen Vorstellungen nicht mehr erfassbaren Wechselwirkungseffekte zusätzlich berücksichtigt werden, die sich aus der räumlichen Anordnung der Atome im Kristallgitter des Festkörpers ergeben.
+
+Ebenso wie der Paramagnetismus kann auch der Ferromagnetismus nur von Elektronen in nichtabgeschlossenen Schalen herrühren, da vollständig besetzte Schalen weder durch ein Bahnmoment noch durch ein Spinmoment zum magnetischen Gesamtmoment eines Atoms beitragen. Wie experimentell nachgewiesen wurde (EINSTEIN-DE-HAAS-Versuch), liefern die nicht abgesättigten Spinmomente den größten Anteil zum magnetischen Gesamtmoment des Atoms, während der Einfluss des Bahnmoments und die magnetische Wirkung des Atomkerns dagegen äußerst gering sind. So z. B. sind beim Eisenatom die zehn Plätze der 3d-Unterschale mit 6 Elektronen besetzt, von denen 5 eine einheitliche Spinorientierung haben, während durch das sechste Elektron einer der Zustände doppelt besetzt wird, weshalb dieses Elektron nach dem PAULI-Prinzip (vgl. 44.10) die entgegengesetzte Spinrichtung haben muss. Somit hat das Eisenatom ein atomares Spinmoment der Größe von 4 BOHRschen Magnetonen.
+
+Infolge der Anordnung der Atome im Kristallgitter treten bei den Ferromagnetika zusätzliche Kopplungskräfte zwischen den nicht abgesättigten Elektronenspins auf, die entgegen der desorientierenden Wirkung der Wärmebewegung unterhalb einer bestimmten Temperatur, der sog. **CURIE-Temperatur** (CURIE-Punkt) $T _ { \mathrm { C } } ,$ bereits ohne äußeres Magnetfeld zu einer vollständigen Ausrichtung der Spinmomente innerhalb kleiner Bereiche von der Größenordnung $1 0 ^ { - 4 }$ m im Durchmesser, der sog. **WEISSschen Bezirke** oder **Domänen**, führen (Bild 46.9).
+
+**Die CURIE-Temperatur ist diejenige Temperatur, oberhalb der der Ferromagnetismus verschwindet, bei der also Gleichgewicht zwischen den Kräften herrscht, die die Parallelstellung der Elektronenspins hervorrufen wollen, und den durch die Wärmebewegung bedingten Kräften, die eine regellose Orientierung der Spinmomente herbeizuführen bestrebt sind.**

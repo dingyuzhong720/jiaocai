@@ -1,0 +1,501 @@
+--- PDF page 246 ---
+21
+Ausgleichsvorgänge
+21.1
+Wärmeleitung
+Befinden sich zwei Stellen eines Körpers auf unterschiedlichen Temperaturen, so wird sich
+nach dem II. Hauptsatz der vorhandene Temperaturunterschied im Laufe der Zeit ausgleichen,
+indem eine bestimmte Wärmemenge Q von der wärmeren zur kälteren Stelle übergeht. Diese
+Erscheinung bezeichnet man als Wärmeleitung.
+Wärmeleitung ist ein durch Temperaturunterschiede hervorgerufener Energie-
+transport.
+Bild 21.1 Wärmeleitung a) durch eine einschichtige, b) durch eine zweischichtige Wand; c) zu- und
+abfließender Wärmestrom für eine differenziell dünne Schicht
+Betrachten wir die stationäre (d. h. zeitlich konstant erfolgende) Wärmeleitung durch eine ebe-
+ne Wand der Fläche A und der Dicke l (Bild 21.1a), so ist die übertragene Wärmeenergie Q
+direkt proportional der Temperaturdifferenz ∆T = T1 −T2, der Wandfläche A und der Zeit t,
+aber indirekt proportional der Wanddicke l:
+Q = λ At ∆T
+l
+.
+(21.1)
+Der Proportionalitätsfaktor λ heißt Wärmeleitfähigkeit (Einheit: 1W/(m·K)) und ist eine
+Stoffkonstante. Hieraus ergibt sich analog zum Massenstrom (15.2)
+Φ = dQ
+dt ≡˙Q = λ A∆T
+l
+(Wärmestrom).
+(21.2)
+Einheit:
+[Φ] = 1J/s = 1W.
+Damit wird die Wärmestromdichte
+jW = dΦ
+dA = λ∆T
+l ;
+Einheit:
+[ jW] = 1W/m2.
+(21.3)
+
+
+--- PDF page 247 ---
+244
+21 Ausgleichsvorgänge
+Analog dem elektrischen Widerstand (25.8) bezeichnet man den Ausdruck
+Rλ = 1
+λ
+l
+A ,
+Einheit:
+[Rλ] = 1K/W,
+(21.4)
+als Wärmeleitwiderstand. Damit folgt nun für den Wärmestrom aus (21.2) die dem OHMschen
+Gesetz der Elektrizitätslehre entsprechende Beziehung
+Φ = ∆T
+Rλ
+oder
+∆T = RλΦ.
+(21.5)
+Für eine zweischichtige Wand (Bild 21.1b) addieren sich die Wärmeleitwiderstände (21.4) der
+einzelnen Schichten, und man erhält für den effektiven Wärmestrom
+Φ = A T1 −T3
+l1
+λ1
++ l2
+λ2
+.
+(21.6)
+Ist das Temperaturgefälle nicht – wie in Bild 21.1a, b – linear, sondern in x-Richtung veränder-
+lich, so lautet das Wärmeleitungsgesetz (21.3)
+jW = −λ dT
+dx
+oder
+j W = −λgradT
+(FOURIERsches
+Wärmeleitungsgesetz).
+(21.7)
+dT /dx (bzw. ∆T /l in Gleichung (21.3)) nennt man den Temperaturgradienten. Das negative
+Vorzeichen drückt aus, dass mit zunehmendem Wärmeweg x (dx > 0) die Temperatur T ab-
+nimmt (dT < 0).
+Der gesamte, einem Körper zu- und von ihm abfließende Wärmestrom ergibt sich aus (21.2)
+und (21.3), wenn man über die gesamte Körperoberfläche A0 integriert. Dieser muss gleich
+der zeitlichen Änderung der Wärmeenergie des betreffenden Körpers mit der Masse m und
+der spezifischen Wärmekapazität c sein. Folglich gilt
+˙Q =
+I
+A0
+j W ·dA = cm dT
+dt
+(Bilanzgleichung für Wärmeströme).
+(21.8)
+Diese Gleichung drückt den Satz von der Erhaltung der Wärmeenergie aus und kann als Kon-
+tinuitätsgleichung für Wärmeströme angesehen werden. Für einen nur in x-Richtung fließen-
+den Wärmestrom (Bild 21.1c) durch eine differenziell dünne Schicht der Masse dm = ϱAdx (ϱ
+Dichte) nimmt die Bilanzgleichung (21.8) die Form an:
+cϱAdx dT
+dt = [ jW −(jW +djW)] A
+oder
+dT
+dt = −1
+cϱ
+djW
+dx .
+Setzen wir für jW den FOURIERschen Ausdruck (21.7) ein und schreiben – da T sowohl vom Ort
+als auch von der Zeit abhängt – anstelle des Differenzialzeichens (d) das Symbol ∂für die sog.
+partielle Ableitung, so erhalten wir die partielle Differenzialgleichung
+∂T
+∂t = λ
+cϱ
+∂2T
+∂x2
+(eindimensionale Wärmeleitungsgleichung).
+(21.9)
+Der Quotient λ/(cϱ) = a wird als Temperaturleitfähigkeit bezeichnet (Einheit: 1m2/s). Die
+Lösungen von Gleichung (21.9) beschreiben die Wärmeausbreitung in Form des örtlich und
+zeitlich veränderlichen Temperaturfeldes T = T (x, t).
+
+
+--- PDF page 248 ---
+21.1 Wärmeleitung
+245
+Ersetzt man in Gleichung (21.9) t durch −t, so wechselt die linke Seite der Gleichung ihr Vor-
+zeichen, sie ist also gegenüber einer Zeitumkehr-Transformation nicht invariant. Folglich be-
+schreibt sie Vorgänge, die nicht umkehrbar, also in Übereinstimmung mit der Aussage des II.
+Hauptsatzes irreversibel sind (vgl. Abschnitt 19.4).
+Im stationären Fall sind die Temperaturunterschiede zeitlich konstant, d. h., es ist ∂T /∂t =
+0. Dies bedeutet nach Gleichung (21.8), dass zu- und abgeführter Wärmestrom gleich groß
+und durch die Beziehung (21.2) gegeben sind. Es wird also stets genauso viel Wärme ab- wie
+zugeführt (Fließgleichgewicht).
+Als ein wichtiges Beispiel für einen instationären Vorgang ist in Bild 21.2 die Lösung der Wär-
+meleitungsgleichung (21.9)
+T (x, t) = T0 +(T1 −T0)
+r
+t0
+t e−x2
+4at
+mit
+a = λ
+cϱ
+(21.10)
+für die Ausbreitung einer anfänglich punktförmigen Wärmequelle in einem unendlich langen,
+dünnen Stab dargestellt (z. B. Lötstelle oder Schweißnaht).
+Bild 21.2 Orts- und zeitabhängiger Tempe-
+raturverlauf eines an einer eng begrenzten
+Stelle bei x = 0 kurzzeitig auf T1 erwärmten
+langen dünnen Stabes der Temperatur T0,
+beschrieben durch die sich als Lösung der
+Wärmeleitungsgleichung (21.9) ergebende
+Gauss-Funktion (21.10)
+Die Wärmeleitfähigkeit fester Körper wird durch zwei verschiedene Mechanismen verursacht. Zum
+einen führt die thermische Energie zu kollektiven Schwingungen der Gitterbausteine (Gitterschwin-
+gungen), die als Phononen bezeichnet werden und die bei ihrer Bewegung durch einen Kristall Wär-
+meenergie mit sich führen. Die von diesem Prozess herrührende Phononen-Wärmeleitfähigkeit λp ist
+von Störungen des Kristallgitters abhängig, die die Phononenausbreitung behindern. Zum anderen
+sind die im Festkörper vorhandenen beweglichen Ladungsträger (meist Elektronen) zugleich Träger
+thermischer Energie. Die darauf beruhende elektronische Wärmeleitfähigkeit λe ist daher bei den Me-
+tallen mit der elektrischen Leitfähigkeit κ durch das WIEDEMANN-FRANZsche Gesetz
+λe
+κ = const·T
+verbunden (vgl. 26.1). Es gilt λ = λe +λp.
+Die Dominanz der elektronischen Komponente der Wärmeleitfähigkeit führt bei Metallen zu großen
+λ-Werten, während in Halbleitern und Isolatoren wegen der geringen Ladungsträgerkonzentration die
+Wärmeleitung im Wesentlichen durch Phononen vermittelt wird. Noch geringer sind die Wärmeleit-
+fähigkeiten von zusammengesetzten Stoffen, wie z. B. Holz, von Flüssigkeiten (außer Quecksilber!) und
+Gasen (vgl. Tabelle 21.1).
+
+
+--- PDF page 249 ---
+246
+21 Ausgleichsvorgänge
+Tabelle 21.1 Wärmeleitfähigkeit einiger Stoffe bei 300 K in J/(s m K) = W/(m K)
+Wärmeleiter
+Wärmeisolatoren
+Flüssigkeiten
+Gase
+Aluminium
+230
+Glas
+1,0 ...1,2
+Ethanol
+0,17
+Helium
+0,144
+Kupfer
+380
+Glaswolle
+0,04 ...0,05
+Benzol
+0,17
+Kohlendioxid
+0,014
+Messing
+110
+Holz
+0,14 ...0,20
+Glycerin
+0,29
+Luft
+0,023
+Silber
+420
+Polystyrol
+0,15 ...0,17
+Quecksilber
+8,37
+Wasserstoff
+0,173
+Stahl
+55
+Ziegelstein
+0,4 ...0,6
+Wasser
+0,59
+Vakuum
+0
+Beispiele 21.1:
+1. Welche Temperatur T2 hat die Grenzfläche innerhalb der zweischichtigen Wand von Bild
+21.1b bei gegebenen Außentemperaturen T1 und T3 und stationärer Wärmeleitung?
+Lösung: Durch Gleichsetzen von zu- und abgeführtem Wärmestrom nach Gleichung (21.2),
+Φzu = λ1 (T1 −T2)/l1 = Φab = λ2 (T2 −T3)/l2, ergibt sich nach Umstellung
+T2 = Λ1T1 +Λ2T3
+Λ1 +Λ2
+mit
+Λ1 = λ1
+l1
+und
+Λ2 = λ2
+l2
+.
+2. Ein kugelförmiger Behälter vom Radius R = 1,5m empfängt durch Sonneneinstrahlung den
+Wärmestrom ˙Q = 6W, der im stationären Zustand durch Wärmeleitung vollständig an die
+ihn umgebende Luft (Wärmeleitfähigkeit λ = 0,025W/(m·K)) abgeführt wird. Welche Oberflä-
+chentemperatur erreicht der Behälter, wenn die Lufttemperatur weit weg vom Behälter 20 ◦C
+beträgt? Wie groß ist die Lufttemperatur in 4m Entfernung von der Behälteroberfläche?
+Lösung: Der durch eine konzentrische Kugelfläche A = 4πr 2 um den Behälter abfließende
+Wärmestrom ist für beliebige Radien r ≥R gleich groß und beträgt jWA = jW 4πr 2 = ˙Q. Für
+die Wärmestromdichte jW beim Radius r gilt das FOURIERsche Wärmeleitungsgesetz (21.7)
+jW = −λdT /dr, womit man erhält:
+−4πr 2λdT
+dr = ˙Q
+oder
+dT = −
+˙Q
+4πλr 2 dr.
+Mit T = T (r) beim Radius r und T = T∞= 293,15K für r →∞erhält man durch Integration
+T∞
+Z
+T (r)
+dT = −
+˙Q
+4πλ
+∞
+Z
+r
+dr
+r 2
+bzw.
+T (r) = T∞+
+˙Q
+4πλr .
+Die Temperatur an der Behälteroberfläche beträgt somit T (R) = T∞+ ˙Q/(4πλR) = 305,88K(=
+32,7 ◦C) und in r1 = 4m+1,5m = 5,5m Entfernung T (r1) = 296,62K(= 23,5 ◦C).
+□
+21.2
+Wärmeübergang, Wärmedurchgang, Konvektion
+Unter Wärmeübergang versteht man die Übertragung von Wärmeenergie von einem festen
+Körper auf eine Flüssigkeit oder ein Gas bzw. in umgekehrter Richtung. An der Übergangs-
+stelle tritt ein mehr oder weniger stark ausgeprägter Temperaturgradient auf (Bild 21.3a). Der
+Wärmestrom Φ ist der Größe der Begrenzungsfläche A und der zwischen beiden Medien herr-
+schenden Temperaturdifferenz ∆T = T1 −T2 proportional; es gilt
+Φ = αA∆T
+(α Wärmeübergangskoeffizient, Einheit:
+1W/(m2 ·K)).
+(21.11)
+
+
+--- PDF page 250 ---
+21.2 Wärmeübergang, Wärmedurchgang, Konvektion
+247
+α hängt von der Oberflächenbeschaffenheit (Rauigkeit) der Wand und der Bewegung der Flüs-
+sigkeiten bzw. Gase ab.
+Bild 21.3 a) Wärmeübergang, b) Wärmedurchgang
+Wärmedurchgang. Sind Gase oder Flüssigkeiten durch eine feste Wand getrennt (Bild 21.3b),
+so findet zunächst ein Wärmeübergang vom Gas (von der Flüssigkeit) auf die Wand, danach
+Wärmeleitung in der Wand und anschließend wieder Wärmeübergang an das andere Gas (die
+andere Flüssigkeit) statt. Für den resultierenden Wärmestrom gilt wie bei Gleichung (21.11)
+Φ = k A∆T
+(k Wärmedurchgangskoeffizient, Einheit:
+1W/(m2 ·K)).
+(21.12)
+Entsprechend den drei Teilprozessen erhält man für eine ebene Wand der Dicke l aus der Ad-
+dition der Wärmewiderstände
+1
+k = 1
+α1
++ 1
+α2
++ l
+λ.
+(21.13)
+Konvektion (Wärmemitführung). Diese tritt bei Flüssigkeiten und Gasen auf und beruht auf
+der Entstehung von Dichteunterschieden infolge ungleichmäßiger Erwärmung, wodurch es
+zur Ausbildung einer Flüssigkeits- oder Gasströmung kommt (freie Konvektion). Dabei führen
+die Moleküle des strömenden Mediums thermische Energie mit sich. So z. B. steigt erwärmte
+Luft infolge des Auftriebs nach oben, statt ihrer sinkt kältere zu Boden usw. Konvektive Wärme-
+übertragung finden wir bei Wärmetauschern (Gegenstromprinzip), bei der Zentralheizung,
+bei meteorologischen Vorgängen u. a. Bei erzwungener Konvektion wird durch äußere Kräf-
+te (Umwälzpumpe, Ventilator) eine Zwangsströmung erzeugt. Da der Temperaturausgleich
+bei Konvektion bedeutend schneller vonstatten geht als bei Wärmeleitung, sind Maßnahmen
+der Wärmedämmung häufig mit der Verhinderung von Konvektion verbunden (z. B. Doppel-
+fenster, Schaumstoffe u. a.). Bei Glasgefäßen mit Vakuummantel (Thermosbehälter, DEWAR-
+Gefäß) wird Konvektion und Wärmeleitung vermieden.
+Eine weitere Form der Wärmeübertragung, die sich vom Wesen her grundlegend von den hier
+besprochenen Erscheinungen des Wärmetransports unterscheidet, ist die Wärmestrahlung.
+Sie wird erst in Abschnitt 42.1 behandelt.
+Beispiel 21.2:
+Berechne die Zeit, in der sich ein Behälter von A = 1,5m2 Oberfläche und V = 0,3m3 Was-
+serinhalt, spezifische Wärmekapazität c = 4,19kJ/(kg·K), von seiner Anfangsinnentemperatur
+ϑ1 = 80 ◦C auf ϑ2 = 50 ◦C abkühlt, wenn sein Wärmedurchgangskoeffizient k = 10W/(m2 ·K)
+und die Außentemperatur ϑa = 20 ◦C beträgt.
+
+
+--- PDF page 251 ---
+248
+21 Ausgleichsvorgänge
+Lösung: Bei der momentanen Behältertemperatur ϑ besteht nach (21.8) und (21.12) zwischen
+der Abnahme der inneren Energie des Wassers und dem nach außen abfließenden Wärme-
+strom die Bilanzgleichung cm (dϑ/dt) = k A(ϑa −ϑ). Umgestellt nach dt und beidseitig inte-
+griert zwischen den Grenzen ϑ = ϑ1 zur Zeit t = 0 und ϑ = ϑ2 zur Zeit t, ergibt
+t = cm
+k A
+ϑ2
+Z
+ϑ1
+dϑ
+ϑa −ϑ = cm
+k A ln ϑ1 −ϑa
+ϑ2 −ϑa
+= 16,1h.
+□
+Aufgabe
+21.1
+Berechne den Wärmedurchgangskoeffizienten k einer l = 38cm dicken Ziegelwand,
+deren Wärmeübergangskoeffizienten innen α1 = 6W/(m2 ·K) und außen α2 = 18W/
+(m2 ·K) betragen und deren Wärmeleitfähigkeit den Wert λ = 0,7W/(m·K) hat! Welche
+Heizleistung P ist bei einer Außentemperatur von −10 ◦C und einer Wandfläche von
+50m2 erforderlich, um eine Zimmertemperatur von 20 ◦C aufrechtzuerhalten?
+21.3
+Diffusion
+Zu den thermisch bedingten Transportphänomenen, wie der Wärmeleitung, gehört auch die
+Diffusion. Schichtet man ein leichteres Gas (oder eine Flüssigkeit) über ein schwereres (über
+eine schwerere Flüssigkeit), so durchmischen sich beide im Laufe der Zeit, indem die Molekü-
+le ineinander diffundieren (vgl. 19.5). Obwohl die Moleküle für sich regellos statistische Bewe-
+gungen (komplizierte Zickzackbahnen wie in Bild 18.1) ausführen, so tritt doch insgesamt ein
+Massenstrom in Richtung geringerer Dichte auf. Diese Diffusion findet auch statt, wenn die
+Konzentration c = n/V = Stoffmenge/Volumen eines Gases, gemessen in mol/m3, von Ort zu
+Ort verschieden ist.
+Diffusion ist ein Massentransport, der Dichte- bzw. Konzentrationsunterschiede von
+Teilchen durch mikroskopische Bewegung derselben ausgleicht.
+Beträgt das Konzentrationsgefälle auf die Entfernung l (bzw. dx bei nichtlinearem Gefälle)
+gleich (c1 −c2)/l = ∆c/l bzw. dc/dx, so gilt im stationären Fall für den Stoffmengenstrom In
+das zum Wärmeleitungsgesetz (21.2) bzw. (21.7) analoge Gesetz
+In = dn
+dt = D A∆c
+l
+bzw.
+In = jn A;
+Einheit: [In ] = 1mol/s
+(21.14)
+mit der Diffusionsstromdichte
+jn = dIn
+dA = −D dc
+dx ;
+Einheit: [jn] = 1mol/(m2 ·s)
+(21.15)
+oder – analog zum Wärmeleitungsgesetz (21.7) – vektoriell
+j n = −D gradc
+(1. FICKsches Gesetz).
+(21.16)
+Der Proportionalitätsfaktor D heißt Diffusionskoeffizient. Dieser hat für Gase einen Wert von
+etwa 10−5 m2/s, für Flüssigkeiten von rund 10−10 m2/s und für Festkörper von ca. 10−20 m2/s.
+
+
+--- PDF page 252 ---
+21.3 Diffusion
+249
+Für die im Allgemeinen orts- und zeitabhängige Konzentration c = c(x, t) gilt die zur Wärme-
+leitungsgleichung (21.9) analoge eindimensionale Diffusionsgleichung
+∂c
+∂t = D ∂2c
+∂x2
+(2. FICKsches Gesetz).
+(21.17)
+Dieses Gesetz folgt aus einer dem Massenerhaltungssatz entsprechenden Bilanzgleichung in
+Verbindung mit dem 1. FICKschen Gesetz (21.16). Im stationären Fall, d. h. für ∂c/∂t = 0, ist der
+Diffusionsstrom (21.14) und somit auch der Konzentrationsunterschied ∆c zeitlich konstant.
+Die Diffusionsgleichung (21.17) hat dieselben mathematischen Eigenschaften wie die Wärme-
+leitungsgleichung (21.9). Demzufolge beschreibt Bild 21.2 auch die örtliche und zeitliche Aus-
+breitung einer zum Zeitpunkt t = t0 bei x = 0 konzentrierten Teilchenwolke, wenn man T
+durch die Konzentration c und die Temperaturleitfähigkeit a durch den Diffusionskoeffizien-
+ten D ersetzt. Für die mittlere Entfernung L, bis zu der sich die Teilchenwolke zum Zeitpunkt
+t durch Diffusion ausgebreitet hat, lässt sich hiernach aus Bild 21.2 sofort die wichtige Bezie-
+hung
+L =
+p
+2Dt
+(Diffusionsentfernung)
+(21.18)
+ablesen. Setzt man L gleich der Abmessung des Gebietes mit Konzentrationsunterschieden, so
+erhält man aus (21.18) die für den Konzentrationsausgleich charakteristische Ausgleichszeit.
+Befindet sich das Medium, in dem Diffusion stattfindet, nicht in Ruhe, sondern bewegt es sich
+mit der allen Teilchen gemeinsamen Driftgeschwindigkeit v, dann überlagert sich dem Diffu-
+sionsstrom (21.14) ein Drift- oder Konvektionsstrom InK = cv A. Die gesamte Stromdichte ist
+dann
+jn = −D dc
+dx +cv,
+vektoriell
+j n = −D gradc +cv.
+(21.19)
+Findet Diffusion unter dem Einfluss äußerer Kräfte statt, z. B. des Schwerefeldes oder eines
+elektrischen Feldes, dann gilt für die von der Kraft F auf ein Molekül hervorgerufene Drift-
+oder Wanderungsgeschwindigkeit v in Gleichung (21.19) die Beziehung v = βF. Die sog. Be-
+weglichkeit β der Teilchen ist mit dem Diffusionskoeffizienten D durch
+β = D
+kT
+(EINSTEIN-Beziehung)
+(21.20)
+verknüpft (k BOLTZMANN-Konstante). Im stationären Zustand kompensieren sich Diffusions-
+und Driftstrom gerade, so dass sich eine aus der Bedingung jn = −D (dc/dx)+cv = 0 folgen-
+de stationäre Konzentrationsverteilung c = c(x) einstellt. Beispiele für einen solchen dynami-
+schen Gleichgewichtszustand sind die Ladungsträgerkonzentration an einem pn-Übergang in
+Halbleitern (vgl. 46.4) und der Konzentrationsabfall in Gasen oder Lösungen im Schwerefeld
+(Sedimentation).
+Der Wert des Diffusionskoeffizienten D hängt nicht nur von der diffundierenden Komponente
+ab, sondern auch von der Temperatur sowie vom Stoff (der Matrix), in dem die Diffusion er-
+folgt. Der Diffusionskoeffizient von Gasen ist über die Beziehung D = Λv/3 mit der mittleren
+freien Weglänge Λ gemäß der Gleichung (18.29) und der mittleren thermischen Geschwindig-
+keit v gemäß (18.19) der Gasmoleküle verknüpft. Diffusionsvorgänge in Festkörpern sind über
+die Beziehung
+D = D0 e−E
+kT
+(ARRHENIUS-Gleichung)
+(21.21)
+
+
+--- PDF page 253 ---
+250
+21 Ausgleichsvorgänge
+mit D0 als einer Konstanten und E als Aktivierungsenergie stark temperaturabhängig. Sie neh-
+men mit der Temperatur zu. So z. B. kann man eine Legierung durch Glühen homogenisieren.
+Auch bei Anlauf-, Oxidations- und Verzunderungsvorgängen spielt die Diffusion der Metall-
+atome und ihrer Reaktionspartner eine dominierende Rolle. Einen großen Einfluss haben Dif-
+fusionserscheinungen beim Härten und Sintern, bei der Korrosion, Rekristallisation und an-
+deren metallurgischen Prozessen. Von erheblicher Bedeutung sind Diffusionsprozesse auch in
+vielen anderen Bereichen der stoffwandelnden Industrie sowie bei der Isotopentrennung und
+bei der Dotierung von Halbleitern.
+Beispiele 21.3:
+1. In einem Stahltank von V = 0,5m3 Fassungsvermögen, A = 3m2 Oberfläche und l = 2mm
+Wandstärke befindet sich Druckwasserstoff bei 25 ◦C. a) Wie groß ist der Stoffmengenstrom In
+von Wasserstoff durch die Tankwand infolge von Diffusion, wenn die Wasserstoffkonzentra-
+tion an der inneren Oberfläche c1 = 1,5kmol/m3, an der äußeren Oberfläche c2 = 0 und der
+Diffusionskoeffizient D = 0,3 · 10−12 m2/s beträgt? b) Man berechne den Mengenverlust von
+Wasserstoff und den damit verbundenen Druckabfall nach 24h unter der Voraussetzung, dass
+das Konzentrationsgefälle für diesen Zeitraum als konstant betrachtet werden kann!
+Lösung: a) Aus dem Konzentrationsgefälle auf die Entfernung l, (c1−c2)/l = 750kmol/m4, folgt
+für den Stoffmengenstrom nach dem 1. FICKschen Gesetz (21.14) In = 6,75·10−10 kmol/s.
+b) Der Mengenverlust nach t = 24h = 86 400s beträgt ∆n = Int = 0,0583mol. Mit der allgemei-
+nen Zustandsgleichung (16.20) folgt für den damit verbundenen Druckabfall ∆p = ∆nRT /V =
+289Pa.
+2. Berechne die stationäre Konzentrationsverteilung von diffundierenden Teilchen im homo-
+genen Schwerefeld!
+Lösung: Der durch die Schwerkraft F = −µg (µ Molekülmasse) hervorgerufenen Sinkbewegung
+mit der Geschwindigkeit v = βF = −βµg wirkt der durch das vertikale Konzentrationsgefälle
+bedingte Diffusionsstrom (21.15) entgegen. Im stationären Zustand gilt mit (21.19)
+jn = −D dc
+dx −cβµg = 0
+oder
+dc
+c = −βµg
+D
+dx.
+Beidseitig integriert zwischen den Grenzen c = c0 für x = 0 und c in der Höhe x ergibt
+ln c
+c0
+= −βµg
+D
+x
+oder
+c = c0 e−βµg
+D x.
+(21.22)
+Die Konzentration nimmt exponentiell mit der Höhe ab.
+□
+Aufgaben
+21.2
+Berechne die Strecke L, um die sich ein Molekül a) in einem Gas, b) in einer Flüssigkeit
+und c) in einem Festkörper durch Diffusion in 24h von seinem Ausgangsort entfernt!
+Verwende die auf Seite 244 unten angegebenen Werte der Diffusionskoeffizienten!
+21.3
+Leite durch Vergleich der Konzentrationsverteilung (21.22) im obigen Beispiel 21.3/2
+mit der für ein ideales Gas aus der barometrischen Höhenformel (14.9) resultierenden
+Verteilung die EINSTEIN-Beziehung (21.20) β = D/(kT ) zwischen Beweglichkeit β und
+Diffusionskoeffizient D her!

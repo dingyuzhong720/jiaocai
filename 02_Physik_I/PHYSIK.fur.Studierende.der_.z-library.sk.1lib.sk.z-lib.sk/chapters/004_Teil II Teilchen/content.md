@@ -1,0 +1,15 @@
+# Teil II Teilchen
+
+原始 PDF 第 30–30 页。
+
+## Teil II
+
+# Teilchen
+
+## Mechanik der Punktmasse und des starren Körpers. Stoffe
+
+Bei der Beschreibung von Bewegungsvorgängen ist es oft zulässig, von den Abmessungen und der Gestalt der beteiligten Körper sowie den Bewegungen ihrer einzelnen Teile gegeneinander (innere Bewegungen) abzusehen und die Körper als unveränderliche stoffliche **Teilchen** von konstanter Menge Substanz und gegebenenfalls konstanter elektrischer Ladung zu idealisieren. Das Teilchen dient so als Denkmodell für Körper sowohl in der Mikro- als auch in der Makrophysik, indem einerseits z. B. Elektronen, Atomkerne und die Moleküle eines Gases, andererseits aber auch die Planeten, deren Abmessungen klein sind im Verhältnis zu den Räumen, in denen sie sich bewegen, als Teilchen idealisiert werden können.
+
+Für die mathematische Behandlung ist es zweckmäßig, wenn man sich die gesamte stoffliche Substanz sowie die daran gebundene elektrische Ladung des Teilchens in einem Punkt konzentriert denkt, so dass seine Lage durch die drei Koordinaten des Raumes angegeben werden kann. Man spricht dann von einer **Punktmasse** bzw. **Punktladung**. Diese kann keine Drehungen, sondern nur fortschreitende Bewegungen ausführen.
+
+Makroskopische Körper lassen sich durch ein System von Punktmassen bzw. Punktladungen darstellen, so z. B. die Gase durch die Gesamtheit der Gasmoleküle oder die festen kristallinen **Stoffe** durch die Atome bzw. Ionen des Kristallgitters. Der **starre Körper** kann modellmäßig als ein System starr gekoppelter Punktmassen aufgefasst werden.

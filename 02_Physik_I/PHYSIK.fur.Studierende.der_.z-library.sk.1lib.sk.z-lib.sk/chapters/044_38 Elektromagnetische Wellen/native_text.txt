@@ -1,0 +1,665 @@
+--- PDF page 422 ---
+38
+Elektromagnetische Wellen
+38.1
+Ausbreitung elektromagnetischer Wellen entlang von
+Leitungen
+Elektrische Leitungen dienen dem weiträumigen Transport elektromagnetischer Energie und
+besitzen einen Hin- und einen Rückleiter. Bleiben die Querschnitte dieser beiden Einzelleiter
+und ihre Anordnung zueinander über ihre ganze Länge unverändert, handelt es sich also um
+zwei parallele und im Wesentlichen gerade verlaufende Leiter, spricht man von einer homoge-
+nen Doppelleitung. Beispiele dafür sind die als Verbindung zwischen Antenne und Fernsehge-
+rät verwendeten Koaxial- oder Paralleldrahtleitungen.
+Im Gegensatz zu Schaltkreisen, bei denen die Ausbreitungsgeschwindigkeit von elektrischen
+Signalen kaum eine Rolle spielt, hängt bei Leitungen infolge ihrer großen räumlichen Ausdeh-
+nung der Strom- und Spannungsverlauf nicht nur von der Zeit, sondern auch vom Ort ab. Für
+ihn gelten, wie unten gezeigt wird, die besonders für die Nachrichtentechnik wichtigen Wel-
+lengleichungen
+∂2u
+∂x2 = 1
+c2
+∂2u
+∂t2
+(38.1)
+∂2i
+∂x2 = 1
+c2
+∂2i
+∂t2
+(Telegrafengleichungen der verlustfreien Leitung).
+(38.2)
+Spannung und Stromstärke breiten sich also als zeitlich periodische Vorgänge wellenförmig
+mit der Geschwindigkeit c entlang der Leitung aus und weisen damit auch eine räumliche
+Periodizität auf (vgl. 36.1 und 36.2).
+Herleitung der Wellengleichungen. Es wird ein Leitungsstück der Länge dx betrachtet (Bild 38.1a). Die
+mit dem Magnetfeld verknüpften induktiven Eigenschaften werden durch den Induktivitätsbelag L′ =
+Induktivität/Längeneinheit und die mit dem elektrischen Feld verbundenen kapazitiven Eigenschaf-
+ten durch den Kapazitätsbelag C ′ = Kapazität/Längeneinheit angegeben. Damit hat die Länge dx der
+Leitung die Induktivität dL = L′ dx und die Kapazität dC = C ′ dx.
+Eine zeitliche Änderung des Stromes erzeugt nach (30.7) in der Längsinduktivität eine Induktionsspan-
+nung −L′ dx (∂i/∂t), d. h.
+du = ∂u
+∂x dx = −L′ dx ∂i
+∂t
+bzw.
+∂u
+∂x = −L′ ∂i
+∂t .
+(38.3)
+Eine zeitliche Änderung der Spannung ruft von und zur Querkapazität einen Ladungsfluss (Strom) der
+Größe −∂Q/∂t = −C ′ dx (∂u/∂t) hervor, d. h.
+di = ∂i
+∂x dx = −C ′ dx ∂u
+∂t
+bzw.
+∂i
+∂x = −C ′ ∂u
+∂t .
+(38.4)
+Durch partielle Differenziation der Ausgangsgleichungen (38.3) und (38.4) nach x bzw. t und Elimina-
+tion der Wellenfunktion i bzw. u findet man die Wellengleichungen (38.1) und (38.2) mit
+c =
+1
+p
+L′C ′
+(Phasengeschwindigkeit von Spannungs- und Stromwellen).
+(38.5)
+
+
+--- PDF page 423 ---
+420
+38 Elektromagnetische Wellen
+Bild 38.1 a) Leitungsstück der Länge dx, b) dessen elektromagnetischer Feldverlauf in der Quer-
+schnittsebene
+Lösungen der Telegrafengleichungen (38.1) und (38.2) sind die in x-Richtung fortschreitenden
+harmonischen Spannungs- und Stromwellen (36.2)
+u = u0 sin
+h
+ω
+³
+t −x
+c
+´i
+und
+i = i0 sin
+h
+ω
+³
+t −x
+c
+´i
+.
+Den Zusammenhang zwischen den Wellenfunktionen u und i erhält man durch Einsetzen der
+Lösungen z. B. in (38.3):
+−ωu0
+c
+cos
+h
+ω
+³
+t −x
+c
+´i
+= −ωL′i0 cos
+h
+ω
+³
+t −x
+c
+´i
+bzw.
+u0 = cL′i0 =
+s
+L′
+C ′ i0.
+Damit sind Spannungs- und Stromverlauf einer fortschreitenden Welle einander proportional:
+u = Zi
+mit
+Z =
+s
+L′
+C ′
+(Wellenwiderstand).
+(38.6)
+Da die Leitungen nicht unendlich lang sind, werden der Wellenausbreitung durch deren Abschluss
+an den Leitungsenden zusätzliche Randbedingungen auferlegt. So wird eine fortschreitende Welle nur
+dann am Ende nicht reflektiert, wenn auch dort die Bedingung (38.6) erfüllt ist. Das geschieht durch
+einen OHMschen Widerstand R = Z, über den die beiden Leiter der Doppelleitung miteinander ver-
+bunden sind. Man spricht dann von einem reflexionsfreien Abschluss, wobei die gesamte von der Welle
+transportierte Energie im Abschlusswiderstand R in JOULEsche Wärme umgewandelt wird. Bricht da-
+gegen die Leitung ab, so muss dort i = 0 sein (Leerlauf); werden die Leiter an einer Stelle überbrückt,
+so gilt dort u = 0 (Kurzschluss). Es tritt dann Reflexion der Welle am Leitungsende auf, vergleichbar mit
+dem festen bzw. losen Ende bei mechanischen Wellen (s. 36.4).
+Mit zwei parallel angeordneten Drähten, einer sog. LECHER-Leitung, lässt sich gut demonstrieren, dass
+sich hinlaufende und die am Ende reflektierte Welle zu einer stehenden Welle überlagern, die in λ/2-
+Abständen Schwingungsknoten besitzt. Im Leerlauf-Fall muss dann ein Stromknoten, im Kurzschluss-
+Fall ein Spannungsknoten am Ende liegen. Auf der ganzen Leitung sind Spannung u und Strom i räum-
+lich und zeitlich um π/2 phasenverschoben, analog den Größen Schallwechseldruck ˜p und Schall-
+schnelle v (vgl. 37.5) bei Schallwellen. Legt man eine Glimmröhre quer über beide Drähte und ver-
+schiebt sie längs der LECHER-Leitung, so leuchtet sie an bestimmten Stellen, den Spannungsbäuchen
+(Stromknoten) hell auf. Überbrückt man dagegen die beiden Drähte mit einer Glühlampe, so leuchtet
+diese an den dazwischen liegenden Stellen, den Strombäuchen (Spannungsknoten). Ähnlich wie z. B.
+schwingende Luftsäulen der Längen λ/4 und λ/2 resonanzfähige Systeme darstellen (s. Bild 37.6), wer-
+den auch Leitungsstücke der Längen λ/4 und λ/2 anstelle von Schwingkreisen in der Hochfrequenz-
+technik verwendet.
+
+
+--- PDF page 424 ---
+38.2 Ausbreitung elektromagnetischer Wellen im freien Raum
+421
+Bei hohen Frequenzen verläuft wegen des Skineffektes (s. 32.2) das elektromagnetische Feld zwischen
+den Leitern und die Phasengeschwindigkeit der Wellenvorgänge ist gleich
+c =
+1
+pεµ =
+1
+pεrε0µrµ0
+,
+d. h. von der Geometrie der Leiteranordnung unabhängig. Die Abhängigkeit von den Materialeigen-
+schaften des Zwischenmediums (εr, µr) zeigt, dass der Strom- und Spannungsverlauf nur eine Be-
+gleiterscheinung der eigentlichen elektromagnetischen Welle ist, die außerhalb der Leiter in einem Me-
+dium mit Isolatoreigenschaften existiert. In der Tat benötigen elektromagnetische Wellen zur Ausbrei-
+tung nicht unbedingt eine Führung durch metallische Leiter, sondern breiten sich auch frei im Raum
+aus, wie in den folgenden Abschnitten gezeigt wird.
+Beispiel 38.1:
+Auf einer Leitung, deren Ausgang kurzgeschlossen ist, werden eingangsseitig mit einem Hoch-
+frequenzgenerator stehende Wellen erzeugt. Bestimme die Laufzeit τ der Leitung, wenn für die
+Frequenzen f = 7,143MHz; 14,286MHz; 21,429MHz; ... Spannungsknoten am Eingang fest-
+gestellt werden!
+Lösung: Es befinden sich Spannungsknoten am Ausgang und für Leitungslängen l = λ/2; λ;
+3λ/2; ... = nλ/2 am Eingang. τ = l/c = nλ/(2c) = n/(2f ) = 70ns.
+□
+38.2
+Ausbreitung elektromagnetischer Wellen im freien Raum
+MAXWELL (1865) hat mit der Einführung des Verschiebungsstromes die Theorie, welche die
+elektromagnetischen Erscheinungen auf der Grundlage von Feldern erklärt, zu einem relativen
+Abschluss geführt (vgl. 32.3). Für den freien Raum, wo Leitungsströme fehlen (j = 0), konnte
+er aus den universell gültigen Feldgleichungen (32.4) und (32.5)
+I
+H ·dr = d
+dt
+Z
+D ·dA;
+I
+E ·dr = −d
+dt
+Z
+B ·dA
+(I. und II. MAXWELLsche Gleichung) die Möglichkeit der wellenförmigen Ausbreitung elektro-
+magnetischer Felder nachweisen und die Eigenschaften dieser Wellen theoretisch ableiten. So
+lässt sich zeigen, dass aus den obigen Feldgleichungen zusammen mit den Materialgleichun-
+gen (32.6)
+D = εE;
+B = µH
+für die zeitlichen und räumlichen Änderungen des E- und H-Feldes Wellengleichungen vom
+gleichen Typ (36.7) folgen, wie wir sie für mechanische Wellen kennen gelernt haben, und zwar
+bei Ausbreitung in x-Richtung die Wellengleichungen
+∂2Ey
+∂x2 = εµ
+∂2Ey
+∂t2
+(für die y-Komponente der
+elektrischen Feldstärke E),
+(38.7)
+∂2Hz
+∂x2
+= εµ ∂2Hz
+∂t2
+(für die z-Komponente der
+magnetischen Feldstärke H).
+(38.8)
+Dies bedeutet aber, dass elektromagnetische Schwingungen nicht am Ort verbleiben, sondern
+sich mit einer endlichen und konstanten Phasengeschwindigkeit c = 1/pεµ im Raum fort-
+pflanzen.
+
+
+--- PDF page 425 ---
+422
+38 Elektromagnetische Wellen
+Herleitung der Wellengleichungen (38.7) und (38.8). Im Raum sollen zeitlich veränderliche elektri-
+sche und magnetische Felder existieren. Betrachtet wird ein Volumenelement im kartesischen Koordi-
+natensystem mit den Kantenlängen dx, dy und dz. Das Koordinatensystem wird so festgelegt, dass das
+magnetische Feld H = H z in Richtung der z-Achse orientiert ist (Bild 38.2). So liefern für das geschlos-
+sene Wegintegral der magnetischen Feldstärke entlang der Würfelkanten dx und dz nur die Wegstre-
+cken in z-Richtung Beiträge:
+I
+H ·dr =
+µ
+Hz + ∂Hz
+∂x dx
+¶
+dz −Hz dz = ∂Hz
+∂x dx dz.
+Der elektrische Fluss durch die Würfelfläche, die vom magnetischen Wirbel umrandet wird, beträgt
+Z
+D ·dA = −Dy dx dz.
+Das Minuszeichen steht, weil die Normalenrichtung der Fläche durch die Bewegungsrichtung einer im
+Umlaufssinn der Fläche betätigten Rechtsschraube festgelegt ist, also D und dA die entgegengesetzte
+Richtung haben. Nach der I. MAXWELLschen Gleichung (s. o.) folgt aus den beiden letzten Integralen
+mit Dy = εEy:
+∂Hz
+∂x
+= −ε
+∂Ey
+∂t ,
+(38.9)
+wobei die totalen Zeitableitungen d/dt, da sie sich hier allein auf die zeitliche Änderung der Feldgrößen
+beziehen, durch partielle Ableitungen ∂/∂t ersetzt wurden.
+Ein zeitlich veränderliches elektrisches Feld E = Ey(t) erzeugt also ein dazu senkrechtes magnetisches
+Feld H = Hz(x), dessen Feldstärke sich in x-Richtung ändert.
+Bild 38.2 Modell zur Herleitung der Wellengleichung. Die y-Komponente von E hat an der
+Stelle x den Wert Ey, an der Stelle x +dx den Wert Ey +(∂Ey/∂x)dx. Entsprechendes gilt
+für die z-Komponente von H an den Stellen x und x +dx.
+Da das elektrische Feld seinerseits nicht über die gesamte Fläche konstant ist, ergibt das Wegintegral
+der elektrischen Feldstärke
+I
+E ·dr =
+µ
+Ey +
+∂Ey
+∂x dx
+¶
+dy −Ey dy =
+∂Ey
+∂x dx dy
+ebenfalls einen von null verschiedenen Wirbel. Der magnetische Fluss durch die Fläche, die vom elek-
+trischen Wirbel umrandet wird, beträgt
+Z
+B ·dA = Bz dx dy.
+
+
+--- PDF page 426 ---
+38.2 Ausbreitung elektromagnetischer Wellen im freien Raum
+423
+Nach der II. MAXWELLschen Gleichung (s. o.) folgt daraus mit Bz = µHz:
+∂Ey
+∂x = −µ ∂Hz
+∂t .
+(38.10)
+Ein zeitlich veränderliches magnetisches Feld H = Hz(t) erzeugt also ein dazu senkrechtes elektrisches
+Feld, das sich in x-Richtung ändert.
+Wird nun (38.9) nach t und (38.10) nach x partiell differenziert, so folgt daraus die eindimensionale
+Wellengleichung (38.7). Wird umgekehrt (38.9) nach x und (38.10) nach t partiell differenziert, so folgt
+die analoge Wellengleichung (38.8).
+Eine elektromagnetische Welle besteht also aus zeitlich und räumlich periodischen Änderun-
+gen der elektrischen und magnetischen Feldstärke. Die Wellengleichungen (38.7) und (38.8)
+und damit auch die MAXWELLschen Gleichungen werden daher durch den bekannten Ansatz
+(36.2) für eine in x-Richtung fortschreitende Welle erfüllt (s. Bild 38.3):
+Ey = E0 sin
+h
+ω
+³
+t −x
+c
+´i
+(38.11)
+Hz = H0 sin
+h
+ω
+³
+t −x
+c
+´i
+(Feldstärkeverlauf der ebenen
+harmonischen elektromagnetischen Welle).
+(38.12)
+Dabei müssen die Phasengeschwindigkeit c und die Amplituden E0 und H0 der elektrischen
+und magnetischen Feldstärke noch bestimmten Bedingungen genügen (s. u.).
+Bild 38.3 In x-Richtung fort-
+schreitende linear polarisierte
+elektromagnetische Welle
+Eigenschaften elektromagnetischer Wellen. Wird die Gleichung (38.11) in (38.7) bzw. (38.12)
+in (38.8) eingesetzt (vgl. 36.2), so folgt
+c =
+1
+pεµ
+(Phasengeschwindigkeit elektromagnetischer Wellen).
+(38.13)
+Wie bei mechanischen Wellen lässt sich die Ausbreitungsgeschwindigkeit auf Materialeigen-
+schaften des Ausbreitungsmediums (ε,µ) zurückführen. Jedoch ist die Ausbreitung elektro-
+magnetischer Wellen nicht an das Vorhandensein eines Stoffes gebunden. Im Vakuum mit
+ε = ε0 = 8,854 188·10−12 A·s/(V·m) und µ = µ0 ≈4π·10−7 V·s/(A·m) ist die Phasengeschwin-
+digkeit
+c0 =
+1
+pε0µ0
+= 299 792 458m/s
+(Vakuum-Lichtgeschwindigkeit).
+(38.14)
+Elektromagnetische Wellen breiten sich im Vakuum mit Lichtgeschwindigkeit aus.
+Für alle nichtleitenden Stoffe ist die Dielektrizitätszahl ε/ε0 = εr > 1 und in guter Näherung
+µ = µ0; also gilt für die Lichtgeschwindigkeit im Stoff c < c0. Das Verhältnis der Phasenge-
+schwindigkeiten (38.14) und (38.13)
+n = c0
+c = pεr > 1
+(MAXWELLsche Relation)
+(38.15)
+
+
+--- PDF page 427 ---
+424
+38 Elektromagnetische Wellen
+definiert die Brechzahl als neue Materialeigenschaft. Messungen bestätigen die Beziehung
+(38.15) für hinreichend große Wellenlängen (s. Bild 39.1).
+Der in Ausbreitungsrichtung x zeigende Wellenzahlvektor (36.22) k und die Feldvektoren E =
+E y und H = H z stehen wie die Koordinatenachsen paarweise aufeinander senkrecht (Bild
+38.3).
+In elektromagnetischen Wellen schwingen elektrische und magnetische Feldstärke
+senkrecht zueinander und beide senkrecht zur Ausbreitungsrichtung (Transversal-
+wellen).
+Die durch Schwingungsrichtung der elektrischen Feldstärke (E) und Ausbreitungsrichtung der
+Welle (k) aufgespannte Ebene heißt Schwingungsebene. Eine elektromagnetische Welle mit
+nur einer Schwingungsebene nennt man linear polarisiert.
+Die gegenseitige Kopplung des E- und des H-Feldes beschreiben die Gleichungen (38.9) und
+(38.10). Setzt man (38.11) und (38.12) in (38.10) ein, so ergibt sich
+−ω
+c E0 cos
+h
+ω
+³
+t −x
+c
+´i
+= −µωH0 cos
+h
+ω
+³
+t −x
+c
+´i
+E0 = cµH0 =
+rµ
+ε H0 = Z H0
+mit (38.13) c = 1/pεµ und dem Proportionalitätsfaktor
+Z =
+rµ
+ε
+(Wellenwiderstand).
+Für das Vakuum ist Z0 =
+p
+µ0/ε0 = 376,73Ω. Da elektrische und magnetische Feldstärke an
+jedem Ort gleichzeitig ihr Maximum oder ihren Nullwert durchlaufen, gilt im ganzen Raum für
+die Beträge der Feldstärken
+E = Z H
+bzw.
+E = cµH = cB.
+(38.16)
+Im freien Raum (fern von einer Strahlungsquelle) sind elektrische und magnetische
+Feldstärke einander proportional und schwingen mit gleicher Phase.
+POYNTING-Vektor. Die Energie des Wellenfeldes setzt sich aus der elektrischen Feldenergie
+(Energiedichte (24.13) we = εE2/2) und der magnetischen Feldenergie (Energiedichte (30.11)
+wm = µH2/2) zusammen. Aus (38.16) folgt mit Z 2 = µ/ε die Gleichheit der Energiedichten
+we = wm und damit w = we + wm = εE2 = µH2 = EH/c. Diese Energiedichte strömt mit der
+Geschwindigkeit c, so dass als Energieflussdichte (37.10) folgt
+S = wc = 1
+Z E2 = Z H2 = EH
+(Strahlungsintensität).
+(38.17)
+Multipliziert man die Feldstärken E und H vektoriell miteinander, so erhält man den in Aus-
+breitungsrichtung der elektromagnetischen Welle zeigenden Vektor
+S = E × H
+(POYNTING-Vektor).
+S gibt die strömende elektromagnetische Feldenergie nach Betrag und Richtung an, die 1m2
+Fläche in 1s senkrecht durchsetzt.
+
+
+--- PDF page 428 ---
+38.3 Erzeugung und Nachweis elektromagnetischer Wellen
+425
+Beispiel 38.2:
+Guter Rundfunkempfang ist bei der Empfangsintensität S = 10−12 W/m2 möglich. Man berech-
+ne die elektrische und magnetische Empfangsfeldstärke.
+Lösung: Aus (38.17) und mit Z0 ≈377Ωfür Vakuum folgen E =
+p
+SZ0 ≈20µV/m und H =
+p
+S/Z0 ≈50nA/m. Der Abfall der Feldstärke mit der Entfernung von einem Sender bestimmt
+dessen Reichweite.
+□
+38.3
+Erzeugung und Nachweis elektromagnetischer Wellen
+Elektrische Dipolstrahlung. Elektromagnetische Wellen gehen von Erregerzentren aus, die im
+Vergleich zum Ausbreitungsraum eine geringe Ausdehnung haben. Dabei ist das Nahfeld, in
+dem der Vorgang der Wellenablösung von einem schwingungsfähigen elektrischen System er-
+folgt, vom Fernfeld zu unterscheiden, in dem die abgelösten Wellen unbeeinflusst vom Erre-
+gerzentrum sich ausbreiten und weiter existieren.
+Bild 38.4 Übergang vom geschlossenen zum offenen Schwingkreis (E elektrische Feldstärke,
+H magnetische Feldstärke)
+Die bekannte Grundform eines schwingungsfähigen elektrischen Systems ist der aus Induk-
+tivität L und Kapazität C bestehende geschlossene Schwingkreis, bei dem sich magneti-
+sches und elektrisches Feld, räumlich voneinander getrennt, wechselseitig hervorbringen
+(Bild 38.4a). Eine nennenswerte Streuung von Feldlinien in den freien Raum findet nicht statt.
+Um die Eigenfrequenz (34.2) f0 = 1/(2π
+p
+LC) zu erhöhen, müssen die Werte L und C verklei-
+nert werden. Das kann durch Verringern der Windungszahl an der Spule bis auf eine einzige
+Windung und durch Verkleinern der Elektroden sowie durch Vergrößern ihres Abstandes am
+Kondensator geschehen (Bild 38.4b).
+Auch ein Dipol (gerader Leiter bestimmter Länge, Bild 38.4c) stellt noch einen Schwingkreis
+dar; denn in und um ihn herum spielen sich prinzipiell die gleichen Vorgänge ab wie in einem
+geschlossenen Schwingkreis (vgl. 34.1). Erhält das eine Dipolende eine positive und das ande-
+re eine negative Aufladung, baut sich dazwischen ein elektrisches Feld auf. In der Folge wird
+die Aufladung durch Stromfluss im Dipol ausgeglichen, wobei das elektrische Feld zusammen-
+bricht. Dafür existiert bei Ladungsausgleich das an den Stromfluss gebundene Magnetfeld um
+den Dipol. Der Zusammenbruch dieses Magnetfeldes hält den Stromfluss bis zur umgepolten
+Aufladung der Enden aufrecht usw. Vom geschlossenen Schwingkreis unterscheidet sich der
+Dipol durch sein elektrisches und magnetisches Streufeld im Raum. Man spricht daher auch
+vom offenen Schwingkreis oder – im technischen Sprachgebrauch – von einer Antenne.
+
+
+--- PDF page 429 ---
+426
+38 Elektromagnetische Wellen
+Ein Feld, das aufgebaut wird, entfernt sich auch gleichzeitig mit der Geschwindigkeit c vom
+Dipol. In der darauf folgenden Halbperiode, durch umgepolte Aufladung der Dipolenden oder
+durch Stromfluss in Gegenrichtung gekennzeichnet, können die entstehenden Gegenfelder
+die schon weiter entfernten Felder der vorhergehenden Halbperiode nicht mehr vollständig
+rückgängig machen. Damit entsteht ein vom Dipol wegeilendes Wechselfeld im Raum, das im
+weiteren Verlauf von den Vorgängen am Dipol unabhängig ist, da es von diesen nicht mehr
+eingeholt wird. Als Momentaufnahmen der elektrischen Feldverteilung zeigt Bild 38.5 einzelne
+Phasen der Feldablösung vom Dipol. Bild 38.6 stellt das gesamte Strahlungsfeld räumlich dar.
+Bild 38.5 Ausbreitungsphasen des elektrischen Feldes um einen schwingenden Dipol
+Bild 38.6 Räumliches Strahlungsfeld um einen
+schwingenden Dipol (E elektrische Feldstärke,
+H magnetische Feldstärke)
+Ein offener Schwingkreis unterscheidet sich also von einem geschlossenen dadurch, dass nicht
+nur eine Dämpfung seiner Schwingungen infolge dauernder Umwandlung von elektrischer
+Energie in Wärme im OHMschen Widerstand des Kreises erfolgt, sondern noch eine Dämpfung
+durch Abstrahlung von Energie in den Raum hinzukommt. Ein einfacher Sender besteht daher
+aus einem Oszillator, der ungedämpfte Schwingungen erzeugt (s. 34.3) und die Antenne über
+geeignete Koppelglieder zu erzwungenen Schwingungen anregt.
+Der Energiefluss Φ durch eine geschlossene Oberfläche, welche die Antenne umschließt, ent-
+spricht der Strahlungsleistung P der Antenne (= abgegebene Energie/Zeit):
+Φ = P = RSI 2.
+(38.18)
+Analog zur Leistung in elektrischen Schaltkreisen ist P dem Quadrat des Antennenstromes
+proportional; RS (mit der Dimension eines Widerstandes) wird Strahlungswiderstand genannt.
+Für elektrische Schaltkreise wirkt der Strahlungswiderstand einer angeschlossenen Antenne
+wie ein OHMscher Widerstand, der Energie umsetzt.
+Genaue, von H. HERTZ durchgeführte Überlegungen ergaben mit λ als Wellenlänge der Dipol-
+strahlung und Z0 als Wellenwiderstand des Vakuums
+RS = 2π
+3 Z0
+µ l
+λ
+¶2
+für Antennenlängen l ≪λ.
+(38.19)
+Jedes Leiterstück, das von einem Wechselstrom durchflossen wird, stellt im Prinzip eine An-
+tenne dar. Nur sind bei niedrigen Frequenzen (λ groß) im Allgemeinen die abgestrahlten Leis-
+tungen gegenüber den OHMschen Verlusten zu vernachlässigen; es gilt RS ≪R. Nach (38.18)
+
+
+--- PDF page 430 ---
+38.4 Die Entdeckung der elektromagnetischen Wellen
+427
+und (38.19) kann die Abstrahlung einer bestimmten Leistung bei vorgegebener Stromstärke
+umso leichter erreicht werden, je kürzer die Wellenlänge ist; denn umso kleiner ist auch die
+notwendige Antennenlänge. Nähert sich die Antennenlänge dem Wert l = λ/2, gerät der Di-
+pol als offener Schwingkreis in Resonanz, und der Strahlungswiderstand erreicht ein relatives
+Maximum RS ≈70Ω. Ein solcher λ/2-Dipol stellt die Standardausführung einer Antenne dar.
+Empfang elektromagnetischer Wellen. Alle elektrischen Feldlinien enden auf Leiteroberflä-
+chen senkrecht. Gelangt ein elektrisches Feld an einen passiven Leiter, lässt sich diese Bedin-
+gung nur durch Ladungsverschiebungen auf dem Leiter (Influenz), gleichbedeutend mit ei-
+nem kurzzeitigen Stromfluss, erfüllen. Bei einer elektromagnetischen Welle ändern sich Feld-
+stärke und Feldrichtung laufend mit der Zeit, und es muss daher in einem vom Wellenfeld ge-
+troffenen Leiter ein dauernder Wechselstrom gleicher Frequenz fließen, den es nachzuweisen
+gilt.
+Der Nachweis von elektromagnetischen Wellen geschieht durch Empfänger, die z. B. mit ak-
+tiven Bauelementen (Transistoren, Operationsverstärker) bestückt sind. Zur Aufnahme der
+Welle dient wieder eine Antenne (z. B. λ/2-Dipol), die direkt oder über Verstärkerstufen mit
+Schwingkreisen gekoppelt ist, deren Eigenfrequenz mit der Schwingungsfrequenz der Welle
+mittelbar oder unmittelbar übereinstimmt bzw. darauf abgestimmt wird. Gerät ein solcher
+Schwingkreis in Resonanz, wurde die Antenne von einer elektromagnetischen Welle zugeord-
+neter Frequenz erregt.
+Zur Übertragung von Tonschwingungen, Telegrafiezeichen oder Bildern wird die Amplitude
+oder die Frequenz elektromagnetischer Schwingungen vom Sender im Takt der Information
+verändert. Dieser Vorgang der (Amplituden- oder Frequenz-)Modulation wird im Empfänger
+durch den umgekehrten Vorgang der Demodulation rückgängig gemacht, womit die Informa-
+tion selbst wieder zur Verfügung steht. Sie kann dann z. B. mit einem Lautsprecher in Schall-
+wellen umgewandelt oder in einem Rasterbild sichtbar gemacht werden.
+38.4
+Die Entdeckung der elektromagnetischen Wellen
+(H. Hertz, 1888)
+Mit der Ausarbeitung der Theorie der wellenmäßigen Ausbreitung elektrischer und magneti-
+scher Felder durch MAXWELL war die Frage noch nicht eindeutig beantwortet, ob Felder in der
+Natur real existieren oder nur hilfreiche Modelle darstellen. Zwar war die gegenseitige Beein-
+flussung von Leiterkreisen über größere Entfernungen bekannt; es war jedoch nicht gesichert,
+ob zwischen Ursache und Wirkung (wie im folgenden Beispiel) eine Zeitdifferenz lag.
+Ein primärer Stromstoß in einem Leiterkreis 1 soll in einem Leiterkreis 2 einen sekundären
+Stromfluss induzieren. Erfolgt die Ausbreitung der Wirkung mit endlicher Geschwindigkeit, so
+kann der Stromfluss im Leiter 1 beendet sein, während er gleichzeitig im Leiter 2 noch nicht
+begonnen hat. Sind in der Zwischenzeit beide Leiter stromlos, muss der Vorgang zwischen den
+beiden Leitern als Feld weiter existieren.
+Bei periodischen elektromagnetischen Vorgängen der Frequenz f ist der Beweis für eine endli-
+che Ausbreitungsgeschwindigkeit c = f λ gleichbedeutend mit dem Nachweis einer endlichen
+Wellenlänge λ. H. HERTZ gelang der experimentelle Nachweis von elektromagnetischen Wel-
+len endlicher Wellenlänge mit sehr einfachen technischen Hilfsmitteln an stehenden Wellen
+in eindrucksvoller Weise:
+
+
+--- PDF page 431 ---
+428
+38 Elektromagnetische Wellen
+Als Sender (zur Erzeugung) freier elektromagnetischer Wellen diente ein Dipol (offener Schwing-
+kreis, Bild 38.4c), der mit einem Funkeninduktor immer aufs Neue zu freien gedämpften elek-
+trischen Schwingungen angeregt wurde. Die Eigenfrequenz, von HERTZ berechnet, wird durch
+die Abmessungen der verwendeten Dipolausführung bestimmt. Zur Erzeugung eines stehen-
+den Wellenfeldes ließ er die vom Sendedipol ausgehenden Wellen an einem Metallschirm
+reflektieren und in sich zurücklaufen. Da Metalloberflächen die elektrische Feldstärke kurz-
+schließen (E = 0), muss sich dort stets ein Schwingungsknoten befinden. Als Empfänger (zum
+Nachweis) wurde ein auf Resonanz abgestimmter Dipol (Drahtschleife mit Unterbrechung,
+Bild 38.4b) benutzt; mit ihm wurden die Schwingungsknoten und -bäuche des Wellenfeldes
+abgetastet. Den Grad der erzwungenen Erregung des Empfängerdipols beurteilte HERTZ nach
+der Intensität von Funken, die an der winzigen Unterbrechung auftraten und mit einer Lupe
+beobachtet wurden. Das Ausmessen der Knotenabstände λ/2 erlaubte HERTZ die Bestimmung
+der Wellenlänge, die je nach Eigenfrequenz f0 des Sendedipols bei λ ⪅1m lagen. Der Wert
+c = f0λ ergab innerhalb der Fehlergrenzen die Lichtgeschwindigkeit.
+Weiter wurden durch die HERTZschen Versuche folgende Eigenschaften elektromagnetischer
+Wellen nachgewiesen:
+a) Reflexion an Metallflächen und ihre Bündelung durch Metall-Hohlspiegel;
+b) Brechung an großen Prismen aus dielektrischem Material (Pech). Die Ablenkung der Aus-
+breitungsrichtung bestätigte die MAXWELLsche Relation (38.15);
+c) lineare Polarisation der vom Dipol abgestrahlten Wellen und ihre Transversalität: Ein Gitter
+aus parallelen Drähten mit einem Drahtabstand ≪λ ist für elektromagnetische Wellen un-
+durchlässig, wenn ihre Schwingungsrichtung (E-Vektor) parallel zur Drahtrichtung verläuft,
+und durchlässig, wenn ihre Schwingungsrichtung senkrecht auf der Drahtrichtung steht.
+Neben den physikalischen Grunderkenntnissen wurde durch HERTZ eine technische Entwick-
+lung eingeleitet, die im drahtlosen Nachrichtenverkehr, in der Radartechnik, im Fernsehen
+und im Internet heute ihren derzeitigen Höchststand erreicht hat. Mit seinen Versuchen ge-
+lang es ihm zugleich auch, die von MAXWELL aufgestellte elektromagnetische Lichttheorie zu
+belegen, weil er gleichzeitig nachwies, dass die auf elektrischem Wege erzeugten Wellen alle
+vom Licht bekannten Eigenschaften haben.
+38.5
+Das elektromagnetische Spektrum
+Die elektromagnetischen Wellen umfassen ein ungeheuer großes Erscheinungsgebiet, dessen
+einheitliche Merkmale nur schrittweise erkannt wurden. Schließlich sind Erzeugung, Erschei-
+nung und Wirkung der elektromagnetischen Wellen je nach ihrer Frequenz f bzw. Wellenlänge
+λ verschieden. Heute ist der ganze Bereich von 0 bis etwa 1024 Hz, zum Teil mit Überschnei-
+dungen der Erzeugungs- und Untersuchungsmethoden, lückenlos bekannt (s. Bild 38.7).
+Elektrische Wellen. Den unteren Frequenz- bzw. oberen Wellenlängenbereich des elektroma-
+gnetischen Spektrums bis λ ≈10−4 m (s. Bild 38.7a) umfassen die auf elektrotechnischem We-
+ge erzeugten Wellen. Davon werden zur Energieversorgung die Gleichströme (als Grenzfall mit
+f = 0 und λ →∞) und die technischen Wechselströme (überwiegend mit f = 50Hz) genutzt
+und in Dynamomaschinen erzeugt. Auch der leitungsgebundene Energietransport in den Ver-
+teilernetzen zwischen Erzeuger und Verbraucher wird stets von elektromagnetischen Feldern
+begleitet.
+
+
+--- PDF page 432 ---
+38.5 Das elektromagnetische Spektrum
+429
+Es ist in der Technik üblich, die zu elektromagnetischen Wechselfeldern gehörenden Wech-
+selströme und -spannungen in einen Niederfrequenz- (NF-) und einen Hochfrequenz- (HF-)
+Bereich einzuteilen. Zum NF-Bereich gehören die elektrischen Vorgänge der Elektroakustik
+und des Telefonverkehrs, die Informationen der umgesetzten Schallwellen (f = 16Hz...20kHz)
+übertragen, sowie die meist aperiodischen Vorgänge des Telegrafieverkehrs und der Datenüber-
+tragung sowie der Mess-, Steuerungs- und Regelungstechnik.
+Für den HF-Bereich ist charakteristisch, dass die an Leitungen gebundenen elektromagneti-
+schen Felder auch durch Antennen in den freien Raum abgestrahlt werden können (Funkwel-
+len). Die dazu notwendigen Antennenlängen liegen in der Größenordnung der Wellenlänge
+λ. Da die technische Realisierung Grenzen setzt, sind auch die Wellenlängen freier elektro-
+magnetischer Wellen nach oben begrenzt. Zum HF-Bereich zählt man die Langwellen (LW,
+λ = 104 ...103 m), die Mittelwellen (MW, λ = 103 ...102 m), die Kurzwellen (KW, λ = 102 ...10m)
+und die Ultrakurzwellen (UKW, VHF, λ = 10...1m). Diese Einteilung hat, historisch bedingt,
+natürlich relativen Charakter.
+Bild 38.7 Elektromagnetisches Spektrum mit den elektrischen Wellen (a) und der atomaren elektro-
+magnetischen Strahlung (b)
+Der angrenzende Bereich der Mikrowellen unterscheidet sich vom HF-Bereich vor allem
+durch seine speziellen Schwingkreise (Leitungs- und Topfkreise, Hohlraumresonatoren) sowie
+im Aufbau seiner Oszillator- und Verstärkerschaltungen. Die Ausbreitung von Mikrowellen ist
+streng geradlinig und zeigt eine gute Bündelfähigkeit. Dadurch können Richtfunkverbindun-
+gen statt Leitungsverbindungen hergestellt werden. Nach ihrer Wellenlänge teilt man die Mi-
+krowellen in Dezimeterwellen (UHF, λ = 1...0,1m), Zentimeterwellen (SHF, λ = 0,1...0,01m)
+und Millimeterwellen (EHF, λ = 0,01...0,001m) ein. Darüber hinaus ist es gelungen, elek-
+tromagnetische Wellen bis zu einer Wellenlänge von λ ≈10−4 m auf elektrischem Wege zu
+erzeugen. Die untere Grenze ist durch die kleinen Abmessungen der schwingenden Systeme
+gegeben, die technisch realisierbar sind.
+Atomare elektromagnetische Strahlung. Elektromagnetische Wellen werden auch von Stof-
+fen, deren atomare Bausteine sich in einem überhöhten Energiezustand befinden, spontan
+
+
+--- PDF page 433 ---
+430
+38 Elektromagnetische Wellen
+mit einer gewissen Wahrscheinlichkeit ausgesandt. Das beim Übergang vom höheren zum
+tieferen Energiezustand frei werdende Energiequantum wird als elektromagnetische Strahlung
+emittiert (vgl. 44.2). Aus dem Entstehungsmechanismus folgt ein wesentlicher Unterschied ge-
+genüber den von Antennen abgestrahlten Funkwellen: Während ein Sender beliebig lange in
+Betrieb sein kann, ist die Dauer eines Emissionsaktes im atomaren Bereich sehr kurz. Bei etwa
+10−8 s Leuchtdauer lösen sich mit c ≈3·108 m/s als Lichtgeschwindigkeit Wellenzüge von eini-
+gen Metern Länge ab. Die einzelnen Emissionsakte erfolgen unabhängig voneinander, daher
+sind ihre Phasen und ihre Schwingungsebenen beliebig verteilt.
+Erhitzte Körper emittieren hauptsächlich Infrarot-(IR-)Strahlung, die der Mensch als Wär-
+mestrahlung empfindet (vgl. 42.1). Mit speziellen Messverfahren und -geräten kann sie ab
+λ ≈0,4mm experimentell nachgewiesen werden und reicht damit bereits in das Gebiet der
+elektrischen Wellen (vgl. Bild 38.7). Nach der kurzwelligen Seite schließt sich der schmale Be-
+reich des sichtbaren Lichts von λ ≈780...380nm mit der Farbfolge rot, orange, gelb, grün,
+blau, violett an. NEWTON erkannte, dass weißes Sonnenlicht eine Mischung dieser Farbkom-
+ponenten ist. Farben sind jedoch keine physikalische Eigenschaft der Strahlung. Vielmehr ge-
+stattet der Gesichtssinn als Orientierungshilfe in der Umwelt eine Strahlungsbewertung nach
+der Wellenlänge. Es folgt die Ultraviolett-(UV-)Strahlung, die überwiegend bei Beschuss von
+Atomen mit schnellen Ionen und Elektronen in Gas-, Funken- und Bogenentladungen entsteht
+(s. 27.3).
+Dringen Elektronen hoher Energie in einen Stoff ein, wird RÖNTGENstrahlung emittiert (vgl.
+44.11). Mit einer RÖNTGENröhre erreicht man Wellenlängen von λ ≈10−11 m. Durch Beschleu-
+nigung der Elektronen auf kreisförmigen Bahnen in dem als Betatron bezeichneten Elektro-
+nenbeschleuniger erhält man besonders „harte“ RÖNTGENstrahlen bis λ ≈5·10−14 m.
+Die vom Atomkern emittierte elektromagnetische Strahlung wird als Gammastrahlung be-
+zeichnet (vgl. 48.2). Elektromagnetische Strahlung mit Wellenlängen λ < 10−15 m wurde bisher
+nur als eine Komponente der kosmischen Strahlung nachgewiesen. Sie entsteht als Folge von
+Reaktionen der Atomkerne und der Elementarteilchen im Weltall.
+Je kürzer die Wellenlänge der elektromagnetischen Strahlung wird, umso mehr nähern sich die
+physikalischen Eigenschaften diskontinuierlich emittierter Wellenzüge denen von Teilchen an.
+Die Größen Amplitude und Wellenlänge verlieren immer mehr an Bedeutung zu Gunsten des
+vom Wellenzug transportierten Energie- und Impulsquantums (vgl. 43.1).
+Aufgaben
+38.1
+a) Wie groß sind die Wellenlängen, die UKW-Radiosender bei f1 = 100,6MHz und Mit-
+telwellensender bei f2 = 600kHz mit ihren Programmen ausstrahlen? b) Bei welcher
+Frequenz arbeiten „Radarfallen“, deren Wellenlänge λ = 3,2cm beträgt?
+38.2
+Moderne Smartphones der 3. und 4. Generation (3G bzw. 4G) unterstützen die Mobil-
+funkstandards LTE (Long Term Evolution) 0,8GHz, 1,8GHz und 2,6GHz. Wie groß sind
+die Wellenlängen der von einer Mobilfunkbasisstation ausgesandten und von einem
+Smartphone empfangenen elektromagnetischen Strahlung dieser Bänder?

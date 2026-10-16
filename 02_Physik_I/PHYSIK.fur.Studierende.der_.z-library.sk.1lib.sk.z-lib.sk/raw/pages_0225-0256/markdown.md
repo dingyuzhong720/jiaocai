@@ -1,0 +1,932 @@
+$S = \mathbf { c o n s t } )$ senkrechte Geraden (Isentropen). Wegen $T \mathbf { d } S = \mathbf { d } Q _ { \mathrm { r e v } }$ beschreibt ein Flächenstück in diesem Diagramm zahlenmäßig eine bestimmte Wärmemenge. Die dem Gas zugeführte Wärmemenge $Q _ { 1 }$ entspricht dem rechteckigen Flächeninhalt $A - D' - C' - B$ , die nicht genutzte, an den „unteren“ Speicher abgeführte Wärmemenge $Q _ { 2 }$ dem Flächeninhalt $D - D' - C' - C$ . Die umlaufene Fläche $A - B - C - D$ gibt daher die Differenz von zu- und abgeführter Wärme $Q _ { 1 } - | Q _ { 2 } |$ und damit ebenso wie im $p ,$ V -Diagramm die Kreisprozessarbeit an. □
+
+![](images/page_224_chart_3.jpg)
+
+<details>
+<summary>area</summary>
+
+| Point | X (S) | Y (T) |
+| --- | --- | --- |
+| A | 0 | T1 |
+| B | 1 | T1 |
+| C | 1 | T2 |
+| D | 0 | T2 |
+</details>
+
+Bild 19.6 T, S-Diagramm des Carnot-Prozesses
+
+## Aufgaben
+
+**19.2** Ein Stahlteil (spezifische Wärmekapazität $c = 0 , 4 6 \mathrm { k J } / ( \mathrm { k g } \cdot \mathrm { K } )$ von 1kg und $2 0 0   ^ { \circ } \mathbf { C }$ wird mit einem anderen Stahlteil von 4kg und $2 0   ^ { \circ } \mathbf { C }$ gekoppelt, so dass sich die Temperaturen ausgleichen. Berechne die Endtemperatur und die Entropiezunahme des Systems!
+**19.3** Welche Endtemperatur stellt sich ein, wenn der Temperaturausgleich zwischen den Körpern in Aufgabe 19.2 reversibel geführt wird?
+
+## 19.5 Entropieänderung des idealen Gases. Irreversible Prozesse
+
+Wie jede Zustandsfunktion kann auch die Entropie durch zwei Zustandsgrößen, z. B. Druck und Temperatur oder Volumen und Temperatur, ausgedrückt werden. Mit dem I. Hauptsatz (17.10) erhalten wir nach (19.14) zunächst
+
+$$
+\mathrm{d} S = \frac {\mathrm{d} U + p \mathrm{d} V}{T}. \tag {19.18}
+$$
+
+Setzt man hierin nach der Zustandsgleichung $p = n R T / V$ und nach (17.13) $\mathbf { d } U = n C _ { \mathrm { m } V } \mathbf { d } T$ so kann die Differenz der Entropie des idealen Gases zwischen den beiden Zuständen $( V _ { 1 } ,   T _ { 1 } )$ und $( V _ { 2 } ,   T _ { 2 } )$ wie folgt berechnet werden:
+
+$$
+\Delta S = \int_ {S _ {1}} ^ {S _ {2}} \mathrm{d} S = n C _ {\mathrm{m} V} \int_ {T _ {1}} ^ {T _ {2}} \frac {\mathrm{d} T}{T} + n R \int_ {V _ {1}} ^ {V _ {2}} \frac {\mathrm{d} V}{V} = n C _ {\mathrm{m} V} \ln \frac {T _ {2}}{T _ {1}} + n R \ln \frac {V _ {2}}{V _ {1}}. \tag {19.19}
+$$
+
+Bei reversiblen Zustandsänderungen wird eine durch die Gleichung (19.19) beschriebene Entropiezunahme (-abnahme) ∆S des Gases durch eine entsprechende Entropieabnahme (-zunahme) der Umgebung gerade kompensiert, so dass die Entropie für das abgeschlossene Gesamtsystem „Gas plus Umgebung“ ungeändert bleibt (vgl. Beispiel 19.3/1 im vorangegangenen Abschnitt).
+
+Da die Entropieänderung unabhängig von der Art des Prozesses nur vom Anfangs- und Endzustand abhängt, kann mit der Beziehung (19.19) auch die Entropiezunahme des idealen Gases bei irreversibler adiabatischer Expansion des Gases ins Vakuum oder in ein anderes Gas hinein ermittelt werden. Da kein Energieaustausch mit der Umgebung stattfindet $( \mathbf { d } Q = \mathbf { d } W = 0 )$ und somit nach dem I. Hauptsatz die von Druck und Volumen unabhängige innere Energie des idealen Gases konstant bleibt, ändert sich dabei die Temperatur nicht. Eine oberflächliche Betrachtung würde zu der Annahme verleiten, dass die Entropieänderung null ist, da keine Wärme mit der Umgebung ausgetauscht wird. Tatsächlich muss jedoch zur Entropieberechnung die irreversible Expansion durch eine reversible isotherme Ausdehnung $( T _ { 2 } = T _ { 1 }$ $V _ { 2 } / V _ { 1 } = p _ { 1 } / p _ { 2 } )$ ersetzt werden (reversibler Ersatzprozess), so dass nach Gleichung (19.19) die Entropie wächst um
+
+$$
+\Delta S = n R \ln \frac {V _ {2}}{V _ {1}} = n R \ln \frac {p _ {1}}{p _ {2}}. \tag {19.20}
+$$
+
+Dieses Ergebnis können wir z. B. zur Berechnung der Entropiezunahme bei der irreversiblen **Mischung zweier Gase** verwenden. Zwei (ideale) Gase A und B mit den Stoffmengen $n _ { \mathrm { A } }$ und $n _ { \mathrm { B } }$ , die sich anfänglich bei der gemeinsamen Temperatur T in getrennten Teilvolumina $V _ { \mathrm { A } }$ und $V _ { \mathrm { B } }$ eines abgeschlossenen Systems vom Volumen V befinden (Bild 19.7), diffundieren nach Entfernen der Trennwand ineinander, so dass es ohne äußere Einwirkung zu einer vollständigen Durchmischung der beiden Gase kommt. Da sich nach dem DALTONschen Gesetz (vgl. 18.6) in einem Gasgemisch jedes Gas so verhält, als würde es unabhängig vom anderen das Volumen V allein ausfüllen, kann man sich die Mischung auch als irreversible adiabatische Expansion der Gase von ihrem Anfangsvolumen $V _ { 1 } = V _ { \mathrm { A } }$ bzw. $V _ { 1 } = V _ { \mathrm { B } }$ auf das gemeinsame Endvolumen $V _ { 2 } = V$ entstanden denken. Die genannte Entropiezunahme ergibt sich dann aus der Addition der Einzelentropien nach Gleichung (19.20) zu
+
+$$
+\Delta S = n _ {\mathrm{A}} R \ln \frac {V}{V _ {\mathrm{A}}} + n _ {\mathrm{B}} R \ln \frac {V}{V _ {\mathrm{B}}} \quad (\text {Mischungsentropie}). \tag {19.21}
+$$
+
+Da $V > V _ { \mathrm { A } }$ und $V > V _ { \mathrm { B } }$ , wird $\Delta S > 0 ,$ d. h., wir haben es in Übereinstimmung mit der Erfahrung mit einem irreversiblen Vorgang zu tun; die Gase mischen sich zwar von selbst, der umgekehrte Vorgang der Entmischung findet aber niemals von allein statt.
+
+![](images/page_225_image_7.jpg)
+
+<details>
+<summary>text_image</summary>
+
+A
+B
+V_A
+V_B
+V
+</details>
+
+Bild 19.7 Zur irreversiblen Mischung zweier Gase A und B
+
+Multipliziert man $\Delta S$ mit der Temperatur $T ,$ so erhält man die mit dem Anwachsen der Entropie verbundene **Dissipationsenergie** $E _ { \mathrm { d i s s } }   =   T   \Delta S .$ Sie ist gleich der Arbeit, die durch reversible isotherme Expansion der Gase in den Endzustand gewonnen werden könnte und nun durch den irreversiblen Mischungsvorgang als nutzbare Arbeit verloren geht. Umgekehrt gibt $E _ { \mathrm { d i s s } }$ die Arbeit an, die man mindestens aufwenden müsste, um das Gasgemisch durch einen (reversiblen) Entmischungsprozess $( \mathbf { Z } .$ B. durch Kompression mittels semipermeabler, d. h. jeweils nur für eine Gasart durchlässiger Trennwände) wieder in seine Komponenten im Anfangszustand zu zerlegen.
+
+## Beispiel 19.4:
+
+Welche Arbeit erfordert die Entmischung von 1kg Luft bei $2 0   ^ { \circ } \mathbf { C }$ in ihre Bestandteile $\mathrm { O } _ { 2 }$ und $\mathrm{N}_{2}$ (23,1% bzw. 76,9%), wenn diese danach denselben Druck und dieselbe Temperatur haben?
+
+Lösung: $m = 1 \mathbf { k g }$ Luft enthält $n_{\mathrm{A}}=0,231m/M_{\mathrm{A}}=7,2\mathrm{mol}O_{2}$ (mit $M _ { \mathrm { A } } = 3 2   \mathrm { g }$ als Molmasse von $\mathrm { O } _ { 2 } )$ und $n _ { \mathrm { B } } = 0 , 7 6 9   m / M _ { \mathrm { B } } = 2 7 , 5$ mol $\mathrm{N}_{2}$ (mit $M _ { \mathrm { B } } = 2 8   \mathrm { g }$ als Molmasse von $\mathrm { N } _ { 2 } )$ . Dividiert man die Zustandsgleichung des Gemisches $p V = ( n _ { \mathrm { A } } + n _ { \mathrm { B } } )$ RT durch die jeweilige Zustandsgleichung der Komponenten nach Entmischung $p V _ { \mathrm { A } } = n _ { \mathrm { A } } R T$ bzw. $p V _ { \mathrm { B } } = n _ { \mathrm { B } } R T$ , so erhält man für die reziproken Volumenanteile $V / V _ { \mathrm { A } } = ( n _ { \mathrm { A } } + n _ { \mathrm { B } } ) / n _ { \mathrm { A } } = 4 , 8 2$ und $V / V _ { \mathrm { B } } = ( n _ { \mathrm { A } } + n _ { \mathrm { B } } ) / n _ { \mathrm { B } } = 1 , 2 6 .$ Eingesetzt in Gleichung (19.21) ergibt dies $\Delta S = 1 4 7 , 0 \mathrm { J / K }$ und somit für die Entmischungsarbeit $W = T   \Delta S = 4 3 ,   1 \mathrm { k J }$ □
+
+## Aufgabe
+
+**19.4** Berechne die Entropieänderung von 1mol eines einatomigen idealen Gases, das a) isobar, b) isotherm, c) adiabatisch auf das doppelte Volumen expandiert!
+
+## 19.6 Entropie und Wahrscheinlichkeit
+
+Die im vorigen Abschnitt betrachtete Expansion eines Gases ins Vakuum oder die selbsttätige Durchmischung zweier Gase durch Diffusion sind Beispiele für die irreversible Annäherung eines abgeschlossenen, sich selbst überlassenen Systems an das thermodynamische Gleichgewicht, wobei die Unumkehrbarkeit des Vorganges nach dem II. Hauptsatz durch ein Anwachsen der Entropie gekennzeichnet ist. Nach den Grundvorstellungen der kinetischen Gastheorie (vgl. Kapitel 18) kann z. B. die irreversible Durchmischung zweier Gase auch als Folge eines statistischen Zufallsprozesses betrachtet werden, der eine zufällige Verteilung von A- und B-Molekülen im Volumen V erzeugt. So wie sich schwarze und weiße Kugeln in einer Schüttelbox nach dem Durchmischen nicht durch weiteres Schütteln wieder entmischen, so werden sich auch die Moleküle infolge ihrer thermischen Molekularbewegung nicht von selbst wieder so ordnen, dass sich der Anfangszustand (vgl. Bild 19.7) einstellt. (Von einer ähnlichen Tatsache zeugt auch mancher Arbeitstisch, wenn die ordnende Hand längere Zeit nicht eingegriffen hat.)
+
+Der Grund für diese Irreversibilität kann darin gesehen werden, dass dem Zustand größerer Unordnung eine größere statistische Wahrscheinlichkeit zukommt, die im Vergleich zum geordneten Zustand umso höher ist, je größer die Anzahl der Teilchen ist. Zwischen Entropie S und Wahrscheinlichkeit W eines thermodynamischen Zustandes muss demzufolge ein funktioneller Zusammenhang $S = f ( W )$ bestehen.
+
+Die Entropie zweier Systeme, die voneinander statistisch unabhängig sind (z. B. zweier Gase, die sich in getrennten Teilvolumina eines Raumes befinden, s. Bild 19.7), ist nach der Defini tion der Entropie als einer additiven Größe gleich der Summe der Entropien der Einzelsysteme, wenn wir die beiden Systeme als eines betrachten. Die Wahrscheinlichkeit dafür, das eine System in dem einen, das andere in dem anderen angegebenen Zustand anzutreffen, ist nach den Regeln der Wahrscheinlichkeitsrechnung gleich dem Produkt der Einzelwahrscheinlichkeiten. Wir haben also
+
+$$
+S = S _ {1} + S _ {2} = f (W _ {1}) + f (W _ {2}); \qquad W = W _ {1} W _ {2}.
+$$
+
+Die gesuchte Funktion $S = f ( W )$ muss also der Bedingung
+
+$$
+f (W) = f (W _ {1} W _ {2}) = f (W _ {1}) + f (W _ {2})
+$$
+
+genügen. Dies leistet die Funktion lnW , da ln $( W _ { 1 } W _ { 2 } ) = \ln W _ { 1 } + \ln W _ { 2 }$ ist. Wir setzen daher
+
+$$
+S = k \ln W \quad (\text {BOLTZMANN - Gleichung}). \tag {19.22}
+$$
+
+Der Proportionalitätsfaktor $k$ erweist sich, wie wir noch sehen werden, als die BOLTZMANN-Konstante (18.10) $k = 1 , 3 8 0   6 5 0   \cdot   1 0 ^ { - 2 3 }   \mathrm { J / K }$
+
+## Die Entropie ist ein Maß für die Wahrscheinlichkeit eines Zustandes oder den Grad der Unordnung.
+
+Die Entropieänderung (19.16) kann nach Gleichung (19.22) auch durch das Verhältnis der Wahrscheinlichkeiten oder die Relativwahrscheinlichkeit zweier Zustände ausgedrückt werden:
+
+$$
+\Delta S = S _ {2} - S _ {1} = k \ln W _ {2} - k \ln W _ {1} = k \ln \frac {W _ {2}}{W _ {1}}. \tag {19.23}
+$$
+
+Zur Verdeutlichung berechnen wir die Entropieänderung (19.23) bei freier Expansion eines sich selbst überlassenen idealen Gases ins Vakuum (vgl. 19.5). Die Wahrscheinlichkeit dafür, ein zufällig herausgegriffenes Molekül im Endvolumen $V _ { 2 }$ vorzufinden, bezogen darauf, es im Anfangsvolumen $V _ { 1 }$ anzutreffen, ist gleich dem Verhältnis der Volumina $V _ { 2 } / V _ { 1 }$ . Für N Moleküle ergibt sich die Relativwahrscheinlichkeit der beiden thermodynamischen Zustände, nämlich das Gas aus N Molekülen im gesamten Endvolumen $V _ { 2 }$ anzutreffen oder nur im Volumen $V _ { 1 }$ , als Produkt der N statistisch unabhängigen Einzelwahrscheinlichkeiten zu
+
+$$
+\frac {W _ {2}}{W _ {1}} = \left(\frac {V _ {2}}{V _ {1}}\right) ^ {N}. \tag {19.24}
+$$
+
+Damit erhält man für die Entropieänderung (19.23) infolge irreversibler Expansion die Zunahme
+
+$$
+\Delta S = k \ln \left(\frac {V _ {2}}{V _ {1}}\right) ^ {N} = N k \ln \frac {V _ {2}}{V _ {1}} = n N _ {\mathrm{A}} k \ln \frac {V _ {2}}{V _ {1}} \tag {19.25}
+$$
+
+mit $N =   n N _ { \mathrm { A } }$ (n Stoffmenge, $N _ { \mathrm { A } }$ AVOGADRO-Konstante = molare Teilchenzahl). Gleichung (19.25) stimmt mit der durch thermodynamische Betrachtung gewonnenen Beziehung (19.20) überein, wenn $k = R / N _ { \mathrm { A } }$ , d. h. k nach (18.10) gleich der BOLTZMANN-Konstanten ist.
+
+Die Wahrscheinlichkeit $W _ { 1 }$ bzw. $W _ { 2 }$ eines Zustandes selbst kann, ähnlich wie in Gleichung (19.24), durch die Relativwahrscheinlichkeit in Bezug auf eine nicht weiter zu unterteilende kleine Raumzelle $V _ { 0 }$ ausgedrückt werden, die Teil einer auch die Impulskoordinaten aller Teilchen umfassenden Phasenraumzelle ist. Diese sog. **thermodynamische Wahrscheinlichkeit** ist für ein Vielteilchensystem eine sehr große Zahl und unterscheidet sich daher vom Wahrscheinlichkeitsbegriff der Wahrscheinlichkeitsrechnung, in der die Wahrscheinlichkeit höchstens den Wert 1 (Gewissheit) haben kann.
+
+Die Relativwahrscheinlichkeit (19.24) ist umso höher, je größer die Teilchenzahl N ist. Dies bedeutet umgekehrt, dass bei sehr kleinen Teilchenzahlen oder -dichten die Wahrscheinlichkeit dafür, dass sich trotz des zur Verfügung stehenden größeren Volumens $V _ { 2 }$ alle Teilchen zufällig (und für kurze Zeit) nur im Teilvolumen $V _ { 1 }$ aufhalten, zunimmt, was sich u. a. in zufälligen Dichteschwankungen äußert. Dies zeigt, dass der II. Hauptsatz und seine Folgerungen im Grunde Wahrscheinlichkeitsaussagen beinhalten, die jedoch für makroskopische Systeme $( N \gtrsim N _ { \mathrm { A } } )$ praktisch mit Gewissheit eintreten.
+
+**Die Relativwahrscheinlichkeit, dass sich zwei Gase spontan entmischen, ist größer als null, jedoch extrem klein, nimmt aber mit abnehmender Teilchenzahl zu.**
+
+**Entropieverhalten offener Systeme.** Der hohe Grad der Strukturiertheit der uns umgebenden Welt, insbesondere der organischen Materie (z. B. biologische Evolution mit ihrer Entwicklung von niederen zu höheren Lebensformen) scheint im krassen Widerspruch zum II. Hauptsatz zu stehen. Dieser Widerspruch löst sich jedoch sofort auf, wenn man beachtet, dass der II. Hauptsatz in der vorstehenden Fassung für abgeschlossene Systeme gilt. Die meisten in der Natur vorkommenden Systeme sind aber mehr oder weniger offene Systeme, die dadurch gekennzeichnet sind, dass bei ihnen ein Stoff- und Energieaustausch mit der Umgebung stattfindet (z. B. Transportprozesse).
+
+Die gesamte Entropieänderung in offenen Systemen setzt sich aus einem Entropiefluss $( \mathrm { d } S ) _ { \mathbf { a } }$ von oder nach außen und einer Entropieerzeugung $( \mathrm { d } S ) _ { \mathrm { i } }$ <sup>im</sup> Innern des Systems zusammen: $\mathbf { d } S = ( \mathbf { d } S ) _ { \mathbf { a } } + ( \mathbf { d } S ) _ { \mathbf { j } }$ . Während für die innere Entropieänderung in Übereinstimmung mit dem II. Hauptsatz stets $( \mathbf { d } S ) _ { \mathrm { i } } \geq 0$ gilt, kann die gesamte Entropieänderung auch negativ sein $( \mathbf { d } S < 0 )$ nämlich dann, wenn die Entropieabgabe nach außen $( \mathbf { d } S ) _ { \mathsf { a } } < 0$ die Entropieerzeugung im Innern übersteigt. Trotz der im Systeminnern ablaufenden irreversiblen Prozesse (die immer mit einer Energiedissipation, d. h. einer Umwandlung von zugeführter Energie in Wärme, verbunden sind) kann so die Gesamtentropie des Systems auf Kosten der Entropiezunahme der Umgebung abnehmen und das System in einen makroskopisch höheren Ordnungszustand übergehen.
+
+Im stationären Zustand tritt an die Stelle des thermodynamischen Gleichgewichts das Fließ- gleichgewicht, bei dem die Entropieabgabe die Entropieerzeugung gerade kompensiert: $( \mathrm { d } S ) _ { \mathrm { a } } = - ( \mathrm { d } S ) _ { \mathrm { i } } < 0 ,   \mathrm { d } S = 0$ . Das Entropieverhalten offener Systeme kann sich somit grundsätzlich von dem abgeschlossener Systeme unterscheiden. In offenen Systemen können sich stationäre Nichtgleichgewichtszustände mit hohem Ordnungsgrad herausbilden (sog. dissipative Strukturen).
+
+## Beispiel 19.5:
+
+**Wärmeübergang kalt/warm.** Die Wahrscheinlichkeit des Übergangs der Wärmemenge $Q =$ 1J von einem kälteren Körper der Temperatur $T _ { 1 } = 3 0 0   \mathrm { K }$ auf einen wärmeren der Temperatur $T _ { 2 } = 3 0 1 \mathrm { K }$ soll berechnet werden. Die Entropieabnahme ist dabei nach (19.23)
+
+$$
+\Delta S = k \ln \frac {W _ {2}}{W _ {1}} = - \frac {Q}{T _ {1}} + \frac {Q}{T _ {2}} = Q \frac {T _ {1} - T _ {2}}{T _ {1} T _ {2}} \approx - \frac {1}{9} \cdot 1 0 ^ {- 4} \mathrm{J/K},
+$$
+
+woraus sich mit $k = 1 { , } 3 8 { \cdot } 1 0 ^ { - 2 3 }$ J/K die Übergangswahrscheinlichkeit ergibt zu
+
+$$
+\frac {W _ {2}}{W _ {1}} = \mathrm{e} ^ {\Delta S / k} = \mathrm{e} ^ {- (1 \mathrm{J/K}) / (9 \cdot 1 0 ^ {4} k)} \approx 1: \mathrm{e} ^ {8 \cdot 1 0 ^ {1 7}} \approx 1: 1 0 ^ {3 \cdot 1 0 ^ {1 7}}.
+$$
+
+Das Ergebnis besagt, dass der Wärmeübergang kalt/warm im Laufe einer Beobachtungszeit von $1 0 ^ { \overset { - } { 3 } \cdot 1 0 ^ { 1 7 } }$ s nur 1s lang, d. h. also praktisch nie stattfindet! Man bedenke, dass erst seit $1 0 ^ { 1 7 }   \mathfrak { s }$ 56 Leben auf der Erde existiert. □
+
+## Aufgabe
+
+**19.5** Berechne die Relativwahrscheinlichkeit dafür, dass sich 1mg Luft bei konstantem Druck und gleich bleibender Temperatur spontan in seine Bestandteile $\mathrm { O } _ { 2 }$ und $\mathrm{N}_{2}$ entmischt! (Siehe dazu die Beispiele 19.4 und 19.5.)
+
+## 19.7 III. Hauptsatz (Satz von der Unerreichbarkeit des absoluten Nullpunkts)
+
+Die Bestimmung der Entropie am absoluten Nullpunkt und die Angabe von Absolutwerten der Entropie ist mit Hilfe des I. und II. Hauptsatzes der Thermodynamik allein nicht möglich. NERNST war zunächst in Verallgemeinerung experimenteller Untersuchungen bei tiefen Temperaturen zu dem Ergebnis gekommen, dass die Entropie beliebiger isothermer Prozesse bei $T = 0 \mathrm { K }$ unabhängig von Volumen, Druck und Aggregatzustand einem universellen Grenzwert zustrebt (**NERNSTsches Wärmetheorem**). Die hierdurch definierte Entropiekonstante kann nach PLANCK – ohne mit der Thermodynamik in Widerspruch zu geraten – gleich null gesetzt werden, so dass die Entropie eines sich im stabilen Gleichgewicht befindlichen Systems bei Annäherung an den absoluten Nullpunkt gegen null geht:
+
+$$
+S \to 0 \quad \text {fur} \quad T \to 0 \quad (\text {III. Hauptsatz}). \tag {19.26}
+$$
+
+Der Gleichgewichtszustand am absoluten Nullpunkt zeichnet sich durch maximale Ordnung und geringste (thermodynamische) Wahrscheinlichkeit aus, die nach Gleichung (19.22) infolge des III. Hauptsatzes für $T = 0$ den Wert $W = W _ { \mathrm { m i n } } = 1$ annimmt. Mit dem III. Hauptsatz ist der Nullpunkt der Entropieskala festgelegt, so dass sich der Absolutwert der Entropie errechnet aus
+
+$$
+S = \int_ {0} ^ {T} \frac {\mathrm{d} Q _ {\mathrm{rev}}}{T} = \int_ {0} ^ {T} \frac {c m}{T} \mathrm{d} T. \tag {19.27}
+$$
+
+Für die spezifische Wärmekapazität c kann je nach Zustandsänderung auch $c _ { p }$ oder $c _ { V }$ gesetzt werden. Aus dem Integral (19.27) folgt
+
+$$
+c = c _ {p} = c _ {V} \rightarrow 0 \quad \text { für } \quad T \rightarrow 0;
+$$
+
+anderenfalls würde das Integral wegen der unteren Grenze $T = 0$ divergieren.
+
+## III. Hauptsatz der Thermodynamik: Bei Annäherung an den absoluten Nullpunkt der Temperatur gehen die Entropie und die spezifischen Wärmekapazitäten aller Stoffe gegen null.
+
+Dieses mit der experimentellen Beobachtung übereinstimmende Verhalten der spezifischen Wärmekapazität lässt sich wie auch der III. Hauptsatz nur auf der Grundlage der Quantentheorie erklären. Das Verschwinden der spezifischen Wärmekapazität bedeutet wegen d $T =$ dQ/(cm), dass der absolute Nullpunkt thermodynamisch instabil ist, d. h., dass bei $T = 0$ bereits die Zufuhr einer beliebig kleinen Wärmemenge eine endliche Temperaturerhöhung bewirkt. Da Körper niemals vollständig energetisch isoliert werden können, ist eine solche Wärmezufuhr unvermeidlich, so dass man sich dem absoluten Nullpunkt zwar beliebig nähern, ihn jedoch in endlicher Zeit niemals erreichen kann.
+
+## 20.1 Die van-der-Waalssche Zustandsgleichung. Gasverflüssigung
+
+Das Verhalten realer Gase weicht vor allem bei tiefen Temperaturen und hohen Drücken, aber häufig auch schon unter Normalbedingungen, von dem des idealen Gases ab. Der Grund hierfür ist, dass sich bei starker Annäherung der Gasmoleküle deren Wechselwirkungen sowie deren Eigenvolumina auf Druck und Volumen des Gases auswirken. Da diese Einflüsse von der Natur des Gases abhängen, kann der reale Zustand aller Gase nicht durch nur eine Zustandsgleichung erfasst werden. Von den vielen bekannten, empirisch ermittelten Gleichungen gibt die von VAN DER WAALS (1873) aufgestellte Zustandsgleichung eine gute Beschreibung des Verhaltens realer Gase und vermittelt zugleich eine qualitative Vorstellung vom Übergang des Gases in den flüssigen Zustand. Für n mol eines Gases hat sie die Form
+
+$$
+\left(p + \frac {n ^ {2} a}{V ^ {2}}\right) (V - n b) = n R T \quad \text {(VAN - DER - WAALS - Gleichung).} \tag {20.1}
+$$
+
+Dabei sind a und b von der Gasart abhängige Stoffkonstanten, die empirisch ermittelt werden müssen. Gleichung (20.1) geht aus der Zustandsgleichung für das ideale Gas (16.20) durch Hinzufügen von Korrekturgliedern für den Druck und das Volumen hervor. Das Korrekturglied $n ^ { 2 } a / V ^ { 2 }$ heißt Binnen- oder Kohäsionsdruck und beschreibt die Auswirkungen der zwischenmolekularen Anziehung, der sog. **VAN-DER-WAALS-Kräfte**, b ist das (molare) Kovolumen.
+
+Die zwischenmolekularen Anziehungskräfte heben sich im Innern eines Gasvolumens auf. Sie werden nur bei den am Rande des Gasraumes auf die Gefäßwandung stoßenden Teilchen wirksam. Auf diese wirkt eine ins Innere des Volumens gerichtete Kraft, die eine Abnahme des Wanddruckes, d. h. eine Vergrößerung des Innendruckes $p$ im Gas, nach sich zieht und demzufolge eine positive Druckkorrektur in der Zustandsgleichung erforderlich macht. Diese Korrektur $p _ { \mathrm { B i } }$ ist einmal der Dichte der stoßenden Teilchen, zum anderen der Dichte der anziehenden Teilchen, insgesamt also dem Dichtequadrat $\varrho ^ { 2 }$ proportional. Wegen $\varrho \sim n / V = 1 / V _ { \mathrm { m } }$ (n Stoffmenge, $V _ { \mathrm { m } }$ molares Volumen) wird
+
+$$
+p _ {\mathrm{Bi}} = a \frac {n ^ {2}}{V ^ {2}} = \frac {a}{V _ {\mathrm{m}} ^ {2}}. \tag {20.2}
+$$
+
+Wird das Eigenvolumen in Rechnung gestellt, verringert sich das den Teilchen zur Verfügung stehende „freie“ Volumen, so dass V in der Zustandsgleichung durch ein Glied der Form $( V - B )$ mit $B > 0$ zu ersetzen ist. Das heißt, das Volumen realer Gase lässt sich nicht unter ein durch B gegebenes Volumen, das sog. VAN-DER-WAALSsche Kovolumen, verringern. B ist gleich dem vierfachen Eigenvolumen $V _ { \mathrm { T } }$ der Teilchen, multipliziert mit deren Anzahl, da das von jeweils 2 zusammenstoßenden Molekeln vom Radius r beanspruchte Volumen gleich dem einer Kugel vom Radius 2r ist. Die mittlere Raumerfüllung eines Moleküls ist dann halb so groß, also gleich 4π $( 2 r ) ^ { 3 } / 6 = 4 V _ { \mathrm { T } }$ , die Raumerfüllung aller $N = n N _ { \mathrm { A } }$ Teilchen (das Kovolumen)
+
+$$
+B = 4 n N _ {\mathrm{A}} V _ {\mathrm{T}} = n b \quad \text {mit} \quad b = 4 V _ {\mathrm{T}} N _ {\mathrm{A}}. \tag {20.3}
+$$
+
+Die Darstellung der VAN-DER-WAALSschen Gleichung (20.1) im p, V -Diagramm für verschiedene Temperaturen T ergibt die in Bild 20.1 gezeichnete Isothermenschar mit den optimalen Parametern $a ,$ b für Kohlendioxid $\mathrm { ( C O _ { 2 } ) }$ . Oberhalb einer bestimmten, von Gas zu Gas verschiedenen Temperatur $T _ { \mathbf { k } }$ (für $\mathrm { C O _ { 2 } }$ ist $T _ { \mathrm { k } } = 3 0 4 , 2 \mathrm { K }$ verläuft die Isotherme praktisch wie beim idealen Gas, d. h., das Volumen ist hier eine eindeutige Funktion des Druckes. Hingegen weisen alle Isothermen für Temperaturen unterhalb $T _ { \mathbf { k } }$ ein Maximum und ein Minimum auf. Ein solcher Verlauf wie zwischen den Punkten B und D der Isotherme $T _ { 1 }$ ist jedoch physikalisch nicht sinnvoll, da das Volumen danach in diesem Bereich mit fallendem Druck abnehmen müsste.
+
+![](images/page_231_chart_3.jpg)
+
+<details>
+<summary>contour</summary>
+
+| Molvolumen (Vm) | Pressure (MPa) | Temperature (K) |
+| --- | --- | --- |
+| ~0.08 | ~7.3 | 323 |
+| ~0.08 | ~6.0 | 313 |
+| ~0.08 | ~5.5 | 293 |
+| ~0.25 | ~4.8 | 273 |
+</details>
+
+Bild 20.1 Isothermen für Kohlendioxid $\left( \mathrm { C O _ { 2 } } \right)$ . Die Isotherme $T _ { 1 } = 2 7 3   \mathrm { K }$ verläuft im Bereich der Kondensation (Umwandlung in den flüssigen Aggregatzustand) zwischen A und E nicht über B und D, sondern geradlinig über C beim konstanten Dampfdruck $p _ { \mathrm { D _ { 1 } } } . ~ K$ kritischer Punkt: $T _ { \mathrm { k } } = 3 0 4 , 2   \mathrm { K }$ kritische Temperatur, $p _ { \mathrm { k } } = 7 ,$ 38MPa kritischer Druck, $V_{\mathrm{mk}} = 0,094   \mathrm{m}^3$ /kmol kritisches Volumen
+
+Bei der experimentellen Nachprüfung findet man, dass beim Komprimieren des Gases die Isotherme $T _ { 1 }$ zwischen den Punkten A und E nicht über B und D durchlaufen wird, sondern dass zwischen A und E der Druck konstant bleibt. Der Grund hierfür ist, dass sich beim Punkt A Flüssigkeitströpfchen auszuscheiden beginnen; das Gas beginnt also, sich in eine flüssige und eine gasförmige Phase zu trennen. In diesem Gebiet der **Kondensation** nimmt das Gas den Charakter eines **gesättigten Dampfes** an. Technisch wird der Dampf rechts von Punkt A überhitzter Dampf, im Grenzzustand A trocken gesättigter Dampf und im **Koexistenzgebiet** von flüssiger und gasförmiger Phase AE Nassdampf genannt. Beim Punkt E ist das Gas vollständig verflüssigt. Der nun folgende steile Anstieg des Druckes entspricht der gegenüber dem Gas sehr viel geringeren Kompressibilität der Flüssigkeit. Der allein von der Temperatur abhängige konstante Druck, bei dem sich die Verflüssigung aus der Dampfphase vollzieht, wird **Dampfdruck** oder **Sättigungsdruck des Dampfes** p<sub>D</sub> genannt. Dieser ergibt sich für eine bestimmte Temperatur nach dem I. und II. Hauptsatz aus der Forderung, dass für die zugehörige Isotherme die schraffierten Flächenstücke in Bild 20.1 oberhalb und unterhalb der Geraden E A gleich sein müssen (MAXWELLsche Gerade). Die VAN-DER-WAALSsche Zustandsgleichung (20.1) beschreibt demnach das Verhalten von realen Gasen und Flüssigkeiten. Sie versagt allerdings, wenn Gas und Flüssigkeit nebeneinander vorliegen.
+
+Mit steigender Temperatur wird dieses Gebiet der Koexistenz von gasförmiger und flüssiger Phase (der Bereich innerhalb der gestrichelten Grenzkurve) immer kleiner. Bei der **kritischen Temperatur** $T _ { \mathbf { k } }$ geht es in den **kritischen Punkt** K, den Wendepunkt der kritischen Isotherme $T _ { \mathbf { k } }$ , über. Oberhalb K kann keine Flüssigkeit mehr existieren.
+
+## Für jedes Gas existiert eine kritische Temperatur, oberhalb der es durch Anwendung noch so hoher Drücke nicht verflüssigt werden kann.
+
+Der Mindestdruck, der bei der kritischen Temperatur gerade noch gesättigten Dampf hervorbringt, heißt **kritischer Druck** $p _ { \mathbf { k } }$ . Am kritischen Punkt K fallen die auf der gestrichelten Grenzkurve liegenden Volumina $V _ { \mathrm { m H } }$ und $V _ { \mathrm { m D } }$ der reinen Flüssigkeits- bzw. Dampfphase zusammen und heißen **kritisches Volumen** $V _ { \mathrm { m k } }$ . In Tabelle 20.1 sind die kritischen Daten einiger Stoffe zusammengestellt. Die verschiedenen Volumina auf der MAXWELLschen Geraden E A kommen durch unterschiedliche relative Anteile der flüssigen und dampfförmigen Phase mit den Molvolumina $V _ { \mathrm { m H } }$ und $V _ { \mathrm { m D } }$ zustande (vgl. 20.3).
+
+Tabelle 20.1 Kritische Daten einiger Stoffe, geordnet nach den kritischen Temperaturen
+
+|  | $T_k/K$ | $p_k/MPa$ | $V_{mk}/(m^3kmol^{-1})$ |
+| --- | --- | --- | --- |
+| Helium ($^4He$) | 5,2 | 0,23 | 0,058 |
+| Wasserstoff ($H_2$) | 33,2 | 1,30 | 0,067 |
+| Stickstoff ($N_2$) | 126,3 | 3,39 | 0,090 |
+| Sauerstoff ($O_2$) | 154,8 | 5,08 | 0,075 |
+| Kohlendioxid ($CO_2$) | 304,2 | 7,38 | 0,094 |
+| Acetylen ($C_2H_2$) | 308,3 | 6,14 | 0,113 |
+| Ethylalkohol ($C_2H_5OH$) | 513,9 | 6,14 | 0,167 |
+| Wasser ($H_2O$) | 647,4 | 22,12 | 0,056 |
+| Quecksilber (Hg) | 1765 | 149,0 | 0,043 |
+
+Die Kurvenabschnitte AB und DE in Bild 20.1 entsprechen metastabilen Zuständen, nämlich übersättigtem Dampf (Kondensationsverzug) bzw. überhitzter Flüssigkeit (Siedeverzug), die sich bei fehlenden Kondensationskeimen (staubfreie Gasatmosphäre) und erschütterungsfreiem Gefäß einstellen können. Spätestens bei Annäherung an die Zustände B und D wird das System instabil (vgl. das Beispiel 20.1), und der Phasenübergang setzt schlagartig ein. Diese Effekte werden in der Nebelkammer bzw. in der Blasenkammer zur Sichtbarmachung der Bahnen von Elementarteilchen ausgenutzt (s. Bild 9.7 und 44.20).
+
+**Gesetz der korrespondierenden Zustände.** Der kritische Punkt K in Bild 20.1 ist durch einen ver schwindenden Anstieg $\mathbf { d } p / \mathbf { d } V _ { \mathrm { m } } = 0$ und einen Wendepunkt $\mathbf { d } ^ { 2 } p / ( \mathbf { d } V _ { \mathrm { m } } ) ^ { 2 } = 0$ der kritischen Isotherme $T _ { \mathbf { k } }$ gekennzeichnet. Mit Hilfe dieser Bedingungen lassen sich seine Daten, die kritische Temperatur $T _ { \mathbf { k } }$ der kritische Druck $p _ { \mathbf { k } }$ und das kritische Volumen $V _ { \mathrm { m k } } ,$ aus der Zustandsgleichung (20.1) zu
+
+$$
+T _ {\mathrm{k}} = \frac {8 a}{2 7 b R}, \quad p _ {\mathrm{k}} = \frac {a}{2 7 b ^ {2}}, \quad V _ {\mathrm{mk}} = 3 b \tag {20.4}
+$$
+
+bestimmen. Führt man die (dimensionslosen) reduzierten Variablen $\overline { { p } } = p / p _ { \mathrm { k } } ,   \overline { { V } } = V _ { \mathrm { m } } / V _ { \mathrm { m k } }$ und ${ \overline { { T } } } =$ $T / T _ { \mathrm { k } }$ ein, so erhält man die Zustandsgleichung (20.1) in einer stoffunabhängigen Form
+
+$$
+\left(\overline {{p}} + \frac {3}{\overline {{V}} ^ {2}}\right) \left(\overline {{V}} - \frac {1}{3}\right) = \frac {8}{3} \overline {{T}} \quad \text {(reduzierte Zustandsgleichung)},
+$$
+
+in der die von der Natur des Gases abhängigen Konstanten a und b nicht mehr vorkommen. Mit anderen Worten: Misst man Druck, Volumen und Temperatur in Einheiten der entsprechenden kritischen Größen, so erhält man eine für sämtliche Substanzen gültige Zustandsgleichung, bekannt als Gesetz der korrespondierenden (übereinstimmenden) Zustände. Dieses Gesetz gilt auch für andere Eigenschaften der Stoffe, so für den reduzierten Dampfdruck $p _ { \mathrm { D } } / p _ { \mathrm { k } }$ oder die reduzierte molare Verdampfungswärme $r _ { \mathrm { m } } / ( R T _ { \mathrm { k } } )$ , vgl. 20.3, als Funktion der reduzierten Temperatur $T / T _ { \mathrm { k } }$
+
+## Beispiel 20.1:
+
+Wie groß ist die Kompressibilität (14.2) des Stoffes in Bild 20.1 an den Punkten B und $D ?$ Was folgt daraus für sein Verhalten bei Annäherung an diese Zustände?
+
+Lösung: Wegen $\mathbf { d } p / \mathbf { d } V = 0$ in den Punkten B und D (horizontale Tangente) gilt in diesen Zuständen für die Kompressibilität $\varkappa = - (  { \mathbf { d } } V /  { \mathbf { d } } p ) / V \to \infty ,$ d. h., eine beliebig kleine Druckänderung bewirkt eine große Volumenänderung. Das Gas bzw. die Flüssigkeit können in diesen Zuständen isoliert nicht existieren, die Phasenumwandlung setzt spontan ein. □
+
+## Aufgabe
+
+**20.1** Berechne aus den kritischen Daten von Kohlendioxid die entsprechenden VAN-DER-WAALSschen Konstanten a und b sowie das Eigenvolumen $V _ { \mathrm { T } }$ und den Radius $r$ der $\mathrm{CO_{2}-Molek ü l e}$
+
+## 20.2 Joule-Thomson-Effekt. Erzeugung tiefer Temperaturen
+
+Gase, deren kritische Temperatur oberhalb der Raumtemperatur liegt, $\mathrm { z . B . C O _ { 2 } }$ mit $\vartheta _ { \mathrm { k } } = 3 1   ^ { \circ } \mathrm { C } ,$ lassen sich nach obigen Ausführungen allein durch Kompression verflüssigen. Liegt die kritische Temperatur hingegen unterhalb der Raumtemperatur, wie beispielsweise bei Luft, $\mathrm { H } _ { 2 }$ und Helium (vgl. Tabelle 20.1), so müssen die Gase, um sie verflüssigen zu können, z. B. unter Ausnutzung des JOULE-THOMSON-Effekts erst unter die kritische Temperatur abgekühlt werden.
+
+Bei einem idealen Gas hängt die innere Energie $U ,$ wie in Abschnitt 17.3 gezeigt wurde, nicht vom Volumen ab. Bei einem realen Gas hingegen ist U, bedingt durch die Wechselwirkungen und das Eigenvolumen der Moleküle, volumen- bzw. druckabhängig. Dehnt sich nämlich ein VAN-DER-WAALS-Gas auf ein größeres Volumen aus, so vergrößert sich die mittlere Entfernung zwischen den Molekülen, und es muss Arbeit gegen die Anziehungskräfte verrichtet werden. Bei einer Volumenvergrößerung ist dies gerade die Arbeit $p _ { \mathrm { B i } } \mathrm { d } V$ gegen den Binnendruck (20.2) $p _ { \mathrm { B i } } = a / V _ { \mathrm { m } } ^ { 2 } = n ^ { 2 } a / \stackrel { \circ } { V ^ { 2 } }$ , die zum Term $n C _ { \mathrm { m } V }$ dT der inneren Energie des idealen Gases (17.13) hinzutritt. Die Änderung der inneren Energie eines der Zustandsgleichung (20.1) gehorchenden realen Gases beträgt somit
+
+$$
+\mathrm{d} U = n C _ {\mathrm{mV}} \mathrm{d} T + \frac {n ^ {2} a}{V ^ {2}} \mathrm{d} V \quad \begin{array}{l} (\text {kalorische Zustandsgleichung} \\ \text {eines VAN - DER - WAALS - Gases}). \end{array} \tag {20.5}
+$$
+
+Bei der Entspannung eines realen Gases wird sich daher die Temperatur ändern, selbst wenn dabei die innere Energie konstant bleibt $( \mathbf { d } U = 0 )$ , weil sie ohne Wärmeaustausch (adiabatisch) und ohne äußere Arbeitsverrichtung (gedrosselt) erfolgt (vgl. das Beispiel 20.2).
+
+Beim JOULE-THOMSON-Prozess (Bild 20.2) wird das im Volumen $V _ { 1 }$ eingeschlossene Gas, welches unter dem konstanten Druck $p _ { 1 }$ steht, mit Hilfe eines Kolbens durch ein Drosselfilter (poröse Wand, Wattebausch), das Wirbel- und Strahlbildung verhindert, langsam in den Raum $V _ { 2 }$ gepresst, in dem der Druck $p _ { 2 } < p _ { 1 }$ herrscht. Der linke Kolben hat dem Gas die Arbeit $p _ { 1 } V _ { 1 }$ zugeführt, durch die Verdrängung des rechten Kolbens wird vom Gas die Arbeit $p _ { 2 } V _ { 2 }$ abgegeben. Die Differenz ist gleich der Änderung der inneren Energie:
+
+$$
+p _ {1} V _ {1} - p _ {2} V _ {2} = U _ {2} - U _ {1} \quad \text { oder } \quad U _ {1} + p _ {1} V _ {1} = U _ {2} + p _ {2} V _ {2}.
+$$
+
+![](images/page_234_image_4.jpg)
+
+Bild 20.2 Schema des Joule-Thomson-Prozesses: gedrosselte (isenthalpe) Entspannung eines realen Gases
+
+Bei dem Prozess bleibt also die Enthalpie (17.26) $H = U + p V$ konstant. Für die dabei auftretende Temperaturänderung liefert die Rechnung auf der Grundlage von (20.1) und (20.5)
+
+$$
+\Delta T \approx \frac {\Delta p}{C _ {\mathrm{mp}}} \left(\frac {2 a}{R T} - b\right) \quad \begin{array}{l} (\text {Temperaturänderung beim} \\ \text {JOULE - THOMSON - Prozess}). \end{array} \tag {20.6}
+$$
+
+Demnach kühlt sich das Gas bei Entspannung $( \Delta p < 0 )$ nur dann ab, wenn $2 a / ( R T ) > b$ bzw.
+
+$$
+T <   T _ {\mathrm{i}} = \frac {2 a}{R b} \quad (\text {Abkühlungsbedingung}) \tag {20.7}
+$$
+
+ist, anderenfalls erwärmt es sich. $T _ { \mathrm { i } }$ wird Inversionstemperatur genannt; sie ist druckabhängig. Luft (mit $T _ { \mathrm { i } } \approx 4 9 0   \mathrm { K }$ unter Normdruck), ebenso Sauerstoff und Stickstoff können bereits bei Zimmertemperatur durch gedrosselte Entspannung abgekühlt und verflüssigt werden. Bei Wasserstoff und den Edelgasen liegen wegen der geringen zwischenmolekularen Kräfte (und damit der kleinen Werte für $a )$ die Inversionstemperaturen sehr niedrig. Wasserstoff $( T _ { \mathrm { i } } \approx 2 0 0   \mathrm { K } )$ muss daher zwecks Verflüssigung zunächst mit flüssigem Stickstoff, Helium $( T _ { \mathrm { i } } \approx 4 0   \mathrm { K } )$ mit flüssigem Wasserstoff unter die Inversionstemperatur vorgekühlt werden. Zwischen der Inversionstemperatur und der kritischen Temperatur $T _ { \mathbf { k } }$ (vgl. 20.1) besteht nach (20.4) und (20.7) für ein VAN-DER-WAALS-Gas der theoretische Zusammenhang $T _ { \mathrm { i } } = 6 , 7 5   T _ { \mathrm { k } }$
+
+**LINDE-Verfahren.** Erstmals wurde der JOULE-THOMSON-Effekt 1895 von LINDE zur Luftverflüssigung genutzt. Dabei wird die Luft durch Entspannung über ein Drosselventil von 20MPa auf 2MPa um etwa 45K abgekühlt. Die abgekühlte Luft wird im Gegenstrom zurückgeleitet, dient dabei zunächst zur Vorkühlung komprimierter Luft und wird anschließend abermals dem Kompressor zugeführt. Fortsetzung dieses Kreislaufs führt schließlich zur Verflüssigung.
+
+**Erzeugung tiefer Temperaturen.** Temperaturen bis etwa $- 7 0   ^ { \circ } \mathbf { C }$ lassen sich mit Kältemischungen, bestehend aus einer Flüssigkeit (Wasser, Alkohol) und einer darin löslichen festen Substanz (Eis, Salze, feste Kohlensäure) erzeugen. Dabei wird die bei der Auflösung verbrauchte Lösungswärme (s. 20.5) ausgenutzt. Für größere Kälteleistungen werden Kompressionsmaschinen, die nach dem umgekehrten CLAUSIUS-RANKINE-Prozess (vgl. Bild 19.3c) arbeiten, verwendet. Das Arbeitsmittel (Ammoniak,
+
+Freon o. ä.) wird unter Arbeitsaufwand komprimiert und dabei verflüssigt, wobei die Kondensationswärme an die Umgebung (Raumluft, Kühlflüssigkeit) abgegeben wird. Das flüssige Kühlmittel gelangt dann in den Kühlraum, wo es infolge Entspannung verdampft. Die Verdampfungswärme wird dem Kühlgut entzogen. Temperaturen unter $- 1 0 0   ^ { \circ } \mathrm { C }$ erhält man durch Kühlung mit verflüssigten Gasen. Mit flüssigem $\mathrm { ^ { 4 } H e }$ lassen sich Temperaturen bis 4,2K (Siedepunkt bei Normdruck), durch Abpumpen des verdampften Heliums über der Flüssigkeit Temperaturen bis $_ { 0 , 7 \mathrm { K } }$ erzielen. Tiefste Temperaturen bis $1 0 ^ { - 3 }$ K und darunter erreicht man mittels der sog. adiabatischen Entmagnetisierung eines vorher in Kontakt mit einem Heliumbad magnetisierten paramagnetischen Salzes.
+
+## Beispiel 20.2:
+
+Die Temperaturänderung von 0,05mol Kohlendioxid mit $a = 3 6 5 \mathrm { k P a m ^ { 6 } / k m o l ^ { 2 } }$ und $C _ { \mathrm { m } V } =$ 27,83J/(mol · K) bei der adiabatischen Expansion ins Vakuum auf das 100-fache seines Anfangsvolumens $V_{1}=30cm^{3}(,CO_{2}-Patrone)$ ist zu berechnen.
+
+Lösung: Da sich bei diesem Vorgang wegen d $Q = 0$ und d $W = 0$ die innere Energie des Gases nicht ändert $( \mathbf { d } U = 0 )$ , folgt aus Gleichung (20.5) $n C _ { \mathrm { m } V } \mathbf { d } T = - ( n ^ { 2 } a / V ^ { 2 } )$ dV und nach Integration
+
+$$
+\Delta T = - \frac {n a}{C _ {\mathrm{m} V}} \int_ {V _ {1}} ^ {V _ {2}} \frac {\mathrm{d} V}{V ^ {2}} = \frac {n a}{C _ {\mathrm{m} V}} \left(\frac {1}{V _ {2}} - \frac {1}{V _ {1}}\right) \approx - \frac {n a}{C _ {\mathrm{m} V} V _ {1}} \quad \text {f ü r} \quad V _ {2} \gg V _ {1}.
+$$
+
+Mit den angegebenen Werten erhält man eine Abkühlung um $\Delta T = - 2 1 { , } 9 \mathrm { K } .$
+
+![](images/page_235_image_8.jpg)
+
+## Aufgabe
+
+**20.2** Ermittle unter Verwendung der kritischen Daten (Tabelle 20.1) den JOULE-THOMSON-Koeffizienten $\mu _ { \mathrm { J T } } = \mathbf { d } T / \mathbf { d } p \approx \Delta T / \Delta p$ nach Gleichung (20.6) für Sauerstoffgas bei $2 0   ^ { \circ } \mathbf { C } !$ $C_{mp}=29,2J/( mol  \cdot  K )$
+
+## 20.3 Gleichgewicht zwischen flüssiger und gasförmiger Phase. Sieden und Verdunsten
+
+Ebenso wie bei der oben besprochenen Verflüssigung eines Gases sprechen wir auch bei dem umgekehrten Vorgang der Verdampfung von einer **Phasenumwandlung**. Darunter versteht man allgemein nicht nur die Umwandlung der drei Aggregatzustände fest, flüssig und gasförmig ineinander, sondern auch Übergänge eines Festkörpers in verschiedene Modifikationen, die sich etwa durch ihre Kristallstruktur unterscheiden (Polymorphismus). Daher wird in der Thermodynamik der allgemeinere Begriff der **Phase** verwendet, mit der man einen chemisch und physikalisch homogenen Zustand eines Stoffes bezeichnet. Bei Systemen mit nur einem Stoff, einer **Komponente**, unterscheiden wir eine gasförmige, eine flüssige und gegebenenfalls mehrere feste Phasen.
+
+Allen hier betrachteten Phasenumwandlungen ist gemeinsam, dass sie mit einer **Umwand lungswärme** (latente Wärme oder Wärmetönung) verbunden sind, ohne dass eine Temperaturänderung auftritt. Um eine Flüssigkeit am Siedepunkt in Dampf zu überführen, muss Verdampfungswärme zugeführt werden (vgl. Bild 20.3). Sie dient dazu, die Bindung der Moleküle aufzubrechen und die Entropiedifferenz zwischen flüssiger und gasförmiger Phase zu überwinden. Beim umgekehrten Prozess der Verflüssigung muss eine Kondensationswärme vom selben Betrag entzogen werden. Analog dazu wird beim Phasenübergang fest/flüssig eine Schmelzwärme benötigt, beim umgekehrten Prozess wird eine gleich große Erstarrungswärme abgegeben. Beim direkten Übergang vom festen in den gasförmigen Aggregatzustand (Sublimation) muss die Sublimationswärme zugeführt werden; sie ist gleich der Summe von Schmelz- und Verdampfungswärme. Erfolgen die Phasenumwandlungen bei konstantem Druck, dann sind die Umwandlungswärmen (die auch bei Veränderungen von Kristallmodifikationen in der festen Phase auftreten) durch die Differenz der Enthalpien der beiden Phasen gegeben; man spricht daher in diesem Falle auch von **Umwandlungsenthalpien**.
+
+![](images/page_236_chart_3.jpg)
+
+<details>
+<summary>line</summary>
+
+| Parameter | Value |
+| --- | --- |
+| Temperature \(({}^{\circ}C)\) | 1013.25 |
+| Pressure (hPa) | const |
+| Siedetemperatur | 100 |
+| Kondensationswärme (kJ/kg) | 2256 |
+| Erstarrungswärme (kJ/kg) | 333.7 |
+| Schmelztemperatur | 0 |
+</details>
+
+Bild 20.3 Abkühlungskurve von 1 kg Wasser unter Normdruck in Abhängigkeit von der abgeführten Wärmemenge Q (bzw. von der Zeit): Die sog. Haltepunkte der Kurve (ϑ = const) kennzeichnen jeweils eine Phasenumwandlung; die unterschiedlichen Anstiege entsprechen unterschiedlichen spezifischen Wärmekapazitäten der Aggregatzustände.
+
+Wir betrachten jetzt den Übergang aus dem flüssigen in den gasförmigen Zustand, die Ver dampfung, etwas genauer. Bringt man in einen evakuierten Raum, z. B. in den luftleeren Raum über der Quecksilbersäule einer TORRICELLIschen Röhre (Bild 20.4a), eine geringe Menge einer Flüssigkeit, z. B. Wasser, so verdampft diese zum Teil, und der Stand der Quecksilbersäule fällt; es stellt sich im Verdampfungsraum ein Gleichgewicht zwischen Flüssigkeit und Gasphase ein. Wir sprechen jetzt nicht mehr von einem Gas, sondern von einem gesättigten Dampf, und der Dampfdruck, der sich über der Flüssigkeit einstellt, heißt **Sättigungsdruck** oder auch **Dampfspannung**. Er kann aus dem Abfall der Quecksilbersäule gegenüber ihrem Stand beim Vakuum ermittelt werden.
+
+Der Sättigungsdruck ist (vorausgesetzt, dass noch Flüssigkeit neben dem Dampf vorhanden ist) völlig unabhängig vom Volumen des Dampfraumes. Wird das Volumen vergrößert, so wird neuer Dampf gebildet (Bild 20.4b), wird es verkleinert, kondensiert eine entsprechende Menge Dampf. Es stellt sich also stets von selbst Sättigung ein. Wird der Raum mit dem gesättigten Dampf und der Flüssigkeit erwärmt, so verdampft zusätzlich Flüssigkeit, und der Sättigungsdruck steigt; bei Abkühlung fällt er wieder ab, indem Dampf kondensiert.
+
+![](images/page_237_image_2.jpg)
+
+Bild 20.4 a) Dampfdruck verschiedener Flüssigkeiten; b) Unabhängigkeit des Sättigungsdruckes vom Volumen bei gleicher Flüssigkeit
+
+**Der Sättigungsdruck eines Dampfes hängt nur von der Temperatur, nicht hingegen vom Volumen des Dampfraumes ab. Gleichgewicht zwischen einer Flüssigkeit und ihrem Dampf existiert also nur bei zusammengehörigen Werten von Druck und Temperatur.**
+
+Dies ist der Grund, weshalb die Isothermen eines realen Gases im Koexistenzgebiet (im $p , V -$ Diagramm von Bild 20.1 zwischen E und A) unter konstantem Druck, dem Sättigungsdruck $p _ { \mathrm { D } }$ , verlaufen.
+
+Neben dem Dampf- oder Sättigungsdruck $p _ { \mathrm { D } }$ ist das **Phasengleichgewicht** zwischen Dampf und Flüssigkeit durch gleichfalls vom Volumen unabhängige und für eine gegebene Temperatur charakteristische Molvolumina $V _ { \mathrm { m D } }$ und $V _ { \mathrm { m H } }$ von Dampf- bzw. Flüssigkeitsphase festgelegt. Diese oder die ihnen entsprechenden **spezifischen Volumina** $\nu _ { \mathrm { D } } = V _ { \mathrm { m D } } / M = V _ { \mathrm { D } } / m _ { \mathrm { D } }$ und $\nu _ { \mathrm { F l } } = V _ { \mathrm { m F l } } / M = V _ { \mathrm { F l } } / m _ { \mathrm { F l } }$ (M Molmasse) bzw. **Sättigungsdichten** $1 / v _ { \mathrm { D } }$ und $1 / v _ { \mathrm { H } }$ können für technische Zwecke zusammen mit dem zugehörigen Dampfdruck $p _ { \mathrm { D } }$ (und den kalorischen Zustandsgrößen innere Energie $U ,$ Enthalpie H und Entropie S) so genannten **Dampftabellen** entnommen werden. Tabelle 20.2 enthält eine Auswahl der Zustandsgrößen $p _ { \mathrm { D } } , v _ { \mathrm { F I } }$ und $\nu _ { \mathrm { D } }$ für Wasser und gesättigten Wasserdampf.
+
+Der Zusammenhang zwischen dem Sättigungsdruck und der Temperatur wird durch die **Dampfdruckkurve** (Sättigungskurve) beschrieben (Bild 20.5). Zu ihrer Berechnung werde mit einem Mol verdampfender Flüssigkeit als Arbeitsstoff ein CARNOT-Prozess durchlaufen (Bild 20.6). Die Substanz wird zunächst bei der Temperatur $( T + \mathbf { d } T )$ und beim Sättigungsdruck $( p _ { \mathrm { D } } +  { \mathbf { d } } p _ { \mathrm { D } } )$ unter Zufuhr der molaren Verdampfungswärme $r _ { \mathrm { m } }$ verdampft (Abschnitt AB) und anschließend bei der Temperatur T und dem Sättigungsdruck $p _ { \mathrm { D } }$ wieder kondensiert (Abschnitt C D). Die Abschnitte BC und D A sollten Adiabaten sein. Ihr Verlauf beeinflusst jedoch die Größe der verrichteten Arbeit $\mathbf { d } W = ( V _ { \mathrm { m D } } - V _ { \mathrm { m F l } } )   \mathbf { d } p _ { \mathrm { D } }$ praktisch nicht, da beide Isothermen infinitesimal nahe beieinander liegen. Da der Wirkungsgrad des CAR-NOT-Prozesses vom Arbeitsstoff und somit vom Aggregatzustand unabhängig ist, muss nach (19.5) und (19.6) gelten
+
+$$
+\eta_ {\mathrm{C}} = \frac {(V _ {\mathrm{mD}} - V _ {\mathrm{mFl}}) \mathrm{d} p _ {\mathrm{D}}}{r _ {\mathrm{m}}} = 1 - \frac {T}{T + \mathrm{d} T} \approx \frac {\mathrm{d} T}{T}, \tag {20.8}
+$$
+
+woraus für den Anstieg der Dampfdruckkurve in Bild 20.5 folgt
+
+$$
+\frac {\mathrm{d} p _ {\mathrm{D}}}{\mathrm{d} T} = \frac {r _ {\mathrm{m}}}{(V _ {\mathrm{mD}} - V _ {\mathrm{mFl}}) T} \quad (\text {CLAUSIUS - CLAPEYRONsche Gleichung}). \tag {20.9}
+$$
+
+Da das Molvolumen des Dampfes $V _ { \mathrm { m D } }$ stets größer ist als das der Flüssigkeit $V _ { \mathrm { m H } } ,$ , ist der Anstieg der Dampfdruckkurve positiv, d. h., der Dampfdruck steigt mit der Temperatur an. Vernachlässigt man das relativ geringe Molvolumen der Flüssigkeit gegen das des Dampfes sowie die Temperaturabhängigkeit der Verdampfungswärme $r _ { \mathrm { m } } ,$ dann folgt, wenn der gesättigte Dampf näherungsweise als ideales Gas angesehen wird, mit der Zustandsgleichung $V _ { \mathrm { m D } } = R T / p _ { \mathrm { D } }$ aus (20.9)
+
+Tabelle 20.2 Dampftabelle für Wasser: Dampfdruck $p _ { \mathrm { D } }$ und spezifische Volumina von Wasser (<sup>v</sup>Fl) und gesättigtem Wasserdampf (v<sub>D</sub>) für verschiedene Temperaturen
+
+| $\frac{\vartheta}{^{\circ}\mathrm{C}}$ | $\frac{p_{\mathrm{D}}}{\mathrm{kPa}}$ | $\frac{v_{\mathrm{FI}}}{\mathrm{dm}^{3}\mathrm{kg}^{-1}}$ | $\frac{v_{\mathrm{D}}}{\mathrm{m}^{3}\mathrm{kg}^{-1}}$ | $\frac{\vartheta}{^{\circ}\mathrm{C}}$ | $\frac{p_{\mathrm{D}}}{\mathrm{kPa}}$ | $\frac{v_{\mathrm{FI}}}{\mathrm{dm}^{3}\mathrm{kg}^{-1}}$ | $\frac{v_{\mathrm{D}}}{\mathrm{m}^{3}\mathrm{kg}^{-1}}$ |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 0 | 0,611 | 1,0002 | 206,3 | 70 | 31,16 | 1,0228 | 5,049 |
+| 5 | 0,872 | 1,0000 | 147,2 | 80 | 47,36 | 1,0290 | 3,410 |
+| 10 | 1,23 | 1,0004 | 106,4 | 90 | 70,11 | 1,0359 | 2,361 |
+| 15 | 1,70 | 1,0010 | 77,99 | 100 | 101,325 | 1,0435 | 1,673 |
+| 20 | 2,34 | 1,0018 | 57,84 | 120 | 198,5 | 1,0603 | 0,8914 |
+| 25 | 3,17 | 1,0030 | 43,41 | 140 | 361,4 | 1,0798 | 0,5084 |
+| 30 | 4,24 | 1,0044 | 32,93 | 160 | 618 | 1,1021 | 0,3068 |
+| 35 | 5,62 | 1,0061 | 25,25 | 180 | 1003 | 1,1275 | 0,1939 |
+| 40 | 7,37 | 1,0079 | 19,55 | 200 | 1555 | 1,1505 | 0,1273 |
+| 45 | 9,58 | 1,0099 | 15,28 | 250 | 3980 | 1,2512 | 0,05006 |
+| 50 | 12,33 | 1,0101 | 12,05 | 300 | 8590 | 1,4036 | 0,02163 |
+| 55 | 15,74 | 1,0145 | 9,584 | 350 | 16540 | 1,747 | 0,008803 |
+| 60 | 19,92 | 1,0171 | 7,682 | 374,2 | 22110 | 3,14 | 0,00314 |
+
+![](images/page_238_chart_4.jpg)
+
+<details>
+<summary>line</summary>
+
+| T | PD (MPa) |
+| --- | --- |
+| ~250 | ~3.8 |
+| 304.2 | 7.38 |
+</details>
+
+Bild 20.5 Verlauf der Dampfdruckkurve (Sättigungskurve) für Kohlendioxid $( \mathsf { C O } _ { 2 } )$ Sie ergibt sich aus dem p, V -Diagramm Bild 20.1, indem die Dampfdruckwerte $p _ { \mathrm { D } }$ über der Temperatur $T$ der zugehörigen Isothermen abgetragen werden.
+
+![](images/page_238_chart_6.jpg)
+
+<details>
+<summary>line</summary>
+
+| Point | Description |
+| --- | --- |
+| A | Initial state at pD + dpD |
+| B | Intermediate state at pD |
+| C | Final state at pD |
+| D | End of phase transition |
+| T | Duration of the cycle |
+| T+dT | Total duration of the cycle |
+</details>
+
+Bild 20.6 Carnot-Prozess mit einer verdampfenden Flüssigkeit als Arbeitsstoff
+
+$$
+\frac {\mathrm{d} p _ {\mathrm{D}}}{\mathrm{d} T} = \frac {p _ {\mathrm{D}} r _ {\mathrm{m}}}{R T ^ {2}}, \quad \frac {\mathrm{d} p _ {\mathrm{D}}}{p _ {\mathrm{D}}} = \frac {r _ {\mathrm{m}}}{R} \frac {\mathrm{d} T}{T ^ {2}}
+$$
+
+und nach Integration
+
+$$
+\ln p _ {\mathrm{D}} = - \frac {r _ {\mathrm{m}}}{R T} + C \quad \text {bzw.} \quad p _ {\mathrm{D}} \sim \mathrm{e} ^ {- \frac {r _ {\mathrm{m}}}{R T}}. \tag {20.10}
+$$
+
+In diesem Ergebnis spiegelt sich das BOLTZMANNsche Verteilungsgesetz (18.16) wider, was auf die kinetische Natur des Phasengleichgewichts zwischen Flüssigkeit und Dampf hindeutet. Dies ist das wesentliche Glied der Dampfdruckkurve, die sich für viele Stoffe befriedigend durch eine Gleichung der Form
+
+$$
+\log p _ {\mathrm{D}} = - \frac {a}{T} - b \log T + c \quad (a, b, c \text {Konstanten})
+$$
+
+darstellen lässt. Sie endet zu großen Temperaturen hin im kritischen Punkt K (vgl. 20.1).
+
+**Sieden und Verdunsten.** Eine Flüssigkeit siedet, wenn ihr Dampfdruck gleich dem auf der Flüssigkeit lastenden Druck eines anderen Gases (z. B. der atmosphärischen Luft) wird. Dann tritt Dampfentwicklung nicht nur an der Oberfläche ein, sondern es bilden sich Dampfblasen auch im Flüssigkeitsinnern.
+
+## Die Siedetemperatur (der Siedepunkt) ist diejenige Temperatur einer Flüssigkeit, bei der der Sättigungsdruck ihres Dampfes gleich dem Druck über der Flüssigkeit ist.
+
+Die Druckabhängigkeit des Siedepunktes ist der Dampfdruckkurve (Bild 20.5) zu entnehmen. Der Siedepunkt sinkt bei Druckabnahme; so z. B. siedet Wasser in 3000m Höhe schon bei $\mathbf { 9 0 }   ^ { \circ } \mathbf { C } ,$
+
+Ist der Sättigungsdruck kleiner als der Außendruck, verdampft die Flüssigkeit nur durch ihre freie Oberfläche und entsprechend langsamer. Falls dieser Vorgang in der freien Atmosphäre erfolgt (offenes Gefäß), nennt man ihn Verdunstung. Der gebildete Dampf wird im Luftstrom ständig weggeführt, so dass die Einstellung des Phasengleichgewichts verhindert wird und große Flüssigkeitsmengen verdunsten können (Wasserkreislauf der Natur). Die dazu notwendige Verdampfungswärme wird der Flüssigkeit entzogen, die sich demzufolge abkühlt (z. B. Verdunstung von Äther auf der Haut, Wasserverdunstung in Kühltürmen).
+
+## Beispiele 20.3:
+
+1. In einem Dampfkessel von $V = 5   \mathrm { m } ^ { 3 }$ befinden sich $m = 3000   kg$ Wasser und gesättigter Dampf bei $3 0 0   ^ { \circ } \mathbf { C } .$ . Berechne die Dampfmasse $m _ { \mathrm { D } } !$
+
+Lösung: Mit den Teilvolumina $V _ { \mathrm { F l } } = m _ { \mathrm { F l } } \nu _ { \mathrm { F l } }$ und $V _ { \mathrm { D } } = m _ { \mathrm { D } } v _ { \mathrm { D } }$ von Wasser bzw. Dampf gilt $V =$ $V _ { \mathrm { F l } }   +   V _ { \mathrm { D } } = m _ { \mathrm { F l } } \nu _ { \mathrm { F l } }   +   m _ { \mathrm { D } } \nu _ { \mathrm { D } }$ . Eliminiert man daraus die Flüssigkeitsmasse $m _ { \mathrm { { F l } } }$ mit Hilfe der ebenfalls geltenden Beziehung $m = m _ { \mathrm { F l } }   + m _ { \mathrm { D } }$ , so erhält man für die Dampfmasse den Ausdruck
+
+$$
+m _ {\mathrm{D}} = \frac {V - m v _ {\mathrm{Fl}}}{v _ {\mathrm{D}} - v _ {\mathrm{Fl}}} \tag {20.11}
+$$
+
+und mit den Werten für $\nu _ { \mathrm { { F l } } }$ und $\nu _ { \mathrm { D } }$ bei $3 0 0   ^ { \circ } \mathbf { C }$ aus Tabelle 20.2: $m _ { \mathrm { D } } = 3 9 { , } 0   \mathrm { k g }$
+
+2. Bis unter welchen Druck muss ein Rezipient evakuiert werden, damit eine darin enthaltene Wassermenge $(r_{\mathrm{m}}=40680\mathrm{J/mol})$ bei $2 0   ^ { \circ } \mathbf { C }$ zu sieden beginnt?
+
+Lösung: Nach der CLAUSIUS-CLAPEYRONschen Gleichung in der integrierten Form (20.10) gilt für das Verhältnis der Dampfdrücke $p _ { \mathrm { D 1 } }$ und $p _ { \mathrm { D } 2 }$ bei zwei verschiedenen Temperaturen $T _ { 1 }$ und $T _ { 2 }$ :
+
+$$
+\frac {p _ {\mathrm{D1}}}{p _ {\mathrm{D2}}} = \mathrm{e} ^ {- \frac {r _ {\mathrm{m}}}{R} \left(\frac {1}{T _ {1}} - \frac {1}{T _ {2}}\right)}.
+$$
+
+Mit dem Siedepunkt unter Normbedingungen als Vergleichszustand, d. h. $p _ { \mathrm { D 2 } } = 1 0 1 3 , 2 5 \mathrm { h P a }$ und $T _ { 2 } = 3 7 3 , 1 5 \mathrm { K } ,$ ergibt sich mit $T _ { 1 } = 2 9 3 { , } 1 5 \mathrm { K }$ und $R = 8 . 3 1 4 \mathrm { J } / ( \mathrm { m o l } \cdot \mathrm { K } )$ ein erforderliches Vakuum von $p_{\mathrm{D1}} = 0,0279   p_{\mathrm{D2}} = 28,3\mathrm{hPa} = 28,3\mathrm{mbar}$ □
+
+## Aufgaben
+
+**20.3** Kann man durch Ablesen des Manometerdrucks feststellen, wie viel Flüssiggas noch in einer Druckflasche enthalten ist?
+**20.4** Welche Wärmemenge Q ist dem Dampfkessel in Beispiel 20.3/1 zuzuführen, wenn bei gleich bleibendem Druck $\Delta m _ { \mathrm { D } }   { = }   1 0 0 0$ kg Dampf entnommen werden? (Spezifische Verdampfungsenthalpie $r = 1403    kJ/kg.$
+**20.5** Bei welcher Temperatur siedet Wasser auf dem $h = 8 8 4 8   \mathrm { m }$ hohen Mount Everest? – Anleitung: Berechne zunächst den Luftdruck p in der Höhe h nach der barometrischen Höhenformel (14.9) mit $p _ { 0 } = 1 0 1 3 , 2 5 \mathrm { h P a }$ und $\varrho_{0}=1,293\mathrm{kg/m^{3}}$
+
+## 20.4 Gleichgewicht zwischen fester und flüssiger Phase. Koexistenz dreier Phasen
+
+Jeder feste Körper, der sich durch Erwärmen in den flüssigen Zustand überführen lässt, schmilzt bei einer ganz bestimmten Temperatur, der Schmelztemperatur (Schmelzpunkt). Die Versuche zeigen, dass sich die Schmelztemperatur ändert, wenn sich der Druck ändert. Zu einem bestimmten Druck gehört eine feste Schmelztemperatur und umgekehrt.
+
+## Die feste und die flüssige Phase eines Stoffes können nur bei den zusammengehörigen Werten von Schmelzdruck und Schmelztemperatur im Gleichgewicht sein.
+
+Stellt man den Schmelzdruck $p _ { S }$ als Funktion der Temperatur dar, so erhält man die Schmelz**druckkurve** (Kurve b bzw. b’ in Bild 20.7). Ihr Anstieg ist analog zu dem der Dampfdruckkurve durch die Gleichung von CLAUSIUS-CLAPEYRON (20.9)
+
+$$
+\frac {\mathrm{d} p _ {\mathrm{S}}}{\mathrm{d} T} = \frac {s _ {\mathrm{m}}}{(V _ {\mathrm{mFl}} - V _ {\mathrm{mF}}) T} \tag {20.12}
+$$
+
+gegeben, wobei $s _ { \mathrm { m } }$ die molare Schmelzwärme, T die Schmelztemperatur und $V _ { \mathrm { m H } }$ und $V _ { \mathrm { m F } }$ die molaren Volumina von Flüssigkeit und Festkörper sind. Da die Volumenänderung beim Schmelzen bzw. Erstarren wesentlich geringer als bei der Verdampfung ist, verlaufen die Schmelzdruckkurven steiler als die Dampfdruckkurven. Im Allgemeinen ist $V _ { \mathrm { m F l } } > V _ { \mathrm { m F } }$ , d. h., die Dichte sinkt beim Schmelzen; der Anstieg der Schmelzdruckkurve ist positiv, der Schmelzdruck steigt also mit der Temperatur. Eine Ausnahme bildet z. B. Eis. Wasser hat bei $4   ^ { \circ } \mathbf { C }$ seine größte Dichte (Anomalie des Wassers, vgl. 16.2). Der Anstieg der Schmelzdruckkurve (20.12) ist hier wegen $V _ { \mathrm { m F l } } < V _ { \mathrm { m F } }$ negativ, d. h., die Schmelztemperatur sinkt mit steigendem Druck (Regelation des Eises). Beim Eislaufen wird davon Gebrauch gemacht: Das Eis schmilzt unter dem vom Körpergewicht erzeugten Druck. Der Wasserfilm erstarrt wieder, nachdem der Schlittschuh auf ihm abgeglitten ist. Auf demselben Effekt beruht auch die Beweglichkeit von Gletschern.
+
+**Sublimieren.** Unter geeigneten Drücken gehen die festen Körper bei Wärmezufuhr nicht in den flüssigen, sondern unmittelbar in den gasförmigen Zustand über, sie sublimieren. Unter normalen Bedingungen können wir diesen Vorgang z. B. am Kohlensäureschnee (Trockeneis) beobachten. Dieser entsteht, wenn man Kohlendioxid aus einer Druckgasflasche ausströmen lässt. Er hat eine Temperatur von $- 7 8   ^ { \circ } \mathbf { C }$ und behält diese bei, bis er vollständig sublimiert ist. Die dabei verbrauchte Wärmemenge heißt Sublimationswärme. Die Temperaturabhängigkeit des Sublimationsdruckes wird durch die Sublimationskurve beschrieben.
+
+**Das p,T -Diagramm (Zustandsdiagramm) eines Stoffes.** Man erhält einen vollständigen Überblick über das Verhalten eines chemisch einheitlichen Stoffes in seinen drei Aggregatzuständen, wenn man in einem p,T -Diagramm den Dampfdruck, den Schmelzdruck und den Sublimationsdruck als Funktion der Temperatur aufträgt. Bild 20.7 zeigt schematisch ein solches Zustandsdiagramm. Die drei Zweige a, b und c trennen drei Gebiete voneinander, in denen nur die feste oder nur die flüssige oder nur die gasförmige Phase existieren kann. In diesen Gebieten können $p$ und T innerhalb gewisser Grenzen beliebig gewählt werden. Man sagt, der Zustand hat zwei Freiheitsgrade. Sollen aber zwei Phasen nebeneinander existieren, so wird der Zustand durch einen Punkt auf einem der drei Zweige beschrieben, so dass jetzt nur noch eine Zustandsgröße frei wählbar ist; wir haben also nur noch einen Freiheitsgrad. Der sog. **Tripelpunkt**, in dem alle drei Zweige zusammenlaufen, gibt an, bei welchem Druck und welcher Temperatur alle drei Phasen nebeneinander vorhanden sein können; in diesem Zustand gibt es überhaupt keinen Freiheitsgrad des Systems mehr.
+
+![](images/page_241_chart_4.jpg)
+
+<details>
+<summary>line</summary>
+
+| Point | Pressure (p) | Temperature (T) |
+| --- | --- | --- |
+| c | p2 | Tsu |
+| b | — | TSm |
+| a | p1 | TSi |
+| K | p1 | N/A |
+</details>
+
+Bild 20.7 Zustandsdiagramm (schematisch): a) Dampfdruckkurve (Bild 20.5), b) Schmelzkurve, c) Sublimationskurve, ${ \bf b } ^ { \prime }$ anomaler Verlauf der Schmelzkurve von Eis, $T _ { \mathrm { S m } }$ Schmelztemperatur und $T _ { \mathrm { S i } }$ Siedetemperatur beim Druck $p _ { 1 }$ . Bei einem Druck $p _ { 2 }$ unterhalb des Tripelpunktes kann sich (bei der Sublimationstemperatur $T _ { \mathrm { S u } } )$ nur ein Gleichgewicht zwischen fester und gasförmiger Phase einstellen.
+
+## Der Zustand, in dem feste, flüssige und gasförmige Phase miteinander im Gleichgewicht stehen, heißt Tripelpunkt.
+
+Tripelpunkte sind als Fundamentalpunkte der Temperaturskala besonders geeignet, da sie im Gegensatz zum Schmelz- und Siedepunkt druckunabhängig sind. Zur Definition der Temperatureinheit wird der Tripelpunkt von reinem Wasser benutzt, der bei $T = 2 7 3 { , } 1 6 \mathrm { K }$ (also um 0,01K über dem Eispunkt bei Normdruck) und $p = 6 1 0 \mathrm { P a }$ liegt (vgl. 16.1). Die Werte für den Tripelpunkt von Kohlendioxid $\mathrm { ( C O _ { 2 } ) }$ betragen $T = 2 1 6 { , } 8 \mathrm { K }$ und $p = 5 1 1 \mathrm { k P a }$
+
+Allgemein gilt bei Systemen mit mehreren chemisch unabhängigen Bestandteilen (Komponenten $K )$ , bei denen die Anzahl der Phasen $P$ größer sein kann als die Anzahl der Aggregatzustände, für die Zahl der Freiheitsgrade
+
+$$
+f = K + 2 - P \quad (\text {GIBBSsche Phasenregel}). \tag {20.13}
+$$
+
+Bei einem reinen Stoff (einkomponentiges System, z. B. Wasser) ist $K = 1$ , also $f = 3 - P$ . Für die Koexistenz dreier Phasen $( P = 3 )$ ist dann die Zahl der Freiheitsgrade $f = 0$ (Tripelpunkt); für $P = 2$ wird $f = 1$ , d. h., es kann entweder über den Druck oder die Temperatur willkürlich verfügt werden; für $P = 1$ können wegen $f = 2$ Druck und Temperatur frei gewählt werden.
+
+Bei mehreren festen Aggregatzuständen, z. B. Hochdruckmodifikationen von Eis oder Schwefel, sind mehrere Tripelpunkte im Bereich der festen Phasen vorhanden.
+
+Bei **Metallen**, Legierungen und deren Schmelzen ist der Einfluss des Druckes praktisch unerheblich, so dass die Zahl der Freiheitsgrade um 1 reduziert werden kann; es gilt somit anstelle von Gleichung (20.13):
+
+$$
+f = K + 1 - P \quad (\text {GIBBSsche Phasenregel bei Metallen}). \tag {20.14}
+$$
+
+Betrachtet man beispielsweise ein Einstoffsystem, d. h. ein reines metallisches Element $( K = 1 )$ im schmelzflüssigen Zustand (flüssige Phase, $P = 1 )$ , so ist $f = 1$ . Es besteht somit 1 Freiheitsgrad oder 1 Veränderungsmöglichkeit, und man kann durch Änderung der Temperatur diesen flüssigen Zustand in weiten Grenzen erhalten. Bei der Schmelztemperatur dagegen liegen zwei Phasen (Schmelze und Kristalle, $P = 2 )$ vor; hier ist $f = 0$ und somit keine Veränderungsmöglichkeit gegeben; denn eine Temperaturänderung würde entweder in den vollständig flüssigen oder in den vollständig festen Zustand führen (die Erstarrung verläuft bei konstanter Temperatur).
+
+In einem metallischen Zweistoffsystem (Legierung aus zwei metallischen Elementen, $K = 2 )$ treten im Gebiet zwischen der Liquidustemperatur und der Solidustemperatur, d. h. im Temperaturintervall zwischen Beginn und Ende der Erstarrung, zwei Phasen auf (Schmelze und Kristalle, $P = 2 )$ ; d. h., es ist $f = 1$ , und man kann somit die Temperatur innerhalb dieses Erstarrungsintervalls beliebig ändern, ohne dass eine andere Phase auftritt. Lediglich bei der eutektischen Zusammensetzung der Schmelze aus beiden Komponenten liegen die Verhältnisse anders: Die Schmelze erstarrt bei der eutektischen Temperatur, bei der Liquidus- und Solidustemperatur zusammenfallen, also ohne Erstarrungsintervall, wie ein reiner Stoff als Ganzes zum zweiphasigen (feinkörnigen) Gefügezustand, dem sog. Eutektikum der Legierung, wo drei Phasen (Schmelze und aus zwei Kristallarten bestehendes Eutektikum) im Gleichgewicht sind: $f = 2 + 1 - 3 = 0 .$
+
+Umgekehrt lässt sich für jedes Legierungssystem die Höchstzahl der möglichen Phasen ange ben, wenn $f = 0$ gesetzt wird. In einem Einstoffsystem sind also höchstens 2 Phasen, in einem Zweistoffsystem höchstens 3 Phasen und in einem Dreistoffsystem höchstens 4 Phasen existent, und zwar jeweils nur bei null Freiheitsgraden, d. h. in einem Punkt, wo Liquidus- und Solidustemperatur identisch sind. Treten in einem Zwei- oder Mehrstoffsystem chemische (metallische) Verbindungen auf, werden diese wie Komponenten behandelt.
+
+## Beispiel 20.4:
+
+Wie viel Phasen können bei einem Zweistoffsystem (z. B. Wasser/Salz) maximal nebeneinander existieren?
+
+Lösung: Die Anzahl der koexistierenden Phasen nach (20.13) $P = K   +   2   -   f$ wird maximal, wenn die Zahl der Freiheitsgrade $f = 0$ beträgt; für $K = 2$ gilt somit $P _ { \mathrm { m a x } } = K + 2 = 4$ . In einem Zweistoffsystem können also maximal vier Phasen im Quadrupelpunkt koexistieren (im Falle des Systems Wasser/Salz die Phasen Salz, Eis, wässrige Salzlösung und Dampf). □
+
+## Aufgabe
+
+**20.6** a) Warum muss man, um flüssiges Kohlendioxid herzustellen und aufzubewahren, mindestens einen Druck von 511kPa ausüben? b) Warum entsteht Kohlensäureschnee, wenn Kohlendioxid aus einer Druckgasflasche ausströmt?
+
+## 20.5 Lösungen. Siedepunktserhöhung, Gefrierpunktserniedrigung
+
+Lösungen sind Gemische aus zwei oder mehreren festen, flüssigen oder gasförmigen Substanzen, von denen die mit dem überwiegenden Mengenanteil als Lösungsmittel und die übrigen als gelöste Stoffe bezeichnet werden. Die Phase eines Zweistoffsystems (binäres System), bestehend aus zwei Komponenten (z. B. Salz oder Gas in Flüssigkeit), hat nach der Phasenregel (20.13) drei Freiheitsgrade; zu den bekannten Freiheitsgraden Druck und Temperatur einkomponentiger Systeme kommt hier die **Konzentration** hinzu. Gebräuchliche Konzentrationsmaße sind der Stoffmengenanteil oder Molenbruch $x _ { \mathrm { A } } = n _ { \mathrm { A } } / n$ und $x _ { \mathrm { B } } = n _ { \mathrm { B } } / n = 1 - x _ { \mathrm { A } }$ der Komponenten A und B mit $n = n _ { \mathrm { A } } + n _ { \mathrm { B } }$ als Stoffmenge der Lösung, und die molare Konzentration oder Molarität $c = n _ { \mathrm { B } } / V$ , die die Stoffmenge des gelösten Stoffes B je Volumeneinheit der Lösung angibt.
+
+Beim Auflösen eines kristallin-festen oder gasförmigen Stoffes in einem flüssigen Lösungsmit tel wird **Lösungswärme** (bei konstantem Druck **Lösungsenthalpie**) verbraucht (z. B. bei festen Salzen in Wasser) oder frei (z. B. bei Gasen in Flüssigkeit). Zwei Stoffe sind gewöhnlich nur begrenzt ineinander löslich. Die **Sättigungskonzentration** (auch als Löslichkeit eines Stoffes be zeichnet) wird erreicht, wenn in einer Lösung – ähnlich wie bei einem gesättigtem Dampf (vgl. 20.3) – ein Gleichgewicht zwischen der Lösung und der ungelöst bleibenden Substanzmenge (Bodenkörper oder Gasatmosphäre) eintritt.
+
+Ist in einer Flüssigkeit (A) eine nichtflüchtige Substanz (B) gelöst (z. B. Salz in Wasser), so ist der Dampfdruck der Lösung stets kleiner als der Dampfdruck des reinen Lösungsmittels. Für eine schwache oder verdünnte Lösung mit $x _ { \mathrm { B } } = n _ { \mathrm { B } } / ( n _ { \mathrm { A } } + n _ { \mathrm { B } } ) \ll 1$ ist die relative Dampfdruckerniedrigung – unabhängig von der chemischen Zusammensetzung – gleich dem Molenbruch x<sub>B</sub> des gelösten Stoffes:
+
+$$
+\frac {\Delta p _ {\mathrm{D}}}{p _ {\mathrm{D}}} = - x _ {\mathrm{B}} = - \frac {n _ {\mathrm{B}}}{n _ {\mathrm{A}} + n _ {\mathrm{B}}} \quad \begin{array}{l} (\text {RAOULTsches Gesetz der} \\ \text {Dampfdruckerniedrigung}). \end{array} \tag {20.15}
+$$
+
+Eine qualitative Erklärung findet dieses Gesetz durch das folgende
+
+**Prinzip von LE CHATELIER (Prinzip des kleinsten Zwangs): Wird auf ein im Gleichgewicht befindliches System durch Änderung einer Zustandsvariablen ein Zwang ausgeübt, so ändern sich die anderen Zustandsvariablen von selbst so, dass sie den Zwang zu vermindern suchen.**
+
+Wird also das Gleichgewicht der Lösung durch Erhöhung der Salzkonzentration gestört, so sucht das System diesem Zwang auszuweichen, indem Prozesse ausgelöst werden, die mit einer Herabsetzung der Konzentration verbunden sind: Der Dampfdruck muss sich erniedrigen, damit ein Teil des Dampfes in Flüssigkeit kondensiert.
+
+Eine direkte Folge der Dampfdruckerniedrigung ist, da der Umgebungsdruck unbeeinflusst bleibt, eine **Siedepunktserhöhung** der Lösung im Vergleich zum reinen Lösungsmittel (vgl. 20.3). Ihr Betrag ∆T ergibt sich durch Kombination der Gleichung (20.15) mit der CLAUSIUS-CLAPEYRONschen Gleichung (9) in der Form $\Delta p _ { \mathrm { D } } / p _ { \mathrm { D } } = r _ { \mathrm { m } } \Delta T / ( R T ^ { 2 } )$ zu
+
+$$
+\Delta T = x _ {\mathrm{B}} \frac {R T ^ {2}}{r _ {\mathrm{m}}} \quad (\text {RAOULTsches Gesetz der Siedepunktserhöhung}). \tag {20.16}
+$$
+
+Die Siedepunktserhöhung ist ebenfalls dem Molenbruch des gelösten Stoffes proportional, wobei die Proportionalitätskonstante $R T ^ { 2 } / r _ { \mathrm { m } }$ nur von den Eigenschaften des Lösungsmittels abhängt. Gleichung (20.16) beschreibt auch die **Gefrierpunktserniedrigung** einer Lösung infolge Konzentrationserhöhung, wobei dann anstelle von $r _ { \mathrm { m } }$ die molare Schmelzwärme $s _ { \mathrm { m } }$ des Lösungsmittels (vgl. 20.4) zu setzen ist.
+
+**Der osmotische Druck.** Der Partialdruck (vgl. 18.6), den die Moleküle des gelösten Stoffes in einer Lösung ausüben, tritt als Drucküberschuss oder osmotischer Druck der Lösung gegenüber dem reinen Lösungsmittel in Erscheinung, wenn die Lösung durch eine nur für die Moleküle des Lösungsmittels durchlässige Membran (semipermeable Wand) vom Lösungsmittel getrennt ist. Da in einer verdünnten Lösung die Moleküle der gelösten Substanz wie Moleküle eines idealen Gases oder Dampfes behandelt werden können, ergibt sich mit der Zustandsgleichung (16.20) der osmotische Druck zu
+
+$$
+\Pi = \frac {n _ {\mathrm{B}}}{V} R T = c R T \quad (\text {VAN'T HOFFsches Gesetz des osmotischen Drucks}). \tag {20.17}
+$$
+
+Darin sind $n _ { \mathrm { B } }$ die Stoffmenge der gelösten Substanz, V das Volumen und $c = n _ { \mathrm { B } } / V$ die molare Konzentration der Lösung. Die Moleküle des Lösungsmittels diffundieren als Folge eines selbsttätigen Durchmischungsprozesses (vgl. 19.5) durch die nur für sie durchlässige semipermeable Wand und verdünnen die Lösung so lange, bis der osmotische Druck (20.17) gleich einem äußeren Druck (z. B. dem Schweredruck der Lösung) ist. Dieser Vorgang der **Osmose** ist ein wichtiger Transportmechanismus zwischen den Zellen pflanzlicher Gewebe, der die Aufnahme von Wasser durch die Zellwände hindurch bewirkt.
+
+## Beispiel 20.5:
+
+Berechne die in 1 Liter Wasser zu lösende Menge Glycerin $( \mathrm { C } _ { 3 } \mathrm { H } _ { 5 } ( \mathrm { O H } ) _ { 3 } )$ , damit dieses erst bei $- 5   ^ { \circ } \mathbf { C }$ erstarrt! Molare Schmelzwärme des Wassers $s_{\mathrm{m}}=6007\mathrm{J/mol}$
+
+Lösung: Mit $T = 2 7 3   \mathrm { K }$ und $\Delta T = 5   \mathrm { K }$ folgt aus $( 2 0 . 1 6 ) x _ { \mathrm { B } } = 0 { , } 0 4 8 5$ . Mit den Molmassen $M _ { \mathrm { A } } =$ 18g/mol für Wasser und $M _ { \mathrm { B } } = 9 2$ g/mol für Glycerin ergibt sich aus $n _ { \mathrm { A } } = m _ { \mathrm { A } } / M _ { \mathrm { A } } ,   n _ { \mathrm { B } } = m _ { \mathrm { B } } / M _ { \mathrm { B } }$ und (20.15) $n _ { \mathrm { B } } = ( n _ { \mathrm { A } }   +   n _ { \mathrm { B } } )$ xB für $m _ { \mathrm { A } } = 1 0 0 0   \mathrm { g }$ Wasser: $m _ { \mathrm { B } } = 2 6 0 , 5   \mathrm { g }$ Glycerin. □
+
+## Aufgaben
+
+**20.7** Begründe mit Hilfe des LE-CHATELIERschen Prinzips, warum die Löslichkeit eines Stoffes bei Temperaturerhöhung zunimmt/abnimmt, sofern beim Lösungsvorgang Wärme verbraucht/frei wird!
+**20.8** Berechne den osmotischen Druck von 200ml wässriger Zuckerlösung mit einem Zuckergehalt von $m = 5   \mathrm { g }$ bei $2 0   ^ { \circ } \mathbf { C } !$ Molmasse von Zucker $M = 3 4 2   \mathrm { g / m o l }$
+
+## 21.1 Wärmeleitung
+
+Befinden sich zwei Stellen eines Körpers auf unterschiedlichen Temperaturen, so wird sich nach dem II. Hauptsatz der vorhandene Temperaturunterschied im Laufe der Zeit ausgleichen, indem eine bestimmte Wärmemenge Q von der wärmeren zur kälteren Stelle übergeht. Diese Erscheinung bezeichnet man als Wärmeleitung.
+
+**Wärmeleitung ist ein durch Temperaturunterschiede hervorgerufener Energietransport.**
+
+![](images/page_245_image_5.jpg)
+
+Bild 21.1 Wärmeleitung a) durch eine einschichtige, b) durch eine zweischichtige Wand; c) zu- und abfließender Wärmestrom für eine differenziell dünne Schicht
+
+Betrachten wir die stationäre (d. h. zeitlich konstant erfolgende) Wärmeleitung durch eine ebene Wand der Fläche A und der Dicke l (Bild 21.1a), so ist die übertragene Wärmeenergie Q direkt proportional der Temperaturdifferenz $\Delta T = T _ { 1 } - T _ { 2 }$ , der Wandfläche A und der Zeit t, aber indirekt proportional der Wanddicke l:
+
+$$
+Q = \lambda \frac {A t \Delta T}{l}. \tag {21.1}
+$$
+
+Der Proportionalitätsfaktor λ heißt **Wärmeleitfähigkeit** (Einheit: $1 \mathrm { W } / ( \mathrm { m } \cdot \mathrm { K } )$ und ist eine Stoffkonstante. Hieraus ergibt sich analog zum Massenstrom (15.2)
+
+$$
+\Phi = \frac {\mathrm{d} Q}{\mathrm{d} t} \equiv \dot {Q} = \lambda \frac {A \Delta T}{l} \quad (\text {Warmestrom}). \tag {21.2}
+$$
+
+Einheit: [Φ] = 1J/s = 1W.
+
+Damit wird die **Wärmestromdichte**
+
+$$
+j _ {\mathrm{W}} = \frac {\mathrm{d} \varPhi}{\mathrm{d} A} = \lambda \frac {\Delta T}{l}; \quad \text {Einheit:} \quad [ j _ {\mathrm{W}} ] = 1 \mathrm{W/m} ^ {2}. \tag {21.3}
+$$
+
+Analog dem elektrischen Widerstand (25.8) bezeichnet man den Ausdruck
+
+$$
+R _ {\lambda} = \frac {1}{\lambda} \frac {l}{A}, \quad \text {Einheit:} \quad [ R _ {\lambda} ] = 1 \mathrm{K/W}, \tag {21.4}
+$$
+
+als **Wärmeleitwiderstand**. Damit folgt nun für den Wärmestrom aus (21.2) die dem OHMschen Gesetz der Elektrizitätslehre entsprechende Beziehung
+
+$$
+\Phi = \frac {\Delta T}{R _ {\lambda}} \quad \text {oder} \quad \Delta T = R _ {\lambda} \Phi . \tag {21.5}
+$$
+
+Für eine zweischichtige Wand (Bild 21.1b) addieren sich die Wärmeleitwiderstände (21.4) der einzelnen Schichten, und man erhält für den effektiven Wärmestrom
+
+$$
+\Phi = A \frac {T _ {1} - T _ {3}}{\frac {l _ {1}}{\lambda_ {1}} + \frac {l _ {2}}{\lambda_ {2}}}. \tag {21.6}
+$$
+
+Ist das Temperaturgefälle nicht – wie in Bild 21.1a, b – linear, sondern in x-Richtung veränderlich, so lautet das Wärmeleitungsgesetz (21.3)
+
+$$
+j _ {\mathrm{W}} = - \lambda \frac {\mathrm{d} T}{\mathrm{d} x} \quad \text {oder} \quad \boldsymbol {j} _ {\mathrm{W}} = - \lambda \operatorname{grad} T \quad \begin{array}{l} (\text {FOURIERSches} \\ \text {Wärmeleitungsgesetz}). \end{array} \tag {21.7}
+$$
+
+dT /dx (bzw. $\Delta T / l$ in Gleichung (21.3)) nennt man den Temperaturgradienten. Das negative Vorzeichen drückt aus, dass mit zunehmendem Wärmeweg $x \; ( \mathbf { d } x > 0 )$ die Temperatur $T$ abnimmt (d $( T < 0 )$
+
+Der gesamte, einem Körper zu- und von ihm abfließende Wärmestrom ergibt sich aus (21.2) und (21.3), wenn man über die gesamte Körperoberfläche $A _ { 0 }$ integriert. Dieser muss gleich der zeitlichen Änderung der Wärmeenergie des betreffenden Körpers mit der Masse m und der spezifischen Wärmekapazität c sein. Folglich gilt
+
+$$
+\dot {Q} = \oint_ {A _ {0}} \boldsymbol {j} _ {\mathrm{W}} \cdot \mathrm{d} \boldsymbol {A} = c m \frac {\mathrm{d} T}{\mathrm{d} t} \quad (\text {Bilanzgleichung für Wärmeströme}). \tag {21.8}
+$$
+
+Diese Gleichung drückt den Satz von der Erhaltung der Wärmeenergie aus und kann als Kontinuitätsgleichung für Wärmeströme angesehen werden. Für einen nur in x-Richtung fließenden Wärmestrom (Bild 21.1c) durch eine differenziell dünne Schicht der Masse dm $= \varrho A$ dx (ϱ Dichte) nimmt die Bilanzgleichung (21.8) die Form an:
+
+$$
+c \varrho A \mathrm{d} x \frac {\mathrm{d} T}{\mathrm{d} t} = [ j _ {\mathrm{W}} - (j _ {\mathrm{W}} + \mathrm{d} j _ {\mathrm{W}}) ] A \quad \text {oder} \quad \frac {\mathrm{d} T}{\mathrm{d} t} = - \frac {1}{c \varrho} \frac {\mathrm{d} j _ {\mathrm{W}}}{\mathrm{d} x}.
+$$
+
+Setzen wir für $j _ { \mathrm { W } }$ den FOURIERschen Ausdruck (21.7) ein und schreiben – da T sowohl vom Ort als auch von der Zeit abhängt – anstelle des Differenzialzeichens (d) das Symbol ∂ für die sog. partielle Ableitung, so erhalten wir die partielle Differenzialgleichung
+
+$$
+\frac {\partial T}{\partial t} = \frac {\lambda}{c \varrho} \frac {\partial^ {2} T}{\partial x ^ {2}} \quad (\text {eindimensionale Wärmeleitungsgleichung}). \tag {21.9}
+$$
+
+Der Quotient $\lambda / ( c \varrho ) = a$ wird als **Temperaturleitfähigkeit** bezeichnet (Einheit: $1 \mathrm { m } ^ { 2 } / \mathrm { s } )$ . Die Lösungen von Gleichung (21.9) beschreiben die Wärmeausbreitung in Form des örtlich und zeitlich veränderlichen Temperaturfeldes $T = T ( x ,   t )$
+
+Ersetzt man in Gleichung (21.9) t durch −t, so wechselt die linke Seite der Gleichung ihr Vorzeichen, sie ist also gegenüber einer Zeitumkehr-Transformation nicht invariant. Folglich beschreibt sie Vorgänge, die nicht umkehrbar, also in Übereinstimmung mit der Aussage des II. Hauptsatzes irreversibel sind (vgl. Abschnitt 19.4).
+
+Im **stationären** Fall sind die Temperaturunterschiede zeitlich konstant, d. h., es ist $\partial T / \partial t =$ 0. Dies bedeutet nach Gleichung (21.8), dass zu- und abgeführter Wärmestrom gleich groß und durch die Beziehung (21.2) gegeben sind. Es wird also stets genauso viel Wärme ab- wie zugeführt (Fließgleichgewicht).
+
+Als ein wichtiges Beispiel für einen **instationären** Vorgang ist in Bild 21.2 die Lösung der Wärmeleitungsgleichung (21.9)
+
+$$
+T (x, t) = T _ {0} + (T _ {1} - T _ {0}) \sqrt {\frac {t _ {0}}{t}} \mathrm{e} ^ {- \frac {x ^ {2}}{4 a t}} \quad \text {mit} \quad a = \frac {\lambda}{c \varrho} \tag {21.10}
+$$
+
+für die Ausbreitung einer anfänglich punktförmigen Wärmequelle in einem unendlich langen, dünnen Stab dargestellt (z. B. Lötstelle oder Schweißnaht).
+
+![](images/page_247_chart_7.jpg)
+
+<details>
+<summary>contour</summary>
+
+| Time Interval | Peak Height (T) |
+| --- | --- |
+| T(x, t0) | ~1.0 |
+| T(x, t1 > t0) | ~0.6 |
+| T(x, t2 > t1) | ~0.4 |
+| T(x, t3 > t2) | ~0.3 |
+</details>
+
+Bild 21.2 Orts- und zeitabhängiger Temperaturverlauf eines an einer eng begrenzten Stelle bei $x = 0$ kurzzeitig auf $T _ { 1 }$ erwärmten langen dünnen Stabes der Temperatur $T _ { 0 }$ beschrieben durch die sich als Lösung der Wärmeleitungsgleichung (21.9) ergebende Gauss-Funktion (21.10)
+
+Die Wärmeleitfähigkeit fester Körper wird durch zwei verschiedene Mechanismen verursacht. Zum einen führt die thermische Energie zu kollektiven Schwingungen der Gitterbausteine (Gitterschwingungen), die als **Phononen** bezeichnet werden und die bei ihrer Bewegung durch einen Kristall Wärmeenergie mit sich führen. Die von diesem Prozess herrührende Phononen-Wärmeleitfähigkeit $\lambda _ { \mathrm { p } }$ ist von Störungen des Kristallgitters abhängig, die die Phononenausbreitung behindern. Zum anderen sind die im Festkörper vorhandenen beweglichen Ladungsträger (meist Elektronen) zugleich Träger thermischer Energie. Die darauf beruhende elektronische Wärmeleitfähigkeit $\lambda _ { \mathbf { e } }$ ist daher bei den Metallen mit der elektrischen Leitfähigkeit κ durch das WIEDEMANN-FRANZsche Gesetz
+
+$$
+\frac {\lambda_ {\mathrm{e}}}{\varkappa} = \mathrm{const} \cdot T
+$$
+
+verbunden (vgl. 26.1). Es gilt $\lambda = \lambda _ { \mathrm { e } } + \lambda _ { \mathrm { p } }$
+
+Die Dominanz der elektronischen Komponente der Wärmeleitfähigkeit führt bei Metallen zu großen λ-Werten, während in Halbleitern und Isolatoren wegen der geringen Ladungsträgerkonzentration die Wärmeleitung im Wesentlichen durch Phononen vermittelt wird. Noch geringer sind die Wärmeleitfähigkeiten von zusammengesetzten Stoffen, wie z. B. Holz, von Flüssigkeiten (außer Quecksilber!) und Gasen (vgl. Tabelle 21.1).
+
+Tabelle 21.1 Wärmeleitfähigkeit einiger Stoffe bei 300 K in $J/(s \mathrm{~m} \mathrm{~K}) = W/(m \mathrm{~K})$
+
+<table><tr><td colspan="2">Wärmeleiter</td><td colspan="2">Wärmeisolatoren</td><td colspan="2">Flüssigkeiten</td><td colspan="2">Gase</td></tr><tr><td>Aluminium</td><td>230</td><td>Glas</td><td>1,0 ... 1,2</td><td>Ethanol</td><td>0,17</td><td>Helium</td><td>0,144</td></tr><tr><td>Kupfer</td><td>380</td><td>Glaswolle</td><td>0,04 ... 0,05</td><td>Benzol</td><td>0,17</td><td>Kohlendioxid</td><td>0,014</td></tr><tr><td>Messing</td><td>110</td><td>Holz</td><td>0,14 ... 0,20</td><td>Glycerin</td><td>0,29</td><td>Luft</td><td>0,023</td></tr><tr><td>Silber</td><td>420</td><td>Polystyrol</td><td>0,15 ... 0,17</td><td>Quecksilber</td><td>8,37</td><td>Wasserstoff</td><td>0,173</td></tr><tr><td>Stahl</td><td>55</td><td>Ziegelstein</td><td>0,4 ... 0,6</td><td>Wasser</td><td>0,59</td><td>Vakuum</td><td>0</td></tr></table>
+
+## Beispiele 21.1:
+
+1. Welche Temperatur $T _ { 2 }$ hat die Grenzfläche innerhalb der zweischichtigen Wand von Bild 21.1b bei gegebenen Außentemperaturen $T _ { 1 }$ und $T _ { 3 }$ und stationärer Wärmeleitung?
+
+Lösung: Durch Gleichsetzen von zu- und abgeführtem Wärmestrom nach Gleichung (21.2), $\phi _ { \mathrm { z u } } = \lambda _ { 1 } ( T _ { 1 } - T _ { 2 } ) / l _ { 1 } = \phi _ { \mathrm { a b } } = \lambda _ { 2 } ( T _ { 2 } - T _ { 3 } ) / l _ { 2 }$ , ergibt sich nach Umstellung
+
+$$
+T _ {2} = \frac {\Lambda_ {1} T _ {1} + \Lambda_ {2} T _ {3}}{\Lambda_ {1} + \Lambda_ {2}} \quad \text {mit} \quad \Lambda_ {1} = \frac {\lambda_ {1}}{l _ {1}} \quad \text {und} \quad \Lambda_ {2} = \frac {\lambda_ {2}}{l _ {2}}.
+$$
+
+2. Ein kugelförmiger Behälter vom Radius $R = 1 { , } 5$ m empfängt durch Sonneneinstrahlung den Wärmestrom $\dot { Q } = 6 W ,$ der im stationären Zustand durch Wärmeleitung vollständig an die ihn umgebende Luft (Wärmeleitfähigkeit $\lambda = 0 , 0 2 5 \mathrm { W } / ( \mathrm { m } \cdot \mathrm { K } )$ abgeführt wird. Welche Oberflä- chentemperatur erreicht der Behälter, wenn die Lufttemperatur weit weg vom Behälter $2 0   ^ { \circ } \mathbf { C }$ beträgt? Wie groß ist die Lufttemperatur in 4m Entfernung von der Behälteroberfläche?
+
+Lösung: Der durch eine konzentrische Kugelfläche $A = 4 \pi r ^ { 2 }$ um den Behälter abfließende Wärmestrom ist für beliebige Radien $r \geq R$ gleich groß und beträgt $j _ { \mathrm { W } } A = j _ { \mathrm { W } } 4 \pi r ^ { 2 } = \dot { Q }$ . Für die Wärmestromdichte $j _ { \mathrm { W } }$ beim Radius r gilt das FOURIERsche Wärmeleitungsgesetz (21.7) $j _ { \mathrm { W } } = - \lambda \mathrm { d } T / \mathrm { d } r$ , womit man erhält:
+
+$$
+- 4 \pi r ^ {2} \lambda \frac {\mathrm{d} T}{\mathrm{d} r} = \dot {Q} \quad \text {oder} \quad \mathrm{d} T = - \frac {\dot {Q}}{4 \pi \lambda r ^ {2}} \mathrm{d} r.
+$$
+
+Mit $T = T ( r )$ beim Radius r und $T = T _ { \infty } = 2 9 3 , 1 5 \mathrm { K }$ für $r \to \infty$ erhält man durch Integration
+
+$$
+\int_ {T (r)} ^ {T _ {\infty}} \mathrm{d} T = - \frac {\dot {Q}}{4 \pi \lambda} \int_ {r} ^ {\infty} \frac {\mathrm{d} r}{r ^ {2}} \quad \text {bzw.} \quad T (r) = T _ {\infty} + \frac {\dot {Q}}{4 \pi \lambda r}.
+$$
+
+Die Temperatur an der Behälteroberfläche beträgt somit $T ( R ) = T _ { \infty } + { \dot { Q } } / ( 4 \pi \lambda R ) = 3 0 5 { , } 8 8   \mathrm { K } ( =$ $^ { 3 2 , 7   ^ { \circ } \mathrm { C } ) }$ und in $r_{1}=4m+1,5m=5,5$ m Entfernung $T(r_{1}) = 296, 62  K ( = 23, 5 ^{\circ} C )$ □
+
+## 21.2 Wärmeübergang, Wärmedurchgang, Konvektion
+
+Unter **Wärmeübergang** versteht man die Übertragung von Wärmeenergie von einem festen Körper auf eine Flüssigkeit oder ein Gas bzw. in umgekehrter Richtung. An der Übergangsstelle tritt ein mehr oder weniger stark ausgeprägter Temperaturgradient auf (Bild 21.3a). Der Wärmestrom Φ ist der Größe der Begrenzungsfläche A und der zwischen beiden Medien herrschenden Temperaturdifferenz $\Delta T = T _ { 1 } - T _ { 2 }$ proportional; es gilt
+
+$$
+\Phi = \alpha A \Delta T \quad (\alpha \text {Wärmeübergangskoeffizient, Einheit:} 1 \mathrm{W} / (\mathrm{m} ^ {2} \cdot \mathrm{K}). \tag {21.11}
+$$
+
+α hängt von der Oberflächenbeschaffenheit (Rauigkeit) der Wand und der Bewegung der Flüssigkeiten bzw. Gase ab.
+
+![](images/page_249_image_3.jpg)
+
+Bild 21.3 a) Wärmeübergang, b) Wärmedurchgang
+
+**Wärmedurchgang.** Sind Gase oder Flüssigkeiten durch eine feste Wand getrennt (Bild 21.3b), so findet zunächst ein Wärmeübergang vom Gas (von der Flüssigkeit) auf die Wand, danach Wärmeleitung in der Wand und anschließend wieder Wärmeübergang an das andere Gas (die andere Flüssigkeit) statt. Für den resultierenden Wärmestrom gilt wie bei Gleichung (21.11)
+
+$$
+\Phi = k A \Delta T \quad (k \text {Wärmedurchgangskoeffizient,} E i n h e i t: 1 \mathrm{W} / (\mathrm{m} ^ {2} \cdot \mathrm{K}). \tag {21.12}
+$$
+
+Entsprechend den drei Teilprozessen erhält man für eine ebene Wand der Dicke l aus der Addition der Wärmewiderstände
+
+$$
+\frac {1}{k} = \frac {1}{\alpha_ {1}} + \frac {1}{\alpha_ {2}} + \frac {l}{\lambda}. \tag {21.13}
+$$
+
+**Konvektion (Wärmemitführung).** Diese tritt bei Flüssigkeiten und Gasen auf und beruht auf der Entstehung von Dichteunterschieden infolge ungleichmäßiger Erwärmung, wodurch es zur Ausbildung einer Flüssigkeits- oder Gasströmung kommt (freie Konvektion). Dabei führen die Moleküle des strömenden Mediums thermische Energie mit sich. So z. B. steigt erwärmte Luft infolge des Auftriebs nach oben, statt ihrer sinkt kältere zu Boden usw. Konvektive Wärmeübertragung finden wir bei Wärmetauschern (Gegenstromprinzip), bei der Zentralheizung, bei meteorologischen Vorgängen u. a. Bei erzwungener Konvektion wird durch äußere Kräfte (Umwälzpumpe, Ventilator) eine Zwangsströmung erzeugt. Da der Temperaturausgleich bei Konvektion bedeutend schneller vonstatten geht als bei Wärmeleitung, sind Maßnahmen der Wärmedämmung häufig mit der Verhinderung von Konvektion verbunden (z. B. Doppelfenster, Schaumstoffe u. a.). Bei Glasgefäßen mit Vakuummantel (Thermosbehälter, DEWAR-Gefäß) wird Konvektion und Wärmeleitung vermieden.
+
+Eine weitere Form der Wärmeübertragung, die sich vom Wesen her grundlegend von den hier besprochenen Erscheinungen des Wärmetransports unterscheidet, ist die **Wärmestrahlung**. Sie wird erst in Abschnitt 42.1 behandelt.
+
+## Beispiel 21.2:
+
+Berechne die Zeit, in der sich ein Behälter von $A = 1 { , } 5 \mathrm { m } ^ { 2 }$ Oberfläche und $V = 0 , 3   \mathrm { m } ^ { 3 }$ Wasserinhalt, spezifische Wärmekapazität $c = 4.19    kJ/(kg \cdot  K)$ , von seiner Anfangsinnentemperatur $\vartheta _ { 1 } = 8 0   ^ { \circ } \mathrm { C }$ auf $\vartheta _ { 2 } = 5 0   ^ { \circ } \mathrm { C }$ abkühlt, wenn sein Wärmedurchgangskoeffizient $k = 1 0 W / ( m ^ { 2 } \cdot K )$ und die Außentemperatur $\vartheta _ { \mathsf { a } } = 2 0   ^ { \circ } \mathrm { C }$ beträgt.
+
+Lösung: Bei der momentanen Behältertemperatur ϑ besteht nach (21.8) und (21.12) zwischen der Abnahme der inneren Energie des Wassers und dem nach außen abfließenden Wärmestrom die Bilanzgleichung cm $( \mathbf { d } \vartheta / \mathbf { d } t ) = k A ( \vartheta _ { \mathrm { a } } - \vartheta )$ . Umgestellt nach dt und beidseitig integriert zwischen den Grenzen $\vartheta = \vartheta _ { 1 }$ zur Zeit $t = 0$ und $\vartheta = \vartheta _ { 2 }$ zur Zeit t, ergibt
+
+$$
+t = \frac {c m}{k A} \int_ {\vartheta_ {1}} ^ {\vartheta_ {2}} \frac {\mathrm{d} \vartheta}{\vartheta_ {\mathrm{a}} - \vartheta} = \frac {c m}{k A} \ln \frac {\vartheta_ {1} - \vartheta_ {\mathrm{a}}}{\vartheta_ {2} - \vartheta_ {\mathrm{a}}} = 1 6, 1 \mathrm{h}.
+$$
+
+## Aufgabe
+
+**21.1** Berechne den Wärmedurchgangskoeffizienten k einer $l = 3 8$ cm dicken Ziegelwand, deren Wärmeübergangskoeffizienten innen $\alpha _ { 1 } = 6 \mathrm { W } / ( \mathrm { m } ^ { 2 } \cdot \mathrm { K } )$ und außen $\alpha _ { 2 } = 1 8 W /$ $( \mathbf { m } ^ { 2 } \cdot \mathbf { K } )$ betragen und deren Wärmeleitfähigkeit den Wert $\lambda = 0 , 7 \mathrm { W } / ( \mathrm { m } \cdot \mathrm { K } )$ hat! Welche Heizleistung P ist bei einer Außentemperatur von $- 1 0   ^ { \circ } \mathbf { C }$ und einer Wandfläche von $5 0   \mathrm { m } ^ { 2 }$ erforderlich, um eine Zimmertemperatur von $2 0   ^ { \circ } \mathbf { C }$ aufrechtzuerhalten?
+
+## 21.3 Diffusion
+
+Zu den thermisch bedingten Transportphänomenen, wie der Wärmeleitung, gehört auch die Diffusion. Schichtet man ein leichteres Gas (oder eine Flüssigkeit) über ein schwereres (über eine schwerere Flüssigkeit), so durchmischen sich beide im Laufe der Zeit, indem die Molekü- le ineinander diffundieren (vgl. 19.5). Obwohl die Moleküle für sich regellos statistische Bewegungen (komplizierte Zickzackbahnen wie in Bild 18.1) ausführen, so tritt doch insgesamt ein Massenstrom in Richtung geringerer Dichte auf. Diese Diffusion findet auch statt, wenn die Konzentration $c = n / V =$ Stoffmenge/Volumen eines Gases, gemessen in $\mathrm { m o l } / \mathrm { m } ^ { 3 }$ , von Ort zu Ort verschieden ist.
+
+## Diffusion ist ein Massentransport, der Dichte- bzw. Konzentrationsunterschiede von Teilchen durch mikroskopische Bewegung derselben ausgleicht.
+
+Beträgt das Konzentrationsgefälle auf die Entfernung l (bzw. dx bei nichtlinearem Gefälle) gleich $( c _ { 1 } - c _ { 2 } ) / l = \Delta c / l$ bzw. dc/dx, so gilt im stationären Fall für den **Stoffmengenstrom** $I _ { n }$ das zum Wärmeleitungsgesetz (21.2) bzw. (21.7) analoge Gesetz
+
+$$
+I _ {n} = \frac {\mathrm{d} n}{\mathrm{d} t} = D \frac {A \Delta c}{l} \quad \text {bzw.} \quad I _ {n} = j _ {n} A; \quad \text {Einheit:} [ I _ {n} ] = 1 \mathrm{mol/s} \tag {21.14}
+$$
+
+mit der **Diffusionsstromdichte**
+
+$$
+j _ {n} = \frac {\mathrm{d} I _ {n}}{\mathrm{d} A} = - D \frac {\mathrm{d} c}{\mathrm{d} x}; \quad E i n h e i t: [ j _ {n} ] = 1 \mathrm{mol} / (\mathrm{m} ^ {2} \cdot \mathrm{s}) \tag {21.15}
+$$
+
+oder – analog zum Wärmeleitungsgesetz (21.7) – vektoriell
+
+$$
+\boldsymbol {j} _ {n} = - D \operatorname{grad} c \quad (\textbf {1 . F I C K S c h e s G e s e t z}). \tag {21.16}
+$$
+
+Der Proportionalitätsfaktor D heißt **Diffusionskoeffizient**. Dieser hat für Gase einen Wert von etwa $\bar { 1 0 ^ { - 5 } } \mathrm { m } ^ { 2 } / \mathrm { s }$ , für Flüssigkeiten von rund $1 0 ^ { - 1 0 }  { \mathrm { { m } } ^ { 2 } }$ /s und für Festkörper von ca. $1 0 ^ { - 2 0 }   \mathrm { m } ^ { 2 } / \mathrm { s } .$
+
+Für die im Allgemeinen orts- und zeitabhängige Konzentration $c = c ( x ,   t )$ gilt die zur Wärmeleitungsgleichung (21.9) analoge eindimensionale Diffusionsgleichung
+
+$$
+\frac {\partial c}{\partial t} = D \frac {\partial^ {2} c}{\partial x ^ {2}} \quad (2. \text {FICKsches Gesetz}). \tag {21.17}
+$$
+
+Dieses Gesetz folgt aus einer dem Massenerhaltungssatz entsprechenden Bilanzgleichung in Verbindung mit dem 1. FICKschen Gesetz (21.16). Im stationären Fall, d. h. für $\partial c / \partial t = 0$ , ist der Diffusionsstrom (21.14) und somit auch der Konzentrationsunterschied ∆c zeitlich konstant.
+
+Die Diffusionsgleichung (21.17) hat dieselben mathematischen Eigenschaften wie die Wärmeleitungsgleichung (21.9). Demzufolge beschreibt Bild 21.2 auch die örtliche und zeitliche Ausbreitung einer zum Zeitpunkt $t = t _ { 0 }$ bei $x = 0$ konzentrierten Teilchenwolke, wenn man T durch die Konzentration c und die Temperaturleitfähigkeit a durch den Diffusionskoeffizienten $D$ ersetzt. Für die mittlere Entfernung L, bis zu der sich die Teilchenwolke zum Zeitpunkt t durch Diffusion ausgebreitet hat, lässt sich hiernach aus Bild 21.2 sofort die wichtige Beziehung
+
+$$
+L = \sqrt {2 D t} \quad (\text {Diffusionsentfernung}) \tag {21.18}
+$$
+
+ablesen. Setzt man L gleich der Abmessung des Gebietes mit Konzentrationsunterschieden, so erhält man aus (21.18) die für den Konzentrationsausgleich charakteristische Ausgleichszeit.
+
+Befindet sich das Medium, in dem Diffusion stattfindet, nicht in Ruhe, sondern bewegt es sich mit der allen Teilchen gemeinsamen Driftgeschwindigkeit $\nu ,$ dann überlagert sich dem Diffusionsstrom (21.14) ein **Drift-** oder **Konvektionsstrom** $I _ { n \mathrm { K } } = c \nu A .$ Die gesamte Stromdichte ist dann
+
+$$
+j _ {n} = - D \frac {\mathrm{d} c}{\mathrm{d} x} + c v, \quad \text {vektoriell} \quad \boldsymbol {j} _ {n} = - D \operatorname{grad} c + c \boldsymbol {v}. \tag {21.19}
+$$
+
+Findet Diffusion unter dem Einfluss äußerer Kräfte statt, z. B. des Schwerefeldes oder eines elektrischen Feldes, dann gilt für die von der Kraft F auf ein Molekül hervorgerufene Driftoder Wanderungsgeschwindigkeit v in Gleichung (21.19) die Beziehung $\nu = \beta F$ . Die sog. Beweglichkeit $\beta$ der Teilchen ist mit dem Diffusionskoeffizienten D durch
+
+$$
+\beta = \frac {D}{k T} \quad \text {(EINSTEIN - Beziehung)} \tag {21.20}
+$$
+
+verknüpft (k BOLTZMANN-Konstante). Im stationären Zustand kompensieren sich Diffusionsund Driftstrom gerade, so dass sich eine aus der Bedingung $j _ { n } = - D ( { \bf d } c / { \bf d } x ) + c \nu = 0$ folgende stationäre Konzentrationsverteilung $c = c ( x )$ einstellt. Beispiele für einen solchen dynamischen Gleichgewichtszustand sind die Ladungsträgerkonzentration an einem pn-Übergang in Halbleitern (vgl. 46.4) und der Konzentrationsabfall in Gasen oder Lösungen im Schwerefeld (Sedimentation).
+
+Der Wert des Diffusionskoeffizienten D hängt nicht nur von der diffundierenden Komponente ab, sondern auch von der Temperatur sowie vom Stoff (der Matrix), in dem die Diffusion erfolgt. Der Diffusionskoeffizient von Gasen ist über die Beziehung $D = \varLambda \overline { { \nu } } / 3$ mit der mittleren freien Weglänge Λ gemäß der Gleichung (18.29) und der mittleren thermischen Geschwindigkeit $\overline { { \nu } }$ gemäß (18.19) der Gasmoleküle verknüpft. Diffusionsvorgänge in Festkörpern sind über die Beziehung
+
+$$
+D = D _ {0} \mathrm{e} ^ {- \frac {E}{k T}} \quad (\text {ARRHENIUS - Gleichung}) \tag {21.21}
+$$
+
+mit $D _ { 0 }$ als einer Konstanten und E als Aktivierungsenergie stark temperaturabhängig. Sie nehmen mit der Temperatur zu. So z. B. kann man eine Legierung durch Glühen homogenisieren. Auch bei Anlauf-, Oxidations- und Verzunderungsvorgängen spielt die Diffusion der Metallatome und ihrer Reaktionspartner eine dominierende Rolle. Einen großen Einfluss haben Diffusionserscheinungen beim Härten und Sintern, bei der Korrosion, Rekristallisation und anderen metallurgischen Prozessen. Von erheblicher Bedeutung sind Diffusionsprozesse auch in vielen anderen Bereichen der stoffwandelnden Industrie sowie bei der Isotopentrennung und bei der Dotierung von Halbleitern.
+
+## Beispiele 21.3:
+
+1. In einem Stahltank von $V = 0 ,   5   \mathrm { m } ^ { 3 }$ Fassungsvermögen, $A = 3   \mathrm { m } ^ { 2 }$ Oberfläche und $l = 2$ mm Wandstärke befindet sich Druckwasserstoff bei $2 5   ^ { \circ } \mathbf { C } .$ a) Wie groß ist der Stoffmengenstrom $I _ { n }$ von Wasserstoff durch die Tankwand infolge von Diffusion, wenn die Wasserstoffkonzentration an der inneren Oberfläche $c _ { 1 } = 1 , 5 \mathrm { k m o l } / \mathrm { m } ^ { 3 }$ , an der äußeren Oberfläche $c _ { 2 } = 0$ und der Diffusionskoeffizient $D = 0 , 3 \cdot 1 0 ^ { - 1 2 }   \mathrm { m } ^ { 2 } / \mathrm { s }$ beträgt? b) Man berechne den Mengenverlust von Wasserstoff und den damit verbundenen Druckabfall nach 24h unter der Voraussetzung, dass das Konzentrationsgefälle für diesen Zeitraum als konstant betrachtet werden kann!
+
+Lösung: a) Aus dem Konzentrationsgefälle auf die Entfernung $l , ( c _ { 1 } - c _ { 2 } ) / l = 7 5 0 \mathrm { k m o l } / \mathrm { m } ^ { 4 }$ , folgt für den Stoffmengenstrom nach dem 1. FICKschen Gesetz (21.14) $I _ { n } = 6 { , } 7 5 \cdot 1 0 ^ { - 1 0 }$ kmol/s.
+
+b) Der Mengenverlust nach $t = 24    h  = 86   400    s$ beträgt $\Delta n = I _ { n } t = 0 { , } 0 5 8 3$ mol. Mit der allgemeinen Zustandsgleichung (16.20) folgt für den damit verbundenen Druckabfall $\Delta p = \Delta n R T / V =$ 289Pa.
+
+2. Berechne die stationäre Konzentrationsverteilung von diffundierenden Teilchen im homogenen Schwerefeld!
+
+Lösung: Der durch die Schwerkraft $F = - \mu g$ (µ Molekülmasse) hervorgerufenen Sinkbewegung mit der Geschwindigkeit $\nu = \beta F = - \beta \mu g$ wirkt der durch das vertikale Konzentrationsgefälle bedingte Diffusionsstrom (21.15) entgegen. Im stationären Zustand gilt mit (21.19)
+
+$$
+j _ {n} = - D \frac {\mathrm{d} c}{\mathrm{d} x} - c \beta \mu g = 0 \quad \text {oder} \quad \frac {\mathrm{d} c}{c} = - \frac {\beta \mu g}{D} \mathrm{d} x.
+$$
+
+Beidseitig integriert zwischen den Grenzen $c = c _ { 0 }$ für $x = 0$ und c in der Höhe x ergibt
+
+$$
+\ln \frac {c}{c _ {0}} = - \frac {\beta \mu g}{D} x \quad \text {oder} \quad c = c _ {0} \mathrm{e} ^ {- \frac {\beta \mu g}{D} x}. \tag {21.22}
+$$
+
+Die Konzentration nimmt exponentiell mit der Höhe ab.
+
+## Aufgaben
+
+**21.2** Berechne die Strecke L, um die sich ein Molekül a) in einem Gas, b) in einer Flüssigkeit und c) in einem Festkörper durch Diffusion in 24h von seinem Ausgangsort entfernt! Verwende die auf Seite 244 unten angegebenen Werte der Diffusionskoeffizienten!
+
+**21.3** Leite durch Vergleich der Konzentrationsverteilung (21.22) im obigen Beispiel 21.3/2 mit der für ein ideales Gas aus der barometrischen Höhenformel (14.9) resultierenden Verteilung die EINSTEIN-Beziehung (21.20) $\beta = D / ( k T )$ zwischen Beweglichkeit $\beta$ und Diffusionskoeffizient D her!
+
+## Teil V
+
+## Felder
+
+## Gravitation. Elektrizität und Magnetismus
+
+Für die Übertragung einer Kraft von einem Körper auf den anderen ist erfahrungsgemäß ein unmittelbarer Kontakt nicht erforderlich, sondern es treten Kraftwirkungen zwischen Körpern auch dann auf, wenn diese voneinander getrennt sind und der zwischen ihnen befindliche Raum leer ist. Man denke an die Kräfte zwischen elektrisch geladenen oder magnetischen Körpern sowie an die Gravitationskräfte, welche die Sonne auf die Planeten über weite Entfernungen ausübt.
+
+NEWTON (1643–1727) und COULOMB (1736–1806) nahmen an, dass sich diese Kraftwirkungen mit unendlich großer Geschwindigkeit im Raum ausbreiten und den anderen Körper unmittelbar ohne zeitliche Verzögerung erfassen. Als später die Geschwindigkeit des Lichts gemessen wurde und gezeigt werden konnte, dass diese einen endlichen Betrag hat (RÖMER 1675; s. 39.2) und aufs engste mit den elektrischen Vorgängen zusammenhängt, konnte die These von einer solchen Fernwirkung der Kräfte nicht mehr aufrechterhalten werden.
+
+FARADAY (1791–1867) begründete daraufhin die heutige Auffassung von der Nahwirkung, wonach der Raum als solcher durch ein **„Feld“** verändert wird, das die Kraftwirkungen (auch im vollkommen leeren Raum) von einem Raumpunkt zum unmittelbaren Nachbarpunkt überträgt (s. u.).
+
+Die elektrostatischen Kräfte sind ungleich stärker als die Gravitationskräfte, was auf ihre unterschiedliche Natur hinweist. Es bestehen jedoch viele bemerkenswerte formale Analogien zwischen Gravitationsfeld und elektrischem Feld, weshalb diese beiden Felder hier in einem gemeinsamen Kapitel behandelt werden.
+
+## 22.1 Nahwirkungstheorie. Der Feldbegriff
+
+Die ursprüngliche Fernwirkungstheorie (s.o.), wonach sich Kraftwirkungen unendlich schnell im Raum ausbreiten, steht im Gegensatz zu allen experimentellen Erfahrungen und den Aussagen der speziellen Relativitätstheorie (s. 6.1), nach denen sich alle Arten von Wirkungen maximal mit Lichtgeschwindigkeit ausbreiten können. Es vergeht also in Wirklichkeit zwischen den Wechselwirkungen der beiden Körper stets eine endliche, von der gegenseitigen Entfernung abhängige Zeit.
+
+Diese Tatsache führt zu einer weiteren unlösbaren Schwierigkeit, die gegen eine Fernwirkungs theorie spricht: Eine Energie, die durch elektrische, magnetische oder durch Gravitationskräfte zwischen zwei entfernt gelegenen Körpern übertragen wird, wäre kurzzeitig, nämlich während der Laufzeit der betreffenden Kraftwirkung, überhaupt nicht vorhanden, was einer Verletzung des Energieerhaltungssatzes gleichkäme. FARADAY nahm daher an, dass es wirkliche Fernwirkungen nicht gibt, sondern dass durch die Anwesenheit eines Körpers der ihn umgebende Raum zum Träger physikalischer Eigenschaften wird. So gesehen werden die Kraftwirkungen auf einen Körper durch die örtlichen Veränderungen hervorgerufen, die der Raum infolge der Anwesenheit eines anderen Körpers erfährt. Die Kraftwirkungen werden also durch den Raum als solchen vermittelt (**Nahwirkungstheorie**). Die unmittelbare Fernwirkung zwischen zwei Körpern wird durch die Nahwirkung zwischen dem einen Körper und dem „Feld“ des anderen Körpers ersetzt.
+
+Diese Auffassung wird mathematisch dadurch zum Ausdruck gebracht, dass z. B. im Falle der allgemeinen Massenanziehung (Gravitation) die am Ort $\boldsymbol{r}(x,y,z)$ des Raumes wirkende Kraft F(r ) in der Form
+
+$$
+\boldsymbol {F} (\boldsymbol {r}) = m \boldsymbol {G} (\boldsymbol {r}) \tag {22.1}
+$$
+
+als Produkt aus zwei Faktoren geschrieben wird, von denen der eine, die Probemasse m, eine Eigenschaft des Objektes ist, auf das die Kraft wirkt, und der andere, G(r ), eine Eigenschaft des Raumes am Ort r der Kraftwirkung ist und das **Kraftfeld** beschreibt, das von einer anderen, entfernt gelegenen Masse hervorgerufen wird. Man nennt den Vektor G(r ) die **Feldstärke** (in diesem Falle die Gravitationsfeldstärke) am Ort r . Sie ist, wie aus (22.1) hervorgeht, zahlenmä- ßig gleich derjenigen Kraft, die auf eine Masse von der Größe der Masseneinheit am Ort r des Raumes wirkt.
+
+## Die Feldstärke eines Kraftfeldes an einem Ort, hervorgerufen durch eine entfernte Masse, ist gleich dem Quotienten aus der Feldkraft und der Probemasse.
+
+Analog zu (22.1) kann die Kraft auf eine punktförmige elektrische Ladung $q$ im Feld eines anderen elektrisch geladenen Körpers durch
+
+$$
+\boldsymbol {F} (\boldsymbol {r}) = q \boldsymbol {E} (\boldsymbol {r}) \tag {22.2}
+$$
+
+beschrieben werden. E(r ) ist der Vektor der elektrischen Feldstärke; er gibt nach Betrag und Richtung diejenige Kraft an, die auf die Ladungseinheit am Ort r des Feldes ausgeübt wird (vgl. 23.3). Im Unterschied zu den Gravitationskräften können wegen der Existenz von elektrischen Ladungen zweierlei Vorzeichens im elektrischen Feld sowohl Anziehungs- als auch Abstoßungskräfte auftreten.
+
+Folgendes Beispiel soll den Begriff der Nahwirkung verdeutlichen (vgl. Bild 22.4 auf Seite 260): Eine Gummimembran werde an einer Stelle eingedrückt; sie wird dadurch nicht nur am Ort des Kraftangriffs, sondern auch in größerer Entfernung davon verformt, wobei die hervorgerufenen Druck-, Zug- und Schubwirkungen des entstandenen elastischen Spannungsfeldes jedoch stets von einem Ort zum benachbarten übertragen werden. In gleicher Weise erzeugt die Anwesenheit einer Masse oder einer elektrischen Ladung eine Störung des Raumes derart, dass dadurch wie bei der Gummimembran die gesamte Umgebung beeinflusst wird.
+
+Angesichts dieses Sachverhaltes könnte man geneigt sein, auch das elektrische (und magne tische) Feld mechanisch zu interpretieren, d. h. analog zu dem beschriebenen elastomechanischen Modell der Gummimembran ein raumausfüllendes elastisches Medium, den so genannten **Äther**, als Überträger für die Kraftwirkungen anzunehmen. Alle experimentellen Erfahrungen lehren jedoch, dass es einen solchen Äther nicht gibt (vgl. 6.1). Also wird der Raum selbst durch die Anwesenheit des Feldes zum Träger und Überträger von Energie, womit die physikalische Bedeutung des Raumes weit über seine rein geometrische hinausgeht.
+
+![](images/page_255_image_5.jpg)
+
+Bild 22.1 Feldlinienbilder von Kraftfeldern: a) inhomogenes und b) homogenes Feld, c) Wirbelfeld. Die Feldlinien geben in allen Punkten die Richtung der wirkenden Kraft an.
+
+**Das Feldlinienbild.** Ein Kraftfeld lässt sich besonders anschaulich durch das Feldlinienbild beschreiben. Unter den Feldlinien oder Kraftlinien versteht man dabei jene Raumkurven, die so gelegt sind, dass ihre Tangentenrichtung in allen Raumpunkten P mit der Richtung des Feldvektors, d. h. mit der Kraftwirkungsrichtung, übereinstimmt (Bild 22.1a). Die Feldlinien werden so gezeichnet, dass die relative Feldliniendichte (Flussdichte), d. i. die Anzahl der durch eine im Raum angeordnete Fläche von bestimmter Größe senkrecht hindurchtretenden Feldlinien, ein Maß für die Feldstärke darstellt.
+
+## Je dichter die Feldlinien verlaufen, umso größer ist die Feldstärke.
+
+Im Allgemeinen ändert sich in einem Kraftfeld die Feldstärke von Ort zu Ort nach Größe und Richtung, wie dies in Bild 22.1a zum Ausdruck kommt. Ein solches Feld wird als inhomogen bezeichnet. In einem homogenen Feld ist der Feldvektor nach Größe und Richtung konstant, d. h., die Feldlinien verlaufen überall parallel und in gleichem Abstand voneinander (Bild 22.1b).
+
+Überall dort, wo Feldlinien beginnen bzw. enden, befinden sich Quellen bzw. Senken (negative Quellen) des Kraftfeldes. Sind Körper vorhanden, von denen Feldlinien ausgehen oder in die
