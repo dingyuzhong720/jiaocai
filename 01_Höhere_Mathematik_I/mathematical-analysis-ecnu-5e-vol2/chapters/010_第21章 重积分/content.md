@@ -1,0 +1,4210 @@
+# 第21章 重积分
+
+原始 PDF 第 206–266 页。
+
+## 第二十一章重积分
+
+## § 1 二重积分的概念
+
+## 一、平面图形的面积
+
+为了研究定义在平面图形(即平面点集)上函数的积分,我们首先讨论平面有界图形的面积问题.
+
+所谓一个平面图形 P 是有界的, 是指构成这个平面图形的点集是平面上的有界点集, 即存在一矩形 R, 使得  $P \subset R$ .
+
+设 P 是一平面有界图形, 用某一平行于坐标轴的一组直线网 T 分割这个图形(图 21-1). 这时直线网 T 的网眼——小闭矩形  $\Delta_{i}$  可分为三类: (i)  $\Delta_{i}$  上的点都是 P 的内点, (ii)  $\Delta_{i}$  上的点都是 P 的外点, (iii)  $\Delta_{i}$  上含有 P 的边界点.
+
+我们将所有属于直线网 T 的第(i)类小矩形（图21-1中阴影部分）的面积加起来，记这个和数为  $s_{P}(T)$ ，则有  $s_{P}(T) \leqslant \Delta_{R}$ （这里  $\Delta_{R}$  表示包含 P 的那个矩形 R 的面积）；将所有第(i)类与第(iii)类
+
+![](../../raw/pages_0193-0224/images/page_205_image_7.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+P
+O
+x
+</details>
+
+图21-1
+
+小矩形(图21-1中含有粗线的小矩形)的面积加起来,记这个和数为 $S_{P}(T)$ ,则有 $s_{P}(T)\leqslant S_{P}(T)$ .
+
+由确界存在定理可以推得,对于平面上所有直线网,数集 $\{s_{P}(T)\}$ 有上确界,数集 $\{S_{P}(T)\}$ 有下确界,记
+
+$$
+I _ {P} = \sup _ {T} \{s _ {P} (T) \}, \qquad \bar {I} _ {P} = \inf _ {T} \{S _ {P} (T) \}.
+$$
+
+显然有
+
+$$
+0 \leqslant I _ {P} \leqslant \bar {I} _ {P}. \tag {1}
+$$
+
+通常称  $I_{P}$  为 P 的内面积,  $\bar{I}_{P}$  为 P 的外面积.
+
+定义 1 若平面图形 P 的内面积  $I_{P}$  等于它的外面积  $\bar{I}_{P}$ ，则称 P 为可求面积，并称其共同值  $I_{P} = I_{P} = \bar{I}_{P}$  为 P 的面积.
+
+198
+
+---
+
+§ 1 二重积分的概念
+
+定理 21.1 平面有界图形 P 可求面积的充要条件是: 对任给的  $\varepsilon > 0$ , 总存在直线网 T, 使得
+
+$$
+S _ {P} (T) - s _ {P} (T) <   \varepsilon . \tag {2}
+$$
+
+证 [必要性] 设平面有界图形 P 的面积为  $I_{P}$ . 由定义 1, 有  $I_{P} = I_{P} = \bar{I}_{P}$ . 对任给的  $\varepsilon > 0$ , 由  $I_{P}$  及  $\bar{I}_{P}$  的定义知道, 分别存在直线网  $T_{1}$  与  $T_{2}$ , 使得
+
+$$
+s _ {P} (T _ {1}) > I _ {P} - \frac {\varepsilon}{2}, \quad S _ {P} (T _ {2}) <   I _ {P} + \frac {\varepsilon}{2}. \tag {3}
+$$
+
+记 T 为由  $T_{1}$  与  $T_{2}$  这两个直线网合并所成的直线网, 可证得①
+
+$$
+s _ {P} (T _ {1}) \leqslant s _ {P} (T), \quad S _ {P} (T _ {2}) \geqslant S _ {P} (T).
+$$
+
+于是由(3)可得
+
+$$
+s _ {P} (T) > I _ {P} - \frac {\varepsilon}{2}, \quad S _ {P} (T) <   I _ {P} + \frac {\varepsilon}{2}.
+$$
+
+从而得到对直线网 T 有  $S_{p}(T)-s_{p}(T)<\varepsilon$ .
+
+[充分性] 设对任给的  $\varepsilon>0$ ，存在某直线网 T，使得(2)式成立。但
+
+$$
+s _ {P} (T) \leqslant I _ {- P} \leqslant \bar {I} _ {P} \leqslant S _ {P} (T).
+$$
+
+所以
+
+$$
+\bar {I} _ {P} - I _ {- P} \leqslant S _ {P} (T) - s _ {P} (T) <   \varepsilon .
+$$
+
+由  $\varepsilon$  的任意性可得  $I_{P}=\bar{I}_{P}$ ，因而平面图形 P 可求面积.
+
+由不等式(1)及定理21.1立即可得:
+
+推论 平面有界图形 P 的面积为零的充要条件是它的外面积  $I_{P}=0$ ，即对任给的  $\varepsilon>0$ ，存在直线网 T，使得
+
+$$
+S _ {P} (T) <   \varepsilon ,
+$$
+
+或对任给的  $\varepsilon>0$ ，平面图形 P 能被有限个其面积总和小于  $\varepsilon$  的小矩形所覆盖.
+
+定理 21.2 平面有界图形 P 可求面积的充要条件是: P 的边界 K 的面积为零.
+
+证 由定理21.1, $P$ 可求面积的充要条件是: 对任给的 $\varepsilon > 0$, 存在直线网 $T$, 使得 $S_{P}(T) - s_{P}(T) < \varepsilon$. 由于
+
+$$
+S _ {K} (T) = S _ {P} (T) - s _ {P} (T),
+$$
+
+所以也有  $S_{K}(T)<\varepsilon$ . 由上述推论, P 的边界 K 的面积为零.
+
+定理21.3 若曲线 $K$ 为定义在 $[a, b]$ 上的连续函数 $f(x)$ 的图像，则曲线 $K$ 的面积为零.
+
+证 由于 $f(x)$ 在闭区间 $[a, b]$ 上连续，所以它在 $[a, b]$ 上一致连续。因而对任给的 $\varepsilon > 0$，总存在 $\delta > 0$，当把区间 $[a, b]$ 分成 $n$ 个小区间 $[x_{i-1}, x_i] (i = 1, 2, \cdots, n, x_0 = a, x_n = b)$ 并且满足
+
+$$
+\max \left\{\Delta x _ {i} = x _ {i} - x _ {i - 1} \mid i = 1, 2, \dots , n \right\} <   \delta
+$$
+
+时, 可使  $f(x)$  在每个小区间  $[x_{i-1}, x_i]$  上的振幅都成立  $\omega_i < \frac{\varepsilon}{b-a}$ . 现把曲线 K 按自变量 x =
+
+<small><span class="docvortex-page-footnote" data-block-type="page_footnote" style="color:#6b7280">① 可仿照第九章定积分中上和与下和有关性质证明.</span></small>
+
+199
+
+---
+
+第二十一章 重积分
+
+$x_{0}, x_{1}, \cdots, x_{n}$ 分成 n 个小段，这时每一个小段都能被以 $\Delta x_{i}$ 为宽，$\omega_{i}$ 为高的小矩形所覆盖。由于这 n 个小矩形面积的总和为
+
+$$
+\sum_ {i = 1} ^ {n} \omega_ {i} \Delta x _ {i} <   \frac {\varepsilon}{b - a} \sum_ {i = 1} ^ {n} \Delta x _ {i} = \varepsilon ,
+$$
+
+所以由定理21.1的推论即得曲线 $K$ 的面积为零.
+
+我们还可证明:由参量方程  $x=\varphi(t)$ ,  $y=\psi(t)$  ( $\alpha\leqslant t\leqslant\beta$ ) 所表示的平面光滑曲线（即  $\varphi,\psi$  在  $[\alpha,\beta]$  上具有连续的导函数）或按段光滑曲线，其面积一定为零.
+
+推论1 参数方程 $x = \varphi(t), y = \psi(t), t \in [\alpha, \beta]$ 所表示的光滑曲线 $K$ 的面积为零.
+
+证 由光滑曲线的定义, $\varphi'(t)$ , $\psi'(t)$ 在 $[\alpha,\beta]$ 上连续且不同时为零.对任意 $t_{0}\in[\alpha,\beta]$ ，不妨设 $\varphi'(t_{0})\neq0$ ，于是存在 $t_{0}$ 的邻域 $U(t_{0})$ ，使得 $x=\varphi(t)$ 在此邻域上严格单调，从而存在反函数 $t=\varphi^{-1}(x)$ .再由有限覆盖定理可把 $[\alpha,\beta]$ 分成有限段: $\alpha=t_{0}<t_{1}<\cdots<t_{n}=\beta$ ，在每一小区间段上， $y=\psi(\varphi^{-1}(x))$ 或 $x=\varphi(\psi^{-1}(y))$ .由定理21.3，每一小段的曲线面积为零，因此整条曲线面积为零.
+
+推论 2 由平面上分段光滑曲线所围成的有界闭区域是可求面积的.
+
+注1 为简单起见,以下讨论的有界闭区域都是指分段光滑曲线所围成的有界闭区域,从而都是可求面积的.
+
+注 2 并非平面中所有的点集都是可求面积的.例如
+
+$$
+D = \{(x, y) \mid x, y \in \mathbf {Q} \cap [ 0, 1 ] \}.
+$$
+
+易知 $0 = I_{D} < \bar{I}_{D} = 1, D$ 是不可求面积的.
+
+## 二、二重积分的定义及其存在性
+
+先讨论一个几何问题——求曲顶柱体的体积. 设  $f(x,y)$  为定义在可求面积的有界闭区域 D 上的非负连续函数. 求以曲面  $z=f(x,y)$  为顶, D 为底的柱体 (图 21-2) 的体积 V.
+
+采用类似于求曲边梯形面积的方法. 先用一组平行于坐标轴的直线网 T 把区域 D 分成 n 个小区域  $\sigma_{i}(i=1,2,\cdots,n)$  (称 T 为区域 D 的一个分割). 以  $\Delta\sigma_{i}$  表示小区域  $\sigma_{i}$  的面积. 这个直线网也相应地把曲顶柱体分割成 n 个以  $\sigma_{i}$  为底的小曲顶柱体  $V_{i}(i=1,2,\cdots,n)$ . 由于  $f(x,y)$  在 D 上连续, 故当每个  $\sigma_{i}$  的直径都很小时,  $f(x,y)$  在  $\sigma_{i}$  上各点的函数值都相差无几, 因而可在  $\sigma_{i}$  上任取一点  $(\xi_{i},\eta_{i})$ , 用以  $f(\xi_{i},\eta_{i})$  为高,  $\sigma_{i}$  为底的小平顶柱体的体积  $f(\xi_{i},\eta_{i})\Delta\sigma_{i}$  作为  $V_{i}$  的体积  $\Delta V_{i}$  的近似值 (如图 21-3), 即
+
+![](../../raw/pages_0193-0224/images/page_207_image_15.jpg)
+
+<details>
+<summary>text_image</summary>
+
+z
+z=f(x,y)
+O
+D
+x
+y
+</details>
+
+图21-2
+
+![](../../raw/pages_0193-0224/images/page_207_image_17.jpg)
+
+<details>
+<summary>text_image</summary>
+
+z
+O
+x
+y
+σᵢ
+(ξᵢ, ηᵢ)
+</details>
+
+图21-3
+
+200
+
+---
+
+§ 1 二重积分的概念
+
+$$
+\Delta V _ {i} \approx f (\xi_ {i}, \eta_ {i}) \Delta \sigma_ {i}.
+$$
+
+把这些小平顶柱体的体积加起来,就得到曲顶柱体体积 V 的近似值
+
+$$
+V = \sum_ {i = 1} ^ {n} \Delta V _ {i} \approx \sum_ {i = 1} ^ {n} f (\xi_ {i}, \eta_ {i}) \Delta \sigma_ {i}.
+$$
+
+当直线网 $T$ 的网眼越来越细密，即分割 $T$ 的细度 $\| T\| = \max_{1\leqslant i\leqslant n}d_i(d_i$ 为 $\sigma_{i}$ 的直径）趋于零时，就有
+
+$$
+\sum_ {i = 1} ^ {n} f (\xi_ {i}, \eta_ {i}) \Delta \sigma_ {i} \rightarrow V.
+$$
+
+至此,读者已经看到,求曲顶柱体的体积也与定积分概念一样,是通过“分割、近似求和、取极限”这三个步骤得到的,所不同的是现在讨论的对象为定义在平面区域上的二元函数.这类问题在物理学与工程技术中也常遇到,如求非均匀平面的质量、质心、转动惯量等.这些都是所要讨论的二重积分的实际背景.
+
+下面叙述定义在平面有界闭区域上函数 $f(x,y)$ 的二重积分的概念.
+
+设 $D$ 为 $xy$ 平面上可求面积的有界闭区域, $f(x,y)$ 为定义在 $D$ 上的函数. 用任意的曲线把 $D$ 分成 $n$ 个可求面积的小区域
+
+$$
+\sigma_ {1}, \sigma_ {2}, \dots , \sigma_ {n}.
+$$
+
+以 $\Delta \sigma_{i}$ 表示小区域 $\sigma_{i}$ 的面积，这些小区域构成 $D$ 的一个分割 $T$ ，以 $d_{i}$ 表示小区域 $\sigma_{i}$ 的直径，称 $\| T\| = \max_{1\leqslant i\leqslant n}d_i$ 为分割 $T$ 的细度.在每个 $\sigma_{i}$ 上任取一点 $(\xi_i,\eta_i)$ ，作和式
+
+$$
+\sum_ {i = 1} ^ {n} f (\xi_ {i}, \eta_ {i}) \Delta \sigma_ {i}.
+$$
+
+称它为函数 $f(x,y)$ 在 $D$ 上属于分割 $T$ 的一个积分和，$(\xi_i,\eta_i)$ 称为介点.
+
+定义2 设 $f(x, y)$ 是定义在可求面积的有界闭区域 $D$ 上的函数. $J$ 是一个确定的数, 若对任给的正数 $\varepsilon$, 总存在某个正数 $\delta$, 使对于 $D$ 的任何分割 $T$, 当它的细度 $\| T \| < \delta$ 时, 属于 $T$ 的所有积分和都有
+
+$$
+\Big | \sum_ {i = 1} ^ {n} f (\xi_ {i}, \eta_ {i}) \Delta \sigma_ {i} - J \Big | <   \varepsilon , \tag {4}
+$$
+
+则称 $f(x,y)$ 在 $D$ 上可积，数 $J$ 称为函数 $f(x,y)$ 在 $D$ 上的二重积分，记作
+
+$$
+J = \iint_ {D} f (x, y) \mathrm{d} \sigma , \tag {5}
+$$
+
+其中 $f(x,y)$ 称为二重积分的被积函数，$x,y$ 称为积分变量，$D$ 称为积分区域.
+
+当 $f(x,y)\geqslant 0$ 时，二重积分 $\iint_{D}f(x,y)\mathrm{d}\sigma$ 在几何上就表示以 $z = f(x,y)$ 为曲顶，$D$ 为底的曲顶柱体的体积.当 $f(x,y) = 1$ 时，二重积分 $\iint_{D}f(x,y)\mathrm{d}\sigma$ 的值就等于积分区域 $D$ 的面积.
+
+由二重积分的定义知道, 若  $f(x,y)$  在区域 D 上可积, 则与定积分情况一样, 对任何分割 T, 只要当  $\|T\| < \delta$  时, (4) 式都成立. 因此为方便计算, 常选取一些特殊的分割方法, 如选用平行于坐标轴的直线网来分割 D, 则每一小网眼区域  $\sigma$  的面积  $\Delta\sigma = \Delta x \Delta y$ . 此时通常把  $\iint_{D} f(x,y) \, \mathrm{d}\sigma$  记作
+
+201
+
+---
+
+第二十一章 重积分
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} x \mathrm{d} y. \tag {6}
+$$
+
+首先可以像定积分那样类似地证明函数 $f(x,y)$ 在有界、可求面积区域 $D$ 上可积的必要条件是它在 $D$ 上有界.
+
+设函数 $f(x,y)$ 在 D 上有界, T 为 D 的一个分割, 它把 D 分成 n 个可求面积的小区域  $\sigma_{1}, \sigma_{2}, \cdots, \sigma_{n}$ . 令
+
+$$
+\begin{array}{l} M _ {i} = \sup _ {(x, y) \in \sigma_ {i}} f (x, y), \quad (i = 1, 2, \dots , n). \\ m _ {i} = \inf _ {(x, y) \in \sigma_ {i}} f (x, y) \\ \end{array}
+$$
+
+作和式 $S(T) = \sum_{i=1}^{n} M_i \Delta \sigma_i, s(T) = \sum_{i=1}^{n} m_i \Delta \sigma_i$. 它们分别称为函数 $f(x, y)$ 关于分割 $T$ 的上和与下和. 二元函数的上和与下和具有与一元函数的上和与下和同样的性质, 这里就不再重复. 下面列出有关二元函数的可积性定理. 我们只给出定理21.7的证明, 其余请读者自行证明.
+
+定理21.4 $f(x,y)$ 在 $D$ 上可积的充要条件是:
+
+$$
+\lim _ {\| T \| \to 0} S (T) = \lim _ {\| T \| \to 0} s (T).
+$$
+
+定理 21.5  $f(x,y)$  在 D 上可积的充要条件是: 对于任给的正数  $\varepsilon$ , 存在 D 的某个分割 T, 使得  $S(T)-s(T)<\varepsilon$ .
+
+定理 21.6 有界闭区域 D 上的连续函数必可积.
+
+定理21.7 设 $f(x,y)$ 在有界闭域 $D$ 上有界，且其不连续点集 $E$ 是零面积集，则 $f(x,y)$ 在 $D$ 上可积.
+
+证 对任意  $\varepsilon>0$ ，存在有限个矩形（不含边界）覆盖了 E，而这些矩形面积之和小于  $\varepsilon$ 。记这些矩形之并集为 K，则  $D\backslash K$  是有界闭域（也可能是有限多个不交的有界闭域的并集）。设  $K\cap D$  的面积为  $\Delta_{K}$ ，则  $\Delta_{K}<\varepsilon$ 。由于  $f(x,y)$  在  $D\backslash K$  上连续，因此由定理 21.6 和定理 21.5，存在  $D\backslash K$  上的分割  $T_{1}=\{\sigma_{1},\sigma_{2},\cdots,\sigma_{n}\}$ ，使得  $S(T_{1})-s(T_{1})<\varepsilon$ 。令  $T=\{\sigma_{1},\sigma_{2},\cdots,\sigma_{n},K\cap D\}$ ，则 T 是 D 的一个分割。且
+
+$$
+S (T) - s (T) = S (T _ {1}) - s (T _ {1}) + \omega_ {K} \Delta_ {K} <   \varepsilon + \omega \varepsilon ,
+$$
+
+其中 $\omega_{K}$ 是 $f(x,y)$ 在 $K\cap D$ 上的振幅，$\omega$ 是 $f(x,y)$ 在 $D$ 上的振幅.由定理21.5, $f(x,y)$ 在 $D$ 上可积.
+
+## 三、二重积分的性质
+
+二重积分具有一系列与定积分完全相类似的性质,现列举如下.
+
+1. 若 $f(x, y)$ 在区域 $D$ 上可积, $k$ 为常数, 则 $kf(x, y)$ 在 $D$ 上也可积, 且
+
+$$
+\iint_ {D} k f (x, y) \mathrm{d} \sigma = k \iint_ {D} f (x, y) \mathrm{d} \sigma .
+$$
+
+2. 若 $f(x, y), g(x, y)$ 在 $D$ 上都可积，则 $f(x, y) \pm g(x, y)$ 在 $D$ 上也可积，且
+
+$$
+\iint_ {D} \left[ f (x, y) \pm g (x, y) \right] \mathrm{d} \sigma = \iint_ {D} f (x, y) \mathrm{d} \sigma \pm \iint_ {D} g (x, y) \mathrm{d} \sigma .
+$$
+
+3. 若 $f(x, y)$ 在 $D_{1}$ 和 $D_{2}$ 上都可积，且 $D_{1}$ 与 $D_{2}$ 无公共内点，则 $f(x, y)$ 在 $D_{1} \cup D_{2}$ 上也可积，且
+
+202
+
+---
+
+§ 1 二重积分的概念
+
+$$
+\iint_ {D _ {1} \cup D _ {2}} f (x, y) \mathrm{d} \sigma = \iint_ {D _ {1}} f (x, y) \mathrm{d} \sigma + \iint_ {D _ {2}} f (x, y) \mathrm{d} \sigma .
+$$
+
+4. 若 $f(x, y)$ 与 $g(x, y)$ 在 $D$ 上可积，且
+
+$$
+f (x, y) \leqslant g (x, y), \quad (x, y) \in D,
+$$
+
+则
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} \sigma \leqslant \iint_ {D} g (x, y) \mathrm{d} \sigma.
+$$
+
+5. 若 $f(x, y)$ 在 $D$ 上可积，则函数 $|f(x, y)|$ 在 $D$ 上也可积，且
+
+$$
+\left| \iint_ {D} f (x, y) \mathrm{d} \sigma \right| \leqslant \iint_ {D} \left| f (x, y) \right| \mathrm{d} \sigma .
+$$
+
+6. 若 $f(x, y)$ 在 $D$ 上可积，且
+
+$$
+m \leqslant f (x, y) \leqslant M, \quad (x, y) \in D,
+$$
+
+则
+
+$$
+m S _ {D} \leqslant \iint_ {D} f (x, y) \mathrm{d} \sigma \leqslant M S _ {D},
+$$
+
+这里  $S_{D}$  是积分区域 D 的面积.
+
+7.（中值定理）若 $f(x,y)$ 在有界闭区域 $D$ 上连续，则存在 $(\xi ,\eta)\in D$ ，使得
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} \sigma = f (\xi , \eta) S _ {D},
+$$
+
+这里  $S_{D}$  是积分区域 D 的面积.
+
+中值定理的几何意义: 以 D 为底,  $z=f(x,y)$  ( $f(x,y)\geqslant0$ ) 为曲顶的曲顶柱体体积等于一个同底的平顶柱体的体积, 这个平顶柱体的高等于  $f(x,y)$  在区域 D 中某点  $(\xi,\eta)$  的函数值  $f(\xi,\eta)$ .
+
+## 习题 21.1
+
+1. 把重积分  $\iint_{D} xy \, d\sigma$  作为积分和的极限, 计算这个积分值, 其中  $D = [0,1] \times [0,1]$ , 并用直线网
+
+$$
+x = \frac {i}{n}, y = \frac {j}{n} \quad (i, j = 1, 2, \dots , n - 1)
+$$
+
+分割这个正方形为许多小正方形,每个小正方形取其右上顶点作为其介点.
+
+2. 证明: 若函数  $f(x,y)$  在有界闭区域 D 上可积, 则  $f(x,y)$  在 D 上有界.
+3. 证明二重积分中值定理(性质7).
+4. 若 $f(x, y)$ 为有界闭区域 $D$ 上的非负连续函数，且在 $D$ 上不恒为零，则
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} \sigma > 0.
+$$
+
+5. 若 $f(x, y)$ 在有界闭区域 $D$ 上连续，且在 $D$ 内任一子区域 $D' \subset D$ 上有
+
+$$
+\iint_ {D ^ {\prime}} f (x, y) \mathrm{d} \sigma = 0,
+$$
+
+则在 D 上  $f(x,y) \equiv 0$ .
+
+203
+
+---
+
+第二十一章 重积分
+
+6. 设 $D = [0,1] \times [0,1]$, 证明函数
+
+$$
+f (x, y) = \left\{ \begin{array}{l l} 1, & (x, y) \text {为} D \text {内有理点(即} x, y \text {皆为有理数)}, \\ 0, & (x, y) \text {为} D \text {内非有理点} \end{array} \right.
+$$
+
+在 D 上不可积.
+
+7. 证明: 若 $f(x, y)$ 在有界闭区域 $D$ 上连续, $g(x, y)$ 在 $D$ 上可积且不变号, 则存在一点 $(\xi, \eta) \in D$, 使得
+
+$$
+\iint_ {D} f (x, y) g (x, y) \mathrm{d} \sigma = f (\xi , \eta) \iint_ {D} g (x, y) \mathrm{d} \sigma .
+$$
+
+8. 应用中值定理估计积分
+
+$$
+I = \iint_ {| x | + | y | \leqslant 1 0} \frac {\mathrm{d} \sigma}{1 0 0 + \cos^ {2} x + \cos^ {2} y}
+$$
+
+的值.
+
+## § 2 直角坐标系下二重积分的计算
+
+本节首先讨论定义在矩形区域  $D = [a, b] \times [c, d]$  上二重积分计算问题, 然后再把它扩展到较为一般的区域上.
+
+定理21.8 设 $f(x,y)$ 在矩形区域 $D = [a,b]\times [c,d]$ 上可积，且对每个 $x\in [a,b]$ 积分 $\int_{c}^{d}f(x,y)\mathrm{d}y$ 存在，则累次积分
+
+$$
+\int_ {a} ^ {b} \mathrm{d} x \int_ {c} ^ {d} f (x, y) \mathrm{d} y
+$$
+
+也存在,且
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} \sigma = \int_ {a} ^ {b} \mathrm{d} x \int_ {c} ^ {d} f (x, y) \mathrm{d} y. \tag {1}
+$$
+
+证 令 $F(x) = \int_{c}^{d} f(x, y) \mathrm{d}y$，定理要求证明 $F(x)$ 在 $[a, b]$ 上可积，且积分的结果恰为二重积分。为此，对区间 $[a, b]$ 与 $[c, d]$ 分别作分割 $y$
+
+$$
+a = x _ {0} <   x _ {1} <   \dots <   x _ {r} = b,
+$$
+
+$$
+c = y _ {0} <   y _ {1} <   \dots <   y _ {s} = d.
+$$
+
+按这些分点作两组直线
+
+$$
+x = x _ {i} \quad (i = 1, 2, \dots , r - 1)
+$$
+
+及
+
+$$
+y = y _ {k} \quad (k = 1, 2, \dots , s - 1),
+$$
+
+它把矩形 D 分为 rs 个小矩形(图 21-4). 记  $\Delta_{ik}$  为小矩形  $\left[x_{i-1}, x_{i}\right] \times \left[y_{k-1}, y_{k}\right]$  ( $i = 1, 2, \cdots, r, k = 1, 2, \cdots, s$ );
+
+![](../../raw/pages_0193-0224/images/page_211_image_23.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+d
+y_k
+Δ_{ik}
+y_{k-1}
+c
+O a x_{i-1} ξ_i x_i b x
+</details>
+
+图21-4
+
+设 $f(x,y)$ 在 $\Delta_{ik}$ 上的上确界和下确界分别为 $M_{ik}$ 和 $m_{ik}$ . 在区间 $[x_{i-1},x_i]$ 中任取一点 $\xi_i$ ，于是就有不等式
+
+204
+
+---
+
+§ 2 直角坐标系下二重积分的计算
+
+$$
+m _ {i k} \Delta y _ {k} \leqslant \int_ {y _ {k - 1}} ^ {y _ {k}} f (\xi_ {i}, y) \mathrm{d} y \leqslant M _ {i k} \Delta y _ {k},
+$$
+
+其中  $\Delta y_{k}=y_{k}-y_{k-1}$ . 因此
+
+$$
+\sum_ {k = 1} ^ {s} m _ {i k} \Delta y _ {k} \leqslant F (\xi_ {i}) = \int_ {c} ^ {d} f (\xi_ {i}, y) \mathrm{d} y \leqslant \sum_ {k = 1} ^ {s} M _ {i k} \Delta y _ {k},
+$$
+
+$$
+\sum_ {i = 1} ^ {r} \sum_ {k = 1} ^ {s} m _ {i k} \Delta y _ {k} \Delta x _ {i} \leqslant \sum_ {i = 1} ^ {r} F (\xi_ {i}) \Delta x _ {i} \leqslant \sum_ {i = 1} ^ {r} \sum_ {k = 1} ^ {s} M _ {i k} \Delta y _ {k} \Delta x _ {i}, \tag {2}
+$$
+
+其中  $\Delta x_{i}=x_{i}-x_{i-1}$ . 记  $\Delta_{ik}$  的对角线长度为  $d_{ik}$  和
+
+$$
+\| T \| = \max _ {i, k} d _ {i k}.
+$$
+
+由于二重积分存在,由定理21.4,当  $\|T\|\rightarrow0$  时,  $\sum_{i,k}m_{ik}\Delta y_{k}\Delta x_{i}$  和  $\sum_{i,k}M_{ik}\Delta y_{k}\Delta x_{i}$  有相同的极限,且极限值等于  $\iint_{D}f(x,y)\mathrm{d}\sigma$ . 因此当  $\|T\|\rightarrow0$  时,由不等式(2)可得
+
+$$
+\lim _ {\| T \| \to 0} \sum_ {i = 1} ^ {r} F (\xi_ {i}) \Delta x _ {i} = \iint_ {D} f (x, y) \mathrm{d} \sigma . \tag {3}
+$$
+
+由于当  $\|T\|\rightarrow0$  时，必有  $\max_{1\leqslant i\leqslant r}\Delta x_{i}\rightarrow0$  ，因此由定积分定义，(3)式左边
+
+$$
+\lim _ {\| T \| \to 0} \sum_ {i = 1} ^ {r} F (\xi_ {i}) \Delta x _ {i} = \int_ {a} ^ {b} F (x) \mathrm{d} x = \int_ {a} ^ {b} \mathrm{d} x \int_ {c} ^ {d} f (x, y) \mathrm{d} y.
+$$
+
+定理21.9 设 $f(x,y)$ 在矩形区域 $D = [a,b]\times [c,d]$ 上可积，且对每个 $y\in [c,d]$ 积分 $\int_{a}^{b}f(x,y)\mathrm{d}x$ 存在，则累次积分
+
+$$
+\int_ {c} ^ {d} \mathrm{d} y \int_ {a} ^ {b} f (x, y) \mathrm{d} x
+$$
+
+也存在,且
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} \sigma = \int_ {c} ^ {d} \mathrm{d} y \int_ {a} ^ {b} f (x, y) \mathrm{d} x.
+$$
+
+定理 21.9 的证明与定理 21.8 相仿.
+
+特别当 $f(x,y)$ 在矩形区域 $D=[a,b]\times[c,d]$ 上连续时，则有
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} \sigma = \int_ {a} ^ {b} \mathrm{d} x \int_ {c} ^ {d} f (x, y) \mathrm{d} y = \int_ {c} ^ {d} \mathrm{d} y \int_ {a} ^ {b} f (x, y) \mathrm{d} x.
+$$
+
+例 1 计算  $\iint_{D} y \sin(xy) \, dx \, dy$ ，其中  $D = [0, \pi] \times [0, 1]$ .
+
+解 $\iint_{D} y \sin(xy) \, \mathrm{d}x \, \mathrm{d}y = \int_{0}^{1} \mathrm{~d}y \int_{0}^{\pi} y \sin(xy) \, \mathrm{d}x = \int_{0}^{1} \mathrm{~d}y \int_{0}^{\pi} \frac{\partial}{\partial x} (-\cos(xy)) \, \mathrm{d}x$
+
+$$
+= - \int_ {0} ^ {1} \cos (x y) \left| _ {0} ^ {\pi} \mathrm{d} y = \int_ {0} ^ {1} (1 - \cos (\pi y)) \mathrm{d} y \right.
+$$
+
+$$
+= 1 - \frac {1}{\pi} \sin (\pi y) \Bigg | _ {0} ^ {1} = 1.
+$$
+
+对于一般区域,通常可以分解为如下两类区域来进行计算.
+
+205
+
+---
+
+第二十一章 重积分
+
+称平面点集
+
+$$
+D = \{(x, y) \mid y _ {1} (x) \leqslant y \leqslant y _ {2} (x), a \leqslant x \leqslant b \} \tag {4}
+$$
+
+为 x 型区域(图 21-5(a)); 称平面点集
+
+$$
+D = \{(x, y) \mid x _ {1} (y) \leqslant x \leqslant x _ {2} (y), c \leqslant y \leqslant d \} \tag {5}
+$$
+
+为 y 型区域(图 21-5(b)).
+
+![](../../raw/pages_0193-0224/images/page_213_image_6.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+d
+y=y₂(x)
+D
+y=y₁(x)
+c
+O
+a
+b
+x
+</details>
+
+(a) $x$ 型区域
+
+![](../../raw/pages_0193-0224/images/page_213_image_8.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+d
+x=x₁(y)
+D
+c
+O
+x
+x=x₂(y)
+</details>
+
+(b) y型区域
+
+图21-5
+
+这些区域的特点是当 $D$ 为 $x$ 型区域时，垂直于 $x$ 轴的直线 $x = x_0 (a < x_0 < b)$ 至多与区域 $D$ 的边界交于两点；当 $D$ 为 $y$ 型区域时，直线 $y = y_0 (c < y_0 < d)$ 至多与 $D$ 的边界交于两点.
+
+许多常见的区域都可以分解成有限个除边界外无公共内点的 $x$ 型区域或 $y$ 型区域（如图21-6所示的区域 $D$ 可分解成三个区域，其I，Ⅲ为 $x$ 型区域，Ⅱ为 $y$ 型区域).因而解决了 $x$ 型区域或 $y$ 型区域上二重积分的计算问题，那么一般区域上二重积分的计算问题也就得到了解决.
+
+![](../../raw/pages_0193-0224/images/page_213_image_13.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+II
+III
+I
+O
+x
+</details>
+
+图21-6
+
+定理 21.10 若  $f(x,y)$  在如(4)式所示的 x 型区域 D 上连续, 其中  $y_{1}(x), y_{2}(x)$  在  $[a,b]$  上连续, 则
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} \sigma = \int_ {a} ^ {b} \mathrm{d} x \int_ {y _ {1} (x)} ^ {y _ {2} (x)} f (\dot {x}, y) \mathrm{d} y.
+$$
+
+即二重积分可化为先对 y 后对 x 的累次积分.
+
+证 由于 $y_{1}(x)$ 与 $y_{2}(x)$ 在闭区间 $[a,b]$ 上连续，故存在矩形区域 $[a,b] \times [c,d] \supset D$ （如图21-5(a))），现作一定义在 $[a,b] \times [c,d]$ 上的函数
+
+$$
+F (x, y) = \left\{ \begin{array}{l l} f (x, y), & (x, y) \in D, \\ 0, & (x, y) \notin D. \end{array} \right.
+$$
+
+可以验证,函数  $F(x,y)$  在  $[a,b]\times[c,d]$  上可积,而且
+
+$$
+\begin{array}{l} \iint_ {D} f (x, y) \mathrm{d} \sigma = \iint_ {[ a, b ] \times [ c, d ]} F (x, y) \mathrm{d} \sigma = \int_ {a} ^ {b} \mathrm{d} x \int_ {c} ^ {d} F (x, y) \mathrm{d} y \\ = \int_ {a} ^ {b} \mathrm{d} x \int_ {y _ {1} (x)} ^ {y _ {2} (x)} F (x, y) \mathrm{d} y = \int_ {a} ^ {b} \mathrm{d} x \int_ {y _ {1} (x)} ^ {y _ {2} (x)} f (x, y) \mathrm{d} y. \\ \end{array}
+$$
+
+注 从几何意义上可以这样来理解化二重积分为累次积分,二重积分是计算以 D
+
+206
+
+---
+
+§ 2 直角坐标系下二重积分的计算
+
+为底面, $f(x,y)(\geqslant0)$ 为高的曲顶柱体的体积,这个曲顶柱体可视为介于平行平面x=a与x=b之间的立体,可以利用截面面积 $S(x),x\in[a,b]$ 的积分求出.而截面面积 $S(x)$ 是一元函数 $f(x,y)$ （其中x为参量）与y轴以及直线 $y=y_{1}(x),y=y_{2}(x)$ 所围图形的面积（图21-7），所以
+
+$$
+S (x) = \int_ {y _ {1} (x)} ^ {y _ {2} (x)} f (x, y) \mathrm{d} y.
+$$
+
+![](../../raw/pages_0193-0224/images/page_214_image_3.jpg)
+
+<details>
+<summary>text_image</summary>
+
+z=f(x,y)
+S(x)
+O
+y₁(x)
+y₂(x)
+y
+</details>
+
+图21-7
+
+那么曲顶柱体的体积
+
+$$
+V = \int_ {a} ^ {b} S (x) \mathrm{d} x = \int_ {a} ^ {b} \mathrm{d} x \int_ {y _ {1} (x)} ^ {y _ {2} (x)} f (x, y) \mathrm{d} y.
+$$
+
+类似可证, 若 D 为(5)式所示的 y 型区域, 其中  $x_{1}(y), x_{2}(y)$  在 [c, d] 上连续, 则二重积分可化为先对 x 后对 y 的累次积分
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} \sigma = \int_ {c} ^ {d} \mathrm{d} y \int_ {x _ {1} (y)} ^ {x _ {2} (y)} f (x, y) \mathrm{d} x.
+$$
+
+例 2 设 D 是由直线 x = 0, y = 1 及 y = x 围成的区域（图 21-8），试计算  $I = \iint_{D} x^{2} e^{-y^{2}} d\sigma$  的值.
+
+解 若用先对 $y$ 后对 $x$ 的积分, 则
+
+$$
+I = \int_ {0} ^ {1} x ^ {2} \mathrm{d} x \int_ {x} ^ {1} \mathrm{e} ^ {- y ^ {2}} \mathrm{d} y.
+$$
+
+由于函数  $e^{-y^{2}}$  的原函数无法用初等函数形式表示, 因此改用另一种顺序的累次积分, 则有
+
+$$
+I = \int_ {0} ^ {1} \mathrm{d} y \int_ {0} ^ {y} x ^ {2} \mathrm{e} ^ {- y ^ {2}} \mathrm{d} x = \frac {1}{3} \int_ {0} ^ {1} y ^ {3} \mathrm{e} ^ {- y ^ {2}} \mathrm{d} y.
+$$
+
+由分部积分法,即可算得
+
+$$
+I = \frac {1}{6} - \frac {1}{3 \mathrm{e}}.
+$$
+
+![](../../raw/pages_0193-0224/images/page_214_image_16.jpg)
+
+例 3 计算二重积分  $\iint_{D} d\sigma$ ，其中 D 为由直线 y=2x, x=2y 及  $x+y=3$  所围的三角形区域（图 21-9）.
+
+![](../../raw/pages_0193-0224/images/page_214_image_18.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+1
+D
+y=x
+O
+x
+</details>
+
+图21-8
+
+![](../../raw/pages_0193-0224/images/page_214_chart_20.jpg)
+
+<details>
+<summary>line</summary>
+
+| Point | x | y |
+| --- | --- | --- |
+| Intersection (D1, D2) | 1 | 2 |
+| Intersection (D1, y=2x) | 1 | 0.5 |
+| Intersection (D2, y=2x) | 2 | 1 |
+</details>
+
+图21-9
+
+207
+
+---
+
+第二十一章 重积分
+
+解 当把 D 看作 x 型区域时, 相应的
+
+$$
+y _ {2} (x) = \left\{ \begin{array}{l l} 2 x, & 0 \leqslant x \leqslant 1, \\ 3 - x, & 1 <   x \leqslant 2, \end{array} \right. y _ {1} (x) = \frac {x}{2}.
+$$
+
+所以
+
+$$
+\begin{array}{l} \iint_ {D} \mathrm{d} \sigma = \iint_ {D _ {1}} \mathrm{d} \sigma + \iint_ {D _ {2}} \mathrm{d} \sigma = \int_ {0} ^ {1} \mathrm{d} x \int_ {\frac {x}{2}} ^ {2 x} \mathrm{d} y + \int_ {1} ^ {2} \mathrm{d} x \int_ {\frac {x}{2}} ^ {3 - x} \mathrm{d} y \\ = \int_ {0} ^ {1} \left(2 x - \frac {x}{2}\right) \mathrm{d} x + \int_ {1} ^ {2} \left(3 - x - \frac {x}{2}\right) \mathrm{d} x \\ = \left[ \frac {3}{4} x ^ {2} \right] \Bigg | _ {0} ^ {1} + \left[ 3 x - \frac {3}{4} x ^ {2} \right] \Bigg | _ {1} ^ {2} = \frac {3}{2}. \\ \end{array}
+$$
+
+例 4 求两个底面半径相同的直交圆柱所围立体的体积 V.
+
+解 设圆柱底面半径为 a，两个圆柱方程为
+
+$$
+x ^ {2} + y ^ {2} = a ^ {2} \quad {\text {与}} \quad x ^ {2} + z ^ {2} = a ^ {2}.
+$$
+
+利用对称性, 只要求出在第一卦限(即  $x \geqslant 0, y \geqslant 0, z \geqslant 0$ ) 部分(见第十章图 10-10) 的体积, 然后再乘以 8 即得所求的体积. 第一卦限部分的立体是以  $z = \sqrt{a^{2} - x^{2}}$  为曲顶, 以四分之一圆域
+
+$$
+D: \left\{ \begin{array}{l l} 0 \leqslant y \leqslant \sqrt {a ^ {2} - x ^ {2}}, \\ 0 \leqslant x \leqslant a \end{array} \right.
+$$
+
+为底的曲顶柱体,所以
+
+$$
+\begin{array}{l} \frac {1}{8} V = \iint_ {D} \sqrt {a ^ {2} - x ^ {2}} \mathrm{d} \sigma = \int_ {0} ^ {a} \mathrm{d} x \int_ {0} ^ {\sqrt {a ^ {2} - x ^ {2}}} \sqrt {a ^ {2} - x ^ {2}} \mathrm{d} y \\ = \int_ {0} ^ {a} (a ^ {2} - x ^ {2}) \mathrm{d} x = \frac {2}{3} a ^ {3}. \\ \end{array}
+$$
+
+于是  $V=\frac{16}{3}a^{3}$ .
+
+## 习题 21.2
+
+1. 设 $f(x, y)$ 在区域 $D$ 上连续，试将二重积分 $\iint_{D} f(x, y) \, \mathrm{d}\sigma$ 化为不同顺序的累次积分:
+
+(1) D 是由不等式  $y \leqslant x, y \geqslant a, x \leqslant b$  (0 < a < b) 所确定的区域；
+(2) D 是由不等式  $y \leqslant x, y \geqslant 0, x^{2} + y^{2} \leqslant 1$  所确定的区域；
+(3) D 是由不等式  $x^{2}+y^{2}\leqslant1$  与  $x+y\geqslant1$  所确定的区域；
+(4)  $D=\left\{(x,y)\mid|x|+|y|\leqslant1\right\}$ .
+
+2. 在下列积分中改变累次积分的顺序:
+
+(1) $\int_0^2\mathrm{d}x\int_{x}^{2x}f(x,y)\mathrm{d}y;$
+(2) $\int_{-1}^{1}\mathrm{d}x\int_{-\sqrt{1 - x^2}}^{1 - x^2}f(x,y)\mathrm{d}y;$
+(3) $\int_{0}^{2a}\mathrm{d}x\int_{\sqrt{2ax - x^2}}^{\sqrt{2ax}}f(x,y)\mathrm{d}y;$
+(4) $\int_{0}^{1}\mathrm{d}x\int_{0}^{x^{2}}f(x,y)\mathrm{d}y + \int_{1}^{3}\mathrm{d}x\int_{0}^{\frac{1}{2}(3 - x)}f(x,y)\mathrm{d}y.$
+
+208
+
+---
+
+§ 3 格林公式·曲线积分与路线的无关性
+
+3. 计算下列二重积分:
+
+(1) $\iint_{D} xy^2 \, \mathrm{d}\sigma$，其中 $D$ 是由抛物线 $y^2 = 2px$ 与直线 $x = \frac{p}{2} (p > 0)$ 所围成的区域；
+(2) $\iint_{D}(x^{2} + y^{2})\mathrm{d}\sigma$ ，其中 $D = \{(x,y)\mid 0\leqslant x\leqslant 1,\sqrt{x}\leqslant y\leqslant 2\sqrt{x}\}$
+(3) $\iint_{D} \frac{\mathrm{d}\sigma}{\sqrt{2a - x}} (a > 0)$, 其中 $D$ 为图21-10中阴影部分;
+(4) $\iint_{D} \sqrt{x} \, \mathrm{d}\sigma$，其中 $D = \{(x, y) | x^2 + y^2 \leqslant x\}$.
+
+4. 求由坐标平面及 $x = 2, y = 3, x + y + z = 4$ 所围的角柱体的体积.
+
+5. 设 $f(x)$ 在 $[a, b]$ 上连续，证明不等式
+
+$$
+\left[ \int_ {a} ^ {b} f (x)   \mathrm{d} x \right] ^ {2} \leqslant (b - a) \int_ {a} ^ {b} f ^ {2} (x)   \mathrm{d} x,
+$$
+
+其中等号仅在 $f(x)$ 为常量函数时成立.
+
+6. 设平面区域 $D$ 在 $x$ 轴和 $y$ 轴的投影长度分别为 $l_{x}$ 和 $l_{y}, D$ 的面积为 $S_{D}, (\alpha, \beta)$ 为 $D$ 内任一点，证明:
+
+(1)  $\left|\iint_{D}(x-\alpha)(y-\beta)\mathrm{d}\sigma\right|\leqslant l_{x}l_{y}S_{D};$
+(2) $\left|\iint_{D}(x-\alpha)(y-\beta)\mathrm{d}\sigma\right|\leqslant\frac{1}{4}l_{x}^{2}l_{y}^{2}.$
+
+7. 设  $D = [0,1] \times [0,1]$ ,
+
+$$
+f (x, y) = \left\{ \begin{array}{c l} \frac {1}{q _ {x}} + \frac {1}{q _ {y}}, & \text {当} (x, y) \text {为} D \text {中有理点}, \\ 0, & \text {当} (x, y) \text {为} D \text {中非有理点}, \end{array} \right.
+$$
+
+其中 $q_{x}$ 表示有理数 $x$ 化成既约分数后的分母. 证明 $f(x, y)$ 在 $D$ 上的二重积分存在而两个累次积分不存在.
+
+8. 设 $D = [0,1] \times [0,1]$,
+
+$$
+f (x, y) = \left\{ \begin{array}{l l} 1, & \text {当} (x, y) \text {为} D \text {中有理点，且} q _ {x} = q _ {y} \text {时，} \\ 0, & \text {当} (x, y) \text {为} D \text {中其他点时，} \end{array} \right.
+$$
+
+其中 $q_{x}$ 意义同第7题. 证明 $f(x,y)$ 在 $D$ 上的二重积分不存在而两个累次积分存在.
+
+![](../../raw/pages_0193-0224/images/page_216_image_21.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+a
+(a,a)
+O
+a
+x
+</details>
+
+图21-10
+
+## § 3 格林公式·曲线积分与路线的无关性
+
+## 一、格林公式
+
+本节讨论区域 D 上的二重积分与 D 的边界曲线 L 上的第二型曲线积分之间的联系.
+
+设区域 D 的边界 L 由一条或几条光滑曲线所组成. 边界曲线的正方向规定为: 当
+
+209
+
+---
+
+第二十一章 重积分
+
+人沿边界行走时, 区域 D 总在他的左边, 如图 21-11 所示. 与上述规定的方向相反的方向称为负方向, 记为 -L.
+
+定理 21.11 若函数  $P(x,y)$ ,  $Q(x,y)$  在闭区域 D 上连续, 且有连续的一阶偏导数, 则有
+
+$$
+\iint_ {D} \left(\frac {\partial Q}{\partial x} - \frac {\partial P}{\partial y}\right) \mathrm{d} \sigma = \oint_ {L} P \mathrm{d} x + Q \mathrm{d} y, \tag {1}
+$$
+
+这里 L 为区域 D 的边界曲线, 分段光滑, 并取正方向.
+
+公式(1)称为格林(Green)公式.
+
+证 根据区域 D 的不同形状,一般可分三种情形来证明:
+
+![](../../raw/pages_0193-0224/images/page_217_image_7.jpg)
+
+<details>
+<summary>text_image</summary>
+
+L
+D
+</details>
+
+图21-11
+
+(i) 若区域 D 既是 x 型区域又是 y 型区域, 即平行于坐标轴的直线和 L 至多交于
+
+两点(图 21-12). 这时区域 D 可表示为
+
+$$
+\varphi_ {1} (x) \leqslant y \leqslant \varphi_ {2} (x), a \leqslant x \leqslant b
+$$
+
+或
+
+$$
+\psi_ {1} (y) \leqslant x \leqslant \psi_ {2} (y), \alpha \leqslant y \leqslant \beta .
+$$
+
+这里 $y = \varphi_{1}(x)$ 和 $y = \varphi_{2}(x)$ 分别为曲线 $\widehat{ACB}$ 和 $\widehat{AEB}$ 的方程. 而 $x = \psi_{1}(y)$ 和 $x = \psi_{2}(y)$ 则分别是曲线 $\widehat{CAE}$ 和 $\widehat{CBE}$ 的方程. 于是
+
+![](../../raw/pages_0193-0224/images/page_217_image_15.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+β
+φ₂(x)
+ψ₁(y)
+A
+B
+ψ₂(y)
+α
+C φ₁(x)
+O a b x
+</details>
+
+图21-12
+
+$$
+\begin{array}{l} \iint_ {D} \frac {\partial Q}{\partial x} \mathrm{d} \sigma = \int_ {\alpha} ^ {\beta} \mathrm{d} y \int_ {\psi_ {1} (y)} ^ {\psi_ {2} (y)} \frac {\partial Q}{\partial x} \mathrm{d} x \\ = \int_ {\alpha} ^ {\beta} Q (\psi_ {2} (y), y) \mathrm{d} y - \int_ {\alpha} ^ {\beta} Q (\psi_ {1} (y), y) \mathrm{d} y \\ = \int_ {\widehat {C B E}} Q (x, y) \mathrm{d} y - \int_ {\widehat {C A E}} Q (x, y) \mathrm{d} y \\ = \int_ {\widehat {C B E}} Q (x, y) \mathrm{d} y + \int_ {\widehat {E A C}} Q (x, y) \mathrm{d} y \\ = \oint_ {L} Q (x, y) \mathrm{d} y. \\ \end{array}
+$$
+
+同理可以证得
+
+$$
+- \iint_ {D} \frac {\partial P}{\partial y} \mathrm{d} \sigma = \oint_ {L} P (x, y) \mathrm{d} x.
+$$
+
+将上述两个结果相加即得
+
+$$
+\iint_ {D} \Big (\frac {\partial Q}{\partial x} - \frac {\partial P}{\partial y} \Big) \mathrm{d} \sigma = \oint_ {L} P \mathrm{d} x + Q \mathrm{d} y.
+$$
+
+(ii) 若区域 D 是由一条按段光滑的闭曲线围成, 如图 21-13 所示, 则先用几段光
+
+滑曲线将 D 分成有限个既是 x 型又是 y 型的子区域, 然后逐块按 (i) 得到它们的格林公式, 并相加即可.
+
+如图21-13所示的区域 $D$. 可将 $D$ 分成三个既是 $x$ 型又是 $y$ 型的区域 $D_{1}, D_{2}, D_{3}$. 于是
+
+$$
+\iint_ {D} \Big (\frac {\partial Q}{\partial x} - \frac {\partial P}{\partial y} \Big) \mathrm{d} \sigma
+$$
+
+![](../../raw/pages_0193-0224/images/page_217_image_26.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph LR
+  L1["L1"] --> D3["D3"]
+  D3 --> L3["L3"]
+  L3 --> D1["D1"]
+  D1 --> L2["L2"]
+  L2 --> D2["D2"]
+  D2 --> L2
+  L2 --> L1
+```
+</details>
+
+图21-13
+
+210
+
+---
+
+§ 3 格林公式·曲线积分与路线的无关性
+
+$$
+\begin{array}{l} = \iint_ {D _ {1}} \left(\frac {\partial Q}{\partial x} - \frac {\partial P}{\partial y}\right) \mathrm{d} \sigma + \iint_ {D _ {2}} \left(\frac {\partial Q}{\partial x} - \frac {\partial P}{\partial y}\right) \mathrm{d} \sigma + \iint_ {D _ {3}} \left(\frac {\partial Q}{\partial x} - \frac {\partial P}{\partial y}\right) \mathrm{d} \sigma \\ = \oint_ {L _ {1}} P \mathrm{d} x + Q \mathrm{d} y + \oint_ {L _ {2}} P \mathrm{d} x + Q \mathrm{d} y + \oint_ {L _ {3}} P \mathrm{d} x + Q \mathrm{d} y \\ = \oint_ {L} P \mathrm{d} x + Q \mathrm{d} y. \\ \end{array}
+$$
+
+（iii）若区域 $D$ 由几条闭曲线所围成，如图21-14所示，这时可适当添加直线段$AB,CE$ ，把区域转化为(ii)的情况来处理.在图21-14中联结了 $AB,CE$ 后，则 $D$ 的边界曲线由 $AB,L_2,BA,\widehat{AFC},CE,L_3,EC$ 及 $\widehat{CGA}$ 构成.由(ii)知
+
+$$
+\begin{array}{l} \iint_ {D} \Big (\frac {\partial Q}{\partial x} - \frac {\partial P}{\partial y} \Big) \mathrm{d} \sigma \\ = \left\{\int_ {A B} + \int_ {L _ {2}} + \int_ {B A} + \int_ {\widehat {A F C}} + \int_ {C E} + \int_ {L _ {3}} + \int_ {E C} + \int_ {\widehat {C G A}} \right\} (P \mathrm{d} x + Q \mathrm{d} y) \\ = \left(\oint_ {L _ {2}} + \oint_ {L _ {3}} + \oint_ {L _ {1}}\right) (P \mathrm{d} x + Q \mathrm{d} y) \\ = \oint_ {L} P \mathrm{d} x + Q \mathrm{d} y. \\ \end{array}
+$$
+
+格林公式沟通了沿闭曲线的积分与二重积分之间的联系.为便于记忆,格林公式(1)也可写成下述形式:
+
+$$
+\iint_ {D} \left| \begin{array}{c c} {\frac {\partial}{\partial x}} & {\frac {\partial}{\partial y}} \\ {P} & {Q} \end{array} \right| \mathrm{d} \sigma = \oint_ {L} P \mathrm{d} x + Q \mathrm{d} y.
+$$
+
+应用格林公式可以简化某些曲线积分的计算.
+
+例1 计算 $\int_{\widehat{AB}} x \, \mathrm{d}y$，其中曲线 $\widehat{AB}$ 是半径为 $r$ 的圆在第一象限部分（图21-15）.
+
+![](../../raw/pages_0193-0224/images/page_218_image_8.jpg)
+
+<details>
+<summary>text_image</summary>
+
+L₃ E
+C
+D
+F
+L₁
+G
+L₂ B
+A
+</details>
+
+图21-14
+
+![](../../raw/pages_0193-0224/images/page_218_image_10.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+A
+D
+O L B x
+</details>
+
+图21-15
+
+解 对半径为 r 的四分之一圆域 D, 应用格林公式有
+
+$$
+\begin{array}{l} - \iint_ {D} \mathrm{d} \sigma = \oint_ {- L} x \mathrm{d} y \\ = \int_ {O A} x \mathrm{d} y + \int_ {\widehat {A B}} x \mathrm{d} y + \int_ {B O} x \mathrm{d} y. \\ \end{array}
+$$
+
+211
+
+---
+
+第二十一章 重积分
+
+由于 $\int_{OA} x\mathrm{d}y = 0, \int_{BO} x\mathrm{d}y = 0$，所以
+
+$$
+\int_ {\widehat {A B}} x \mathrm{d} y = - \iint_ {D} \mathrm{d} \sigma = - \frac {1}{4} \pi r ^ {2}.
+$$
+
+例 2 计算  $I=\oint_{L}\frac{xdy-ydx}{x^{2}+y^{2}}$ ，其中 L 为任一不包含原点的闭区域的边界曲线，分段光滑.
+
+解 因为
+
+$$
+\frac {\partial}{\partial x} \Big (\frac {x}{x ^ {2} + y ^ {2}} \Big) = \frac {y ^ {2} - x ^ {2}}{\big (x ^ {2} + y ^ {2} \big) ^ {2}}, \frac {\partial}{\partial y} \Big (\frac {- y}{x ^ {2} + y ^ {2}} \Big) = \frac {y ^ {2} - x ^ {2}}{\big (x ^ {2} + y ^ {2} \big) ^ {2}}
+$$
+
+在上述区域 D 上连续且相等,于是
+
+$$
+\iint_ {D} \left[ \frac {\partial}{\partial x} \Big (\frac {x}{x ^ {2} + y ^ {2}} \Big) - \frac {\partial}{\partial y} \Big (\frac {- y}{x ^ {2} + y ^ {2}} \Big) \right] \mathrm{d} \sigma = 0,
+$$
+
+所以由格林公式立即可得
+
+$$
+I = 0.
+$$
+
+在格林公式中，令 $P = -y, Q = x$ ，则得到一个计算平面区域 $D$ 的面积 $S_{D}$ 的公式
+
+$$
+S _ {D} = \iint_ {D} \mathrm{d} \sigma = \frac {1}{2} \oint_ {L} x \mathrm{d} y - y \mathrm{d} x. \tag {2}
+$$
+
+例 3 计算抛物线 $(x+y)^{2}=ax\quad(a>0)$ 与 x 轴所围的面积(图 21-16).
+
+解 曲线 $\widehat{AMO}$ 由函数 $y=\sqrt{ax}-x, x\in[0,a]$ 表示， $\widehat{ONA}$ 为直线y=0，于是
+
+$$
+\begin{array}{l} S _ {_ D} = \frac {1}{2} \oint x \mathrm{d} y - y \mathrm{d} x \\ = \frac {1}{2} \int_ {\widehat {O N A}} x \mathrm{d} y - y \mathrm{d} x + \frac {1}{2} \int_ {\widehat {A M O}} x \mathrm{d} y - y \mathrm{d} x \\ = \frac {1}{2} \int_ {\widehat {A M O}} x \mathrm{d} y - y \mathrm{d} x \\ = \frac {1}{2} \int_ {a} ^ {0} \left[ x \left(\frac {a}{2 \sqrt {a x}} - 1\right) - (\sqrt {a x} - x) \right] \mathrm{d} x \\ = \frac {1}{2} \int_ {a} ^ {0} - \frac {1}{2} \sqrt {a x} \mathrm{d} x = \frac {\sqrt {a}}{4} \int_ {0} ^ {a} \sqrt {x} \mathrm{d} x = \frac {1}{6} a ^ {2}. \\ \end{array}
+$$
+
+![](../../raw/pages_0193-0224/images/page_219_image_15.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+M
+O
+N
+A(a,0)
+x
+</details>
+
+图21-16
+
+## 二、曲线积分与路线的无关性
+
+在第二十章 §2 中计算第二型曲线积分的开始两个例子中,读者可能已经看到,在例 1 中,以 A 为起点、B 为终点的曲线积分,若所沿的路线不同,则其积分值也不同,但在例 2 中的曲线积分值只与起点和终点有关,与路线的选取无关.本段将讨论曲线积分在什么条件下,它的值与所沿路线的选取无关.
+
+首先,介绍单连通区域的概念.
+
+若对于平面区域 D 上任一封闭曲线,皆可不经过 D 以外的点而连续收缩于属于 D 的某一点,则称此平面区域为单连通区域,否则称为复连通区域.如图21-17中, $D_{1}$ 与
+
+212
+
+---
+
+§ 3 格林公式·曲线积分与路线的无关性
+
+$D_{2}$ 是单连通区域,而 $D_{3}$ 与 $D_{4}$ 则是复连通区域.单连通区域也可以这样叙述:D内任一封闭曲线所围成的区域内只含有D中的点.更通俗地说,单连通区域是没有“洞”的区域,复连通区域是有“洞”的区域.
+
+![](../../raw/pages_0193-0224/images/page_220_image_2.jpg)
+
+<details>
+<summary>text_image</summary>
+
+D₁
+D₂
+D₃
+D₄
+</details>
+
+图21-17
+
+定理21.12 设 $D$ 是单连通闭区域. 若函数 $P(x, y), Q(x, y)$ 在 $D$ 内连续, 且具有一阶连续偏导数, 则以下四个条件等价:
+
+(i) 沿 D 内任一按段光滑封闭曲线 L, 有
+
+$$
+\oint_ {L} P \mathrm{d} x + Q \mathrm{d} y = 0;
+$$
+
+(ii) 对 D 中任一按段光滑曲线 L, 曲线积分
+
+$$
+\int_ {L} P \mathrm{d} x + Q \mathrm{d} y
+$$
+
+与路线无关,只与 L 的起点及终点有关;
+
+(iii)  $Pdx+Qdy$  是 D 内某一函数  $u(x,y)$  的全微分, 即在 D 内有
+
+$$
+\mathrm{d} u = P \mathrm{d} x + Q \mathrm{d} y;
+$$
+
+(iv) 在 D 内处处成立
+
+$$
+\frac {\partial P}{\partial y} = \frac {\partial Q}{\partial x}.
+$$
+
+证 $(\mathrm{i})\Rightarrow (\mathrm{ii})$ 如图21-18，设 $\widehat{ARB}$ 与 $\widehat{ASB}$ 为联结点 $A,B$ 的任意两条按段光滑曲线，由(i)可推得
+
+![](../../raw/pages_0193-0224/images/page_220_image_15.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph LR
+  A["A"] --> R["R"]
+  B["B"] --> S["S"]
+  R --> A
+  S --> A
+```
+</details>
+
+图21-18
+
+$$
+\begin{array}{l} \int_ {\widehat {A R B}} P \mathrm{d} x + Q \mathrm{d} y - \int_ {\widehat {A S B}} P \mathrm{d} x + Q \mathrm{d} y \\ = \int_ {\widehat {A R B}} P \mathrm{d} x + Q \mathrm{d} y + \int_ {\widehat {B S A}} P \mathrm{d} x + Q \mathrm{d} y \\ = \oint_ {\widehat {A R B S A}} P \mathrm{d} x + Q \mathrm{d} y = 0, \\ \end{array}
+$$
+
+所以
+
+$$
+\int_ {\widehat {A R B}} P \mathrm{d} x + Q \mathrm{d} y = \int_ {\widehat {A S B}} P \mathrm{d} x + Q \mathrm{d} y.
+$$
+
+(ii) $\Rightarrow$ (iii) 设  $A(x_{0}, y_{0})$  为 D 内某一定点,  $B(x, y)$  为 D 内任意一点. 由 (ii), 曲线积分
+
+$$
+\int_ {\widehat {A B}} P \mathrm{d} x + Q \mathrm{d} y
+$$
+
+与路线的选择无关,故当  $B(x,y)$  在 D 内变动时,其积分值是  $B(x,y)$  的函数,即有
+
+213
+
+---
+
+第二十一章 重积分
+
+$$
+u (x, y) = \int_ {\widehat {A B}} P \mathrm{d} x + Q \mathrm{d} y.
+$$
+
+取 $\Delta x$ 充分小，使 $(x + \Delta x, y) \in D$ ，则函数 $u(x, y)$ 对于 $x$ 的偏增量（图21-19）
+
+$$
+\begin{array}{l} u (x + \Delta x, y) - u (x, y) \\ = \int_ {\widehat {A C}} P \mathrm{d} x + Q \mathrm{d} y - \int_ {\widehat {A B}} P \mathrm{d} x + Q \mathrm{d} y. \\ \end{array}
+$$
+
+因为在 D 内曲线积分与路线无关,所以
+
+$$
+\begin{array}{l} \int_ {\widehat {A C}} P \mathrm{d} x + Q \mathrm{d} y \\ = \int_ {\widehat {A B}} P \mathrm{d} x + Q \mathrm{d} y + \int_ {B C} P \mathrm{d} x + Q \mathrm{d} y. \\ \end{array}
+$$
+
+![](../../raw/pages_0193-0224/images/page_221_image_6.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+D
+y
+y₀
+A
+B
+C
+O
+x₀
+x
+x+Δx
+x
+</details>
+
+图21-19
+
+由于直线段 BC 平行于 x 轴, 所以 dy=0, 从而由积分中值定理可得
+
+$$
+\begin{array}{l} \Delta u = u (x + \Delta x, y) - u (x, y) = \int_ {B C} P \mathrm{d} x + Q \mathrm{d} y \\ = \int_ {x} ^ {x + \Delta x} P (s, y) \mathrm{d} s = P (x + \theta \Delta x, y) \Delta x, \\ \end{array}
+$$
+
+其中  $0 < \theta < 1$ . 根据  $P(x, y)$  在 D 上连续, 于是有
+
+$$
+\frac {\partial u}{\partial x} = \lim _ {\Delta x \to 0} \frac {\Delta u}{\Delta x} = \lim _ {\Delta x \to 0} P (x + \theta \Delta x, y) = P (x, y).
+$$
+
+同理可证 $\frac{\partial u}{\partial y} = Q(x,y)$ .因此
+
+$$
+\mathrm{d} u = P \mathrm{d} x + Q \mathrm{d} y.
+$$
+
+(iii) $\Rightarrow$ (iv) 设存在函数  $u(x,y)$ ，使得
+
+$$
+\mathrm{d} u = P \mathrm{d} x + Q \mathrm{d} y,
+$$
+
+所以 $P(x,y) = \frac{\partial}{\partial x} u(x,y), Q(x,y) = \frac{\partial}{\partial y} u(x,y)$. 因此
+
+$$
+\frac {\partial P}{\partial y} = \frac {\partial^ {2} u}{\partial x \partial y}, \quad \frac {\partial Q}{\partial x} = \frac {\partial^ {2} u}{\partial y \partial x}.
+$$
+
+因为  $P(x,y)$ ,  $Q(x,y)$  在区域 D 内具有一阶连续偏导数, 所以
+
+$$
+\frac {\partial^ {2} u}{\partial x \partial y} = \frac {\partial^ {2} u}{\partial y \partial x}.
+$$
+
+从而在 $D$ 内每一点处都有
+
+$$
+\frac {\partial P}{\partial y} = \frac {\partial Q}{\partial x}.
+$$
+
+(iv)⇒(i) 设 L 为 D 内任一按段光滑封闭曲线, 记 L 所围的区域为  $\sigma$ . 由于 D 为单连通区域, 所以区域  $\sigma$  含在 D 内. 应用格林公式及在 D 内恒有  $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$  的条件, 就得到
+
+214
+
+---
+
+§ 3 格林公式·曲线积分与路线的无关性
+
+$$
+\oint_ {L} P \mathrm{d} x + Q \mathrm{d} y = \iint_ {\sigma} \left(\frac {\partial Q}{\partial x} - \frac {\partial P}{\partial y}\right) \mathrm{d} \sigma = 0.
+$$
+
+上面我们将四个条件循环推导了一遍,这就证明了它们是相互等价的.
+
+应用定理21.12中的条件(iv)考察第二十章§2中的例1与例2.在例1中$P(x,y) = xy, Q(x,y) = y - x.$ 由于 $\frac{\partial P}{\partial y} = x, \frac{\partial Q}{\partial x} = -1, \frac{\partial P}{\partial y} \neq \frac{\partial Q}{\partial x}$, 故积分与路线有关.在例2中$P(x,y) = y, Q(x,y) = x$, 由于
+
+$$
+\frac {\partial P}{\partial y} = \frac {\partial Q}{\partial x} = 1,
+$$
+
+所以积分与路线无关.
+
+定理 21.12 中要求 D 为单连通区域是重要的. 如本节例 2, 对任何不包含原点的单连通区域 D, 已证得在这个 D 内的任何封闭曲线 L 上, 皆有
+
+$$
+\oint_ {L} \frac {x \mathrm{d} y - y \mathrm{d} x}{x ^ {2} + y ^ {2}} = 0. \tag {3}
+$$
+
+倘若 $L$ 为绕原点一周的封闭曲线，则函数 $P(x,y) = \frac{-y}{x^2 + y^2}, Q(x,y) = \frac{x}{x^2 + y^2}$ 只在剔除原点外的任何区域 $D$ 上有定义，所以 $L$ 必含在某个复连通区域内. 这时它不满足定理21.12的条件，因而就不能保证(3)式成立. 事实上，设 $L$ 为绕原点一周的圆
+
+$$
+L: x = a \cos \theta , y = a \sin \theta \quad (0 \leqslant \theta \leqslant 2 \pi),
+$$
+
+则有
+
+$$
+\oint_ {L} \frac {x \mathrm{d} y - y \mathrm{d} x}{x ^ {2} + y ^ {2}} = \int_ {0} ^ {2 \pi} \frac {a ^ {2} \cos^ {2} \theta + a ^ {2} \sin^ {2} \theta}{a ^ {2}} \mathrm{d} \theta = \int_ {0} ^ {2 \pi} \mathrm{d} \theta = 2 \pi .
+$$
+
+若 $P(x,y), Q(x,y)$ 满足定理21.12的条件，则由上述证明可看到二元函数
+
+$$
+\begin{array}{l} u (x, y) = \int_ {\widehat {A B}} P (x, y) \mathrm{d} x + Q (x, y) \mathrm{d} y \\ = \int_ {A (x _ {0}, y _ {0})} ^ {B (x, y)} P (s, t) \mathrm{d} s + Q (s, t) \mathrm{d} t \\ \end{array}
+$$
+
+具有性质
+
+$$
+\mathrm{d} u (x, y) = P (x, y) \mathrm{d} x + Q (x, y) \mathrm{d} y.
+$$
+
+它与一元函数的原函数相仿. 所以我们也称 $u(x, y)$ 为 $P \mathrm{~dx} + Q \mathrm{~dy}$ 的一个原函数.
+
+设 I, J 是区间,  $P(x, y)$ ,  $Q(x, y)$  在  $D = I \times J$  上有连续偏导数, 且  $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$  处处成立, 则任取定  $(x_{0}, y_{0}) \in D$ , 对于  $(x, y) \in D$ , 取路线为图 21-20 中的折线 ABC, 由定理 21.12,
+
+$$
+u (x, y) = \int_ {x _ {0}} ^ {x} P (s, y _ {0}) \mathrm{d} s + \int_ {y _ {0}} ^ {y} Q (x, t) \mathrm{d} t
+$$
+
+是 $P(x,y)\mathrm{d}x + Q(x,y)\mathrm{d}y$ 的一个原函数. 同理, 取路线 $AB'C$,
+
+![](../../raw/pages_0193-0224/images/page_222_image_20.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+B'(x₀,y)
+C(x,y)
+A(x₀,y₀)
+B(x,y₀)
+O
+x
+</details>
+
+图21-20
+
+215
+
+---
+
+第二十一章 重积分
+
+$$
+u (x, y) = \int_ {x _ {0}} ^ {x} P (s, y) \mathrm{d} s + \int_ {y _ {0}} ^ {y} Q (x _ {0}, t) \mathrm{d} t
+$$
+
+也是  $P(x,y)\mathrm{d}x + Q(x,y)\mathrm{d}y$  的一个原函数.
+
+例4 试用曲线积分求
+
+$$
+(2 x + \sin y) \mathrm{d} x + (x \cos y) \mathrm{d} y
+$$
+
+的一个原函数.
+
+解 由于 $\frac{\partial}{\partial y}(2x + \sin y) = \cos y = \frac{\partial}{\partial x}(x\cos y)$，因此可取 $(x_0, y_0) = (0, 0)$，有
+
+$$
+u (x, y) = \int_ {0} ^ {x} 2 s \mathrm{d} s + \int_ {0} ^ {y} x \cos t \mathrm{d} t = x ^ {2} + x \sin y.
+$$
+
+## 习题 21.3
+
+1. 应用格林公式计算下列曲线积分:
+
+(1) $\oint_{L}(x + y)^{2}\mathrm{d}x - (x^{2} + y^{2})\mathrm{d}y$ ，其中 $L$ 是以 $A(1,1),B(3,2),C(2,5)$ 为顶点的三角形，方向取正向；
+(2) $\int_{AB} (\mathrm{e}^x \sin y - my) \, \mathrm{d}x + (\mathrm{e}^x \cos y - m) \, \mathrm{d}y$，其中 $m$ 为常数，$AB$ 为由 $(a,0)$ 到 $(0,0)$ 经过圆 $x^2 + y^2 = ax$ 上半部的路线 $(a > 0)$.
+
+2. 应用格林公式计算下列曲线所围的平面面积:
+
+(1) 星形线:  $x = a \cos^{3} t, y = a \sin^{3} t;$
+(2) 双纽线:  $(x^{2}+y^{2})^{2}=a^{2}(x^{2}-y^{2})$ .
+
+3. 证明: 若 L 为平面上封闭曲线, l 为任意方向向量, 则
+
+$$
+\oint_ {L} \cos (\hat {\boldsymbol {l}}, \boldsymbol {n})   \mathrm{d} s = 0,
+$$
+
+其中 n 为曲线 L 的外法线方向.
+
+4. 求积分值  $I=\oint_{L}\left[x\cos\left(\widehat{n},x\right)+y\cos\left(\widehat{n},y\right)\right]\mathrm{d}s$ ，其中 L 为包围有界区域的封闭曲线，n 为 L 的外法线方向.
+
+5. 验证下列积分与路线无关,并求它们的值:
+
+(1) $\int_{(0,0)}^{(1,1)}(x - y)(\mathrm{d}x - \mathrm{d}y)$;
+(2) $\int_{(0,0)}^{(x,y)}(2x\cos y - y^2\sin x)\mathrm{d}x + (2y\cos x - x^2\sin y)\mathrm{d}y;$
+(3) $\int_{(2,1)}^{(1,2)}\frac{ydx-xdy}{x^{2}}$ ，沿在右半平面的路线；
+(4) $\int_{(1,0)}^{(6,8)}\frac{x\mathrm{d}x + y\mathrm{d}y}{\sqrt{x^2 + y^2}}$ ，沿不通过原点的路线；
+(5) $\int_{(2,1)}^{(1,2)}\varphi(x)\mathrm{d}x+\psi(y)\mathrm{d}y$ ，其中 $\varphi(x),\psi(y)$ 为连续函数.
+
+6. 求下列全微分的原函数:
+
+(1) $(x^{2}+2xy-y^{2})\mathrm{d}x+(x^{2}-2xy-y^{2})\mathrm{d}y;$
+(2)  $\mathrm{e}^{x}\left[\mathrm{e}^{y}(x-y+2)+y\right]\mathrm{d}x+\mathrm{e}^{x}\left[\mathrm{e}^{y}(x-y)+1\right]\mathrm{d}y;$
+(3) $f\left(\sqrt{x^{2}+y^{2}}\right)x\mathrm{d}x+f\left(\sqrt{x^{2}+y^{2}}\right)y\mathrm{d}y.$
+
+216
+
+---
+
+§ 4 二重积分的变量变换
+
+7. 为了使曲线积分
+
+$$
+\int_ {L} F (x, y) (y \mathrm{d} x + x \mathrm{d} y)
+$$
+
+与积分路线无关,可微函数  $F(x,y)$  应满足怎样的条件?
+
+8. 计算曲线积分
+
+$$
+\int_ {\widehat {A M B}} \left[ \varphi (y) \mathrm{e} ^ {x} - m y \right] \mathrm{d} x + \left[ \varphi^ {\prime} (y) \mathrm{e} ^ {x} - m \right] \mathrm{d} y,
+$$
+
+其中 $\varphi(y)$ 和 $\varphi'(y)$ 为连续函数，$\widehat{AMB}$ 为连接点 $A(x_1, y_1)$ 和点 $B(x_2, y_2)$ 的任何路线，但与直线段 $AB$ 围成已知大小为 $S$ 的面积.
+
+9. 设函数 $f(u)$ 具有一阶连续导数, 证明对任何光滑封闭曲线 $L$, 有
+
+$$
+\oint_ {L} f (  x y  )   (  y \mathrm{d} x   +   x \mathrm{d} y  )    =   0.
+$$
+
+10. 设函数 $u(x, y)$ 在由封闭的光滑曲线 $L$ 所围的区域 $D$ 上具有二阶连续偏导数，证明
+
+$$
+\iint_ {D} \left(\frac {\partial^ {2} u}{\partial x ^ {2}} + \frac {\partial^ {2} u}{\partial y ^ {2}}\right) \mathrm{d} \sigma = \oint_ {L} \frac {\partial u}{\partial \boldsymbol {n}} \mathrm{d} s,
+$$
+
+其中 $\frac{\partial u}{\partial n}$ 是 $u(x,y)$ 沿L外法线方向n的方向导数.
+
+## § 4 二重积分的变量变换
+
+## 一、二重积分的变量变换公式
+
+在定积分的计算中,我们得到了如下结论:设 $f(x)$ 在区间 $[a,b]$ 上连续, $x=\varphi(t)$ 当t从 $\alpha$ 变到 $\beta$ 时,严格单调地从a变到b,且 $\varphi(t)$ 连续可微,则
+
+$$
+\int_ {a} ^ {b} f (x) \mathrm{d} x = \int_ {\alpha} ^ {\beta} f (\varphi (t)) \varphi^ {\prime} (t) \mathrm{d} t. \tag {1}
+$$
+
+当 $\alpha < \beta$ （即 $\varphi'(t) > 0$）时，记 $X = [a, b], Y = [\alpha, \beta]$，则 $X = \varphi(Y), Y = \varphi^{-1}(X)$. 利用这些记号，公式(1)又可写成
+
+$$
+\int_ {X} f (x) \mathrm{d} x = \int_ {\varphi^ {- 1} (X)} f (\varphi (t)) \varphi^ {\prime} (t) \mathrm{d} t. \tag {2}
+$$
+
+当  $\alpha>\beta$  （即  $\varphi'(t)<0$ ）时，(1) 式可写成
+
+$$
+\int_ {X} f (x) \mathrm{d} x = - \int_ {\varphi^ {- 1} (X)} f (\varphi (t)) \varphi^ {\prime} (t) \mathrm{d} t. \tag {3}
+$$
+
+故当 $\varphi (t)$ 为严格单调且连续可微时，(2)式和(3)式可统一写成如下的形式:
+
+$$
+\int_ {X} f (x) \mathrm{d} x = \int_ {\varphi^ {- 1} (X)} f (\varphi (t)) | \varphi^ {\prime} (t) | \mathrm{d} t. \tag {4}
+$$
+
+下面我们把公式(4)推广到二重积分的场合.为此,先给出下面的引理.
+
+引理 设变换 $T: x = x(u, v), y = y(u, v)$ 将 $uv$ 平面上由按段光滑封闭曲线所围的闭区域 $\Delta$ 一对一地映成 $xy$ 平面上的闭区域 $D$, 函数 $x(u, v), y(u, v)$ 在 $\Delta$ 内分别具有一阶连续偏导数且它们的函数行列式
+
+217
+
+---
+
+第二十一章 重积分
+
+$$
+J (u, v) = \frac {\partial (x , y)}{\partial (u , v)} \neq 0, \quad (u, v) \in \Delta ,
+$$
+
+则区域 $D$ 的面积
+
+$$
+\mu (D) = \iint_ {\Delta} | J (u, v) | \mathrm{d} u \mathrm{d} v. \tag {5}
+$$
+
+证 下面给出当 $y(u, v)$ 在 $\Delta$ 内具有二阶连续偏导数时的证明. 对 $y(u, v)$ 具有一阶连续偏导数条件下的证明在本章 §9 中给出.
+
+由于 T 是一对一变换, 且  $J(u,v) \neq 0$ , 因而 T 把  $\Delta$  的内点变为 D 的内点, 所以  $\Delta$  的按段光滑边界曲线  $L_{\Delta}$  变换到 D 时, 其边界曲线  $L_{D}$  也是按段光滑的.
+
+设曲线 $L_{\Delta}$ 的参数方程为
+
+$$
+u = u (t), \quad v = v (t) \quad (\alpha \leqslant t \leqslant \beta).
+$$
+
+由于 $L_{\Delta}$ 按段光滑，所以 $u^{\prime}(t), v^{\prime}(t)$ 在 $[\alpha, \beta]$ 上至多除去有限个第一类间断点外，在其他的点上都连续。因为 $L_{D} = T(L_{\Delta})$ ，所以 $L_{D}$ 的参数方程为
+
+$$
+\begin{array}{l} x = x (t) = x (u (t), v (t)), \quad (\alpha \leqslant t \leqslant \beta). \\ y = y (t) = y (u (t), v (t)) \\ \end{array}
+$$
+
+若规定 $t$ 从 $\alpha$ 变到 $\beta$ 时，对应于 $L_{D}$ 的正向，则根据格林公式，取 $P(x,y) = 0$ $Q(x,y) = x$ ，有
+
+$$
+\begin{array}{l} \mu (D) = \oint_ {L _ {D}} x \mathrm{d} y = \int_ {\alpha} ^ {\beta} x (t) y ^ {\prime} (t) \mathrm{d} t \\ = \int_ {\alpha} ^ {\beta} x (u (t), v (t)) \left[ \frac {\partial y}{\partial u} u ^ {\prime} (t) + \frac {\partial y}{\partial v} v ^ {\prime} (t) \right] \mathrm{d} t. \tag {6} \\ \end{array}
+$$
+
+另一方面，在 uv 平面上
+
+$$
+\begin{array}{l} \oint_ {L _ {\Delta}} x (u, v) \left[ \frac {\partial y}{\partial u} \mathrm{d} u + \frac {\partial y}{\partial v} \mathrm{d} v \right] \\ = \pm \int_ {\alpha} ^ {\beta} x (u (t), v (t)) \left[ \frac {\partial y}{\partial u} u ^ {\prime} (t) + \frac {\partial y}{\partial v} v ^ {\prime} (t) \right] \mathrm{d} t, \tag {7} \\ \end{array}
+$$
+
+其中正号及负号分别由 t 从  $\alpha$  变到  $\beta$  时, 是对应于  $L_{\Delta}$  的正方向或负方向所决定. 由 (6) 及 (7) 式得到
+
+$$
+\begin{array}{l} \mu (D) = \pm \oint_ {L _ {\Delta}} x (u, v) \left[ \frac {\partial y}{\partial u} \mathrm{d} u + \frac {\partial y}{\partial v} \mathrm{d} v \right] \\ = \pm \oint_ {L _ {\Delta}} x (u, v) \frac {\partial y}{\partial u} \mathrm{d} u + x (u, v) \frac {\partial y}{\partial v} \mathrm{d} v. \\ \end{array}
+$$
+
+令 $P(u,v) = x(u,v)\frac{\partial y}{\partial u},Q(u,v) = x(u,v)\frac{\partial y}{\partial v}$ ，在 $uv$ 平面上对上式应用格林公式，得到
+
+$$
+\mu (D) = \pm \iint_ {\Delta} \biggl (\frac {\partial Q}{\partial u} - \frac {\partial P}{\partial v} \biggr)   \mathrm{d} u \mathrm{d} v.
+$$
+
+由于函数 $y(u,v)$ 具有二阶连续偏导数，即有 $\frac{\partial^2y}{\partial u\partial v} = \frac{\partial^2y}{\partial v\partial u}$，因此，$\frac{\partial Q}{\partial u} - \frac{\partial P}{\partial v} = J(u,v)$，于是
+
+$$
+\mu (D) = \pm \iint_ {\Delta} J (u, v) \mathrm{d} u \mathrm{d} v.
+$$
+
+218
+
+---
+
+§ 4 二重积分的变量变换
+
+又因为 $\mu(D)$ 总是非负的，而 $J(u,v)$ 在 $\Delta$ 上不为零且连续，故其函数值在 $\Delta$ 上不变号，所以
+
+$$
+\mu (D) = \iint_ {\Delta} | J (u, v) | \mathrm{d} u \mathrm{d} v.
+$$
+
+定理21.13 设 $f(x, y)$ 在有界闭区域 $D$ 上可积，变换 $T: x = x(u, v), y = y(u, v)$ 将 $uv$ 平面由按段光滑封闭曲线所围成的闭区域 $\Delta$ 一对一地映成 $xy$ 平面上的闭区域 $D$，函数 $x(u, v), y(u, v)$ 在 $\Delta$ 内分别具有一阶连续偏导数且它们的函数行列式
+
+$$
+J (u, v) = \frac {\partial (x , y)}{\partial (u , v)} \neq 0, \quad (u, v) \in \Delta ,
+$$
+
+则 $\iint_{D} f(x, y) \, \mathrm{d}x \, \mathrm{d}y = \iint_{\Delta} f(x(u, v), y(u, v)) |J(u, v)| \, \mathrm{d}u \, \mathrm{d}v.$
+
+证 用曲线网把  $\Delta$  分成 n 个小区域  $\Delta_{i}$ ，在变换 T 作用下，区域 D 也相应地被分成 n 个小区域  $D_{i}$ 。记  $\Delta_{i}$  及  $D_{i}$  的面积为  $\mu(\Delta_{i})$  及  $\mu(D_{i})$  ( $i=1,2,\cdots,n$ )。由引理及二重积分中值定理，有
+
+$$
+\mu (D _ {i}) = \iint_ {\Delta_ {i}} | J (u, v) | \mathrm{d} u \mathrm{d} v = | J (\bar {u} _ {i}, \bar {v} _ {i}) | \mu (\Delta_ {i}),
+$$
+
+其中 $(\bar{u}_{i},\bar{v}_{i})\in\Delta_{i}(i=1,2,\cdots,n)$ .
+
+令  $\xi_{i}=x\left(\bar{u}_{i},\bar{v}_{i}\right)$ ,  $\eta_{i}=y\left(\bar{u}_{i},\bar{v}_{i}\right)$ ，则  $(\xi_{i},\eta_{i})\in D_{i}(i=1,2,\cdots,n)$ . 作二重积分  $\iint_{D}f(x,y)\mathrm{d}x\mathrm{d}y$  的积分和
+
+$$
+\begin{array}{l} \sigma = \sum_ {i = 1} ^ {n} f (\xi_ {i}, \eta_ {i}) \mu (D _ {i}) \\ = \sum_ {i = 1} ^ {n} f (x (\bar {u} _ {i}, \bar {v} _ {i}), y (\bar {u} _ {i}, \bar {v} _ {i})) | J (\bar {u} _ {i}, \bar {v} _ {i}) | \mu (\Delta_ {i}). \\ \end{array}
+$$
+
+上式右边的和式是  $\Delta$  上可积函数  $f(x(u,v),y(u,v))|J(u,v)|$  的积分和. 又由变换 T 的连续性可知, 当区域  $\Delta$  的分割  $T_{\Delta}:\{\Delta_{1},\Delta_{2},\cdots,\Delta_{n}\}$  的细度  $\|T_{\Delta}\|\to0$  时, 区域 D 相应的分割  $T_{D}:\{D_{1},D_{2},\cdots,D_{n}\}$  的细度  $\|T_{D}\|$  也趋于零. 因此得到
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} x \mathrm{d} y = \iint_ {\Delta} f (x (u, v), y (u, v)) | J (u, v) | \mathrm{d} u \mathrm{d} v.
+$$
+
+例 1 求  $\iint_{D} e^{\frac{x-y}{x+y}} dx dy$ ，其中 D 是由 x=0, y=0,  $x+y=1$  所围区域（图 21-21）.
+
+解 为了简化被积函数, 令 u = x - y,  $v = x + y$ . 为此作变换  $T: x = \frac{1}{2}(u + v)$ ,  $y = \frac{1}{2}(v - u)$ , 则
+
+$$
+J (u, v) = \left| \begin{array}{c c} {\frac {1}{2}} & {\frac {1}{2}} \\ {- \frac {1}{2}} & {\frac {1}{2}} \end{array} \right| = \frac {1}{2} > 0.
+$$
+
+在变换 T 的作用下, 区域 D 的原象  $\Delta$  如图 21-22 所示. 所以
+
+219
+
+---
+
+第二十一章 重积分
+
+$$
+\begin{array}{l} \iint_ {D} \mathrm{e} ^ {\frac {x - y}{x + y}} \mathrm{d} x \mathrm{d} y = \iint_ {\Delta} \mathrm{e} ^ {\frac {u}{v}} \cdot \frac {1}{2} \mathrm{d} u \mathrm{d} v = \frac {1}{2} \int_ {0} ^ {1} \mathrm{d} v \int_ {- v} ^ {v} \mathrm{e} ^ {\frac {u}{v}} \mathrm{d} u \\ = \frac {1}{2} \int_ {0} ^ {1} v (\mathrm{e-e} ^ {- 1}) \mathrm{d} v = \frac {\mathrm{e-e} ^ {- 1}}{4}. \\ \end{array}
+$$
+
+![](../../raw/pages_0225-0256/images/page_227_image_2.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+1
+x+y=1
+D
+O
+1
+x
+</details>
+
+图21-21
+
+![](../../raw/pages_0225-0256/images/page_227_image_4.jpg)
+
+<details>
+<summary>text_image</summary>
+
+v
+1
+Δ
+-1
+O
+1
+u
+</details>
+
+图21-22
+
+例2 求抛物线 $y^{2} = mx, y^{2} = nx$ 和直线 $y = \alpha x, y = \beta x$ 所围区域 $D$ 的面积 $\mu(D)$ ($0 < m < n, 0 < \alpha < \beta$).
+
+解 $D$ 的面积
+
+$$
+\mu (D) = \iint_ {D} \mathrm{d} x \mathrm{d} y.
+$$
+
+为了简化积分区域,作变换
+
+$$
+x = \frac {u}{v ^ {2}}, \quad y = \frac {u}{v}.
+$$
+
+它把 $xy$ 平面上的区域 $D$ （图21-23中的阴影部分）对应到 $uv$ 平面上的矩形区域 $\Delta = [m, n] \times [\alpha, \beta]$. 由于
+
+![](../../raw/pages_0225-0256/images/page_227_image_12.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+y=βx
+y=αx
+y²=nx
+D
+O
+x
+y²=mx
+</details>
+
+图21-23
+
+$$
+J (u, v) = \left| \begin{array}{c c} {{\frac {1}{v ^ {2}}}} & {{- \frac {2 u}{v ^ {3}}}} \\ {{\frac {1}{v}}} & {{- \frac {u}{v ^ {2}}}} \end{array} \right| = \frac {u}{v ^ {4}} > 0, \quad (u, v) \in \Delta ,
+$$
+
+所以
+
+$$
+\begin{array}{l} \mu (D) = \iint_ {D} \mathrm{d} \sigma = \iint_ {\Delta} \frac {u}{v ^ {4}} \mathrm{d} u \mathrm{d} v \\ = \int_ {\alpha} ^ {\beta} \frac {\mathrm{d} v}{v ^ {4}} \cdot \int_ {m} ^ {n} u \mathrm{d} u = \frac {(n ^ {2} - m ^ {2}) (\beta^ {3} - \alpha^ {3})}{6 \alpha^ {3} \beta^ {3}}. \\ \end{array}
+$$
+
+## 二、用极坐标计算二重积分
+
+当积分区域是圆域或圆域的一部分,或者被积函数的形式为  $f(x^{2}+y^{2})$  时,采用极坐标变换
+
+$$
+T: \left\{ \begin{array}{l l} x = r \cos \theta , \\ y = r \sin \theta , \end{array} \right. 0 \leqslant r <   + \infty , 0 \leqslant \theta \leqslant 2 \pi \tag {8}
+$$
+
+往往能达到简化积分区域或被积函数的目的. 此时, 变换 T 的函数行列式为
+
+220
+
+---
+
+§ 4 二重积分的变量变换
+
+$$
+J (r, \theta) = \left| \begin{array}{c c} \cos \theta & - r \sin \theta \\ \sin \theta & r \cos \theta \end{array} \right| = r.
+$$
+
+![](../../raw/pages_0225-0256/images/page_228_image_2.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+ε
+O
+A
+A'
+x
+Dε
+B
+B'
+</details>
+
+(a)
+
+![](../../raw/pages_0225-0256/images/page_228_image_4.jpg)
+
+<details>
+<summary>text_image</summary>
+
+θ
+2π
+2π-ε
+E
+F
+Δε
+C
+O
+ε
+R
+D
+</details>
+
+(b)
+
+图21-24
+
+容易知道,极坐标变换 T 把  $r\theta$  平面上的矩形  $[0,R]\times[0,2\pi]$  变换成 xy 平面上的圆域  $D=\{(x,y)\mid x^{2}+y^{2}\leqslant R^{2}\}$ . 但对应不是一对一的. 例如, xy 平面上原点 O(0,0) 与  $r\theta$  平面上直线 r=0 相对应, x 轴上线段 AA' 对应于  $r\theta$  平面上两条线段 CD 和 EF (图 21-24). 又当 r=0 时,  $J(r,\theta)=0$ , 因此不满足定理 21.13 的条件. 但是, 我们仍然有下面的结论.
+
+定理 21.14 设  $f(x,y)$  满足定理 21.13 的条件, 且在极坐标变换 (8) 下, xy 平面上有界闭区域 D 与  $r\theta$  平面上区域  $\Delta$  对应, 则成立
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} x \mathrm{d} y = \iint_ {\Delta} f (r \cos \theta , r \sin \theta) r \mathrm{d} r \mathrm{d} \theta . \tag {9}
+$$
+
+证 若 $D$ 为圆域 $\{(x,y) | x^2 + y^2 \leqslant R^2\}$, 则 $\Delta$ 为 $r\theta$ 平面上矩形区域 $[0, R] \times [0, 2\pi]$. 设 $D_{\varepsilon}$ 为在圆环 $\{(x,y) | 0 < \varepsilon^2 \leqslant x^2 + y^2 \leqslant R^2\}$ 中除去中心角为 $\varepsilon$ 的扇形 $BB'A'A$ 所得的区域（图21-24(a))，则在变换(8)下，$D_{\varepsilon}$ 对应于 $r\theta$ 平面上的矩形区域 $\Delta_{\varepsilon} = [\varepsilon, R] \times [0, 2\pi - \varepsilon]$ （图21-24(b)). 但极坐标变换(8)在 $D_{\varepsilon}$ 与 $\Delta_{\varepsilon}$ 之间是一对一变换，且在 $\Delta_{\varepsilon}$ 上函数行列式 $J(r, \theta) > 0$. 于是由定理21.13，有
+
+$$
+\iint_ {D _ {\varepsilon}} f (x, y) \mathrm{d} x \mathrm{d} y = \iint_ {\Delta_ {\varepsilon}} f (r \cos \theta , r \sin \theta) r \mathrm{d} r \mathrm{d} \theta .
+$$
+
+因为 $f(x,y)$ 在有界闭域 $D$ 上有界，在上式中令 $\varepsilon \to 0$ ，即得
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} x \mathrm{d} y = \iint_ {\Delta} f (r \cos \theta , r \sin \theta) r \mathrm{d} r \mathrm{d} \theta .
+$$
+
+若 $D$ 是一般的有界闭区域, 则取足够大的 $R > 0$, 使 $D$ 包含在圆域 $D_{R} = \{(x, y) | x^{2} + y^{2} \leqslant R^{2}\}$ 内, 并且在 $D_{R}$ 上定义函数
+
+$$
+F (x, y) = \left\{ \begin{array}{l l} f (x, y), & (x, y) \in D, \\ 0, & (x, y) \notin D. \end{array} \right.
+$$
+
+函数  $F(x,y)$  在  $D_{R}$  内至多在有限条按段光滑曲线上间断, 因此, 对函数  $F(x,y)$ , 由前述有
+
+221
+
+---
+
+第二十一章 重积分
+
+$$
+\iint_ {D _ {R}} F (x, y) \mathrm{d} x \mathrm{d} y = \iint_ {\Delta_ {R}} F (r \cos \theta , r \sin \theta) r \mathrm{d} r \mathrm{d} \theta ,
+$$
+
+其中 $\Delta_R$ 为 $r\theta$ 平面上矩形区域 $[0,R]\times [0,2\pi ]$ .由函数 $F(x,y)$ 的定义，即得(9)式. □
+
+由定理 21.14 看到,用极坐标变换计算二重积分,除变量作相应的替换外,还须把“面积微元”dxdy 换成  $rdrd\theta$ .
+
+下面介绍二重积分在极坐标系下如何化为累次积分计算.
+
+(i) 若原点 $O \notin D$，且 $xy$ 平面上射线 $\theta =$ 常数与 $D$ 的边界至多交于两点（图21-25），则 $\Delta$ 必可表示成
+
+$$
+r _ {1} (\theta) \leqslant r \leqslant r _ {2} (\theta), \quad \alpha \leqslant \theta \leqslant \beta ,
+$$
+
+于是有
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} x \mathrm{d} y = \int_ {\alpha} ^ {\beta} \mathrm{d} \theta \int_ {r _ {1} (\theta)} ^ {r _ {2} (\theta)} f (r \cos \theta , r \sin \theta) r \mathrm{d} r. \tag {10}
+$$
+
+类似地, 若 xy 平面上的圆 r=常数与 D 的边界至多交于两点(图 21-26), 则  $\Delta$  必可表示成
+
+$$
+\theta_ {1} (r) \leqslant \theta \leqslant \theta_ {2} (r), \quad r _ {1} \leqslant r \leqslant r _ {2},
+$$
+
+所以
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} x \mathrm{d} y = \int_ {r _ {1}} ^ {r _ {2}} r \mathrm{d} r \int_ {\theta_ {1} (r)} ^ {\theta_ {2} (r)} f (r \cos \theta , r \sin \theta) \mathrm{d} \theta . \tag {11}
+$$
+
+![](../../raw/pages_0225-0256/images/page_229_image_13.jpg)
+
+<details>
+<summary>text_image</summary>
+
+r=r₂(θ)
+D
+r=r₁(θ)
+β
+α
+O
+x
+</details>
+
+图21-25
+
+![](../../raw/pages_0225-0256/images/page_229_image_15.jpg)
+
+<details>
+<summary>text_image</summary>
+
+θ=θ₂(r)
+D
+θ=θ₁(r)
+r₁
+r₂
+x
+</details>
+
+图21-26
+
+(ii) 若原点为 $D$ 的内点(图21-27), $D$ 的边界的极坐标方程为 $r = r(\theta)$, 则 $\Delta$ 可表示成
+
+$$
+0 \leqslant r \leqslant r (\theta), \quad 0 \leqslant \theta \leqslant 2 \pi .
+$$
+
+所以
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} x \mathrm{d} y = \int_ {0} ^ {2 \pi} \mathrm{d} \theta \int_ {0} ^ {r (\theta)} f (r \cos \theta , r \sin \theta) r \mathrm{d} r. \tag {12}
+$$
+
+(iii) 若原点 $O$ 在 $D$ 的边界上 (图21-28), 则 $\Delta$ 为
+
+$$
+0 \leqslant r \leqslant r (\theta), \quad \alpha \leqslant \theta \leqslant \beta ,
+$$
+
+于是
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} x \mathrm{d} y = \int_ {\alpha} ^ {\beta} \mathrm{d} \theta \int_ {0} ^ {r (\theta)} f (r \cos \theta , r \sin \theta) r \mathrm{d} r. \tag {13}
+$$
+
+222
+
+---
+
+§ 4 二重积分的变量变换
+
+![](../../raw/pages_0225-0256/images/page_230_image_1.jpg)
+
+<details>
+<summary>text_image</summary>
+
+r=r(θ)
+D
+O
+x
+y
+</details>
+
+图21-27
+
+![](../../raw/pages_0225-0256/images/page_230_image_3.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+r=r(θ)
+D
+β
+O
+α
+x
+</details>
+
+图21-28
+
+例3 计算
+
+$$
+I = \iint_ {D} \frac {\mathrm{d} \sigma}{\sqrt {1 - x ^ {2} - y ^ {2}}},
+$$
+
+其中 D 为圆域  $x^{2}+y^{2}\leqslant1$ .
+
+解 由于原点为 D 的内点, 故由(12)式, 有
+
+$$
+\begin{array}{l} \iint_ {D} \frac {\mathrm{d} \sigma}{\sqrt {1 - x ^ {2} - y ^ {2}}} = \int_ {0} ^ {2 \pi} \mathrm{d} \theta \int_ {0} ^ {1} \frac {r}{\sqrt {1 - r ^ {2}}} \mathrm{d} r \\ = \int_ {0} ^ {2 \pi} \left[ - \sqrt {1 - r ^ {2}} \right] \Big | _ {0} ^ {1} \mathrm{d} \theta = \int_ {0} ^ {2 \pi} \mathrm{d} \theta = 2 \pi . \\ \end{array}
+$$
+
+例 4 求球体  $x^{2}+y^{2}+z^{2}\leqslant R^{2}$  被圆柱面  $x^{2}+y^{2}=Rx$  所割下部分的体积（称为维维安尼（Viviani）体）.
+
+解 由所求立体的对称性(图21-29)，我们只要求出在第一卦限内的部分体积后乘以4，即得所求立体的体积. 在第一卦限内的立体是一个曲顶柱体，其底为 $xy$ 平面内由 $y \geqslant 0$ 和 $x^{2} + y^{2} \leqslant Rx$ 所确定的区域，曲顶的方程为
+
+$$
+z = \sqrt {R ^ {2} - x ^ {2} - y ^ {2}}.
+$$
+
+所以
+
+![](../../raw/pages_0225-0256/images/page_230_image_14.jpg)
+
+<details>
+<summary>text_image</summary>
+
+z
+y
+O
+R
+x
+</details>
+
+图21-29
+
+$$
+V = 4 \iint_ {D} \sqrt {R ^ {2} - x ^ {2} - y ^ {2}} \mathrm{d} \sigma ,
+$$
+
+其中 $D = \{(x,y) | y \geqslant 0, x^2 + y^2 \leqslant Rx\}$ （图21-30）. 用极坐标变换后，由（13）式，有
+
+$$
+\begin{array}{l} V = 4 \int_ {0} ^ {\frac {\pi}{2}} \mathrm{d} \theta \int_ {0} ^ {R \cos \theta} \sqrt {R ^ {2} - r ^ {2}} r \mathrm{d} r \\ = \frac {4}{3} R ^ {3} \int_ {0} ^ {\frac {\pi}{2}} (1 - \sin^ {3} \theta) \mathrm{d} \theta = \frac {4}{3} R ^ {3} \left(\frac {\pi}{2} - \frac {2}{3}\right). \\ \end{array}
+$$
+
+例5 计算 $I = \iint_{D} \mathrm{e}^{-(x^2 + y^2)} \, \mathrm{d}\sigma$，其中 $D$ 为圆域 $x^2 + y^2 \leqslant R^2$.
+
+![](../../raw/pages_0225-0256/images/page_230_image_20.jpg)
+
+<details>
+<summary>text_image</summary>
+
+r=Rcos θ
+D
+O
+x
+y
+</details>
+
+图21-30
+
+223
+
+---
+
+第二十一章 重积分
+
+解 利用极坐标变换,由公式(12),有
+
+$$
+I = \int_ {0} ^ {2 \pi} \mathrm{d} \theta \int_ {0} ^ {R} r \mathrm{e} ^ {- r ^ {2}} \mathrm{d} r = \pi (1 - \mathrm{e} ^ {- R ^ {2}}).
+$$
+
+由例 5 可见, 若不用极坐标变换计算, 而用直角坐标系下化为累次积分计算, 就会遇到计算  $\int e^{-y^{2}} dy$  的问题, 但我们不能把  $\int e^{-y^{2}} dy$  表示成初等函数.
+
+与极坐标相类似,我们也可以作下面的广义极坐标变换:
+
+$$
+T: \left\{ \begin{array}{l l} x = a r \cos \theta , \\ y = b r \sin \theta , \end{array} \right. 0 \leqslant r <   + \infty , 0 \leqslant \theta \leqslant 2 \pi ,
+$$
+
+并计算得
+
+$$
+J (r, \theta) = \left| \begin{array}{c c} a \cos \theta & - a r \sin \theta \\ b \sin \theta & b r \cos \theta \end{array} \right| = a b r.
+$$
+
+对广义极坐标变换也有与定理 21.14 相应的定理, 这里不再赘述了.
+
+例6 求椭球体
+
+$$
+\frac {x ^ {2}}{a ^ {2}} + \frac {y ^ {2}}{b ^ {2}} + \frac {z ^ {2}}{c ^ {2}} \leqslant 1
+$$
+
+的体积.
+
+解 由对称性, 椭球体的体积 V 是第一卦限部分体积的 8 倍, 这一部分是以 z = c  $\sqrt{1 - \frac{x^{2}}{a^{2}} - \frac{y^{2}}{b^{2}}}$  为曲顶,  $D = \left\{(x, y) \mid 0 \leqslant y \leqslant b \sqrt{1 - \frac{x^{2}}{a^{2}}}, 0 \leqslant x \leqslant a\right\}$  为底的曲顶柱体, 所以
+
+$$
+V = 8 \iint_ {D} c \sqrt {1 - \frac {x ^ {2}}{a ^ {2}} - \frac {y ^ {2}}{b ^ {2}}} \mathrm{d} x \mathrm{d} y.
+$$
+
+应用广义极坐标变换,由于  $z=c\sqrt{1-r^{2}}$ , 因此
+
+$$
+\begin{array}{l} V = 8 \int_ {0} ^ {\frac {\pi}{2}} \mathrm{d} \theta \int_ {0} ^ {1} c \sqrt {1 - r ^ {2}} a b r \mathrm{d} r \\ = 8 a b c \int_ {0} ^ {\frac {\pi}{2}} \mathrm{d} \theta \int_ {0} ^ {1} r \sqrt {1 - r ^ {2}} \mathrm{d} r = \frac {4 \pi}{3} a b c. \\ \end{array}
+$$
+
+当 $a = b = c = R$ 时，得到球的体积为 $\frac{4\pi}{3} R^3$
+
+## 习题 21.4
+
+1. 对积分 $\iint_{D} f(x, y) \, \mathrm{d}x \, \mathrm{d}y$ 进行极坐标变换并写出变换后不同顺序的累次积分:
+
+(1) 当 D 为由不等式  $a^{2} \leqslant x^{2} + y^{2} \leqslant b^{2}, y \geqslant 0$  所确定的区域；
+(2)  $D = \left\{(x, y) \mid x^{2} + y^{2} \leqslant y, x \geqslant 0\right\}$ ;
+(3)  $D=\left\{(x,y)\mid0\leqslant x\leqslant1,0\leqslant x+y\leqslant1\right\}$ .
+
+2. 用极坐标计算下列二重积分:
+
+(1) $\iint_{D} \sin \sqrt{x^2 + y^2} \, \mathrm{d}x \, \mathrm{d}y$, 其中 $D = \{(x, y) \mid \pi^2 \leqslant x^2 + y^2 \leqslant 4\pi^2\}$;
+
+224
+
+---
+
+§ 4 二重积分的变量变换
+
+(2) $\iint_{D}(x + y)\mathrm{d}x\mathrm{d}y$ ，其中 $D = \{(x,y)\mid x^2 +y^2\leqslant x + y\}$
+(3) $\iint_{D} |xy| \, \mathrm{d}x \, \mathrm{d}y$，其中 $D$ 为圆域 $x^2 + y^2 \leqslant a^2$;
+(4) $\iint_{D} f'(x^2 + y^2) \, \mathrm{d}x \, \mathrm{d}y$, 其中 $D$ 为圆域 $x^2 + y^2 \leqslant R^2$.
+
+3. 在下列积分中引入新变量 u, v 后, 试将它化为累次积分:
+
+(1) $\int_{0}^{2}\mathrm{d}x\int_{1 - x}^{2 - x}f(x,y)\mathrm{d}y$ ，若 $u = x + y,v = x - y;$
+(2) $\iint_{D} f(x, y) \, \mathrm{d}x \, \mathrm{d}y$，其中 $D = \{(x, y) \mid \sqrt{x} + \sqrt{y} \leqslant \sqrt{a}, x \geqslant 0, y \geqslant 0\}$，若 $x = u \cos^4 v, y = u \sin^4 v$;
+(3) $\iint_{D} f(x, y) \, \mathrm{d}x \, \mathrm{d}y$，其中 $D = \{(x, y) \mid x + y \leqslant a, x \geqslant 0, y \geqslant 0\}$，若 $x + y = u, y = uv$.
+
+4. 试作适当变换, 计算下列积分:
+
+(1) $\iint_{D}(x + y)\sin (x - y)\mathrm{d}x\mathrm{d}y, D = \{(x,y) \mid 0 \leqslant x + y \leqslant \pi, 0 \leqslant x - y \leqslant \pi\}$;
+(2) $\iint_{D} \mathrm{e}^{\frac{y}{x + y}} \, \mathrm{d}x \, \mathrm{d}y, D = \{(x, y) \mid x + y \leqslant 1, x \geqslant 0, y \geqslant 0\}$.
+
+5. 求由下列曲面所围立体 V 的体积:
+
+(1) V 是由  $z = x^{2} + y^{2}$  和  $z = x + y$  所围的立体；
+(2) V 是由曲面  $z^{2}=\frac{x^{2}}{4}+\frac{y^{2}}{9}$  和  $2z=\frac{x^{2}}{4}+\frac{y^{2}}{9}$  所围的立体.
+
+6. 求由下列曲线所围的平面图形面积:
+
+(1)  $x + y = a, x + y = b, y = \alpha x, y = \beta x \quad (0 < a < b, 0 < \alpha < \beta)$ ;
+(2) $\left(\frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}\right)^{2}=x^{2}+y^{2}$ ;
+(3) $(x^{2} + y^{2})^{2} = 2a^{2}(x^{2} - y^{2})$ $(x^{2} + y^{2}\geqslant a^{2})$
+
+7. 设 $f(x, y)$ 为连续函数，且 $f(x, y) = f(y, x)$. 证明
+
+$$
+\int_ {0} ^ {1} \mathrm{d} x \int_ {0} ^ {x} f (x, y) \mathrm{d} y = \int_ {0} ^ {1} \mathrm{d} x \int_ {0} ^ {x} f (1 - x, 1 - y) \mathrm{d} y.
+$$
+
+8. 试作适当变换, 把下列二重积分化为单重积分:
+
+(1) $\iint_{D} f\left(\sqrt{x^2 + y^2}\right) \, \mathrm{d}x \, \mathrm{d}y$，其中 $D$ 为圆域 $x^2 + y^2 \leqslant 1$；
+(2) $\iint_{D} f\left(\sqrt{x^2 + y^2}\right) \, \mathrm{d}x \, \mathrm{d}y$，其中 $D = \{(x, y) \mid |y| \leqslant |x|, |x| \leqslant 1\}$;
+(3) $\iint_{D} f(x + y) \, \mathrm{d}x \, \mathrm{d}y$，其中 $D = \{(x, y) \mid |x| + |y| \leqslant 1\}$;
+(4) $\iint_{D} f(xy) \, \mathrm{d}x \, \mathrm{d}y$，其中 $D = \{(x, y) \mid x \leqslant y \leqslant 4x, 1 \leqslant xy \leqslant 2\}$.
+
+225
+
+---
+
+第二十一章 重积分
+
+## § 5 三重积分
+
+## 一、三重积分的概念
+
+类似于第一型曲线积分,求一个空间立体 V 的质量 M 就可导出三重积分.设密度函数为  $f(x,y,z)$ ,为了求 V 的质量,我们把 V 分割成 n 个小块  $V_{1}, V_{2}, \cdots, V_{n}$ ,在每个小块  $V_{i}$  上任取一点  $(\xi_{i}, \eta_{i}, \zeta_{i})$ ,则
+
+$$
+M = \lim _ {\parallel T \parallel \to 0} \sum_ {i = 1} ^ {n} f (\xi_ {i}, \eta_ {i}, \zeta_ {i}) \Delta V _ {i},
+$$
+
+其中 $\Delta V_{i}$ 为小块 $V_{i}$ 的体积，$\| T \| = \max_{1 \leqslant i \leqslant n} \{V_{i}$ 的直径}.
+
+设 $f(x,y,z)$ 是定义在三维空间可求体积的有界闭区域 $V^{①}$ 上的有界函数. 现用若干光滑曲面所组成的曲面网 $T$ 来分割 $V$, 它把 $V$ 分成 $n$ 个小区域 $V_{1}, V_{2}, \cdots, V_{n}$. 记 $V_{i}$ 的体积为 $\Delta V_{i} (i = 1,2,\dots,n)$, $\| T \| = \max_{1 \leqslant i \leqslant n} \{V_{i}$ 的直径 $\}$. 在每个 $V_{i}$ 中任取一点 $(\xi_{i}, \eta_{i}, \zeta_{i})$, 作积分和
+
+$$
+\sum_ {i = 1} ^ {n} f (\xi_ {i}, \eta_ {i}, \zeta_ {i}) \Delta V _ {i}.
+$$
+
+定义1 设 $f(x, y, z)$ 为定义在三维空间可求体积的有界闭区域 $V$ 上的函数, $J$ 是一个确定的数. 若对任给的正数 $\varepsilon$, 总存在某一正数 $\delta$, 使得对于 $V$ 的任何分割 $T$, 只要 $\| T \| < \delta$, 属于分割 $T$ 的所有积分和都有
+
+$$
+\Big | \sum_ {i = 1} ^ {n} f (\xi_ {i}, \eta_ {i}, \zeta_ {i}) \Delta V _ {i} - J \Big | <   \varepsilon ,
+$$
+
+则称 $f(x,y,z)$ 在 $V$ 上可积，数 $J$ 称为函数 $f(x,y,z)$ 在 $V$ 上的三重积分，记作
+
+$$
+J = \iiint_ {V} f (  x  , y  , z  )   \mathrm{d} V \quad \text {或} \quad J = \iiint_ {V} f (  x  , y  , z  )   \mathrm{d} x \mathrm{d} y \mathrm{d} z  ,
+$$
+
+其中 $f(x,y,z)$ 称为被积函数，$x,y,z$ 称为积分变量，$V$ 称为积分区域.
+
+当 $f(x,y,z)\equiv 1$ 时， $\iiint_{V}\mathrm{d}V$ 在几何上表示 $V$ 的体积.
+
+三重积分具有与二重积分相应的可积条件和有关性质(参见§1),这里不一一细述了.例如,类似于二重积分,有
+
+(i) 有界闭区域 V 上的连续函数必可积；
+
+（ii）如果有界闭区域 $V$ 上的有界函数 $f(x,y,z)$ 的间断点集中在有限多个零体积（可类似于零面积那样来定义）的曲面上，则 $f(x,y,z)$ 在 $V$ 上必可积.
+
+## 二、化三重积分为累次积分
+
+定理21.15 若函数 $f(x,y,z)$ 在长方体 $V = [a,b]\times [c,d]\times [e,h]$ 上的三重积分存
+
+<small><span class="docvortex-page-footnote" data-block-type="page_footnote" style="color:#6b7280">① 读者可仿照 §1 定义平面图形可求面积的方法建立空间立体可求体积的概念. 今后我们总假定 V 的边界由光滑曲面组成, 以保证积分区域是可求体积的.</span></small>
+
+226
+
+---
+
+§ 5 三重积分
+
+在，且对任意 $(x,y)\in D = [a,b]\times [c,d],g(x,y) = \int_{e}^{h}f(x,y,z)\mathrm{d}z$ 存在，则积分 $\iint_{D}g(x,y)\mathrm{d}x\mathrm{d}y$ 也存在，且
+
+$$
+\iiint_ {V} f (x, y, z) \mathrm{d} x \mathrm{d} y \mathrm{d} z = \iint_ {D} \mathrm{d} x \mathrm{d} y \int_ {e} ^ {h} f (x, y, z) \mathrm{d} z. \tag {1}
+$$
+
+证 用平行于坐标平面的平面作分割 T, 它把 V 分成有限多个小长方体
+
+$$
+V _ {i j k} = \left[ x _ {i - 1}, x _ {i} \right] \times \left[ y _ {j - 1}, y _ {j} \right] \times \left[ z _ {k - 1}, z _ {k} \right].
+$$
+
+设 $M_{ijk}, m_{ijk}$ 分别是 $f(x, y, z)$ 在 $V_{ijk}$ 上的上确界和下确界. 对任意
+
+$$
+(\xi_ {i}, \eta_ {j}) \in [ x _ {i - 1}, x _ {i} ] \times [ y _ {j - 1}, y _ {j} ],
+$$
+
+$$
+m _ {i j k} \Delta z _ {k} \leqslant \int_ {z _ {k - 1}} ^ {z _ {k}} f (\xi_ {i}, \eta_ {j}, z) \mathrm{d} z \leqslant M _ {i j k} \Delta z _ {k}.
+$$
+
+现按下标 k 相加, 有
+
+$$
+\sum_ {k} \int_ {z _ {k - 1}} ^ {z _ {k}} f (\xi_ {i}, \eta_ {j}, z) \mathrm{d} z = \int_ {e} ^ {h} f (\xi_ {i}, \eta_ {j}, z) \mathrm{d} z = g (\xi_ {i}, \eta_ {j})
+$$
+
+以及
+
+$$
+\sum_ {i, j, k} m _ {i j k} \Delta x _ {i} \Delta y _ {j} \Delta z _ {k} \leqslant \sum_ {i, j} g (\xi_ {i}, \eta_ {j}) \Delta x _ {i} \Delta y _ {j} \leqslant \sum_ {i, j, k} M _ {i j k} \Delta x _ {i} \Delta y _ {j} \Delta z _ {k}. \tag {2}
+$$
+
+上述不等式两边是分割 $T$ 的下和与上和. 由 $f(x, y, z)$ 在 $V$ 上可积, 当 $\| T \| \to 0$ 时, 下和与上和具有相同的极限, 所以由(2)式得 $g(x, y)$ 关于 $D$ 对应 $T$ 的直线网格分割的下和与上和具有相同的极限. 由定理21.4有 $g(x, y)$ 在 $D$ 上可积, 且
+
+$$
+\iint_ {D} g (x, y) \mathrm{d} x \mathrm{d} y = \iiint_ {V} f (x, y, z) \mathrm{d} x \mathrm{d} y \mathrm{d} z.
+$$
+
+推论 若 $V = \{(x, y, z) \mid (x, y) \in D, z_1(x, y) \leqslant z \leqslant z_2(x, y)\} \subset [a, b] \times [c, d] \times [e, h]$，其中 $D$ 为 $V$ 在 $Oxy$ 平面上的投影，$z_1(x, y), z_2(x, y)$ 是 $D$ 上的连续函数，函数 $f(x, y, z)$ 在 $V$ 上的三重积分存在，且对任意 $(x, y) \in D$
+
+$$
+G (x, y) = \int_ {z _ {1} (x, y)} ^ {z _ {2} (x, y)} f (x, y, z) \mathrm{d} z
+$$
+
+亦存在,则积分  $\iint_{D} G(x,y) \, dx \, dy$  存在,且
+
+$$
+\iiint_ {V} f (x, y, z) \mathrm{d} x \mathrm{d} y \mathrm{d} z = \iint_ {D} G (x, y) \mathrm{d} x \mathrm{d} y = \iint_ {D} \mathrm{d} x \mathrm{d} y \int_ {z _ {1} (x, y)} ^ {z _ {2} (x, y)} f (x, y, z) \mathrm{d} z. \tag {3}
+$$
+
+(见图 21-31).
+
+证 定义 $F(x,y,z) = \begin{cases} f(x,y,z), & (x,y,z) \in V, \\ 0, & (x,y,z) \in V_0 \setminus V, \end{cases}$ 其中 $V_0 = [a,b] \times [c,d] \times [e, h]$，对 $F(x,y,z)$ 用定理21.15，则有
+
+$$
+\begin{array}{l} \iiint_ {V} f (x, y, z) \mathrm{d} x \mathrm{d} y \mathrm{d} z = \iiint_ {V _ {0}} F (x, y, z) \mathrm{d} x \mathrm{d} y \mathrm{d} z \\ = \iint_ {[ a, b ] \times [ c, d ]} \mathrm{d} x \mathrm{d} y \int_ {e} ^ {h} F (x, y, z) \mathrm{d} z \\ = \iint_ {D} \mathrm{d} x \mathrm{d} y \int_ {z _ {1} (x, y)} ^ {z _ {2} (x, y)} f (x, y, z) \mathrm{d} z. \\ \end{array}
+$$
+
+227
+
+---
+
+第二十一章 重积分
+
+![](../../raw/pages_0225-0256/images/page_235_image_1.jpg)
+
+<details>
+<summary>text_image</summary>
+
+z=z₂(x,y)
+V
+z=z₁(x,y)
+O
+D
+x
+y
+z
+</details>
+
+图21-31
+
+![](../../raw/pages_0225-0256/images/page_235_image_3.jpg)
+
+<details>
+<summary>text_image</summary>
+
+z
+z=y
+O
+1
+y=x
+2
+x
+y
+</details>
+
+图21-32
+
+例1 计算 $\iiint_{V} \frac{\mathrm{d}x \, \mathrm{d}y \, \mathrm{d}z}{x^2 + y^2}$, 其中 $V$ 为由平面 $x = 1, x = 2, z = 0, y = x$ 与 $z = y$ 所围区域（见图21-32）
+
+解 设 $V$ 在 $xy$ 平面上投影为 $D$, 则 $V = \{(x, y, z) \mid z_1(x, y) \leqslant z \leqslant z_2(x, y), (x, y) \in D\}$, 其中 $D = \{(x, y) \mid 0 \leqslant y \leqslant x, 1 \leqslant x \leqslant 2\}$ 是 $x$ 型区域, $z_1(x, y) = 0, z_2(x, y) = y$. 于是
+
+$$
+\begin{array}{l} \iiint_ {V} \frac {\mathrm{d} x \mathrm{d} y \mathrm{d} z}{x ^ {2} + y ^ {2}} = \iint_ {D} \mathrm{d} x \mathrm{d} y \int_ {0} ^ {y} \frac {\mathrm{d} z}{x ^ {2} + y ^ {2}} \\ = \iint_ {D} \frac {y}{x ^ {2} + y ^ {2}} \mathrm{d} x \mathrm{d} y = \int_ {1} ^ {2} \mathrm{d} x \int_ {0} ^ {x} \frac {y \mathrm{d} y}{x ^ {2} + y ^ {2}} \\ = \int_ {1} ^ {2} \frac {1}{2} \ln (x ^ {2} + y ^ {2}) \Bigg | _ {0} ^ {x} \mathrm{d} x = \int_ {1} ^ {2} \frac {1}{2} \ln 2 \mathrm{d} x \\ = \frac {1}{2} \ln 2. \\ \end{array}
+$$
+
+例2 计算 $\iiint_{V} (x^2 + y^2 + z) \, \mathrm{d}x \, \mathrm{d}y \, \mathrm{d}z$，其中 $V$ 是由 $\begin{cases} z = y, \\ x = 0 \end{cases}$ 绕 $z$ 轴旋转一周而成的曲面与 $z = 1$ 所围的区域.
+
+解 旋转面方程为 $z = \sqrt{x^2 + y^2}$, $V$ 在 $xy$ 平面上投影为 $D = \{(x, y) | x^2 + y^2 \leqslant 1\}$, $z_1(x, y) = \sqrt{x^2 + y^2}$, $z_2(x, y) = 1$, 于是
+
+$$
+\begin{array}{l} \iiint_ {V} (x ^ {2} + y ^ {2} + z) \mathrm{d} x \mathrm{d} y \mathrm{d} z = \iint_ {D} \mathrm{d} x \mathrm{d} y \int_ {\sqrt {x ^ {2} + y ^ {2}}} ^ {1} (x ^ {2} + y ^ {2} + z) \mathrm{d} z \\ = \iint_ {D} \left(x ^ {2} + y ^ {2}\right) \left(1 - \sqrt {x ^ {2} + y ^ {2}}\right) \mathrm{d} x \mathrm{d} y + \frac {1}{2} \iint_ {D} \left[ 1 - \left(x ^ {2} + y ^ {2}\right) \right] \mathrm{d} x \mathrm{d} y \\ = \int_ {0} ^ {2 \pi} \mathrm{d} \theta \int_ {0} ^ {1} r ^ {2} (1 - r) r \mathrm{d} r + \frac {1}{2} \int_ {0} ^ {2 \pi} \mathrm{d} \theta \int_ {0} ^ {1} (1 - r ^ {2}) r \mathrm{d} r \\ = \frac {\pi}{1 0} + \frac {\pi}{4} = \frac {7 \pi}{2 0}. \\ \end{array}
+$$
+
+类似分析可得到以下定理和推论.
+
+228
+
+---
+
+§ 5 三重积分 |||
+
+定理21.16 若函数 $f(x,y,z)$ 在长方体 $V = [a,b]\times [c,d]\times [e,h]$ 上的三重积分存在，且对任何 $z\in [e,h]$，二重积分
+
+$$
+I (z) = \iint_ {D} f (x, y, z) \mathrm{d} x \mathrm{d} y
+$$
+
+存在,其中  $D=[a,b]\times[c,d]$ ,则积分
+
+$$
+\int_ {e} ^ {h} \mathrm{d} z \iint_ {D} f (x, y, z) \mathrm{d} x \mathrm{d} y
+$$
+
+也存在,且
+
+$$
+\iiint_ {V} f (x, y, z) \mathrm{d} x \mathrm{d} y \mathrm{d} z = \int_ {e} ^ {h} \mathrm{d} z \iint_ {D} f (x, y, z) \mathrm{d} x \mathrm{d} y.
+$$
+
+推论 若 $V \subset [a, b] \times [c, d] \times [e, h]$, 函数 $f(x, y, z)$ 在 $V$ 上的三重积分存在, 且对任意固定的 $z \in [e, h]$, 积分 $\varphi(z) = \iint_{D_z} f(x, y, z) \, \mathrm{d}x \, \mathrm{d}y$ 存在, 其中 $D_z$ 是截面 $\{(x, y) \mid (x, y, z) \in V\}$, 则 $\int_{e}^{h} \varphi(z) \, \mathrm{d}z$ 存在, 且
+
+$$
+\iiint_ {V} f (x, y, z) \mathrm{d} x \mathrm{d} y \mathrm{d} z = \int_ {e} ^ {h} \varphi (z) \mathrm{d} z = \int_ {e} ^ {h} \mathrm{d} z \iint_ {D _ {z}} f (x, y, z) \mathrm{d} x \mathrm{d} y.
+$$
+
+(见图 21-33).
+
+注 类似于对二重积分转化为累次积分的几何解释, 对定理 21.15 和定理 21.16 及其推论所给出的方法也可以从几何上做出解释. 在定理 21.15 及其推论中, 把积分区域视为柱体的一部分 (见图 21-31), 投影 (柱体底面) 区域为 D, 柱体上、下曲面分别为  $z = z_{2}(x, y)$ ,  $z = z_{1}(x, y)$ ,  $(x, y) \in D$ . 三重积分相应转化为先对 z 再对 x, y 的累次积分形式 (先一后二). 在定理 21.16 及其推论中, 把积分区域视为介于两平行平面 z = e, z = h 之间的立体 (见图 21-33), 用垂直于 z 轴的面截积分区域所得截面为  $D_{z}$ . 此时三重积分相应转化为先对 x, y 变量在平
+
+![](../../raw/pages_0225-0256/images/page_236_image_11.jpg)
+
+<details>
+<summary>text_image</summary>
+
+z
+h
+z
+V
+e
+Dz
+O
+x
+y
+</details>
+
+图21-33
+
+面区域 $D_{z}$ 上的含参二重积分，再对 $z \in [e, h]$ 求定积分的形式（先二后一）。具体采用哪一种形式可根据实际问题中积分区域与被积函数的特性加以选择。
+
+例3 求
+
+$$
+I = \iiint_ {V} \left(\frac {x ^ {2}}{a ^ {2}} + \frac {y ^ {2}}{b ^ {2}} + \frac {z ^ {2}}{c ^ {2}}\right) \mathrm{d} x \mathrm{d} y \mathrm{d} z,
+$$
+
+其中 $V$ 是椭球体 $\frac{x^2}{a^2} +\frac{y^2}{b^2} +\frac{z^2}{c^2}\leqslant 1.$
+
+解 由于
+
+$$
+I = \iiint_ {V} \frac {x ^ {2}}{a ^ {2}} \mathrm{d} x \mathrm{d} y \mathrm{d} z + \iiint_ {V} \frac {y ^ {2}}{b ^ {2}} \mathrm{d} x \mathrm{d} y \mathrm{d} z + \iiint_ {V} \frac {z ^ {2}}{c ^ {2}} \mathrm{d} x \mathrm{d} y \mathrm{d} z,
+$$
+
+其中 $\iiint_{V} \frac{x^2}{a^2} \mathrm{d}x \, \mathrm{d}y \, \mathrm{d}z = \int_{-a}^{a} \frac{x^2}{a^2} \mathrm{d}x \iint_{V_x} \mathrm{d}y \, \mathrm{d}z$，这里 $V_x$ 表示椭圆面
+
+229
+
+---
+
+第二十一章 重积分
+
+$$
+\frac {y ^ {2}}{b ^ {2}} + \frac {z ^ {2}}{c ^ {2}} \leqslant 1 - \frac {x ^ {2}}{a ^ {2}} \text {或} \frac {y ^ {2}}{b ^ {2} \left(1 - \frac {x ^ {2}}{a ^ {2}}\right)} + \frac {z ^ {2}}{c ^ {2} \left(1 - \frac {x ^ {2}}{a ^ {2}}\right)} \leqslant 1.
+$$
+
+它的面积为
+
+$$
+\pi \bigg (b \sqrt {1 - \frac {x ^ {2}}{a ^ {2}}} \bigg) \left(c \sqrt {1 - \frac {x ^ {2}}{a ^ {2}}}\right) = \pi b c \bigg (1 - \frac {x ^ {2}}{a ^ {2}} \bigg).
+$$
+
+于是
+
+$$
+\iiint_ {V} \frac {x ^ {2}}{a ^ {2}} \mathrm{d} x \mathrm{d} y \mathrm{d} z = \int_ {- a} ^ {a} \frac {\pi b c}{a ^ {2}} x ^ {2} \left(1 - \frac {x ^ {2}}{a ^ {2}}\right) \mathrm{d} x = \frac {4}{1 5} \pi a b c.
+$$
+
+同理可得
+
+$$
+\iiint_ {V} \frac {y ^ {2}}{b ^ {2}} \mathrm{d} x \mathrm{d} y \mathrm{d} z = \frac {4}{1 5} \pi a b c, \iiint_ {V} \frac {z ^ {2}}{c ^ {2}} \mathrm{d} x \mathrm{d} y \mathrm{d} z = \frac {4}{1 5} \pi a b c.
+$$
+
+所以
+
+$$
+I = 3 \bigg (\frac {4}{1 5} \pi a b c \bigg) = \frac {4}{5} \pi a b c.
+$$
+
+![](../../raw/pages_0225-0256/images/page_237_image_10.jpg)
+
+下面用定理21.16的推论计算例1.
+
+例1中的区域 $V = \{(x,y,z)\mid 1\leqslant x\leqslant 2,(y,z)\in D_x\}$ ，其中 $D_{x} = \{(y,z)\mid 0\leqslant y\leqslant x,0\leqslant z\leqslant y\}$ （见图21-34）.
+
+$$
+\begin{array}{l} \iiint_ {V} \frac {\mathrm{d} x \mathrm{d} y \mathrm{d} z}{x ^ {2} + y ^ {2}} = \int_ {1} ^ {2} \mathrm{d} x \iint_ {D _ {x}} \frac {\mathrm{d} y \mathrm{d} z}{x ^ {2} + y ^ {2}} \\ = \int_ {1} ^ {2} \mathrm{d} x \int_ {0} ^ {x} \mathrm{d} y \int_ {0} ^ {y} \frac {\mathrm{d} z}{x ^ {2} + y ^ {2}} \\ = \int_ {1} ^ {2} \mathrm{d} x \int_ {0} ^ {x} \frac {y \mathrm{d} y}{x ^ {2} + y ^ {2}} = \frac {1}{2} \ln 2. \\ \end{array}
+$$
+
+![](../../raw/pages_0225-0256/images/page_237_image_14.jpg)
+
+<details>
+<summary>text_image</summary>
+
+z
+Dₓ
+O
+x
+y
+</details>
+
+图21-34
+
+## 三、三重积分换元法
+
+和二重积分一样,某些类型的三重积分作适当的变量变换后能使计算方便.
+
+设变换 $T: x = x(u, v, w), y = y(u, v, w), z = z(u, v, w)$，把 $uvw$ 空间中的区域 $V'$ 一对一地映成 $xyz$ 空间中的区域 $V$，并设函数 $x(u, v, w), y(u, v, w), z(u, v, w)$ 及它们的一阶偏导数在 $V'$ 内连续且函数行列式
+
+$$
+J (u, v, w) = \left| \begin{array}{c c c} \frac {\partial x}{\partial u} & \frac {\partial x}{\partial v} & \frac {\partial x}{\partial w} \\ \frac {\partial y}{\partial u} & \frac {\partial y}{\partial v} & \frac {\partial y}{\partial w} \\ \frac {\partial z}{\partial u} & \frac {\partial z}{\partial v} & \frac {\partial z}{\partial w} \end{array} \right| \neq 0, (u, v, w) \in V ^ {\prime}.
+$$
+
+于是与二重积分换元法一样,可以证明(用本章§9中证明二重积分类似的方法)成立下面的三重积分换元公式:
+
+$$
+\begin{array}{l} \iiint_ {V} f (x, y, z) \mathrm{d} x \mathrm{d} y \mathrm{d} z \\ = \iiint_ {V ^ {\prime}} f (x (u, v, w), y (u, v, w), z (u, v, w)) | J (u, v, w) | \mathrm{d} u \mathrm{d} v \mathrm{d} w, \tag {4} \\ \end{array}
+$$
+
+230
+
+---
+
+§ 5 三重积分 |||
+
+其中 $f(x,y,z)$ 在 $V$ 上可积.
+
+下面介绍几个常用的变换公式:
+
+## 1. 柱面坐标变换
+
+$$
+T: \left\{ \begin{array}{l l} x = r \cos \theta , & 0 \leqslant r <   + \infty , \\ y = r \sin \theta , & 0 \leqslant \theta \leqslant 2 \pi , \\ z = z, & - \infty <   z <   + \infty . \end{array} \right.
+$$
+
+由于变换 $T$ 的函数行列式
+
+$$
+J (r, \theta , z) = \left| \begin{array}{c c c} \cos \theta & - r \sin \theta & 0 \\ \sin \theta & r \cos \theta & 0 \\ 0 & 0 & 1 \end{array} \right| = r,
+$$
+
+按(4)式,三重积分的柱面坐标换元公式为
+
+$$
+\iiint_ {V} f (x, y, z) \mathrm{d} x \mathrm{d} y \mathrm{d} z = \iiint_ {V ^ {\prime}} f (r \cos \theta , r \sin \theta , z) r \mathrm{d} r \mathrm{d} \theta \mathrm{d} z, \tag {5}
+$$
+
+这里  $V'$  为 V 在柱面坐标变换下的原象.
+
+与极坐标变换一样,柱面坐标变换并非是一对一的,并且当 r=0 时, $J(r,\theta,z)=0$ ,但我们仍可证明(5)式成立.
+
+在柱面坐标系中，用 $r =$ 常数， $\theta =$ 常数， $z =$ 常数的平面分割 $V^{\prime}$ 时，变换后在 $xyz$ 直角坐标系中， $r =$ 常数是以 $z$ 轴为中心轴的圆柱面， $\theta =$ 常数是过 $z$ 轴的半平面， $z =$ 常数是垂直于 $z$ 轴的平面（图21-35）.
+
+用柱面坐标计算三重积分,通常是找出 V 在 xy 平面上的投影区域 D,即当
+
+$$
+V = \{(x, y, z) \mid z _ {1} (x, y) \leqslant z \leqslant z _ {2} (x, y), (x, y) \in D \}
+$$
+
+时，
+
+$$
+\iiint_ {V} f (x, y, z) \mathrm{d} x \mathrm{d} y \mathrm{d} z = \iint_ {D} \mathrm{d} x \mathrm{d} y \int_ {z _ {1} (x, y)} ^ {z _ {2} (x, y)} f (x, y, z) \mathrm{d} z,
+$$
+
+其中二重积分部分应用极坐标计算.
+
+例4 计算
+
+$$
+\iiint_ {V} (x ^ {2} + y ^ {2}) \mathrm{d} x \mathrm{d} y \mathrm{d} z,
+$$
+
+其中 $V$ 是由曲面 $2(x^{2} + y^{2}) = z$ 与 $z = 4$ 为界面的区域（图21-36）.
+
+![](../../raw/pages_0225-0256/images/page_238_image_20.jpg)
+
+<details>
+<summary>text_image</summary>
+
+z
+z+Δz
+r
+r+Δr
+z
+ΔV′
+O
+y
+θ
+Δθ
+x
+</details>
+
+图21-35
+
+![](../../raw/pages_0225-0256/images/page_238_image_22.jpg)
+
+<details>
+<summary>text_image</summary>
+
+z
+4
+O
+√2
+y
+x
+√2
+</details>
+
+图21-36
+
+231
+
+---
+
+第二十一章 重积分
+
+解 $V$ 在 $xy$ 平面上的投影区域 $D$ 为 $x^{2} + y^{2}\leqslant 2.$ 按柱坐标变换，区域 $V^{\prime}$ 可表为
+
+$$
+V ^ {\prime} = \{(r, \theta , z) \mid 2 r ^ {2} \leqslant z \leqslant 4, 0 \leqslant r \leqslant \sqrt {2}, 0 \leqslant \theta \leqslant 2 \pi \}.
+$$
+
+所以由公式(5)，有
+
+$$
+\begin{array}{l} \iiint_ {V} \left(x ^ {2} + y ^ {2}\right) \mathrm{d} x \mathrm{d} y \mathrm{d} z = \iiint_ {V ^ {\prime}} r ^ {3} \mathrm{d} r \mathrm{d} \theta \mathrm{d} z \\ = \int_ {0} ^ {2 \pi} \mathrm{d} \theta \int_ {0} ^ {\sqrt {2}} \mathrm{d} r \int_ {2 r ^ {2}} ^ {4} r ^ {3} \mathrm{d} z = \frac {8 \pi}{3}. \\ \end{array}
+$$
+
+## 2. 球坐标变换
+
+$$
+T: \left\{ \begin{array}{l l} x = r \sin \varphi \cos \theta , & 0 \leqslant r <   + \infty , \\ y = r \sin \varphi \sin \theta , & 0 \leqslant \varphi \leqslant \pi , \\ z = r \cos \varphi , & 0 \leqslant \theta \leqslant 2 \pi . \end{array} \right.
+$$
+
+由于
+
+$$
+\begin{array}{l} J (r, \varphi , \theta) = \left| \begin{array}{c c c} \sin \varphi \cos \theta & r \cos \varphi \cos \theta & - r \sin \varphi \sin \theta \\ \sin \varphi \sin \theta & r \cos \varphi \sin \theta & r \sin \varphi \cos \theta \\ \cos \varphi & - r \sin \varphi & 0 \end{array} \right| \\ = r ^ {2} \sin \varphi , \\ \end{array}
+$$
+
+当  $\varphi$  在  $[0, \pi]$  上取值时， $\sin \varphi \geqslant 0$ ，所以在球坐标变换下，按公式(4)，三重积分的球坐标换元公式为
+
+$$
+\begin{array}{l} \iiint_ {V} f (x, y, z) \mathrm{d} x \mathrm{d} y \mathrm{d} z \\ = \iiint_ {V} f (r \sin \varphi \cos \theta , r \sin \varphi \sin \theta , r \cos \varphi) r ^ {2} \sin \varphi \mathrm{d} r \mathrm{d} \varphi \mathrm{d} \theta , \tag {6} \\ \end{array}
+$$
+
+这里  $V'$  为 V 在球坐标变换 T 下的原象.
+
+类似地,球坐标变换并不是一对一的,并且当 r=0 或  $\varphi=0$  或  $\pi$  时, $J(r,\varphi,\theta)=0$ . 但我们仍然可以证明(6)式成立.
+
+在球坐标系中,用 r=常数, $\varphi=$ 常数, $\theta=$ 常数的平面分割  $V'$  时,变换后在 xyz 直角坐标系中,r=常数是以原点为心的球面, $\varphi=$ 常数是以原点为顶点、z 轴为中心轴的半圆锥面, $\theta=$ 常数是过 z 轴的半平面(图 21-37).
+
+在球坐标系下,当区域  $V'$  为集合
+
+$$
+V ^ {\prime} = \{(r, \varphi , \theta) \mid r _ {1} (\varphi , \theta) \leqslant r \leqslant r _ {2} (\varphi , \theta), \varphi_ {1} (\theta) \leqslant \varphi \leqslant \varphi_ {2} (\theta), \theta_ {1} \leqslant \theta \leqslant \theta_ {2} \}
+$$
+
+时，(6)式可化为累次积分
+
+$$
+\begin{array}{l} \iiint_ {V} f (x, y, z) \mathrm{d} x \mathrm{d} y \mathrm{d} z \\ = \int_ {\theta_ {1}} ^ {\theta_ {2}} \mathrm{d} \theta \int_ {\varphi_ {1} (\theta)} ^ {\varphi_ {2} (\theta)} \mathrm{d} \varphi \int_ {r _ {1} (\varphi , \theta)} ^ {r _ {2} (\varphi , \theta)} f (r \sin \varphi \cos \theta , r \sin \varphi \sin \theta , r \cos \varphi) r ^ {2} \sin \varphi \mathrm{d} r. \tag {7} \\ \end{array}
+$$
+
+例 5 求由圆锥体  $z \geqslant \sqrt{x^{2} + y^{2}} \cot \beta$  和球体  $x^{2} + y^{2} + (z - a)^{2} \leqslant a^{2}$  所确定的立体体积
+
+232
+
+---
+
+§ 5 三重积分
+
+(图 21-38)，其中  $\beta\in\left(0,\frac{\pi}{2}\right)$  和  $a\;(>0)$  为常数.
+
+![](../../raw/pages_0225-0256/images/page_240_image_2.jpg)
+
+<details>
+<summary>text_image</summary>
+
+z
+r+Δr
+φ
+Δφ
+O
+θ
+Δθ
+y
+x
+</details>
+
+图21-37
+
+![](../../raw/pages_0225-0256/images/page_240_image_4.jpg)
+
+<details>
+<summary>text_image</summary>
+
+z
+-a
+β
+O
+y
+x
+</details>
+
+图21-38
+
+解 在球坐标变换下, 球面方程  $x^{2}+y^{2}+(z-a)^{2}=a^{2}$  可表示成  $r=2a\cos\varphi$ , 锥面方程  $z=\sqrt{x^{2}+y^{2}}\cot\beta$  可表示成  $\varphi=\beta$ . 因此
+
+$$
+V ^ {\prime} = \{(r, \varphi , \theta) \mid 0 \leqslant r \leqslant 2 a \cos \varphi , 0 \leqslant \varphi \leqslant \beta , 0 \leqslant \theta \leqslant 2 \pi \}.
+$$
+
+由公式(7)求得 $V$ 的体积为
+
+$$
+\iiint_ {V} \mathrm{d} V = \int_ {0} ^ {2 \pi} \mathrm{d} \theta \int_ {0} ^ {\beta} \mathrm{d} \varphi \int_ {0} ^ {2 a \cos \varphi} r ^ {2} \sin \varphi \mathrm{d} r = \frac {4}{3} \pi a ^ {3} (1 - \cos^ {4} \beta).
+$$
+
+除上述介绍的两种变换外,下面我们再举一个例子,进一步说明如何根据被积函数或积分区域的特点来选择其他不同的变换.
+
+例6 求 $I = \iiint_{V} z \, \mathrm{d}x \, \mathrm{d}y \, \mathrm{d}z$，其中 $V$ 为由 $\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} \leqslant 1$ 与 $z \geqslant 0$ 所交区域.
+
+解 作广义球坐标变换
+
+$$
+T: \left\{ \begin{array}{l} x = a r \sin \varphi \cos \theta , \\ y = b r \sin \varphi \sin \theta , \\ z = c r \cos \varphi , \end{array} \right.
+$$
+
+于是 $J = abcr^2\sin \varphi$ .在上述广义球坐标变换下， $V$ 的原象为
+
+$$
+V ^ {\prime} = \{(r, \varphi , \theta) \mid 0 \leqslant r \leqslant 1, 0 \leqslant \varphi \leqslant \frac {\pi}{2}, 0 \leqslant \theta \leqslant 2 \pi \}.
+$$
+
+由公式(7)，有
+
+$$
+\begin{array}{l} \iiint_ {V} z \mathrm{d} x \mathrm{d} y \mathrm{d} z = \iiint_ {V ^ {\prime}} a b c ^ {2} r ^ {3} \sin \varphi \cos \varphi \mathrm{d} r \mathrm{d} \varphi \mathrm{d} \theta \\ = \int_ {0} ^ {2 \pi} \mathrm{d} \theta \int_ {0} ^ {\frac {\pi}{2}} \mathrm{d} \varphi \int_ {0} ^ {1} a b c ^ {2} r ^ {3} \sin \varphi \cos \varphi \mathrm{d} r \\ = \frac {\pi a b c ^ {2}}{2} \int_ {0} ^ {\frac {\pi}{2}} \sin \varphi \cos \varphi \mathrm{d} \varphi = \frac {\pi a b c ^ {2}}{4}. \\ \end{array}
+$$
+
+233
+
+---
+
+第二十一章 重积分
+
+## 习题 21.5
+
+1. 计算下列积分:
+
+(1) $\iiint_{V}(xy + z^2)\mathrm{d}x\mathrm{d}y\mathrm{d}z$ ，其中 $V = [-2,5]\times [-3,3]\times [0,1]$
+(2) $\iiint_{V} x \cos y \cos z \, \mathrm{d}x \, \mathrm{d}y \, \mathrm{d}z$, 其中 $V = [0,1] \times \left[0, \frac{\pi}{2}\right] \times \left[0, \frac{\pi}{2}\right]$;
+(3) $\iiint_{V} \frac{\mathrm{d}x \, \mathrm{d}y \, \mathrm{d}z}{(1 + x + y + z)^3}$, 其中 $V$ 是由 $x + y + z = 1$ 与三个坐标面所围成的区域;
+(4) $\iiint_{V} y \cos (x + z) \, \mathrm{d}x \, \mathrm{d}y \, \mathrm{d}z$, 其中 $V$ 是由 $y = \sqrt{x}, y = 0, z = 0$ 及 $x + z = \frac{\pi}{2}$ 所围成的区域.
+
+2. 试改变下列累次积分的顺序:
+
+(1) $\int_0^1\mathrm{d}x\int_0^{1 - x}\mathrm{d}y\int_0^{x + y}f(x,y,z)\mathrm{d}z;$
+(2) $\int_0^1\mathrm{d}x\int_0^1\mathrm{d}y\int_0^{x^2 +y^2}f(x,y,z)\mathrm{d}z.$
+
+3. 计算下列三重积分与累次积分:
+
+(1) $\iiint_{V} z^2 \, \mathrm{d}x \, \mathrm{d}y \, \mathrm{d}z$，其中 $V$ 由 $x^2 + y^2 + z^2 \leqslant r^2$ 和 $x^2 + y^2 + z^2 \leqslant 2rz$ 所确定；
+(2) $\int_0^1\mathrm{d}x\int_0^{\sqrt{1 - x^2}}\mathrm{d}y\int_{\sqrt{x^2 + y^2}}^{\sqrt{2 - x^2 - y^2}}z^2\mathrm{d}z.$
+
+4. 利用适当的坐标变换, 计算下列各曲面所围成的体积:
+
+(1) $z = x^{2} + y^{2}, z = 2(x^{2} + y^{2}), y = x, y = x^{2}$;
+(2) $\left(\frac{x}{a} + \frac{y}{b}\right)^2 + \left(\frac{z}{c}\right)^2 = 1$ ($x \geqslant 0, y \geqslant 0, z \geqslant 0, a > 0, b > 0, c > 0$).
+
+5. 设球体 $x^{2} + y^{2} + z^{2} \leqslant 2x$ 上各点的密度等于该点到坐标原点的距离，求该球体的质量.
+
+6. 证明定理 21.16 及其推论.
+7. 设 $V = \left\{(x, y, z) \left| \frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} \leqslant 1 \right. \right\}$，计算下列积分:
+
+(1) $\iiint_{V} \sqrt{1 - \frac{x^2}{a^2} - \frac{y^2}{b^2} - \frac{z^2}{c^2}} \, \mathrm{d}x \, \mathrm{d}y \, \mathrm{d}z$;
+(2)  $\iiint_{V}e\sqrt{\frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}+\frac{z^{2}}{c^{2}}}dxdydz.$
+
+## § 6 重积分的应用
+
+重积分的应用除前面提到的可用以求空间立体的体积及空间物体的质量外,这里再举几个它在几何与力学方面的应用.
+
+234
+
+---
+
+§ 6 重积分的应用
+
+## 一、曲面的面积
+
+设 $D$ 为可求面积的平面有界区域, 函数 $f(x, y)$ 在 $D$ 上具有连续的一阶偏导数, 讨论由方程
+
+$$
+z = f (x, y), (x, y) \in D
+$$
+
+所确定的曲面 S 的面积.
+
+为了定义曲面 S 的面积, 对区域 D 作分割 T, 它把 D 分成 n 个小区域  $\sigma_{i}(i=1,2,\cdots,n)$ . 根据这个分割相应地将曲面 S 也分成 n 个小曲面片  $S_{i}(i=1,2,\cdots,n)$ . 在每个  $S_{i}$  上任取一点  $M_{i}$ , 作曲面在这一点的切平面  $\pi_{i}$ , 并在  $\pi_{i}$  上取出一小块  $A_{i}$ , 使得  $A_{i}$  与  $S_{i}$  在 xy 平面上的投影都是  $\sigma_{i}$ , 如图 21-39 所示. 现在点  $M_{i}$  附近, 用切平面  $A_{i}$  代替小曲面片  $S_{i}$ , 从而当  $\|T\|$  充分小时, 有
+
+![](../../raw/pages_0225-0256/images/page_242_image_6.jpg)
+
+<details>
+<summary>text_image</summary>
+
+z
+ΔAᵢ
+ΔSᵢ
+O
+y
+x
+D
+Δσᵢ
+z=f(x,y)
+</details>
+
+图21-39
+
+$$
+\Delta S = \sum_ {i = 1} ^ {n} \Delta S _ {i} \approx \sum_ {i = 1} ^ {n} \Delta A _ {i},
+$$
+
+这里 $\Delta S, \Delta S_{i}, \Delta A_{i}$ 分别表示曲面 $S$，小曲面片 $S_{i}$，小切平面块 $A_{i}$ 的面积。所以当 $\| T \| \to 0$ 时，可用和式 $\sum_{i=1}^{n} \Delta A_{i}$ 的极限作为 $S$ 的面积。
+
+现在按照上述给出的曲面面积的概念,来建立曲面面积的计算公式.
+
+首先计算 $A_{i}$ 的面积. 由于切平面 $\pi_{i}$ 的法向量就是曲面 $S$ 在点 $M_{i}(\xi_{i},\eta_{i},\zeta_{i})$ 处的法向量, 记它与 $z$ 轴的夹角为 $\gamma_{i}$, 则
+
+$$
+\mid \cos \gamma_ {i} \mid = \frac {1}{\sqrt {1 + f _ {x} ^ {2} (\xi_ {i} , \eta_ {i}) + f _ {y} ^ {2} (\xi_ {i} , \eta_ {i})}}.
+$$
+
+因为 $A_{i}$ 在 $xy$ 平面上的投影为 $\sigma_{i}$，所以
+
+$$
+\Delta A _ {i} = \frac {\Delta \sigma_ {i}}{| \cos \gamma_ {i} |} = \sqrt {1 + f _ {x} ^ {2} (\xi_ {i} , \eta_ {i}) + f _ {y} ^ {2} (\xi_ {i} , \eta_ {i})} \Delta \sigma_ {i}.
+$$
+
+其次，由于和数
+
+$$
+\sum_ {i = 1} ^ {n} \Delta A _ {i} = \sum_ {i = 1} ^ {n} \sqrt {1 + f _ {x} ^ {2} (\xi_ {i} , \eta_ {i}) + f _ {y} ^ {2} (\xi_ {i} , \eta_ {i})} \Delta \sigma_ {i}
+$$
+
+是连续函数 $\sqrt{1 + f_x^2(x,y) + f_y^2(x,y)}$ 在有界闭区域 $D$ 上的积分和.于是当 $\| T\| \to 0$ 时，就得到
+
+$$
+\begin{array}{l} \Delta S = \lim _ {\| T \| \to 0} \sum_ {i = 1} ^ {n} \sqrt {1 + f _ {x} ^ {2} (\xi_ {i} , \eta_ {i}) + f _ {y} ^ {2} (\xi_ {i} , \eta_ {i})} \Delta \sigma_ {i} \\ = \iint_ {D} \sqrt {1 + f _ {x} ^ {2} (x , y) + f _ {y} ^ {2} (x , y)} \mathrm{d} x \mathrm{d} y \tag {1} \\ \end{array}
+$$
+
+或
+
+$$
+\Delta S = \lim _ {\| T \| \rightarrow 0} \sum_ {i = 1} ^ {n} \frac {\Delta \sigma_ {i}}{| \cos \gamma_ {i} |} = \iint_ {D} \frac {\mathrm{d} x \mathrm{d} y}{| \cos (\boldsymbol {n} , z) |}, \tag {2}
+$$
+
+其中  $\cos(\hat{n},z)$  为曲面的法向量 n 与 z 轴正向夹角的余弦.
+
+235
+
+---
+
+第二十一章 重积分
+
+例 1 求圆锥  $z=\sqrt{x^{2}+y^{2}}$  在圆柱体  $x^{2}+y^{2}\leqslant x$  内那一部分的面积.
+
+解 据曲面面积公式(1)，
+
+$$
+\Delta S = \iint_ {D} \sqrt {1 + z _ {x} ^ {2} + z _ {y} ^ {2}} \mathrm{d} x \mathrm{d} y,
+$$
+
+其中 $D$ 是 $x^{2} + y^{2}\leqslant x.$ 所求曲面方程为
+
+$$
+z = \sqrt {x ^ {2} + y ^ {2}},
+$$
+
+故
+
+$$
+z _ {x} = \frac {x}{\sqrt {x ^ {2} + y ^ {2}}}, z _ {y} = \frac {y}{\sqrt {x ^ {2} + y ^ {2}}}.
+$$
+
+因此
+
+$$
+\sqrt {1 + z _ {x} ^ {2} + z _ {y} ^ {2}} = \sqrt {1 + \frac {x ^ {2}}{x ^ {2} + y ^ {2}} + \frac {y ^ {2}}{x ^ {2} + y ^ {2}}} = \sqrt {2},
+$$
+
+所以
+
+$$
+\Delta S = \iint_ {D} \sqrt {2} \mathrm{d} x \mathrm{d} y = \sqrt {2} \Delta D = \frac {\sqrt {2}}{4} \pi .
+$$
+
+在上册的定积分应用中,曾用微元法给出过旋转面的面积公式,下面用二重积分给予严格证明.
+
+例 2 设平面光滑曲线的方程为
+
+$$
+y = f (x), x \in [ a, b ] (f (x) > 0),
+$$
+
+求证:此曲线绕 x 轴旋转一周得到的旋转曲面的面积为
+
+$$
+S = 2 \pi \int_ {a} ^ {b} f (x) \sqrt {1 + f ^ {\prime 2} (x)}   \mathrm{d} x.
+$$
+
+证 由于上半旋转面方程为 $z = \sqrt{f^2(x) - y^2}$，因此
+
+$$
+z _ {x} = \frac {f (x) f ^ {\prime} (x)}{\sqrt {f ^ {2} (x) - y ^ {2}}}, z _ {y} = \frac {- y}{\sqrt {f ^ {2} (x) - y ^ {2}}},
+$$
+
+$$
+\sqrt {1 + z _ {x} ^ {2} + z _ {y} ^ {2}} = \sqrt {\frac {f ^ {2} (x) + f ^ {2} (x) f ^ {2} (x)}{f ^ {2} (x) - y ^ {2}}},
+$$
+
+于是
+
+$$
+\begin{array}{l} S = 2 \int_ {a} ^ {b} \mathrm{d} x \int_ {- f (x)} ^ {f (x)} \sqrt {\frac {f ^ {2} (x) + f ^ {2} (x) f ^ {\prime 2} (x)}{f ^ {2} (x) - y ^ {2}}} \mathrm{d} y \\ = 4 \int_ {a} ^ {b} \mathrm{d} x \int_ {0} ^ {f (x)} f (x) \sqrt {\frac {1 + f ^ {\prime 2} (x)}{1 - y ^ {2} f ^ {- 2} (x)}} \mathrm{d} \left(\frac {y}{f (x)}\right) \\ = 4 \int_ {a} ^ {b} f (x) \sqrt {1 + f ^ {\prime 2} (x)} \mathrm{d} x \int_ {0} ^ {1} \frac {\mathrm{d} t}{\sqrt {1 - t ^ {2}}} \\ = 2 \pi \int_ {a} ^ {b} f (x) \sqrt {1 + f ^ {\prime 2} (x)} \mathrm{d} x. \\ \end{array}
+$$
+
+若空间曲面 $S$ 由参量方程
+
+$$
+x = x (u, v), y = y (u, v), z = z (u, v), (u, v) \in D ^ {\prime} \tag {3}
+$$
+
+236
+
+---
+
+§ 6 重积分的应用
+
+确定,其中  $x(u,v)$ ,  $y(u,v)$ ,  $z(u,v)$  在  $D'$  上具有连续的一阶偏导数,且
+
+$$
+\frac {\partial (x , y)}{\partial (u , v)}, \qquad \frac {\partial (y , z)}{\partial (u , v)}, \qquad \frac {\partial (z , x)}{\partial (u , v)}
+$$
+
+中至少有一个不等于零,则曲面 S 在点  $(x,y,z)$  的法线方向数为
+
+$$
+\left(\frac {\partial (y , z)}{\partial (u , v)}, \frac {\partial (z , x)}{\partial (u , v)}, \frac {\partial (x , y)}{\partial (u , v)}\right),
+$$
+
+它与 z 轴的夹角的余弦的绝对值为
+
+$$
+\begin{array}{l} \mid \cos (\widehat {\boldsymbol {n}}, z) \mid = \left| \frac {\frac {\partial (x , y)}{\partial (u , v)}}{\sqrt {\left(\frac {\partial (y , z)}{\partial (u , v)}\right) ^ {2} + \left(\frac {\partial (z , x)}{\partial (u , v)}\right) ^ {2} + \left(\frac {\partial (x , y)}{\partial (u , v)}\right) ^ {2}}} \right| \\ = \left| \frac {\frac {\partial (x , y)}{\partial (u , v)}}{\sqrt {(x _ {u} ^ {2} + y _ {u} ^ {2} + z _ {u} ^ {2}) (x _ {v} ^ {2} + y _ {v} ^ {2} + z _ {v} ^ {2}) - (x _ {u} x _ {v} + y _ {u} y _ {v} + z _ {u} z _ {v}) ^ {2}}} \right| \\ = \left| \frac {\partial (x , y)}{\partial (u , v)} \right| \frac {1}{\sqrt {E G - F ^ {2}}}, \tag {4} \\ \end{array}
+$$
+
+其中
+
+$$
+\begin{array}{l} E = x _ {u} ^ {2} + y _ {u} ^ {2} + z _ {u} ^ {2}, \\ F = x _ {u} x _ {v} + y _ {u} y _ {v} + z _ {u} z _ {v}, \\ G = x _ {v} ^ {2} + y _ {v} ^ {2} + z _ {v} ^ {2}. \\ \end{array}
+$$
+
+当 $\frac{\partial(x,y)}{\partial(u,v)}\neq0$ 时，对(2)作变换 $x=x(u,v),y=y(u,v)$ ，则有
+
+$$
+\begin{array}{l} \Delta S = \iint_ {D} \frac {1}{| \cos (\widehat {\boldsymbol {n} , z}) |} \mathrm{d} x \mathrm{d} y \\ = \iint_ {D ^ {\prime}} \frac {1}{| \cos (\widehat {\boldsymbol {n} , z}) |} \left| \frac {\partial (x , y)}{\partial (u , v)} \right| \mathrm{d} u \mathrm{d} v. \\ \end{array}
+$$
+
+由(4)，得到由参量方程(3)所表示的曲面面积公式:
+
+$$
+\Delta S = \iint_ {D ^ {\prime}} \sqrt {E G - F ^ {2}} \mathrm{d} u \mathrm{d} v. \tag {5}
+$$
+
+例 3 求球面上两条纬线和两条经线之间的曲面的面积(图 21-40 中阴影部分).
+
+解 设球面方程为
+
+$$
+\begin{array}{l} x = R \cos \psi \cos \varphi , \\ y = R \cos \psi \sin \varphi , \\ z = R \sin \psi , \\ \end{array}
+$$
+
+其中 R 为球的半径. 本例是求当  $\varphi_{1} \leqslant \varphi \leqslant \varphi_{2}, \psi_{1} \leqslant \psi \leqslant \psi_{2}$  时的球面部分面积. 由于
+
+$$
+\begin{array}{l} E = x _ {\psi} ^ {2} + y _ {\psi} ^ {2} + z _ {\psi} ^ {2} = R ^ {2}, \\ F = 0, G = R ^ {2} \cos^ {2} \psi , \\ \end{array}
+$$
+
+所以
+
+$$
+\sqrt {E G - F ^ {2}} = R ^ {2} \cos \psi .
+$$
+
+由公式(5)即得所求曲面的面积.
+
+![](../../raw/pages_0225-0256/images/page_244_image_21.jpg)
+
+<details>
+<summary>text_image</summary>
+
+z
+ψ₂
+ψ₁
+O
+φ₁
+φ₂
+y
+x
+</details>
+
+图21-40
+
+237
+
+---
+
+第二十一章 重积分
+
+$$
+\Delta S = \int_ {\varphi_ {1}} ^ {\varphi_ {2}} \mathrm{d} \varphi \int_ {\psi_ {1}} ^ {\psi_ {2}} R ^ {2} \cos \psi \mathrm{d} \psi = R ^ {2} (\varphi_ {2} - \varphi_ {1}) (\sin \psi_ {2} - \sin \psi_ {1}).
+$$
+
+在讨论曲线弧长时,我们曾用弧内接折线的长在其各段的长趋于零时的极限来定义.但是能否类似地用曲面的内接多面形的面积,在其各个面积的直径趋于零时的极限来定义呢?施瓦茨(Schwarz)曾举出一个反例说明这样的定义方法是不可行的.对此读者可参见有关的数学分析教程(如菲赫金哥尔茨《微积分学教程》中译本第三卷第二分册).
+
+## 二、质心
+
+设 $V$ 是密度函数为 $\rho(x, y, z)$ 的空间物体，$\rho(x, y, z)$ 在 $V$ 上连续。为求得 $V$ 的质心坐标公式，先对 $V$ 作分割 $T$，在属于分割 $T$ 的每一小块 $v_i$ 上任取一点 $(\xi_i, \eta_i, \zeta_i)$，于是小块 $v_i$ 的质量可以 $\rho(\xi_i, \eta_i, \zeta_i) \Delta v_i$ 近似代替。若把每一小块看作质量集中在 $(\xi_i, \eta_i, \zeta_i)$ 的质点时，整个物体就可用这 $n$ 个质点的质点系来近似代替。由于质点系的质心坐标公式为
+
+$$
+\overline {{x}} _ {n} = \frac {\sum_ {i = 1} ^ {n} \xi_ {i} \rho (\xi_ {i} , \eta_ {i} , \zeta_ {i}) \Delta v _ {i}}{\sum_ {i = 1} ^ {n} \rho (\xi_ {i} , \eta_ {i} , \zeta_ {i}) \Delta v _ {i}}, \quad \bar {y} _ {n} = \frac {\sum_ {i = 1} ^ {n} \eta_ {i} \rho (\xi_ {i} , \eta_ {i} , \zeta_ {i}) \Delta v _ {i}}{\sum_ {i = 1} ^ {n} \rho (\xi_ {i} , \eta_ {i} , \zeta_ {i}) \Delta v _ {i}}, \quad \bar {z} _ {n} = \frac {\sum_ {i = 1} ^ {n} \zeta_ {i} \rho (\xi_ {i} , \eta_ {i} , \zeta_ {i}) \Delta v _ {i}}{\sum_ {i = 1} ^ {n} \rho (\xi_ {i} , \eta_ {i} , \zeta_ {i}) \Delta v _ {i}}.
+$$
+
+当 $\| T\| \to 0$ 时，我们很自然地把 $\bar{x}_n,\bar{y}_n,\bar{z}_n$ 的极限 $\bar{x},\bar{y},\bar{z}$ 定义为 $V$ 的质心坐标，即
+
+$$
+\overline {{x}} = \frac {\iiint_ {V} x \rho (x , y , z) \mathrm{d} V}{\iiint_ {V} \rho (x , y , z) \mathrm{d} V}, \quad \bar {y} = \frac {\iiint_ {V} y \rho (x , y , z) \mathrm{d} V}{\iiint_ {V} \rho (x , y , z) \mathrm{d} V}, \quad \bar {z} = \frac {\iiint_ {V} z \rho (x , y , z) \mathrm{d} V}{\iiint_ {V} \rho (x , y , z) \mathrm{d} V}.
+$$
+
+当物体 V 的密度均匀即  $\rho$  为常数时, 则有
+
+$$
+\bar {x} = \frac {1}{\Delta V} \iiint_ {V} x \mathrm{d} V, \quad \bar {y} = \frac {1}{\Delta V} \iiint_ {V} y \mathrm{d} V, \quad \bar {z} = \frac {1}{\Delta V} \iiint_ {V} z \mathrm{d} V,
+$$
+
+这里  $\Delta V$  为 V 的体积.
+
+读者同样可以得到,密度分布为  $\rho(x,y)$  的平面薄板 D 的质心坐标是
+
+$$
+\overline {{x}} = \frac {\iint_ {D} x \rho (x , y) \mathrm{d} \sigma}{\iint_ {D} \rho (x , y) \mathrm{d} \sigma}, \quad \overline {{y}} = \frac {\iint_ {D} y \rho (x , y) \mathrm{d} \sigma}{\iint_ {D} \rho (x , y) \mathrm{d} \sigma}.
+$$
+
+当平面薄板 D 的密度均匀时, 即  $\rho$  是常数时, 则有
+
+$$
+\overline {{x}} = \frac {1}{\Delta D} \iint_ {D} x \mathrm{d} \sigma , \quad \overline {{y}} = \frac {1}{\Delta D} \iint_ {D} y \mathrm{d} \sigma ,
+$$
+
+这里  $\Delta D$  为平面薄板 D 的面积.
+
+例 4 求密度均匀的上半椭球体的质心.
+
+解 设椭球体由不等式
+
+$$
+\frac {x ^ {2}}{a ^ {2}} + \frac {y ^ {2}}{b ^ {2}} + \frac {z ^ {2}}{c ^ {2}} \leqslant 1
+$$
+
+表示. 由对称性知  $\bar{x}=0,\bar{y}=0$ . 又由  $\rho$  为常数, 所以
+
+238
+
+---
+
+§ 6 重积分的应用
+
+$$
+\bar {z} = \frac {\iiint_ {V} \rho z \mathrm{d} V}{\iiint_ {V} \rho \mathrm{d} V} = \frac {\iiint_ {V} z \mathrm{d} x \mathrm{d} y \mathrm{d} z}{\frac {2}{3} \pi a b c}.
+$$
+
+由 §5 例6 得
+
+$$
+\bar {z} = \frac {3 c}{8}.
+$$
+
+## 三、转动惯量
+
+质点 A 对于轴 l 的转动惯量 J 是质点 A 的质量 m 和 A 与转动轴 l 的距离 r 的平方的乘积, 即  $J = mr^{2}$ .
+
+现在讨论空间物体 V 的转动惯量问题. 我们仍然采用第二段中的办法, 把 V 看作由 n 个质点组成的质点系, 然后用取极限的方法求得 V 的转动惯量.
+
+设  $\rho(x,y,z)$  为空间物体 V 的密度分布函数, 它在 V 上连续. 对 V 作分割 T, 在属于 T 的每一小块  $v_{i}$  上任取一点  $(\xi_{i},\eta_{i},\zeta_{i})$ , 于是  $v_{i}$  的质量可以  $\rho(\xi_{i},\eta_{i},\zeta_{i})\Delta v_{i}$  近似替代. 当以质点系  $\{(\xi_{i},\eta_{i},\zeta_{i}), i=1,2,\cdots,n\}$  近似替代 V 时, 质点系对于 x 轴的转动惯量则是
+
+$$
+J _ {x _ {n}} = \sum_ {i = 1} ^ {n} (\eta_ {i} ^ {2} + \zeta_ {i} ^ {2}) \rho (\xi_ {i}, \eta_ {i}, \zeta_ {i}) \Delta v _ {i}.
+$$
+
+当 $\| T\| \to 0$ 时，上述积分和的极限就是物体 $V$ 对于 $x$ 轴的转动惯量
+
+$$
+J _ {x} = \iiint_ {V} (y ^ {2} + z ^ {2}) \rho (x, y, z) \mathrm{d} V.
+$$
+
+类似可得物体 $V$ 对于 $y$ 轴与 $z$ 轴的转动惯量分别为
+
+$$
+J _ {y} = \iiint_ {V} (z ^ {2} + x ^ {2}) \rho (x, y, z) \mathrm{d} V,
+$$
+
+$$
+J _ {z} = \iiint_ {V} (x ^ {2} + y ^ {2}) \rho (x, y, z) \mathrm{d} V.
+$$
+
+同理,物体 V 对于坐标平面的转动惯量分别为
+
+$$
+\begin{array}{l} J _ {x y} = \iiint_ {V} z ^ {2} \rho (x, y, z) \mathrm{d} V, \\ J _ {y z} = \iiint_ {V} x ^ {2} \rho (x, y, z) \mathrm{d} V, \\ J _ {z x} = \iiint_ {V} y ^ {2} \rho (x, y, z) \mathrm{d} V. \\ \end{array}
+$$
+
+据此,读者也容易建立平面薄板对于坐标轴的转动惯量:
+
+$$
+J _ {x} = \iint_ {D} y ^ {2} \rho (x, y) \mathrm{d} \sigma , \quad J _ {y} = \iint_ {D} x ^ {2} \rho (x, y) \mathrm{d} \sigma
+$$
+
+以及
+
+$$
+J _ {l} = \iint_ {D} r ^ {2} (x, y) \rho (x, y) \mathrm{d} \sigma ,
+$$
+
+这里 l 为转动轴,  $r(x,y)$  为 D 中点  $(x,y)$  到 l 的距离函数.
+
+例 5 求密度均匀的圆环 D 对于垂直于圆环面中心轴的转动惯量(图21-41).
+
+239
+
+---
+
+第二十一章 重积分
+
+解 设圆环 D 为
+
+$$
+R _ {1} ^ {2} \leqslant x ^ {2} + y ^ {2} \leqslant R _ {2} ^ {2},
+$$
+
+密度为 $\rho$ ，则 $D$ 中任一点 $(x,y)$ 与转轴的距离平方为 $x^{2} + y^{2}$ .于是转动惯量
+
+$$
+\begin{array}{l} J = \iint_ {D} \rho (x ^ {2} + y ^ {2}) \mathrm{d} \sigma = \rho \int_ {0} ^ {2 \pi} \mathrm{d} \theta \int_ {R _ {1}} ^ {R _ {2}} r ^ {3} \mathrm{d} r \\ = \frac {\pi \rho}{2} (R _ {2} ^ {4} - R _ {1} ^ {4}) = \frac {m}{2} (R _ {2} ^ {2} + R _ {1} ^ {2}), \\ \end{array}
+$$
+
+其中 m 为圆环的质量.
+
+例 6 求均匀圆盘 D 对于其直径的转动惯量(图 21-42).
+
+解 设圆盘 $D$ 为 $x^{2} + y^{2}\leqslant R^{2}$ ，密度为 $\rho$ ，求对于 $y$ 轴的转动惯量.由于 $D$ 内任一点$(x,y)$ 与 $y$ 轴的距离为 $|x|$ ，故
+
+$$
+\begin{array}{l} J = \iint_ {D} \rho x ^ {2} \mathrm{d} \sigma = \rho \int_ {0} ^ {2 \pi} \mathrm{d} \theta \int_ {0} ^ {R} (r \cos \theta) ^ {2} r \mathrm{d} r \\ = \rho \int_ {0} ^ {2 \pi} \cos^ {2} \theta \mathrm{d} \theta \int_ {0} ^ {R} r ^ {3} \mathrm{d} r \\ = \frac {\rho \pi R ^ {4}}{4} = \frac {1}{4} m R ^ {2}, \\ \end{array}
+$$
+
+其中 m 为圆盘的质量.
+
+![](../../raw/pages_0225-0256/images/page_247_image_10.jpg)
+
+<details>
+<summary>text_image</summary>
+
+z
+D
+O
+y
+x
+</details>
+
+图21-41
+
+![](../../raw/pages_0225-0256/images/page_247_image_12.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+D
+O
+R
+x
+</details>
+
+图21-42
+
+例 7 设某球体的密度与球心的距离成正比, 求它对于切平面的转动惯量.
+
+解 设球体由不等式 $x^{2} + y^{2} + z^{2}\leqslant R^{2}$ 表示，密度函数为 $k\sqrt{x^2 + y^2 + z^2}$ ，这里 $k$ 为比例常数.切平面方程为 $x = R$ ，则球体对于平面 $x = R$ 的转动惯量为
+
+$$
+\begin{array}{l} J = k \iiint_ {V} \sqrt {x ^ {2} + y ^ {2} + z ^ {2}} (R - x) ^ {2} \mathrm{d} x \mathrm{d} y \mathrm{d} z \\ = k \int_ {0} ^ {2 \pi} \mathrm{d} \theta \int_ {0} ^ {\pi} \mathrm{d} \varphi \int_ {0} ^ {R} (R - r \sin \varphi \cos \theta) ^ {2} r ^ {3} \sin \varphi \mathrm{d} r \\ = k R ^ {2} \int_ {0} ^ {2 \pi} \mathrm{d} \theta \int_ {0} ^ {R} r ^ {3} \mathrm{d} r \int_ {0} ^ {\pi} \sin \varphi \mathrm{d} \varphi - 2 k R \int_ {0} ^ {2 \pi} \cos \theta \mathrm{d} \theta \int_ {0} ^ {R} r ^ {4} \mathrm{d} r \int_ {0} ^ {\pi} \sin^ {2} \varphi \mathrm{d} \varphi + \\ k \int_ {0} ^ {2 \pi} \cos^ {2} \theta \mathrm{d} \theta \int_ {0} ^ {R} r ^ {5} \mathrm{d} r \int_ {0} ^ {\pi} \sin^ {3} \varphi \mathrm{d} \varphi \\ = \frac {1 1}{9} k \pi R ^ {6}. \\ \end{array}
+$$
+
+240
+
+---
+
+§ 6 重积分的应用
+
+## 四、引力
+
+求密度为  $\rho(x,y,z)$  的立体对立体外质量为 1 的质点 A 的引力.
+
+设 A 的坐标为  $(\xi, \eta, \zeta)$ ，V 中点的坐标用  $(x, y, z)$  表示。我们使用微元法来求 V 对 A 的引力。V 中质量微元  $dm = \rho dV$  对 A 的引力在坐标轴上的投影为
+
+$$
+\mathrm{d} F _ {x} = k \frac {x - \xi}{r ^ {3}} \rho \mathrm{d} V, \mathrm{d} F _ {y} = k \frac {y - \eta}{r ^ {3}} \rho \mathrm{d} V, \mathrm{d} F _ {z} = k \frac {z - \zeta}{r ^ {3}} \rho \mathrm{d} V,
+$$
+
+其中 k 为引力系数，
+
+$$
+r = \sqrt {(x - \xi) ^ {2} + (y - \eta) ^ {2} + (z - \zeta) ^ {2}}
+$$
+
+是 A 到 dV 的距离, 于是力 F 在三个坐标轴上的投影分别为
+
+$$
+F _ {x} = k \iiint_ {V} \frac {x - \xi}{r ^ {3}} \rho \mathrm{d} V, \quad F _ {y} = k \iiint_ {V} \frac {y - \eta}{r ^ {3}} \rho \mathrm{d} V, \quad F _ {z} = k \iiint_ {V} \frac {z - \zeta}{r ^ {3}} \rho \mathrm{d} V,
+$$
+
+所以
+
+$$
+\boldsymbol {F} = F _ {x} \boldsymbol {i} + F _ {y} \boldsymbol {j} + F _ {z} \boldsymbol {k}.
+$$
+
+例 8 设球体 V 具有均匀的密度  $\rho$ ，求 V 对球外一点 A（质量为 1）的引力（引力系数为 k）.
+
+解 设球体为 $x^{2} + y^{2} + z^{2}\leqslant R^{2}$ ，球外一点 $A$ 的坐标为 $(0,0,a)$ （ $R <   a$ ).显然有 $F_{x} = F_{y} = 0$ ，现在计算 $F_{z}$ .由上述公式，
+
+$$
+\begin{array}{l} F _ {z} = k \iiint_ {V} \frac {(z - a)}{\left[ x ^ {2} + y ^ {2} + (z - a) ^ {2} \right] ^ {3 / 2}} \rho \mathrm{d} x \mathrm{d} y \mathrm{d} z \\ = k \rho \int_ {- R} ^ {R} (z - a) \mathrm{d} z \iint_ {D _ {z}} \frac {\mathrm{d} x \mathrm{d} y}{\left[ x ^ {2} + y ^ {2} + (z - a) ^ {2} \right] ^ {3 / 2}}, \\ \end{array}
+$$
+
+其中 $D_{z} = \{(x,y) | x^{2} + y^{2} \leqslant R^{2} - z^{2}\}$. 用极坐标计算
+
+$$
+\begin{array}{l} F _ {z} = k \rho \int_ {- R} ^ {R} (z - a) \mathrm{d} z \int_ {0} ^ {2 \pi} \mathrm{d} \theta \int_ {0} ^ {\sqrt {R ^ {2} - z ^ {2}}} \frac {r}{\left[ r ^ {2} + (z - a) ^ {2} \right] ^ {3 / 2}} \mathrm{d} r \\ = 2 \pi k \rho \int_ {- R} ^ {R} \left(- 1 - \frac {z - a}{\sqrt {R ^ {2} - 2 a z + a ^ {2}}}\right) \mathrm{d} z \\ = - \frac {4}{3 a ^ {2}} \pi R ^ {3} \rho k. \\ \end{array}
+$$
+
+上面我们只讨论了重积分在力学中的应用. 实际上, 也可用第一型曲线积分(包括在下一章中将要讨论的第一型曲面积分)来计算空间曲线(曲面)的质心, 关于转动轴或坐标平面的转动惯量以及曲线(曲面)对其外一质点的引力. 这里就不再一一细述了, 读者可仿照上面的方法建立相应的计算公式.
+
+## 习题 21.6
+
+1. 求曲面 az = xy 包含在圆柱  $x^{2} + y^{2} = a^{2}$  内那部分的面积.
+2. 求锥面  $z = \sqrt{x^{2} + y^{2}}$  被柱面  $z^{2} = 2x$  所截部分的曲面面积.
+3. 求下列均匀密度的平面薄板质心:
+
+241
+
+---
+
+第二十一章 重积分
+
+(1) 半椭圆 $\frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}\leqslant1,y\geqslant0;$
+
+(2) 高为 h, 底分别为 a 和 b 的等腰梯形.
+
+（注:以梯形长为 a 的底边的中点为原点，该底所在直线为 x 轴建立平面直角坐标系，并使梯形位于 x 轴上方。）
+
+4. 求下列均匀密度物体的质心:
+
+(1) $z \leqslant 1 - x^{2} - y^{2}, z \geqslant 0$;
+(2) 由坐标面及平面  $x+2y-z=1$  所围的四面体.
+
+5. 求下列均匀密度的平面薄板的转动惯量:
+
+(1) 半径为 R 的圆关于其切线的转动惯量；
+(2) 边长为 a 和 b、夹角为  $\varphi$  的平行四边形，关于底边 b 的转动惯量.
+
+6. 计算下列引力:
+
+(1) 均匀薄片  $x^{2} + y^{2} \leqslant R^{2}, z = 0$  对于轴上一点  $(0, 0, c)$  (c > 0) 处的单位质量的引力:
+(2) 均匀柱体  $x^{2} + y^{2} \leqslant a^{2}, 0 \leqslant z \leqslant h$  对于点  $P(0, 0, c)$  (c > h) 处的单位质量的引力；
+(3) 均匀密度的正圆锥体 (高为 $h$, 底面半径为 $R$) 对于在它的顶点处质量为 $m$ 的质点的引力.
+
+(注:以圆锥底面圆心为原点,底面所在平面为 xy 平面建立空间直角坐标系,圆锥顶点在  $(0,0,h)$ .)
+
+7. 求曲面
+
+$$
+\left\{ \begin{array}{l} x = (b + a \cos \psi) \cos \varphi , \\ y = (b + a \cos \psi) \sin \varphi , \\ z = a \sin \psi , \end{array} \right. \quad 0 \leqslant \varphi \leqslant 2 \pi , 0 \leqslant \psi \leqslant 2 \pi
+$$
+
+的面积,其中常数 a,b 满足  $0 \leqslant a \leqslant b$ .
+
+8. 求螺旋面
+
+$$
+\left\{ \begin{array}{l} x = r \cos \varphi , \\ y = r \sin \varphi , \\ z = b \varphi , \end{array} \right. \quad 0 \leqslant r \leqslant a, 0 \leqslant \varphi \leqslant 2 \pi
+$$
+
+的面积.
+
+9. 求边长为 a、密度均匀的立方体关于其任一棱边的转动惯量.
+
+## \* §7 n 重积分
+
+对于 n 重积分, 我们先介绍一个物理模型, 即两个物体  $V_{1}$  与  $V_{2}$  之间的引力问题.
+
+设物体 $V_{1}$ 中点的坐标为 $(x_{1},y_{1},z_{1}), V_{2}$ 中点的坐标为 $(x_{2},y_{2},z_{2})$ ，它们的密度函数分别为连续函数 $\rho_{1}(x_{1},y_{1},z_{1})$ 与 $\rho_{2}(x_{2},y_{2},z_{2})$ ，且设它们之间的引力系数为1.我们用微元法求它们之间的引力.为此，在 $V_{1}$ 中取质量微元 $\rho_{1}\mathrm{d}x_{1}\mathrm{d}y_{1}\mathrm{d}z_{1}$ ，在 $V_{2}$ 中取质量微元 $\rho_{2}\mathrm{d}x_{2}\mathrm{d}y_{2}\mathrm{d}z_{2}$ .由万有引力定律知道， $V_{1}$ 的微元对 $V_{2}$ 的微元的吸引力在 $x$ 轴上的投影为
+
+$$
+\frac {\rho_ {1} \rho_ {2} (x _ {1} - x _ {2}) \mathrm{d} x _ {1} \mathrm{d} y _ {1} \mathrm{d} z _ {1} \mathrm{d} x _ {2} \mathrm{d} y _ {2} \mathrm{d} z _ {2}}{r ^ {3}},
+$$
+
+242
+
+---
+
+\* §7 n 重积分 |||
+
+其中 $r = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2 + (z_1 - z_2)^2}$. 把两个物体的所有微元间的吸引力在 $x$ 轴上投影的量相加，就得到物体 $V_{1}$ 与 $V_{2}$ 间的引力在 $x$ 轴上投影的值. 它是一个六重积分，即
+
+$$
+F _ {x} = \iiint_ {V} \frac {\rho_ {1} (x _ {1} , y _ {1} , z _ {1}) \rho_ {2} (x _ {2} , y _ {2} , z _ {2}) (x _ {1} - x _ {2})}{r ^ {3}} \mathrm{d} x _ {1} \mathrm{d} y _ {1} \mathrm{d} z _ {1} \mathrm{d} x _ {2} \mathrm{d} y _ {2} \mathrm{d} z _ {2}.
+$$
+
+这个积分是在由六维数组 $(x_{1},y_{1},z_{1},x_{2},y_{2},z_{2})$ 构成的六维空间中的六维区域 $V = V_{1}\times V_{2}$ 上的积分.吸引力在 $y$ 和 $z$ 轴上的投影也同样可由六个自变量的积分形式来表示，这就是 $n$ 重积分 $(n = 6)$ 的一个例子.
+
+建立 n 重积分概念,首先必须像定义平面图形面积一样定义 n 维空间区域的体积问题.最简单的 n 维区域——n 维长方体
+
+$$
+V = \left[ a _ {1}, b _ {1} \right] \times \left[ a _ {2}, b _ {2} \right] \times \dots \times \left[ a _ {n}, b _ {n} \right]
+$$
+
+的体积规定为 $(b_{1}-a_{1})(b_{2}-a_{2})\cdots(b_{n}-a_{n})$ . 在仿照可求面积概念那样建立 n 维区域的可求体积概念之后, 可以证明 n 维单纯形
+
+$$
+x _ {1} \geqslant 0, x _ {2} \geqslant 0, \dots , x _ {n} \geqslant 0, x _ {1} + x _ {2} + \dots + x _ {n} \leqslant h
+$$
+
+和 $n$ 维球体
+
+$$
+x _ {1} ^ {2} + x _ {2} ^ {2} + \dots + x _ {n} ^ {2} \leqslant R ^ {2}
+$$
+
+的体积是存在的.
+
+设 n 元函数  $f(x_{1}, x_{2}, \cdots, x_{n})$  定义在 n 维可求体积的区域 V 上. 像二重积分概念那样, 通过对 V 的分割、近似求和、取极限的过程, 便得到 n 重积分的概念:
+
+$$
+I = \overbrace {\int_ {V} \cdots \int f (x _ {1} , x _ {2} , \cdots , x _ {n}) \mathrm{d} x _ {1} \cdots \mathrm{d} x _ {n}} ^ {n \text {个}}. \tag {1}
+$$
+
+与二重积分相仿,n 重积分也有如下一些结论:
+
+若 $f(x_{1},\cdots,x_{n})$ 在 n 维有界闭区域 V 上连续，则 n 重积分(1)必存在.
+
+计算 n 重积分的办法是把它化为重数较低的积分来计算. 如当积分区域是长方体  $\left[a_{1}, b_{1}\right] \times \left[a_{2}, b_{2}\right] \times \cdots \times \left[a_{n}, b_{n}\right]$  时, 则有
+
+$$
+I = \int_ {a _ {1}} ^ {b _ {1}} \mathrm{d} x _ {1} \int_ {a _ {2}} ^ {b _ {2}} \mathrm{d} x _ {2} \dots \int_ {a _ {n}} ^ {b _ {n}} f (x _ {1}, \dots , x _ {n}) \mathrm{d} x _ {n}.
+$$
+
+当 V 由不等式组  $a_{1} \leqslant x_{1} \leqslant b_{1}, a_{2}(x_{1}) \leqslant x_{2} \leqslant b_{2}(x_{1}), \cdots, a_{n}(x_{1}, \cdots, x_{n-1}) \leqslant x_{n} \leqslant b_{n}(x_{1}, \cdots, x_{n-1})$  表示时，则有
+
+$$
+I = \int_ {a _ {1}} ^ {b _ {1}} \mathrm{d} x _ {1} \int_ {a _ {2} (x _ {1})} ^ {b _ {2} (x _ {1})} \mathrm{d} x _ {2} \dots \int_ {a _ {n} (x _ {1}, \dots , x _ {n - 1})} ^ {b _ {n} (x _ {1}, \dots , x _ {n - 1})} f (x _ {1}, \dots , x _ {n}) \mathrm{d} x _ {n}.
+$$
+
+设变换
+
+$$
+T: \left\{ \begin{array}{l} x _ {1} = x _ {1} (\xi_ {1}, \xi_ {2}, \dots , \xi_ {n}), \\ x _ {2} = x _ {2} (\xi_ {1}, \xi_ {2}, \dots , \xi_ {n}), \\ \dots \dots \\ x _ {n} = x _ {n} (\xi_ {1}, \xi_ {2}, \dots , \xi_ {n}) \end{array} \right.
+$$
+
+把 n 维  $\xi_{1}\xi_{2}\cdots\xi_{n}$  空间区域  $V'$  一对一地映射成 n 维  $x_{1}x_{2}\cdots x_{n}$  空间中的区域 V，且在  $V'$  上函数行列式
+
+243
+
+---
+
+第二十一章 重积分
+
+$$
+J = \frac {\partial (x _ {1} , x _ {2} , \cdots , x _ {n})}{\partial (\xi_ {1} , \xi_ {2} , \cdots , \xi_ {n})} = \left| \begin{array}{c c c c} \frac {\partial x _ {1}}{\partial \xi_ {1}} & \frac {\partial x _ {1}}{\partial \xi_ {2}} & \dots & \frac {\partial x _ {1}}{\partial \xi_ {n}} \\ \frac {\partial x _ {2}}{\partial \xi_ {1}} & \frac {\partial x _ {2}}{\partial \xi_ {2}} & \dots & \frac {\partial x _ {2}}{\partial \xi_ {n}} \\ \vdots & \vdots & & \vdots \\ \frac {\partial x _ {n}}{\partial \xi_ {1}} & \frac {\partial x _ {n}}{\partial \xi_ {2}} & \dots & \frac {\partial x _ {n}}{\partial \xi_ {n}} \end{array} \right|
+$$
+
+恒不为零,则成立下列 n 重积分的换元公式:
+
+$$
+\begin{array}{l} I = \overbrace {\int_ {V} \cdots \int f \left(x _ {1} , x _ {2} , \cdots , x _ {n}\right) \mathrm{d} x _ {1} \mathrm{d} x _ {2} \cdots \mathrm{d} x _ {n}} ^ {n \text {个}} \\ = \overbrace {\int \cdots \int} ^ {n \text {个}} f \left(x _ {1} \left(\xi_ {1}, \dots , \xi_ {n}\right), x _ {2} \left(\xi_ {1}, \dots , \xi_ {n}\right), \dots , x _ {n} \left(\xi_ {1}, \dots , \xi_ {n}\right)\right) | J | \mathrm{d} \xi_ {1} \mathrm{d} \xi_ {2} \dots \mathrm{d} \xi_ {n}. \\ \end{array}
+$$
+
+例 1 求 n 维单纯形  $T_{n}: x_{1} \geqslant 0, x_{2} \geqslant 0, \cdots, x_{n} \geqslant 0, x_{1} + x_{2} + \cdots + x_{n} \leqslant h$  的体积  $\Delta T_{n}$ .
+
+解  $\Delta T_{n}=\overbrace{\int\cdots\int}_{T_{n}}^{n个}\mathrm{d}x_{1}\mathrm{d}x_{2}\cdots\mathrm{d}x_{n}.$  作变换
+
+$$
+x _ {1} = h \xi_ {1}, x _ {2} = h \xi_ {2}, \dots , x _ {n} = h \xi_ {n}.
+$$
+
+这时  $J=h^{n}$ ，因此有
+
+$$
+\Delta T _ {n} = h ^ {n} \overbrace {\int_ {D _ {1}} ^ {n \text {个}} \mathrm{d} \xi_ {1} \mathrm{d} \xi_ {2} \cdots \mathrm{d} \xi_ {n}} ^ {n}\left. \right) = h ^ {n} \alpha_ {n},
+$$
+
+其中
+
+$$
+D _ {1} = \left\{\left(\xi_ {1}, \xi_ {2}, \dots , \xi_ {n}\right) \mid \xi_ {1} + \xi_ {2} + \dots + \xi_ {n} \leqslant 1, \xi_ {1} \geqslant 0, \xi_ {2} \geqslant 0, \dots , \xi_ {n} \geqslant 0 \right\},
+$$
+
+$$
+\alpha_ {n} = \int_ {0} ^ {1} \mathrm{d} \xi_ {n} \overbrace {\int \cdots \int} ^ {n - 1 \text {个}} \mathrm{d} \xi_ {1} \mathrm{d} \xi_ {2} \dots \mathrm{d} \xi_ {n - 1}, \tag {2}
+$$
+
+这里
+
+$$
+T _ {n - 1} = \left\{\left(\xi_ {1}, \xi_ {2}, \dots , \xi_ {n - 1}\right) \mid \xi_ {1} + \xi_ {2} + \dots + \xi_ {n - 1} \leqslant 1 - \xi_ {n}, \xi_ {1} \geqslant 0, \xi_ {2} \geqslant 0, \dots , \xi_ {n - 1} \geqslant 0 \right\}.
+$$
+
+对积分(2)作变换
+
+$$
+\xi_ {1} = (1 - \xi_ {n}) \zeta_ {1}, \dots , \xi_ {n - 1} = (1 - \xi_ {n}) \zeta_ {n - 1}.
+$$
+
+这时 $J = (1 - \xi_{n})^{n - 1}$ ，因此有
+
+$$
+\begin{array}{l} \alpha_ {n} = \int_ {0} ^ {1} \left(1 - \xi_ {n}\right) ^ {n - 1} \mathrm{d} \xi_ {n} \overbrace {\int_ {D _ {2}} \cdots \int} ^ {n - 1 \text {个}} \mathrm{d} \zeta_ {1} \mathrm{d} \zeta_ {2} \dots \mathrm{d} \zeta_ {n - 1} \\ = \alpha_ {n - 1} \int_ {0} ^ {1} (1 - \xi_ {n}) ^ {n - 1} \mathrm{d} \xi_ {n} = \frac {\alpha_ {n - 1}}{n}, \\ \end{array}
+$$
+
+其中  $D_{2}=\left\{\left(\zeta_{1},\zeta_{2},\cdots,\zeta_{n-1}\right)\mid\zeta_{1}+\cdots+\zeta_{n-1}\leqslant1,\zeta_{1}\geqslant0,\cdots,\zeta_{n-1}\geqslant0\right\}$ . 这是一个递推公式. 由于当 n=1 时,  $\alpha_{1}=1$ , 因此
+
+244
+
+---
+
+\* § 7 n 重积分 |||
+
+$$
+\alpha_ {n} = \frac {1}{n !}.
+$$
+
+于是  $\Delta T_{n}=\frac{h^{n}}{n!}$ .
+
+例 2 求 n 维球体  $V_{n}: x_{1}^{2} + x_{2}^{2} + \cdots + x_{n}^{2} \leqslant R^{2}$  的体积  $\Delta V_{n}$ .
+
+解  $\Delta V_{n}=\overbrace{\int\cdots\int}_{x_{1}^{2}+\cdots+x_{n}^{2}\leqslant R^{2}}^{\text{n个}}\mathrm{d}x_{1}\cdots\mathrm{d}x_{n}.$
+
+作变换  $x_{1}=R\xi_{1},\cdots,x_{n}=R\xi_{n}$ . 这时  $J=R^{n}$ ，因此有
+
+$$
+\Delta V _ {n} = R ^ {n} \overbrace {\int \cdots \int} ^ {n \text {个}} \mathrm{d} \xi_ {1} \dots \mathrm{d} \xi_ {n} = R ^ {n} \beta_ {n},
+$$
+
+其中
+
+$$
+\beta_ {n} = \int_ {- 1} ^ {1} \mathrm{d} \xi_ {n} \overbrace {\int \cdots \int} ^ {n - 1 \text {个}} \mathrm{d} \xi_ {1} \dots \mathrm{d} \xi_ {n - 1}.
+$$
+
+它是 $n$ 维单位球体的体积. 注意 $\beta_{n}$ 中右边的 $n - 1$ 重积分表示以 $\sqrt{1 - \xi_n^2}$ 为半径的 $n - 1$ 维球体的体积. 因而它应等于 $\beta_{n - 1}(1 - \xi_n^2)^{\frac{n - 1}{2}}$, 其中 $\beta_{n - 1}$ 为 $n - 1$ 维单位球体的体积. 于是有
+
+$$
+\beta_ {n} = \int_ {- 1} ^ {1} (1 - \xi_ {n} ^ {2}) ^ {\frac {n - 1}{2}} \mathrm{d} \xi_ {n} \cdot \beta_ {n - 1}.
+$$
+
+令 $\xi_{n} = \cos \theta$ ，又得一递推公式
+
+$$
+\beta_ {n} = 2 \beta_ {n - 1} \int_ {0} ^ {\frac {\pi}{2}} \sin^ {n} \theta \mathrm{d} \theta .
+$$
+
+由于
+
+$$
+\int_ {0} ^ {\frac {\pi}{2}} \sin^ {n} \theta \mathrm{d} \theta = \left\{ \begin{array}{l l} \frac {(2 m - 1) ! !}{(2 m) ! !} \frac {\pi}{2}, & n = 2 m, \\ \frac {(2 m) ! !}{(2 m + 1) ! !}, & n = 2 m + 1 \end{array} \right.
+$$
+
+和 $\beta_{1} = 2$ ，所以
+
+$$
+\Delta V _ {n} = R ^ {n} \beta_ {n} = \left\{ \begin{array}{l l} \frac {R ^ {2 m}}{m !} \pi^ {m}, & n = 2 m, \\ \frac {2 R ^ {2 m + 1} (2 \pi) ^ {m}}{(2 m + 1) ! !}, & n = 2 m + 1. \end{array} \right.
+$$
+
+特别当 n=1,2,3 时,有
+
+$$
+\Delta V _ {1} = 2 R, \Delta V _ {2} = \pi R ^ {2}, \Delta V _ {3} = \frac {4}{3} \pi R ^ {3}.
+$$
+
+本题也可用 n 维球坐标变换求得. n 维球坐标变换为
+
+245
+
+---
+
+第二十一章 重积分
+
+$$
+\begin{array}{l} x _ {1} = r \cos \varphi_ {1}, \\ x _ {2} = r \sin \varphi_ {1} \cos \varphi_ {2}, \\ x _ {3} = r \sin \varphi_ {1} \sin \varphi_ {2} \cos \varphi_ {3}, \\ \dots \\ x _ {n - 1} = r \sin \varphi_ {1} \sin \varphi_ {2} \dots \sin \varphi_ {n - 2} \cos \varphi_ {n - 1}, \\ x _ {n} = r \sin \varphi_ {1} \sin \varphi_ {2} \dots \sin \varphi_ {n - 2} \sin \varphi_ {n - 1}. \\ \end{array}
+$$
+
+因此有
+
+$$
+J = r ^ {n - 1} \sin^ {n - 2} \varphi_ {1} \sin^ {n - 3} \varphi_ {2} \dots \sin^ {2} \varphi_ {n - 3} \sin \varphi_ {n - 2}.
+$$
+
+因为积分区域为
+
+$$
+0 \leqslant r \leqslant R, 0 \leqslant \varphi_ {1}, \varphi_ {2}, \dots , \varphi_ {n - 2} \leqslant \pi , 0 \leqslant \varphi_ {n - 1} \leqslant 2 \pi,
+$$
+
+所以
+
+$$
+\begin{array}{l} \Delta V _ {n} = \int_ {0} ^ {R} \mathrm{d} r \int_ {0} ^ {\pi} \mathrm{d} \varphi_ {1} \dots \int_ {0} ^ {\pi} \mathrm{d} \varphi_ {n - 2} \int_ {0} ^ {2 \pi} r ^ {n - 1} \sin^ {n - 2} \varphi_ {1} \dots \sin \varphi_ {n - 2} \mathrm{d} \varphi_ {n - 1} \\ = \frac {1}{n} R ^ {n} \left(\int_ {0} ^ {\pi} \sin^ {n - 2} \varphi_ {1} \mathrm{d} \varphi_ {1}\right) \left(\int_ {0} ^ {\pi} \sin^ {n - 3} \varphi_ {2} \mathrm{d} \varphi_ {2}\right) \dots \left(\int_ {0} ^ {\pi} \sin \varphi_ {n - 2} \mathrm{d} \varphi_ {n - 2}\right) \left(\int_ {0} ^ {2 \pi} \mathrm{d} \varphi_ {n - 1}\right). \\ \end{array}
+$$
+
+这与上面的结果完全一致.
+
+![](../../raw/pages_0225-0256/images/page_253_image_9.jpg)
+
+例 3 求 n 维单位球面  $x_{1}^{2} + x_{2}^{2} + \cdots + x_{n}^{2} = 1$  的面积.
+
+解 设  $x_{n}=f(x_{1},\cdots,x_{n-1}),(x_{1},x_{2},\cdots,x_{n-1})\in\Delta\subset\mathbf{R}^{n-1}$  为 n 维空间中的曲面, 则其面积为
+
+$$
+\overbrace {\int \cdots \int} _ {\Delta} \sqrt {1 + \left(\frac {\partial x _ {n}}{\partial x _ {1}}\right) ^ {2} + \cdots + \left(\frac {\partial x _ {n}}{\partial x _ {n - 1}}\right) ^ {2}} \mathrm{d} x _ {1} \dots \mathrm{d} x _ {n - 1}.
+$$
+
+因 $n$ 维单位球面的上半部可由方程
+
+$$
+x _ {n} = \sqrt {1 - (x _ {1} ^ {2} + \cdots + x _ {n - 1} ^ {2})} \quad (x _ {1} ^ {2} + \dots + x _ {n - 1} ^ {2} \leqslant 1)
+$$
+
+确定,又由于
+
+$$
+\sqrt {1 + \left(\frac {\partial x _ {n}}{\partial x _ {1}}\right) ^ {2} + \cdots + \left(\frac {\partial x _ {n}}{\partial x _ {n - 1}}\right) ^ {2}} = \frac {1}{x _ {n}},
+$$
+
+所以上半球面面积
+
+$$
+\begin{array}{l} \frac {1}{2} \Delta S = \overbrace {\int \cdots \int} ^ {n - 1 \text {个}} \frac {\mathrm{d} x _ {1} \cdots \mathrm{d} x _ {n - 1}}{x _ {n}} \\ = \overbrace {\int \cdots \int} _ {x _ {1} ^ {2} + \dots + x _ {n - 1} ^ {2} \leqslant 1} ^ {n - 1 \text {个}} \frac {\mathrm{d} x _ {1} \cdots \mathrm{d} x _ {n - 1}}{\sqrt {1 - \left(x _ {1} ^ {2} + \cdots + x _ {n - 1} ^ {2}\right)}} \\ = \overbrace {\int \cdots \int} ^ {n - 2 \text {个}} \mathrm{d} x _ {1} \dots \mathrm{d} x _ {n - 2} \int_ {- \sqrt {1 - \left(x _ {1} ^ {2} + \cdots + x _ {n - 2} ^ {2}\right)}} ^ {\sqrt {1 - \left(x _ {1} ^ {2} + \cdots + x _ {n - 2} ^ {2}\right)}} \frac {\mathrm{d} x _ {n - 1}}{\sqrt {1 - \left(x _ {1} ^ {2} + \cdots + x _ {n - 1} ^ {2}\right)}}. \\ \end{array}
+$$
+
+由于对变量 $x_{n - 1}$ 的积分等于 $\pi$ ，从而有
+
+246
+
+---
+
+\* §8 反常二重积分 |||
+
+$$
+\frac {1}{2} \Delta S = \pi \overbrace {\int \cdots \int} ^ {n - 2 \text {个}} \mathrm{d} x _ {1} \dots \mathrm{d} x _ {n - 2} = \pi \beta_ {n - 2},
+$$
+
+其中  $\beta_{n-2}=\overbrace{\int\cdots\int}_{x_{1}^{2}+\cdots+x_{n-2}^{2}\leqslant1}\mathrm{d}x_{1}\cdots\mathrm{d}x_{n-2}$  为 n-2 维空间中单位球体体积. 因此由例 2 得 n 维球面面积为
+
+$$
+\Delta S _ {n} = 2 \pi \beta_ {n - 2} = \left\{ \begin{array}{l l} \frac {2 \pi^ {m}}{(m - 1) !}, & n = 2 m, \\ \frac {2 (2 \pi) ^ {m}}{(2 m - 1) ! !}, & n = 2 m + 1. \end{array} \right.
+$$
+
+特别当 $n = 2,3$ 时，它们分别为 $\Delta S_2 = 2\pi ,\Delta S_3 = 4\pi .$
+
+## 习题 21.7
+
+1. 计算五重积分
+
+$$
+\iiint_ {V} \mathrm{d} x \mathrm{d} y \mathrm{d} z \mathrm{d} u \mathrm{d} v,
+$$
+
+其中 $V: x^{2} + y^{2} + z^{2} + u^{2} + v^{2} \leqslant r^{2}$.
+
+2. 计算四重积分
+
+$$
+\iiint_ {V} \sqrt {\frac {1 - x ^ {2} - y ^ {2} - z ^ {2} - u ^ {2}}{1 + x ^ {2} + y ^ {2} + z ^ {2} + u ^ {2}}} \mathrm{d} x \mathrm{d} y \mathrm{d} z \mathrm{d} u,
+$$
+
+其中 $V: x^{2} + y^{2} + z^{2} + u^{2} \leqslant 1$.
+
+3. 求 n 维角锥  $x_{i} \geqslant 0, \frac{x_{1}}{a_{1}} + \frac{x_{2}}{a_{2}} + \cdots + \frac{x_{n}}{a_{n}} \leqslant 1, a_{i} > 0 (i = 1, 2, \cdots, n)$  的体积.
+4. 把  $\Omega: x_{1}^{2} + x_{2}^{2} + \cdots + x_{n}^{2} \leqslant R^{2}$  上的  $n (n \geqslant 2)$  重积分
+
+$$
+\overbrace {\int \cdots \int} _ {\Omega} f \left(\sqrt {x _ {1} ^ {2} + x _ {2} ^ {2} + \cdots + x _ {n} ^ {2}}\right) \mathrm{d} x _ {1} \mathrm{d} x _ {2} \dots \mathrm{d} x _ {n}
+$$
+
+化为单重积分,其中 $f(u)$ 为连续函数.
+
+## \* §8 反常二重积分
+
+前面我们是在有界区域上讨论有界函数的二重积分. 本节将研究无界区域上或无界函数的二重积分.
+
+## 一、无界区域上的二重积分
+
+定义1 设 $f(x, y)$ 为定义在无界区域 $D$ 上的二元函数. 若对于平面上任一包围原点的光滑封闭曲线 $\gamma, f(x, y)$ 在曲线 $\gamma$ 所围的有界区域 $E_{\gamma}$ 与 $D$ 的交集 $E_{\gamma} \cap D = D_{\gamma}$ （图
+
+247
+
+---
+
+第二十一章 重积分
+
+21-43) 上恒可积. 令
+
+$$
+d _ {\gamma} = \inf \{\sqrt {x ^ {2} + y ^ {2}} | (x, y) \in \gamma \}.
+$$
+
+若极限
+
+$$
+\lim _ {d _ {\gamma} \to + \infty} \iint_ {D _ {\gamma}} f (x, y)   \mathrm{d} \sigma
+$$
+
+存在且有限,且与  $\gamma$  的取法无关,则称  $f(x,y)$  在 D 上的反常二重积分收敛,并记
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} \sigma = \lim _ {d _ {\gamma} \to + \infty} \iint_ {D _ {\gamma}} f (x, y) \mathrm{d} \sigma , \tag {1}
+$$
+
+否则称 $f(x,y)$ 在 $D$ 上的反常二重积分发散，或简称 $\iint_{D} f(x,y) \, \mathrm{d}\sigma$ 发散.
+
+定理 21.17 设在无界区域 D 上  $f(x,y) \geqslant 0, \gamma_{1}, \gamma_{2}, \cdots, \gamma_{n}, \cdots$  为一列包围原点的光滑封闭曲线序列，满足
+
+(i)  $d_{n}=\inf\left\{\sqrt{x^{2}+y^{2}}\mid(x,y)\in\gamma_{n}\right\}\rightarrow+\infty\quad(n\rightarrow\infty)$ ,
+(ii) $I = \sup_{n}\iint_{D_n}f(x,y)\mathrm{d}\sigma < + \infty$
+
+其中  $D_{n}$  为  $\gamma_{n}$  所围的有界区域  $E_{n}$  与 D 的交集, 则反常二重积分(1)收敛, 并且
+
+![](../../raw/pages_0225-0256/images/page_255_image_13.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+γ
+D
+Dγ
+Eγ
+O
+x
+</details>
+
+图21-43
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} \sigma = I.
+$$
+
+证 设 $\gamma'$ 为任何包围原点的光滑封闭曲线, 这曲线所围的区域记为 $E'$, 并记 $D' = E' \cap D$. 因为 $\lim_{n \to \infty} d_n = +\infty$, 因此存在 $n$, 使得 $D' \subset D_n \subset D$. 由于 $f(x, y) \geqslant 0$, 所以有
+
+$$
+\iint_ {D ^ {\prime}} f (x, y) \mathrm{d} \sigma \leqslant \iint_ {D _ {n}} f (x, y) \mathrm{d} \sigma \leqslant I.
+$$
+
+另一方面,因为
+
+$$
+I = \sup _ {n} \iint_ {D _ {n}} f (x, y) \mathrm{d} \sigma ,
+$$
+
+对于任给的 $\varepsilon > 0$ ，总有 $n_0$ ，使得
+
+$$
+\iint_ {D _ {n _ {0}}} f (x, y) \mathrm{d} \sigma > I - \varepsilon .
+$$
+
+对于充分大的  $d'$ ，区域  $D'$  又可包含  $D_{n_{0}}$ ，因而
+
+$$
+\iint_ {D ^ {\prime}} f (x, y) \mathrm{d} \sigma > I - \varepsilon .
+$$
+
+由
+
+$$
+I - \varepsilon <   \iint_ {D ^ {\prime}} f (x, y) \mathrm{d} \sigma \leqslant I
+$$
+
+知 $f(x,y)$ 在 $D$ 上的反常二重积分存在，且等于 $I$.
+
+由定理21.17容易看到:若在D上 $f(x,y)\geqslant0$ ,且它在D的任何有界子区域上可积且积分值有界,则 $f(x,y)$ 在D上的反常二重积分存在.反过来,若 $f(x,y)$ 在D上的反
+
+248
+
+---
+
+\* §8 反常二重积分 |||
+
+常二重积分存在,则 $f(x,y)$ 在D的任何有界子区域上的积分有上界.
+
+定理21.18 若在无界区域 $D$ 上 $f(x,y)\geqslant 0$ ，则反常二重积分(1)收敛的充要条件是:在 $D$ 的任何有界子区域上 $f(x,y)$ 可积，且积分值有上界.
+
+例1 证明反常二重积分
+
+$$
+\iint_ {D} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \mathrm{d} \sigma
+$$
+
+收敛,其中 D 为第一象限部分,即  $D=\left[0,+\infty\right)\times\left[0,+\infty\right)$ .
+
+证 设 $D_{R}$ 是以原点为圆心、半径为 $R$ 的圆与 $D$ 的交集, 即该圆的第一象限部分. 因为 $\mathrm{e}^{-(x^2 + y^2)} > 0$, 所以二重积分
+
+$$
+\iint_ {D _ {R}} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \mathrm{d} \sigma
+$$
+
+的值随着 $R$ 的增大而增大. 由于
+
+$$
+\iint_ {D _ {R}} \mathrm{e} ^ {- (  x ^ {2} + y ^ {2})}   \mathrm{d} \sigma = \int_ {0} ^ {\frac {\pi}{2}} \mathrm{d} \theta \int_ {0} ^ {R} \mathrm{e} ^ {- r ^ {2}} r \mathrm{d} r = \frac {\pi}{4} (1 - \mathrm{e} ^ {- R ^ {2}}) ,
+$$
+
+所以
+
+$$
+\lim _ {R \to + \infty} \iint_ {D _ {R}} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \mathrm{d} \sigma = \lim _ {R \to + \infty} \frac {\pi}{4} (1 - \mathrm{e} ^ {- R ^ {2}}) = \frac {\pi}{4}.
+$$
+
+显然对 $D$ 的任何有界子区域 $D'$，总存在足够大的 $R$，使得 $D' \subset D_R$，于是
+
+$$
+\iint_ {D ^ {\prime}} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \mathrm{d} \sigma \leqslant \iint_ {D _ {R}} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \mathrm{d} \sigma \leqslant \frac {\pi}{4}.
+$$
+
+因此由定理 21.18 反常二重积分
+
+$$
+\iint_ {D} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \mathrm{d} \sigma
+$$
+
+收敛,并且由定理21.17有
+
+$$
+\iint_ {D} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \mathrm{d} \sigma = \frac {\pi}{4}. \tag {2}
+$$
+
+由(2)式还可推出在概率论中经常用到的反常积分
+
+$$
+\int_ {0} ^ {+ \infty} \mathrm{e} ^ {- x ^ {2}} \mathrm{d} x
+$$
+
+的值.为此,考察 $S_{a}=[0,a]\times[0,a]$ 上的积分
+
+$$
+\iint_ {S _ {a}} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \mathrm{d} \sigma .
+$$
+
+因为
+
+$$
+\iint_ {S _ {a}} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \mathrm{d} \sigma = \int_ {0} ^ {a} \mathrm{e} ^ {- x ^ {2}} \mathrm{d} x \int_ {0} ^ {a} \mathrm{e} ^ {- y ^ {2}} \mathrm{d} y = \left(\int_ {0} ^ {a} \mathrm{e} ^ {- x ^ {2}} \mathrm{d} x\right) ^ {2}.
+$$
+
+由 $D_{a} \subset S_{a} \subset D_{\sqrt{2} a}$ （图21-44）知
+
+$$
+\iint_ {D _ {a}} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \mathrm{d} \sigma \leqslant \iint_ {S _ {a}} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \mathrm{d} \sigma
+$$
+
+![](../../raw/pages_0257-0288/images/page_256_image_26.jpg)
+
+<details>
+<summary>text_image</summary>
+
+y
+D_{\sqrt{2}a}
+S_a
+O
+a
+\sqrt{2}a
+x
+</details>
+
+图21-44
+
+249
+
+---
+
+第二十一章 重积分
+
+$$
+= \left(\int_ {0} ^ {a} \mathrm{e} ^ {- x ^ {2}} \mathrm{d} x\right) ^ {2} \leqslant \iint_ {D _ {\sqrt {2} a}} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \mathrm{d} \sigma .
+$$
+
+令 $a \to +\infty$，则得
+
+$$
+\lim _ {a \to + \infty} \left(\int_ {0} ^ {a} \mathrm{e} ^ {- x ^ {2}} \mathrm{d} x\right) ^ {2} = \iint_ {D} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \mathrm{d} \sigma = \frac {\pi}{4}.
+$$
+
+所以
+
+$$
+\int_ {0} ^ {+ \infty} \mathrm{e} ^ {- x ^ {2}} \mathrm{d} x = \frac {\sqrt {\pi}}{2}.
+$$
+
+下面的例子是应用反常二重积分补证第十九章最后提到的关于 B 函数与  $\Gamma$  函数的联系公式.
+
+例 2 若 p>0, q>0, 则
+
+$$
+\mathrm{B} (p, q) = \frac {\Gamma (p) \Gamma (q)}{\Gamma (p + q)}. \tag {3}
+$$
+
+证 对于 $\Gamma$ 函数, 令 $x = u^2$, 则 $\mathrm{d}x = 2u\mathrm{d}u$, 于是
+
+$$
+\Gamma (p) = \int_ {0} ^ {+ \infty} x ^ {p - 1} \mathrm{e} ^ {- x} \mathrm{d} x = 2 \int_ {0} ^ {+ \infty} u ^ {2 p - 1} \mathrm{e} ^ {- u ^ {2}} \mathrm{d} u.
+$$
+
+从而
+
+$$
+\begin{array}{l} \Gamma (p) \Gamma (q) = 4 \int_ {0} ^ {+ \infty} x ^ {2 p - 1} \mathrm{e} ^ {- x ^ {2}} \mathrm{d} x \cdot \int_ {0} ^ {+ \infty} y ^ {2 q - 1} \mathrm{e} ^ {- y ^ {2}} \mathrm{d} y \\ = \lim _ {R \to + \infty} 4 \int_ {0} ^ {R} x ^ {2 p - 1} \mathrm{e} ^ {- x ^ {2}} \mathrm{d} x \cdot \int_ {0} ^ {R} y ^ {2 q - 1} \mathrm{e} ^ {- y ^ {2}} \mathrm{d} y. \\ \end{array}
+$$
+
+令  $D_{R}=[0,R]\times[0,R]$ ，由二重积分化为累次积分计算公式有
+
+$$
+\begin{array}{l} \iint_ {D _ {R}} x ^ {2 p - 1} y ^ {2 q - 1} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \mathrm{d} \sigma \\ = \int_ {0} ^ {R} x ^ {2 p - 1} \mathrm{e} ^ {- x ^ {2}} \mathrm{d} x \cdot \int_ {0} ^ {R} y ^ {2 q - 1} \mathrm{e} ^ {- y ^ {2}} \mathrm{d} y. \\ \end{array}
+$$
+
+所以
+
+$$
+\begin{array}{l} \Gamma (p) \Gamma (q) = \lim _ {R \to + \infty} 4 \iint_ {D _ {R}} x ^ {2 p - 1} y ^ {2 q - 1} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \mathrm{d} \sigma \\ = 4 \iint_ {D} x ^ {2 p - 1} y ^ {2 q - 1} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \mathrm{d} \sigma , \tag {4} \\ \end{array}
+$$
+
+这里 D 为平面上第一象限部分. 和例 1 一样, 下面讨论(4)式右边的反常二重积分. 记
+
+$$
+D _ {r} = \{(x, y) \mid x ^ {2} + y ^ {2} \leqslant r ^ {2}, x \geqslant 0, y \geqslant 0 \}.
+$$
+
+于是有
+
+$$
+\begin{array}{l} \Gamma (p) \Gamma (q) = 4 \iint_ {D} x ^ {2 p - 1} y ^ {2 q - 1} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \mathrm{d} \sigma \\ = \lim _ {r \to + \infty} 4 \iint_ {D _ {r}} x ^ {2 p - 1} y ^ {2 q - 1} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \mathrm{d} \sigma . \\ \end{array}
+$$
+
+对上式右边积分应用极坐标变换,则可得
+
+$$
+\Gamma (p) \Gamma (q) = \lim _ {r \to + \infty} 4 \int_ {0} ^ {\frac {\pi}{2}} \mathrm{d} \theta \int_ {0} ^ {r} r ^ {2 (p + q) - 2} (\cos \theta) ^ {2 p - 1} (\sin \theta) ^ {2 q - 1} \mathrm{e} ^ {- r ^ {2}} r \mathrm{d} r
+$$
+
+250
+
+---
+
+\* §8 反常二重积分 |||
+
+$$
+\begin{array}{l} = \lim _ {r \to + \infty} 2 \int_ {0} ^ {\frac {\pi}{2}} (\cos \theta) ^ {2 p - 1} (\sin \theta) ^ {2 q - 1} \mathrm{d} \theta \cdot 2 \int_ {0} ^ {r} r ^ {2 (p + q) - 1} \mathrm{e} ^ {- r ^ {2}} \mathrm{d} r \\ = 2 \int_ {0} ^ {\frac {\pi}{2}} (\cos \theta) ^ {2 p - 1} (\sin \theta) ^ {2 q - 1} \mathrm{d} \theta \cdot \Gamma (p + q). \\ \end{array}
+$$
+
+再由第十九章 §3 的(11)式就得到
+
+$$
+\Gamma (p) \Gamma (q) = \mathrm{B} (p, q) \Gamma (p + q).
+$$
+
+定理21.19 函数 $f(x,y)$ 在无界区域 $D$ 上的反常二重积分收敛的充要条件是 $|f(x,y)|$ 在 $D$ 上的反常二重积分收敛.
+
+证 我们先证充分性. 设 $\iint_{D} |f(x, y)| \, \mathrm{d}\sigma$ 收敛, 其值为 $M$. 作辅助函数
+
+$$
+f ^ {+} (x, y) = \frac {\left| f (x , y) \right| + f (x , y)}{2}, f ^ {-} (x, y) = \frac {\left| f (x , y) \right| - f (x , y)}{2}.
+$$
+
+显然有 $0 \leqslant f^{+}(x, y) \leqslant |f(x, y)|$ 及 $0 \leqslant f^{-}(x, y) \leqslant |f(x, y)|$. 因而在 $D$ 的任何有界子区域 $\sigma$ 上，恒有
+
+$$
+\begin{array}{l} \iint_ {\sigma} f ^ {+} (x, y) \mathrm{d} \sigma \leqslant \iint_ {\sigma} | f (x, y) | \mathrm{d} \sigma = M, \\ \iint_ {\sigma} f ^ {-} (x, y) \mathrm{d} \sigma \leqslant \iint_ {\sigma} | f (x, y) | \mathrm{d} \sigma = M. \\ \end{array}
+$$
+
+所以 $f^{+}(x,y)$ 与 $f^{-}(x,y)$ 在 $D$ 上的反常二重积分收敛.由于
+
+$$
+f (x, y) = f ^ {+} (x, y) - f ^ {-} (x, y),
+$$
+
+所以  $f(x,y)$  在 D 上的反常二重积分也收敛.
+
+关于必要性的证明,这里不讲了.有兴趣的读者可参阅菲赫金哥尔茨著的微积分学教程第三卷第一分册.
+
+定理 21.20(柯西判别法) 设  $f(x,y)$  在无界区域 D 的任何有界子区域上二重积分存在, r 为 D 内的点  $(x,y)$  到原点的距离
+
+$$
+r = \sqrt {x ^ {2} + y ^ {2}}.
+$$
+
+(i) 若当 $r$ 足够大时，$\left|f(x,y)\right| \leqslant \frac{c}{r^p}$，其中 $c$ 为正的常数，则当 $p > 2$ 时，反常二重积分 $\iint_{D} f(x,y) \, \mathrm{d}\sigma$ 收敛；
+
+(ii) 若 $f(x, y)$ 在 $D$ 内满足 $\left|f(x, y)\right| \geqslant \frac{c}{r^p}$, 其中 $D$ 是含有顶点为原点的无限扇形区域, 则当 $p \leqslant 2$ 时, 反常二重积分 $\iint_{D} f(x, y) \mathrm{d}\sigma$ 发散.
+
+证明从略.
+
+## 二、无界函数的二重积分
+
+定义 2 设 P 为有界区域 D 的一个聚点,  $f(x,y)$  在 D 上除点 P 外皆有定义, 且在
+
+251
+
+---
+
+第二十一章 重积分
+
+P 的任何空心邻域内无界,  $\Delta$  为 D 中任何含有 P 的小区域,  $f(x,y)$  在  $D-\Delta$  上可积. 又设 d 表示  $\Delta$  的直径, 即
+
+$$
+d = \sup \left\{\sqrt {\left(x _ {1} - x _ {2}\right) ^ {2} + \left(y _ {1} - y _ {2}\right) ^ {2}} \mid (x _ {1}, y _ {1}), (x _ {2}, y _ {2}) \in \Delta \right\}.
+$$
+
+若极限
+
+$$
+\lim _ {d \to 0} \iint_ {D - \Delta} f (x, y)   \mathrm{d} \sigma
+$$
+
+存在且有限,并且与  $\Delta$  的取法无关,则称  $f(x,y)$  在 D 上的反常二重积分收敛,记作
+
+$$
+\iint_ {D} f (x, y) \mathrm{d} \sigma = \lim _ {d \to 0} \iint_ {D - \Delta} f (x, y) \mathrm{d} \sigma ,
+$$
+
+否则称 $f(x,y)$ 在 $D$ 上的反常二重积分 $\iint_{D} f(x,y) \, \mathrm{d}\sigma$ 发散.
+
+与无界区域上反常二重积分一样,对无界函数的反常二重积分也可建立相应的收敛性定理.
+
+定理 21.21(柯西判别法) 设  $f(x,y)$  在有界区域 D 上除点  $P(x_{0},y_{0})$  外处处有定义, 点  $P(x_{0},y_{0})$  为它的瑕点, 则下面两个结论成立:
+
+(i) 若在点 $P$ 的附近有
+
+$$
+\left| f (x, y) \right| \leqslant \frac {c}{r ^ {\alpha}},
+$$
+
+其中 $c$ 为常数，$r = \sqrt{(x - x_0)^2 + (y - y_0)^2}$，则当 $\alpha < 2$ 时，反常二重积分 $\iint_{D} f(x, y) \, \mathrm{d}\sigma$ 收敛；
+
+(ii) 若在点 P 的附近有
+
+$$
+\left| f (x, y) \right| \geqslant \frac {c}{r ^ {\alpha}},
+$$
+
+且 D 含有以点 P 为顶点的角形区域, 则当  $\alpha \geqslant 2$  时, 反常二重积分  $\iint_{D} f(x, y) \, \mathrm{d}\sigma$  发散.
+
+## 习题 21.8
+
+1. 试讨论下列无界区域上二重积分的收敛性:
+
+(1) $\iint_{x^2 + y^2 \geqslant 1} \frac{\mathrm{d}\sigma}{\left(x^2 + y^2\right)^m}$;
+(2) $\iint_{D} \frac{\mathrm{d}\sigma}{(1 + |x|)^p (1 + |y|)^q}, D$ 为全平面；
+(3) $\iint_{0\leqslant y\leqslant 1}\frac{\varphi(x,y)\mathrm{d}\sigma}{(1 + x^2 + y^2)^p}\quad (0 < m\leqslant |\varphi (x,y)|\leqslant M).$
+
+2. 计算积分
+
+$$
+\int_ {- \infty} ^ {+ \infty} \mathrm{d} y \int_ {- \infty} ^ {+ \infty} \mathrm{e} ^ {- (x ^ {2} + y ^ {2})} \cos (x ^ {2} + y ^ {2}) \mathrm{d} x.
+$$
+
+3. 判别下列积分的敛散性:
+
+(1) $\iint_{x^2 + y^2 \leqslant 1} \frac{\mathrm{d}\sigma}{\left(x^2 + y^2\right)^m}$;
+
+(2) $\iint_{x^2 + y^2 \leqslant 1} \frac{\mathrm{d}\sigma}{(1 - x^2 - y^2)^m}.$
+
+252
+
+---
+
+\* §9 在一般条件下重积分变量变换公式的证明 |||
+
+## \* §9 在一般条件下重积分变量变换公式的证明
+
+我们在本章 §4 中证明了重积分变量变换公式(定理 21.13). 在证明中引用了 §4 中的引理. 此引理需要较强条件: $x(u, v), y(u, v)$ 有二阶连续偏导数. 本节将在 $x(u, v), y(u, v)$ 仅有一阶连续偏导数的条件下来证明 §4 中的引理, 这样我们就完成了在一般条件下二重积分的变量变换公式. 为此, 我们把这个引理重新叙述如下.
+
+引理 设变换  $T: x = x(u, v)$ ,  $y = y(u, v)$  把 uv 平面上的由分段光滑封闭曲线所围的闭区域  $\Delta$  一对一地映成 xy 平面上的闭区域 D，函数  $x = x(u, v)$ ,  $y = y(u, v)$  在  $\Delta$  上分别具有一阶连续偏导数且它们的函数行列式
+
+$$
+J (u, v) = \frac {\partial (x , y)}{\partial (u , v)} \neq 0, (u, v) \in \Delta ,
+$$
+
+则区域 $D$ 的面积
+
+$$
+\mu (D) = \iint_ {\Delta} \left| J (u, v) \right| \mathrm{d} u \mathrm{d} v.
+$$
+
+证 证明分以下4步:
+
+第1步:对任意 $(u_{0},v_{0})\in\mathrm{int}\Delta$ ,任意 $\varepsilon>0$ ,存在 $(u_{0},v_{0})$ 的邻域G,当正方形 $I\subset G$ 且 $(u_{0},v_{0})\in I$ 时,
+
+$$
+\mu (T (I)) \leqslant \iint_ {I} \left| J (u, v) \right| \mathrm{d} u \mathrm{d} v + \varepsilon \mu (I).
+$$
+
+第2步:对任意正方形  $I \subset \operatorname{int} \Delta, \mu(T(I)) \leqslant \iint_{I} \left| J(u, v) \right| \, \mathrm{d}u \, \mathrm{d}v.$
+
+第3步: $\mu (D)\leqslant \iint_{\Delta}\left|J(u,v)\right|\mathrm{d}u\mathrm{d}v.$
+
+第 4 步:  $\mu(D)=\iint_{\Delta}\left|J(u,v)\right|\mathrm{d}u\mathrm{d}v.$
+
+第1步的证明 设 $(u_0, v_0) \in \mathrm{int} \Delta$，对任意 $\varepsilon > 0$，取正数 $\eta < |J(u_0, v_0)|$ 满足
+
+$$
+(1 + \eta) ^ {2} \mid J (u _ {0}, v _ {0}) \mid <   \mid J (u _ {0}, v _ {0}) \mid - \eta + \varepsilon .
+$$
+
+由于 $|J(u,v)|$ 在点 $(u_0,v_0)$ 上连续，因此存在 $(u_0,v_0)$ 的邻域 $G_{1}\subset \mathrm{int}\Delta$ ，使得当 $(u,v)\in G_{1}$ 时，
+
+$$
+\mid J (u, v) \mid > \mid J (u _ {0}, v _ {0}) \mid - \eta .
+$$
+
+定义映射
+
+$$
+L: \left\{ \begin{array}{l} \hat {x} (u, v) = x (u _ {0}, v _ {0}) + x _ {u} (x _ {0}, v _ {0}) (u - u _ {0}) + x _ {v} (u _ {0}, v _ {0}) (v - v _ {0}), \\ \hat {y} (u, v) = y (u _ {0}, v _ {0}) + y _ {u} (u _ {0}, v _ {0}) (u - u _ {0}) + y _ {v} (u _ {0}, v _ {0}) (v - v _ {0}), \end{array} \right.
+$$
+
+即
+
+$$
+L (u, v) = \binom {\hat {x} (u, v)} {\hat {y} (u, v)} = \binom {x (u _ {0}, v _ {0})} {y (u _ {0}, v _ {0})} + J _ {T} (u _ {0}, v _ {0}) \binom {u - u _ {0}} {v - v _ {0}},
+$$
+
+253
+
+---
+
+第二十一章 重积分
+
+其中  $\boldsymbol{J}_{T}(u_{0},v_{0})=\begin{pmatrix}x_{u}(u_{0},v_{0})&x_{v}(u_{0},v_{0})\\y_{u}(u_{0},v_{0})&y_{v}(u_{0},v_{0})\end{pmatrix}.$
+
+由于 $x(u,v),y(u,v)$ 在 $(u_0,v_0)$ 处可微，因此
+
+$$
+\begin{array}{l} \mid x (u, v) - \hat {x} (u, v) \mid \\ = \left| x (u, v) - x \left(u _ {0}, v _ {0}\right) - x _ {u} \left(u _ {0}, v _ {0}\right) \left(u - u _ {0}\right) - x _ {v} \left(u _ {0}, v _ {0}\right) (v - v _ {0}) \right| \\ = o (\rho) (\rho \rightarrow 0), \\ \mid y (u, v) - \hat {y} (u, v) \mid \\ = \mid y (u, v) - y (u _ {0}, v _ {0}) - y _ {u} (u _ {0}, v _ {0}) (u - u _ {0}) - y _ {v} (u _ {0}, v _ {0}) (v - v _ {0}) \mid \\ = o (\rho) (\rho \rightarrow 0), \\ \end{array}
+$$
+
+其中
+
+$$
+\rho = \sqrt {\left(u - u _ {0}\right) ^ {2} + \left(v - v _ {0}\right) ^ {2}}.
+$$
+
+设 $\left(\boldsymbol{J}_{T}(u_{0},v_{0})\right)^{-1}=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ ，令 $M=|a|+|b|+|c|+|d|$ . 存在 $(u_{0},v_{0})$ 的邻域 $G\subset G_{1}$ ，当 $(u,v)\in G$ 时，
+
+$$
+\mid x (u, v) - \hat {x} (u, v) \mid <   \frac {\eta \rho}{2 \sqrt {2} M}, \mid y (u, v) - \hat {y} (u, v) \mid <   \frac {\eta \rho}{2 \sqrt {2} M}.
+$$
+
+任取正方形 $I \subset \operatorname{int} \Delta$，满足 $(u_0, v_0) \in I$，并设 $I$ 的边长为 $\beta$. 任取 $(x(u, v), y(u, v)) \in T(I)$，其中 $(u, v) \in I$.
+
+设 $(u_{1},v_{1})=L^{-1}(x(u,v),y(u,v))$ ，即 $\hat{x}(u_{1},v_{1})=x(u,v),\hat{y}(u_{1},v_{1})=y(u,v)$ .由于
+
+$$
+\binom {\hat {x} (u _ {1}, v _ {1}) - \hat {x} (u, v)} {\hat {y} (u _ {1}, v _ {1}) - \hat {y} (u, v)} = J _ {T} (u _ {0}, v _ {0}) \binom {u _ {1} - u} {v _ {1} - v},
+$$
+
+因此
+
+$$
+\binom {u _ {1} - u} {v _ {1} - v} = (\boldsymbol {J} _ {T} (u _ {0}, v _ {0})) ^ {- 1} \binom {\hat {x} (u _ {1}, v _ {1}) - \hat {x} (u, v)} {\hat {y} (u _ {1}, v _ {1}) - \hat {y} (u, v)} = \left( \begin{array}{c c} a & b \\ c & d \end{array} \right) \binom {\hat {x} (u _ {1}, v _ {1}) - \hat {x} (u, v)} {\hat {y} (u _ {1}, v _ {1}) - \hat {y} (u, v)}.
+$$
+
+注意到 $\rho = \sqrt{(u - u_0)^2 + (v - v_0)^2}, (u, v) \in I, (u_0, v_0) \in I$，从而 $\rho \leqslant \sqrt{2}\beta$，于是
+
+$$
+\begin{array}{l} \mid u _ {1} - u \mid = \mid a (\hat {x} (u _ {1}, v _ {1}) - \hat {x} (u, v)) + b (\hat {y} (u _ {1}, v _ {1}) - \hat {y} (u, v)) \mid \\ = \left| a (x (u, v) - \hat {x} (u, v)) + b (y (u, v) - \hat {y} (u, v)) \right| \\ <   | a | \left| x (u, v) - \hat {x} (u, v) \right| + | b | \left| y (u, v) - \hat {y} (u, v) \right| \\ \leqslant | a | \frac {\eta \rho}{2 \sqrt {2} M} + | b | \frac {\eta \rho}{2 \sqrt {2} M} \leqslant | a | \frac {\eta \beta}{2 M} + | b | \frac {\eta \beta}{2 M} \leqslant \frac {\eta \beta}{2}. \\ \end{array}
+$$
+
+同理 $|v_{1} - v|\leqslant \frac{\eta\beta}{2}$
+
+设 $I_{1}$ 是与 $I$ 同中心的正方形，边长为 $(1 + \eta)\beta$ ，从而 $(u_{1},v_{1})\in I_{1}$ .于是
+
+$$
+T (u, v) = (x (u, v), y (u, v)) = L (u _ {1}, v _ {1}) \in L (I _ {1}),
+$$
+
+这样就证明了 $T(I)\subset L(I_1)$
+
+设 $I_{1}$ 的二邻边向量是 $\pmb{l}_{1},\pmb{l}_{2}$，由于 $L$ 是仿射变换，$L(I_1)$ 是邻边向量为 $L(\pmb{l}_1), L(\pmb{l}_2)$ 的平行四边形，于是
+
+254
+
+---
+
+\* §9 在一般条件下重积分变量变换公式的证明 |||
+
+$$
+\mu (L (I _ {1})) = | L (\boldsymbol {l} _ {1}) \times L (\boldsymbol {l} _ {2}) | = | J (u _ {0}, v _ {0}) | | \boldsymbol {l} _ {1} \times \boldsymbol {l} _ {2} | = | J (u _ {0}, v _ {0}) | \mu (I _ {1}).
+$$
+
+因此
+
+$$
+\mu (T (I)) \leqslant \mu (L (I _ {1})) = | J (u _ {0}, v _ {0}) | \mu (I _ {1}) = | J (u _ {0}, v _ {0}) | (1 + \eta) ^ {2} \mu (I).
+$$
+
+另一方面,我们有
+
+$$
+\iint_ {I} \mid J (u, v) \mid \mathrm{d} u \mathrm{d} v \geqslant (\mid J (u _ {0}, v _ {0}) \mid - \eta) \mu (I),
+$$
+
+因此
+
+$$
+\begin{array}{l} \mu (T (I)) \leqslant | J (u _ {0}, v _ {0}) | (1 + \eta) ^ {2} \mu (I) \\ \leqslant (\mid J (u _ {0}, v _ {0}) \mid - \eta + \varepsilon) \mu (I) \\ \leqslant \iint_ {I} | J (u, v) | \mathrm{d} u \mathrm{d} v + \varepsilon \mu (I). \\ \end{array}
+$$
+
+第2步的证明 若有正方形 $I\subset \mathrm{int}\Delta$ ，使
+
+$$
+\mu (T (I)) - \iint_ {I} | J (u, v) | \mathrm{d} u \mathrm{d} v = \delta > 0,
+$$
+
+将 $I$ 等分为4个小正方形，则4个正方形中必有一个，记为 $I_{1}$，使
+
+$$
+\mu (T (I _ {1})) - \iint_ {I _ {1}} | J (u, v) | \mathrm{d} u \mathrm{d} v \geqslant \frac {\delta}{4}.
+$$
+
+再将 $I_{1}$ 等分为4个小正方形，则4个正方形中必有一个，记为 $I_{2}$，使
+
+$$
+\mu (T (I _ {2})) - \iint_ {I _ {2}} | J (u, v) | \mathrm{d} u \mathrm{d} v \geqslant \frac {\delta}{4 ^ {2}}.
+$$
+
+这样我们得到正方形序列  $I_{1} \supset I_{2} \supset \cdots \supset I_{n} \supset \cdots$ ，使
+
+$$
+\mu (T (I _ {n})) - \iint_ {I _ {n}} | J (u, v) | \mathrm{d} u \mathrm{d} v \geqslant \frac {\delta}{4 ^ {n}}.
+$$
+
+由闭域套定理(定理16.2)，存在 $(u_{0},v_{0})\in\bigcap_{n=1}^{\infty}I_{n}\subset\operatorname{int}\Delta$ 。于是任给 $\varepsilon>0$ ，存在 $(u_{0},v_{0})$ 的开邻域 $G\subset\operatorname{int}\Delta$ 满足第1步的结论，于是当n充分大时 $I_{n}\subset G$ ，从而
+
+$$
+\frac {\varepsilon \mu (I)}{4 ^ {n}} = \varepsilon \mu (I _ {n}) \geqslant \mu (T (I _ {n})) - \iint_ {I _ {n}} | J (u, v) | \mathrm{d} u \mathrm{d} v \geqslant \frac {\delta}{4 ^ {n}},
+$$
+
+即  $\varepsilon\mu(I)\geqslant\delta>0$  ,令  $\varepsilon\rightarrow0$  得到  $0\geqslant\delta>0$  ,矛盾.
+
+第3步的证明 用平行于坐标轴的直线将uv平面分割成大小相等的闭正方形，假定与int  $\Delta$  交集不空的正方形为 $\{I_{1}, I_{2}, \cdots, I_{n}\}$ ，其中完全在int  $\Delta$  内正方形为 $\{I_{1}', I_{2}', \cdots, I_{s}'\}$ ，不完全在int  $\Delta$  内的正方形为 $\{I_{1}', I_{2}', \cdots, I_{t}'\}$ 。作 $\Delta$  的分割 $T_{\Delta} = \{I_{i} \cap \Delta \mid i = 1, 2, \cdots, n\}$ 和D的分割 $T_{D} = \{T(I_{i} \cap \Delta) \mid i = 1, 2, \cdots, n\}$ 。由于T在 $\Delta$ 上的一致连续性，当 $\|T_{\Delta}\| \to 0$ 时， $\|T_{D}\| \to 0$ 。又因为 $\partial\Delta \subset \bigcup_{i=1}^{t}(I_{i}' \cap \Delta)$ 及 $\partial D \subset \bigcup_{i=1}^{t} T(I_{i}' \cap \Delta)$ ，我们可证
+
+$$
+\lim _ {\| T _ {\Delta} \| \to 0} \sum_ {i = 1} ^ {t} \mu (I _ {i} ^ {\prime \prime} \cap \Delta) = 0 \quad \text {和} \quad \lim _ {\| T _ {D} \| \to 0} \sum_ {i = 1} ^ {t} \mu (T (I _ {i} ^ {\prime \prime} \cap \Delta)) = 0
+$$
+
+同时成立.为此,定义 $\Delta$ 上的函数 $\varphi(u,v)=\left\{\begin{aligned}1,(u,v)\in\mathrm{int}\Delta,\\ 0,(u,v)\in\partial\Delta.\end{aligned}\right.$
+
+255
+
+---
+
+第二十一章 重积分
+
+由于 $\varphi(u, v)$ 仅在零面积集 $\partial \Delta$ 上不连续，因此由定理21.7，$\varphi(u, v)$ 在 $\Delta$ 上可积。又由定理21.4，$\lim_{\|T_{\Delta}\| \to 0} \sum_{i=1}^{n} \omega_i \mu(I_i \cap \Delta) = 0$，其中 $\omega_i$ 是 $\varphi(u, v)$ 在 $I_i \cap \Delta$ 上的振幅。因为 $I_i''$ 不完全在 $\operatorname{int} \Delta$ 内，且至少有一个内点，$\omega''_i = 1$。而 $I_i'$ 完全在 $\operatorname{int} \Delta$ 内，$\omega'_i = 0$。所以
+
+$$
+\lim _ {\| T _ {\Delta} \| \to 0} \sum_ {i = 1} ^ {t} \mu (I _ {i} ^ {\prime \prime} \cap \Delta) = \lim _ {\| T _ {\Delta} \| \to 0} \sum_ {i = 1} ^ {n} \omega_ {i} \mu (I _ {i} \cap \Delta) = 0.
+$$
+
+类似可证 $\lim_{\| T_D\| \to 0}\sum_{i = 1}^{t}\mu (T(I_i''\cap \Delta)) = 0.$
+
+设 $|J(u,v)|$ 在 $\Delta$ 上的上确界为 $M$ ，则
+
+$$
+\begin{array}{l} 0 \leqslant \iint_ {\Delta} \left| J (u, v) \right| \mathrm{d} u \mathrm{d} v - \sum_ {i = 1} ^ {s} \iint_ {I _ {i} ^ {\prime}} \left| J (u, v) \right| \mathrm{d} u \mathrm{d} v \\ = \sum_ {i = 1} ^ {t} \iint_ {I _ {i} ^ {\prime} \cap \Delta} \left| J (u, v) \right| \mathrm{d} u \mathrm{d} v \leqslant M \sum_ {i = 1} ^ {t} \mu (I _ {i} ^ {\prime \prime} \cap \Delta) \rightarrow 0 (\| T _ {\Delta} \| \rightarrow 0). \\ \end{array}
+$$
+
+于是我们得到
+
+$$
+\begin{array}{l} \mu (D) = \lim _ {\| T _ {D} \| \to 0} \sum_ {i = 1} ^ {s} \mu (T (I _ {i} ^ {\prime})) \leqslant \lim _ {\| T _ {\Delta} \| \to 0} \sum_ {i = 1} ^ {s} \iint_ {I _ {i} ^ {\prime}} | J (u, v) | \mathrm{d} u \mathrm{d} v \\ = \iint_ {\Delta} \left| J (u, v) \right| \mathrm{d} u \mathrm{d} v. \\ \end{array}
+$$
+
+第4步的证明 记 $J_0(x,y) = \frac{\partial(u,v)}{\partial(x,y)}$，以 $T^{-1}$ 代替 $T, I_i'$ 代替 $D, T(I_i')$ 代替 $\Delta$ 代入上式，并由积分中值定理，存在 $(u_i', v_i') \in I_i'$，使得
+
+$$
+\begin{array}{l} \mu (I _ {i} ^ {\prime}) = \mu (T ^ {- 1} (T (I _ {i} ^ {\prime}))) \leqslant \iint_ {T (I _ {i} ^ {\prime})} | J _ {0} (x, y) | \mathrm{d} x \mathrm{d} y \\ = \mid J _ {0} (x (u _ {i} ^ {\prime}, v _ {i} ^ {\prime}), y (u _ {i} ^ {\prime}, v _ {i} ^ {\prime})) \mid \mu (T (I _ {i} ^ {\prime})), \quad i = 1, 2, \dots , s. \\ \end{array}
+$$
+
+由于 $|J(u,v)|$ 在 $\Delta$ 上可积及 $|J(u,v)| |J_0(x(u,v),y(u,v))| = 1$ （定理18.5），我们有
+
+$$
+\begin{array}{l} \iint_ {\Delta} \mid J (u, v) \mid \mathrm{d} u \mathrm{d} v = \lim _ {\| T _ {\Delta} \| \rightarrow 0} \sum_ {i = 1} ^ {s} \mid J (u _ {i} ^ {\prime}, v _ {i} ^ {\prime}) \mid \mu (I _ {i} ^ {\prime}) \\ \leqslant \lim _ {\| T _ {\Delta} \| \rightarrow 0} \sum_ {i = 1} ^ {s} | J (u _ {i} ^ {\prime}, v _ {i} ^ {\prime}) | | J _ {0} (x (u _ {i} ^ {\prime}, v _ {i} ^ {\prime}), y (u _ {i} ^ {\prime}, v _ {i} ^ {\prime})) | \mu (T (I _ {i} ^ {\prime})) \\ = \lim _ {\| T _ {\Delta} \| \to 0} \sum_ {i = 1} ^ {s} \mu (T (I _ {i} ^ {\prime})) = \mu (D). \\ \end{array}
+$$
+
+最终得到
+
+$$
+\mu (D) = \iint_ {\Delta} | J (u, v) |   \mathrm{d} u \mathrm{d} v.
+$$
+
+256
+
+---
+
+第二十一章总练习题
+
+## 第二十一章总练习题
+
+1. 求下列函数在所指定区域 $D$ 内的平均值:
+
+(1)  $f(x, y) = \sin^{2} x \cos^{2} y$ ,  $D = [0, \pi] \times [0, \pi]$ ;
+(2) $f(x,y,z)=x^{2}+y^{2}+z^{2},D=\{(x,y,z)\mid x^{2}+y^{2}+z^{2}\leqslant x+y+z\}$.
+
+2. 计算下列积分:
+
+(1) $\iint_{\substack{0\leqslant x\leqslant 2\\ 0\leqslant y\leqslant 2}}[x + y]\mathrm{d}\sigma ;$ (2) $\iint_{x^2 +y^2\leqslant 4}\operatorname {sgn}(x^2 -y^2 +2)\mathrm{d}\sigma .$
+
+3. 应用格林公式计算曲线积分
+
+$$
+\int_ {L} x y ^ {2} \mathrm{d} y - x ^ {2} y \mathrm{d} x,
+$$
+
+其中 L 为上半圆周  $x^{2}+y^{2}=a^{2}$  从  $(a,0)$  到  $(-a,0)$  的一段.
+
+4. 求
+
+$$
+\lim _ {\rho \to 0} \frac {1}{\pi \rho^ {2}} \iint_ {x ^ {2} + y ^ {2} \leqslant \rho^ {2}} f (x, y) \mathrm{d} \sigma ,
+$$
+
+其中 $f(x,y)$ 为连续函数.
+
+5. 求 $F'(t)$, 设
+
+(1)  $F(t) = \iint_{\substack{0, 1 \leqslant x \leqslant t \\ 0, 1 \leqslant y \leqslant t}} \mathrm{e}^{\frac{tx}{y^2}} \mathrm{d}\sigma$ ;
+(2) $F(t)=\iiint_{x^{2}+y^{2}+z^{2}\leqslant t^{2}}f(x^{2}+y^{2}+z^{2})\mathrm{d}V$, 其中 $f(u)$ 为可微函数；
+(3)  $F(t)=\iiint_{0\leqslant x\leqslant t}f(xyz)\mathrm{d}V$ , 其中  $f(u)$  为可微函数.
+
+6. 设 $f(t) = \int_{1}^{t^2} \mathrm{e}^{-x^2} \, \mathrm{d}x$，求 $\int_{0}^{1} t f(t) \, \mathrm{d}t$.
+
+7. 证明
+
+$$
+\iiint_ {V} f (x, y, z) \mathrm{d} V = a b c \iiint_ {\Omega} f (a x, b y, c z) \mathrm{d} V,
+$$
+
+其中
+
+$$
+V: \frac {x ^ {2}}{a ^ {2}} + \frac {y ^ {2}}{b ^ {2}} + \frac {z ^ {2}}{c ^ {2}} \leqslant 1, \Omega : x ^ {2} + y ^ {2} + z ^ {2} \leqslant 1.
+$$
+
+8. 试写出单位正方体为积分区域时,柱面坐标系和球面坐标系下的三重积分的上下限.
+9. 设函数 $f(x)$ 和 $g(x)$ 在 $[a, b]$ 上可积，则
+
+$$
+\left[ \int_ {a} ^ {b} f (x) g (x) \mathrm{d} x \right] ^ {2} \leqslant \int_ {a} ^ {b} f ^ {2} (x) \mathrm{d} x \cdot \int_ {a} ^ {b} g ^ {2} (x) \mathrm{d} x.
+$$
+
+10. 设 $f(x, y)$ 在 $[0, \pi] \times [0, \pi]$ 上连续，且恒取正值，试求
+
+$$
+\lim_{n\to \infty}\iint \limits_{\substack{0\leqslant x\leqslant \pi \\ 0\leqslant y\leqslant \pi}}(\sin x)(f(x,y))^{\frac{1}{n}}\mathrm{d}\sigma .
+$$
+
+11. 求由椭圆 $(a_{1}x+b_{1}y+c_{1})^{2}+(a_{2}x+b_{2}y+c_{2})^{2}=1$ 所界的面积, 其中 $a_{1}b_{2}-a_{2}b_{1}\neq0$.
+
+257
+
+---
+
+第二十一章 重积分
+
+12. 设
+
+$$
+\Delta = \left| \begin{array}{c c c} a _ {1} & b _ {1} & c _ {1} \\ a _ {2} & b _ {2} & c _ {2} \\ a _ {3} & b _ {3} & c _ {3} \end{array} \right| \neq 0,
+$$
+
+求由平面
+
+$$
+\begin{array}{l} a _ {1} x + b _ {1} y + c _ {1} z = \pm h _ {1}, \\ a _ {2} x + b _ {2} y + c _ {2} z = \pm h _ {2}, \\ a _ {3} x + b _ {3} y + c _ {3} z = \pm h _ {3} \\ \end{array}
+$$
+
+$(h_{1}>0,h_{2}>0,h_{3}>0)$  所界平行六面体的体积.
+
+13. 设有一质量分布不均匀的半圆弧 $x = r\cos \theta, y = r\sin \theta (0 \leqslant \theta \leqslant \pi)$, 其线密度为 $\rho = a\theta$ ($a$ 为常数), 求它对原点 $(0,0)$ 处质量为 $m$ 的质点的引力.
+
+14. 求螺旋线 $x = a\cos t, y = a\sin t, z = bt (0 \leqslant t \leqslant 2\pi)$ 对 $z$ 轴的转动惯量，设曲线的密度为1.
+
+15. 求摆线 $x = a(t - \sin t), y = a(1 - \cos t) (0 \leqslant t \leqslant \pi)$ 的质心，设其质量分布是均匀的.
+
+16. 设  $u(x,y)$ ,  $v(x,y)$  是具有二阶连续偏导数的函数, 证明:
+
+(1) $\iint_{D} v\left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}\right) \, \mathrm{d}\sigma = -\iint_{D}\left(\frac{\partial u}{\partial x} \frac{\partial v}{\partial x} + \frac{\partial u}{\partial y} \frac{\partial v}{\partial y}\right) \, \mathrm{d}\sigma + \oint_L v \frac{\partial u}{\partial n} \, \mathrm{d}s;$
+(2) $\iint_{D}\left[u\left(\frac{\partial^2v}{\partial x^2} +\frac{\partial^2v}{\partial y^2}\right) - v\left(\frac{\partial^2u}{\partial x^2} +\frac{\partial^2u}{\partial y^2}\right)\right]\mathrm{d}\sigma = \oint_L\left(u\frac{\partial v}{\partial\boldsymbol{n}} -v\frac{\partial u}{\partial\boldsymbol{n}}\right)\mathrm{d}s,$
+
+其中 D 为光滑曲线 L 所围的平面区域, 而
+
+$$
+\begin{array}{l} \frac {\partial u}{\partial \boldsymbol {n}} = \frac {\partial u}{\partial x} \cos (\stackrel {\wedge} {\boldsymbol {n}}, x) + \frac {\partial u}{\partial y} \sin (\stackrel {\wedge} {\boldsymbol {n}}, x), \\ \frac {\partial v}{\partial \boldsymbol {n}} = \frac {\partial v}{\partial x} \cos (\stackrel {\wedge} {\boldsymbol {n}}, x) + \frac {\partial v}{\partial y} \sin (\stackrel {\wedge} {\boldsymbol {n}}, x) \\ \end{array}
+$$
+
+是  $u(x,y)$ ,  $v(x,y)$  沿曲线 L 的外法线 n 的方向导数.
+
+17. 求指数  $\lambda$ ，使得曲线积分
+
+$$
+k = \int_ {(s _ {0}, t _ {0})} ^ {(s, t)} \frac {x}{y} r ^ {\lambda} \mathrm{d} x - \frac {x ^ {2}}{y ^ {2}} r ^ {\lambda} \mathrm{d} y
+$$
+
+与路线无关 $(r^{2}=x^{2}+y^{2})$ ，并求k.
+
+![](../../raw/pages_0257-0288/images/page_265_image_19.jpg)
+
+## 第二十一章综合自测题
+
+258

@@ -1,0 +1,5693 @@
+{
+  "pages": [
+    {
+      "page_idx": 170,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.626,
+            0.106,
+            0.821,
+            0.18
+          ],
+          "level": 2,
+          "content": "第十九章含参量积分"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.293,
+            0.295,
+            0.592,
+            0.32
+          ],
+          "level": 2,
+          "content": "§1 含参量正常积分"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.022,
+            0.364,
+            0.853,
+            0.448
+          ],
+          "content": "从本章开始我们讨论多元函数的各种积分问题,首先研究含参量积分.设 $f(x,y)$ 是定义在矩形区域 $R=[a,b]\\times[c,d]$ 上的二元函数 $^{①}$ .当x取[a,b]上某定值时,函数 $f(x,y)$ 则是定义在 $[c,d]$ 上以y为自变量的一元函数.倘若这时 $f(x,y)$ 在 $[c,d]$ 上可积,则其积分值是x在 $[a,b]$ 上取值的函数,记它为 $\\varphi(x)$ ,就有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.277,
+            0.45,
+            0.848,
+            0.481
+          ],
+          "content": "\\varphi (x) = \\int_ {c} ^ {d} f (x, y) \\mathrm{d} y, x \\in [ a, b ]. \\tag {1}",
+          "image_source": "../../raw/pages_0161-0192/images/page_170_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.483,
+            0.526,
+            0.64
+          ],
+          "content": "一般地，设 $f(x,y)$ 为定义在区域 $G = \\{(x,y)\\mid c(x)\\leqslant y\\leqslant d(x),a\\leqslant x\\leqslant b\\}$ 上的二元函数，其中$c(x),d(x)$ 为定义在 $[a,b]$ 上的连续函数（图19-1），若对于 $[a,b]$ 上每一固定的 $x$ 值，$f(x,y)$ 作为 $y$ 的函数在闭区间 $[c(x),d(x)]$ 上可积，则其积分值是 $x$ 在 $[a,b]$ 上取值的函数，记作 $F(x)$ 时，就有"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.543,
+            0.485,
+            0.831,
+            0.621
+          ],
+          "sub_type": "text_image",
+          "content": "y\ny=d(x)\nG\ny=c(x)\nO\na\nb\nx",
+          "captions": [
+            {
+              "bbox": [
+                0.652,
+                0.623,
+                0.72,
+                0.637
+              ],
+              "content": "图19-1"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_170_image_5.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.251,
+            0.643,
+            0.848,
+            0.678
+          ],
+          "content": "F (x) = \\int_ {c (x)} ^ {d (x)} f (x, y) \\mathrm{d} y, x \\in [ a, b ]. \\tag {2}",
+          "image_source": "../../raw/pages_0161-0192/images/page_170_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.681,
+            0.85,
+            0.72
+          ],
+          "content": "用积分形式所定义的这两个函数(1)与(2)，通称为定义在 $[a,b]$ 上含参量x的(正常)积分，或简称含参量积分."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.725,
+            0.54,
+            0.743
+          ],
+          "content": "下面讨论含参量积分的连续性、可微性与可积性."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.747,
+            0.853,
+            0.785
+          ],
+          "content": "定理 19.1（连续性） 若二元函数  $f(x,y)$  在矩形区域  $R=[a,b]\\times[c,d]$  上连续，则函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.343,
+            0.786,
+            0.534,
+            0.819
+          ],
+          "content": "\\varphi (x) = \\int_ {c} ^ {d} f (x, y)   \\mathrm{d} y",
+          "image_source": "../../raw/pages_0161-0192/images/page_170_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.819,
+            0.184,
+            0.837
+          ],
+          "content": "在 $[a,b]$ 上连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.068,
+            0.841,
+            0.853,
+            0.86
+          ],
+          "content": "证 设 $x \\in [a, b]$, 对充分小的 $\\Delta x$, 有 $x + \\Delta x \\in [a, b]$ (若 $x$ 为区间的端点, 则仅考"
+        },
+        {
+          "type": "page_footnote",
+          "bbox": [
+            0.024,
+            0.898,
+            0.851,
+            0.933
+          ],
+          "content": "① 在建立含参量积分的概念和讨论其连续性与可微性时, 矩形区域  $[a, b] \\times [c, d]$  可改为更一般的区域  $I \\times [c, d]$ , 其中 I 为区间."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.867,
+            0.967,
+            0.897,
+            0.978
+          ],
+          "content": "163"
+        }
+      ]
+    },
+    {
+      "page_idx": 171,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.142,
+            0.029,
+            0.372,
+            0.045
+          ],
+          "content": "第十九章 含参量积分"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.079,
+            0.38,
+            0.095
+          ],
+          "content": "虑  $\\Delta x > 0$  或  $\\Delta x < 0$  ), 于是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.308,
+            0.1,
+            0.964,
+            0.131
+          ],
+          "content": "\\varphi (x + \\Delta x) - \\varphi (x) = \\int_ {c} ^ {d} [ f (x + \\Delta x, y) - f (x, y) ] \\mathrm{d} y. \\tag {3}",
+          "image_source": "../../raw/pages_0161-0192/images/page_171_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.137,
+            0.969,
+            0.176
+          ],
+          "content": "由于 $f(x,y)$ 在有界闭域 $R$ 上连续，从而一致连续，即对任给的正数 $\\varepsilon$ ，总存在某个正数$\\delta$ ，对 $R$ 内任意两点 $(x_{1},y_{1})$ 与 $(x_{2},y_{2})$ ，只要"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.443,
+            0.181,
+            0.671,
+            0.202
+          ],
+          "content": "\\mid x _ {1} - x _ {2} \\mid <   \\delta , \\quad \\mid y _ {1} - y _ {2} \\mid <   \\delta ,",
+          "image_source": "../../raw/pages_0161-0192/images/page_171_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.21,
+            0.192,
+            0.226
+          ],
+          "content": "就有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.443,
+            0.231,
+            0.963,
+            0.248
+          ],
+          "content": "\\left| f (x _ {1}, y _ {1}) - f (x _ {2}, y _ {2}) \\right| <   \\varepsilon . \\tag {4}",
+          "image_source": "../../raw/pages_0161-0192/images/page_171_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.253,
+            0.514,
+            0.27
+          ],
+          "content": "所以由(3)，(4)可推得:当 $\\left|\\Delta x\\right|<\\delta$ 时，"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.298,
+            0.275,
+            0.825,
+            0.343
+          ],
+          "content": "\\begin{array}{l} \\mid \\varphi (x + \\Delta x) - \\varphi (x) \\mid \\leqslant \\int_ {c} ^ {d} \\mid f (x + \\Delta x, y) - f (x, y) \\mid \\mathrm{d} y \\\\ <   \\int_ {c} ^ {d} \\varepsilon \\mathrm{d} x = \\varepsilon (d - c). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_171_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.348,
+            0.471,
+            0.366
+          ],
+          "content": "这就证明了  $\\varphi(x)$  在  $[a,b]$  上连续."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.947,
+            0.349,
+            0.964,
+            0.364
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_171_image_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.371,
+            0.78,
+            0.388
+          ],
+          "content": "同理可证: 若  $f(x,y)$  在矩形区域 R 上连续, 则含参量 y 的积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.466,
+            0.392,
+            0.963,
+            0.423
+          ],
+          "content": "\\psi (y) = \\int_ {a} ^ {b} f (x, y) \\mathrm{d} x \\tag {5}",
+          "image_source": "../../raw/pages_0161-0192/images/page_171_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.428,
+            0.301,
+            0.446
+          ],
+          "content": "在 $[c,d]$ 上连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.451,
+            0.969,
+            0.489
+          ],
+          "content": "对于定理19.1的结论也可以写成如下的形式:若 $f(x,y)$ 在矩形区域 $R$ 上连续，则对任何 $x_0\\in [a,b]$ ，都有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.39,
+            0.494,
+            0.715,
+            0.528
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} \\int_ {c} ^ {d} f (x, y)   \\mathrm{d} y = \\int_ {c} ^ {d} \\lim _ {x \\to x _ {0}} f (x, y)   \\mathrm{d} y.",
+          "image_source": "../../raw/pages_0161-0192/images/page_171_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.532,
+            0.968,
+            0.57
+          ],
+          "content": "这个结论表明,定义在矩形区域上的连续函数,其极限运算与积分运算的顺序是可以交换的."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.576,
+            0.655,
+            0.593
+          ],
+          "content": "定理 19.2(连续性) 设二元函数  $f(x,y)$  在区域"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.341,
+            0.597,
+            0.768,
+            0.615
+          ],
+          "content": "G = \\{(x, y) \\mid c (x) \\leqslant y \\leqslant d (x), a \\leqslant x \\leqslant b \\}",
+          "image_source": "../../raw/pages_0161-0192/images/page_171_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.144,
+            0.619,
+            0.678,
+            0.636
+          ],
+          "content": "上连续,其中  $c(x)$ ,  $d(x)$  为  $[a,b]$  上的连续函数,则函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.458,
+            0.646,
+            0.964,
+            0.679
+          ],
+          "content": "F (x) = \\int_ {c (x)} ^ {d (x)} f (x, y) \\mathrm{d} y \\tag {6}",
+          "image_source": "../../raw/pages_0161-0192/images/page_171_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.691,
+            0.304,
+            0.708
+          ],
+          "content": "在 $[a,b]$ 上连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.713,
+            0.51,
+            0.73
+          ],
+          "content": "证 对积分(6)用换元积分法,令"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.414,
+            0.738,
+            0.692,
+            0.756
+          ],
+          "content": "y = c (x) + t (d (x) - c (x)).",
+          "image_source": "../../raw/pages_0161-0192/images/page_171_equation_23.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.144,
+            0.763,
+            0.663,
+            0.781
+          ],
+          "content": "当 $y$ 在 $c(x)$ 与 $d(x)$ 之间取值时，$t$ 在 $[0,1]$ 上取值，且"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.44,
+            0.789,
+            0.667,
+            0.807
+          ],
+          "content": "\\mathrm{d} y = (d (x) - c (x)) \\mathrm{d} t.",
+          "image_source": "../../raw/pages_0161-0192/images/page_171_equation_25.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.814,
+            0.32,
+            0.831
+          ],
+          "content": "所以从(6)式可得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.284,
+            0.836,
+            0.826,
+            0.907
+          ],
+          "content": "\\begin{array}{l} F (x) = \\int_ {c (x)} ^ {d (x)} f (x, y) \\mathrm{d} y \\\\ = \\int_ {0} ^ {1} f (x, c (x) + t (d (x) - c (x))) (d (x) - c (x)) \\mathrm{d} t. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_171_equation_27.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.145,
+            0.913,
+            0.283,
+            0.929
+          ],
+          "content": "由于被积函数"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.105,
+            0.963,
+            0.133,
+            0.974
+          ],
+          "content": "164"
+        }
+      ]
+    },
+    {
+      "page_idx": 172,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.63,
+            0.033,
+            0.811,
+            0.047
+          ],
+          "content": "§ 1 含参量正常积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.206,
+            0.082,
+            0.646,
+            0.099
+          ],
+          "content": "f (x, c (x) + t (d (x) - c (x))) (d (x) - c (x))",
+          "image_source": "../../raw/pages_0161-0192/images/page_172_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.018,
+            0.103,
+            0.841,
+            0.143
+          ],
+          "content": "在矩形区域 $[a, b] \\times [0, 1]$ 上连续，由定理19.1得积分(6)所确定的函数 $F(x)$ 在 $[a, b]$ 上连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.062,
+            0.147,
+            0.609,
+            0.165
+          ],
+          "content": "下面讨论含参量积分的求导运算与积分运算的可交换性."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.018,
+            0.174,
+            0.843,
+            0.222
+          ],
+          "content": "定理 19.3(可微性) 若函数  $f(x,y)$  与其偏导数  $\\frac{\\partial}{\\partial x}f(x,y)$  都在矩形区域  $R=[a,b]\\times[c,d]$  上连续，则"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.337,
+            0.226,
+            0.524,
+            0.259
+          ],
+          "content": "\\varphi (x) = \\int_ {c} ^ {d} f (x, y)   \\mathrm{d} y",
+          "image_source": "../../raw/pages_0161-0192/images/page_172_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.018,
+            0.263,
+            0.204,
+            0.28
+          ],
+          "content": "在 $[a,b]$ 上可微，且"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.27,
+            0.284,
+            0.584,
+            0.319
+          ],
+          "content": "\\frac {\\mathrm{d}}{\\mathrm{d} x} \\int_ {c} ^ {d} f (x, y) \\mathrm{d} y = \\int_ {c} ^ {d} \\frac {\\partial}{\\partial x} f (x, y) \\mathrm{d} y.",
+          "image_source": "../../raw/pages_0161-0192/images/page_172_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.018,
+            0.325,
+            0.843,
+            0.364
+          ],
+          "content": "证 对于 $[a, b]$ 内任一点 $x$, 设 $x + \\Delta x \\in [a, b]$ (若 $x$ 为区间端点, 则讨论单侧导数), 则"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.186,
+            0.369,
+            0.667,
+            0.407
+          ],
+          "content": "\\frac {\\varphi (x + \\Delta x) - \\varphi (x)}{\\Delta x} = \\int_ {c} ^ {d} \\frac {f (x + \\Delta x , y) - f (x , y)}{\\Delta x} \\mathrm{d} y.",
+          "image_source": "../../raw/pages_0161-0192/images/page_172_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.018,
+            0.414,
+            0.843,
+            0.453
+          ],
+          "content": "由微分学的拉格朗日中值定理及 $f_{x}(x,y)$ 在有界闭域R上连续（从而一致连续），对任给正数 $\\varepsilon$ ，存在正数 $\\delta$ ，只要当 $|\\Delta x|<\\delta$ 时，就有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.261,
+            0.457,
+            0.622,
+            0.523
+          ],
+          "content": "\\begin{array}{l} \\left| \\frac {f (x + \\Delta x , y) - f (x , y)}{\\Delta x} - f _ {x} (x, y) \\right| \\\\ = \\left| f _ {x} (x + \\theta \\Delta x, y) - f _ {x} (x, y) \\right| <   \\varepsilon , \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_172_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.019,
+            0.527,
+            0.221,
+            0.544
+          ],
+          "content": "其中  $\\theta\\in(0,1)$ . 因此"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.229,
+            0.548,
+            0.637,
+            0.65
+          ],
+          "content": "\\begin{array}{l} \\left| \\frac {\\Delta \\varphi}{\\Delta x} - \\int_ {c} ^ {d} f _ {x} (x, y) \\mathrm{d} y \\right| \\\\ \\leqslant \\int_ {c} ^ {d} \\left| \\frac {f (x + \\Delta x , y) - f (x , y)}{\\Delta x} - f _ {x} (x, y) \\right| \\mathrm{d} y \\\\ <   \\varepsilon (d - c). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_172_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.019,
+            0.655,
+            0.309,
+            0.672
+          ],
+          "content": "这就证得对一切 $x \\in [a, b]$, 有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.302,
+            0.677,
+            0.553,
+            0.711
+          ],
+          "content": "\\frac {\\mathrm{d}}{\\mathrm{d} x} \\varphi (x) = \\int_ {c} ^ {d} \\frac {\\partial}{\\partial x} f (x, y) \\mathrm{d} y.",
+          "image_source": "../../raw/pages_0161-0192/images/page_172_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.019,
+            0.717,
+            0.843,
+            0.757
+          ],
+          "content": "定理 19.4(可微性) 设  $f(x,y)$ ,  $f_{x}(x,y)$  在  $R=[a,b]\\times[p,q]$  上连续,  $c(x)$ ,  $d(x)$  为定义在  $[a,b]$  上其值含于  $[p,q]$  内的可微函数, 则函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.327,
+            0.76,
+            0.537,
+            0.795
+          ],
+          "content": "F (x) = \\int_ {c (x)} ^ {d (x)} f (x, y) \\mathrm{d} y",
+          "image_source": "../../raw/pages_0161-0192/images/page_172_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.019,
+            0.798,
+            0.204,
+            0.815
+          ],
+          "content": "在 $[a,b]$ 上可微，且"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.131,
+            0.818,
+            0.841,
+            0.853
+          ],
+          "content": "F ^ {\\prime} (x) = \\int_ {c (x)} ^ {d (x)} f _ {x} (x, y) \\mathrm{d} y + f (x, d (x)) d ^ {\\prime} (x) - f (x, c (x)) c ^ {\\prime} (x). \\tag {7}",
+          "image_source": "../../raw/pages_0161-0192/images/page_172_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.062,
+            0.856,
+            0.326,
+            0.874
+          ],
+          "content": "证 把 $F(x)$ 看作复合函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.273,
+            0.877,
+            0.586,
+            0.934
+          ],
+          "content": "\\begin{array}{l} F (x) = H (x, c, d) = \\int_ {c} ^ {d} f (x, y)   \\mathrm{d} y, \\\\ c = c (x), d = d (x). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_172_equation_21.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.862,
+            0.966,
+            0.89,
+            0.977
+          ],
+          "content": "165"
+        }
+      ]
+    },
+    {
+      "page_idx": 173,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.136,
+            0.029,
+            0.361,
+            0.044
+          ],
+          "content": "第十九章 含参量积分"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.078,
+            0.595,
+            0.095
+          ],
+          "content": "由复合函数求导法则及变限积分的求导法则,有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.245,
+            0.102,
+            0.844,
+            0.173
+          ],
+          "content": "\\begin{array}{l} \\frac {\\mathrm{d}}{\\mathrm{d} x} F (x) = \\frac {\\partial H}{\\partial x} + \\frac {\\partial H}{\\partial c} \\frac {\\mathrm{d} c}{\\mathrm{d} x} + \\frac {\\partial H}{\\partial d} \\frac {\\mathrm{d} d}{\\mathrm{d} x} \\\\ = \\int_ {c (x)} ^ {d (x)} f _ {x} (x, y) \\mathrm{d} y + f (x, d (x)) d ^ {\\prime} (x) - f (x, c (x)) c ^ {\\prime} (x). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_173_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.177,
+            0.177,
+            0.824,
+            0.194
+          ],
+          "content": "关于函数  $\\varphi(x)$  和  $F(x)$  的可积性, 可由定理 19.1 与定理 19.2 推得."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.199,
+            0.957,
+            0.238
+          ],
+          "content": "定理 19.5(可积性) 若  $f(x,y)$  在矩形区域  $R=[a,b]\\times[c,d]$  上连续，则  $\\varphi(x)$  和  $\\psi(y)$  分别在  $[a,b]$  和  $[c,d]$  上可积."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.177,
+            0.243,
+            0.866,
+            0.26
+          ],
+          "content": "这就是说:在 $f(x,y)$ 连续性假设下,同时存在两个求积顺序不同的积分:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.321,
+            0.264,
+            0.766,
+            0.299
+          ],
+          "content": "\\int_ {a} ^ {b} \\Big [ \\int_ {c} ^ {d} f (  x  , y  )   \\mathrm{d} y   \\Big ]   \\mathrm{d} x \\quad \\text {与} \\quad \\int_ {c} ^ {d} \\Big [ \\int_ {a} ^ {b} f (  x  , y  )   \\mathrm{d} x   \\Big ]   \\mathrm{d} y.",
+          "image_source": "../../raw/pages_0161-0192/images/page_173_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.303,
+            0.552,
+            0.32
+          ],
+          "content": "为书写简便起见,今后将上述两个积分写作"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.351,
+            0.324,
+            0.741,
+            0.358
+          ],
+          "content": "\\int_ {a} ^ {b} \\mathrm{d} x \\int_ {c} ^ {d} f (  x  , y  )   \\mathrm{d} y \\quad \\text {与} \\quad \\int_ {c} ^ {d} \\mathrm{d} y \\int_ {a} ^ {b} f (  x  , y  )   \\mathrm{d} x,",
+          "image_source": "../../raw/pages_0161-0192/images/page_173_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.362,
+            0.957,
+            0.401
+          ],
+          "content": "前者表示 $f(x,y)$ 先对 $y$ 求积然后对 $x$ 求积, 后者则求积顺序相反. 它们统称为累次积分, 或更确切地称为二次积分."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.178,
+            0.406,
+            0.84,
+            0.423
+          ],
+          "content": "下面的定理指出,在 $f(x,y)$ 连续性假设下,累次积分与求积顺序无关."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.178,
+            0.428,
+            0.774,
+            0.445
+          ],
+          "content": "定理 19.6 若  $f(x,y)$  在矩形区域  $R=[a,b]\\times[c,d]$  上连续，则"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.383,
+            0.45,
+            0.955,
+            0.481
+          ],
+          "content": "\\int_ {a} ^ {b} \\mathrm{d} x \\int_ {c} ^ {d} f (x, y) \\mathrm{d} y = \\int_ {c} ^ {d} \\mathrm{d} y \\int_ {a} ^ {b} f (x, y) \\mathrm{d} x. \\tag {8}",
+          "image_source": "../../raw/pages_0161-0192/images/page_173_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.18,
+            0.486,
+            0.252,
+            0.503
+          ],
+          "content": "证记"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.432,
+            0.509,
+            0.663,
+            0.58
+          ],
+          "content": "\\begin{array}{l} \\varphi_ {1} (u) = \\int_ {a} ^ {u} \\mathrm{d} x \\int_ {c} ^ {d} f (x, y) \\mathrm{d} y, \\\\ \\varphi_ {2} (u) = \\int_ {c} ^ {d} \\mathrm{d} y \\int_ {a} ^ {u} f (x, y) \\mathrm{d} x, \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_173_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.585,
+            0.629,
+            0.603
+          ],
+          "content": "其中 $u \\in [a, b]$, 现在分别求 $\\varphi_1(u)$ 与 $\\varphi_2(u)$ 的导数."
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.405,
+            0.609,
+            0.687,
+            0.641
+          ],
+          "content": "\\varphi_ {1} ^ {\\prime} (u) = \\frac {\\mathrm{d}}{\\mathrm{d} u} \\int_ {a} ^ {u} \\varphi (x) \\mathrm{d} x = \\varphi (u).",
+          "image_source": "../../raw/pages_0161-0192/images/page_173_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.649,
+            0.552,
+            0.68
+          ],
+          "content": "对于 $\\varphi_{2}(u)$ ，令 $H(u,y) = \\int_{a}^{u}f(x,y)\\mathrm{d}x$ ，则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.443,
+            0.686,
+            0.649,
+            0.718
+          ],
+          "content": "\\varphi_ {2} (u) = \\int_ {c} ^ {d} H (u, y) \\mathrm{d} y.",
+          "image_source": "../../raw/pages_0161-0192/images/page_173_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.723,
+            0.733,
+            0.741
+          ],
+          "content": "因为  $H(u,y)$  与  $H_{u}(u,y)=f(u,y)$  都在 R 上连续，由定理 19.3，"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.368,
+            0.747,
+            0.733,
+            0.818
+          ],
+          "content": "\\begin{array}{l} \\varphi_ {2} ^ {\\prime} (u) = \\frac {\\mathrm{d}}{\\mathrm{d} u} \\int_ {c} ^ {d} H (u, y) \\mathrm{d} y = \\int_ {c} ^ {d} H _ {u} (u, y) \\mathrm{d} y \\\\ = \\int_ {c} ^ {d} f (u, y) \\mathrm{d} y = \\varphi (u). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_173_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.823,
+            0.582,
+            0.841
+          ],
+          "content": "故得 $\\varphi_1'(u) = \\varphi_2'(u)$，因此对一切 $u \\in [a, b]$，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.385,
+            0.845,
+            0.705,
+            0.863
+          ],
+          "content": "\\varphi_ {1} (  u  ) = \\varphi_ {2} (  u  )   +   k \\quad (  k   \\text {为常数})  .",
+          "image_source": "../../raw/pages_0161-0192/images/page_173_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.868,
+            0.571,
+            0.885
+          ],
+          "content": "当 u=a 时， $\\varphi_{1}(a)=\\varphi_{2}(a)=0$ ，于是 k=0，即得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.413,
+            0.89,
+            0.682,
+            0.908
+          ],
+          "content": "\\varphi_ {1} (u) = \\varphi_ {2} (u), u \\in [ a, b ].",
+          "image_source": "../../raw/pages_0161-0192/images/page_173_equation_24.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.912,
+            0.464,
+            0.929
+          ],
+          "content": "取 u=b，就得到所要证明的(8)式."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.94,
+            0.911,
+            0.957,
+            0.926
+          ],
+          "content": "□"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.097,
+            0.962,
+            0.125,
+            0.973
+          ],
+          "content": "166"
+        }
+      ]
+    },
+    {
+      "page_idx": 174,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.633,
+            0.031,
+            0.816,
+            0.045
+          ],
+          "content": "§ 1 含参量正常积分"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.08,
+            0.339,
+            0.114
+          ],
+          "content": "例1 求 $\\lim_{\\alpha \\to 0}\\int_{\\alpha}^{1 + \\alpha}\\frac{\\mathrm{d}x}{1 + x^2 + \\alpha^2}.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.02,
+            0.122,
+            0.844,
+            0.179
+          ],
+          "content": "解 记 $I(\\alpha) = \\int_{\\alpha}^{1 + \\alpha}\\frac{\\mathrm{d}x}{1 + x^2 + \\alpha^2}$. 由于 $\\alpha, 1 + \\alpha, \\frac{1}{1 + x^2 + \\alpha^2}$ 都是 $\\alpha$ 和 $x$ 的连续函数，由定理19.2知 $I(\\alpha)$ 在 $\\alpha = 0$ 处连续，所以"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.271,
+            0.185,
+            0.589,
+            0.218
+          ],
+          "content": "\\lim _ {\\alpha \\to 0} I (\\alpha) = I (0) = \\int_ {0} ^ {1} \\frac {\\mathrm{d} x}{1 + x ^ {2}} = \\frac {\\pi}{4}.",
+          "image_source": "../../raw/pages_0161-0192/images/page_174_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.064,
+            0.226,
+            0.698,
+            0.243
+          ],
+          "content": "例 2 设  $f(x)$  在 x=0 的某个邻域 U 上连续, 验证当  $x \\in U$  时, 函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.256,
+            0.249,
+            0.843,
+            0.282
+          ],
+          "content": "\\varphi (x) = \\frac {1}{(n - 1) !} \\int_ {0} ^ {x} (x - t) ^ {n - 1} f (t) \\mathrm{d} t \\tag {9}",
+          "image_source": "../../raw/pages_0161-0192/images/page_174_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.021,
+            0.289,
+            0.361,
+            0.307
+          ],
+          "content": "的 n 阶导数存在, 且  $\\varphi^{(n)}(x)=f(x)$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.02,
+            0.312,
+            0.845,
+            0.351
+          ],
+          "content": "解 由于(9)中被积函数 $F(x,t) = (x - t)^{n - 1}f(t)$ 及其偏导数 $F_{x}(x,t)$ 在 $U\\times U$ 上连续,于是由定理19.4可得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.08,
+            0.357,
+            0.785,
+            0.431
+          ],
+          "content": "\\begin{array}{l} \\varphi^ {\\prime} (x) = \\frac {1}{(n - 1) !} \\int_ {0} ^ {x} (n - 1) (x - t) ^ {n - 2} f (t) \\mathrm{d} t + \\frac {1}{(n - 1) !} (x - x) ^ {n - 1} f (x) \\\\ = \\frac {1}{(n - 2) !} \\int_ {0} ^ {x} (x - t) ^ {n - 2} f (t) \\mathrm{d} t. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_174_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.437,
+            0.072,
+            0.453
+          ],
+          "content": "同理"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.25,
+            0.459,
+            0.616,
+            0.492
+          ],
+          "content": "\\varphi^ {\\prime \\prime} (x) = \\frac {1}{(n - 3) !} \\int_ {0} ^ {x} (x - t) ^ {n - 3} f (t) \\mathrm{d} t.",
+          "image_source": "../../raw/pages_0161-0192/images/page_174_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.498,
+            0.329,
+            0.515
+          ],
+          "content": "如此继续下去,求得 k 阶导数为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.115,
+            0.521,
+            0.75,
+            0.555
+          ],
+          "content": "\\varphi^ {(k)} (x) = \\frac {1}{(n - k - 1) !} \\int_ {0} ^ {x} (x - t) ^ {n - k - 1} f (t) \\mathrm{d} t, \\quad k = 1, 2, \\dots , n - 1.",
+          "image_source": "../../raw/pages_0161-0192/images/page_174_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.56,
+            0.215,
+            0.577
+          ],
+          "content": "特别当 $k = n - 1$ 时有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.329,
+            0.582,
+            0.542,
+            0.613
+          ],
+          "content": "\\varphi^ {(n - 1)} (x) = \\int_ {0} ^ {x} f (t) \\mathrm{d} t,",
+          "image_source": "../../raw/pages_0161-0192/images/page_174_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.619,
+            0.641,
+            0.638
+          ],
+          "content": "于是 $\\varphi^{(n)}(x) = f(x)$. 附带说明, 当 $x = 0$ 时, $\\varphi(x)$ 及其各阶导数为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.264,
+            0.641,
+            0.603,
+            0.661
+          ],
+          "content": "\\varphi (0) = \\varphi^ {\\prime} (0) = \\dots = \\varphi^ {(n - 1)} (0) = 0.",
+          "image_source": "../../raw/pages_0161-0192/images/page_174_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.068,
+            0.664,
+            0.472,
+            0.699
+          ],
+          "content": "例3 求 $I = \\int_{0}^{1}\\frac{x^{b} - x^{a}}{\\ln x}\\mathrm{d}x\\quad (b > a > 0)$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.068,
+            0.706,
+            0.382,
+            0.74
+          ],
+          "content": "解 因为  $\\int_{a}^{b}x^{y}dy=\\frac{x^{b}-x^{a}}{\\ln x}$ ，所以"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.361,
+            0.747,
+            0.509,
+            0.781
+          ],
+          "content": "I = \\int_ {0} ^ {1} \\mathrm{d} x \\int_ {a} ^ {b} x ^ {y} \\mathrm{d} y.",
+          "image_source": "../../raw/pages_0161-0192/images/page_174_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.786,
+            0.812,
+            0.804
+          ],
+          "content": "由于函数 $x^{y}$ 在 $R = [0,1]\\times [a,b]$ 上满足定理19.6的条件，所以交换积分顺序得到"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.249,
+            0.809,
+            0.622,
+            0.843
+          ],
+          "content": "I = \\int_ {a} ^ {b} \\mathrm{d} y \\int_ {0} ^ {1} x ^ {y} \\mathrm{d} x = \\int_ {a} ^ {b} \\frac {1}{1 + y} \\mathrm{d} y = \\ln \\frac {1 + b}{1 + a}.",
+          "image_source": "../../raw/pages_0161-0192/images/page_174_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.849,
+            0.225,
+            0.866
+          ],
+          "content": "例4 计算积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.342,
+            0.87,
+            0.529,
+            0.905
+          ],
+          "content": "I = \\int_ {0} ^ {1} \\frac {\\ln (1 + x)}{1 + x ^ {2}} \\mathrm{d} x.",
+          "image_source": "../../raw/pages_0161-0192/images/page_174_equation_23.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.912,
+            0.277,
+            0.93
+          ],
+          "content": "解 考虑含参量积分"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.87,
+            0.962,
+            0.898,
+            0.973
+          ],
+          "content": "167"
+        }
+      ]
+    },
+    {
+      "page_idx": 175,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.132,
+            0.027,
+            0.359,
+            0.043
+          ],
+          "content": "第十九章 含参量积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.35,
+            0.077,
+            0.731,
+            0.111
+          ],
+          "content": "\\varphi (\\alpha) = \\int_ {0} ^ {1} \\frac {\\ln (1 + \\alpha x)}{1 + x ^ {2}} \\mathrm{d} x, \\quad \\alpha \\in [ 0, 1 ].",
+          "image_source": "../../raw/pages_0161-0192/images/page_175_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.121,
+            0.957,
+            0.178
+          ],
+          "content": "显然 $\\varphi(0) = 0, \\varphi(1) = I$，且函数 $\\frac{\\ln(1 + \\alpha x)}{1 + x^2}$ 在 $R = [0,1] \\times [0,1]$ 上满足定理19.3的条件，于是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.384,
+            0.183,
+            0.7,
+            0.219
+          ],
+          "content": "\\varphi^ {\\prime} (\\alpha) = \\int_ {0} ^ {1} \\frac {x}{(1 + x ^ {2}) (1 + \\alpha x)} \\mathrm{d} x.",
+          "image_source": "../../raw/pages_0161-0192/images/page_175_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.225,
+            0.18,
+            0.242
+          ],
+          "content": "因为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.32,
+            0.248,
+            0.769,
+            0.283
+          ],
+          "content": "\\frac {x}{(1 + x ^ {2}) (1 + \\alpha x)} = \\frac {1}{1 + \\alpha^ {2}} \\left(\\frac {\\alpha + x}{1 + x ^ {2}} - \\frac {\\alpha}{1 + \\alpha x}\\right),",
+          "image_source": "../../raw/pages_0161-0192/images/page_175_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.29,
+            0.18,
+            0.306
+          ],
+          "content": "所以"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.231,
+            0.316,
+            0.851,
+            0.44
+          ],
+          "content": "\\begin{array}{l} \\varphi^ {\\prime} (\\alpha) = \\frac {1}{1 + \\alpha^ {2}} \\left(\\int_ {0} ^ {1} \\frac {\\alpha}{1 + x ^ {2}} \\mathrm{d} x + \\int_ {0} ^ {1} \\frac {x}{1 + x ^ {2}} \\mathrm{d} x - \\int_ {0} ^ {1} \\frac {\\alpha}{1 + \\alpha x} \\mathrm{d} x\\right) \\\\ = \\frac {1}{1 + \\alpha^ {2}} \\left[ \\alpha \\arctan x \\left| _ {0} ^ {1} + \\frac {1}{2} \\ln (1 + x ^ {2}) \\right| _ {0} ^ {1} - \\ln (1 + \\alpha x) \\right| _ {0} ^ {1} \\\\ = \\frac {1}{1 + \\alpha^ {2}} \\left[ \\alpha \\cdot \\frac {\\pi}{4} + \\frac {1}{2} \\ln 2 - \\ln (1 + \\alpha) \\right]. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_175_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.451,
+            0.182,
+            0.468
+          ],
+          "content": "因此"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.264,
+            0.472,
+            0.825,
+            0.625
+          ],
+          "content": "\\begin{array}{l} \\int_ {0} ^ {1} \\varphi^ {\\prime} (\\alpha) \\mathrm{d} \\alpha = \\int_ {0} ^ {1} \\frac {1}{1 + \\alpha^ {2}} \\left[ \\frac {\\pi}{4} \\alpha + \\frac {1}{2} \\ln 2 - \\ln (1 + \\alpha) \\right] \\mathrm{d} \\alpha \\\\ = \\frac {\\pi}{8} \\ln (1 + \\alpha^ {2}) \\left| _ {0} ^ {1} + \\frac {1}{2} \\ln 2 \\arctan \\alpha \\right| _ {0} ^ {1} - \\varphi (1) \\\\ = \\frac {\\pi}{8} \\ln 2 + \\frac {\\pi}{8} \\ln 2 - \\varphi (1) \\\\ = \\frac {\\pi}{4} \\ln 2 - \\varphi (1). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_175_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.634,
+            0.238,
+            0.651
+          ],
+          "content": "另一方面，"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.372,
+            0.655,
+            0.721,
+            0.688
+          ],
+          "content": "\\int_ {0} ^ {1} \\varphi^ {\\prime} (\\alpha) \\mathrm{d} \\alpha = \\varphi (1) - \\varphi (0) = \\varphi (1),",
+          "image_source": "../../raw/pages_0161-0192/images/page_175_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.699,
+            0.348,
+            0.726
+          ],
+          "content": "所以  $I=\\varphi(1)=\\frac{\\pi}{8}\\ln2.$"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.467,
+            0.76,
+            0.624,
+            0.78
+          ],
+          "level": 2,
+          "content": "习题 19.1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.173,
+            0.8,
+            0.782,
+            0.816
+          ],
+          "content": "1. 设 $f(x, y) = \\operatorname{sgn}(x - y)$ （这个函数在 $x = y$ 时不连续），试证由含参量积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.465,
+            0.82,
+            0.634,
+            0.849
+          ],
+          "content": "F (y) = \\int_ {0} ^ {1} f (x, y)   \\mathrm{d} x",
+          "image_source": "../../raw/pages_0161-0192/images/page_175_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.855,
+            0.624,
+            0.87
+          ],
+          "content": "所确定的函数在 $(-∞,+∞)$ 上连续，并作函数 $F(y)$ 的图像."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.173,
+            0.877,
+            0.309,
+            0.892
+          ],
+          "content": "2. 求下列极限:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.177,
+            0.897,
+            0.38,
+            0.927
+          ],
+          "content": "(1) $\\lim_{\\alpha \\to 0}\\int_{-1}^{1}\\sqrt{x^2 + \\alpha^2}\\mathrm{d}x;$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.461,
+            0.896,
+            0.634,
+            0.926
+          ],
+          "content": "(2) $\\lim_{\\alpha \\to 0}\\int_{0}^{2}x^2\\cos \\alpha x\\mathrm{d}x.$"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.096,
+            0.961,
+            0.125,
+            0.972
+          ],
+          "content": "168"
+        }
+      ]
+    },
+    {
+      "page_idx": 176,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.632,
+            0.032,
+            0.816,
+            0.047
+          ],
+          "content": "§ 2 含参量反常积分"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.058,
+            0.081,
+            0.354,
+            0.112
+          ],
+          "content": "3. 设 $F(x) = \\int_{x}^{x^2}\\mathrm{e}^{-xy^2}\\mathrm{d}y$ ，求 $F^{\\prime}(x)$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.057,
+            0.117,
+            0.376,
+            0.132
+          ],
+          "content": "4. 应用对参量的微分法, 求下列积分:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.061,
+            0.137,
+            0.454,
+            0.205
+          ],
+          "sub_type": "text",
+          "content": "(1) $\\int_{0}^{\\frac{\\pi}{2}}\\ln (a^{2}\\sin^{2}x + b^{2}\\cos^{2}x)\\mathrm{d}x$ ($a^2 +b^2\\neq 0$);\n(2) $\\int_{0}^{\\pi}\\ln (1 - 2a\\cos x + a^{2})\\mathrm{d}x.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.058,
+            0.213,
+            0.395,
+            0.228
+          ],
+          "content": "5. 应用积分号下的积分法, 求下列积分:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.061,
+            0.235,
+            0.42,
+            0.305
+          ],
+          "sub_type": "text",
+          "content": "(1) $\\int_{0}^{1}\\sin \\left(\\ln \\frac{1}{x}\\right)\\frac{x^b - x^a}{\\ln x}\\mathrm{d}x$ （ $b > a > 0$ ）；\n(2) $\\int_{0}^{1}\\cos \\left(\\ln \\frac{1}{x}\\right)\\frac{x^b - x^a}{\\ln x}\\mathrm{d}x$ （ $b > a > 0$ ）."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.058,
+            0.315,
+            0.212,
+            0.329
+          ],
+          "content": "6. 试求累次积分:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.227,
+            0.334,
+            0.637,
+            0.367
+          ],
+          "content": "\\int_ {0} ^ {1} \\mathrm{d} x \\int_ {0} ^ {1} {\\frac {x ^ {2} - y ^ {2}}{(  x ^ {2} + y ^ {2}  ) ^ {2}}} \\mathrm{d} y \\quad \\text {与} \\quad \\int_ {0} ^ {1} \\mathrm{d} y \\int_ {0} ^ {1} {\\frac {x ^ {2} - y ^ {2}}{(  x ^ {2} + y ^ {2}  ) ^ {2}}} \\mathrm{d} x,",
+          "image_source": "../../raw/pages_0161-0192/images/page_176_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.021,
+            0.371,
+            0.385,
+            0.387
+          ],
+          "content": "并指出它们为什么与定理 19.6 的结果不符."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.057,
+            0.414,
+            0.798,
+            0.449
+          ],
+          "content": "7. 研究函数 $F(y) = \\int_{0}^{1} \\frac{yf(x)}{x^2 + y^2} \\, \\mathrm{d}x$ 的连续性，其中 $f(x)$ 在闭区间 $[0, 1]$ 上是正的连续函数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.058,
+            0.453,
+            0.405,
+            0.469
+          ],
+          "content": "8. 设函数 $f(x)$ 在区间 $[a, A)$ 上连续. 证明"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.177,
+            0.475,
+            0.682,
+            0.505
+          ],
+          "content": "\\lim _ {h \\to 0 ^ {+}} \\frac {1}{h} \\int_ {a} ^ {x} \\left[ f (t + h) - f (t) \\right] \\mathrm{d} t = f (x) - f (a) \\quad (a <   x <   A).",
+          "image_source": "../../raw/pages_0161-0192/images/page_176_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.058,
+            0.509,
+            0.109,
+            0.524
+          ],
+          "content": "9. 设"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.309,
+            0.53,
+            0.556,
+            0.564
+          ],
+          "content": "F (x, y) = \\int_ {\\frac {x}{y}} ^ {x y} (x - y z) f (z)   \\mathrm{d} z,",
+          "image_source": "../../raw/pages_0161-0192/images/page_176_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.021,
+            0.565,
+            0.309,
+            0.582
+          ],
+          "content": "其中 $f(z)$ 为可微函数，求 $F_{xy}(x,y)$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.06,
+            0.586,
+            0.119,
+            0.6
+          ],
+          "content": "10. 设"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.195,
+            0.605,
+            0.671,
+            0.645
+          ],
+          "content": "E (k) = \\int_ {0} ^ {\\frac {\\pi}{2}} \\sqrt {1 - k ^ {2} \\sin^ {2} \\varphi} \\mathrm{d} \\varphi , F (k) = \\int_ {0} ^ {\\frac {\\pi}{2}} \\frac {\\mathrm{d} \\varphi}{\\sqrt {1 - k ^ {2} \\sin^ {2} \\varphi}},",
+          "image_source": "../../raw/pages_0161-0192/images/page_176_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.021,
+            0.649,
+            0.402,
+            0.664
+          ],
+          "content": "其中 0<k<1（这两个积分称为完全椭圆积分）."
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.059,
+            0.669,
+            0.581,
+            0.704
+          ],
+          "sub_type": "text",
+          "content": "(1) 试求  $E(k)$  与  $F(k)$  的导数，并以  $E(k)$  与  $F(k)$  来表示它们；\n(2) 证明  $E(k)$  满足方程"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.296,
+            0.71,
+            0.566,
+            0.739
+          ],
+          "content": "E ^ {\\prime \\prime} (k) + \\frac {1}{k} E ^ {\\prime} (k) + \\frac {E (k)}{1 - k ^ {2}} = 0.",
+          "image_source": "../../raw/pages_0161-0192/images/page_176_equation_25.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.289,
+            0.788,
+            0.588,
+            0.811
+          ],
+          "level": 2,
+          "content": "§ 2 含参量反常积分"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.021,
+            0.862,
+            0.327,
+            0.881
+          ],
+          "level": 2,
+          "content": "一、一致收敛性及其判别法"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.021,
+            0.892,
+            0.846,
+            0.931
+          ],
+          "content": "设函数 $f(x,y)$ 定义在无界区域 $R = \\{(x,y) | x \\in I, c \\leqslant y < +\\infty\\}$ 上，其中 $I$ 为一区间，若对每一个固定的 $x \\in I$ ，反常积分"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.865,
+            0.965,
+            0.894,
+            0.976
+          ],
+          "content": "169"
+        }
+      ]
+    },
+    {
+      "page_idx": 177,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.142,
+            0.028,
+            0.371,
+            0.043
+          ],
+          "content": "第十九章 含参量积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.493,
+            0.079,
+            0.963,
+            0.109
+          ],
+          "content": "\\int_ {c} ^ {+ \\infty} f (x, y) \\mathrm{d} y \\tag {1}",
+          "image_source": "../../raw/pages_0161-0192/images/page_177_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.114,
+            0.84,
+            0.132
+          ],
+          "content": "都收敛,则它的值是 x 在 I 上取值的函数,当记这个函数为  $\\Phi(x)$  时,则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.416,
+            0.139,
+            0.963,
+            0.168
+          ],
+          "content": "\\Phi (x) = \\int_ {c} ^ {+ \\infty} f (x, y) \\mathrm{d} y, x \\in I, \\tag {2}",
+          "image_source": "../../raw/pages_0161-0192/images/page_177_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.173,
+            0.891,
+            0.191
+          ],
+          "content": "称(1)式为定义在 I 上的含参量 x 的无穷限反常积分,或简称含参量反常积分."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.196,
+            0.968,
+            0.235
+          ],
+          "content": "如同反常积分与数项级数的关系那样,含参量反常积分与函数项级数在所研究的问题与论证方法上也极为相似."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.24,
+            0.714,
+            0.258
+          ],
+          "content": "首先引入含参量反常积分的一致收敛概念及柯西准则."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.262,
+            0.969,
+            0.302
+          ],
+          "content": "定义1 若含参量反常积分(1)与函数 $\\Phi(x)$ 对任给的正数 $\\varepsilon$，总存在某一实数 $N > c$，使得当 $M > N$ 时，对一切 $x \\in I$，都有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.419,
+            0.306,
+            0.7,
+            0.34
+          ],
+          "content": "\\left| \\int_ {c} ^ {M} f (x, y) \\mathrm{d} y - \\Phi (x) \\right| <   \\varepsilon ,",
+          "image_source": "../../raw/pages_0161-0192/images/page_177_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.344,
+            0.17,
+            0.36
+          ],
+          "content": "即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.455,
+            0.366,
+            0.665,
+            0.398
+          ],
+          "content": "\\left| \\int_ {M} ^ {+ \\infty} f (x, y) \\mathrm{d} y \\right| <   \\varepsilon ,",
+          "image_source": "../../raw/pages_0161-0192/images/page_177_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.403,
+            0.969,
+            0.443
+          ],
+          "content": "则称含参量反常积分(1)在 I 上一致收敛于  $\\Phi(x)$ ，或简单地说含参量反常积分(1)在 I 上一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.447,
+            0.969,
+            0.488
+          ],
+          "content": "定理 19.7(一致收敛的柯西准则) 含参量反常积分(1)在 I 上一致收敛的充要条件是: 对任给正数  $\\varepsilon$ , 总存在某一实数 M > c, 使得当  $A_{1}, A_{2} > M$  时, 对一切  $x \\in I$ , 都有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.461,
+            0.494,
+            0.964,
+            0.528
+          ],
+          "content": "\\left| \\int_ {A _ {1}} ^ {A _ {2}} f (x, y) \\mathrm{d} y \\right| <   \\varepsilon . \\tag {3}",
+          "image_source": "../../raw/pages_0161-0192/images/page_177_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.532,
+            0.786,
+            0.55
+          ],
+          "content": "由定义 1, 我们还有以下含参量反常积分一致收敛的判别准则."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.556,
+            0.932,
+            0.586
+          ],
+          "content": "定理19.8 含参量反常积分 $\\int_{c}^{+\\infty}f(x,y)\\mathrm{d}y$ 在 $I$ 上一致收敛的充分必要条件是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.489,
+            0.593,
+            0.623,
+            0.615
+          ],
+          "content": "\\lim _ {A \\to + \\infty} F (A) = 0,",
+          "image_source": "../../raw/pages_0161-0192/images/page_177_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.619,
+            0.469,
+            0.652
+          ],
+          "content": "其中 $F(A) = \\sup_{x\\in I}\\left|\\int_{A}^{+\\infty}f(x,y)\\mathrm{d}y\\right|.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.657,
+            0.456,
+            0.674
+          ],
+          "content": "例 1 证明含参量反常积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.497,
+            0.683,
+            0.965,
+            0.717
+          ],
+          "content": "\\int_ {0} ^ {+ \\infty} \\frac {\\sin x y}{y} \\mathrm{d} y \\tag {4}",
+          "image_source": "../../raw/pages_0161-0192/images/page_177_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.723,
+            0.759,
+            0.741
+          ],
+          "content": "在 $\\left[\\delta,+\\infty\\right)$ 上一致收敛(其中 $\\delta>0$ ),但在 $(0,+\\infty)$ 上不一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.745,
+            0.772,
+            0.763
+          ],
+          "content": "证 先证(4)式在 $[\\delta,+\\infty)$ 上一致收敛.作变量代换u=xy,得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.424,
+            0.771,
+            0.965,
+            0.805
+          ],
+          "content": "\\int_ {A} ^ {+ \\infty} \\frac {\\sin x y}{y} \\mathrm{d} y = \\int_ {A x} ^ {+ \\infty} \\frac {\\sin u}{u} \\mathrm{d} u, \\tag {5}",
+          "image_source": "../../raw/pages_0161-0192/images/page_177_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.814,
+            0.969,
+            0.845
+          ],
+          "content": "其中 $A > 0$ .由于 $\\int_0^{+\\infty}\\frac{\\sin u}{u}\\mathrm{d}u$ 收敛，故对任给正数 $\\varepsilon$ ，总存在正数 $M^{\\prime}$ ，使当 $A^{\\prime} > M^{\\prime}$ 时，就有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.463,
+            0.853,
+            0.656,
+            0.887
+          ],
+          "content": "\\left| \\int_ {A ^ {\\prime}} ^ {+ \\infty} \\frac {\\sin u}{u} \\mathrm{d} u \\right| <   \\varepsilon .",
+          "image_source": "../../raw/pages_0161-0192/images/page_177_equation_24.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.894,
+            0.739,
+            0.927
+          ],
+          "content": "取 $M = \\frac{M'}{\\delta}$, 则当 $A > M$ 时, 对一切 $x \\geqslant \\delta > 0$, 有 $Ax > M'$, 由 (5) 式有"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.104,
+            0.961,
+            0.133,
+            0.973
+          ],
+          "content": "170"
+        }
+      ]
+    },
+    {
+      "page_idx": 178,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.631,
+            0.032,
+            0.811,
+            0.047
+          ],
+          "content": "§ 2 含参量反常积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.246,
+            0.081,
+            0.622,
+            0.119
+          ],
+          "content": "\\left| \\int_ {A} ^ {+ \\infty} \\frac {\\sin x y}{y} \\mathrm{d} y \\right| = \\left| \\int_ {A x} ^ {+ \\infty} \\frac {\\sin u}{u} \\mathrm{d} u \\right| <   \\varepsilon ,",
+          "image_source": "../../raw/pages_0161-0192/images/page_178_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.02,
+            0.123,
+            0.657,
+            0.146
+          ],
+          "content": "因此 $\\lim_{A\\to +\\infty}F(A) = 0$ ，从而由定理19.8，(4)式在 $[\\delta , + \\infty)$ 上一致收敛"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.149,
+            0.42,
+            0.167
+          ],
+          "content": "下证(4)式在 $(0,+\\infty)$ 上不一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.02,
+            0.171,
+            0.845,
+            0.211
+          ],
+          "content": "由柯西准则, 含参量反常积分(1)不一致收敛的充要条件应为: 存在  $\\varepsilon_{0}>0$ , 对任意实数  $M(M>c)$ , 总能找到  $A_{1}, A_{2}>M$  和某个  $\\bar{x}\\in[a,b]$ , 满足"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.331,
+            0.215,
+            0.526,
+            0.25
+          ],
+          "content": "\\left| \\int_ {A _ {1}} ^ {A _ {2}} f (\\bar {x}, y) \\mathrm{d} y \\right| \\geqslant \\varepsilon_ {0}.",
+          "image_source": "../../raw/pages_0161-0192/images/page_178_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.02,
+            0.254,
+            0.845,
+            0.326
+          ],
+          "content": "令 $\\varepsilon_0 = \\frac{\\ln 2}{2}$，对任意 $M > 0$，令 $A_{1} = \\frac{\\pi}{3} M, A_{2} = 2A_{1}$，$\\bar{x} = \\frac{1}{M} \\in (0, +\\infty)$，对 $y \\in [A_{1}, A_{2}]$ 此时有 $\\bar{x}y \\in \\left[\\frac{\\pi}{3}, \\frac{2\\pi}{3}\\right]$. 因此"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.236,
+            0.331,
+            0.632,
+            0.373
+          ],
+          "content": "\\left| \\int_ {A _ {1}} ^ {A _ {2}} \\frac {\\sin \\bar {x} y}{y} \\mathrm{d} y \\right| \\geqslant \\frac {1}{2} \\int_ {A _ {1}} ^ {A _ {2}} \\frac {1}{y} \\mathrm{d} y = \\frac {\\ln 2}{2} = \\varepsilon_ {0},",
+          "image_source": "../../raw/pages_0161-0192/images/page_178_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.02,
+            0.377,
+            0.368,
+            0.394
+          ],
+          "content": "所以(4)式在 $(0,+\\infty)$ 上不一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.02,
+            0.399,
+            0.845,
+            0.46
+          ],
+          "content": "若对任意 $[a, b] \\subset I$，含参量反常积分(1)在 $[a, b]$ 上一致收敛，则称(1)在 $I$ 上内闭一致收敛（若 $I = [a, b]$，则内闭一致收敛即一致收敛），以上论述证明了含参量反常积分(4)在 $(0, +\\infty)$ 上内闭一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.02,
+            0.464,
+            0.845,
+            0.504
+          ],
+          "content": "关于含参量反常积分一致收敛性与函数项级数一致收敛性之间的联系有下述定理."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.02,
+            0.508,
+            0.845,
+            0.548
+          ],
+          "content": "定理19.9 含参量反常积分(1)在 $I$ 上一致收敛的充要条件是: 对任一趋于 $+\\infty$ 的递增数列 $\\{A_{n}\\}$ (其中 $A_{1} = c$), 函数项级数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.295,
+            0.553,
+            0.843,
+            0.59
+          ],
+          "content": "\\sum_ {n = 1} ^ {\\infty} \\int_ {A _ {n}} ^ {A _ {n + 1}} f (x, y) \\mathrm{d} y = \\sum_ {n = 1} ^ {\\infty} u _ {n} (x) \\tag {6}",
+          "image_source": "../../raw/pages_0161-0192/images/page_178_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.021,
+            0.593,
+            0.182,
+            0.61
+          ],
+          "content": "在 I 上一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.02,
+            0.614,
+            0.847,
+            0.654
+          ],
+          "content": "证 [必要性] 由(1)在 I 上一致收敛, 故对任给  $\\varepsilon > 0$ , 必存在 M > c, 使当  $A'' > A' > M$  时, 对一切  $x \\in I$ , 总有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.333,
+            0.656,
+            0.843,
+            0.69
+          ],
+          "content": "\\left| \\int_ {A ^ {\\prime}} ^ {A ^ {\\prime \\prime}} f (x, y) \\mathrm{d} y \\right| <   \\varepsilon . \\tag {7}",
+          "image_source": "../../raw/pages_0161-0192/images/page_178_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.021,
+            0.694,
+            0.847,
+            0.734
+          ],
+          "content": "又由 $A_{n}\\rightarrow +\\infty (n\\to \\infty)$ ，所以对正数 $M$ ，存在正整数 $N$ ，只要当 $m > n > N$ 时，就有 $A_{m}\\geqslant A_{n}>$ $M.$ 由(7)对一切 $x\\in I$ ，就有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.13,
+            0.737,
+            0.735,
+            0.815
+          ],
+          "content": "\\begin{array}{l} \\mid u _ {n} (x) + \\dots + u _ {m} (x) \\mid = \\left| \\int_ {A _ {m}} ^ {A _ {m + 1}} f (x, y) \\mathrm{d} y + \\dots + \\int_ {A _ {n}} ^ {A _ {n + 1}} f (x, y) \\mathrm{d} y \\right| \\\\ = \\left| \\int_ {A _ {n}} ^ {A _ {m + 1}} f (x, y)   \\mathrm{d} y \\right| <   \\varepsilon . \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_178_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.021,
+            0.818,
+            0.378,
+            0.835
+          ],
+          "content": "这就证明了级数(6)在 I 上一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.021,
+            0.839,
+            0.845,
+            0.874
+          ],
+          "content": "[充分性] 用反证法. 假若(1)在 I 上不一致收敛, 则存在某个正数  $\\varepsilon_{0}$ , 使得对于任何实数 M > c, 存在相应的  $A'' > A' > M$  和  $x' \\in I$ , 使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.341,
+            0.877,
+            0.528,
+            0.91
+          ],
+          "content": "\\left| \\int_ {A ^ {\\prime}} ^ {A ^ {\\prime \\prime}} f (x ^ {\\prime}, y) \\mathrm{d} y \\right| \\geqslant \\varepsilon_ {0}.",
+          "image_source": "../../raw/pages_0161-0192/images/page_178_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.021,
+            0.915,
+            0.46,
+            0.931
+          ],
+          "content": "现取 $M_{1} = \\max \\{1, c\\}$，则存在 $A_{2} > A_{1} > M_{1}$ 及 $x_{1} \\in I$，使得"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.863,
+            0.964,
+            0.892,
+            0.976
+          ],
+          "content": "171"
+        }
+      ]
+    },
+    {
+      "page_idx": 179,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.139,
+            0.029,
+            0.364,
+            0.044
+          ],
+          "content": "第十九章 含参量积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.459,
+            0.078,
+            0.643,
+            0.11
+          ],
+          "content": "\\left| \\int_ {A _ {1}} ^ {A _ {2}} f (x _ {1}, y) \\mathrm{d} y \\right| \\geqslant \\varepsilon_ {0}.",
+          "image_source": "../../raw/pages_0161-0192/images/page_179_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.113,
+            0.738,
+            0.13
+          ],
+          "content": "一般地，取 $M_{n} = \\max \\{n,A_{2(n - 1)}\\}$ （$n\\geqslant 2$），则有 $A_{2n} > A_{2n - 1} > M_n$ 及 $x_{n}\\in I$ ，使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.45,
+            0.134,
+            0.958,
+            0.166
+          ],
+          "content": "\\left| \\int_ {A _ {2 n - 1}} ^ {A _ {2 n}} f (x _ {n}, y) \\mathrm{d} y \\right| \\geqslant \\varepsilon_ {0}. \\tag {8}",
+          "image_source": "../../raw/pages_0161-0192/images/page_179_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.168,
+            0.699,
+            0.189
+          ],
+          "content": "由上述所得到的数列 $\\{A_{n}\\}$ 是递增数列，且 $\\lim_{n\\to \\infty}A_n = +\\infty$ .现在考察级数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.426,
+            0.194,
+            0.676,
+            0.226
+          ],
+          "content": "\\sum_ {n = 1} ^ {\\infty} u _ {n} (x) = \\sum_ {n = 1} ^ {\\infty} \\int_ {A _ {n}} ^ {A _ {n + 1}} f (x, y) \\mathrm{d} y.",
+          "image_source": "../../raw/pages_0161-0192/images/page_179_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.228,
+            0.742,
+            0.245
+          ],
+          "content": "由(8)式知存在正数 $\\varepsilon_0$ ，对任何正整数 $N$ ，只要 $n > N$ ，就有某个 $x_{n}\\in I$ ，使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.384,
+            0.248,
+            0.721,
+            0.282
+          ],
+          "content": "\\left| u _ {2 n - 1} (x _ {n}) \\right| = \\left| \\int_ {A _ {2 n - 1}} ^ {A _ {2 n}} f (x _ {n}, y) \\mathrm{d} y \\right| \\geqslant \\varepsilon_ {0}.",
+          "image_source": "../../raw/pages_0161-0192/images/page_179_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.284,
+            0.812,
+            0.3
+          ],
+          "content": "这与级数(6)在 $I$ 上一致收敛的假设矛盾. 故含参量反常积分(1)在 $I$ 上一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.304,
+            0.962,
+            0.343
+          ],
+          "content": "下面列出含参量反常积分的一致收敛性判别法. 由于它们的证明与函数项级数相应的判别法相仿, 故从略."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.347,
+            0.642,
+            0.365
+          ],
+          "content": "魏尔斯特拉斯 $M$ 判别法 设有函数 $g(y)$, 使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.339,
+            0.368,
+            0.766,
+            0.388
+          ],
+          "content": "\\mid f (x, y) \\mid \\leqslant g (y), (x, y) \\in I \\times [ c, + \\infty).",
+          "image_source": "../../raw/pages_0161-0192/images/page_179_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.391,
+            0.649,
+            0.423
+          ],
+          "content": "若 $\\int_{c}^{+\\infty}g(y)\\mathrm{d}y$ 收敛，则 $\\int_{c}^{+\\infty}f(x,y)\\mathrm{d}y$ 在 $I$ 上一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.427,
+            0.39,
+            0.444
+          ],
+          "content": "狄利克雷判别法 设"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.448,
+            0.551,
+            0.466
+          ],
+          "content": "(i) 对一切实数 $N > c$，含参量正常积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.498,
+            0.47,
+            0.609,
+            0.502
+          ],
+          "content": "\\int_ {c} ^ {N} f (x, y) \\mathrm{d} y",
+          "image_source": "../../raw/pages_0161-0192/images/page_179_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.506,
+            0.826,
+            0.523
+          ],
+          "content": "对参量 $x$ 在 $I$ 上一致有界，即存在正数 $M$ ，对一切 $N > c$ 及一切 $x\\in I$ ，都有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.456,
+            0.527,
+            0.652,
+            0.56
+          ],
+          "content": "\\left| \\int_ {c} ^ {N} f (x, y) \\mathrm{d} y \\right| \\leqslant M.",
+          "image_source": "../../raw/pages_0161-0192/images/page_179_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.564,
+            0.962,
+            0.603
+          ],
+          "content": "（ii）对每一个 $x \\in I$，函数 $g(x, y)$ 为 $y$ 的单调函数，且当 $y \\to +\\infty$ 时，对参量 $x, g(x, y)$ 一致地收敛于0."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.608,
+            0.322,
+            0.625
+          ],
+          "content": "则含参量反常积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.456,
+            0.629,
+            0.653,
+            0.661
+          ],
+          "content": "\\int_ {c} ^ {+ \\infty} f (x, y) g (x, y) \\mathrm{d} y",
+          "image_source": "../../raw/pages_0161-0192/images/page_179_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.666,
+            0.304,
+            0.683
+          ],
+          "content": "在 I 上一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.687,
+            0.369,
+            0.704
+          ],
+          "content": "阿贝尔判别法 设"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.709,
+            0.516,
+            0.741
+          ],
+          "content": "(i) $\\int_{c}^{+\\infty}f(x,y)\\mathrm{d}y$ 在 $I$ 上一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.745,
+            0.965,
+            0.784
+          ],
+          "content": "(ii) 对每一个 $x \\in I$, 函数 $g(x, y)$ 为 $y$ 的单调函数, 且对参量 $x, g(x, y)$ 在 $I$ 上一致有界."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.789,
+            0.324,
+            0.806
+          ],
+          "content": "则含参量反常积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.456,
+            0.81,
+            0.654,
+            0.842
+          ],
+          "content": "\\int_ {c} ^ {+ \\infty} f (x, y) g (x, y) \\mathrm{d} y",
+          "image_source": "../../raw/pages_0161-0192/images/page_179_equation_26.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.847,
+            0.304,
+            0.864
+          ],
+          "content": "在 I 上一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.868,
+            0.453,
+            0.885
+          ],
+          "content": "例 2 证明含参量反常积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.493,
+            0.893,
+            0.962,
+            0.926
+          ],
+          "content": "\\int_ {0} ^ {+ \\infty} \\frac {\\cos x y}{1 + x ^ {2}} \\mathrm{d} x \\tag {9}",
+          "image_source": "../../raw/pages_0161-0192/images/page_179_equation_29.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.102,
+            0.962,
+            0.131,
+            0.974
+          ],
+          "content": "172"
+        }
+      ]
+    },
+    {
+      "page_idx": 180,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.632,
+            0.031,
+            0.816,
+            0.045
+          ],
+          "content": "§ 2 含参量反常积分"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.022,
+            0.079,
+            0.274,
+            0.096
+          ],
+          "content": "在 $(-∞,+∞)$ 上一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.101,
+            0.32,
+            0.118
+          ],
+          "content": "证 由于对任何实数 $y$ ，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.35,
+            0.122,
+            0.522,
+            0.162
+          ],
+          "content": "\\left| \\frac {\\cos x y}{1 + x ^ {2}} \\right| \\leqslant \\frac {1}{1 + x ^ {2}}",
+          "image_source": "../../raw/pages_0161-0192/images/page_180_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.167,
+            0.137,
+            0.184
+          ],
+          "content": "及反常积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.38,
+            0.189,
+            0.489,
+            0.223
+          ],
+          "content": "\\int_ {0} ^ {+ \\infty} \\frac {\\mathrm{d} x}{1 + x ^ {2}}",
+          "image_source": "../../raw/pages_0161-0192/images/page_180_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.022,
+            0.228,
+            0.845,
+            0.246
+          ],
+          "content": "收敛,故由魏尔斯特拉斯 M 判别法,含参量反常积分(9)在 $(-∞,+∞)$ 上一致收敛. □"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.251,
+            0.333,
+            0.268
+          ],
+          "content": "例 3 证明含参量反常积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.359,
+            0.273,
+            0.843,
+            0.306
+          ],
+          "content": "\\int_ {0} ^ {+ \\infty} \\mathrm{e} ^ {- x y} \\frac {\\sin x}{x} \\mathrm{d} x \\tag {10}",
+          "image_source": "../../raw/pages_0161-0192/images/page_180_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.022,
+            0.312,
+            0.25,
+            0.33
+          ],
+          "content": "在 $[0,+\\infty)$ 上一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.022,
+            0.336,
+            0.847,
+            0.392
+          ],
+          "content": "证 由于反常积分 $\\int_{0}^{+\\infty}\\frac{\\sin x}{x}\\mathrm{d}x$ 收敛（当然，对于参量 $y$ ，它在 $[0, + \\infty)$ 上一致收敛），函数 $g(x,y) = \\mathrm{e}^{-xy}$ 对每个 $y\\in [0, + \\infty)$ 单调，且对任何 $0\\leqslant y <   + \\infty ,x\\geqslant 0$ ，都有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.316,
+            0.394,
+            0.551,
+            0.414
+          ],
+          "content": "\\mid g (x, y) \\mid = \\mid \\mathrm{e} ^ {- x y} \\mid \\leqslant 1.",
+          "image_source": "../../raw/pages_0161-0192/images/page_180_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.022,
+            0.417,
+            0.678,
+            0.435
+          ],
+          "content": "故由阿贝尔判别法即得含参量反常积分(10)在 $[0,+\\infty)$ 上一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.066,
+            0.44,
+            0.333,
+            0.457
+          ],
+          "content": "例 4 证明含参量反常积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.363,
+            0.462,
+            0.845,
+            0.497
+          ],
+          "content": "\\int_ {1} ^ {+ \\infty} \\frac {y \\sin x y}{1 + y ^ {2}} \\mathrm{d} y \\tag {11}",
+          "image_source": "../../raw/pages_0161-0192/images/page_180_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.022,
+            0.502,
+            0.295,
+            0.519
+          ],
+          "content": "在 $(0,+\\infty)$ 上内闭一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.524,
+            0.526,
+            0.542
+          ],
+          "content": "证 若 $[a, b] \\subset (0, +\\infty)$，则对任意 $x \\in [a, b]$，"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.246,
+            0.544,
+            0.627,
+            0.579
+          ],
+          "content": "\\left| \\int_ {a} ^ {N} \\sin x y \\mathrm{d} y \\right| = \\left| - \\frac {\\cos x y}{x} \\right| _ {a} ^ {N} \\Big | \\leqslant \\frac {2}{a},",
+          "image_source": "../../raw/pages_0161-0192/images/page_180_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.585,
+            0.199,
+            0.602
+          ],
+          "content": "因此一致有界. 又"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.316,
+            0.605,
+            0.55,
+            0.644
+          ],
+          "content": "\\left(\\frac {y}{1 + y ^ {2}}\\right) ^ {\\prime} = \\frac {1 - y ^ {2}}{\\left(1 + y ^ {2}\\right) ^ {2}} \\leqslant 0,",
+          "image_source": "../../raw/pages_0161-0192/images/page_180_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.022,
+            0.653,
+            0.848,
+            0.728
+          ],
+          "content": "因此 $\\frac{y}{1+y^{2}}$ 关于y单调递减，且当 $y\\to+\\infty$ 时， $\\frac{y}{1+y^{2}}\\to0$ （对x一致），故由狄利克雷判别法，含参量反常积分(11)在 $[a,b]$ 上一致收敛。又由 $[a,b]$ 的任意性，含参量反常积分(11)在 $(0,+\\infty)$ 上内闭一致收敛。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.024,
+            0.738,
+            0.329,
+            0.757
+          ],
+          "level": 2,
+          "content": "二、含参量反常积分的性质"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.066,
+            0.768,
+            0.775,
+            0.786
+          ],
+          "content": "定理 19.10(连续性) 设  $f(x,y)$  在  $I \\times [c, +\\infty)$  上连续, 若含参量反常积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.331,
+            0.79,
+            0.845,
+            0.822
+          ],
+          "content": "\\Phi (x) = \\int_ {c} ^ {+ \\infty} f (x, y) \\mathrm{d} y \\tag {12}",
+          "image_source": "../../raw/pages_0161-0192/images/page_180_equation_23.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.022,
+            0.827,
+            0.389,
+            0.844
+          ],
+          "content": "在 I 上一致收敛, 则  $\\Phi(x)$  在 I 上连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.848,
+            0.777,
+            0.866
+          ],
+          "content": "证 由定理19.9,对任一递增且趋于 $+\\infty$ 的数列 $\\{A_{n}\\} (A_{1} = c)$,函数项级数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.256,
+            0.871,
+            0.845,
+            0.908
+          ],
+          "content": "\\varPhi (x) = \\sum_ {n = 1} ^ {\\infty} \\int_ {A _ {n}} ^ {A _ {n + 1}} f (x, y) \\mathrm{d} y = \\sum_ {n = 1} ^ {\\infty} u _ {n} (x) \\tag {13}",
+          "image_source": "../../raw/pages_0161-0192/images/page_180_equation_26.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.022,
+            0.911,
+            0.848,
+            0.929
+          ],
+          "content": "在 I 上一致收敛. 又由于  $f(x,y)$  在  $I \\times [c, +\\infty)$  上连续, 故每个  $u_{n}(x)$  都在 I 上连续. 根据"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.866,
+            0.963,
+            0.895,
+            0.975
+          ],
+          "content": "173"
+        }
+      ]
+    },
+    {
+      "page_idx": 181,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.139,
+            0.025,
+            0.367,
+            0.042
+          ],
+          "content": "第十九章 含参量积分"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.075,
+            0.62,
+            0.093
+          ],
+          "content": "函数项级数的连续性定理, 函数  $\\Phi(x)$  在 I 上连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.099,
+            0.964,
+            0.152
+          ],
+          "content": "推论 设 $f(x, y)$ 在 $I \\times [c, +\\infty)$ 上连续，若 $\\Phi(x) = \\int_{c}^{+\\infty} f(x, y) \\mathrm{d}y$ 在 $I$ 上内闭一致收敛，则 $\\Phi(x)$ 在 $I$ 上连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.182,
+            0.156,
+            0.914,
+            0.175
+          ],
+          "content": "这个定理也表明,在一致收敛的条件下,极限运算与无穷积分运算可以交换:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.295,
+            0.181,
+            0.959,
+            0.211
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} \\int_ {c} ^ {+ \\infty} f (x, y) \\mathrm{d} y = \\int_ {c} ^ {+ \\infty} f (x _ {0}, y) \\mathrm{d} y = \\int_ {c} ^ {+ \\infty} \\lim _ {x \\to x _ {0}} f (x, y) \\mathrm{d} y. \\tag {14}",
+          "image_source": "../../raw/pages_0161-0192/images/page_181_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.216,
+            0.965,
+            0.294
+          ],
+          "content": "定理 19.11（可微性）设  $f(x,y)$  与  $f_{x}(x,y)$  在区域  $I \\times [c, +\\infty)$  上连续。若  $\\Phi(x)=\\int_{c}^{+\\infty}f(x,y)\\mathrm{d}y$  在 I 上收敛， $\\int_{c}^{+\\infty}f_{x}(x,y)\\mathrm{d}y$  在 I 上一致收敛，则  $\\Phi(x)$  在 I 上可微，且"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.441,
+            0.301,
+            0.959,
+            0.331
+          ],
+          "content": "\\Phi^ {\\prime} (x) = \\int_ {c} ^ {+ \\infty} f _ {x} (x, y) \\mathrm{d} y. \\tag {15}",
+          "image_source": "../../raw/pages_0161-0192/images/page_181_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.183,
+            0.337,
+            0.676,
+            0.355
+          ],
+          "content": "证 对任一递增且趋于 $+\\infty$ 的数列 $\\{A_{n}\\} (A_{1} = c)$，令"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.443,
+            0.361,
+            0.656,
+            0.396
+          ],
+          "content": "u _ {n} (x) = \\int_ {A _ {n}} ^ {A _ {n + 1}} f (x, y) \\mathrm{d} y.",
+          "image_source": "../../raw/pages_0161-0192/images/page_181_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.399,
+            0.31,
+            0.416
+          ],
+          "content": "由定理19.3推得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.439,
+            0.42,
+            0.66,
+            0.456
+          ],
+          "content": "u _ {n} ^ {\\prime} (x) = \\int_ {A _ {n}} ^ {A _ {n + 1}} f _ {x} (x, y) \\mathrm{d} y.",
+          "image_source": "../../raw/pages_0161-0192/images/page_181_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.461,
+            0.745,
+            0.492
+          ],
+          "content": "由 $\\int_{c}^{+\\infty}f_{x}(x,y)\\mathrm{d}y$ 在 $I$ 上一致收敛及定理19.9，可得函数项级数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.414,
+            0.499,
+            0.696,
+            0.536
+          ],
+          "content": "\\sum_ {n = 1} ^ {\\infty} u _ {n} ^ {\\prime} (x) = \\sum_ {n = 1} ^ {\\infty} \\int_ {A _ {n}} ^ {A _ {n + 1}} f _ {x} (x, y) \\mathrm{d} y",
+          "image_source": "../../raw/pages_0161-0192/images/page_181_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.539,
+            0.722,
+            0.556
+          ],
+          "content": "在 I 上一致收敛,因此根据函数项级数的逐项求导定理,即得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.285,
+            0.563,
+            0.818,
+            0.601
+          ],
+          "content": "\\Phi^ {\\prime} (x) = \\sum_ {n = 1} ^ {\\infty} u _ {n} ^ {\\prime} (x) = \\sum_ {n = 1} ^ {\\infty} \\int_ {A _ {n}} ^ {A _ {n + 1}} f _ {x} (x, y) \\mathrm{d} y = \\int_ {c} ^ {+ \\infty} f _ {x} (x, y) \\mathrm{d} y,",
+          "image_source": "../../raw/pages_0161-0192/images/page_181_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.603,
+            0.211,
+            0.62
+          ],
+          "content": "或写作"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.379,
+            0.626,
+            0.72,
+            0.659
+          ],
+          "content": "\\frac {\\mathrm{d}}{\\mathrm{d} x} \\int_ {c} ^ {+ \\infty} f (x, y) \\mathrm{d} y = \\int_ {c} ^ {+ \\infty} \\frac {\\partial}{\\partial x} f (x, y) \\mathrm{d} y.",
+          "image_source": "../../raw/pages_0161-0192/images/page_181_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.669,
+            0.965,
+            0.739
+          ],
+          "content": "推论 设 $f(x, y)$ 和 $f_{x}(x, y)$ 在 $I \\times [c, +\\infty)$ 上连续，若 $\\Phi(x) = \\int_{c}^{+\\infty} f(x, y) \\mathrm{d}y$ 在 $I$ 上收敛，而 $\\int_{c}^{+\\infty} f_{x}(x, y) \\mathrm{d}y$ 在 $I$ 上内闭一致收敛，则 $\\Phi(x)$ 在 $I$ 上可微，且 $\\Phi'(x) = \\int_{c}^{+\\infty} f_{x}(x, y) \\mathrm{d}y$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.183,
+            0.743,
+            0.774,
+            0.761
+          ],
+          "content": "最后结果表明在定理条件下,求导运算和无穷积分运算可以交换."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.767,
+            0.965,
+            0.821
+          ],
+          "content": "定理 19.12(可积性) 设  $f(x,y)$  在  $[a,b]\\times[c,+\\infty)$  上连续, 若  $\\Phi(x)=\\int_{c}^{+\\infty}f(x,y)\\mathrm{d}y$  在  $[a,b]$  上一致收敛, 则  $\\Phi(x)$  在  $[a,b]$  上可积, 且"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.37,
+            0.825,
+            0.96,
+            0.857
+          ],
+          "content": "\\int_ {a} ^ {b} \\mathrm{d} x \\int_ {c} ^ {+ \\infty} f (x, y) \\mathrm{d} y = \\int_ {c} ^ {+ \\infty} \\mathrm{d} y \\int_ {a} ^ {b} f (x, y) \\mathrm{d} x. \\tag {16}",
+          "image_source": "../../raw/pages_0161-0192/images/page_181_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.183,
+            0.862,
+            0.892,
+            0.88
+          ],
+          "content": "证 由定理 19.10 知道  $\\Phi(x)$  在  $[a,b]$  上连续, 从而  $\\Phi(x)$  在  $[a,b]$  上可积."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.884,
+            0.965,
+            0.925
+          ],
+          "content": "又由定理19.10的证明中可以看到，函数项级数(13)在 $[a,b]$ 上一致收敛，且各项$u_{n}(x)$ 在 $[a,b]$ 上连续，因此根据函数项级数逐项求积定理，有"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.1,
+            0.959,
+            0.129,
+            0.97
+          ],
+          "content": "174"
+        }
+      ]
+    },
+    {
+      "page_idx": 182,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.63,
+            0.031,
+            0.811,
+            0.045
+          ],
+          "content": "§ 2 含参量反常积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.189,
+            0.08,
+            0.842,
+            0.163
+          ],
+          "content": "\\begin{array}{l} \\int_ {a} ^ {b} \\Phi (x) \\mathrm{d} x = \\sum_ {n = 1} ^ {\\infty} \\int_ {a} ^ {b} u _ {n} (x) \\mathrm{d} x = \\sum_ {n = 1} ^ {\\infty} \\int_ {a} ^ {b} \\mathrm{d} x \\int_ {A _ {n}} ^ {A _ {n + 1}} f (x, y) \\mathrm{d} y \\\\ = \\sum_ {n = 1} ^ {\\infty} \\int_ {A _ {n}} ^ {A _ {n + 1}} \\mathrm{d} y \\int_ {a} ^ {b} f (x, y) \\mathrm{d} x, \\tag {17} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_182_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.018,
+            0.165,
+            0.741,
+            0.182
+          ],
+          "content": "这里最后一步是根据定理19.6关于积分顺序的可交换性.(17)式又可写作"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.277,
+            0.186,
+            0.577,
+            0.219
+          ],
+          "content": "\\int_ {a} ^ {b} \\Phi (x) \\mathrm{d} x = \\int_ {c} ^ {+ \\infty} \\mathrm{d} y \\int_ {a} ^ {b} f (x, y) \\mathrm{d} x.",
+          "image_source": "../../raw/pages_0161-0192/images/page_182_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.018,
+            0.223,
+            0.165,
+            0.24
+          ],
+          "content": "这就是(16)式."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.822,
+            0.223,
+            0.84,
+            0.238
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_182_image_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.062,
+            0.244,
+            0.748,
+            0.262
+          ],
+          "content": "当定理 19.12 中 x 的取值范围为无限区间  $[a, +\\infty)$  时，则有如下的定理."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.061,
+            0.266,
+            0.592,
+            0.284
+          ],
+          "content": "定理19.13 设 $f(x,y)$ 在 $[a, +\\infty)\\times [c, +\\infty)$ 上连续.若"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.019,
+            0.289,
+            0.844,
+            0.341
+          ],
+          "content": "(i) $\\int_{a}^{+\\infty} f(x, y) \\mathrm{d}x$ 关于 $y$ 在 $[c, +\\infty)$ 上内闭一致收敛，$\\int_{c}^{+\\infty} f(x, y) \\mathrm{d}y$ 关于 $x$ 在 $[a, +\\infty)$ 上内闭一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.064,
+            0.346,
+            0.158,
+            0.363
+          ],
+          "content": "(ii) 积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.212,
+            0.368,
+            0.841,
+            0.4
+          ],
+          "content": "\\int_ {a} ^ {+ \\infty} \\mathrm{d} x \\int_ {c} ^ {+ \\infty} | f (x, y) | \\mathrm{d} y \\text {与} \\int_ {c} ^ {+ \\infty} \\mathrm{d} y \\int_ {a} ^ {+ \\infty} | f (x, y) | \\mathrm{d} x \\tag {18}",
+          "image_source": "../../raw/pages_0161-0192/images/page_182_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.019,
+            0.404,
+            0.162,
+            0.421
+          ],
+          "content": "中有一个收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.019,
+            0.426,
+            0.047,
+            0.442
+          ],
+          "content": "则"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.233,
+            0.448,
+            0.841,
+            0.479
+          ],
+          "content": "\\int_ {a} ^ {+ \\infty} \\mathrm{d} x \\int_ {c} ^ {+ \\infty} f (x, y) \\mathrm{d} y = \\int_ {c} ^ {+ \\infty} \\mathrm{d} y \\int_ {a} ^ {+ \\infty} f (x, y) \\mathrm{d} x. \\tag {19}",
+          "image_source": "../../raw/pages_0161-0192/images/page_182_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.062,
+            0.484,
+            0.531,
+            0.501
+          ],
+          "content": "证 不妨设(18)式中第一个积分收敛,由此推得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.337,
+            0.506,
+            0.526,
+            0.538
+          ],
+          "content": "\\int_ {a} ^ {+ \\infty} \\mathrm{d} x \\int_ {c} ^ {+ \\infty} f (x, y) \\mathrm{d} y",
+          "image_source": "../../raw/pages_0161-0192/images/page_182_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.019,
+            0.542,
+            0.201,
+            0.559
+          ],
+          "content": "也收敛. 当 d > c 时,"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.105,
+            0.563,
+            0.753,
+            0.636
+          ],
+          "content": "\\begin{array}{l} J _ {d} = \\left| \\int_ {c} ^ {d} \\mathrm{d} y \\int_ {a} ^ {+ \\infty} f (x, y) \\mathrm{d} x - \\int_ {a} ^ {+ \\infty} \\mathrm{d} x \\int_ {c} ^ {+ \\infty} f (x, y) \\mathrm{d} y \\right| \\\\ = \\left| \\int_ {c} ^ {d} \\mathrm{d} y \\int_ {a} ^ {+ \\infty} f (x, y) \\mathrm{d} x - \\int_ {a} ^ {+ \\infty} \\mathrm{d} x \\int_ {c} ^ {d} f (x, y) \\mathrm{d} y - \\int_ {a} ^ {+ \\infty} \\mathrm{d} x \\int_ {d} ^ {+ \\infty} f (x, y) \\mathrm{d} y \\right|. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_182_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.019,
+            0.64,
+            0.351,
+            0.656
+          ],
+          "content": "根据条件(i)及定理19.12,可推得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.186,
+            0.662,
+            0.841,
+            0.733
+          ],
+          "content": "\\begin{array}{l} J _ {d} = \\left| \\int_ {a} ^ {+ \\infty} \\mathrm{d} x \\int_ {d} ^ {+ \\infty} f (x, y) \\mathrm{d} y \\right| \\\\ \\leqslant \\left| \\int_ {a} ^ {A} \\mathrm{d} x \\int_ {d} ^ {+ \\infty} f (x, y) \\mathrm{d} y \\right| + \\int_ {A} ^ {+ \\infty} \\mathrm{d} x \\int_ {d} ^ {+ \\infty} | f (x, y) | \\mathrm{d} y. \\tag {20} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_182_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.02,
+            0.737,
+            0.536,
+            0.755
+          ],
+          "content": "由条件(ii)，对于任给的 $\\varepsilon > 0$ ，有 $G > a$ ，使当 $A > G$ 时，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.286,
+            0.76,
+            0.571,
+            0.793
+          ],
+          "content": "\\int_ {A} ^ {+ \\infty} \\mathrm{d} x \\int_ {d} ^ {+ \\infty} \\mid f (x, y) \\mid \\mathrm{d} y <   \\frac {\\varepsilon}{2}.",
+          "image_source": "../../raw/pages_0161-0192/images/page_182_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.018,
+            0.8,
+            0.738,
+            0.831
+          ],
+          "content": "选定 A 后，由  $\\int_{c}^{+\\infty} f(x, y) \\, dy$  的内闭一致收敛性，存在 M > c，使得当 d > M 时有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.206,
+            0.836,
+            0.655,
+            0.869
+          ],
+          "content": "\\left| \\int_ {d} ^ {+ \\infty} f (x, y) \\mathrm{d} y \\right| <   \\frac {\\varepsilon}{2 (A - a)}, \\quad \\forall x \\in [ a, A ].",
+          "image_source": "../../raw/pages_0161-0192/images/page_182_equation_23.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.019,
+            0.874,
+            0.352,
+            0.892
+          ],
+          "content": "把这两个结果应用到(20)式,得到"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.34,
+            0.901,
+            0.52,
+            0.929
+          ],
+          "content": "J _ {d} <   \\frac {\\varepsilon}{2} + \\frac {\\varepsilon}{2} = \\varepsilon ,",
+          "image_source": "../../raw/pages_0161-0192/images/page_182_equation_25.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.862,
+            0.964,
+            0.89,
+            0.976
+          ],
+          "content": "175"
+        }
+      ]
+    },
+    {
+      "page_idx": 183,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.139,
+            0.027,
+            0.367,
+            0.043
+          ],
+          "content": "第十九章 含参量积分"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.076,
+            0.454,
+            0.099
+          ],
+          "content": "即  $\\lim_{d\\to+\\infty}J_{d}=0$  , 这就证明了(19)式."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.183,
+            0.103,
+            0.295,
+            0.12
+          ],
+          "content": "例5 计算"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.32,
+            0.126,
+            0.778,
+            0.158
+          ],
+          "content": "J = \\int_ {0} ^ {+ \\infty} \\mathrm{e} ^ {- p x} \\frac {\\sin b x - \\sin a x}{x} \\mathrm{d} x \\quad (p > 0, b > a).",
+          "image_source": "../../raw/pages_0161-0192/images/page_183_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.183,
+            0.166,
+            0.611,
+            0.199
+          ],
+          "content": "解 因为  $\\frac{\\sin bx - \\sin ax}{x} = \\int_{a}^{b} \\cos xy dy$ ，所以"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.413,
+            0.206,
+            0.964,
+            0.322
+          ],
+          "content": "\\begin{array}{l} J = \\int_ {0} ^ {+ \\infty} \\mathrm{e} ^ {- p x} \\frac {\\sin b x - \\sin a x}{x} \\mathrm{d} x \\\\ = \\int_ {0} ^ {+ \\infty} \\mathrm{e} ^ {- p x} \\left(\\int_ {a} ^ {b} \\cos x y \\mathrm{d} y\\right) \\mathrm{d} x \\\\ = \\int_ {0} ^ {+ \\infty} \\mathrm{d} x \\int_ {a} ^ {b} \\mathrm{e} ^ {- p x} \\cos x y \\mathrm{d} y. \\tag {21} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_183_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.33,
+            0.967,
+            0.382
+          ],
+          "content": "由于 $|\\mathrm{e}^{-px}\\cos xy| \\leqslant \\mathrm{e}^{-px}$ 及反常积分 $\\int_0^{+\\infty}\\mathrm{e}^{-px}\\mathrm{d}x$ 收敛，根据魏尔斯特拉斯 $M$ 判别法，含参量反常积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.477,
+            0.387,
+            0.634,
+            0.419
+          ],
+          "content": "\\int_ {0} ^ {+ \\infty} \\mathrm{e} ^ {- p x} \\cos x y \\mathrm{d} x",
+          "image_source": "../../raw/pages_0161-0192/images/page_183_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.425,
+            0.967,
+            0.465
+          ],
+          "content": "在 $[a, b]$ 上一致收敛. 由于 $\\mathrm{e}^{-px} \\cos xy$ 在 $[0, +\\infty) \\times [a, b]$ 上连续, 根据定理19.12交换积分(21)的顺序, 积分 $J$ 的值不变. 于是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.368,
+            0.479,
+            0.964,
+            0.567
+          ],
+          "content": "\\begin{array}{l} J = \\int_ {a} ^ {b} \\mathrm{d} y \\int_ {0} ^ {+ \\infty} \\mathrm{e} ^ {- p x} \\cos x y \\mathrm{d} x = \\int_ {a} ^ {b} \\frac {p}{p ^ {2} + y ^ {2}} \\mathrm{d} y \\\\ = \\arctan \\frac {b}{p} - \\arctan \\frac {a}{p}. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_183_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.581,
+            0.431,
+            0.613
+          ],
+          "content": "例6 计算 $\\int_0^{+\\infty}\\frac{\\sin ax}{x}\\mathrm{d}x.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.62,
+            0.462,
+            0.637
+          ],
+          "content": "解 在上例中, 令 b=0, 则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.325,
+            0.643,
+            0.965,
+            0.676
+          ],
+          "content": "F (p) = \\int_ {0} ^ {+ \\infty} \\mathrm{e} ^ {- p x} \\frac {\\sin a x}{x} \\mathrm{d} x = \\arctan \\frac {a}{p} \\quad (p > 0). \\tag {22}",
+          "image_source": "../../raw/pages_0161-0192/images/page_183_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.681,
+            0.967,
+            0.721
+          ],
+          "content": "由阿贝尔判别法可得上述含参量反常积分在 $p \\geqslant 0$ 上一致收敛. 于是由定理19.10, $F(p)$ 在 $p \\geqslant 0$ 上连续, 且"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.451,
+            0.724,
+            0.657,
+            0.757
+          ],
+          "content": "F (0) = \\int_ {0} ^ {+ \\infty} \\frac {\\sin a x}{x} \\mathrm{d} x.",
+          "image_source": "../../raw/pages_0161-0192/images/page_183_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.144,
+            0.761,
+            0.265,
+            0.778
+          ],
+          "content": "又由(22)式"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.35,
+            0.784,
+            0.965,
+            0.815
+          ],
+          "content": "F (0) = \\lim _ {p \\to 0 ^ {+}} F (p) = \\lim _ {p \\to 0 ^ {+}} \\arctan \\frac {a}{p} = \\frac {\\pi}{2} \\mathrm{sgn} a.",
+          "image_source": "../../raw/pages_0161-0192/images/page_183_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.188,
+            0.818,
+            0.301,
+            0.835
+          ],
+          "content": "例7 计算"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.44,
+            0.838,
+            0.965,
+            0.869
+          ],
+          "content": "\\varphi (r) = \\int_ {0} ^ {+ \\infty} \\mathrm{e} ^ {- x ^ {2}} \\cos r x \\mathrm{d} x. \\tag {23}",
+          "image_source": "../../raw/pages_0161-0192/images/page_183_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.873,
+            0.971,
+            0.929
+          ],
+          "content": "解 由于 $|\\mathrm{e}^{-x^2}\\cos rx| \\leqslant \\mathrm{e}^{-x^2}$ 对任一实数 $r$ 成立及反常积分 $\\int_0^{+\\infty}\\mathrm{e}^{-x^2}\\mathrm{d}x$ 收敛，所以积分(23)在 $r\\in (-\\infty , + \\infty)$ 上收敛."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.106,
+            0.961,
+            0.134,
+            0.973
+          ],
+          "content": "176"
+        }
+      ]
+    },
+    {
+      "page_idx": 184,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.631,
+            0.029,
+            0.811,
+            0.044
+          ],
+          "content": "§ 2 含参量反常积分"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.078,
+            0.269,
+            0.095
+          ],
+          "content": "考察含参量反常积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.221,
+            0.102,
+            0.84,
+            0.132
+          ],
+          "content": "\\int_ {0} ^ {+ \\infty} \\frac {\\partial}{\\partial r} (\\mathrm{e} ^ {- x ^ {2}} \\cos r x) \\mathrm{d} x = \\int_ {0} ^ {+ \\infty} - x \\mathrm{e} ^ {- x ^ {2}} \\sin r x \\mathrm{d} x. \\tag {24}",
+          "image_source": "../../raw/pages_0161-0192/images/page_184_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.022,
+            0.142,
+            0.845,
+            0.195
+          ],
+          "content": "由于 $\\left| -x\\mathrm{e}^{-x^2}\\sin rx \\right| \\leqslant x\\mathrm{e}^{-x^2}$ 对一切 $x \\geqslant 0, -\\infty < r < +\\infty$ 成立及反常积分 $\\int_{0}^{+\\infty} x\\mathrm{e}^{-x^2}\\mathrm{d}x$ 收敛，根据魏尔斯特拉斯 $M$ 判别法，含参量反常积分(24)在 $(-∞,+∞)$ 上一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.064,
+            0.199,
+            0.38,
+            0.216
+          ],
+          "content": "综合上述结果由定理19.11即得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.188,
+            0.222,
+            0.677,
+            0.332
+          ],
+          "content": "\\begin{array}{l} \\varphi^ {\\prime} (r) = \\int_ {0} ^ {+ \\infty} - x \\mathrm{e} ^ {- x ^ {2}} \\sin r x \\mathrm{d} x = \\lim _ {A \\rightarrow + \\infty} \\int_ {0} ^ {A} - x \\mathrm{e} ^ {- x ^ {2}} \\sin r x \\mathrm{d} x \\\\ = \\lim _ {A \\to + \\infty} \\left(\\frac {1}{2} \\mathrm{e} ^ {- x ^ {2}} \\sin r x \\bigg | _ {0} ^ {A} - \\frac {1}{2} \\int_ {0} ^ {A} r \\mathrm{e} ^ {- x ^ {2}} \\cos r x \\mathrm{d} x\\right) \\\\ = - \\frac {r}{2} \\int_ {0} ^ {+ \\infty} \\mathrm{e} ^ {- x ^ {2}} \\cos r x \\mathrm{d} x = - \\frac {r}{2} \\varphi (r). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_184_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.34,
+            0.091,
+            0.357
+          ],
+          "content": "于是有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.327,
+            0.362,
+            0.535,
+            0.392
+          ],
+          "content": "\\ln \\varphi (r) = - \\frac {r ^ {2}}{4} + \\ln c,",
+          "image_source": "../../raw/pages_0161-0192/images/page_184_equation_7.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.329,
+            0.402,
+            0.446,
+            0.426
+          ],
+          "content": "\\varphi (r) = c \\mathrm{e} ^ {- \\frac {r ^ {2}}{4}}.",
+          "image_source": "../../raw/pages_0161-0192/images/page_184_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.434,
+            0.77,
+            0.467
+          ],
+          "content": "从而 $\\varphi(0) = c$，又由(23)式，$\\varphi(0) = \\int_{0}^{+\\infty} \\mathrm{e}^{-x^2} \\, \\mathrm{d}x = \\frac{\\sqrt{\\pi}}{2}$①，所以 $c = \\frac{\\sqrt{\\pi}}{2}$，因此得到"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.359,
+            0.477,
+            0.502,
+            0.509
+          ],
+          "content": "\\varphi (r) = \\frac {\\sqrt {\\pi}}{2} \\mathrm{e} ^ {- \\frac {r ^ {2}}{4}}.",
+          "image_source": "../../raw/pages_0161-0192/images/page_184_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.516,
+            0.847,
+            0.556
+          ],
+          "content": "最后简略地提一下关于含参量无界函数非正常积分. 设 $f(x, y)$ 在区域 $R = [a, b] \\times [c, d)$ 上有定义. 若对 $x$ 的某些值, $y = d$ 为函数 $f(x, y)$ 的瑕点, 则称"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.379,
+            0.56,
+            0.841,
+            0.592
+          ],
+          "content": "\\int_ {c} ^ {d} f (x, y) \\mathrm{d} y \\tag {25}",
+          "image_source": "../../raw/pages_0161-0192/images/page_184_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.596,
+            0.846,
+            0.658
+          ],
+          "content": "为含参量 $x$ 的无界函数反常积分, 或简称为含参量反常积分. 若对每一个 $x \\in [a, b]$, 积分 (25) 都收敛, 则其积分值是 $x$ 在 $[a, b]$ 上取值的函数. 含参量反常积分 (25) 在 $[a, b]$ 上一致收敛的定义如下."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.662,
+            0.844,
+            0.701
+          ],
+          "content": "定义 2 对任给正数  $\\varepsilon$ ，总存在某正数  $\\delta < d - c$ ，使得当  $0 < \\eta < \\delta$  时，对一切  $x \\in [a, b]$ ，都有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.333,
+            0.705,
+            0.542,
+            0.74
+          ],
+          "content": "\\left| \\int_ {d - \\eta} ^ {d} f (x, y) \\mathrm{d} y \\right| <   \\varepsilon ,",
+          "image_source": "../../raw/pages_0161-0192/images/page_184_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.743,
+            0.474,
+            0.76
+          ],
+          "content": "则称含参量反常积分(25)在 $[a,b]$ 上一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.764,
+            0.846,
+            0.804
+          ],
+          "content": "读者可参照含参量无穷限反常积分的办法建立相应的含参量无界函数反常积分的一致收敛性判别法,并讨论它们的性质,这里不再赘述了."
+        },
+        {
+          "type": "page_footnote",
+          "bbox": [
+            0.023,
+            0.898,
+            0.75,
+            0.927
+          ],
+          "content": "① 关于反常积分 $\\int_{0}^{+\\infty}\\mathrm{e}^{-x^2}\\mathrm{d}x$ 的值等于 $\\frac{\\sqrt{\\pi}}{2}$ 的证明将在第二十一章“反常二重积分”一节中给出."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.864,
+            0.962,
+            0.892,
+            0.974
+          ],
+          "content": "177"
+        }
+      ]
+    },
+    {
+      "page_idx": 185,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.139,
+            0.025,
+            0.367,
+            0.04
+          ],
+          "content": "第十九章 含参量积分"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.471,
+            0.099,
+            0.631,
+            0.119
+          ],
+          "level": 2,
+          "content": "习题 19.2"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.178,
+            0.14,
+            0.331,
+            0.154
+          ],
+          "content": "1. 证明下列各题:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.179,
+            0.159,
+            0.585,
+            0.258
+          ],
+          "sub_type": "text",
+          "content": "(1) $\\int_{1}^{+\\infty}\\frac{y^2 - x^2}{(x^2 + y^2)^2}\\mathrm{d}x$ 在 $(-\\infty , + \\infty)$ 上一致收敛；\n(2) $\\int_{0}^{+\\infty}\\mathrm{e}^{-x^2 y}\\mathrm{d}y$ 在 $[a,b]$ （ $a > 0$ ）上一致收敛；\n(3) $\\int_{0}^{+\\infty} x\\mathrm{e}^{-xy}\\mathrm{d}y$"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.218,
+            0.262,
+            0.495,
+            0.298
+          ],
+          "sub_type": "text",
+          "content": "(i) 在  $[a, b]$  (a>0) 上一致收敛，\n(ii) 在 $[0, b]$ 上不一致收敛；"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.18,
+            0.303,
+            0.595,
+            0.367
+          ],
+          "sub_type": "text",
+          "content": "(4) $\\int_{0}^{1}\\ln (xy)\\mathrm{d}y$ 在 $\\left[\\frac{1}{b},b\\right]\\quad (b > 1)$ 上一致收敛；\n(5) $\\int_{0}^{1}\\frac{\\mathrm{d}x}{x^p}$ 在 $(-\\infty ,b]$ （ $b < 1$ )上一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.177,
+            0.373,
+            0.578,
+            0.403
+          ],
+          "content": "2. 从等式 $\\int_{a}^{b}\\mathrm{e}^{-xy}\\mathrm{d}y = \\frac{\\mathrm{e}^{-ax} - \\mathrm{e}^{-bx}}{x}$ 出发，计算积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.412,
+            0.41,
+            0.688,
+            0.439
+          ],
+          "content": "\\int_ {0} ^ {+ \\infty} \\frac {\\mathrm{e} ^ {- a x} - \\mathrm{e} ^ {- b x}}{x} \\mathrm{d} x \\quad (b > a > 0).",
+          "image_source": "../../raw/pages_0161-0192/images/page_185_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.178,
+            0.446,
+            0.286,
+            0.46
+          ],
+          "content": "3. 证明函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.461,
+            0.466,
+            0.648,
+            0.494
+          ],
+          "content": "F (y) = \\int_ {0} ^ {+ \\infty} \\mathrm{e} ^ {- (x - y) ^ {2}} \\mathrm{d} x",
+          "image_source": "../../raw/pages_0161-0192/images/page_185_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.5,
+            0.694,
+            0.531
+          ],
+          "content": "在 $(-∞,+∞)$ 上连续（提示:证明中可利用公式 $\\int_{0}^{+\\infty}e^{-x^{2}}dx=\\frac{\\sqrt{\\pi}}{2}$ ）."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.178,
+            0.537,
+            0.314,
+            0.552
+          ],
+          "content": "4. 求下列积分:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.18,
+            0.556,
+            0.721,
+            0.665
+          ],
+          "sub_type": "text",
+          "content": "(1) $\\int_{0}^{+\\infty}\\frac{\\mathrm{e}^{-a^2x^2}-\\mathrm{e}^{-b^2x^2}}{x^2}\\mathrm{d}x$ （提示:可利用公式 $\\int_0^{+\\infty}\\mathrm{e}^{-x^2}\\mathrm{d}x = \\frac{\\sqrt{\\pi}}{2}$）；\n(2) $\\int_{0}^{+\\infty}\\mathrm{e}^{-t}\\frac{\\sin xt}{t}\\mathrm{d}t;$\n(3) $\\int_{0}^{+\\infty}\\mathrm{e}^{-x}\\frac{1 - \\cos xy}{x^2}\\mathrm{d}x.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.179,
+            0.694,
+            0.334,
+            0.708
+          ],
+          "content": "5. 回答下列问题:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.181,
+            0.714,
+            0.809,
+            0.809
+          ],
+          "sub_type": "text",
+          "content": "（1）对极限 $\\lim_{x\\to 0^{+}}\\int_{0}^{+\\infty}2xy\\mathrm{e}^{-xy^2}\\mathrm{d}y$ 能否施行极限与积分运算顺序的交换来求解？\n(2) 对  $\\int_{0}^{1}\\mathrm{d}y\\int_{0}^{+\\infty}(2y-2xy^{3})\\mathrm{e}^{-xy^{2}}\\mathrm{d}x$  能否运用积分顺序交换来求解？\n(3) 对  $F(x)=\\int_{0}^{+\\infty}x^{3}\\mathrm{e}^{-x^{2}y}\\mathrm{d}y$  能否运用积分与求导运算顺序交换来求解？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.178,
+            0.816,
+            0.577,
+            0.846
+          ],
+          "content": "6. 应用  $\\int_{0}^{+\\infty} e^{-at^{2}} dt = \\frac{\\sqrt{\\pi}}{2} a^{-\\frac{1}{2}} \\quad (a > 0)$ ，证明:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.183,
+            0.854,
+            0.636,
+            0.923
+          ],
+          "sub_type": "text",
+          "content": "(1) $\\int_{0}^{+\\infty} t^2 \\mathrm{e}^{-at^2} \\, \\mathrm{d}t = \\frac{\\sqrt{\\pi}}{4} a^{-\\frac{3}{2}};$\n(2) $\\int_{0}^{+\\infty} t^{2n} \\mathrm{e}^{-at^2} \\, \\mathrm{d}t = \\frac{\\sqrt{\\pi}}{2} \\frac{1 \\cdot 3 \\cdot \\cdots \\cdot (2n - 1)}{2^n} a^{-\\left(n + \\frac{1}{2}\\right)}.$"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.102,
+            0.958,
+            0.131,
+            0.969
+          ],
+          "content": "178"
+        }
+      ]
+    },
+    {
+      "page_idx": 186,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.683,
+            0.03,
+            0.807,
+            0.045
+          ],
+          "content": "§ 3 欧拉积分"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.051,
+            0.079,
+            0.443,
+            0.109
+          ],
+          "content": "7. 应用  $\\int_{0}^{+\\infty}\\frac{dx}{x^{2}+a^{2}}=\\frac{\\pi}{2a}$ ，求  $\\int_{0}^{+\\infty}\\frac{dx}{\\left(x^{2}+a^{2}\\right)^{n+1}}$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.051,
+            0.115,
+            0.457,
+            0.13
+          ],
+          "content": "8. 设  $f(x,y)$  为  $[a,b]\\times[c,+\\infty)$  上连续非负函数，"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.337,
+            0.136,
+            0.518,
+            0.164
+          ],
+          "content": "I (x) = \\int_ {c} ^ {+ \\infty} f (x, y) \\mathrm{d} y",
+          "image_source": "../../raw/pages_0161-0192/images/page_186_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.015,
+            0.168,
+            0.408,
+            0.184
+          ],
+          "content": "在 $[a,b]$ 上连续,证明 $I(x)$ 在 $[a,b]$ 上一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.015,
+            0.19,
+            0.841,
+            0.251
+          ],
+          "content": "9. 设在 $[a, +\\infty) \\times [c, d]$ 上成立不等式 $|f(x, y)| \\leqslant F(x, y)$. 若 $\\int_{a}^{+\\infty} F(x, y) \\mathrm{d}x$ 在 $y \\in [c, d]$ 上一致收敛，证明 $\\int_{a}^{+\\infty} f(x, y) \\mathrm{d}x$ 在 $y \\in [c, d]$ 上一致收敛且绝对收敛."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.315,
+            0.299,
+            0.548,
+            0.322
+          ],
+          "level": 2,
+          "content": "§3 欧拉积分"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.061,
+            0.367,
+            0.176,
+            0.384
+          ],
+          "content": "含参量积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.242,
+            0.391,
+            0.835,
+            0.42
+          ],
+          "content": "\\Gamma (s) = \\int_ {0} ^ {+ \\infty} x ^ {s - 1} \\mathrm{e} ^ {- x} \\mathrm{d} x, s > 0, \\tag {1}",
+          "image_source": "../../raw/pages_0161-0192/images/page_186_equation_8.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.219,
+            0.428,
+            0.835,
+            0.458
+          ],
+          "content": "\\mathrm{B} (p, q) = \\int_ {0} ^ {1} x ^ {p - 1} (1 - x) ^ {q - 1} \\mathrm{d} x, p > 0, q > 0 \\tag {2}",
+          "image_source": "../../raw/pages_0161-0192/images/page_186_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.015,
+            0.464,
+            0.841,
+            0.526
+          ],
+          "content": "在应用中经常出现,它们统称为欧拉积分,其中前者又称为伽马(Gamma)函数(或写作 $\\Gamma$ 函数),后者称为贝塔(Beta)函数(或写作B函数).下面我们分别讨论这两个函数的性质."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.018,
+            0.537,
+            0.141,
+            0.555
+          ],
+          "level": 2,
+          "content": "一、$\\Gamma$ 函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.06,
+            0.567,
+            0.424,
+            0.584
+          ],
+          "content": "$\\Gamma$ 函数(1)可写成如下两个积分之和:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.18,
+            0.588,
+            0.675,
+            0.621
+          ],
+          "content": "\\Gamma (s) = \\int_ {0} ^ {1} x ^ {s - 1} \\mathrm{e} ^ {- x} \\mathrm{d} x + \\int_ {1} ^ {+ \\infty} x ^ {s - 1} \\mathrm{e} ^ {- x} \\mathrm{d} x = \\varPhi (s) + \\varPsi (s),",
+          "image_source": "../../raw/pages_0161-0192/images/page_186_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.015,
+            0.625,
+            0.843,
+            0.687
+          ],
+          "content": "其中  $\\Phi(s)$  当  $s \\geqslant 1$  时是正常积分, 当 0 < s < 1 时是收敛的无界函数反常积分 (可用柯西判别法推得);  $\\Psi(s)$  当 s > 0 时是收敛的无穷限反常积分 (也可用柯西判别法推得). 所以含参量积分 (1) 在 s > 0 时收敛, 即  $\\Gamma$  函数的定义域为 s > 0."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.06,
+            0.691,
+            0.412,
+            0.708
+          ],
+          "content": "1. $\\Gamma(s)$ 在定义域 $s > 0$ 上连续且可导"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.015,
+            0.713,
+            0.843,
+            0.828
+          ],
+          "content": "在任何闭区间 $[a, b]$ ($a > 0$) 上，对于函数 $\\Phi(s)$，当 $0 < x \\leqslant 1$ 时有 $x^{s-1} \\mathrm{e}^{-x} \\leqslant x^{a-1} \\mathrm{e}^{-x}$，由于 $\\int_{0}^{1} x^{a-1} \\mathrm{e}^{-x} \\mathrm{d}x$ 收敛，从而 $\\Phi(s)$ 在 $[a, b]$ 上一致收敛；对于 $\\Psi(s)$，当 $1 \\leqslant x < +\\infty$ 时，有 $x^{s-1} \\mathrm{e}^{-x} \\leqslant x^{b-1} \\mathrm{e}^{-x}$，由于 $\\int_{1}^{+\\infty} x^{b-1} \\mathrm{e}^{-x} \\mathrm{d}x$ 收敛，从而 $\\Psi(s)$ 在 $[a, b]$ 上也一致收敛。于是 $\\Gamma(s)$ 在 $s > 0$ 上连续。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.06,
+            0.833,
+            0.334,
+            0.85
+          ],
+          "content": "用上述相同的方法考察积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.242,
+            0.854,
+            0.61,
+            0.887
+          ],
+          "content": "\\int_ {0} ^ {+ \\infty} \\frac {\\partial}{\\partial s} (x ^ {s - 1} \\mathrm{e} ^ {- x}) \\mathrm{d} x = \\int_ {0} ^ {+ \\infty} x ^ {s - 1} \\mathrm{e} ^ {- x} \\ln x \\mathrm{d} x.",
+          "image_source": "../../raw/pages_0161-0192/images/page_186_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.018,
+            0.891,
+            0.843,
+            0.93
+          ],
+          "content": "它在任何闭区间 $[a, b]$ ($a > 0$) 上一致收敛. 于是由定理 19.11 得到 $\\Gamma(s)$ 在 $[a, b]$ 上可导, 由 $a, b$ 的任意性, $\\Gamma(s)$ 在 $s > 0$ 上可导, 且"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.859,
+            0.964,
+            0.889,
+            0.975
+          ],
+          "content": "179"
+        }
+      ]
+    },
+    {
+      "page_idx": 187,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.139,
+            0.027,
+            0.367,
+            0.042
+          ],
+          "content": "第十九章 含参量积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.39,
+            0.076,
+            0.708,
+            0.107
+          ],
+          "content": "\\Gamma^ {\\prime} (s) = \\int_ {0} ^ {+ \\infty} x ^ {s - 1} \\mathrm{e} ^ {- x} \\ln x \\mathrm{d} x, s > 0.",
+          "image_source": "../../raw/pages_0161-0192/images/page_187_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.183,
+            0.112,
+            0.757,
+            0.13
+          ],
+          "content": "仿照上面的办法,还可推得  $\\Gamma(s)$  在 s>0 上存在任意阶导数:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.367,
+            0.135,
+            0.732,
+            0.166
+          ],
+          "content": "\\Gamma^ {(n)} (s) = \\int_ {0} ^ {+ \\infty} x ^ {s - 1} \\mathrm{e} ^ {- x} (\\ln x) ^ {n} \\mathrm{d} x, s > 0.",
+          "image_source": "../../raw/pages_0161-0192/images/page_187_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.182,
+            0.171,
+            0.461,
+            0.188
+          ],
+          "content": "2. 递推公式 $\\Gamma(s + 1) = s\\Gamma(s)$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.183,
+            0.193,
+            0.492,
+            0.21
+          ],
+          "content": "对下述积分应用分部积分法,有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.375,
+            0.211,
+            0.736,
+            0.287
+          ],
+          "content": "\\begin{array}{l} \\int_ {0} ^ {A} x ^ {s} \\mathrm{e} ^ {- x} \\mathrm{d} x = - \\left. x ^ {s} \\mathrm{e} ^ {- x} \\right| _ {0} ^ {A} + s \\int_ {0} ^ {A} x ^ {s - 1} \\mathrm{e} ^ {- x} \\mathrm{d} x \\\\ = - A ^ {s} \\mathrm{e} ^ {- A} + s \\int_ {0} ^ {A} x ^ {s - 1} \\mathrm{e} ^ {- x} \\mathrm{d} x. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_187_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.291,
+            0.503,
+            0.308
+          ],
+          "content": "让 $A \\to +\\infty$ 就得到 $\\Gamma$ 函数的递推公式:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.461,
+            0.313,
+            0.962,
+            0.33
+          ],
+          "content": "\\Gamma (s + 1) = s \\Gamma (s). \\tag {3}",
+          "image_source": "../../raw/pages_0161-0192/images/page_187_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.184,
+            0.335,
+            0.731,
+            0.352
+          ],
+          "content": "设 $n < s \\leqslant n + 1$，即 $0 < s - n \\leqslant 1$，应用递推公式(3) $n$ 次可得到"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.348,
+            0.356,
+            0.964,
+            0.395
+          ],
+          "content": "\\begin{array}{l} \\Gamma (s + 1) = s \\Gamma (s) = s (s - 1) \\Gamma (s - 1) = \\dots \\\\ = s (s - 1) \\dots (s - n) \\Gamma (s - n). \\tag {4} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_187_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.4,
+            0.965,
+            0.439
+          ],
+          "content": "公式(3)还指出,如果已知  $\\Gamma(s)$  在  $0<s\\leqslant1$  上的值,那么在其他范围内的函数值可由它计算出来."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.184,
+            0.444,
+            0.528,
+            0.461
+          ],
+          "content": "若 $s$ 为正整数 $n + 1$ ，则(4)式可写成"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.254,
+            0.465,
+            0.964,
+            0.497
+          ],
+          "content": "\\Gamma (n + 1) = n (n - 1) \\cdot \\dots \\cdot 2 \\cdot 1 \\cdot \\Gamma (1) = n! \\int_ {0} ^ {+ \\infty} \\mathrm{e} ^ {- x} \\mathrm{d} x = n!. \\tag {5}",
+          "image_source": "../../raw/pages_0161-0192/images/page_187_equation_13.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.184,
+            0.502,
+            0.398,
+            0.519
+          ],
+          "level": 2,
+          "content": "3. $\\Gamma$ 函数图像的讨论"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.524,
+            0.968,
+            0.585
+          ],
+          "content": "对一切 $s > 0, \\Gamma(s)$ 和 $\\Gamma''(s)$ 恒大于0，因此 $\\Gamma(s)$ 的图形位于 $s$ 轴上方，且是严格凸的。因为 $\\Gamma(1) = \\Gamma(2) = 1$ ，所以 $\\Gamma(s)$ 在 $s > 0$ 上存在惟一的极小点 $x_0$ 且 $x_0 \\in (1,2)$ 。又 $\\Gamma(s)$ 在 $(0, x_0)$ 上严格减，在 $(x_0, +\\infty)$ 上严格增。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.59,
+            0.809,
+            0.623
+          ],
+          "content": "由于 $\\Gamma(s) = \\frac{s\\Gamma(s)}{s} = \\frac{\\Gamma(s + 1)}{s}$ ($s > 0$) 及 $\\lim_{s \\to 0^+} \\Gamma(s + 1) = \\Gamma(1) = 1$，故有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.398,
+            0.629,
+            0.706,
+            0.662
+          ],
+          "content": "\\lim _ {s \\to 0 ^ {+}} \\Gamma (s) = \\lim _ {s \\to 0 ^ {+}} \\frac {\\Gamma (s + 1)}{s} = + \\infty .",
+          "image_source": "../../raw/pages_0161-0192/images/page_187_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.668,
+            0.623,
+            0.686
+          ],
+          "content": "由(5)式及 $\\Gamma (s)$ 在 $(x_0, +\\infty)$ 上严格增可推得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.472,
+            0.69,
+            0.631,
+            0.713
+          ],
+          "content": "\\lim _ {s \\to + \\infty} \\Gamma (s) = + \\infty .",
+          "image_source": "../../raw/pages_0161-0192/images/page_187_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.716,
+            0.643,
+            0.734
+          ],
+          "content": "综上所述, $\\Gamma$ 函数的图像如图19-2中s>0部分所示."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.185,
+            0.739,
+            0.319,
+            0.755
+          ],
+          "level": 2,
+          "content": "4. 延拓 $\\Gamma(s)$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.76,
+            0.387,
+            0.777
+          ],
+          "content": "改写递推公式(3)为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.29,
+            0.782,
+            0.612,
+            0.814
+          ],
+          "content": "\\Gamma (s) = \\frac {\\Gamma (s + 1)}{s}. \\tag {6}",
+          "image_source": "../../raw/pages_0161-0192/images/page_187_equation_23.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.821,
+            0.614,
+            0.882
+          ],
+          "content": "当-1<s<0时,(6)式右端有意义,于是可应用(6)式来定义左端函数 $\\Gamma(s)$ 在(-1,0)上的值,并且可推得这时 $\\Gamma(s)<0$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.887,
+            0.614,
+            0.927
+          ],
+          "content": "用同样的方法,利用  $\\Gamma(s)$  已在  $(-1,0)$  上有定义这一事实,由(6)式又可定义  $\\Gamma(s)$  在  $(-2,$"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.634,
+            0.683,
+            0.947,
+            0.883
+          ],
+          "sub_type": "contour",
+          "content": "| s | \\(\\Gamma(s)\\) |\n| --- | --- |\n| 0 | 4 |\n| ~1.5 | ~0.9 |\n| ~3.8 | 4 |",
+          "captions": [
+            {
+              "bbox": [
+                0.756,
+                0.895,
+                0.825,
+                0.91
+              ],
+              "content": "图19-2"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_187_chart_26.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.104,
+            0.96,
+            0.133,
+            0.971
+          ],
+          "content": "180"
+        }
+      ]
+    },
+    {
+      "page_idx": 188,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.693,
+            0.034,
+            0.816,
+            0.048
+          ],
+          "content": "§ 3 欧拉积分"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.083,
+            0.848,
+            0.122
+          ],
+          "continues_prev": true,
+          "content": "-1)上的值,而且这时  $\\Gamma(s)>0$ . 依此下去可把  $\\Gamma(s)$  延拓到整个数轴(除了 s=0,-1,-2,…以外),其图像如图 19-2 所示."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.069,
+            0.127,
+            0.263,
+            0.144
+          ],
+          "level": 2,
+          "content": "5. $\\Gamma(s)$ 的其他形式"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.069,
+            0.148,
+            0.582,
+            0.167
+          ],
+          "content": "在应用中，$\\Gamma(s)$ 也常以如下形式出现。如令 $x = y^2$，则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.199,
+            0.172,
+            0.844,
+            0.202
+          ],
+          "content": "\\Gamma (s) = \\int_ {0} ^ {+ \\infty} x ^ {s - 1} \\mathrm{e} ^ {- x} \\mathrm{d} x = 2 \\int_ {0} ^ {+ \\infty} y ^ {2 s - 1} \\mathrm{e} ^ {- y ^ {2}} \\mathrm{d} y \\quad (s > 0). \\tag {7}",
+          "image_source": "../../raw/pages_0161-0192/images/page_188_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.207,
+            0.159,
+            0.224
+          ],
+          "content": "令 $x = py$ ，就有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.168,
+            0.231,
+            0.844,
+            0.26
+          ],
+          "content": "\\Gamma (s) = \\int_ {0} ^ {+ \\infty} x ^ {s - 1} \\mathrm{e} ^ {- x} \\mathrm{d} x = p ^ {s} \\int_ {0} ^ {+ \\infty} y ^ {s - 1} \\mathrm{e} ^ {- p y} \\mathrm{d} y \\quad (s > 0, p > 0). \\tag {8}",
+          "image_source": "../../raw/pages_0161-0192/images/page_188_equation_6.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.027,
+            0.271,
+            0.15,
+            0.291
+          ],
+          "level": 2,
+          "content": "二、B函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.301,
+            0.85,
+            0.364
+          ],
+          "content": "B函数(2)当 $p < 1$ 时，是以 $x = 0$ 为瑕点的无界函数反常积分；当 $q < 1$ 时，是以 $x = 1$ 为瑕点的无界函数反常积分.应用柯西判别法可证得当 $p > 0, q > 0$ 时这两个无界函数反常积分都收敛，所以函数 $\\mathrm{B}(p, q)$ 的定义域为 $p > 0, q > 0$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.367,
+            0.85,
+            0.429
+          ],
+          "content": "虽然 $\\mathrm{B}(p,q)$ 是含两个参量的含参量积分，但与含单参数的含参量积分一样，相应的一致收敛性的定义、判别和性质是完全相同的.应用这些结论，我们可得以下 $\\mathrm{B}(p,q)$ 的性质."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.433,
+            0.427,
+            0.451
+          ],
+          "content": "1. $\\mathrm{B}(p,q)$ 在定义域 $p > 0, q > 0$ 内连续"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.455,
+            0.411,
+            0.473
+          ],
+          "content": "由于对任何 $p_0 > 0, q_0 > 0$ 成立不等式"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.189,
+            0.477,
+            0.685,
+            0.497
+          ],
+          "content": "x ^ {p - 1} (1 - x) ^ {q - 1} \\leqslant x ^ {p _ {0} - 1} (1 - x) ^ {q _ {0} - 1}, p \\geqslant p _ {0}, q \\geqslant q _ {0},",
+          "image_source": "../../raw/pages_0161-0192/images/page_188_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.503,
+            0.85,
+            0.557
+          ],
+          "content": "而积分 $\\int_0^1 x^{p_0 - 1}(1 - x)^{q_0 - 1}\\mathrm{d}x$ 收敛，故由魏尔斯特拉斯 $M$ 判别法知 $\\mathrm{B}(p,q)$ 在 $p_0\\leqslant p < + \\infty$ ，$q_{0}\\leqslant q < + \\infty$ 上一致收敛.因而推得 $\\mathrm{B}(p,q)$ 在 $p > 0,q > 0$ 上连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.56,
+            0.351,
+            0.578
+          ],
+          "content": "2. 对称性: $\\mathrm{B}(p,q) = \\mathrm{B}(q,p)$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.582,
+            0.243,
+            0.599
+          ],
+          "content": "作变换 $x = 1 - y$ ，得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.245,
+            0.6,
+            0.625,
+            0.678
+          ],
+          "content": "\\begin{array}{l} \\mathrm{B} (p, q) = \\int_ {0} ^ {1} x ^ {p - 1} (1 - x) ^ {q - 1} \\mathrm{d} x \\\\ = \\int_ {0} ^ {1} (1 - y) ^ {p - 1} y ^ {q - 1} \\mathrm{d} y = \\mathrm{B} (q, p). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_188_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.68,
+            0.194,
+            0.697
+          ],
+          "content": "3. 递推公式"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.198,
+            0.705,
+            0.846,
+            0.741
+          ],
+          "content": "\\mathrm{B} (p, q) = \\frac {q - 1}{p + q - 1} \\mathrm{B} (p, q - 1) \\quad (p > 0, q > 1), \\tag {9}",
+          "image_source": "../../raw/pages_0161-0192/images/page_188_equation_18.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.198,
+            0.75,
+            0.846,
+            0.785
+          ],
+          "content": "\\mathrm{B} (p, q) = \\frac {p - 1}{p + q - 1} \\mathrm{B} (p - 1, q) \\quad (p > 1, q > 0), \\tag {10}",
+          "image_source": "../../raw/pages_0161-0192/images/page_188_equation_19.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.107,
+            0.792,
+            0.765,
+            0.83
+          ],
+          "content": "\\mathrm{B} (p, q) = \\frac {(p - 1) (q - 1)}{(p + q - 1) (p + q - 2)} \\mathrm{B} (p - 1, q - 1) \\quad (p > 1, q > 1).",
+          "image_source": "../../raw/pages_0161-0192/images/page_188_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.029,
+            0.834,
+            0.851,
+            0.874
+          ],
+          "content": "证 下面只证公式(9)，公式(10)可由对称性及公式(9)推得，而最后一个公式则可由公式(9)，(10)推得."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.074,
+            0.878,
+            0.247,
+            0.896
+          ],
+          "content": "当 $p > 0, q > 1$ 时，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.078,
+            0.899,
+            0.353,
+            0.933
+          ],
+          "content": "\\mathrm{B} (p, q) = \\int_ {0} ^ {1} x ^ {p - 1} (1 - x) ^ {q - 1} \\mathrm{d} x",
+          "image_source": "../../raw/pages_0161-0192/images/page_188_equation_23.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.869,
+            0.967,
+            0.896,
+            0.978
+          ],
+          "content": "181"
+        }
+      ]
+    },
+    {
+      "page_idx": 189,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.132,
+            0.03,
+            0.36,
+            0.046
+          ],
+          "content": "第十九章 含参量积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.26,
+            0.079,
+            0.769,
+            0.254
+          ],
+          "content": "\\begin{array}{l} = \\frac {x ^ {p} (1 - x) ^ {q - 1}}{p} \\Bigg | _ {0} ^ {1} + \\frac {q - 1}{p} \\int_ {0} ^ {1} x ^ {p} (1 - x) ^ {q - 2} \\mathrm{d} x \\\\ = \\frac {q - 1}{p} \\int_ {0} ^ {1} \\left[ x ^ {p - 1} - x ^ {p - 1} (1 - x) \\right] (1 - x) ^ {q - 2} \\mathrm{d} x \\\\ = \\frac {q - 1}{p} \\int_ {0} ^ {1} x ^ {p - 1} (1 - x) ^ {q - 2} \\mathrm{d} x - \\frac {q - 1}{p} \\int_ {0} ^ {1} x ^ {p - 1} (1 - x) ^ {q - 1} \\mathrm{d} x \\\\ = \\frac {q - 1}{p} \\mathrm{B} (p, q - 1) - \\frac {q - 1}{p} \\mathrm{B} (p, q), \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_189_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.258,
+            0.336,
+            0.275
+          ],
+          "content": "移项并整理就得(9)."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.174,
+            0.28,
+            0.398,
+            0.298
+          ],
+          "level": 2,
+          "content": "4. $\\mathrm{B}(p,q)$ 的其他形式"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.176,
+            0.302,
+            0.738,
+            0.32
+          ],
+          "content": "在应用中 B 函数也常以如下形式出现. 如令  $x = \\cos^{2}\\varphi$ , 则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.389,
+            0.327,
+            0.955,
+            0.361
+          ],
+          "content": "\\mathrm{B} (p, q) = 2 \\int_ {0} ^ {\\frac {\\pi}{2}} \\sin^ {2 q - 1} \\varphi \\cos^ {2 p - 1} \\varphi \\mathrm{d} \\varphi . \\tag {11}",
+          "image_source": "../../raw/pages_0161-0192/images/page_189_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.368,
+            0.503,
+            0.407
+          ],
+          "content": "令  $x=\\frac{y}{1+y},1-x=\\frac{1}{1+y},dx=\\frac{dy}{(1+y)^{2}}$ ，则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.411,
+            0.41,
+            0.677,
+            0.451
+          ],
+          "content": "\\mathrm{B} (p, q) = \\int_ {0} ^ {+ \\infty} \\frac {y ^ {p - 1}}{(1 + y) ^ {p + q}} \\mathrm{d} y.",
+          "image_source": "../../raw/pages_0161-0192/images/page_189_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.177,
+            0.454,
+            0.556,
+            0.496
+          ],
+          "content": "考察 $\\int_{1}^{+\\infty}\\frac{y^{p - 1}}{(1 + y)^{p + q}}\\mathrm{d}y.$ 令 $y = \\frac{1}{t}$，则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.368,
+            0.499,
+            0.721,
+            0.541
+          ],
+          "content": "\\int_ {1} ^ {+ \\infty} \\frac {y ^ {p - 1}}{(1 + y) ^ {p + q}} \\mathrm{d} y = - \\int_ {1} ^ {0} \\frac {t ^ {q - 1}}{(1 + t) ^ {p + q}} \\mathrm{d} t.",
+          "image_source": "../../raw/pages_0161-0192/images/page_189_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.544,
+            0.182,
+            0.56
+          ],
+          "content": "所以"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.416,
+            0.563,
+            0.672,
+            0.605
+          ],
+          "content": "\\mathrm{B} (p, q) = \\int_ {0} ^ {1} \\frac {y ^ {p - 1} + y ^ {q - 1}}{(1 + y) ^ {p + q}} \\mathrm{d} y.",
+          "image_source": "../../raw/pages_0161-0192/images/page_189_equation_11.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.134,
+            0.615,
+            0.491,
+            0.634
+          ],
+          "level": 2,
+          "content": "三、$\\Gamma$ 函数与 B 函数之间的关系"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.178,
+            0.644,
+            0.696,
+            0.661
+          ],
+          "content": "当 m, n 为正整数时, 反复应用 B 函数的递推公式可得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.312,
+            0.667,
+            0.779,
+            0.735
+          ],
+          "content": "\\begin{array}{l} \\mathrm{B} (m, n) = \\frac {n - 1}{m + n - 1} \\mathrm{B} (m, n - 1) \\\\ = \\frac {n - 1}{m + n - 1} \\frac {n - 2}{m + n - 2} \\dots \\frac {1}{m + 1} \\mathrm{B} (m, 1). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_189_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.741,
+            0.504,
+            0.773
+          ],
+          "content": "又由于 $\\mathrm{B}(m,1) = \\int_0^1 x^{m - 1}\\mathrm{d}x = \\frac{1}{m}$，所以"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.279,
+            0.78,
+            0.818,
+            0.85
+          ],
+          "content": "\\begin{array}{l} \\mathrm{B} (m, n) = \\frac {n - 1}{m + n - 1} \\frac {n - 2}{m + n - 2} \\dots \\frac {1}{m + 1} \\frac {1}{m} \\cdot \\frac {(m - 1) !}{(m - 1) !} \\\\ = \\frac {(n - 1) ! (m - 1) !}{(m + n - 1) !}, \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_189_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.855,
+            0.163,
+            0.871
+          ],
+          "content": "即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.437,
+            0.876,
+            0.956,
+            0.909
+          ],
+          "content": "\\mathrm{B} (m, n) = \\frac {\\Gamma (n) \\Gamma (m)}{\\Gamma (n + m)}. \\tag {12}",
+          "image_source": "../../raw/pages_0161-0192/images/page_189_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.178,
+            0.914,
+            0.551,
+            0.931
+          ],
+          "content": "对于任何正实数 p, q 也有相同的关系:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.095,
+            0.964,
+            0.124,
+            0.975
+          ],
+          "content": "182"
+        }
+      ]
+    },
+    {
+      "page_idx": 190,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.656,
+            0.029,
+            0.812,
+            0.045
+          ],
+          "content": "第十九章总练习题"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.242,
+            0.079,
+            0.843,
+            0.114
+          ],
+          "content": "\\mathrm{B} (p, q) = \\frac {\\Gamma (p) \\Gamma (q)}{\\Gamma (p + q)} \\quad (p > 0, q > 0). \\tag {13}",
+          "image_source": "../../raw/pages_0161-0192/images/page_190_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.02,
+            0.117,
+            0.495,
+            0.134
+          ],
+          "content": "这个关系式我们将在第二十一章 §8 中加以证明."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.352,
+            0.164,
+            0.512,
+            0.184
+          ],
+          "level": 2,
+          "content": "习题 19.3"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.058,
+            0.205,
+            0.454,
+            0.236
+          ],
+          "content": "1. 计算 $\\Gamma\\left(\\frac{5}{2}\\right), \\Gamma\\left(-\\frac{5}{2}\\right), \\Gamma\\left(\\frac{1}{2} + n\\right), \\Gamma\\left(\\frac{1}{2} - n\\right)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.057,
+            0.241,
+            0.337,
+            0.273
+          ],
+          "content": "2. 计算  $\\int_{0}^{\\frac{\\pi}{2}}\\sin^{2n}u\\,du,\\int_{0}^{\\frac{\\pi}{2}}\\sin^{2n+1}u\\,du.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.058,
+            0.277,
+            0.212,
+            0.292
+          ],
+          "content": "3. 证明下列各式:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.061,
+            0.296,
+            0.575,
+            0.436
+          ],
+          "sub_type": "text",
+          "content": "(1) $\\Gamma(a) = \\int_{0}^{1}\\left(\\ln \\frac{1}{x}\\right)^{a - 1}\\mathrm{d}x, a > 0;$\n(2) $\\int_{0}^{+\\infty}\\frac{x^{a - 1}}{1 + x}\\mathrm{d}x = \\Gamma (a)\\Gamma (1 - a),0 <   a <   1;$\n(3) $\\int_{0}^{1} x^{p-1} (1 - x^r)^{q-1} \\, \\mathrm{d}x = \\frac{1}{r} \\mathrm{B}\\left(\\frac{p}{r}, q\\right), p > 0, q > 0, r > 0;$\n(4) $\\int_{0}^{+\\infty}\\frac{\\mathrm{d}x}{1 + x^4} = \\frac{\\pi}{2\\sqrt{2}}.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.058,
+            0.442,
+            0.166,
+            0.457
+          ],
+          "content": "4. 证明公式"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.271,
+            0.462,
+            0.591,
+            0.478
+          ],
+          "content": "\\mathrm{B} (p, q) = \\mathrm{B} (p + 1, q) + \\mathrm{B} (p, q + 1).",
+          "image_source": "../../raw/pages_0161-0192/images/page_190_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.057,
+            0.505,
+            0.282,
+            0.534
+          ],
+          "content": "5. 已知 $\\Gamma\\left(\\frac{1}{2}\\right) = \\sqrt{\\pi}$, 试证"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.348,
+            0.541,
+            0.513,
+            0.571
+          ],
+          "content": "\\int_ {- \\infty} ^ {+ \\infty} x ^ {2} \\mathrm{e} ^ {- x ^ {2}} \\mathrm{d} x = \\frac {\\sqrt {\\pi}}{2}.",
+          "image_source": "../../raw/pages_0161-0192/images/page_190_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.057,
+            0.577,
+            0.549,
+            0.592
+          ],
+          "content": "6. 试将下列积分用欧拉积分表示,并指出参量的取值范围:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.061,
+            0.599,
+            0.231,
+            0.63
+          ],
+          "content": "(1) $\\int_{0}^{\\frac{\\pi}{2}}\\sin^{m}x\\cos^{n}x\\mathrm{d}x;$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.372,
+            0.601,
+            0.531,
+            0.63
+          ],
+          "content": "(2) $\\int_{0}^{1}\\left(\\ln \\frac{1}{x}\\right)^{p}\\mathrm{d}x.$"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.304,
+            0.679,
+            0.564,
+            0.702
+          ],
+          "level": 2,
+          "content": "第十九章总练习题"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.02,
+            0.747,
+            0.848,
+            0.796
+          ],
+          "content": "1. 在区间 $1 \\leqslant x \\leqslant 3$ 上用线性函数 $a + bx$ 近似代替 $f(x) = x^2$，试求 $a, b$，使得积分 $\\int_{1}^{3} (a + bx - x^2)^2 \\mathrm{d}x$ 取最小值."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.057,
+            0.801,
+            0.363,
+            0.829
+          ],
+          "content": "2. 设 $u(x) = \\int_{0}^{1} k(x, y) v(y) \\, \\mathrm{d}y$，其中"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.308,
+            0.835,
+            0.559,
+            0.87
+          ],
+          "content": "k (x, y) = \\left\\{ \\begin{array}{l l} x (1 - y), & x \\leqslant y, \\\\ y (1 - x), & x > y, \\end{array} \\right.",
+          "image_source": "../../raw/pages_0161-0192/images/page_190_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.02,
+            0.873,
+            0.298,
+            0.89
+          ],
+          "content": "$v(y)$ 为 $[0,1]$ 上的连续函数,证明"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.361,
+            0.894,
+            0.502,
+            0.909
+          ],
+          "content": "u ^ {\\prime \\prime} (x) = - v (x).",
+          "image_source": "../../raw/pages_0161-0192/images/page_190_equation_24.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.864,
+            0.963,
+            0.893,
+            0.974
+          ],
+          "content": "183"
+        }
+      ]
+    },
+    {
+      "page_idx": 191,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.139,
+            0.026,
+            0.366,
+            0.042
+          ],
+          "content": "第十九章 含参量积分"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.175,
+            0.076,
+            0.265,
+            0.09
+          ],
+          "content": "3. 求函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.433,
+            0.094,
+            0.673,
+            0.124
+          ],
+          "content": "F (a) = \\int_ {0} ^ {+ \\infty} \\frac {\\sin (1 - a ^ {2}) x}{x} \\mathrm{d} x",
+          "image_source": "../../raw/pages_0161-0192/images/page_191_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.13,
+            0.438,
+            0.146
+          ],
+          "content": "的不连续点,并作函数  $F(a)$  的图像."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.152,
+            0.965,
+            0.217
+          ],
+          "content": "4. 证明: 若 $\\int_{0}^{+\\infty} f(x, t) \\mathrm{d}t$ 在 $x \\in (0, +\\infty)$ 上一致收敛于 $F(x)$, 且 $\\lim_{x \\to +\\infty} f(x, t) = \\varphi(t)$ 对任意 $t \\in [a, b] \\subset (0, +\\infty)$ 一致地成立（即对任意 $\\varepsilon > 0$, 存在 $M > 0$, 当 $x > M$ 时, $|f(x, t) - \\varphi(t)| < \\varepsilon$ 对一切 $t \\in [a, b]$ 成立），则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.448,
+            0.222,
+            0.653,
+            0.25
+          ],
+          "content": "\\lim _ {x \\to + \\infty} F (x) = \\int_ {0} ^ {+ \\infty} \\varphi (t)   \\mathrm{d} t.",
+          "image_source": "../../raw/pages_0161-0192/images/page_191_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.175,
+            0.254,
+            0.642,
+            0.27
+          ],
+          "content": "5. 设 $f(x)$ 为二阶可微函数, $F(x)$ 为可微函数. 证明函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.327,
+            0.274,
+            0.78,
+            0.303
+          ],
+          "content": "u (x, t) = \\frac {1}{2} [ f (x - a t) + f (x + a t) ] + \\frac {1}{2 a} \\int_ {x - a t} ^ {x + a t} F (z) \\mathrm{d} z",
+          "image_source": "../../raw/pages_0161-0192/images/page_191_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.309,
+            0.28,
+            0.325
+          ],
+          "content": "满足弦振动方程"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.497,
+            0.327,
+            0.611,
+            0.363
+          ],
+          "content": "\\frac {\\partial^ {2} u}{\\partial t ^ {2}} = a ^ {2} \\frac {\\partial^ {2} u}{\\partial x ^ {2}}",
+          "image_source": "../../raw/pages_0161-0192/images/page_191_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.369,
+            0.495,
+            0.385
+          ],
+          "content": "及初值条件 $u(x,0) = f(x), u_t(x,0) = F(x)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.177,
+            0.389,
+            0.256,
+            0.404
+          ],
+          "content": "6. 证明:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.18,
+            0.408,
+            0.378,
+            0.439
+          ],
+          "content": "(1) $\\int_{0}^{1}\\frac{\\ln x}{1 - x}\\mathrm{d}x = -\\frac{\\pi^2}{6};$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.477,
+            0.406,
+            0.841,
+            0.44
+          ],
+          "content": "(2) $\\int_{0}^{u}\\frac{\\ln(1 - t)}{t}\\mathrm{d}t = -\\sum_{n = 1}^{\\infty}\\frac{u^n}{n^2}, 0\\leqslant u\\leqslant 1.$"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.143,
+            0.486,
+            0.22,
+            0.535
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_191_image_14.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.229,
+            0.501,
+            0.432,
+            0.518
+          ],
+          "level": 2,
+          "content": "第十九章综合自测题"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.102,
+            0.959,
+            0.131,
+            0.97
+          ],
+          "content": "184"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "14612606",
+      "created_at": "2020-03-29T14:58:01+08:00",
+      "modified_at": "2020-03-29T14:58:01+08:00",
+      "creator_application": "Pdg2Pic",
+      "producer_application": "FreePic2Pdf_Lib - v3.16",
+      "page_count": 340,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "ocr"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 170,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 171,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 172,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 173,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 174,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 175,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 176,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 177,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 178,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 179,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 180,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 181,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 182,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 183,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 184,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 185,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 186,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 187,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 188,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 189,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 190,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 191,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

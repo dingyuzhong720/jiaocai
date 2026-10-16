@@ -1,0 +1,5146 @@
+{
+  "pages": [
+    {
+      "page_idx": 67,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.739,
+            0.103,
+            0.932,
+            0.175
+          ],
+          "content": "第十五章傅里叶级数"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.439,
+            0.293,
+            0.676,
+            0.316
+          ],
+          "level": 2,
+          "content": "§ 1 傅里叶级数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.361,
+            0.965,
+            0.401
+          ],
+          "content": "本章讨论在数学与工程技术中都有着广泛应用的一类函数项级数,即由三角函数列所产生的三角级数."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.139,
+            0.412,
+            0.445,
+            0.431
+          ],
+          "level": 2,
+          "content": "一、三角级数·正交函数系"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.441,
+            0.964,
+            0.481
+          ],
+          "content": "在科学实验与工程技术的某些现象中,常会碰到一种周期运动.最简单的周期运动,可用正弦函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.468,
+            0.487,
+            0.96,
+            0.503
+          ],
+          "content": "y = A \\sin (\\omega x + \\varphi) \\tag {1}",
+          "image_source": "../../raw/pages_0065-0096/images/page_67_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.507,
+            0.964,
+            0.562
+          ],
+          "content": "来描写. 由(1)所表达的周期运动也称为简谐振动, 其中 A 为振幅,  $\\varphi$  为初相角,  $\\omega$  为角频率, 于是简谐振动 y 的周期是  $T = \\frac{2\\pi}{\\omega}$ . 较为复杂的周期运动, 则常是几个简谐振动"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.367,
+            0.57,
+            0.738,
+            0.588
+          ],
+          "content": "y _ {k} = A _ {k} \\sin (k \\omega x + \\varphi_ {k}), \\quad k = 1, 2, \\dots , n",
+          "image_source": "../../raw/pages_0065-0096/images/page_67_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.592,
+            0.212,
+            0.609
+          ],
+          "content": "的叠加"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.393,
+            0.616,
+            0.961,
+            0.651
+          ],
+          "content": "y = \\sum_ {k = 1} ^ {n} y _ {k} = \\sum_ {k = 1} ^ {n} A _ {k} \\sin (k \\omega x + \\varphi_ {k}). \\tag {2}",
+          "image_source": "../../raw/pages_0065-0096/images/page_67_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.656,
+            0.964,
+            0.712
+          ],
+          "content": "由于简谐振动  $y_{k}$  的周期为  $\\frac{T}{k}\\left(T=\\frac{2\\pi}{\\omega}\\right), k=1,2,\\cdots,n$ ，所以函数(2)的周期为 T。对无穷多个简谐振动进行叠加就得到函数项级数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.426,
+            0.719,
+            0.961,
+            0.754
+          ],
+          "content": "A _ {0} + \\sum_ {n = 1} ^ {\\infty} A _ {n} \\sin (n \\omega x + \\varphi_ {n}). \\tag {3}",
+          "image_source": "../../raw/pages_0065-0096/images/page_67_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.757,
+            0.964,
+            0.797
+          ],
+          "content": "若级数(3)收敛,则它所描述的是更为一般的周期运动现象.对于级数(3),我们只要讨论  $\\omega=1$  (如果  $\\omega\\neq1$ , 可用  $\\omega x$  代换 x) 的情形.由于"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.338,
+            0.802,
+            0.767,
+            0.82
+          ],
+          "content": "\\sin (n x + \\varphi_ {n}) = \\sin \\varphi_ {n} \\cos n x + \\cos \\varphi_ {n} \\sin n x,",
+          "image_source": "../../raw/pages_0065-0096/images/page_67_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.824,
+            0.192,
+            0.84
+          ],
+          "content": "所以"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.334,
+            0.848,
+            0.964,
+            0.929
+          ],
+          "content": "\\begin{array}{l} A _ {0} + \\sum_ {n = 1} ^ {\\infty} A _ {n} \\sin (n x + \\varphi_ {n}) \\\\ = A _ {0} + \\sum_ {n = 1} ^ {\\infty} (A _ {n} \\sin \\varphi_ {n} \\cos n x + A _ {n} \\cos \\varphi_ {n} \\sin n x). \\tag {$3^{\\prime$}} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_67_equation_15.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.109,
+            0.963,
+            0.131,
+            0.974
+          ],
+          "content": "60"
+        }
+      ]
+    },
+    {
+      "page_idx": 68,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.685,
+            0.034,
+            0.826,
+            0.048
+          ],
+          "content": "§ 1 傅里叶级数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.087,
+            0.627,
+            0.116
+          ],
+          "content": "记 $A_{0} = \\frac{a_{0}}{2},\\quad A_{n}\\sin \\varphi_{n} = a_{n},\\quad A_{n}\\cos \\varphi_{n} = b_{n},\\quad n = 1,2,\\dots ,$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.123,
+            0.217,
+            0.14
+          ],
+          "content": "则级数 $(3^{\\prime})$ 可写成"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.295,
+            0.148,
+            0.854,
+            0.181
+          ],
+          "content": "\\frac {a _ {0}}{2} + \\sum_ {n = 1} ^ {\\infty} (a _ {n} \\cos n x + b _ {n} \\sin n x). \\tag {4}",
+          "image_source": "../../raw/pages_0065-0096/images/page_68_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.186,
+            0.42,
+            0.203
+          ],
+          "content": "它是由三角函数列(也称为三角函数系)"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.215,
+            0.21,
+            0.854,
+            0.224
+          ],
+          "content": "1, \\cos x, \\sin x, \\cos 2 x, \\sin 2 x, \\dots , \\cos n x, \\sin n x, \\dots \\tag {5}",
+          "image_source": "../../raw/pages_0065-0096/images/page_68_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.229,
+            0.334,
+            0.246
+          ],
+          "content": "所产生的一般形式的三角级数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.251,
+            0.787,
+            0.268
+          ],
+          "content": "容易验证,若三角级数(4)收敛,则它的和一定是一个以 $2\\pi$ 为周期的函数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.273,
+            0.46,
+            0.289
+          ],
+          "content": "关于三角级数(4)的收敛性有如下定理."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.294,
+            0.266,
+            0.31
+          ],
+          "content": "定理15.1 若级数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.308,
+            0.315,
+            0.584,
+            0.353
+          ],
+          "content": "\\frac {\\mid a _ {0} \\mid}{2} + \\sum_ {n = 1} ^ {\\infty} (\\mid a _ {n} \\mid + \\mid b _ {n} \\mid)",
+          "image_source": "../../raw/pages_0065-0096/images/page_68_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.357,
+            0.539,
+            0.374
+          ],
+          "content": "收敛,则级数(4)在整个数轴上绝对收敛且一致收敛."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.378,
+            0.31,
+            0.395
+          ],
+          "content": "证 对任何实数 $x$ ，由于"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.259,
+            0.399,
+            0.64,
+            0.418
+          ],
+          "content": "\\mid a _ {n} \\cos n x + b _ {n} \\sin n x \\mid \\leqslant \\mid a _ {n} \\mid + \\mid b _ {n} \\mid ,",
+          "image_source": "../../raw/pages_0065-0096/images/page_68_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.421,
+            0.661,
+            0.438
+          ],
+          "content": "应用魏尔斯特拉斯 $M$ 判别法(定理13.5)就能推得本定理的结论."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.838,
+            0.421,
+            0.855,
+            0.436
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_68_image_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.443,
+            0.843,
+            0.46
+          ],
+          "content": "为进一步研究三角级数(4)的收敛性,我们先探讨三角函数系(5)具有哪些特性."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.081,
+            0.464,
+            0.682,
+            0.481
+          ],
+          "content": "首先容易看出,三角函数系(5)中所有函数具有共同的周期 $2\\pi$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.486,
+            0.859,
+            0.523
+          ],
+          "content": "其次,在三角函数系(5)中,任何两个不相同的函数的乘积在 $[-π,π]$ 上的积分都等于零,即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.298,
+            0.531,
+            0.854,
+            0.56
+          ],
+          "content": "\\int_ {- \\pi} ^ {\\pi} \\cos n x \\mathrm{d} x = \\int_ {- \\pi} ^ {\\pi} \\sin n x \\mathrm{d} x = 0, \\tag {6}",
+          "image_source": "../../raw/pages_0065-0096/images/page_68_equation_19.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.269,
+            0.567,
+            0.854,
+            0.677
+          ],
+          "content": "\\left. \\begin{array}{l} \\int_ {- \\pi} ^ {\\pi} \\cos m x \\cos n x \\mathrm{d} x = 0 \\quad (m \\neq n), \\\\ \\int_ {- \\pi} ^ {\\pi} \\sin m x \\sin n x \\mathrm{d} x = 0 \\quad (m \\neq n), \\\\ \\int_ {- \\pi} ^ {\\pi} \\cos m x \\sin n x \\mathrm{d} x = 0. \\end{array} \\right\\} \\tag {7}",
+          "image_source": "../../raw/pages_0065-0096/images/page_68_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.682,
+            0.658,
+            0.699
+          ],
+          "content": "而(5)中任何一个函数的平方在 $[-π,π]$ 上的积分都不等于零,即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.28,
+            0.705,
+            0.854,
+            0.775
+          ],
+          "content": "\\left. \\begin{array}{l} \\int_ {- \\pi} ^ {\\pi} \\cos^ {2} n x \\mathrm{d} x = \\int_ {- \\pi} ^ {\\pi} \\sin^ {2} n x \\mathrm{d} x = \\pi , \\\\ \\int_ {- \\pi} ^ {\\pi} 1 ^ {2} \\mathrm{d} x = 2 \\pi . \\end{array} \\right\\} \\tag {8}",
+          "image_source": "../../raw/pages_0065-0096/images/page_68_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.779,
+            0.448,
+            0.796
+          ],
+          "content": "若两个函数 $\\varphi$ 与 $\\psi$ 在 $[a,b]$ 上可积，且"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.349,
+            0.801,
+            0.542,
+            0.833
+          ],
+          "content": "\\int_ {a} ^ {b} \\varphi (x) \\psi (x) \\mathrm{d} x = 0,",
+          "image_source": "../../raw/pages_0065-0096/images/page_68_equation_24.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.036,
+            0.837,
+            0.856,
+            0.875
+          ],
+          "content": "则称函数 $\\varphi$ 与 $\\psi$ 在 $[a, b]$ 上是正交的. 由此, 三角函数系(5)在 $[- \\pi, \\pi]$ 上具有正交性, 或称(5)是正交函数系."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.037,
+            0.885,
+            0.455,
+            0.905
+          ],
+          "level": 2,
+          "content": "二、以 $2\\pi$ 为周期的函数的傅里叶级数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.916,
+            0.857,
+            0.934
+          ],
+          "content": "应用三角函数系(5)的正交性,我们讨论三角级数(4)的和函数f与级数(4)的系"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.875,
+            0.967,
+            0.893,
+            0.978
+          ],
+          "content": "61"
+        }
+      ]
+    },
+    {
+      "page_idx": 69,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.136,
+            0.029,
+            0.363,
+            0.045
+          ],
+          "content": "第十五章 傅里叶级数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.079,
+            0.372,
+            0.096
+          ],
+          "content": "数  $a_{0}, a_{n}, b_{n}$  之间的关系."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.178,
+            0.101,
+            0.457,
+            0.118
+          ],
+          "content": "定理15.2 若在整个数轴上"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.365,
+            0.127,
+            0.955,
+            0.161
+          ],
+          "content": "f (x) = \\frac {a _ {0}}{2} + \\sum_ {n = 1} ^ {\\infty} (a _ {n} \\cos n x + b _ {n} \\sin n x) \\tag {9}",
+          "image_source": "../../raw/pages_0065-0096/images/page_69_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.166,
+            0.565,
+            0.182
+          ],
+          "content": "且等式右边级数一致收敛,则有如下关系式:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.349,
+            0.19,
+            0.956,
+            0.232
+          ],
+          "content": "a _ {n} = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (x) \\cos n x \\mathrm{d} x, \\quad n = 0, 1, 2, \\dots , \\tag {10}",
+          "image_source": "../../raw/pages_0065-0096/images/page_69_equation_5.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.35,
+            0.23,
+            0.715,
+            0.261
+          ],
+          "content": "b _ {n} = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (x) \\sin n x \\mathrm{d} x, \\quad n = 1, 2, \\dots .",
+          "image_source": "../../raw/pages_0065-0096/images/page_69_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.178,
+            0.268,
+            0.856,
+            0.285
+          ],
+          "content": "证 由定理条件,函数f在 $[-π,π]$ 上连续且可积.对(9)式逐项积分得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.306,
+            0.291,
+            0.786,
+            0.367
+          ],
+          "content": "\\begin{array}{l} \\int_ {- \\pi} ^ {\\pi} f (x) \\mathrm{d} x \\\\ = \\frac {a _ {0}}{2} \\int_ {- \\pi} ^ {\\pi} \\mathrm{d} x + \\sum_ {n = 1} ^ {\\infty} \\left(a _ {n} \\int_ {- \\pi} ^ {\\pi} \\cos n x \\mathrm{d} x + b _ {n} \\int_ {- \\pi} ^ {\\pi} \\sin n x \\mathrm{d} x\\right). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_69_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.372,
+            0.668,
+            0.388
+          ],
+          "content": "由关系式(6)知,上式右边括号内的积分都等于零.所以"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.411,
+            0.398,
+            0.682,
+            0.429
+          ],
+          "content": "\\int_ {- \\pi} ^ {\\pi} f (x) \\mathrm{d} x = \\frac {a _ {0}}{2} \\cdot 2 \\pi = a _ {0} \\pi ,",
+          "image_source": "../../raw/pages_0065-0096/images/page_69_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.436,
+            0.185,
+            0.452
+          ],
+          "content": "即得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.456,
+            0.46,
+            0.637,
+            0.492
+          ],
+          "content": "a _ {0} = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (x) \\mathrm{d} x,",
+          "image_source": "../../raw/pages_0065-0096/images/page_69_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.498,
+            0.545,
+            0.516
+          ],
+          "content": "现以 $\\cos kx$ 乘(9)式两边（ $k$ 为正整数），得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.244,
+            0.524,
+            0.956,
+            0.557
+          ],
+          "content": "f (x) \\cos k x = \\frac {a _ {0}}{2} \\cos k x + \\sum_ {n = 1} ^ {\\infty} (a _ {n} \\cos n x \\cos k x + b _ {n} \\sin n x \\cos k x). \\tag {11}",
+          "image_source": "../../raw/pages_0065-0096/images/page_69_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.563,
+            0.959,
+            0.602
+          ],
+          "content": "从第十三章 §1 习题4知道,由级数(9)一致收敛,可推出级数(11)也一致收敛.于是对级数(11)逐项求积,有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.221,
+            0.609,
+            0.871,
+            0.685
+          ],
+          "content": "\\begin{array}{l} \\int_ {- \\pi} ^ {\\pi} f (x) \\cos k x \\mathrm{d} x \\\\ = \\frac {a _ {0}}{2} \\int_ {- \\pi} ^ {\\pi} \\cos k x \\mathrm{d} x + \\sum_ {n = 1} ^ {\\infty} \\left(a _ {n} \\int_ {- \\pi} ^ {\\pi} \\cos n x \\cos k x \\mathrm{d} x + b _ {n} \\int_ {- \\pi} ^ {\\pi} \\sin n x \\cos k x \\mathrm{d} x\\right). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_69_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.69,
+            0.696,
+            0.707
+          ],
+          "content": "由三角函数的正交性,右边除了以  $a_{k}$  为系数的那一项积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.466,
+            0.714,
+            0.632,
+            0.746
+          ],
+          "content": "\\int_ {- \\pi} ^ {\\pi} \\cos^ {2} k x \\mathrm{d} x = \\pi",
+          "image_source": "../../raw/pages_0065-0096/images/page_69_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.751,
+            0.492,
+            0.767
+          ],
+          "content": "外,其他各项积分都等于0,于是得出"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.361,
+            0.774,
+            0.734,
+            0.805
+          ],
+          "content": "\\int_ {- \\pi} ^ {\\pi} f (x) \\cos k x \\mathrm{d} x = a _ {k} \\pi (k = 1, 2, \\dots),",
+          "image_source": "../../raw/pages_0065-0096/images/page_69_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.81,
+            0.163,
+            0.826
+          ],
+          "content": "即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.358,
+            0.833,
+            0.734,
+            0.866
+          ],
+          "content": "a _ {k} = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (x) \\cos k x \\mathrm{d} x (k = 1, 2, \\dots).",
+          "image_source": "../../raw/pages_0065-0096/images/page_69_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.872,
+            0.584,
+            0.889
+          ],
+          "content": "同理,(9)式两边乘以  $\\sin kx$ , 并逐项求积, 可得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.36,
+            0.895,
+            0.731,
+            0.928
+          ],
+          "content": "b _ {k} = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (x) \\sin k x \\mathrm{d} x (k = 1, 2, \\dots).",
+          "image_source": "../../raw/pages_0065-0096/images/page_69_equation_24.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.104,
+            0.963,
+            0.124,
+            0.973
+          ],
+          "content": "62"
+        }
+      ]
+    },
+    {
+      "page_idx": 70,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.68,
+            0.033,
+            0.824,
+            0.048
+          ],
+          "content": "§ 1 傅里叶级数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.082,
+            0.857,
+            0.143
+          ],
+          "content": "一般地说, 若 f 是以  $2\\pi$  为周期且在  $[-\\pi, \\pi]$  上可积的函数, 则按公式(10)计算出的  $a_{n}$  和  $b_{n}$  称为函数 f (关于三角函数系) 的傅里叶系数, 以 f 的傅里叶系数为系数的三角级数(9)称为 f (关于三角函数系) 的傅里叶级数, 记作"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.249,
+            0.15,
+            0.851,
+            0.183
+          ],
+          "content": "f (x) \\sim \\frac {a _ {0}}{2} + \\sum_ {n = 1} ^ {\\infty} (a _ {n} \\cos n x + b _ {n} \\sin n x). \\tag {12}",
+          "image_source": "../../raw/pages_0065-0096/images/page_70_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.188,
+            0.857,
+            0.315
+          ],
+          "content": "这里记号“\\~”表示上式右边是左边函数的傅里叶级数. 由定理15.2知道: 若(9)式右边的三角级数在整个数轴上一致收敛于其和函数f, 则此三角级数就是f的傅里叶级数, 即此时(12)式中的记号“\\~”可换为等号. 然而, 若从以 $2\\pi$ 为周期且在 $[-\\pi,\\pi]$ 上可积的函数f出发, 按公式(10)求出其傅里叶系数并得到傅里叶级数(12), 这时还需讨论此级数是否收敛, 以及如果收敛, 是否收敛于f本身. 这就是下一段所要叙述的内容."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.034,
+            0.325,
+            0.185,
+            0.345
+          ],
+          "level": 2,
+          "content": "三、收敛定理"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.355,
+            0.443,
+            0.373
+          ],
+          "content": "下面的定理称为傅里叶级数收敛定理."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.377,
+            0.857,
+            0.417
+          ],
+          "content": "定理15.3 若以 $2\\pi$ 为周期的函数 $f$ 在 $[- \\pi, \\pi]$ 上按段光滑，则在每一点 $x \\in [-\\pi, \\pi]$，$f$ 的傅里叶级数（12）收敛于 $f$ 在点 $x$ 的左、右极限的算术平均值，即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.174,
+            0.42,
+            0.709,
+            0.457
+          ],
+          "content": "\\frac {f (x + 0) + f (x - 0)}{2} = \\frac {a _ {0}}{2} + \\sum_ {n = 1} ^ {\\infty} (a _ {n} \\cos n x + b _ {n} \\sin n x),",
+          "image_source": "../../raw/pages_0065-0096/images/page_70_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.462,
+            0.321,
+            0.481
+          ],
+          "content": "其中 $a_{n}, b_{n}$ 为 $f$ 的傅里叶系数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.485,
+            0.857,
+            0.524
+          ],
+          "content": "下面先对定理中的某些概念作解释,然后举例说明如何运用这个定理把函数展开成傅里叶级数.关于收敛定理的证明将在§3中进行."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.528,
+            0.857,
+            0.61
+          ],
+          "content": "我们知道,若f的导函数在 $[a,b]$ 上连续,则称f在 $[a,b]$ 上光滑.但若定义在 $[a,b]$ 上除了至多有有限个第一类间断点的函数f的导函数在 $[a,b]$ 上除了至多有限个点外都存在且连续,在这有限个点上导函数 $f'$ 的左、右极限存在,则称f在 $[a,b]$ 上按段光滑."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.615,
+            0.704,
+            0.633
+          ],
+          "content": "根据上述定义,若函数f在 $[a,b]$ 上按段光滑,则有如下重要性质:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.075,
+            0.637,
+            0.275,
+            0.653
+          ],
+          "content": "$1^{\\circ}f$ 在 $[a,b]$ 上可积."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.074,
+            0.659,
+            0.477,
+            0.676
+          ],
+          "content": "$2^{\\circ}$ 在 $[a,b]$ 上每一点都存在 $f(x\\pm 0)$，且有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.262,
+            0.681,
+            0.852,
+            0.726
+          ],
+          "content": "\\lim _ {t \\to 0 ^ {+}} \\frac {f (x + t) - f (x + 0)}{t} = f ^ {\\prime} (x + 0), \\tag {13}",
+          "image_source": "../../raw/pages_0065-0096/images/page_70_equation_14.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.264,
+            0.725,
+            0.62,
+            0.757
+          ],
+          "content": "\\lim _ {t \\to 0 ^ {+}} \\frac {f (x - t) - f (x - 0)}{- t} = f ^ {\\prime} (x - 0).",
+          "image_source": "../../raw/pages_0065-0096/images/page_70_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.765,
+            0.857,
+            0.804
+          ],
+          "content": "$3^{\\circ}$ 补充定义 $f'$ 在 $[a,b]$ 上那些至多有限个不存在点上的值后（仍记为 $f'$），$f'$ 在 $[a,b]$ 上可积."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.808,
+            0.857,
+            0.847
+          ],
+          "content": "从几何图形上讲,在区间 $[a,b]$ 上按段光滑函数,是由有限个光滑弧段所组成,它至多有有限个第一类间断点与角点(图15-1)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.852,
+            0.857,
+            0.934
+          ],
+          "content": "收敛定理指出，$f$ 的傅里叶级数在点 $x$ 处收敛于这一点上 $f$ 的左、右极限的算术平均值 $\\frac{f(x + 0) + f(x - 0)}{2}$; 而当 $f$ 在点 $x$ 连续时，则有 $\\frac{f(x + 0) + f(x - 0)}{2} = f(x)$，即此时 $f$ 的傅里叶级数收敛于 $f(x)$. 于是有下面推论."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.873,
+            0.967,
+            0.894,
+            0.977
+          ],
+          "content": "63"
+        }
+      ]
+    },
+    {
+      "page_idx": 71,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.139,
+            0.029,
+            0.367,
+            0.045
+          ],
+          "content": "第十五章 傅里叶级数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.079,
+            0.963,
+            0.118
+          ],
+          "content": "推论 若 $f$ 是以 $2\\pi$ 为周期的连续函数, 且在 $[- \\pi, \\pi]$ 上按段光滑, 则 $f$ 的傅里叶级数在 $(- \\infty, + \\infty)$ 上收敛于 $f$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.123,
+            0.616,
+            0.205
+          ],
+          "content": "根据收敛定理的假设, $f$ 是以 $2\\pi$ 为周期的函数,所以系数公式(10)中的积分区间 $[-π,π]$ 可以改为长度为 $2π$ 的任何区间,而不影响 $a_{n},b_{n}$ 的值:"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.634,
+            0.123,
+            0.941,
+            0.248
+          ],
+          "sub_type": "line",
+          "content": "| X | Y |\n| --- | --- |\n| a | ~0.2 |\n| x1 | ~0.6 |\n| x2 | ~0.3 |\n| x2 (open circle) | ~0.7 |\n| x3 | ~0.9 |\n| x3 (filled circle) | ~0.5 |\n| x4 | ~0.3 |\n| b | ~0.8 |",
+          "captions": [
+            {
+              "bbox": [
+                0.754,
+                0.257,
+                0.823,
+                0.272
+              ],
+              "content": "图15-1"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_71_chart_3.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.18,
+            0.21,
+            0.571,
+            0.244
+          ],
+          "content": "a _ {n} = \\frac {1}{\\pi} \\int_ {c} ^ {c + 2 \\pi} f (x) \\cos n x \\mathrm{d} x, n = 0, 1, 2, \\dots ,",
+          "image_source": "../../raw/pages_0065-0096/images/page_71_equation_5.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.18,
+            0.25,
+            0.614,
+            0.306
+          ],
+          "content": "b _ {n} = \\frac {1}{\\pi} \\int_ {c} ^ {c + 2 \\pi} f (x) \\sin n x \\mathrm{d} x, n = 1, 2, \\dots , \\tag {$10^{\\prime$}}",
+          "image_source": "../../raw/pages_0065-0096/images/page_71_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.312,
+            0.326,
+            0.329
+          ],
+          "content": "其中 c 为任何实数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.334,
+            0.965,
+            0.417
+          ],
+          "content": "注意:在具体讨论函数的傅里叶级数展开式时，常只给出函数 $f$ 在 $(- \\pi, \\pi]$ （或 $[- \\pi, \\pi)$ ）上的解析表达式，但读者应理解为它是定义在整个数轴上以 $2\\pi$ 为周期的函数。即在 $(- \\pi, \\pi]$ 以外的部分按函数在 $(- \\pi, \\pi]$ 上的对应关系作周期延拓。如 $f$ 为 $(- \\pi, \\pi]$ 上的解析表达式，那么周期延拓后的函数为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.201,
+            0.421,
+            0.895,
+            0.461
+          ],
+          "content": "\\hat {f} (x) = \\left\\{ \\begin{array}{l} f (x), x \\in (- \\pi , \\pi ], \\\\ f (x - 2 k \\pi), x \\in ((2 k - 1) \\pi , (2 k + 1) \\pi ], \\quad k = \\pm 1, \\pm 2, \\dots , \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_71_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.469,
+            0.886,
+            0.488
+          ],
+          "content": "如图 15-2 所示. 因此我们说函数 f 的傅里叶级数就是指函数  $\\hat{f}$  的傅里叶级数."
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.304,
+            0.493,
+            0.801,
+            0.591
+          ],
+          "sub_type": "line",
+          "content": "| X | Y |\n| --- | --- |\n| \\(-3\\pi\\) | ~0.2 |\n| \\(-\\pi\\) | ~0.2 |\n| \\(\\pi\\) | ~0.2 |\n| \\(3\\pi\\) | ~0.2 |\n| \\(5\\pi\\) | ~0.2 |",
+          "captions": [
+            {
+              "bbox": [
+                0.375,
+                0.604,
+                0.728,
+                0.621
+              ],
+              "content": "图15-2 实线与虚线的全体表示 $y = \\hat{f}(x)$"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_71_chart_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.184,
+            0.648,
+            0.273,
+            0.665
+          ],
+          "content": "例1 设"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.416,
+            0.671,
+            0.685,
+            0.709
+          ],
+          "content": "f (x) = \\left\\{ \\begin{array}{l l} x, & 0 \\leqslant x \\leqslant \\pi , \\\\ 0, & - \\pi <   x <   0, \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_71_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.714,
+            0.392,
+            0.731
+          ],
+          "content": "求 f 的傅里叶级数展开式."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.736,
+            0.965,
+            0.775
+          ],
+          "content": "解 函数 f 及其周期延拓后的图像如图 15-3 所示. 显然 f 是按段光滑的, 故由定理 15.3 (收敛定理), 它可以展开成傅里叶级数. 由于"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.306,
+            0.781,
+            0.803,
+            0.88
+          ],
+          "sub_type": "line",
+          "content": "| X | Y |\n| --- | --- |\n| \\(-3\\pi\\) | 0 |\n| \\(-2\\pi\\) | 0 |\n| \\(-\\pi\\) | \\(0, \\pi\\) |\n| \\(\\pi\\) | 0 |\n| \\(2\\pi\\) | 0 |\n| \\(3\\pi\\) | \\(0, \\pi\\) |\n| \\(4\\pi\\) | \\(0, \\pi\\) |",
+          "captions": [
+            {
+              "bbox": [
+                0.519,
+                0.888,
+                0.59,
+                0.902
+              ],
+              "content": "图15-3"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_71_chart_17.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.108,
+            0.963,
+            0.13,
+            0.974
+          ],
+          "content": "64"
+        }
+      ]
+    },
+    {
+      "page_idx": 72,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.672,
+            0.033,
+            0.816,
+            0.048
+          ],
+          "content": "§ 1 傅里叶级数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.268,
+            0.083,
+            0.595,
+            0.116
+          ],
+          "content": "a _ {0} = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (x) \\mathrm{d} x = \\frac {1}{\\pi} \\int_ {0} ^ {\\pi} x \\mathrm{d} x = \\frac {\\pi}{2}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_72_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.122,
+            0.137,
+            0.139
+          ],
+          "content": "当 $n \\geqslant 1$ 时，"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.194,
+            0.145,
+            0.675,
+            0.285
+          ],
+          "content": "\\begin{array}{l} a _ {n} = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (x) \\cos n x \\mathrm{d} x = \\frac {1}{\\pi} \\int_ {0} ^ {\\pi} x \\cos n x \\mathrm{d} x \\\\ = \\frac {1}{n \\pi} x \\sin n x \\Bigg | _ {0} ^ {\\pi} - \\frac {1}{n \\pi} \\int_ {0} ^ {\\pi} \\sin n x \\mathrm{d} x = \\frac {1}{n ^ {2} \\pi} \\cos n x \\Bigg | _ {0} ^ {\\pi} \\\\ = \\frac {1}{n ^ {2} \\pi} (\\cos n \\pi - 1) = \\left\\{ \\begin{array}{l l} - \\frac {2}{n ^ {2} \\pi}, & \\text {当} n \\text {为奇数时,} \\\\ 0, & \\text {当} n \\text {为偶数时,} \\end{array} \\right. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_72_equation_3.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.196,
+            0.292,
+            0.573,
+            0.448
+          ],
+          "content": "\\begin{array}{l} b _ {n} = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (x) \\sin n x \\mathrm{d} x = \\frac {1}{\\pi} \\int_ {0} ^ {\\pi} x \\sin n x \\mathrm{d} x \\\\ = - \\frac {1}{n \\pi} x \\cos n x \\Bigg | _ {0} ^ {\\pi} + \\frac {1}{n \\pi} \\int_ {0} ^ {\\pi} \\cos n x \\mathrm{d} x \\\\ = \\frac {(- 1) ^ {n + 1}}{n} + \\frac {1}{n ^ {2} \\pi} \\sin n x \\Bigg | _ {0} ^ {\\pi} \\\\ = \\frac {(- 1) ^ {n + 1}}{n}. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_72_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.456,
+            0.274,
+            0.473
+          ],
+          "content": "所以在开区间 $(-π, π)$ 上，"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.085,
+            0.479,
+            0.777,
+            0.513
+          ],
+          "content": "f (x) = \\frac {\\pi}{4} - \\left(\\frac {2}{\\pi} \\cos x - \\sin x\\right) - \\frac {1}{2} \\sin 2 x - \\left(\\frac {2}{9 \\pi} \\cos 3 x - \\frac {1}{3} \\sin 3 x\\right) - \\dots .",
+          "image_source": "../../raw/pages_0065-0096/images/page_72_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.519,
+            0.307,
+            0.536
+          ],
+          "content": "在  $x=\\pm\\pi$  时, 上式右边收敛于"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.243,
+            0.54,
+            0.617,
+            0.576
+          ],
+          "content": "\\frac {f (\\pi - 0) + f (- \\pi + 0)}{2} = \\frac {\\pi + 0}{2} = \\frac {\\pi}{2}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_72_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.583,
+            0.843,
+            0.601
+          ],
+          "content": "于是，在 $[-π,π]$ 上f的傅里叶级数的图像如图15-4所示(注意它与图15-3的差别)."
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.187,
+            0.627,
+            0.685,
+            0.726
+          ],
+          "sub_type": "scatter",
+          "content": "| X | Y (Series 1) | Y (Series 2) |\n| --- | --- | --- |\n| \\(-3\\pi\\) | 0 | ~\\(0.5\\pi\\) |\n| \\(-2\\pi\\) | 0 | — |\n| \\(-\\pi\\) | 0 | ~\\(0.5\\pi\\) |\n| \\(0\\) | 0 | — |\n| \\(\\pi\\) | 0 | ~\\(0.5\\pi\\) |\n| \\(2\\pi\\) | 0 | — |\n| \\(3\\pi\\) | 0 | ~\\(0.5\\pi\\) |\n| \\(4\\pi\\) | 0 | — |\n| \\(5\\pi\\) | 0 | ~\\(0.5\\pi\\) |",
+          "captions": [
+            {
+              "bbox": [
+                0.4,
+                0.735,
+                0.472,
+                0.75
+              ],
+              "content": "图15-4"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_72_chart_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.067,
+            0.781,
+            0.435,
+            0.797
+          ],
+          "content": "例 2 把下列函数展开成傅里叶级数:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.288,
+            0.803,
+            0.573,
+            0.866
+          ],
+          "content": "f (x) = \\left\\{ \\begin{array}{l l} x ^ {2}, & 0 <   x <   \\pi , \\\\ 0, & x = \\pi , \\\\ - x ^ {2}, & \\pi <   x \\leqslant 2 \\pi . \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_72_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.871,
+            0.848,
+            0.911
+          ],
+          "content": "解 $f$ 及其周期延拓的图形如图15-5所示. 显然 $f$ 是按段光滑的, 因此可以展开成傅里叶级数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.067,
+            0.916,
+            0.502,
+            0.933
+          ],
+          "content": "在 $(10')$ 式中令c=0来计算傅里叶系数如下:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.864,
+            0.966,
+            0.886,
+            0.977
+          ],
+          "content": "65"
+        }
+      ]
+    },
+    {
+      "page_idx": 73,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.136,
+            0.03,
+            0.364,
+            0.046
+          ],
+          "content": "第十五章 傅里叶级数"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.418,
+            0.078,
+            0.685,
+            0.304
+          ],
+          "sub_type": "text_image",
+          "content": "-3π -2π -π\nO π 2π 3π\nx\ny",
+          "captions": [
+            {
+              "bbox": [
+                0.516,
+                0.311,
+                0.587,
+                0.326
+              ],
+              "content": "图15-5"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_73_image_1.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.149,
+            0.353,
+            0.792,
+            0.389
+          ],
+          "content": "a _ {0} = \\frac {1}{\\pi} \\int_ {0} ^ {2 \\pi} f (x) \\mathrm{d} x = \\frac {1}{\\pi} \\int_ {0} ^ {\\pi} x ^ {2} \\mathrm{d} x + \\frac {1}{\\pi} \\int_ {\\pi} ^ {2 \\pi} (- x ^ {2}) \\mathrm{d} x = \\frac {\\pi^ {2}}{3} - \\frac {7 \\pi^ {2}}{3} = - 2 \\pi^ {2},",
+          "image_source": "../../raw/pages_0065-0096/images/page_73_equation_3.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.149,
+            0.395,
+            0.907,
+            0.513
+          ],
+          "content": "\\begin{array}{l} a _ {n} = \\frac {1}{\\pi} \\int_ {0} ^ {2 \\pi} f (x) \\cos n x \\mathrm{d} x = \\frac {1}{\\pi} \\int_ {0} ^ {\\pi} x ^ {2} \\cos n x \\mathrm{d} x + \\frac {1}{\\pi} \\int_ {\\pi} ^ {2 \\pi} (- x ^ {2}) \\cos n x \\mathrm{d} x \\\\ = \\frac {1}{\\pi} \\left[ \\left(\\frac {x ^ {2}}{n} - \\frac {2}{n ^ {3}}\\right) \\sin n x + \\frac {2 x}{n ^ {2}} \\cos n x \\right] \\Bigg | _ {0} ^ {\\pi} - \\frac {1}{\\pi} \\left[ \\left(\\frac {x ^ {2}}{n} - \\frac {2}{n ^ {3}}\\right) \\sin n x + \\frac {2 x}{n ^ {2}} \\cos n x \\right] \\Bigg | _ {\\pi} ^ {2 \\pi} \\\\ = \\frac {4}{n ^ {2}} \\left[ (- 1) ^ {n} - 1 \\right], \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_73_equation_4.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.151,
+            0.52,
+            0.952,
+            0.64
+          ],
+          "content": "\\begin{array}{l} b _ {n} = \\frac {1}{\\pi} \\int_ {0} ^ {2 \\pi} f (x) \\sin n x \\mathrm{d} x = \\frac {1}{\\pi} \\int_ {0} ^ {\\pi} x ^ {2} \\sin n x \\mathrm{d} x + \\frac {1}{\\pi} \\int_ {\\pi} ^ {2 \\pi} (- x ^ {2}) \\sin n x \\mathrm{d} x \\\\ = \\frac {1}{\\pi} \\left[ \\left(- \\frac {x ^ {2}}{n} + \\frac {2}{n ^ {3}}\\right) \\cos n x + \\frac {2 x}{n ^ {2}} \\sin n x \\right] \\Bigg | _ {0} ^ {\\pi} - \\frac {1}{\\pi} \\left[ \\left(- \\frac {x ^ {2}}{n} + \\frac {2}{n ^ {3}}\\right) \\cos n x + \\frac {2 x}{n ^ {2}} \\sin n x \\right] \\Bigg | _ {\\pi} ^ {2 \\pi} \\\\ = \\frac {2}{\\pi} \\left\\{\\frac {\\pi^ {2}}{n} + \\left(\\frac {\\pi^ {2}}{n} - \\frac {2}{n ^ {3}}\\right) [ 1 - (- 1) ^ {n} ] \\right\\}. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_73_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.648,
+            0.446,
+            0.664
+          ],
+          "content": "所以当  $x \\in (0, \\pi) \\cup (\\pi, 2\\pi)$  时，"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.144,
+            0.668,
+            0.95,
+            0.788
+          ],
+          "content": "\\begin{array}{l} f (x) = - \\pi^ {2} + \\sum_ {n = 1} ^ {\\infty} \\left\\{\\frac {4}{n ^ {2}} [ (- 1) ^ {n} - 1 ] \\cos n x + \\frac {2}{\\pi} \\left[ \\frac {\\pi^ {2}}{n} + \\left(\\frac {\\pi^ {2}}{n} - \\frac {2}{n ^ {3}}\\right) (1 - (- 1) ^ {n}) \\right] \\sin n x \\right\\} \\\\ = - \\pi^ {2} - 8 \\left(\\cos x + \\frac {1}{3 ^ {2}} \\cos 3 x + \\frac {1}{5 ^ {2}} \\cos 5 x + \\dots\\right) + \\frac {2}{\\pi} \\left\\{\\left(3 \\pi^ {2} - 4\\right) \\sin x + \\right. \\\\ \\frac {\\pi^ {2}}{2} \\sin 2 x + \\left(\\frac {3 \\pi^ {2}}{3} - \\frac {4}{3 ^ {3}}\\right) \\sin 3 x + \\frac {\\pi^ {2}}{4} \\sin 4 x + \\dots \\Bigg \\}. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_73_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.795,
+            0.301,
+            0.812
+          ],
+          "content": "当 $x = \\pi$ 时，由于"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.42,
+            0.816,
+            0.682,
+            0.851
+          ],
+          "content": "\\frac {f (\\pi - 0) + f (\\pi + 0)}{2} = 0,",
+          "image_source": "../../raw/pages_0065-0096/images/page_73_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.859,
+            0.191,
+            0.876
+          ],
+          "content": "所以"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.385,
+            0.882,
+            0.962,
+            0.915
+          ],
+          "content": "0 = - \\pi^ {2} + 8 \\left(\\frac {1}{1 ^ {2}} + \\frac {1}{3 ^ {2}} + \\frac {1}{5 ^ {2}} + \\dots\\right). \\tag {14}",
+          "image_source": "../../raw/pages_0065-0096/images/page_73_equation_11.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.108,
+            0.964,
+            0.13,
+            0.975
+          ],
+          "content": "66"
+        }
+      ]
+    },
+    {
+      "page_idx": 74,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.671,
+            0.034,
+            0.816,
+            0.049
+          ],
+          "content": "§ 1 傅里叶级数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.084,
+            0.238,
+            0.1
+          ],
+          "content": "当 x=0 或  $2\\pi$  时, 由于"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.18,
+            0.111,
+            0.689,
+            0.143
+          ],
+          "content": "\\frac {1}{2} (f (0 - 0) + f (0 + 0)) = \\frac {1}{2} (- 4 \\pi^ {2} + 0) = - 2 \\pi^ {2},",
+          "image_source": "../../raw/pages_0065-0096/images/page_74_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.154,
+            0.072,
+            0.171
+          ],
+          "content": "因此"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.246,
+            0.18,
+            0.847,
+            0.214
+          ],
+          "content": "- 2 \\pi^ {2} = - \\pi^ {2} - 8 \\left(\\frac {1}{1 ^ {2}} + \\frac {1}{3 ^ {2}} + \\frac {1}{5 ^ {2}} + \\dots\\right). \\tag {15}",
+          "image_source": "../../raw/pages_0065-0096/images/page_74_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.225,
+            0.302,
+            0.242
+          ],
+          "content": "由(14)式或(15)式都可得出"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.312,
+            0.25,
+            0.55,
+            0.285
+          ],
+          "content": "\\frac {\\pi^ {2}}{8} = \\frac {1}{1 ^ {2}} + \\frac {1}{3 ^ {2}} + \\frac {1}{5 ^ {2}} + \\dots .",
+          "image_source": "../../raw/pages_0065-0096/images/page_74_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.296,
+            0.849,
+            0.314
+          ],
+          "content": "例 3 在电子技术中经常用到矩形波,用傅里叶级数展开后,就可以将矩形波看成"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.318,
+            0.484,
+            0.38
+          ],
+          "content": "一系列不同频率的简谐振动的叠加，在电工学中称为谐波分析。设 $f(x)$ 是周期为 $2\\pi$ 的矩形波函数（图15-6），在 $[- \\pi, \\pi)$ 上的表达式为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.126,
+            0.386,
+            0.374,
+            0.478
+          ],
+          "content": "f (x) = \\left\\{ \\begin{array}{c l} - \\frac {\\pi}{4}, & - \\pi \\leqslant x <   0, \\\\ 0, & x = 0, \\\\ \\frac {\\pi}{4}, & 0 <   x <   \\pi . \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_74_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.487,
+            0.348,
+            0.504
+          ],
+          "content": "求该矩形波函数的傅里叶展开式."
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.502,
+            0.319,
+            0.825,
+            0.436
+          ],
+          "sub_type": "line",
+          "content": "| X | Y |\n| --- | --- |\n| 0 | \\(\\pi/4\\) |\n| \\(\\pm\\pi\\) | \\(-\\pi/4\\) |\n| 0 | 0 |\n| \\(\\pm\\pi\\) | \\(\\pi/4\\) |",
+          "captions": [
+            {
+              "bbox": [
+                0.63,
+                0.445,
+                0.699,
+                0.459
+              ],
+              "content": "图15-6"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_74_chart_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.066,
+            0.509,
+            0.482,
+            0.527
+          ],
+          "content": "解 由于 $f(x)$ 在 $(- \\pi, \\pi)$ 上是奇函数，所以"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.134,
+            0.54,
+            0.355,
+            0.573
+          ],
+          "content": "a _ {0} = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (x) \\mathrm{d} x = 0,",
+          "image_source": "../../raw/pages_0065-0096/images/page_74_equation_14.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.136,
+            0.587,
+            0.414,
+            0.62
+          ],
+          "content": "a _ {n} = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (x) \\cos n x \\mathrm{d} x = 0,",
+          "image_source": "../../raw/pages_0065-0096/images/page_74_equation_15.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.136,
+            0.634,
+            0.729,
+            0.668
+          ],
+          "content": "b _ {n} = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (x) \\sin n x \\mathrm{d} x = \\frac {2}{\\pi} \\int_ {0} ^ {\\pi} \\frac {\\pi}{4} \\sin n x \\mathrm{d} x = \\frac {1}{2 n} [ 1 - (- 1) ^ {n} ].",
+          "image_source": "../../raw/pages_0065-0096/images/page_74_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.682,
+            0.35,
+            0.699
+          ],
+          "content": "于是当  $x \\neq k\\pi, k = 0, \\pm1, \\pm2, \\cdots$  时，"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.204,
+            0.706,
+            0.664,
+            0.738
+          ],
+          "content": "f (x) = \\sin x + \\frac {1}{3} \\sin 3 x + \\dots + \\frac {1}{2 n - 1} \\sin (2 n - 1) x + \\dots ;",
+          "image_source": "../../raw/pages_0065-0096/images/page_74_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.744,
+            0.85,
+            0.783
+          ],
+          "content": "当  $x=k\\pi, k=0, \\pm1, \\pm2, \\cdots$  时，级数收敛于 0（实际上级数每一项都为 0）。其收敛过程如图 15-7 所示。"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.275,
+            0.782,
+            0.6,
+            0.898
+          ],
+          "sub_type": "line",
+          "content": "| Point | Description |\n| --- | --- |\n| \\(-\\pi\\) | Origin (x, y) |\n| O | Intersection point at (0,0) |\n| \\(-\\pi/4\\) | Local minimum on x-axis |\n| \\(\\pi/4\\) | Local maximum on x-axis |\n| \\(\\pi/2\\) | Local maximum on x-axis |\n| n=1 | Intermediate point on x-axis |\n| n=2 | Intermediate point on x-axis |\n| n=7 | Intermediate point on x-axis |",
+          "captions": [
+            {
+              "bbox": [
+                0.402,
+                0.908,
+                0.472,
+                0.922
+              ],
+              "content": "图15-7"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_74_chart_20.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.865,
+            0.967,
+            0.887,
+            0.978
+          ],
+          "content": "67"
+        }
+      ]
+    },
+    {
+      "page_idx": 75,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.132,
+            0.031,
+            0.361,
+            0.046
+          ],
+          "content": "第十五章 傅里叶级数"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.463,
+            0.105,
+            0.621,
+            0.124
+          ],
+          "level": 2,
+          "content": "习题 15.1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.17,
+            0.145,
+            0.574,
+            0.16
+          ],
+          "content": "1. 在指定区间上把下列函数展开成傅里叶级数:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.171,
+            0.165,
+            0.518,
+            0.201
+          ],
+          "sub_type": "text",
+          "content": "(1)  $f(x)=x$ , (i)  $-\\pi<x<\\pi$ , (ii)  $0<x<2\\pi$ ;\n(2)  $f(x) = x^{2}$ , (i)  $-\\pi < x < \\pi$ , (ii)  $0 < x < 2\\pi$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.172,
+            0.207,
+            0.585,
+            0.241
+          ],
+          "content": "(3) $f(x) = \\begin{cases} ax, & -\\pi < x \\leqslant 0, \\\\ bx, & 0 < x < \\pi \\end{cases} \\quad (a \\neq b, a \\neq 0, b \\neq 0)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.168,
+            0.246,
+            0.644,
+            0.261
+          ],
+          "content": "2. 设 $f$ 是以 $2\\pi$ 为周期的可积函数, 证明对任何实数 $c$, 有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.275,
+            0.265,
+            0.811,
+            0.295
+          ],
+          "content": "a _ {n} = \\frac {1}{\\pi} \\int_ {c} ^ {c + 2 \\pi} f (x) \\cos n x \\mathrm{d} x = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (x) \\cos n x \\mathrm{d} x, n = 0, 1, 2, \\dots ,",
+          "image_source": "../../raw/pages_0065-0096/images/page_75_equation_8.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.277,
+            0.3,
+            0.784,
+            0.331
+          ],
+          "content": "b _ {n} = \\frac {1}{\\pi} \\int_ {c} ^ {c + 2 \\pi} f (x) \\sin n x \\mathrm{d} x = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (x) \\sin n x \\mathrm{d} x, n = 1, 2, \\dots .",
+          "image_source": "../../raw/pages_0065-0096/images/page_75_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.169,
+            0.337,
+            0.259,
+            0.352
+          ],
+          "content": "3. 把函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.405,
+            0.36,
+            0.68,
+            0.419
+          ],
+          "content": "f (x) = \\left\\{ \\begin{array}{l l} - \\frac {\\pi}{4}, & - \\pi <   x <   0, \\\\ \\frac {\\pi}{4}, & 0 \\leqslant x <   \\pi \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_75_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.427,
+            0.397,
+            0.442
+          ],
+          "content": "展开成傅里叶级数,并由它推出"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.171,
+            0.447,
+            0.404,
+            0.476
+          ],
+          "content": "(1)  $\\frac{\\pi}{4}=1-\\frac{1}{3}+\\frac{1}{5}-\\frac{1}{7}+\\cdots;$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.479,
+            0.447,
+            0.774,
+            0.476
+          ],
+          "content": "(2)  $\\frac{\\pi}{3}=1+\\frac{1}{5}-\\frac{1}{7}-\\frac{1}{11}+\\frac{1}{13}+\\frac{1}{17}+\\cdots;$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.174,
+            0.484,
+            0.479,
+            0.514
+          ],
+          "content": "(3)  $\\frac{\\sqrt{3}}{6}\\pi=1-\\frac{1}{5}+\\frac{1}{7}-\\frac{1}{11}+\\frac{1}{13}-\\frac{1}{17}+\\cdots.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.168,
+            0.52,
+            0.936,
+            0.536
+          ],
+          "content": "4. 设函数 $f(x)$ 满足条件 $f(x + \\pi) = -f(x)$. 问此函数在 $(- \\pi, \\pi)$ 上的傅里叶级数具有什么特性."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.168,
+            0.541,
+            0.925,
+            0.556
+          ],
+          "content": "5. 设函数 $f(x)$ 满足条件 $f(x + \\pi) = f(x)$. 问此函数在 $(-\\pi, \\pi)$ 上的傅里叶级数具有什么特性."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.561,
+            0.957,
+            0.596
+          ],
+          "content": "6. 试证函数系 $\\cos nx, n = 0, 1, 2, \\cdots$ 和 $\\sin nx, n = 1, 2, \\cdots$ 都是 $[0, \\pi]$ 上的正交函数系，但它们合起来的(5)式不是 $[0, \\pi]$ 上的正交函数系."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.169,
+            0.601,
+            0.478,
+            0.616
+          ],
+          "content": "7. 求下列函数的傅里叶级数展开式:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.172,
+            0.624,
+            0.575,
+            0.735
+          ],
+          "sub_type": "text",
+          "content": "(1)  $f(x) = \\frac{\\pi - x}{2}, 0 < x < 2\\pi$ ;\n(2)  $f(x) = \\sqrt{1 - \\cos x}, -\\pi \\leqslant x \\leqslant \\pi;$\n(3)  $f(x) = ax^{2} + bx + c$ , (i)  $0 < x < 2\\pi$ , (ii)  $-\\pi < x < \\pi$ ;\n(4)  $f(x) = \\operatorname{ch} x, -\\pi < x < \\pi$ ;\n(5)  $f(x) = \\operatorname{sh} x, -\\pi < x < \\pi.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.169,
+            0.74,
+            0.931,
+            0.769
+          ],
+          "content": "8. 求函数 $f(x) = \\frac{1}{12} (3x^2 - 6\\pi x + 2\\pi^2)$, $0 < x < 2\\pi$ 的傅里叶级数展开式，并应用它推出 $\\frac{\\pi^2}{6} = \\sum \\frac{1}{n^2}$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.796,
+            0.957,
+            0.831
+          ],
+          "content": "9. 设 $f$ 为 $[- \\pi, \\pi]$ 上的光滑函数，且 $f(-\\pi) = f(\\pi). a_n, b_n$ 为 $f$ 的傅里叶系数，$a'_n, b'_n$ 为 $f$ 的导函数 $f'$ 的傅里叶系数。证明:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.33,
+            0.836,
+            0.756,
+            0.852
+          ],
+          "content": "a _ {0} ^ {\\prime} = 0, \\quad a _ {n} ^ {\\prime} = n b _ {n}, \\quad b _ {n} ^ {\\prime} = - n a _ {n} \\quad (n = 1, 2, \\dots).",
+          "image_source": "../../raw/pages_0065-0096/images/page_75_equation_28.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.172,
+            0.857,
+            0.356,
+            0.871
+          ],
+          "content": "10. 证明: 若三角级数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.416,
+            0.876,
+            0.673,
+            0.909
+          ],
+          "content": "\\frac {a _ {0}}{2} + \\sum_ {n = 1} ^ {\\infty} (a _ {n} \\cos n x + b _ {n} \\sin n x)",
+          "image_source": "../../raw/pages_0065-0096/images/page_75_equation_30.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.914,
+            0.345,
+            0.929
+          ],
+          "content": "中的系数 $a_{n}, b_{n}$ 满足关系"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.101,
+            0.964,
+            0.122,
+            0.975
+          ],
+          "content": "68"
+        }
+      ]
+    },
+    {
+      "page_idx": 76,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.528,
+            0.034,
+            0.811,
+            0.049
+          ],
+          "content": "§ 2 以 2l 为周期的函数的展开式"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.313,
+            0.083,
+            0.544,
+            0.103
+          ],
+          "content": "\\sup _ {n} \\left\\{\\mid n ^ {3} a _ {n} \\mid , \\mid n ^ {3} b _ {n} \\mid \\right\\} \\leqslant M,",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.018,
+            0.106,
+            0.546,
+            0.121
+          ],
+          "content": "M 为常数, 则上述三角级数收敛, 且其和函数具有连续的导函数."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.202,
+            0.168,
+            0.669,
+            0.191
+          ],
+          "level": 2,
+          "content": "§ 2 以 2l 为周期的函数的展开式"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.018,
+            0.235,
+            0.845,
+            0.297
+          ],
+          "content": "在上节的收敛定理中, 假设函数 $f$ 是以 $2\\pi$ 为周期的, 或是定义在 $(- \\pi, \\pi]$ 上然后作以 $2\\pi$ 为周期延拓的函数. 本节讨论以 $2l$ 为周期的函数的傅里叶级数展开式及偶函数、奇函数的傅里叶级数展开式."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.02,
+            0.308,
+            0.433,
+            0.327
+          ],
+          "level": 2,
+          "content": "一、以 $2l$ 为周期的函数的傅里叶级数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.063,
+            0.338,
+            0.461,
+            0.355
+          ],
+          "content": "设 $f$ 是以 $2l$ 为周期的函数，通过变量置换"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.329,
+            0.361,
+            0.534,
+            0.392
+          ],
+          "content": "\\frac {\\pi x}{l} = t \\quad \\text {或} \\quad x = \\frac {l t}{\\pi}",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.019,
+            0.402,
+            0.844,
+            0.456
+          ],
+          "content": "可以把 $f$ 变换成以 $2\\pi$ 为周期的 $t$ 的函数 $F(t) = f\\left(\\frac{lt}{\\pi}\\right)$. 若 $f$ 在 $[-l, l]$ 上可积，则 $F$ 在 $[- \\pi, \\pi]$ 上也可积，这时函数 $F$ 的傅里叶级数展开式是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.24,
+            0.461,
+            0.841,
+            0.497
+          ],
+          "content": "F (t) \\sim \\frac {a _ {0}}{2} + \\sum_ {n = 1} ^ {\\infty} (a _ {n} \\cos n t + b _ {n} \\sin n t), \\tag {1}",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.02,
+            0.502,
+            0.069,
+            0.518
+          ],
+          "content": "其中"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.231,
+            0.524,
+            0.841,
+            0.567
+          ],
+          "content": "a _ {n} = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} F (t) \\cos n t \\mathrm{d} t, \\quad n = 0, 1, 2, \\dots , \\tag {2}",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_11.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.234,
+            0.565,
+            0.598,
+            0.597
+          ],
+          "content": "b _ {n} = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} F (t) \\sin n t \\mathrm{d} t, \\quad n = 1, 2, \\dots .",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.02,
+            0.605,
+            0.641,
+            0.636
+          ],
+          "content": "因为 $t = \\frac{\\pi x}{l}$，所以 $F(t) = f\\left(\\frac{lt}{\\pi}\\right) = f(x)$. 于是由（1）与（2）式分别得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.223,
+            0.643,
+            0.841,
+            0.68
+          ],
+          "content": "f (x) \\sim \\frac {a _ {0}}{2} + \\sum_ {n = 1} ^ {\\infty} \\left(a _ {n} \\cos \\frac {n \\pi x}{l} + b _ {n} \\sin \\frac {n \\pi x}{l}\\right) \\tag {3}",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.022,
+            0.686,
+            0.047,
+            0.702
+          ],
+          "content": "与"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.218,
+            0.707,
+            0.841,
+            0.75
+          ],
+          "content": "a _ {n} = \\frac {1}{l} \\int_ {- l} ^ {l} f (x) \\cos \\frac {n \\pi x}{l} \\mathrm{d} x, \\quad n = 0, 1, 2, \\dots , \\tag {4}",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_16.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.22,
+            0.748,
+            0.612,
+            0.78
+          ],
+          "content": "b _ {n} = \\frac {1}{l} \\int_ {- l} ^ {l} f (x) \\sin \\frac {n \\pi x}{l} \\mathrm{d} x, \\quad n = 1, 2, \\dots .",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.02,
+            0.786,
+            0.738,
+            0.804
+          ],
+          "content": "这里(4)式是以2l为周期的函数f的傅里叶系数,(3)式是f的傅里叶级数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.063,
+            0.808,
+            0.611,
+            0.825
+          ],
+          "content": "若函数 $f$ 在 $[-l, l]$ 上按段光滑，则同样可由收敛定理知道"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.146,
+            0.831,
+            0.841,
+            0.867
+          ],
+          "content": "\\frac {f (x + 0) + f (x - 0)}{2} = \\frac {a _ {0}}{2} + \\sum_ {n = 1} ^ {\\infty} \\left(a _ {n} \\cos \\frac {n \\pi x}{l} + b _ {n} \\sin \\frac {n \\pi x}{l}\\right). \\tag {5}",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.873,
+            0.198,
+            0.89
+          ],
+          "content": "例1 把函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.295,
+            0.896,
+            0.564,
+            0.934
+          ],
+          "content": "f (x) = \\left\\{ \\begin{array}{l l} 0, & - 5 \\leqslant x <   0, \\\\ 3, & 0 \\leqslant x <   5 \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_22.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.861,
+            0.967,
+            0.882,
+            0.978
+          ],
+          "content": "69"
+        }
+      ]
+    },
+    {
+      "page_idx": 77,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.132,
+            0.031,
+            0.361,
+            0.046
+          ],
+          "content": "第十五章 傅里叶级数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.081,
+            0.321,
+            0.096
+          ],
+          "content": "展开成傅里叶级数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.175,
+            0.102,
+            0.926,
+            0.119
+          ],
+          "content": "解 由于 f 在  $(-5,5)$  上按段光滑, 因此可以展开成傅里叶级数. 根据 (4) 式, 有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.252,
+            0.121,
+            0.84,
+            0.348
+          ],
+          "content": "\\begin{array}{l} a _ {n} = \\frac {1}{5} \\int_ {- 5} ^ {0} 0 \\cdot \\cos \\frac {n \\pi x}{5} \\mathrm{d} x + \\frac {1}{5} \\int_ {0} ^ {5} 3 \\cos \\frac {n \\pi x}{5} \\mathrm{d} x \\\\ = \\frac {3}{5} \\cdot \\frac {5}{n \\pi} \\sin \\left. \\frac {n \\pi x}{5} \\right| _ {0} ^ {5} = 0, \\quad n = 1, 2, \\dots , \\\\ a _ {0} = \\frac {1}{5} \\int_ {- 5} ^ {5} f (x) \\mathrm{d} x = \\frac {1}{5} \\int_ {0} ^ {5} 3 \\mathrm{d} x = 3, \\\\ b _ {n} = \\frac {1}{5} \\int_ {0} ^ {5} 3 \\sin \\frac {n \\pi x}{5} \\mathrm{d} x = \\frac {3}{5} \\left[ - \\frac {5}{n \\pi} \\cos \\frac {n \\pi x}{5} \\right] \\Bigg | _ {0} ^ {5} = \\frac {3 (1 - \\cos n \\pi)}{n \\pi} \\\\ = \\left\\{ \\begin{array}{c l} \\frac {6}{(2 k - 1) \\pi}, & n = 2 k - 1, k = 1, 2, \\dots , \\\\ 0, & n = 2 k, k = 1, 2, \\dots . \\end{array} \\right. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_77_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.35,
+            0.276,
+            0.367
+          ],
+          "content": "代入(5)式,得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.275,
+            0.369,
+            0.807,
+            0.448
+          ],
+          "content": "\\begin{array}{l} f (x) = \\frac {3}{2} + \\sum_ {k = 1} ^ {\\infty} \\frac {6}{(2 k - 1) \\pi} \\sin \\frac {(2 k - 1) \\pi x}{5} \\\\ = \\frac {3}{2} + \\frac {6}{\\pi} \\left(\\sin \\frac {\\pi x}{5} + \\frac {1}{3} \\sin \\frac {3 \\pi x}{5} + \\frac {1}{5} \\sin \\frac {5 \\pi x}{5} + \\dots\\right). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_77_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.454,
+            0.678,
+            0.484
+          ],
+          "content": "这里 $x \\in (-5,0) \\cup (0,5)$. 当 $x = 0$ 和 $\\pm 5$ 时级数收敛于 $\\frac{3}{2}$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.937,
+            0.459,
+            0.955,
+            0.475
+          ],
+          "content": "□"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.135,
+            0.497,
+            0.517,
+            0.516
+          ],
+          "level": 2,
+          "content": "二、偶函数与奇函数的傅里叶级数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.527,
+            0.957,
+            0.566
+          ],
+          "content": "设 $f$ 是以 $2l$ 为周期的偶函数, 或是定义在 $[-l, l]$ 上的偶函数, 则在 $[-l, l]$ 上, $f(x) \\cos nx$ 是偶函数, $f(x) \\sin nx$ 是奇函数. 因此, $f$ 的傅里叶系数 (4) 是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.335,
+            0.571,
+            0.956,
+            0.682
+          ],
+          "content": "\\left. \\begin{array}{l} a _ {n} = \\frac {1}{l} \\int_ {- l} ^ {l} f (x) \\cos \\frac {n \\pi x}{l} \\mathrm{d} x \\\\ = \\frac {2}{l} \\int_ {0} ^ {l} f (x) \\cos \\frac {n \\pi x}{l} \\mathrm{d} x, \\quad n = 0, 1, 2, \\dots , \\\\ b _ {n} = \\frac {1}{l} \\int_ {- l} ^ {l} f (x) \\sin \\frac {n \\pi x}{l} \\mathrm{d} x = 0, \\quad n = 1, 2, \\dots . \\end{array} \\right\\} \\tag {6}",
+          "image_source": "../../raw/pages_0065-0096/images/page_77_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.689,
+            0.571,
+            0.706
+          ],
+          "content": "于是f的傅里叶级数只含有余弦函数的项,即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.412,
+            0.713,
+            0.956,
+            0.746
+          ],
+          "content": "f (x) \\sim \\frac {a _ {0}}{2} + \\sum_ {n = 1} ^ {\\infty} a _ {n} \\cos \\frac {n \\pi x}{l}, \\tag {7}",
+          "image_source": "../../raw/pages_0065-0096/images/page_77_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.751,
+            0.667,
+            0.769
+          ],
+          "content": "其中 $a_{n}$ 如(6)式所示.(7)式右边的级数称为余弦级数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.178,
+            0.773,
+            0.908,
+            0.79
+          ],
+          "content": "同理, 若 f 是以 2l 为周期的奇函数, 或是定义在  $[-l, l]$  上的奇函数, 则可推得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.323,
+            0.795,
+            0.956,
+            0.867
+          ],
+          "content": "\\left. \\begin{array}{l} a _ {n} = \\frac {1}{l} \\int_ {- l} ^ {l} f (x) \\cos \\frac {n \\pi x}{l} \\mathrm{d} x = 0, \\quad n = 0, 1, 2, \\dots , \\\\ b _ {n} = \\frac {2}{l} \\int_ {0} ^ {l} f (x) \\sin \\frac {n \\pi x}{l} \\mathrm{d} x, \\quad n = 1, 2, \\dots . \\end{array} \\right\\} \\tag {8}",
+          "image_source": "../../raw/pages_0065-0096/images/page_77_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.873,
+            0.739,
+            0.89
+          ],
+          "content": "所以当f为奇函数时,它的傅里叶级数只含有正弦函数的项,即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.439,
+            0.894,
+            0.956,
+            0.929
+          ],
+          "content": "f (x) \\sim \\sum_ {n = 1} ^ {\\infty} b _ {n} \\sin \\frac {n \\pi x}{l}, \\tag {9}",
+          "image_source": "../../raw/pages_0065-0096/images/page_77_equation_17.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.105,
+            0.964,
+            0.124,
+            0.975
+          ],
+          "content": "70"
+        }
+      ]
+    },
+    {
+      "page_idx": 78,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.532,
+            0.031,
+            0.816,
+            0.046
+          ],
+          "content": "§ 2 以 2l 为周期的函数的展开式"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.022,
+            0.081,
+            0.55,
+            0.098
+          ],
+          "content": "其中  $b_{n}$  如(8)式所示。(9)式右边的级数称为正弦级数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.103,
+            0.482,
+            0.12
+          ],
+          "content": "若 $l = \\pi$ ，则偶函数 $f$ 所展开成的余弦级数为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.3,
+            0.126,
+            0.847,
+            0.162
+          ],
+          "content": "f (x) \\sim \\frac {a _ {0}}{2} + \\sum_ {n = 1} ^ {\\infty} a _ {n} \\cos n x, \\tag {10}",
+          "image_source": "../../raw/pages_0065-0096/images/page_78_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.167,
+            0.072,
+            0.183
+          ],
+          "content": "其中"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.237,
+            0.189,
+            0.847,
+            0.221
+          ],
+          "content": "a _ {n} = \\frac {2}{\\pi} \\int_ {0} ^ {\\pi} f (x) \\cos n x \\mathrm{d} x, \\quad n = 0, 1, 2, \\dots ; \\tag {11}",
+          "image_source": "../../raw/pages_0065-0096/images/page_78_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.228,
+            0.336,
+            0.245
+          ],
+          "content": "奇函数 $f$ 所展开成的正弦级数为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.329,
+            0.251,
+            0.847,
+            0.287
+          ],
+          "content": "f (x) \\sim \\sum_ {n = 1} ^ {\\infty} b _ {n} \\sin n x, \\tag {12}",
+          "image_source": "../../raw/pages_0065-0096/images/page_78_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.291,
+            0.072,
+            0.307
+          ],
+          "content": "其中"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.32,
+            0.313,
+            0.847,
+            0.345
+          ],
+          "content": "b _ {n} = \\frac {2}{\\pi} \\int_ {0} ^ {\\pi} f (x) \\sin n x \\mathrm{d} x. \\tag {13}",
+          "image_source": "../../raw/pages_0065-0096/images/page_78_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.022,
+            0.351,
+            0.85,
+            0.457
+          ],
+          "content": "在实际应用中,有时需把定义在 $[0,\\pi]$ 上(或一般地,在 $[0,l]$ 上)的函数展开成余弦级数或正弦级数.为此,先把定义在 $[0,\\pi]$ 上的函数作偶式延拓或作奇式延拓到 $[-\\pi,\\pi]$ 上(如图15-8(a)或(b)).然后求延拓后函数的傅里叶级数,即得(10)或(12)形式.但显然可见,对于定义在 $[0,\\pi]$ 上的函数,将它展开成余弦级数或正弦级数时,可以直接由(11)式或(13)式计算出它的傅里叶系数."
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.177,
+            0.511,
+            0.43,
+            0.648
+          ],
+          "sub_type": "contour",
+          "content": "| X | Y |\n| --- | --- |\n| \\(-\\pi\\) | ~0.8 |\n| 0 | 0 |\n| \\(\\pi\\) | ~0.8 |",
+          "captions": [
+            {
+              "bbox": [
+                0.257,
+                0.66,
+                0.352,
+                0.674
+              ],
+              "content": "(a) 偶式延拓"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_78_chart_11.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.461,
+            0.46,
+            0.7,
+            0.656
+          ],
+          "sub_type": "text_image",
+          "content": "-π\nO\nπ x\ny",
+          "captions": [
+            {
+              "bbox": [
+                0.53,
+                0.659,
+                0.626,
+                0.674
+              ],
+              "content": "(b) 奇式延拓"
+            },
+            {
+              "bbox": [
+                0.402,
+                0.682,
+                0.474,
+                0.697
+              ],
+              "content": "图15-8"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_78_image_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.069,
+            0.726,
+            0.202,
+            0.743
+          ],
+          "content": "例2 设函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.284,
+            0.748,
+            0.586,
+            0.767
+          ],
+          "content": "f (x) = \\left| \\sin x \\right|, - \\pi \\leqslant x <   \\pi ,",
+          "image_source": "../../raw/pages_0065-0096/images/page_78_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.772,
+            0.277,
+            0.789
+          ],
+          "content": "求 f 的傅里叶级数展开式."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.793,
+            0.853,
+            0.854
+          ],
+          "content": "解 $f$ 是 $[- \\pi, \\pi]$ 上的偶函数, 图15-9是这函数及其周期延拓的图形. 由于 $f$ 是按段光滑函数, 因此可以展开成傅里叶级数, 而且这个级数为余弦级数. 由(10)式(这时可把其中“$\\sim$”改为“=”）知"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.306,
+            0.859,
+            0.573,
+            0.896
+          ],
+          "content": "\\left| \\sin x \\right| = \\frac {a _ {0}}{2} + \\sum_ {n = 1} ^ {\\infty} a _ {n} \\cos n x,",
+          "image_source": "../../raw/pages_0065-0096/images/page_78_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.026,
+            0.901,
+            0.075,
+            0.917
+          ],
+          "content": "其中"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.868,
+            0.964,
+            0.888,
+            0.975
+          ],
+          "content": "71"
+        }
+      ]
+    },
+    {
+      "page_idx": 79,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.136,
+            0.029,
+            0.361,
+            0.044
+          ],
+          "content": "第十五章 傅里叶级数"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.354,
+            0.078,
+            0.741,
+            0.171
+          ],
+          "sub_type": "text_image",
+          "content": "-2π\n-π\nO\nπ\n2π\n3π\nx\ny",
+          "captions": [
+            {
+              "bbox": [
+                0.513,
+                0.18,
+                0.582,
+                0.195
+              ],
+              "content": "图15-9"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_79_image_1.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.328,
+            0.227,
+            0.769,
+            0.48
+          ],
+          "content": "\\begin{array}{l} a _ {0} = \\frac {2}{\\pi} \\int_ {0} ^ {\\pi} \\sin x \\mathrm{d} x = \\frac {4}{\\pi}, \\\\ a _ {1} = \\frac {2}{\\pi} \\int_ {0} ^ {\\pi} \\sin x \\cos x \\mathrm{d} x = 0, \\\\ a _ {n} = \\frac {2}{\\pi} \\int_ {0} ^ {\\pi} | \\sin x | \\cos n x \\mathrm{d} x = \\frac {2}{\\pi} \\int_ {0} ^ {\\pi} \\sin x \\cos n x \\mathrm{d} x \\\\ = \\frac {2}{\\pi} \\int_ {0} ^ {\\pi} \\frac {1}{2} [ \\sin (1 - n) x + \\sin (1 + n) x ] \\mathrm{d} x \\\\ = \\frac {1}{\\pi} \\frac {2}{n ^ {2} - 1} [ \\cos (n - 1) \\pi - 1 ] \\quad (n \\neq 1) \\\\ = \\left\\{ \\begin{array}{c l} 0, & n = 3, 5, \\dots , \\\\ - \\frac {4}{\\pi} \\frac {1}{n ^ {2} - 1}, & n = 2, 4, \\dots . \\end{array} \\right. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_79_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.489,
+            0.186,
+            0.506
+          ],
+          "content": "因此"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.309,
+            0.51,
+            0.789,
+            0.589
+          ],
+          "content": "\\begin{array}{l} \\left| \\sin x \\right| = \\frac {2}{\\pi} - \\frac {1}{\\pi} \\sum_ {m = 1} ^ {\\infty} \\frac {4}{4 m ^ {2} - 1} \\cos 2 m x \\\\ = \\frac {2}{\\pi} \\left(1 - 2 \\sum_ {m = 1} ^ {\\infty} \\frac {\\cos 2 m x}{4 m ^ {2} - 1}\\right), - \\infty <   x <   + \\infty. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_79_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.596,
+            0.269,
+            0.613
+          ],
+          "content": "当 $x = 0$ 时，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.413,
+            0.617,
+            0.677,
+            0.653
+          ],
+          "content": "0 = \\frac {2}{\\pi} \\bigg (1 - 2 \\sum_ {m = 1} ^ {\\infty} \\frac {1}{4 m ^ {2} - 1} \\bigg).",
+          "image_source": "../../raw/pages_0065-0096/images/page_79_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.66,
+            0.23,
+            0.677
+          ],
+          "content": "由此可得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.3,
+            0.682,
+            0.793,
+            0.715
+          ],
+          "content": "\\frac {1}{2} = \\frac {1}{1 \\cdot 3} + \\frac {1}{3 \\cdot 5} + \\dots + \\frac {1}{(2 m - 1) (2 m + 1)} + \\dots .",
+          "image_source": "../../raw/pages_0065-0096/images/page_79_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.181,
+            0.722,
+            0.49,
+            0.739
+          ],
+          "content": "例 3 把定义在 $[0,\\pi]$ 上的函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.421,
+            0.744,
+            0.673,
+            0.821
+          ],
+          "content": "f (x) = \\left\\{ \\begin{array}{l l} 1, & 0 \\leqslant x <   h, \\\\ \\frac {1}{2}, & x = h, \\\\ 0, & h <   x \\leqslant \\pi \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_79_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.827,
+            0.446,
+            0.844
+          ],
+          "content": "(其中  $0 < h < \\pi$ ) 展开成正弦级数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.849,
+            0.96,
+            0.888
+          ],
+          "content": "解 函数 f 如图 15-10 所示, 它是按段光滑函数, 因而可以展开成正弦级数 (12), 其系数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.371,
+            0.893,
+            0.731,
+            0.927
+          ],
+          "content": "b _ {n} = \\frac {2}{\\pi} \\int_ {0} ^ {\\pi} f (x) \\sin n x \\mathrm{d} x = \\frac {2}{\\pi} \\int_ {0} ^ {h} \\sin n x \\mathrm{d} x",
+          "image_source": "../../raw/pages_0065-0096/images/page_79_equation_14.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.107,
+            0.963,
+            0.127,
+            0.974
+          ],
+          "content": "72"
+        }
+      ]
+    },
+    {
+      "page_idx": 80,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.536,
+            0.031,
+            0.816,
+            0.045
+          ],
+          "content": "§ 2 以 2l 为周期的函数的展开式"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.259,
+            0.079,
+            0.61,
+            0.116
+          ],
+          "content": "= \\frac {2}{\\pi} \\Big (\\frac {- \\cos n x}{n} \\Big) \\Bigg | _ {0} ^ {h} = \\frac {2}{n \\pi} (1 - \\cos n h).",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.12,
+            0.072,
+            0.136
+          ],
+          "content": "所以"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.135,
+            0.141,
+            0.728,
+            0.177
+          ],
+          "content": "f (x) = \\frac {2}{\\pi} \\sum_ {n = 1} ^ {\\infty} \\frac {(1 - \\cos n h)}{n} \\sin n x, \\quad 0 <   x <   h, \\quad h <   x <   \\pi .",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.182,
+            0.405,
+            0.199
+          ],
+          "content": "当 $x = 0$ 时，级数的和为0；当 $x = h$ 时，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.243,
+            0.203,
+            0.624,
+            0.239
+          ],
+          "content": "\\frac {2}{\\pi} \\sum_ {n = 1} ^ {\\infty} \\frac {(1 - \\cos n h)}{n} \\sin n h = \\frac {1 + 0}{2} = \\frac {1}{2}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.069,
+            0.244,
+            0.267,
+            0.26
+          ],
+          "content": "本题中若 $h = \\pi$ ，则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.154,
+            0.263,
+            0.709,
+            0.343
+          ],
+          "content": "\\begin{array}{l} f (x) = \\frac {2}{\\pi} \\sum_ {n = 1} ^ {\\infty} \\frac {1 - (- 1) ^ {n}}{n} \\sin n x \\\\ = \\frac {4}{\\pi} \\left(\\sin x + \\frac {1}{3} \\sin 3 x + \\frac {1}{5} \\sin 5 x + \\dots\\right), 0 <   x <   \\pi, \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.348,
+            0.339,
+            0.365
+          ],
+          "content": "而且当 $x = 0, \\pi$ 时，级数收敛于0."
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.073,
+            0.371,
+            0.332,
+            0.476
+          ],
+          "sub_type": "scatter",
+          "content": "| X | Y |\n| --- | --- |\n| 0 | 1 |\n| h | 0 |\n| h | ~0.5 |",
+          "captions": [
+            {
+              "bbox": [
+                0.164,
+                0.484,
+                0.242,
+                0.498
+              ],
+              "content": "图15-10"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_80_chart_9.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.484,
+            0.371,
+            0.797,
+            0.476
+          ],
+          "sub_type": "scatter",
+          "content": "| X | Y |\n| --- | --- |\n| -6 | 2 |\n| -6 | -2 |\n| -2 | 2 |\n| -2 | -2 |\n| 0 | 0 |\n| 2 | 2 |\n| 2 | -2 |\n| 6 | 2 |\n| 6 | -2 |\n| 12 | 2 |",
+          "captions": [
+            {
+              "bbox": [
+                0.602,
+                0.485,
+                0.678,
+                0.499
+              ],
+              "content": "图15-11"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_80_chart_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.069,
+            0.526,
+            0.418,
+            0.544
+          ],
+          "content": "例4 把 $f(x) = x$ 在 $(0,2)$ 上展开成:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.069,
+            0.548,
+            0.211,
+            0.586
+          ],
+          "sub_type": "text",
+          "content": "(i) 正弦级数；\n(ii) 余弦级数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.593,
+            0.848,
+            0.631
+          ],
+          "content": "解 （i）为了要把 f 展开为正弦级数, 对 f 作奇式周期延拓(图 15-11), 并由公式 (8)有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.318,
+            0.637,
+            0.55,
+            0.655
+          ],
+          "content": "a _ {n} = 0, \\quad n = 0, 1, 2, \\dots ,",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_18.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.176,
+            0.659,
+            0.787,
+            0.693
+          ],
+          "content": "b _ {n} = \\frac {2}{2} \\int_ {0} ^ {2} x \\sin \\frac {n \\pi x}{2} \\mathrm{d} x = - \\frac {4}{n \\pi} \\cos n \\pi = \\frac {4}{n \\pi} (- 1) ^ {n + 1}, \\quad n = 1, 2, \\dots .",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.699,
+            0.486,
+            0.717
+          ],
+          "content": "所以当 $x \\in (0,2)$ 时，由公式(9)及收敛定理得到"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.189,
+            0.721,
+            0.845,
+            0.798
+          ],
+          "content": "\\begin{array}{l} f (x) = x = \\sum_ {n = 1} ^ {\\infty} \\frac {4}{n \\pi} (- 1) ^ {n + 1} \\sin \\frac {n \\pi x}{2} \\tag {14} \\\\ = \\frac {4}{\\pi} \\left(\\sin \\frac {\\pi x}{2} - \\frac {1}{2} \\sin \\frac {2 \\pi x}{2} + \\frac {1}{3} \\sin \\frac {3 \\pi x}{2} + \\dots\\right). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.804,
+            0.356,
+            0.82
+          ],
+          "content": "但当 x=0,2 时,右边级数收敛于 0."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.069,
+            0.826,
+            0.705,
+            0.844
+          ],
+          "content": "(ii) 为了要把 $f$ 展开为余弦级数, 对 $f$ 作偶式周期延拓 (图15-12)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.848,
+            0.326,
+            0.865
+          ],
+          "content": "由公式(6)得 $f$ 的傅里叶系数为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.333,
+            0.871,
+            0.534,
+            0.888
+          ],
+          "content": "b _ {n} = 0, \\quad n = 1, 2, \\dots ,",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_25.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.332,
+            0.896,
+            0.473,
+            0.927
+          ],
+          "content": "a _ {0} = \\int_ {0} ^ {2} x \\mathrm{d} x = 2,",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_26.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.862,
+            0.964,
+            0.882,
+            0.975
+          ],
+          "content": "73"
+        }
+      ]
+    },
+    {
+      "page_idx": 81,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.132,
+            0.027,
+            0.361,
+            0.043
+          ],
+          "content": "第十五章 傅里叶级数"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.384,
+            0.075,
+            0.709,
+            0.187
+          ],
+          "sub_type": "line",
+          "content": "| X | Y |\n| --- | --- |\n| -6 | 2 |\n| -4 | 0 |\n| -2 | 2 |\n| 0 | 0 |\n| 2 | 2 |\n| 4 | 0 |\n| 6 | 2 |",
+          "captions": [
+            {
+              "bbox": [
+                0.506,
+                0.194,
+                0.587,
+                0.208
+              ],
+              "content": "图15-12"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_81_chart_1.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.347,
+            0.237,
+            0.741,
+            0.314
+          ],
+          "content": "\\begin{array}{l} a _ {n} = \\frac {2}{2} \\int_ {0} ^ {2} x \\cos \\frac {n \\pi x}{2} \\mathrm{d} x = \\frac {4}{n ^ {2} \\pi^ {2}} (\\cos n \\pi - 1) \\\\ = \\frac {4}{n ^ {2} \\pi^ {2}} \\big [ (- 1) ^ {n} - 1 \\big ], \\quad n = 1, 2, \\dots \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_81_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.32,
+            0.16,
+            0.336
+          ],
+          "content": "或"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.326,
+            0.342,
+            0.76,
+            0.377
+          ],
+          "content": "a _ {2 k - 1} = \\frac {- 8}{(2 k - 1) ^ {2} \\pi^ {2}}, \\quad a _ {2 k} = 0 (k = 1, 2, \\dots).",
+          "image_source": "../../raw/pages_0065-0096/images/page_81_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.382,
+            0.598,
+            0.399
+          ],
+          "content": "所以当 $x \\in (0,2)$ 时，由公式(7)及收敛定理得到"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.275,
+            0.402,
+            0.957,
+            0.48
+          ],
+          "content": "\\begin{array}{l} f (x) = x = 1 + \\sum_ {k = 1} ^ {\\infty} \\frac {- 8}{(2 k - 1) ^ {2} \\pi^ {2}} \\cos \\frac {(2 k - 1) \\pi x}{2} \\\\ = 1 - \\frac {8}{\\pi^ {2}} \\left(\\cos \\frac {\\pi x}{2} + \\frac {1}{3 ^ {2}} \\cos \\frac {3 \\pi x}{2} + \\frac {1}{5 ^ {2}} \\cos \\frac {5 \\pi x}{2} + \\dots\\right). \\tag {15} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_81_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.508,
+            0.957,
+            0.548
+          ],
+          "content": "读者由例 4 可以看到,同样一个函数在同样的区间上可以用正弦级数表示,也可以用余弦级数表示,甚至作适当延拓后,可以用更一般的形式(5)来表示."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.466,
+            0.578,
+            0.625,
+            0.597
+          ],
+          "level": 2,
+          "content": "习题 15.2"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.173,
+            0.618,
+            0.519,
+            0.633
+          ],
+          "content": "1. 求下列周期函数的傅里叶级数展开式:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.174,
+            0.638,
+            0.434,
+            0.655
+          ],
+          "content": "(1)  $f(x)=\\left|\\cos x\\right|$  (周期  $\\pi$ );"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.511,
+            0.638,
+            0.742,
+            0.655
+          ],
+          "content": "(2) $f(x) = x - [x]$ （周期1）；"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.174,
+            0.659,
+            0.408,
+            0.676
+          ],
+          "content": "(3)  $f(x) = \\sin^{4} x$  (周期  $\\pi$ );"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.511,
+            0.66,
+            0.787,
+            0.676
+          ],
+          "content": "(4) $f(x) = \\operatorname{sgn}(\\cos x)$ （周期 $2\\pi$）."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.172,
+            0.681,
+            0.262,
+            0.695
+          ],
+          "content": "2. 求函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.42,
+            0.701,
+            0.672,
+            0.755
+          ],
+          "content": "f (x) = \\left\\{ \\begin{array}{l l} x, & 0 \\leqslant x \\leqslant 1, \\\\ 1, & 1 <   x <   2, \\\\ 3 - x, & 2 \\leqslant x \\leqslant 3 \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_81_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.76,
+            0.395,
+            0.776
+          ],
+          "content": "的傅里叶级数并讨论其敛散性."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.172,
+            0.784,
+            0.599,
+            0.809
+          ],
+          "content": "3. 将函数 $f(x) = \\frac{\\pi}{2} - x$ 在 $[0, \\pi]$ 上展开成余弦级数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.171,
+            0.82,
+            0.603,
+            0.843
+          ],
+          "content": "4. 将函数 $f(x) = \\cos \\frac{x}{2}$ 在 $[0, \\pi]$ 上展开成正弦级数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.173,
+            0.851,
+            0.262,
+            0.865
+          ],
+          "content": "5. 把函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.421,
+            0.871,
+            0.672,
+            0.906
+          ],
+          "content": "f (x) = \\left\\{ \\begin{array}{l l} 1 - x, & 0 <   x \\leqslant 2, \\\\ x - 3, & 2 <   x <   4 \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_81_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.911,
+            0.369,
+            0.927
+          ],
+          "content": "在 $(0,4)$ 上展开成余弦级数."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.104,
+            0.96,
+            0.124,
+            0.971
+          ],
+          "content": "74"
+        }
+      ]
+    },
+    {
+      "page_idx": 82,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.636,
+            0.031,
+            0.816,
+            0.046
+          ],
+          "content": "§ 3 收敛定理的证明"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.06,
+            0.079,
+            0.564,
+            0.095
+          ],
+          "content": "6. 把函数 $f(x) = (x - 1)^2$ 在(0,1)上展开成余弦级数，并推出"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.313,
+            0.1,
+            0.556,
+            0.13
+          ],
+          "content": "\\pi^ {2} = 6 \\bigg (1 + \\frac {1}{2 ^ {2}} + \\frac {1}{3 ^ {2}} + \\dots \\bigg).",
+          "image_source": "../../raw/pages_0065-0096/images/page_82_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.061,
+            0.155,
+            0.37,
+            0.17
+          ],
+          "content": "7. 求下列函数的傅里叶级数展开式:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.175,
+            0.273,
+            0.191
+          ],
+          "content": "(1)  $f(x) = \\arcsin(\\sin x)$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.329,
+            0.175,
+            0.532,
+            0.191
+          ],
+          "content": "(2) $f(x) = \\arcsin (\\cos x)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.199,
+            0.851,
+            0.244
+          ],
+          "content": "8. 试问如何把定义在 $\\left[0, \\frac{\\pi}{2}\\right]$ 上的可积函数 $f$ 延拓到区间 $(- \\pi, \\pi)$ 上，使它们的傅里叶级数为如下的形式:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.25,
+            0.296,
+            0.283
+          ],
+          "content": "(1) $\\sum_{n=1}^{\\infty} a_{2n-1} \\cos (2n - 1)x$;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.334,
+            0.25,
+            0.548,
+            0.283
+          ],
+          "content": "(2) $\\sum_{n=1}^{\\infty} b_{2n-1} \\sin (2n-1)x$."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.292,
+            0.327,
+            0.591,
+            0.351
+          ],
+          "level": 2,
+          "content": "§ 3 收敛定理的证明"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.069,
+            0.395,
+            0.65,
+            0.412
+          ],
+          "content": "为了证明傅里叶级数的收敛定理,先证明下面两个预备定理."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.068,
+            0.417,
+            0.734,
+            0.434
+          ],
+          "content": "预备定理 1(贝塞尔(Bessel)不等式) 若函数 f 在  $[-π, π]$  上可积, 则"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.255,
+            0.437,
+            0.848,
+            0.476
+          ],
+          "content": "\\frac {a _ {0} ^ {2}}{2} + \\sum_ {n = 1} ^ {\\infty} (a _ {n} ^ {2} + b _ {n} ^ {2}) \\leqslant \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f ^ {2} (x) \\mathrm{d} x, \\tag {1}",
+          "image_source": "../../raw/pages_0065-0096/images/page_82_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.48,
+            0.564,
+            0.498
+          ],
+          "content": "其中  $a_{n}, b_{n}$  为 f 的傅里叶系数。(1) 式称为贝塞尔不等式."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.502,
+            0.141,
+            0.518
+          ],
+          "content": "证令"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.24,
+            0.524,
+            0.627,
+            0.561
+          ],
+          "content": "S _ {m} (x) = \\frac {a _ {0}}{2} + \\sum_ {n = 1} ^ {m} (a _ {n} \\cos n x + b _ {n} \\sin n x).",
+          "image_source": "../../raw/pages_0065-0096/images/page_82_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.566,
+            0.119,
+            0.582
+          ],
+          "content": "考察积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.218,
+            0.587,
+            0.85,
+            0.66
+          ],
+          "content": "\\begin{array}{l} \\int_ {- \\pi} ^ {\\pi} \\left[ f (x) - S _ {m} (x) \\right] ^ {2} \\mathrm{d} x \\\\ = \\int_ {- \\pi} ^ {\\pi} f ^ {2} (x) \\mathrm{d} x - 2 \\int_ {- \\pi} ^ {\\pi} f (x) S _ {m} (x) \\mathrm{d} x + \\int_ {- \\pi} ^ {\\pi} S _ {m} ^ {2} (x) \\mathrm{d} x. \\tag {2} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_82_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.665,
+            0.074,
+            0.68
+          ],
+          "content": "由于"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.129,
+            0.686,
+            0.743,
+            0.763
+          ],
+          "content": "\\begin{array}{l} \\int_ {- \\pi} ^ {\\pi} f (x) S _ {m} (x) \\mathrm{d} x \\\\ = \\frac {a _ {0}}{2} \\int_ {- \\pi} ^ {\\pi} f (x) \\mathrm{d} x + \\sum_ {n = 1} ^ {m} \\left(a _ {n} \\int_ {- \\pi} ^ {\\pi} f (x) \\cos n x \\mathrm{d} x + b _ {n} \\int_ {- \\pi} ^ {\\pi} f (x) \\sin n x \\mathrm{d} x\\right). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_82_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.767,
+            0.439,
+            0.784
+          ],
+          "content": "根据傅里叶系数公式(§1,公式(10))可得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.231,
+            0.787,
+            0.848,
+            0.823
+          ],
+          "content": "\\int_ {- \\pi} ^ {\\pi} f (x) S _ {m} (x) \\mathrm{d} x = \\frac {\\pi}{2} a _ {0} ^ {2} + \\pi \\sum_ {n = 1} ^ {m} (a _ {n} ^ {2} + b _ {n} ^ {2}). \\tag {3}",
+          "image_source": "../../raw/pages_0065-0096/images/page_82_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.828,
+            0.473,
+            0.847
+          ],
+          "content": "对于 $S_{m}^{2}(x)$ 的积分，应用三角函数的正交性，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.237,
+            0.852,
+            0.642,
+            0.929
+          ],
+          "content": "\\begin{array}{l} \\int_ {- \\pi} ^ {\\pi} S _ {m} ^ {2} (x)   \\mathrm{d} x \\\\ = \\int_ {- \\pi} ^ {\\pi} \\left[ \\frac {a _ {0}}{2} + \\sum_ {n = 1} ^ {m} (a _ {n} \\cos n x + b _ {n} \\sin n x) \\right] ^ {2} \\mathrm{d} x \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_82_equation_23.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.867,
+            0.964,
+            0.888,
+            0.975
+          ],
+          "content": "75"
+        }
+      ]
+    },
+    {
+      "page_idx": 83,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.139,
+            0.027,
+            0.364,
+            0.042
+          ],
+          "content": "第十五章 傅里叶级数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.289,
+            0.075,
+            0.958,
+            0.156
+          ],
+          "content": "\\begin{array}{l} = \\left(\\frac {a _ {0}}{2}\\right) ^ {2} \\int_ {- \\pi} ^ {\\pi} \\mathrm{d} x + \\sum_ {n = 1} ^ {m} \\left[ a _ {n} ^ {2} \\int_ {- \\pi} ^ {\\pi} \\cos^ {2} n x \\mathrm{d} x + b _ {n} ^ {2} \\int_ {- \\pi} ^ {\\pi} \\sin^ {2} n x \\mathrm{d} x \\right] \\\\ = \\frac {\\pi a _ {0} ^ {2}}{2} + \\pi \\sum_ {n = 1} ^ {m} (a _ {n} ^ {2} + b _ {n} ^ {2}). \\tag {4} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.16,
+            0.457,
+            0.178
+          ],
+          "content": "将(3)式、(4)式代入(2)式,可得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.348,
+            0.183,
+            0.743,
+            0.26
+          ],
+          "content": "\\begin{array}{l} 0 \\leqslant \\int_ {- \\pi} ^ {\\pi} \\left[ f (x) - S _ {m} (x) \\right] ^ {2} \\mathrm{d} x \\\\ = \\int_ {- \\pi} ^ {\\pi} f ^ {2} (x) \\mathrm{d} x - \\frac {\\pi a _ {0} ^ {2}}{2} - \\pi \\sum_ {n = 1} ^ {m} (a _ {n} ^ {2} + b _ {n} ^ {2}). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.264,
+            0.186,
+            0.28
+          ],
+          "content": "因而"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.365,
+            0.285,
+            0.737,
+            0.323
+          ],
+          "content": "\\frac {a _ {0} ^ {2}}{2} + \\sum_ {n = 1} ^ {m} (a _ {n} ^ {2} + b _ {n} ^ {2}) \\leqslant \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} [ f (x) ] ^ {2} \\mathrm{d} x",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.329,
+            0.782,
+            0.361
+          ],
+          "content": "对任何正整数 $m$ 成立. 而 $\\frac{1}{\\pi} \\int_{-\\pi}^{\\pi} [f(x)]^2 \\, \\mathrm{d}x$ 为有限值, 所以正项级数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.459,
+            0.368,
+            0.64,
+            0.405
+          ],
+          "content": "\\frac {a _ {0} ^ {2}}{2} + \\sum_ {n = 1} ^ {\\infty} (a _ {n} ^ {2} + b _ {n} ^ {2})",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.41,
+            0.643,
+            0.427
+          ],
+          "content": "的部分和数列有界,因而它收敛且有不等式(1)成立."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.941,
+            0.409,
+            0.958,
+            0.424
+          ],
+          "content": "□"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.182,
+            0.432,
+            0.456,
+            0.448
+          ],
+          "content": "推论 1 若 f 为可积函数, 则"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.42,
+            0.454,
+            0.96,
+            0.526
+          ],
+          "content": "\\left. \\begin{array}{l} \\lim _ {n \\to \\infty} \\int_ {- \\pi} ^ {\\pi} f (x) \\cos n x \\mathrm{d} x = 0, \\\\ \\lim _ {n \\to \\infty} \\int_ {- \\pi} ^ {\\pi} f (x) \\sin n x \\mathrm{d} x = 0. \\end{array} \\right\\} \\tag {5}",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.531,
+            0.962,
+            0.571
+          ],
+          "content": "因为(1)式的左边级数收敛,所以当  $n \\to \\infty$  时,通项  $a_{n}^{2} + b_{n}^{2} \\to 0$ ,亦即有  $a_{n} \\to 0$  与  $b_{n} \\to 0$ ,这就是(5)式.这个推论也称为黎曼-勒贝格定理."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.182,
+            0.576,
+            0.456,
+            0.592
+          ],
+          "content": "推论 2 若 f 为可积函数, 则"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.387,
+            0.598,
+            0.96,
+            0.671
+          ],
+          "content": "\\left. \\begin{array}{l} \\lim _ {n \\to \\infty} \\int_ {0} ^ {\\pi} f (x) \\sin \\left(n + \\frac {1}{2}\\right) x \\mathrm{d} x = 0, \\\\ \\lim _ {n \\to \\infty} \\int_ {- \\pi} ^ {0} f (x) \\sin \\left(n + \\frac {1}{2}\\right) x \\mathrm{d} x = 0. \\end{array} \\right\\} \\tag {6}",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.183,
+            0.679,
+            0.277,
+            0.695
+          ],
+          "content": "证 由于"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.338,
+            0.703,
+            0.765,
+            0.734
+          ],
+          "content": "\\sin \\left(n + \\frac {1}{2}\\right) x = \\cos \\frac {x}{2} \\sin n x + \\sin \\frac {x}{2} \\cos n x,",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.741,
+            0.188,
+            0.757
+          ],
+          "content": "所以"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.314,
+            0.761,
+            0.962,
+            0.878
+          ],
+          "content": "\\begin{array}{l} \\int_ {0} ^ {\\pi} f (x) \\sin \\left(n + \\frac {1}{2}\\right) x \\mathrm{d} x \\\\ = \\int_ {0} ^ {\\pi} \\left[ f (x) \\cos \\frac {x}{2} \\right] \\sin n x \\mathrm{d} x + \\int_ {0} ^ {\\pi} \\left[ f (x) \\sin \\frac {x}{2} \\right] \\cos n x \\mathrm{d} x \\\\ = \\int_ {- \\pi} ^ {\\pi} F _ {1} (x) \\sin n x \\mathrm{d} x + \\int_ {- \\pi} ^ {\\pi} F _ {2} (x) \\cos n x \\mathrm{d} x, \\tag {7} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.881,
+            0.188,
+            0.897
+          ],
+          "content": "其中"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.108,
+            0.96,
+            0.128,
+            0.971
+          ],
+          "content": "76"
+        }
+      ]
+    },
+    {
+      "page_idx": 84,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.628,
+            0.035,
+            0.809,
+            0.049
+          ],
+          "content": "§ 3 收敛定理的证明"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.244,
+            0.089,
+            0.615,
+            0.14
+          ],
+          "content": "F _ {1} (x) = \\left\\{ \\begin{array}{c l} f (x) \\cos \\frac {x}{2}, & 0 \\leqslant x \\leqslant \\pi , \\\\ 0, & - \\pi \\leqslant x <   0, \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_84_equation_1.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.244,
+            0.15,
+            0.61,
+            0.2
+          ],
+          "content": "F _ {2} (x) = \\left\\{ \\begin{array}{c l} f (x) \\sin \\frac {x}{2}, & 0 \\leqslant x \\leqslant \\pi , \\\\ 0, & - \\pi \\leqslant x <   0. \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_84_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.016,
+            0.205,
+            0.839,
+            0.244
+          ],
+          "content": "显见 $F_{1}$ 与 $F_{2}$ 和 $f$ 一样在 $[- \\pi, \\pi]$ 上可积. 由推论1,(7)式右端两积分的极限在 $n \\to \\infty$ 时都等于零, 所以左边的极限为零."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.061,
+            0.249,
+            0.202,
+            0.266
+          ],
+          "content": "同样可以证明"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.273,
+            0.271,
+            0.582,
+            0.304
+          ],
+          "content": "\\lim _ {n \\to \\infty} \\int_ {- \\pi} ^ {0} f (x) \\sin \\left(n + \\frac {1}{2}\\right) x \\mathrm{d} x = 0.",
+          "image_source": "../../raw/pages_0065-0096/images/page_84_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.016,
+            0.31,
+            0.843,
+            0.35
+          ],
+          "content": "预备定理2 若 $f(x)$ 是以 $2\\pi$ 为周期的函数，且在 $[- \\pi, \\pi]$ 上可积，则它的傅里叶级数部分和 $S_{n}(x)$ 可写成"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.242,
+            0.357,
+            0.839,
+            0.421
+          ],
+          "content": "S _ {n} (x) = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (x + t) \\frac {\\sin \\left(n + \\frac {1}{2}\\right) t}{2 \\sin \\frac {t}{2}} \\mathrm{d} t, \\tag {8}",
+          "image_source": "../../raw/pages_0065-0096/images/page_84_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.018,
+            0.428,
+            0.396,
+            0.445
+          ],
+          "content": "当 $t = 0$ 时，被积函数中的不定式由极限"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.303,
+            0.452,
+            0.56,
+            0.517
+          ],
+          "content": "\\lim _ {t \\to 0} \\frac {\\sin \\left(n + \\frac {1}{2}\\right) t}{2 \\sin \\frac {t}{2}} = n + \\frac {1}{2}",
+          "image_source": "../../raw/pages_0065-0096/images/page_84_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.018,
+            0.525,
+            0.096,
+            0.541
+          ],
+          "content": "来确定."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.061,
+            0.546,
+            0.314,
+            0.563
+          ],
+          "content": "证 在傅里叶级数部分和"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.245,
+            0.569,
+            0.614,
+            0.605
+          ],
+          "content": "S _ {n} (x) = \\frac {a _ {0}}{2} + \\sum_ {k = 1} ^ {n} (a _ {k} \\cos k x + b _ {k} \\sin k x)",
+          "image_source": "../../raw/pages_0065-0096/images/page_84_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.018,
+            0.609,
+            0.336,
+            0.626
+          ],
+          "content": "中,用傅里叶系数公式代入,可得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.024,
+            0.632,
+            0.831,
+            0.755
+          ],
+          "content": "\\begin{array}{l} S _ {n} (x) = \\frac {1}{2 \\pi} \\int_ {- \\pi} ^ {\\pi} f (u) \\mathrm{d} u + \\frac {1}{\\pi} \\sum_ {k = 1} ^ {n} \\left[ \\left(\\int_ {- \\pi} ^ {\\pi} f (u) \\cos k u \\mathrm{d} u\\right) \\cos k x + \\left(\\int_ {- \\pi} ^ {\\pi} f (u) \\sin k u \\mathrm{d} u\\right) \\sin k x \\right] \\\\ = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (u) \\left[ \\frac {1}{2} + \\sum_ {k = 1} ^ {n} (\\cos k u \\cos k x + \\sin k u \\sin k x) \\right] \\mathrm{d} u \\\\ = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (u) \\left[ \\frac {1}{2} + \\sum_ {k = 1} ^ {n} \\cos k (u - x) \\right] \\mathrm{d} u. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_84_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.019,
+            0.759,
+            0.143,
+            0.776
+          ],
+          "content": "令 $u = x + t$ ，得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.219,
+            0.781,
+            0.639,
+            0.817
+          ],
+          "content": "S _ {n} (x) = \\frac {1}{\\pi} \\int_ {- \\pi - x} ^ {\\pi - x} f (x + t) \\left[ \\frac {1}{2} + \\sum_ {k = 1} ^ {n} \\cos k t \\right] \\mathrm{d} t.",
+          "image_source": "../../raw/pages_0065-0096/images/page_84_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.018,
+            0.821,
+            0.845,
+            0.861
+          ],
+          "content": "由上面这个积分看到,被积函数是周期为  $2\\pi$  的函数,因此在  $[-\\pi-x,\\pi-x]$  上的积分等于  $[-\\pi,\\pi]$  上的积分,再由第十二章 §3 的(21)式,即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.283,
+            0.868,
+            0.84,
+            0.932
+          ],
+          "content": "\\frac {1}{2} + \\sum_ {k = 1} ^ {n} \\cos k t = \\frac {\\sin \\left(n + \\frac {1}{2}\\right) t}{2 \\sin \\frac {t}{2}}, \\tag {9}",
+          "image_source": "../../raw/pages_0065-0096/images/page_84_equation_18.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.86,
+            0.967,
+            0.88,
+            0.978
+          ],
+          "content": "77"
+        }
+      ]
+    },
+    {
+      "page_idx": 85,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.139,
+            0.032,
+            0.367,
+            0.047
+          ],
+          "content": "第十五章 傅里叶级数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.081,
+            0.211,
+            0.097
+          ],
+          "content": "就得到"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.368,
+            0.106,
+            0.731,
+            0.169
+          ],
+          "content": "S _ {n} (x) = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (x + t) \\frac {\\sin \\left(n + \\frac {1}{2}\\right) t}{2 \\sin \\frac {t}{2}} \\mathrm{d} t.",
+          "image_source": "../../raw/pages_0065-0096/images/page_85_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.184,
+            0.177,
+            0.674,
+            0.194
+          ],
+          "content": "(8)式也称为f的傅里叶级数部分和的积分表示式."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.183,
+            0.199,
+            0.599,
+            0.216
+          ],
+          "content": "现在证明定理 15.3(收敛定理), 重述如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.221,
+            0.964,
+            0.26
+          ],
+          "content": "若以 $2\\pi$ 为周期的函数 $f$ 在 $[- \\pi, \\pi]$ 上按段光滑，则在每一点 $x \\in [-\\pi, \\pi]$，$f$ 的傅里叶级数（本章 §1 的 (12) 式）收敛于 $f$ 在点 $x$ 的左、右极限的算术平均值，即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.286,
+            0.265,
+            0.816,
+            0.302
+          ],
+          "content": "\\frac {f (x + 0) + f (x - 0)}{2} = \\frac {a _ {0}}{2} + \\sum_ {n = 1} ^ {\\infty} \\left(a _ {n} \\cos n x + b _ {n} \\sin n x\\right),",
+          "image_source": "../../raw/pages_0065-0096/images/page_85_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.307,
+            0.432,
+            0.325
+          ],
+          "content": "其中  $a_{n}, b_{n}$  为 f 的傅里叶系数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.183,
+            0.33,
+            0.601,
+            0.346
+          ],
+          "content": "证 只要证明在每一点 x 处下述极限成立:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.361,
+            0.352,
+            0.744,
+            0.387
+          ],
+          "content": "\\lim _ {n \\to \\infty} \\left[ \\frac {f (x + 0) + f (x - 0)}{2} - S _ {n} (x) \\right] = 0,",
+          "image_source": "../../raw/pages_0065-0096/images/page_85_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.394,
+            0.167,
+            0.41
+          ],
+          "content": "即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.248,
+            0.417,
+            0.857,
+            0.482
+          ],
+          "content": "\\lim _ {n \\to \\infty} \\left[ \\frac {f (x + 0) + f (x - 0)}{2} - \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (x + t) \\frac {\\sin \\left(n + \\frac {1}{2}\\right) t}{2 \\sin \\frac {t}{2}} \\mathrm{d} t \\right] = 0,",
+          "image_source": "../../raw/pages_0065-0096/images/page_85_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.49,
+            0.279,
+            0.507
+          ],
+          "content": "或证明同时有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.317,
+            0.514,
+            0.961,
+            0.578
+          ],
+          "content": "\\lim _ {n \\to \\infty} \\left[ \\frac {f (x + 0)}{2} - \\frac {1}{\\pi} \\int_ {0} ^ {\\pi} f (x + t) \\frac {\\sin \\left(n + \\frac {1}{2}\\right) t}{2 \\sin \\frac {t}{2}} \\mathrm{d} t \\right] = 0 \\tag {10}",
+          "image_source": "../../raw/pages_0065-0096/images/page_85_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.586,
+            0.167,
+            0.602
+          ],
+          "content": "与"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.306,
+            0.61,
+            0.961,
+            0.674
+          ],
+          "content": "\\lim _ {n \\to \\infty} \\left[ \\frac {f (x - 0)}{2} - \\frac {1}{\\pi} \\int_ {- \\pi} ^ {0} f (x + t) \\frac {\\sin \\left(n + \\frac {1}{2}\\right) t}{2 \\sin \\frac {t}{2}} \\mathrm{d} t \\right] = 0. \\tag {11}",
+          "image_source": "../../raw/pages_0065-0096/images/page_85_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.682,
+            0.534,
+            0.699
+          ],
+          "content": "现在先证明(10)式. 对(9)式积分有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.297,
+            0.706,
+            0.806,
+            0.771
+          ],
+          "content": "\\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} \\frac {\\sin \\left(n + \\frac {1}{2}\\right) t}{2 \\sin \\frac {t}{2}} \\mathrm{d} t = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} \\left(\\frac {1}{2} + \\sum_ {k = 1} ^ {n} \\cos k t\\right) \\mathrm{d} t = 1.",
+          "image_source": "../../raw/pages_0065-0096/images/page_85_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.778,
+            0.658,
+            0.795
+          ],
+          "content": "由于上式左边为偶函数,因此两边乘以 $f(x+0)$ 后得到"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.351,
+            0.802,
+            0.749,
+            0.867
+          ],
+          "content": "\\frac {f (x + 0)}{2} = \\frac {1}{\\pi} \\int_ {0} ^ {\\pi} f (x + 0) \\frac {\\sin \\left(n + \\frac {1}{2}\\right) t}{2 \\sin \\frac {t}{2}} \\mathrm{d} t.",
+          "image_source": "../../raw/pages_0065-0096/images/page_85_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.874,
+            0.35,
+            0.891
+          ],
+          "content": "从而(10)式可改写为"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.109,
+            0.965,
+            0.13,
+            0.976
+          ],
+          "content": "78"
+        }
+      ]
+    },
+    {
+      "page_idx": 86,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.638,
+            0.034,
+            0.818,
+            0.049
+          ],
+          "content": "§ 3 收敛定理的证明"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.191,
+            0.086,
+            0.848,
+            0.15
+          ],
+          "content": "\\lim _ {n \\to \\infty} \\frac {1}{\\pi} \\int_ {0} ^ {\\pi} [ f (x + 0) - f (x + t) ] \\frac {\\sin \\left(n + \\frac {1}{2}\\right) t}{2 \\sin \\frac {t}{2}} \\mathrm{d} t = 0. \\tag {12}",
+          "image_source": "../../raw/pages_0065-0096/images/page_86_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.029,
+            0.159,
+            0.054,
+            0.175
+          ],
+          "content": "令"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.184,
+            0.182,
+            0.69,
+            0.306
+          ],
+          "content": "\\begin{array}{l} \\varphi (t) = - \\frac {f (x + t) - f (x + 0)}{2 \\sin \\frac {t}{2}} \\\\ = - \\left[ \\frac {f (x + t) - f (x + 0)}{t} \\right] \\frac {\\frac {t}{2}}{\\sin \\frac {t}{2}}, \\quad t \\in (0, \\pi ]. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_86_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.029,
+            0.315,
+            0.252,
+            0.332
+          ],
+          "content": "由本章 §1 的(13)式得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.238,
+            0.337,
+            0.637,
+            0.361
+          ],
+          "content": "\\lim _ {t \\to 0 ^ {+}} \\varphi (t) = - f ^ {\\prime} (x + 0) \\cdot 1 = - f ^ {\\prime} (x + 0).",
+          "image_source": "../../raw/pages_0065-0096/images/page_86_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.364,
+            0.853,
+            0.404
+          ],
+          "content": "再令 $\\varphi(0) = -f'(x + 0)$，则函数 $\\varphi$ 在点 $t = 0$ 右连续。因为 $\\varphi$ 在 $[0, \\pi]$ 上至多只有有限个第一类间断点，所以 $\\varphi$ 在 $[0, \\pi]$ 上可积。根据预备定理1的推论2，"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.206,
+            0.411,
+            0.68,
+            0.516
+          ],
+          "content": "\\begin{array}{l} \\lim _ {n \\to \\infty} \\frac {1}{\\pi} \\int_ {0} ^ {\\pi} [ f (x + 0) - f (x + t) ] \\frac {\\sin \\left(n + \\frac {1}{2}\\right) t}{2 \\sin \\frac {t}{2}} \\mathrm{d} t \\\\ = \\lim _ {n \\to \\infty} \\frac {1}{\\pi} \\int_ {0} ^ {\\pi} \\varphi (t) \\sin \\left(n + \\frac {1}{2}\\right) t \\mathrm{d} t = 0. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_86_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.028,
+            0.524,
+            0.414,
+            0.542
+          ],
+          "content": "这就证得(12)式成立,从而(10)式成立."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.546,
+            0.376,
+            0.564
+          ],
+          "content": "用同样方法可证(11)式也成立."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.35,
+            0.592,
+            0.527,
+            0.613
+          ],
+          "level": 2,
+          "content": "习题 15.3①"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.029,
+            0.633,
+            0.853,
+            0.711
+          ],
+          "sub_type": "text",
+          "content": "1. 设 $f$ 以 $2\\pi$ 为周期且具有二阶连续的导函数, 证明 $f$ 的傅里叶级数在 $(-\\infty, +\\infty)$ 上一致收敛于 $f$.\n2. 设 $f$ 为 $[- \\pi, \\pi]$ 上的可积函数. 证明: 若 $f$ 的傅里叶级数在 $[- \\pi, \\pi]$ 上一致收敛于 $f$, 则成立帕塞瓦尔 (Parseval) 等式:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.277,
+            0.716,
+            0.607,
+            0.75
+          ],
+          "content": "\\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} [ f (x) ] ^ {2} \\mathrm{d} x = \\frac {a _ {0} ^ {2}}{2} + \\sum_ {n = 1} ^ {\\infty} (a _ {n} ^ {2} + b _ {n} ^ {2}),",
+          "image_source": "../../raw/pages_0065-0096/images/page_86_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.03,
+            0.753,
+            0.279,
+            0.769
+          ],
+          "content": "这里 $a_{n}, b_{n}$ 为 $f$ 的傅里叶系数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.03,
+            0.773,
+            0.853,
+            0.809
+          ],
+          "content": "3. 帕塞瓦尔等式对于在 $[- \\pi, \\pi]$ 上满足收敛定理条件的函数也成立（证略）。请应用这个结果证明下列各式:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.068,
+            0.812,
+            0.61,
+            0.885
+          ],
+          "sub_type": "text",
+          "content": "(1) $\\frac{\\pi^2}{8} = \\sum_{n=1}^{\\infty} \\frac{1}{(2n-1)^2}$ (提示:应用 §1 习题3 的展开式导出);\n(2) $\\frac{\\pi^2}{6} = \\sum_{n=1}^{\\infty} \\frac{1}{n^2}$ (提示: 应用 §1 习题 1(1)(i) 的展开式导出);"
+        },
+        {
+          "type": "page_footnote",
+          "bbox": [
+            0.029,
+            0.918,
+            0.247,
+            0.934
+          ],
+          "content": "① 本节习题均为选做题."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.871,
+            0.967,
+            0.892,
+            0.978
+          ],
+          "content": "79"
+        }
+      ]
+    },
+    {
+      "page_idx": 87,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.127,
+            0.031,
+            0.356,
+            0.046
+          ],
+          "content": "第十五章 傅里叶级数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.078,
+            0.687,
+            0.11
+          ],
+          "content": "(3) $\\frac{\\pi^4}{90} = \\sum_{n=1}^{\\infty} \\frac{1}{n^4}$ (提示: 应用 §1 习题 1(2)(i) 的展开式导出)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.126,
+            0.115,
+            0.955,
+            0.152
+          ],
+          "content": "4. 证明: 若 $f, g$ 均为 $[- \\pi, \\pi]$ 上的可积函数, 且它们的傅里叶级数在 $[- \\pi, \\pi]$ 上分别一致收敛于 $f$ 和 $g$, 则"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.337,
+            0.156,
+            0.741,
+            0.188
+          ],
+          "content": "\\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (x) g (x) \\mathrm{d} x = \\frac {a _ {0} \\alpha_ {0}}{2} + \\sum_ {n = 1} ^ {\\infty} (a _ {n} \\alpha_ {n} + b _ {n} \\beta_ {n}),",
+          "image_source": "../../raw/pages_0065-0096/images/page_87_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.192,
+            0.592,
+            0.208
+          ],
+          "content": "其中 $a_{n}, b_{n}$ 为 $f$ 的傅里叶系数，$\\alpha_{n}, \\beta_{n}$ 为 $g$ 的傅里叶系数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.216,
+            0.951,
+            0.26
+          ],
+          "content": "5. 证明: 若 $f$ 及其导函数 $f'$ 均在 $[- \\pi, \\pi]$ 上可积, $\\int_{-\\pi}^{\\pi} f(x) \\mathrm{d}x = 0, f(-\\pi) = f(\\pi)$, 且成立帕塞瓦尔等式, 则"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.398,
+            0.264,
+            0.677,
+            0.294
+          ],
+          "content": "\\int_ {- \\pi} ^ {\\pi} \\left| f ^ {\\prime} (x) \\right| ^ {2} \\mathrm{d} x \\geqslant \\int_ {- \\pi} ^ {\\pi} \\left| f (x) \\right| ^ {2} \\mathrm{d} x.",
+          "image_source": "../../raw/pages_0065-0096/images/page_87_equation_6.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.412,
+            0.339,
+            0.672,
+            0.362
+          ],
+          "level": 2,
+          "content": "第十五章总练习题"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.167,
+            0.407,
+            0.331,
+            0.422
+          ],
+          "content": "1. 试求三角多项式"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.372,
+            0.427,
+            0.708,
+            0.458
+          ],
+          "content": "T _ {n} (x) = \\frac {A _ {0}}{2} + \\sum_ {k = 1} ^ {n} (A _ {k} \\cos k x + B _ {k} \\sin k x)",
+          "image_source": "../../raw/pages_0065-0096/images/page_87_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.463,
+            0.311,
+            0.478
+          ],
+          "content": "的傅里叶级数展开式."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.482,
+            0.892,
+            0.499
+          ],
+          "content": "2. 设 f 为  $[-π, π]$  上的可积函数， $a_{0}, a_{k}, b_{k}$  ( $k=1,2,\\cdots,n$ ) 为 f 的傅里叶系数. 试证明:当"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.339,
+            0.502,
+            0.741,
+            0.519
+          ],
+          "content": "A _ {0} = a _ {0}, \\quad A _ {k} = a _ {k}, \\quad B _ {k} = b _ {k} (k = 1, 2, \\dots , n)",
+          "image_source": "../../raw/pages_0065-0096/images/page_87_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.523,
+            0.201,
+            0.538
+          ],
+          "content": "时,积分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.445,
+            0.542,
+            0.638,
+            0.57
+          ],
+          "content": "\\int_ {- \\pi} ^ {\\pi} \\left[ f (x) - T _ {n} (x) \\right] ^ {2} \\mathrm{d} x",
+          "image_source": "../../raw/pages_0065-0096/images/page_87_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.574,
+            0.316,
+            0.59
+          ],
+          "content": "取最小值,且最小值为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.365,
+            0.593,
+            0.711,
+            0.626
+          ],
+          "content": "\\int_ {- \\pi} ^ {\\pi} [ f (x) ] ^ {2} \\mathrm{d} x - \\pi \\left[ \\frac {a _ {0} ^ {2}}{2} + \\sum_ {k = 1} ^ {n} (a _ {k} ^ {2} + b _ {k} ^ {2}) \\right].",
+          "image_source": "../../raw/pages_0065-0096/images/page_87_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.631,
+            0.685,
+            0.646
+          ],
+          "content": "上述  $T_{n}(x)$  是第 1 题中的三角多项式,  $A_{0}, A_{k}, B_{k}$  为它的傅里叶系数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.651,
+            0.61,
+            0.666
+          ],
+          "content": "3. 设 f 是以  $2\\pi$  为周期, 且具有二阶连续可微的函数,"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.316,
+            0.671,
+            0.763,
+            0.699
+          ],
+          "content": "b _ {n} = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f (x) \\sin n x \\mathrm{d} x, \\quad b _ {n} ^ {\\prime \\prime} = \\frac {1}{\\pi} \\int_ {- \\pi} ^ {\\pi} f ^ {\\prime \\prime} (x) \\sin n x \\mathrm{d} x.",
+          "image_source": "../../raw/pages_0065-0096/images/page_87_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.705,
+            0.341,
+            0.721
+          ],
+          "content": "若级数 $\\sum b_{n}^{\\prime \\prime}$ 绝对收敛，则"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.39,
+            0.727,
+            0.693,
+            0.76
+          ],
+          "content": "\\sum_ {n = 1} ^ {\\infty} \\sqrt {| b _ {n} |} \\leqslant \\frac {1}{2} \\big (2 + \\sum_ {n = 1} ^ {\\infty} | b _ {n} ^ {\\prime \\prime} | \\big) .",
+          "image_source": "../../raw/pages_0065-0096/images/page_87_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.166,
+            0.763,
+            0.662,
+            0.778
+          ],
+          "content": "4. 设周期为 $2\\pi$ 的可积函数 $\\varphi(x)$ 与 $\\psi(x)$ 满足以下关系式:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.17,
+            0.782,
+            0.334,
+            0.798
+          ],
+          "content": "(1)  $\\varphi(-x)=\\psi(x)$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.448,
+            0.782,
+            0.616,
+            0.798
+          ],
+          "content": "(2) $\\varphi(-x) = -\\psi(x)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.802,
+            0.681,
+            0.818
+          ],
+          "content": "试问  $\\varphi$  的傅里叶系数  $a_{n}, b_{n}$  与  $\\psi$  的傅里叶系数  $\\alpha_{n}, \\beta_{n}$  有什么关系？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.166,
+            0.822,
+            0.581,
+            0.838
+          ],
+          "content": "5. 设定义在 $[a, b]$ 上的连续函数列 $\\{\\varphi_n\\}$ 满足关系"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.4,
+            0.842,
+            0.684,
+            0.875
+          ],
+          "content": "\\int_ {a} ^ {b} \\varphi_ {n} (x) \\varphi_ {m} (x) \\mathrm{d} x = \\left\\{ \\begin{array}{l l} 0, & n \\neq m, \\\\ 1, & n = m. \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_87_equation_27.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.881,
+            0.417,
+            0.896
+          ],
+          "content": "对于在 $[a, b]$ 上的可积函数 $f$, 定义"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.389,
+            0.9,
+            0.693,
+            0.93
+          ],
+          "content": "a _ {n} = \\int_ {a} ^ {b} f (x) \\varphi_ {n} (x) \\mathrm{d} x, \\quad n = 1, 2, \\dots .",
+          "image_source": "../../raw/pages_0065-0096/images/page_87_equation_29.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.099,
+            0.965,
+            0.12,
+            0.976
+          ],
+          "content": "80"
+        }
+      ]
+    },
+    {
+      "page_idx": 88,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.656,
+            0.031,
+            0.812,
+            0.045
+          ],
+          "content": "第十五章总练习题"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.82,
+            0.03,
+            0.846,
+            0.045
+          ],
+          "content": "11"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.022,
+            0.085,
+            0.275,
+            0.117
+          ],
+          "content": "证明: $\\sum_{n = 1}^{\\infty}a_n^2$ 收敛，且有不等式"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.34,
+            0.12,
+            0.526,
+            0.153
+          ],
+          "content": "\\sum_ {n = 1} ^ {\\infty} a _ {n} ^ {2} \\leqslant \\int_ {a} ^ {b} \\left[ f (x) \\right] ^ {2} \\mathrm{d} x.",
+          "image_source": "../../raw/pages_0065-0096/images/page_88_equation_3.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.027,
+            0.198,
+            0.102,
+            0.246
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_88_image_4.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.111,
+            0.212,
+            0.313,
+            0.229
+          ],
+          "level": 2,
+          "content": "第十五章综合自测题"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.877,
+            0.964,
+            0.894,
+            0.974
+          ],
+          "content": "81"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "14612606",
+      "created_at": "2020-03-29T14:58:01+08:00",
+      "modified_at": "2020-03-29T14:58:01+08:00",
+      "creator_application": "Pdg2Pic",
+      "producer_application": "FreePic2Pdf_Lib - v3.16",
+      "page_count": 340,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "ocr"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 67,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 68,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 69,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 70,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 71,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 72,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 73,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 74,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 75,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 76,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 77,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 78,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 79,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 80,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 81,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 82,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 83,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 84,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 85,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 86,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 87,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 88,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

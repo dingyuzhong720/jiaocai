@@ -1,0 +1,5996 @@
+{
+  "pages": [
+    {
+      "page_idx": 292,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.554,
+            0.107,
+            0.827,
+            0.182
+          ],
+          "level": 2,
+          "content": "\\* 第二十三章向量函数微分学"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.239,
+            0.296,
+            0.657,
+            0.32
+          ],
+          "level": 2,
+          "content": "§ 1 n 维欧氏空间与向量函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.364,
+            0.857,
+            0.469
+          ],
+          "content": "在第十六至第十八章中所讨论的函数, 是二维(或 n 维)空间中的点集到实数集的映射, 由于函数值取实数, 故称之为实值函数, 在本章中所要讨论的函数, 则是 n 维欧氏空间中的点集到 m 维欧氏空间点集的映射, 这时函数值已不再是实数, 而是 m 维空间中的一个向量, 故称之为向量函数. 作为准备, 我们先择要地介绍一下 n 维欧氏空间概念."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.032,
+            0.48,
+            0.227,
+            0.5
+          ],
+          "level": 2,
+          "content": "一、$n$ 维欧氏空间"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.51,
+            0.854,
+            0.553
+          ],
+          "content": "所有 n 个有序实数组  $(x_{1}, x_{2}, \\cdots, x_{n})$  的全体称为 n 维向量空间，或简称 n 维空间，其中每个有序实数组称为 n 维空间中的一个向量（或一个点），记作"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.388,
+            0.559,
+            0.853,
+            0.645
+          ],
+          "content": "\\boldsymbol {x} = \\left( \\begin{array}{c} x _ {1} \\\\ x _ {2} \\\\ \\vdots \\\\ x _ {n} \\end{array} \\right). \\tag {1}",
+          "image_source": "../../raw/pages_0289-0320/images/page_292_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.649,
+            0.854,
+            0.691
+          ],
+          "content": "我们约定向量总是指列向量(如(1)式);记号 $x^{T}$ 表示向量x的转置,因此 $x^{T}$ 是一个行向量.向量x中的数 $x_{1},x_{2},\\cdots,x_{n}$ 是这个向量(或点)的n个分量(或坐标)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.695,
+            0.854,
+            0.735
+          ],
+          "content": "设  $\\boldsymbol{x}=(x_{1},x_{2},\\cdots,x_{n})^{\\mathrm{T}}$  与  $\\boldsymbol{y}=(y_{1},y_{2},\\cdots,y_{n})^{\\mathrm{T}}$  是 n 维空间中的任意两个向量， $\\alpha$  为任意实数，则向量 x 与 y 之和为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.283,
+            0.739,
+            0.592,
+            0.759
+          ],
+          "content": "\\boldsymbol {x} + \\boldsymbol {y} = (x _ {1} + y _ {1}, x _ {2} + y _ {2}, \\dots , x _ {n} + y _ {n}) ^ {\\mathrm{T}}.",
+          "image_source": "../../raw/pages_0289-0320/images/page_292_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.761,
+            0.304,
+            0.779
+          ],
+          "content": "数量 $\\alpha$ 与向量 $x$ 的数乘积为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.314,
+            0.783,
+            0.564,
+            0.802
+          ],
+          "content": "\\alpha \\boldsymbol {x} = (\\alpha x _ {1}, \\alpha x _ {2}, \\dots , \\alpha x _ {n}) ^ {\\mathrm{T}}.",
+          "image_source": "../../raw/pages_0289-0320/images/page_292_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.805,
+            0.279,
+            0.823
+          ],
+          "content": "向量 $x$ 与 $y$ 的内积定义为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.294,
+            0.826,
+            0.584,
+            0.846
+          ],
+          "content": "\\boldsymbol {x} ^ {\\mathrm{T}} \\boldsymbol {y} = x _ {1} y _ {1} + x _ {2} y _ {2} + \\dots + x _ {n} y _ {n}.",
+          "image_source": "../../raw/pages_0289-0320/images/page_292_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.849,
+            0.222,
+            0.866
+          ],
+          "content": "内积具有如下性质:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.072,
+            0.87,
+            0.455,
+            0.931
+          ],
+          "sub_type": "text",
+          "content": "1.  $x^{T}x \\geqslant 0$ , 当且仅当 x = 0 时,  $x^{T}x = 0$ .\n2.  $x^{T}y = y^{T}x.$\n3.  $\\alpha(\\boldsymbol{x}^{\\mathrm{T}}\\boldsymbol{y})=(\\alpha\\boldsymbol{x})^{\\mathrm{T}}\\boldsymbol{y}=\\boldsymbol{x}^{\\mathrm{T}}(\\alpha\\boldsymbol{y}),\\alpha$  为实数."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.871,
+            0.967,
+            0.901,
+            0.978
+          ],
+          "content": "285"
+        }
+      ]
+    },
+    {
+      "page_idx": 293,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.148,
+            0.03,
+            0.446,
+            0.046
+          ],
+          "content": "\\* 第二十三章 向量函数微分学"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.19,
+            0.078,
+            0.4,
+            0.097
+          ],
+          "content": "4.  $(\\boldsymbol{x}+\\boldsymbol{y})^{\\mathrm{T}}\\boldsymbol{z}=\\boldsymbol{x}^{\\mathrm{T}}\\boldsymbol{z}+\\boldsymbol{y}^{\\mathrm{T}}\\boldsymbol{z}.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.102,
+            0.972,
+            0.14
+          ],
+          "content": "定义了内积的 $n$ 维空间叫做 $n$ 维欧几里得(Euclid)空间(简称 $n$ 维欧氏空间), 记作 $\\mathbf{R}^n$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.191,
+            0.146,
+            0.512,
+            0.163
+          ],
+          "content": "利用内积定义向量 $x \\in \\mathbf{R}^n$ 的模为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.414,
+            0.171,
+            0.967,
+            0.205
+          ],
+          "content": "\\| \\boldsymbol {x} \\| = (\\boldsymbol {x} ^ {\\mathrm{T}} \\boldsymbol {x}) ^ {1 / 2} = \\left(\\sum_ {i = 1} ^ {n} x _ {i} ^ {2}\\right) ^ {1 / 2}. \\tag {2}",
+          "image_source": "../../raw/pages_0289-0320/images/page_293_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.208,
+            0.363,
+            0.225
+          ],
+          "content": "向量模具有如下性质:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.189,
+            0.23,
+            0.626,
+            0.269
+          ],
+          "sub_type": "text",
+          "content": "1.  $\\|x\\|\\geqslant0$ , 当且仅当 x=0 时,  $\\|x\\|=0$ .\n2.  $\\|\\alpha x\\| = |\\alpha| \\parallel x\\|$ ,  $\\alpha$  为实数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.189,
+            0.274,
+            0.624,
+            0.291
+          ],
+          "content": "3.  $\\|x+y\\|\\leqslant\\|x\\|+\\|y\\|$  (三角形不等式)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.189,
+            0.295,
+            0.653,
+            0.313
+          ],
+          "content": "4.  $\\|x^{T}y\\|\\leqslant\\|x\\|\\|y\\|$  （柯西-施瓦茨不等式）."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.191,
+            0.318,
+            0.54,
+            0.335
+          ],
+          "content": "$\\mathbf{R}^n$ 中任意两点 $x$ 与 $y$ 的距离定义为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.355,
+            0.343,
+            0.967,
+            0.376
+          ],
+          "content": "\\rho (\\boldsymbol {x}, \\boldsymbol {y}) = \\| \\boldsymbol {x} - \\boldsymbol {y} \\| = \\left[ \\sum_ {i = 1} ^ {n} (x _ {i} - y _ {i}) ^ {2} \\right] ^ {1 / 2}. \\tag {3}",
+          "image_source": "../../raw/pages_0289-0320/images/page_293_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.38,
+            0.589,
+            0.397
+          ],
+          "content": "这样定义的距离显然具有与模相仿的性质,如"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.315,
+            0.402,
+            0.799,
+            0.42
+          ],
+          "content": "\\rho (x, z) \\leqslant \\rho (x, y) + \\rho (y, z) \\quad (\\text {三角形不等式}).",
+          "image_source": "../../raw/pages_0289-0320/images/page_293_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.191,
+            0.423,
+            0.919,
+            0.441
+          ],
+          "content": "下面是  $R^{n}$  中点集的例子,读者不难从二维或三维空间的相应例子去理解它."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.191,
+            0.445,
+            0.832,
+            0.463
+          ],
+          "content": "点集  $\\{x \\mid \\|x\\| = r\\} \\subset R^{n}$  表示以 O 为中心、以 r 为半径的 n 维球面."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.467,
+            0.972,
+            0.531
+          ],
+          "content": "点集  $\\{x \\mid \\|x-a\\| < \\delta\\} \\subset R^{n}$  表示以点 a 为中心、半径为  $\\delta$  的 n 维球形邻域； $\\{x = (x_{1}, x_{2}, \\cdots, x_{n}) \\mid |x_{i} - a_{i}| < \\delta, i = 1, 2, \\cdots, n\\}$  则是 n 维方形邻域。我们仍用  $U(a; \\delta)$  来记点  $\\boldsymbol{a} = (a_{1}, a_{2}, \\cdots, a_{n})^{\\mathrm{T}}$  的上述这两类邻域，而  $U^{\\circ}(\\boldsymbol{a}; \\delta)$  则表示相应的空心邻域。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.535,
+            0.971,
+            0.575
+          ],
+          "content": "点集 $\\{x \\mid c^{\\mathrm{T}} x = d, c \\neq 0\\} \\subset \\mathbf{R}^{n}$. 当 $n = 2$ 时，它就是平面上的一条直线；当 $n = 3$ 时，它就是 $\\mathbf{R}^{3}$ 中的一个平面；当 $n > 3$ 时，称它为 $\\mathbf{R}^{n}$ 中的一个超平面."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.191,
+            0.579,
+            0.67,
+            0.597
+          ],
+          "content": "向量方程  $x=\\varphi(t)$  的各个分量式即为如下方程组:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.357,
+            0.603,
+            0.967,
+            0.619
+          ],
+          "content": "x _ {i} = \\varphi_ {i} (t), \\quad i = 1, 2, \\dots , n, \\quad t \\in [ \\alpha , \\beta ]. \\tag {4}",
+          "image_source": "../../raw/pages_0289-0320/images/page_293_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.624,
+            0.972,
+            0.687
+          ],
+          "content": "设  $\\varphi_{i}$  为  $[\\alpha,\\beta]$  上的连续函数  $(i=1,2,\\cdots,n)$ . 当 n=2 时, 它是  $R^{2}$  中的一条连续曲线; 当 n=3 时, 它是  $R^{3}$  中的一条连续曲线; 当 n>3 时, 仍称它是  $R^{n}$  中的连续曲线. 特别当 (4) 式是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.306,
+            0.692,
+            0.812,
+            0.71
+          ],
+          "content": "\\varphi_ {i} (t) = a _ {i} t + b _ {i}, \\quad i = 1, 2, \\dots , n, \\quad t \\in (- \\infty , + \\infty)",
+          "image_source": "../../raw/pages_0289-0320/images/page_293_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.715,
+            0.859,
+            0.733
+          ],
+          "content": "$(a_{i}, b_{i}$ 为常数, $a_{i}$ 不同时为零)时, 它表示 $\\mathbf{R}^{n}$ 中的一条直线, 其向量形式是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.389,
+            0.737,
+            0.729,
+            0.754
+          ],
+          "content": "x = a t + b \\quad (a \\neq 0), \\quad t \\in (- \\infty , + \\infty),",
+          "image_source": "../../raw/pages_0289-0320/images/page_293_equation_24.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.757,
+            0.579,
+            0.776
+          ],
+          "content": "其中  $\\boldsymbol{a}=(a_{1},a_{2},\\cdots,a_{n})^{\\mathrm{T}},\\boldsymbol{b}=(b_{1},b_{2},\\cdots,b_{n})^{\\mathrm{T}}.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.191,
+            0.78,
+            0.498,
+            0.797
+          ],
+          "content": "过已知两点 $x^{\\prime}, x^{\\prime \\prime}$ 的直线方程是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.347,
+            0.802,
+            0.768,
+            0.82
+          ],
+          "content": "\\boldsymbol {x} = \\left(\\boldsymbol {x} ^ {\\prime \\prime} - \\boldsymbol {x} ^ {\\prime}\\right) t + \\boldsymbol {x} ^ {\\prime}, \\qquad t \\in (- \\infty , + \\infty).",
+          "image_source": "../../raw/pages_0289-0320/images/page_293_equation_27.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.823,
+            0.972,
+            0.863
+          ],
+          "content": "当 $t \\in [0,1]$ 时，上式表示联结 $x', x''$ 两点的直线段. $\\mathbf{R}^n$ 中的折线，由首尾衔接的直线段所组成."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.868,
+            0.971,
+            0.93
+          ],
+          "content": "由于在 $\\mathbf{R}^n$ 中定义了距离、邻域、直线与折线等概念，读者可以把平面点集中有关内点、界点、聚点、开集、闭集、凸集、区域、直径等概念推广到 $\\mathbf{R}^n$ 中来. 并通过定义 $\\mathbf{R}^n$ 中的收敛点列 $\\{\\boldsymbol{P}_k\\}$，导出相当于定理16.1的完备性定理."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.106,
+            0.964,
+            0.136,
+            0.975
+          ],
+          "content": "286"
+        }
+      ]
+    },
+    {
+      "page_idx": 294,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.567,
+            0.034,
+            0.818,
+            0.048
+          ],
+          "content": "§ 1 n 维欧氏空间与向量函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.029,
+            0.082,
+            0.853,
+            0.122
+          ],
+          "content": "定理23.1 设 $\\{P_k\\} \\subset \\mathbf{R}^n$，则 $\\{P_k\\}$ 为收敛点列的充要条件是:任给 $\\varepsilon > 0$，存在 $K > 0$，当 $k > K$ 时，对一切正整数 $q$ 都有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.355,
+            0.129,
+            0.848,
+            0.144
+          ],
+          "content": "\\rho (\\boldsymbol {P} _ {k}, \\boldsymbol {P} _ {k + q}) <   \\varepsilon . \\tag {5}",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.149,
+            0.202,
+            0.166
+          ],
+          "content": "(证明从略.)"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.03,
+            0.177,
+            0.182,
+            0.196
+          ],
+          "level": 2,
+          "content": "二、向量函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.207,
+            0.741,
+            0.224
+          ],
+          "content": "这里我们采用集合来定义函数,它与以往的定义方式具有相同的含义."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.029,
+            0.229,
+            0.853,
+            0.269
+          ],
+          "content": "定义1 若 $X \\subset \\mathbf{R}^n, Y \\subset \\mathbf{R}^m, f$ 是 $X \\times Y^{①}$ 的一个子集，对每一个 $x \\in X$ ，都有惟一的一个 $y \\in Y$ ，使 $(x, y) \\in f$ ，则称 $f$ 为 $X$ 到 $Y$ 的向量函数（也简称函数或称映射），记作"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.388,
+            0.275,
+            0.487,
+            0.29
+          ],
+          "content": "f: X \\to Y,",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_7.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.416,
+            0.301,
+            0.484,
+            0.314
+          ],
+          "content": "x \\mapsto y,",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.029,
+            0.32,
+            0.53,
+            0.338
+          ],
+          "content": "或简单地记作 $f: X \\to Y$，其中 $X$ 称为函数 $f$ 的定义域."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.029,
+            0.342,
+            0.853,
+            0.382
+          ],
+          "content": "易见, 当 n=2（或 n=3), m=1 时, 由定义 1 所确定的函数就是我们原来所熟悉的二元(或三元)实值函数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.03,
+            0.386,
+            0.851,
+            0.426
+          ],
+          "content": "在映射的意义下, $x\\in X$ 在f下的象为 $y=f(x)\\in Y,X$ 在f下的象集为 $f(X)=\\{f(x)\\mid x\\in X\\}\\subset Y,x$ 称为 $f(x)$ 的原象."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.029,
+            0.43,
+            0.855,
+            0.469
+          ],
+          "content": "设 $f: X \\to Y$, 若对任何 $x', x'' \\in X$, 只要 $x' \\neq x''$ 就有 $f(x') \\neq f(x'')$, 则称 $f$ 为 $X$ 到 $Y$ 的一一映射 (或称为单射)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.029,
+            0.474,
+            0.855,
+            0.581
+          ],
+          "content": "其实,在解析几何和本课程以前的一些章节里,我们就曾遇到过不少向量函数.例如:平面(或空间)曲线的参数方程就可看作n=1,m=2（或m=3）的向量函数;曲面的参数方程是n=2,m=3的向量函数.又如可微的三元实值函数 $u=u(x,y,z)$ 的梯度grad $u=(u_{x},u_{y},u_{z})$ 就是一个n=m=3的向量函数.今后我们还能看到其他的一些例子.一般地,当 $f_{1},f_{2},\\cdots,f_{m}$ 为f的分量函数(或坐标函数)时,可写作"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.156,
+            0.585,
+            0.713,
+            0.65
+          ],
+          "content": "\\boldsymbol {f} \\left(\\boldsymbol {x}\\right) = \\left( \\begin{array}{c} f _ {1} (\\boldsymbol {x}) \\\\ \\vdots \\\\ f _ {m} (\\boldsymbol {x}) \\end{array} \\right) = \\left( \\begin{array}{c} f _ {1} (  x _ {1}, \\dots , x _ {n}) \\\\ \\vdots \\\\ f _ {m} (  x _ {1}, \\dots , x _ {n}) \\end{array} \\right) \\quad \\text {或} \\quad \\boldsymbol {f} = \\left( \\begin{array}{c} f _ {1} \\\\ \\vdots \\\\ f _ {m} \\end{array} \\right).",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.03,
+            0.655,
+            0.738,
+            0.673
+          ],
+          "content": "于是,两个相同维数的向量函数f与g在相同的定义域上的和(差)函数为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.337,
+            0.679,
+            0.85,
+            0.741
+          ],
+          "content": "\\boldsymbol {f} \\pm \\boldsymbol {g} = \\left( \\begin{array}{c c} f _ {1} & \\pm g _ {1} \\\\ & \\vdots \\\\ f _ {m} & \\pm g _ {m} \\end{array} \\right). \\tag {6}",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.03,
+            0.748,
+            0.68,
+            0.765
+          ],
+          "content": "一个实值函数 $\\alpha$ 与一个向量函数 $f$ 在相同的定义域上的乘积函数是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.377,
+            0.772,
+            0.85,
+            0.833
+          ],
+          "content": "\\alpha \\boldsymbol {f} = \\left( \\begin{array}{c} \\alpha f _ {1} \\\\ \\vdots \\\\ \\alpha f _ {m} \\end{array} \\right). \\tag {7}",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.03,
+            0.838,
+            0.368,
+            0.855
+          ],
+          "content": "两个向量函数 $f$ 与 $\\pmb{h}$ 的复合函数是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.143,
+            0.86,
+            0.737,
+            0.885
+          ],
+          "content": "\\boldsymbol {h} \\circ \\boldsymbol {f}: X \\xrightarrow {f} Y \\xrightarrow {h} Z (X \\subset \\mathbf {R} ^ {n}, \\boldsymbol {f} (X) \\subset Y \\subset \\mathbf {R} ^ {m}, Z \\subset \\mathbf {R} ^ {r})",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_20.jpg"
+        },
+        {
+          "type": "page_footnote",
+          "bbox": [
+            0.029,
+            0.917,
+            0.507,
+            0.934
+          ],
+          "content": "① $X \\times Y = \\{(x, y) | x \\in X, y \\in Y\\} \\subset \\mathbf{R}^{n+m}$ 称为 $X$ 与 $Y$ 的直积."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.87,
+            0.966,
+            0.899,
+            0.977
+          ],
+          "content": "287"
+        }
+      ]
+    },
+    {
+      "page_idx": 295,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.142,
+            0.029,
+            0.44,
+            0.045
+          ],
+          "content": "\\* 第二十三章 向量函数微分学"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.079,
+            0.17,
+            0.096
+          ],
+          "content": "或"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.47,
+            0.102,
+            0.965,
+            0.164
+          ],
+          "content": "\\boldsymbol {h} \\circ \\boldsymbol {f} = \\left( \\begin{array}{c} h _ {1} \\circ \\boldsymbol {f} \\\\ \\vdots \\\\ h _ {r} \\circ \\boldsymbol {f} \\end{array} \\right), \\tag {8}",
+          "image_source": "../../raw/pages_0289-0320/images/page_295_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.169,
+            0.592,
+            0.187
+          ],
+          "content": "其中 $(h_{i}\\circ\\boldsymbol{f})(\\boldsymbol{x})=h_{i}(f_{1}(\\boldsymbol{x}),\\cdots,f_{m}(\\boldsymbol{x}))$ ,  $x\\in X$ ."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.143,
+            0.197,
+            0.449,
+            0.216
+          ],
+          "level": 2,
+          "content": "三、向量函数的极限与连续"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.228,
+            0.969,
+            0.293
+          ],
+          "content": "定义2 设 $D \\subset X \\subset \\mathbf{R}^n$, $a$ 是 $D$ 的聚点, $f: X \\to \\mathbf{R}^m$. 若存在 $l \\in \\mathbf{R}^m$, 对于 $l$ 的任意小的邻域 $U(l; \\varepsilon) \\subset \\mathbf{R}^m$, 总有 $a$ 的空心邻域 $U^\\circ(a; \\delta) \\subset \\mathbf{R}^n$, $f(U^\\circ(a; \\delta) \\cap D) \\subset U(l; \\varepsilon)$, 则称在集合 $D$ 上当 $x \\to a$ 时, $f$ 以 $l$ 为极限, 记作"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.482,
+            0.307,
+            0.623,
+            0.34
+          ],
+          "content": "\\lim_{\\substack{x\\to a\\\\ x\\in D}}f(x) = l.",
+          "image_source": "../../raw/pages_0289-0320/images/page_295_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.349,
+            0.804,
+            0.368
+          ],
+          "content": "在不致混淆的情况下,或 D=X 时,简称  $x \\rightarrow a$  时 f 以 l 为极限,并记作"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.253,
+            0.378,
+            0.86,
+            0.532
+          ],
+          "sub_type": "text_image",
+          "content": "lim\nx→a f(x) = l.\nD\nG a U°(a;δ)\nf\nf(D)\nf(G)\nl\nU(l;ε)\nR^n\nR^m",
+          "captions": [
+            {
+              "bbox": [
+                0.523,
+                0.537,
+                0.591,
+                0.552
+              ],
+              "content": "图23-1"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_295_image_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.56,
+            0.969,
+            0.604
+          ],
+          "content": "定义 2 的几何描述如图 23-1 所示, 而且易知  $\\lim_{x\\to a}f(x)=l$  与以下任何一种说法是等价的:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.19,
+            0.608,
+            0.965,
+            0.651
+          ],
+          "sub_type": "text",
+          "content": "(i) $\\lim_{\\| x - a\\| \\to 0}\\| f(x) - l\\| = 0.$ (9)\n(ii) 设  $\\boldsymbol{a}=(a_{1},\\cdots,a_{n}),\\boldsymbol{l}=(l_{1},\\cdots,l_{m})$ ，则"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.258,
+            0.655,
+            0.965,
+            0.681
+          ],
+          "content": "\\lim _ {\\boldsymbol {x} \\rightarrow \\boldsymbol {a}} f _ {i} (\\boldsymbol {x}) = \\lim _ {(x _ {1}, \\dots , x _ {n}) \\rightarrow (a _ {1}, \\dots , a _ {n})} f _ {i} (x _ {1}, \\dots , x _ {n}) = l _ {i}, \\quad i = 1, 2, \\dots , m. \\tag {10}",
+          "image_source": "../../raw/pages_0289-0320/images/page_295_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.145,
+            0.684,
+            0.968,
+            0.723
+          ],
+          "content": "定义3 设 $D \\subset X \\subset \\mathbf{R}^n, a \\in D, f: X \\to \\mathbf{R}^m$. 若对任何 $\\varepsilon > 0$，存在 $\\delta > 0$，使得 $f(U(a; \\delta) \\cap D) \\subset U(f(a); \\varepsilon)$，则称 $f$ 在点 $a$（关于集合 $D$）连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.188,
+            0.728,
+            0.725,
+            0.745
+          ],
+          "content": "如果 f 在 D 上每一点都连续, 则称 f 为 D 上的连续函数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.144,
+            0.749,
+            0.971,
+            0.789
+          ],
+          "content": "和多元实值函数一样,如果 a 是 D 的孤立点,则按定义 3,f 在点 a 恒连续;如果 a 是 D 的聚点,则定义 3 等价于"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.255,
+            0.793,
+            0.853,
+            0.826
+          ],
+          "content": "\\lim_ {\\substack {\\boldsymbol {x} \\rightarrow \\boldsymbol {a}\\\\\\boldsymbol {x} \\in D}} \\boldsymbol {f} (\\boldsymbol {x}) = \\boldsymbol {f} (\\boldsymbol {a}) \\quad \\text {或} \\quad \\lim_ {\\substack {\\boldsymbol {x} \\rightarrow \\boldsymbol {a}\\\\\\boldsymbol {x} \\in D}} f _ {i} (\\boldsymbol {x}) = f _ {i} (\\boldsymbol {a}), \\quad i = 1, 2, \\dots , m.",
+          "image_source": "../../raw/pages_0289-0320/images/page_295_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.144,
+            0.827,
+            0.969,
+            0.867
+          ],
+          "content": "后者表示 f 的所有坐标函数在点 a （关于 D）连续。正由于此，以往关于实值连续函数的那些运算性质大部分都可推广到向量函数中来。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.871,
+            0.97,
+            0.932
+          ],
+          "content": "定理23.2 设 $f, g: X \\to Y (X \\subset \\mathbf{R}^n, Y \\subset \\mathbf{R}^m), h: Y \\to Z \\subset \\mathbf{R}^r, \\alpha: X \\to \\mathbf{R}, a \\in X, b = f(a) \\in Y.$ 若 $f, g, \\alpha$ 在点 $a$ 连续，$h$ 在点 $b$ 连续，则按(6)，(7)，(8)式所定义的向量函数 $f \\pm g, \\alpha f, h \\circ f$ 都在点 $a$ 连续."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.105,
+            0.964,
+            0.135,
+            0.975
+          ],
+          "content": "288"
+        }
+      ]
+    },
+    {
+      "page_idx": 296,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.571,
+            0.03,
+            0.824,
+            0.045
+          ],
+          "content": "§ 1 n 维欧氏空间与向量函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.079,
+            0.205,
+            0.096
+          ],
+          "content": "(证明从略.)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.101,
+            0.859,
+            0.143
+          ],
+          "content": "定理23.3 函数 $f: X \\to \\mathbf{R}^m$ 在点 $\\pmb{a} \\in X \\subset \\mathbf{R}^n$ 连续的充要条件为:任何点列 $\\{\\pmb{P}_k\\} \\subset X$ 收敛于 $\\pmb{a}$ 时，$\\{f(\\pmb{P}_k)\\} \\subset \\mathbf{R}^m$ 都收敛于 $f(\\pmb{a})$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.03,
+            0.149,
+            0.856,
+            0.218
+          ],
+          "content": "证 [充分性] 倘若 f 在点 a 不连续, 由 (9) 则存在  $\\varepsilon_{0}>0$ , 对每一  $\\delta=\\frac{1}{k}(k=1,2,\\cdots)$ , 总能取得  $P_{k}\\in X$ , 使得  $\\|P_{k}-a\\|<\\frac{1}{k}$ , 且"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.253,
+            0.227,
+            0.853,
+            0.242
+          ],
+          "content": "\\| f (P _ {k}) - f (\\boldsymbol {a}) \\| \\geqslant \\varepsilon_ {0}, \\quad k = 1, 2, \\dots . \\tag {11}",
+          "image_source": "../../raw/pages_0289-0320/images/page_296_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.246,
+            0.859,
+            0.286
+          ],
+          "content": "显然, 这里的  $\\{P_{k}\\}$  收敛于 a. 根据条件,  $\\{f(P_{k})\\}$  应该收敛于  $f(a)$ , 这与不等式(11)相矛盾. 所以 f 在点 a 必须连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.291,
+            0.859,
+            0.358
+          ],
+          "content": "[必要性] 任给 $\\varepsilon > 0$，由于 $f$ 在点 $a$ 连续，因此存在 $\\delta > 0$，使得 $\\| x - a \\| < \\delta$ 且 $x \\in X$ 时，总有 $\\| f(x) - f(a) \\| < \\varepsilon$. 又因对任何收敛于 $a$ 的点列 $\\{P_k\\} \\subset X$，存在 $K > 0$，当 $k > K$ 时，满足 $\\| P_k - a \\| < \\delta$，因而也有 $\\| f(P_k) - f(a) \\| < \\varepsilon$，即 $\\lim_{k \\to \\infty} f(P_k) = f(a)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.361,
+            0.859,
+            0.401
+          ],
+          "content": "在有界闭域(或有界闭集)上实值连续函数的那些整体性质同样可推广到向量函数的情形,只是原来与函数值有关的判断必须改为适合于向量函数的形式."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.405,
+            0.859,
+            0.444
+          ],
+          "content": "定理23.4 若 $D \\subset \\mathbf{R}^n$ 是有界闭集, $f: D \\to \\mathbf{R}^m$ 是 $D$ 上的连续函数, 则 $f(D) \\subset \\mathbf{R}^m$ 也是有界闭集."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.449,
+            0.859,
+            0.488
+          ],
+          "content": "证 如果 $D$ 是有限点集, 则 $\\pmb{f}(D)$ 也是有限的, 命题显然成立. 所以下面不妨假设 $D$ 和 $\\pmb{f}(D)$ 都是无限点集."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.492,
+            0.859,
+            0.581
+          ],
+          "content": "(i) 先证 $f(D)$ 的有界性. 倘若 $f(D)$ 无界, 则存在点列 $\\{P_k\\} \\subset D$, 使 $\\| f(P_k)\\| > k, k = 1, 2, \\cdots$. 由于 $D$ 是有界闭集, 因此存在 $\\{P_{k_j}\\} \\subset \\{P_k\\}$, 使 $\\lim_{j \\to \\infty} P_{k_j} = P_0 \\in D$. 由 $f$ 在点 $P_0$ 连续, 故 $\\| f(x)\\|$ 在点 $P_0$ 局部有界. 这与 $\\| f(P_{k_j})\\| \\geqslant k_j > j (j = 1, 2, \\cdots)$ 相矛盾."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.585,
+            0.859,
+            0.656
+          ],
+          "content": "（ii）再证 $f(D)$ 的闭性，即若 $\\pmb{Q}_0$ 是 $f(D)$ 的任一聚点，欲证 $\\pmb{Q}_0 \\in f(D)$. 设 $\\pmb{Q}_k \\in f(D), \\lim_{k \\to \\infty} \\pmb{Q}_k = \\pmb{Q}_0$，且 $\\pmb{P}_k \\in D, f(\\pmb{P}_k) = \\pmb{Q}_k$. 则存在收敛子列 $\\{\\pmb{P}_{k_j}\\} \\subset \\{\\pmb{P}_k\\}, \\lim_{j \\to \\infty} \\pmb{P}_{k_j} = \\pmb{P}_0 \\in D$，且由于 $f$ 在点 $\\pmb{P}_0$ 连续，从而有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.236,
+            0.658,
+            0.653,
+            0.682
+          ],
+          "content": "Q _ {0} = \\lim _ {j \\to \\infty} Q _ {k _ {j}} = \\lim _ {j \\to \\infty} f (P _ {k _ {j}}) = f (P _ {0}) \\in f (D).",
+          "image_source": "../../raw/pages_0289-0320/images/page_296_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.034,
+            0.685,
+            0.859,
+            0.725
+          ],
+          "content": "定理23.5 若 $D \\subset \\mathbf{R}^n$ 是有界闭集, $f: D \\to \\mathbf{R}^m$ 是 $D$ 上的连续函数, 则 $f(D)$ 的直径可达, 即存在 $P', P'' \\in D$, 使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.212,
+            0.73,
+            0.855,
+            0.753
+          ],
+          "content": "\\| f \\left(\\boldsymbol {P} ^ {\\prime}\\right) - f \\left(\\boldsymbol {P} ^ {\\prime \\prime}\\right) \\| = \\max _ {\\boldsymbol {x} ^ {\\prime}, \\boldsymbol {x} ^ {\\prime \\prime} \\in D} \\| \\boldsymbol {f} \\left(\\boldsymbol {x} ^ {\\prime}\\right) - \\boldsymbol {f} \\left(\\boldsymbol {x} ^ {\\prime \\prime}\\right) \\|. \\tag {12}",
+          "image_source": "../../raw/pages_0289-0320/images/page_296_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.756,
+            0.218,
+            0.772
+          ],
+          "content": "证 易见函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.293,
+            0.777,
+            0.599,
+            0.795
+          ],
+          "content": "F (\\boldsymbol {x} ^ {\\prime}, \\boldsymbol {x} ^ {\\prime \\prime}) = \\| \\boldsymbol {f} (\\boldsymbol {x} ^ {\\prime}) - \\boldsymbol {f} (\\boldsymbol {x} ^ {\\prime \\prime}) \\|",
+          "image_source": "../../raw/pages_0289-0320/images/page_296_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.034,
+            0.799,
+            0.86,
+            0.838
+          ],
+          "content": "是定义在有界闭集 $D \\times D$ 上的连续实值函数. 由连续函数性质 (定理 16.8), 存在 $(P', P'') \\in D \\times D$, 使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.314,
+            0.842,
+            0.578,
+            0.866
+          ],
+          "content": "F (\\boldsymbol {P} ^ {\\prime}, \\boldsymbol {P} ^ {\\prime \\prime}) = \\max _ {\\boldsymbol {x} ^ {\\prime}, \\boldsymbol {x} ^ {\\prime \\prime} \\in D} F (\\boldsymbol {x} ^ {\\prime}, \\boldsymbol {x} ^ {\\prime \\prime}).",
+          "image_source": "../../raw/pages_0289-0320/images/page_296_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.034,
+            0.869,
+            0.249,
+            0.886
+          ],
+          "content": "这就是(12)式的结论."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.034,
+            0.891,
+            0.86,
+            0.93
+          ],
+          "content": "定理23.6 若 $D \\subset \\mathbb{R}^n$ 是有界闭集, $f$ 是 $D$ 上的连续函数, 则 $f$ 在 $D$ 上一致连续. 即任给 $\\varepsilon > 0$, 存在只依赖于 $\\varepsilon$ 的 $\\delta > 0$, 只要 $x', x'' \\in D$ 且 $\\| x' - x'' \\| < \\delta$, 就有"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.877,
+            0.963,
+            0.905,
+            0.974
+          ],
+          "content": "289"
+        }
+      ]
+    },
+    {
+      "page_idx": 297,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.148,
+            0.027,
+            0.446,
+            0.043
+          ],
+          "content": "\\* 第二十三章 向量函数微分学"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.436,
+            0.076,
+            0.682,
+            0.094
+          ],
+          "content": "\\| f (x ^ {\\prime}) - f (x ^ {\\prime \\prime}) \\| <   \\varepsilon .",
+          "image_source": "../../raw/pages_0289-0320/images/page_297_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.19,
+            0.099,
+            0.516,
+            0.116
+          ],
+          "content": "读者可作为练习自行证明本定理."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.12,
+            0.972,
+            0.16
+          ],
+          "content": "定理 23.7 若  $D \\subset R^{n}$  是道路连通集 $^{①}$ ，f 是 D 上的连续函数，则  $f(D) \\subset \\mathbf{R}^{m}$  也是道路连通集."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.164,
+            0.972,
+            0.203
+          ],
+          "content": "证 任给 $Q', Q'' \\in f(D)$, 必有 $P', P'' \\in D$, 使得 $Q' = f(P'), Q'' = f(P'')$. 因为 $D$ 是道路连通的, 所以存在连续曲线"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.306,
+            0.208,
+            0.806,
+            0.226
+          ],
+          "content": "\\boldsymbol {x} = \\varphi (t) \\subset D, t \\in [ 0, 1 ], \\text {且} \\varphi (0) = P ^ {\\prime}, \\varphi (1) = P ^ {\\prime \\prime}.",
+          "image_source": "../../raw/pages_0289-0320/images/page_297_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.23,
+            0.568,
+            0.248
+          ],
+          "content": "从而 $f \\circ \\varphi: [0,1] \\to \\mathbf{R}^m$ 是连续的，而且满足"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.4,
+            0.251,
+            0.71,
+            0.27
+          ],
+          "content": "f (\\varphi (t)) \\subset f (D), t \\in [ 0, 1 ];",
+          "image_source": "../../raw/pages_0289-0320/images/page_297_equation_7.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.4,
+            0.274,
+            0.71,
+            0.292
+          ],
+          "content": "f (\\varphi (0)) = Q ^ {\\prime}, f (\\varphi (1)) = Q ^ {\\prime \\prime}.",
+          "image_source": "../../raw/pages_0289-0320/images/page_297_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.296,
+            0.443,
+            0.314
+          ],
+          "content": "这表明 $f(D)$ 也是道路连通的."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.478,
+            0.344,
+            0.636,
+            0.364
+          ],
+          "level": 2,
+          "content": "习题 23.1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.385,
+            0.357,
+            0.399
+          ],
+          "content": "1. 设 $x, y \\in \\mathbf{R}^n$，证明"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.391,
+            0.403,
+            0.729,
+            0.421
+          ],
+          "content": "\\| x + y \\| ^ {2} + \\| x - y \\| ^ {2} = 2 (\\| x \\| ^ {2} + \\| y \\| ^ {2}).",
+          "image_source": "../../raw/pages_0289-0320/images/page_297_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.425,
+            0.578,
+            0.44
+          ],
+          "content": "2. 设 $E \\subset \\mathbf{R}^n$，点 $\\pmb{x} \\in \\mathbf{R}^n$ 到集合 $E$ 的距离定义为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.462,
+            0.445,
+            0.653,
+            0.466
+          ],
+          "content": "\\rho (x, E) = \\inf _ {y \\in E} \\rho (x, y).",
+          "image_source": "../../raw/pages_0289-0320/images/page_297_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.468,
+            0.521,
+            0.484
+          ],
+          "content": "证明:（1）若 E 是闭集， $x \\notin E$ ，则  $\\rho(x, E) > 0$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.491,
+            0.895,
+            0.509
+          ],
+          "content": "(2) 若  $\\overline{E}$  是 E 连同其全体聚点所组成的集合（称为 E 的闭包），则  $\\overline{E} = \\{x \\mid \\rho(x, E) = 0\\}$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.513,
+            0.675,
+            0.528
+          ],
+          "content": "3. 设 $X \\subset \\mathbf{R}^n, Y \\subset \\mathbf{R}^m, f: X \\to Y; A, B$ 是 $X$ 的任意子集. 证明:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.187,
+            0.534,
+            0.611,
+            0.588
+          ],
+          "sub_type": "text",
+          "content": "(1)  $f(A \\cup B) = f(A) \\cup f(B)$ ;\n(2)  $f(A \\cap B) \\subset f(A) \\cap f(B)$ ;\n(3) 若 f 是一一映射, 则  $f(A \\cap B) = f(A) \\cap f(B)$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.593,
+            0.761,
+            0.614
+          ],
+          "content": "4. 设 $f, g: \\mathbf{R}^n \\to \\mathbf{R}^m, a \\in \\mathbf{R}^n, b, c \\in \\mathbf{R}^m, \\lim_{x \\to a} f(x) = b, \\lim_{x \\to a} g(x) = c.$ 证明:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.187,
+            0.617,
+            0.56,
+            0.661
+          ],
+          "sub_type": "text",
+          "content": "(1)  $\\lim_{x\\to a}\\|\\boldsymbol{f}(x)\\|=\\|\\boldsymbol{b}\\|$ ，且当 b=0 时可逆；\n(2)  $\\lim_{x\\to a}\\left[\\boldsymbol{f}\\left(\\boldsymbol{x}\\right)^{\\mathrm{T}}\\boldsymbol{g}\\left(\\boldsymbol{x}\\right)\\right]=\\boldsymbol{b}^{\\mathrm{T}}\\boldsymbol{c}.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.665,
+            0.736,
+            0.68
+          ],
+          "content": "5. 设 $D \\subset \\mathbf{R}^n, f: D \\to \\mathbf{R}^m$. 若存在正实数 $k, r$, 对任何点 $x, y \\in D$ 满足"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.42,
+            0.685,
+            0.707,
+            0.701
+          ],
+          "content": "\\| f (x) - f (y) \\| \\leqslant k \\| x - y \\| ^ {r},",
+          "image_source": "../../raw/pages_0289-0320/images/page_297_equation_27.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.705,
+            0.389,
+            0.721
+          ],
+          "content": "试证明 f 是 D 上的连续函数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.746,
+            0.444,
+            0.761
+          ],
+          "content": "6. 设 $x, y \\in \\mathbf{R}^n$，证明下列各式:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.188,
+            0.767,
+            0.797,
+            0.817
+          ],
+          "sub_type": "text",
+          "content": "(1) $\\sum_{i=1}^{n} |x_i| \\leqslant \\sqrt{n} \\| x\\|$;\n(2)  $\\parallel x+y\\parallel\\parallel x-y\\parallel\\leqslant\\parallel x\\parallel^{2}+\\parallel y\\parallel^{2};$\n(3) $\\left|\\|x\\|- \\|y\\|\\right| \\leqslant \\|x - y\\|$,"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.822,
+            0.666,
+            0.837
+          ],
+          "content": "并讨论各不等式中等号成立的条件和解释 $n = 2$ 时的几何意义."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.843,
+            0.385,
+            0.858
+          ],
+          "content": "7.（1）证明定理23.6；"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.187,
+            0.862,
+            0.972,
+            0.879
+          ],
+          "content": "(2) 设  $D \\subset R^{n}$ ，试问向量函数  $f: D \\rightarrow R^{m}$  在 D 上一致连续，是否等价于 f 的所有坐标函数  $f_{i} (i = 1,$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.912,
+            0.747,
+            0.928
+          ],
+          "content": "① 这是指 D 中任意两点之间, 能用一条完全含于 D 的连续曲线相连接."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.108,
+            0.961,
+            0.139,
+            0.972
+          ],
+          "content": "290"
+        }
+      ]
+    },
+    {
+      "page_idx": 298,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.648,
+            0.031,
+            0.827,
+            0.045
+          ],
+          "content": "§ 2 向量函数的微分"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.035,
+            0.079,
+            0.359,
+            0.094
+          ],
+          "content": "$2,\\cdots,m)$ 都在D上一致连续？为什么？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.099,
+            0.864,
+            0.136
+          ],
+          "content": "8. 设 $f: \\mathbf{R}^n \\to \\mathbf{R}^m$ 为连续函数, $A \\subset \\mathbf{R}^n$ 为任意开集, $B \\subset \\mathbf{R}^n$ 为任意闭集. 试问 $f(A)$ 是否必为开集? $f(B)$ 是否必为闭集?"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.304,
+            0.182,
+            0.603,
+            0.206
+          ],
+          "level": 2,
+          "content": "§ 2 向量函数的微分"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.038,
+            0.256,
+            0.292,
+            0.276
+          ],
+          "level": 2,
+          "content": "一、可微性与可微条件"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.287,
+            0.864,
+            0.327
+          ],
+          "content": "无论是一元函数还是多元函数的可微性,都是建立在局部线性近似基础上的.例如,一元函数f在 $x_{0}$ 可微,按其定义是指存在实数a,使得 $x\\in U(x_{0})$ 时,有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.253,
+            0.334,
+            0.858,
+            0.349
+          ],
+          "content": "f (x) - f (x _ {0}) = a (x - x _ {0}) + o (x - x _ {0}), \\tag {1}",
+          "image_source": "../../raw/pages_0289-0320/images/page_298_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.038,
+            0.354,
+            0.132,
+            0.371
+          ],
+          "content": "或者写成"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.278,
+            0.378,
+            0.861,
+            0.412
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} \\frac {f (x) - f (x _ {0}) - a (x - x _ {0})}{x - x _ {0}} = 0. \\tag {1}",
+          "image_source": "../../raw/pages_0289-0320/images/page_298_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.418,
+            0.79,
+            0.436
+          ],
+          "content": "而且进一步知道 $a = f'(x_0)$，并把 $a(x - x_0) = f'(x_0)(x - x_0)$ 称为 $f$ 在 $x_0$ 的微分."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.036,
+            0.441,
+            0.863,
+            0.482
+          ],
+          "content": "同样地，二元实值函数 $f$ 在 $\\pmb{P}_0(x_0,y_0)$ 可微，是指存在二维向量 $\\pmb {c} = (\\alpha ,\\beta)^{\\mathrm{T}}$ ，使得$\\pmb {P}(x,y)\\in U(\\pmb {P}_0)\\subset \\mathbf{R}^2$ 时，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.218,
+            0.489,
+            0.859,
+            0.506
+          ],
+          "content": "f (\\boldsymbol {P}) - f (\\boldsymbol {P} _ {0}) = \\boldsymbol {c} ^ {\\mathrm{T}} (\\boldsymbol {P} - \\boldsymbol {P} _ {0}) + o (\\| \\boldsymbol {P} - \\boldsymbol {P} _ {0} \\|), \\tag {2}",
+          "image_source": "../../raw/pages_0289-0320/images/page_298_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.038,
+            0.511,
+            0.132,
+            0.528
+          ],
+          "content": "或者写成"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.266,
+            0.533,
+            0.861,
+            0.569
+          ],
+          "content": "\\lim _ {P \\to P _ {0}} \\frac {f (P) - f (P _ {0}) - c ^ {\\mathrm{T}} (P - P _ {0})}{\\| P - P _ {0} \\|} = 0. \\tag {2}",
+          "image_source": "../../raw/pages_0289-0320/images/page_298_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.038,
+            0.576,
+            0.472,
+            0.595
+          ],
+          "content": "而且进一步知道  $\\boldsymbol{c}=(f_{x}(\\boldsymbol{P}_{0}),f_{y}(\\boldsymbol{P}_{0}))^{\\mathrm{T}}$ ，并把"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.194,
+            0.599,
+            0.702,
+            0.619
+          ],
+          "content": "\\boldsymbol {c} ^ {\\mathrm{T}} (\\boldsymbol {P} - \\boldsymbol {P} _ {0}) = f _ {x} (x _ {0}, y _ {0}) (x - x _ {0}) + f _ {y} (x _ {0}, y _ {0}) (y - y _ {0})",
+          "image_source": "../../raw/pages_0289-0320/images/page_298_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.038,
+            0.622,
+            0.232,
+            0.64
+          ],
+          "content": "称为f在 $P_{0}$ 的微分."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.645,
+            0.864,
+            0.732
+          ],
+          "content": "在(1)或(1)'中的 $a(x - x_0)$ 与(2)或(2)'中的 $\\pmb{c}^{\\mathrm{T}}(\\pmb {P} - \\pmb{P}_0)$ 具有相同的形式与内涵，因而我们也把向量 $\\pmb{c}$ 称做二元函数 $f$ 在 $\\pmb{P}_0$ 处的“导数”（以前叫梯度），并记作 $f^{\\prime}(\\pmb{P}_{0})$ 尤其是把 $a(x - x_0)$ 和 $\\pmb{c}^{\\mathrm{T}}(\\pmb {P} - \\pmb{P}_0)$ 作为线性变换来认识时，我们能很自然地建立起一般向量函数的可微性概念."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.036,
+            0.736,
+            0.863,
+            0.775
+          ],
+          "content": "定义1 设 $D \\subset \\mathbf{R}^n$ 为开集, $x_0 \\in D$, $f: D \\to \\mathbf{R}^m$. 如果存在某个线性变换 $A$ (只依赖于 $x_0$), 使得 $x \\in U(x_0) \\subset D$ 时, 有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.262,
+            0.781,
+            0.859,
+            0.797
+          ],
+          "content": "\\boldsymbol {f} (\\boldsymbol {x}) - \\boldsymbol {f} (\\boldsymbol {x} _ {0}) = A (\\boldsymbol {x} - \\boldsymbol {x} _ {0}) + o (\\| \\boldsymbol {x} - \\boldsymbol {x} _ {0} \\|) \\tag {3}",
+          "image_source": "../../raw/pages_0289-0320/images/page_298_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.039,
+            0.803,
+            0.066,
+            0.819
+          ],
+          "content": "或"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.273,
+            0.826,
+            0.861,
+            0.86
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} \\frac {f (x) - f (x _ {0}) - A (x - x _ {0})}{\\| x - x _ {0} \\|} = 0, \\tag {3}",
+          "image_source": "../../raw/pages_0289-0320/images/page_298_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.036,
+            0.866,
+            0.865,
+            0.929
+          ],
+          "content": "则称向量函数 f 在点  $x_{0}$  可微（或可导）。若与上述线性变换 A 相联系的矩阵为  $A_{m \\times n}$ ，则称  $A(x - x_{0}) = A(x - x_{0})$  为 f 在点  $x_{0}$  的微分，并称 A 为 f 在点  $x_{0}$  的导数，记作  $Df(x_{0})$  或  $f'(x_{0})$ 。因而"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.882,
+            0.963,
+            0.909,
+            0.975
+          ],
+          "content": "291"
+        }
+      ]
+    },
+    {
+      "page_idx": 299,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.139,
+            0.027,
+            0.436,
+            0.043
+          ],
+          "content": "\\* 第二十三章 向量函数微分学"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.348,
+            0.079,
+            0.958,
+            0.118
+          ],
+          "content": "\\begin{array}{l} A \\left(\\boldsymbol {x} - \\boldsymbol {x} _ {0}\\right) = A \\left(\\boldsymbol {x} - \\boldsymbol {x} _ {0}\\right) = D f \\left(\\boldsymbol {x} _ {0}\\right) \\left(\\boldsymbol {x} - \\boldsymbol {x} _ {0}\\right) \\\\ = f ^ {\\prime} \\left(x _ {0}\\right) \\left(x - x _ {0}\\right) \\tag {4} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_299_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.123,
+            0.962,
+            0.163
+          ],
+          "content": "同样是 $f(x) - f(x_0)$ 的一个线性逼近，只是当 $m > 1$ 时它不再是一实数，而是一个 $m$ 维的向量."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.167,
+            0.962,
+            0.207
+          ],
+          "content": "如果 $f$ 在 $D$ 中任何点处可微, 则称 $f$ 为 $D$ 上的可微函数. 下面来导出矩阵 $\\pmb{A}$ 的元与 $\\pmb{f}$ 的坐标函数的偏导数之间的联系. 为此设"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.349,
+            0.212,
+            0.75,
+            0.278
+          ],
+          "content": "\\boldsymbol {f} = \\left( \\begin{array}{c} f _ {1} \\\\ \\vdots \\\\ f _ {m} \\end{array} \\right), \\quad \\boldsymbol {A} = \\left( \\begin{array}{c c c} a _ {1 1} & \\dots & a _ {1 n} \\\\ \\vdots & & \\vdots \\\\ a _ {m 1} & \\dots & a _ {m n} \\end{array} \\right) = \\left( \\begin{array}{c} \\boldsymbol {A} _ {1} ^ {\\mathrm{T}} \\\\ \\vdots \\\\ \\boldsymbol {A} _ {m} ^ {\\mathrm{T}} \\end{array} \\right),",
+          "image_source": "../../raw/pages_0289-0320/images/page_299_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.283,
+            0.752,
+            0.302
+          ],
+          "content": "其中  $\\boldsymbol{A}_{i}=(a_{i1},\\cdots,a_{in})^{\\mathrm{T}}, i=1,2,\\cdots,m.$  此时，可微条件(3)等价于"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.244,
+            0.306,
+            0.958,
+            0.322
+          ],
+          "content": "f _ {i} (\\boldsymbol {x}) - f _ {i} \\left(\\boldsymbol {x} _ {0}\\right) = \\boldsymbol {A} _ {i} ^ {\\mathrm{T}} \\left(\\boldsymbol {x} - \\boldsymbol {x} _ {0}\\right) + o \\left(\\| \\boldsymbol {x} - \\boldsymbol {x} _ {0} \\|\\right), \\quad i = 1, 2, \\dots , m, \\tag {5}",
+          "image_source": "../../raw/pages_0289-0320/images/page_299_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.325,
+            0.903,
+            0.343
+          ],
+          "content": "即 f 的所有坐标函数  $f_{i}(i=1,2,\\cdots,m)$  在  $x_{0}$  可微. 由实值函数可微性的结论知道"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.323,
+            0.346,
+            0.958,
+            0.381
+          ],
+          "content": "a _ {i j} = \\frac {\\partial f _ {i}}{\\partial x _ {j}} \\Bigg | _ {x = x _ {0}}, \\quad j = 1, 2, \\dots , n; \\quad i = 1, 2, \\dots , m. \\tag {6}",
+          "image_source": "../../raw/pages_0289-0320/images/page_299_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.384,
+            0.568,
+            0.402
+          ],
+          "content": "于是当 $f$ 在 $\\pmb{x}_0$ 可微时，$f$ 在 $\\pmb{x}_0$ 的导数矩阵为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.315,
+            0.407,
+            0.959,
+            0.51
+          ],
+          "content": "\\boldsymbol {A} = \\left( \\begin{array}{c c c} \\frac {\\partial f _ {1}}{\\partial x _ {1}} & \\dots & \\frac {\\partial f _ {1}}{\\partial x _ {n}} \\\\ \\vdots & & \\vdots \\\\ \\frac {\\partial f _ {m}}{\\partial x _ {1}} & \\dots & \\frac {\\partial f _ {m}}{\\partial x _ {n}} \\end{array} \\right) ^ {①} \\quad (= \\boldsymbol {f} ^ {\\prime} (\\boldsymbol {x} _ {0}) = \\mathrm{D} \\boldsymbol {f} (\\boldsymbol {x} _ {0})). \\tag {7}",
+          "image_source": "../../raw/pages_0289-0320/images/page_299_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.514,
+            0.962,
+            0.554
+          ],
+          "content": "由于向量函数的可微性等价于它的所有坐标函数的可微性,因此,实值函数可微的必要条件与充分条件同样适用于向量函数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.559,
+            0.691,
+            0.576
+          ],
+          "content": "定理23.8 若向量函数 $f$ 在 $x_0$ 可微，则 $f$ 在 $x_0$ 连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.581,
+            0.962,
+            0.664
+          ],
+          "content": "定理 23.9 若向量函数 f 在  $x_{0}$  可微，则 f 的所有 m 个坐标函数  $f_{i}$  ( $i=1,2,\\cdots,m$ ) 在  $x_{0}$  关于每个自变量  $x_{j}$  ( $j=1,2,\\cdots,n$ ) 的一阶偏导数  $\\left.\\frac{\\partial f_{i}}{\\partial x_{j}}\\right|_{x=x_{0}}$  都存在。由这些偏导数组成的矩阵(7)便是 f 在  $x_{0}$  的导数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.671,
+            0.962,
+            0.729
+          ],
+          "content": "定理 23.10 若向量函数 f 在点  $x_{0}$  的某邻域  $U(x_{0})$  内处处存在一阶偏导数  $\\frac{\\partial f_{i}}{\\partial x_{j}} (i=1,2,\\cdots,m; j=1,2,\\cdots,n)$ ，且所有这些偏导数在点  $x_{0}$  连续，则 f 在点  $x_{0}$  可微."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.734,
+            0.86,
+            0.752
+          ],
+          "content": "例1 设 $X = \\{(x_{1}, x_{2}) | -\\infty < x_{1} < +\\infty, x_{2} > 0\\} \\subset \\mathbf{R}^{2}$, 向量函数 $f: X \\to \\mathbf{R}^{4}$ 为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.333,
+            0.754,
+            0.763,
+            0.773
+          ],
+          "content": "f (\\boldsymbol {x}) = f (x _ {1}, x _ {2}) = (x _ {1} ^ {2} x _ {2} ^ {3}, \\mathrm{e} ^ {x _ {1} + x _ {2}}, x _ {2}, x _ {1} \\ln x _ {2}) ^ {\\mathrm{T}}.",
+          "image_source": "../../raw/pages_0289-0320/images/page_299_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.775,
+            0.397,
+            0.792
+          ],
+          "content": "求 $f'(x)$, $x \\in X$ 和 $f'(1,1)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.797,
+            0.277,
+            0.813
+          ],
+          "content": "解 这里"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.222,
+            0.818,
+            0.873,
+            0.837
+          ],
+          "content": "f _ {1} (x _ {1}, x _ {2}) = x _ {1} ^ {2} x _ {2} ^ {3}, f _ {2} (x _ {1}, x _ {2}) = \\mathrm{e} ^ {x _ {1} + x _ {2}}, f _ {3} (x _ {1}, x _ {2}) = x _ {2}, f _ {4} (x _ {1}, x _ {2}) = x _ {1} \\ln x _ {2}.",
+          "image_source": "../../raw/pages_0289-0320/images/page_299_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.841,
+            0.334,
+            0.858
+          ],
+          "content": "对 $x \\in X$ ，由(7)式有"
+        },
+        {
+          "type": "page_footnote",
+          "bbox": [
+            0.139,
+            0.89,
+            0.949,
+            0.927
+          ],
+          "content": "① 如此形式的矩阵又叫做 f 的雅可比矩阵, 也常记作  $J_{f}(x_{0})$ . 只要其中的所有偏导数存在, 便可构成  $J_{f}(x_{0})$ , 但此时并不表示它必定是 f 的导数, 因为由此并不能保证 f 在  $x_{0}$  可微."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.098,
+            0.961,
+            0.127,
+            0.972
+          ],
+          "content": "292"
+        }
+      ]
+    },
+    {
+      "page_idx": 300,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.649,
+            0.028,
+            0.827,
+            0.042
+          ],
+          "content": "§ 2 向量函数的微分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.212,
+            0.076,
+            0.675,
+            0.179
+          ],
+          "content": "f ^ {\\prime} (\\boldsymbol {x}) = \\left( \\begin{array}{c c} 2 x _ {1} x _ {2} ^ {3} & 3 x _ {1} ^ {2} x _ {2} ^ {2} \\\\ \\mathrm{e} ^ {x _ {1} + x _ {2}} & \\mathrm{e} ^ {x _ {1} + x _ {2}} \\\\ 0 & 1 \\\\ \\ln x _ {2} & \\frac {x _ {1}}{x _ {2}} \\end{array} \\right), \\quad f ^ {\\prime} (1, 1) = \\left( \\begin{array}{c c} 2 & 3 \\\\ \\mathrm{e} ^ {2} & \\mathrm{e} ^ {2} \\\\ 0 & 1 \\\\ 0 & 1 \\end{array} \\right).",
+          "image_source": "../../raw/pages_0289-0320/images/page_300_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.035,
+            0.182,
+            0.571,
+            0.199
+          ],
+          "content": "进而还可由定理 23.10 知, 函数 f 在 X 上每一点都可微."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.035,
+            0.204,
+            0.862,
+            0.243
+          ],
+          "content": "下述定理给出了可微函数与连续函数之间进一步的联系,它可使不少可微性命题的证明更加简便."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.034,
+            0.247,
+            0.862,
+            0.309
+          ],
+          "content": "定理23.11 设 $D \\subset \\mathbf{R}^n$ 为开集, $x_0 \\in D$, $f: D \\to \\mathbf{R}^m$. 则 $f$ 在 $x_0$ 可微的充要条件是: 存在一个 ($m$ 行 $n$ 列的) 矩阵函数 $F: D \\to \\mathbf{R}^{mn}$, 它在 $x_0$ 连续 (相当于它的 $n$ 个列向量函数都在 $x_0$ 连续), 并使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.249,
+            0.313,
+            0.858,
+            0.329
+          ],
+          "content": "f (\\boldsymbol {x}) - f (\\boldsymbol {x} _ {0}) = \\boldsymbol {F} (\\boldsymbol {x}) (\\boldsymbol {x} - \\boldsymbol {x} _ {0}), \\boldsymbol {x} \\in D. \\tag {8}",
+          "image_source": "../../raw/pages_0289-0320/images/page_300_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.035,
+            0.332,
+            0.862,
+            0.37
+          ],
+          "content": "证 为了证明的需要,我们把定义4中的(3)式改写成如下等价形式,即存在  $\\eta: D \\rightarrow R^{m}$ , 使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.245,
+            0.377,
+            0.858,
+            0.393
+          ],
+          "content": "f (x) - f (x _ {0}) = A (x - x _ {0}) + \\eta (x) \\| x - x _ {0} \\|, \\tag {9}",
+          "image_source": "../../raw/pages_0289-0320/images/page_300_equation_7.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.388,
+            0.397,
+            0.506,
+            0.419
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} \\boldsymbol {\\eta} (x) = \\mathbf {0}.",
+          "image_source": "../../raw/pages_0289-0320/images/page_300_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.421,
+            0.568,
+            0.437
+          ],
+          "content": "现从(9)式出发来证明条件的必要性: 当  $x \\neq x_{0}$  时,"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.138,
+            0.441,
+            0.859,
+            0.535
+          ],
+          "content": "\\begin{array}{l} \\boldsymbol {f} (\\boldsymbol {x}) - \\boldsymbol {f} \\left(\\boldsymbol {x} _ {0}\\right) = \\boldsymbol {f} ^ {\\prime} \\left(\\boldsymbol {x} _ {0}\\right) \\left(\\boldsymbol {x} - \\boldsymbol {x} _ {0}\\right) + \\boldsymbol {\\eta} (\\boldsymbol {x}) \\| \\boldsymbol {x} - \\boldsymbol {x} _ {0} \\| \\\\ = \\boldsymbol {f} ^ {\\prime} \\left(\\boldsymbol {x} _ {0}\\right) \\left(\\boldsymbol {x} - \\boldsymbol {x} _ {0}\\right) + \\frac {\\boldsymbol {\\eta} (\\boldsymbol {x})}{\\| \\boldsymbol {x} - \\boldsymbol {x} _ {0} \\|} \\left(\\boldsymbol {x} - \\boldsymbol {x} _ {0}\\right) ^ {\\mathrm{T}} \\left(\\boldsymbol {x} - \\boldsymbol {x} _ {0}\\right) \\\\ = \\left[ \\boldsymbol {f} ^ {\\prime} \\left(\\boldsymbol {x} _ {0}\\right) + \\frac {\\boldsymbol {\\eta} (\\boldsymbol {x})}{\\| \\boldsymbol {x} - \\boldsymbol {x} _ {0} \\|} \\left(\\boldsymbol {x} - \\boldsymbol {x} _ {0}\\right) ^ {\\mathrm{T}} \\right] \\left(\\boldsymbol {x} - \\boldsymbol {x} _ {0}\\right). \\tag {10} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_300_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.538,
+            0.085,
+            0.555
+          ],
+          "content": "若令"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.206,
+            0.559,
+            0.86,
+            0.614
+          ],
+          "content": "\\boldsymbol {F} (\\boldsymbol {x}) = \\left\\{ \\begin{array}{l l} \\boldsymbol {f} ^ {\\prime} (\\boldsymbol {x} _ {0}) + \\frac {\\boldsymbol {\\eta} (\\boldsymbol {x})}{\\| \\boldsymbol {x} - \\boldsymbol {x} _ {0} \\|} (\\boldsymbol {x} - \\boldsymbol {x} _ {0}) ^ {\\mathrm{T}}, & \\boldsymbol {x} \\neq \\boldsymbol {x} _ {0}, \\\\ \\boldsymbol {f} ^ {\\prime} (\\boldsymbol {x} _ {0}), & \\boldsymbol {x} = \\boldsymbol {x} _ {0}. \\end{array} \\right. \\tag {11}",
+          "image_source": "../../raw/pages_0289-0320/images/page_300_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.038,
+            0.618,
+            0.085,
+            0.634
+          ],
+          "content": "因为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.168,
+            0.638,
+            0.735,
+            0.677
+          ],
+          "content": "\\| \\boldsymbol {F} (\\boldsymbol {x}) - \\boldsymbol {F} (\\boldsymbol {x} _ {0}) \\| ^ {(1)} = \\left\\| \\boldsymbol {\\eta} (\\boldsymbol {x}) \\frac {(\\boldsymbol {x} - \\boldsymbol {x} _ {0}) ^ {\\mathrm{T}}}{\\| \\boldsymbol {x} - \\boldsymbol {x} _ {0} \\|} \\right\\| \\leqslant \\| \\boldsymbol {\\eta} (\\boldsymbol {x}) \\|,",
+          "image_source": "../../raw/pages_0289-0320/images/page_300_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.681,
+            0.862,
+            0.726
+          ],
+          "content": "而 $\\lim_{x\\to x_{0}}\\|\\boldsymbol{\\eta}(x)\\|=0$ ，所以 $F(x)$ 在 $x_{0}$ 连续。于是存在由(11)所确定的函数F，使得(10)式符合定理条件。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.731,
+            0.561,
+            0.748
+          ],
+          "content": "反之,若存在  $F(x)$ , 在  $x_{0}$  连续且满足(8)式, 则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.108,
+            0.751,
+            0.785,
+            0.809
+          ],
+          "content": "\\begin{array}{l} f (\\boldsymbol {x}) - f \\left(\\boldsymbol {x} _ {0}\\right) = \\boldsymbol {F} \\left(\\boldsymbol {x} _ {0}\\right) \\left(\\boldsymbol {x} - \\boldsymbol {x} _ {0}\\right) + \\left[ \\boldsymbol {F} (\\boldsymbol {x}) - \\boldsymbol {F} \\left(\\boldsymbol {x} _ {0}\\right) \\right] \\left(\\boldsymbol {x} - \\boldsymbol {x} _ {0}\\right) \\\\ = F (x _ {0}) (x - x _ {0}) + \\frac {F (x) - F (x _ {0})}{\\| x - x _ {0} \\|} (x - x _ {0}) \\| x - x _ {0} \\|\\cdot \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_300_equation_17.jpg"
+        },
+        {
+          "type": "page_footnote",
+          "bbox": [
+            0.036,
+            0.87,
+            0.862,
+            0.929
+          ],
+          "content": "① 这里  $\\|F(x)-F(x_{0})\\|$  是矩阵的模. 一般地, 矩阵  $A=(a_{ij})_{m\\times n}$  的模可以采用多种定义方式, 其中之一是  $\\|A\\|=\\sqrt{\\sum_{i=1}^{m}\\sum_{j=1}^{n}a_{ij}^{2}}$ , 这相当于把 A 看作 mn 维向量, 所以向量模的性质对矩阵模同样成立."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.88,
+            0.961,
+            0.909,
+            0.972
+          ],
+          "content": "293"
+        }
+      ]
+    },
+    {
+      "page_idx": 301,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.139,
+            0.027,
+            0.437,
+            0.043
+          ],
+          "content": "\\* 第二十三章 向量函数微分学"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.342,
+            0.079,
+            0.96,
+            0.136
+          ],
+          "content": "\\boldsymbol {\\eta} (\\boldsymbol {x}) = \\left\\{ \\begin{array}{l l} \\frac {\\boldsymbol {F} (\\boldsymbol {x}) - \\boldsymbol {F} \\left(\\boldsymbol {x} _ {0}\\right)}{\\| \\boldsymbol {x} - \\boldsymbol {x} _ {0} \\|} \\left(\\boldsymbol {x} - \\boldsymbol {x} _ {0}\\right), & \\boldsymbol {x} \\neq \\boldsymbol {x} _ {0}, \\\\ \\boldsymbol {0}, & \\boldsymbol {x} = \\boldsymbol {x} _ {0}. \\end{array} \\right. \\tag {12}",
+          "image_source": "../../raw/pages_0289-0320/images/page_301_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.141,
+            0.963,
+            0.186
+          ],
+          "content": "因 F 在  $x_{0}$  连续, 可知  $\\lim_{x\\to x_{0}}\\eta(x)=0$ . 所以 (12) 式符合 f 在  $x_{0}$  可微的等价条件 (9). 而且线性变换 A 由矩阵  $\\boldsymbol{F}(\\boldsymbol{x}_{0})$  所确定, 即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.469,
+            0.19,
+            0.96,
+            0.205
+          ],
+          "content": "\\boldsymbol {f} ^ {\\prime} (\\boldsymbol {x} _ {0}) = \\boldsymbol {F} (\\boldsymbol {x} _ {0}). \\tag {13}",
+          "image_source": "../../raw/pages_0289-0320/images/page_301_equation_3.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.14,
+            0.234,
+            0.369,
+            0.252
+          ],
+          "level": 2,
+          "content": "二、可微函数的性质"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.183,
+            0.266,
+            0.704,
+            0.282
+          ],
+          "content": "如定义 4 那样, 下列定理中的集合  $D \\subset R^{n}$  均设为开集."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.288,
+            0.965,
+            0.327
+          ],
+          "content": "定理23.12 设 $f, g: D \\to \\mathbf{R}^m$ 是两个在 $x_0 \\in D$ 可微的函数，$c$ 是任意实数。则 $cf$ 与 $f \\pm g$ 在 $x_0$ 也可微，且有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.273,
+            0.331,
+            0.961,
+            0.347
+          ],
+          "content": "(c f) ^ {\\prime} (x _ {0}) = c f ^ {\\prime} (x _ {0}), \\quad (f \\pm g) ^ {\\prime} (x _ {0}) = f ^ {\\prime} (x _ {0}) \\pm g ^ {\\prime} (x _ {0}). \\tag {14}",
+          "image_source": "../../raw/pages_0289-0320/images/page_301_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.184,
+            0.35,
+            0.329,
+            0.366
+          ],
+          "content": "证明留作练习."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.372,
+            0.965,
+            0.412
+          ],
+          "content": "定理23.13 设 $f: D \\to \\mathbf{R}^m$ 在 $x_0 \\in D$ 可微；$D' \\subset \\mathbf{R}^m$ 亦为开集，$f(D) \\subset D'; g: D' \\to \\mathbf{R}^r$ 在 $y_0 = f(x_0)$ 可微。则复合函数 $h = g \\circ f: D \\to \\mathbf{R}^r$ 在 $x_0$ 可微，且"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.361,
+            0.416,
+            0.961,
+            0.432
+          ],
+          "content": "\\boldsymbol {h} ^ {\\prime} \\left(\\boldsymbol {x} _ {0}\\right) = (\\boldsymbol {g} \\circ \\boldsymbol {f}) ^ {\\prime} \\left(\\boldsymbol {x} _ {0}\\right) = \\boldsymbol {g} ^ {\\prime} \\left(\\boldsymbol {y} _ {0}\\right) \\boldsymbol {f} ^ {\\prime} \\left(\\boldsymbol {x} _ {0}\\right). \\tag {15}",
+          "image_source": "../../raw/pages_0289-0320/images/page_301_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.436,
+            0.965,
+            0.476
+          ],
+          "content": "证 由定理23.11关于可微的充要条件,存在矩阵函数 $F: D \\to \\mathbf{R}^{mn}$ 在 $x_0$ 连续, $G: D' \\to \\mathbf{R}^{rm}$ 在 $y_0$ 连续,且满足"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.347,
+            0.48,
+            0.756,
+            0.496
+          ],
+          "content": "f (x) - f (x _ {0}) = F (x) (x - x _ {0}), \\quad x \\in D,",
+          "image_source": "../../raw/pages_0289-0320/images/page_301_equation_12.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.349,
+            0.502,
+            0.75,
+            0.518
+          ],
+          "content": "\\boldsymbol {g} (\\boldsymbol {y}) - \\boldsymbol {g} (\\boldsymbol {y} _ {0}) = \\boldsymbol {G} (\\boldsymbol {y}) (\\boldsymbol {y} - \\boldsymbol {y} _ {0}), \\quad \\boldsymbol {y} \\in D ^ {\\prime}.",
+          "image_source": "../../raw/pages_0289-0320/images/page_301_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.521,
+            0.233,
+            0.537
+          ],
+          "content": "于是就有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.339,
+            0.542,
+            0.963,
+            0.621
+          ],
+          "content": "\\begin{array}{l} \\boldsymbol {h} (\\boldsymbol {x}) - \\boldsymbol {h} \\left(\\boldsymbol {x} _ {0}\\right) = \\boldsymbol {g} (\\boldsymbol {f} (\\boldsymbol {x})) - \\boldsymbol {g} \\left(\\boldsymbol {f} \\left(\\boldsymbol {x} _ {0}\\right)\\right) \\\\ = G (f (x)) [ f (x) - f (x _ {0}) ] \\\\ = G (f (x)) F (x) (x - x _ {0}) \\\\ = H (x) (x - x _ {0}), \\tag {16} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_301_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.625,
+            0.968,
+            0.707
+          ],
+          "content": "其中 $H(x) = G(f(x))F(x)$. 由连续函数性质可知, 当 $f, F$ 在 $x_0$ 连续, $G$ 在 $y_0 = f(x_0)$ 连续时, $H$ 在 $x_0$ 连续. 所以复合函数 $h = g \\circ f$ 所满足的 (16) 式符合定理 23.11 的条件, 即 $h$ 在 $x_0$ 可微. 而且由 (13) 式可知 $f'(x_0) = F(x_0), g'(y_0) = G(y_0)$, 从而证得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.368,
+            0.713,
+            0.736,
+            0.75
+          ],
+          "content": "\\begin{array}{l} \\boldsymbol {h} ^ {\\prime} \\left(\\boldsymbol {x} _ {0}\\right) = \\boldsymbol {H} \\left(\\boldsymbol {x} _ {0}\\right) = \\boldsymbol {G} \\left(\\boldsymbol {f} \\left(\\boldsymbol {x} _ {0}\\right)\\right) \\boldsymbol {F} \\left(\\boldsymbol {x} _ {0}\\right) \\\\ = \\boldsymbol {G} (\\boldsymbol {y} _ {0}) \\boldsymbol {F} (\\boldsymbol {x} _ {0}) = \\boldsymbol {g} ^ {\\prime} (\\boldsymbol {y} _ {0}) \\boldsymbol {f} ^ {\\prime} (\\boldsymbol {x} _ {0}). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_301_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.753,
+            0.49,
+            0.769
+          ],
+          "content": "上述公式(15)也称为链式法则."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.775,
+            0.968,
+            0.814
+          ],
+          "content": "在上述复合过程中,若令  $\\boldsymbol{u}=\\boldsymbol{g}(y)$ ,  $y=f(x)$ , 当用雅可比矩阵表示复合函数  $(g\\circ f)(x)$  的导数的链式法则(15)时, 则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.247,
+            0.821,
+            0.959,
+            0.926
+          ],
+          "content": "\\left( \\begin{array}{c c c} \\frac {\\partial u _ {1}}{\\partial x _ {1}} & \\dots & \\frac {\\partial u _ {1}}{\\partial x _ {n}} \\\\ \\vdots & & \\vdots \\\\ \\frac {\\partial u _ {r}}{\\partial x _ {1}} & \\dots & \\frac {\\partial u _ {r}}{\\partial x _ {n}} \\end{array} \\right) _ {x = x _ {0}} = \\left( \\begin{array}{c c c} \\frac {\\partial u _ {1}}{\\partial y _ {1}} & \\dots & \\frac {\\partial u _ {1}}{\\partial y _ {m}} \\\\ \\vdots & & \\vdots \\\\ \\frac {\\partial u _ {r}}{\\partial y _ {1}} & \\dots & \\frac {\\partial u _ {r}}{\\partial y _ {m}} \\end{array} \\right) _ {y = y _ {0}} \\left( \\begin{array}{c c c} \\frac {\\partial y _ {1}}{\\partial x _ {1}} & \\dots & \\frac {\\partial y _ {1}}{\\partial x _ {n}} \\\\ \\vdots & & \\vdots \\\\ \\frac {\\partial y _ {m}}{\\partial x _ {1}} & \\dots & \\frac {\\partial y _ {m}}{\\partial x _ {n}} \\end{array} \\right) _ {x = x _ {0}}. \\tag {17}",
+          "image_source": "../../raw/pages_0289-0320/images/page_301_equation_20.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.1,
+            0.962,
+            0.13,
+            0.972
+          ],
+          "content": "294"
+        }
+      ]
+    },
+    {
+      "page_idx": 302,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.65,
+            0.031,
+            0.827,
+            0.045
+          ],
+          "content": "§ 2 向量函数的微分"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.079,
+            0.864,
+            0.14
+          ],
+          "content": "例2 设 $D \\subset \\mathbf{R}^2, f: D \\to \\mathbf{R}^2, f(D) \\subset D' \\subset \\mathbf{R}^2, g: D' \\to \\mathbf{R}$, 则当 $f, g$ 均可微时, 它们的复合函数 $h = g \\circ f: D \\to \\mathbf{R}$ （注意, 这里 $h$ 是实值函数）依定理23.13在 $D$ 上可微, 且有导数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.273,
+            0.145,
+            0.62,
+            0.164
+          ],
+          "content": "h ^ {\\prime} (\\boldsymbol {x}) = (g \\circ \\boldsymbol {f}) ^ {\\prime} (\\boldsymbol {x}) = g ^ {\\prime} (\\boldsymbol {y})   f ^ {\\prime} (\\boldsymbol {x}).",
+          "image_source": "../../raw/pages_0289-0320/images/page_302_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.167,
+            0.258,
+            0.185
+          ],
+          "content": "按(17)式的写法,则是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.184,
+            0.19,
+            0.71,
+            0.316
+          ],
+          "content": "\\begin{array}{l} \\left( \\begin{array}{c c} \\frac {\\partial u}{\\partial x _ {1}} & \\frac {\\partial u}{\\partial x _ {2}} \\end{array} \\right) = \\left( \\begin{array}{c c} \\frac {\\partial u}{\\partial y _ {1}} & \\frac {\\partial u}{\\partial y _ {2}} \\end{array} \\right) \\left( \\begin{array}{c c} \\frac {\\partial y _ {1}}{\\partial x _ {1}} & \\frac {\\partial y _ {1}}{\\partial x _ {2}} \\\\ \\frac {\\partial y _ {2}}{\\partial x _ {1}} & \\frac {\\partial y _ {2}}{\\partial x _ {2}} \\end{array} \\right) \\\\ = \\left(\\frac {\\partial u}{\\partial y _ {1}} \\frac {\\partial y _ {1}}{\\partial x _ {1}} + \\frac {\\partial u}{\\partial y _ {2}} \\frac {\\partial y _ {2}}{\\partial x _ {1}} \\quad \\frac {\\partial u}{\\partial y _ {1}} \\frac {\\partial y _ {1}}{\\partial x _ {2}} + \\frac {\\partial u}{\\partial y _ {2}} \\frac {\\partial y _ {2}}{\\partial x _ {2}}\\right). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_302_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.318,
+            0.436,
+            0.336
+          ],
+          "content": "这个结果正是第十七章 §2 链式法则(4)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.341,
+            0.171,
+            0.357
+          ],
+          "content": "例3 设"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.172,
+            0.362,
+            0.72,
+            0.381
+          ],
+          "content": "\\boldsymbol {w} = \\left[ f (x, u), g (y, v) \\right] ^ {\\mathrm{T}}, \\quad u = \\psi (x, y, v), \\quad v = \\varphi (x, y).",
+          "image_source": "../../raw/pages_0289-0320/images/page_302_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.038,
+            0.384,
+            0.201,
+            0.402
+          ],
+          "content": "试计算  $w'(x,y)$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.406,
+            0.863,
+            0.445
+          ],
+          "content": "解 利用定理 23.13 的一般方法来求解时,须把  $\\boldsymbol{w}=(w_{1},w_{2})^{\\mathrm{T}}$  看作以下三个变换的复合"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.227,
+            0.448,
+            0.672,
+            0.469
+          ],
+          "content": "(x, y) ^ {\\mathrm{T}} \\mapsto (x, y, v) ^ {\\mathrm{T}} \\mapsto (x, y, u, v) ^ {\\mathrm{T}} \\mapsto (w _ {1}, w _ {2}) ^ {\\mathrm{T}},",
+          "image_source": "../../raw/pages_0289-0320/images/page_302_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.038,
+            0.474,
+            0.087,
+            0.491
+          ],
+          "content": "亦即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.348,
+            0.496,
+            0.548,
+            0.692
+          ],
+          "content": "\\begin{array}{l} \\left( \\begin{array}{c} x \\\\ y \\\\ v \\end{array} \\right) = \\left( \\begin{array}{c} x \\\\ y \\\\ \\varphi (x, y) \\end{array} \\right), \\\\ \\left( \\begin{array}{c} x \\\\ y \\\\ u \\\\ v \\end{array} \\right) = \\left( \\begin{array}{c} x \\\\ y \\\\ \\psi (x, y, v) \\\\ v \\end{array} \\right), \\\\ \\binom {w _ {1}} {w _ {2}} = \\binom {f (x, u)} {g (y, v)}. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_302_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.039,
+            0.695,
+            0.087,
+            0.712
+          ],
+          "content": "则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.168,
+            0.715,
+            0.775,
+            0.86
+          ],
+          "content": "\\boldsymbol {w} ^ {\\prime} (x, y) = \\left( \\begin{array}{c c c c} \\frac {\\partial w _ {1}}{\\partial x} & \\frac {\\partial w _ {1}}{\\partial y} & \\frac {\\partial w _ {1}}{\\partial u} & \\frac {\\partial w _ {1}}{\\partial v} \\\\ \\frac {\\partial w _ {2}}{\\partial x} & \\frac {\\partial w _ {2}}{\\partial y} & \\frac {\\partial w _ {2}}{\\partial u} & \\frac {\\partial w _ {2}}{\\partial v} \\end{array} \\right) \\left( \\begin{array}{c c c} \\frac {\\partial x}{\\partial x} & \\frac {\\partial x}{\\partial y} & \\frac {\\partial x}{\\partial v} \\\\ \\frac {\\partial y}{\\partial x} & \\frac {\\partial y}{\\partial y} & \\frac {\\partial y}{\\partial v} \\\\ \\frac {\\partial u}{\\partial x} & \\frac {\\partial u}{\\partial y} & \\frac {\\partial u}{\\partial v} \\\\ \\frac {\\partial v}{\\partial x} & \\frac {\\partial v}{\\partial y} & \\frac {\\partial v}{\\partial v} \\end{array} \\right) \\left( \\begin{array}{c c} \\frac {\\partial x}{\\partial x} & \\frac {\\partial x}{\\partial y} \\\\ \\frac {\\partial y}{\\partial x} & \\frac {\\partial y}{\\partial y} \\\\ \\frac {\\partial v}{\\partial x} & \\frac {\\partial v}{\\partial y} \\end{array} \\right)",
+          "image_source": "../../raw/pages_0289-0320/images/page_302_equation_14.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.882,
+            0.964,
+            0.91,
+            0.975
+          ],
+          "content": "295"
+        }
+      ]
+    },
+    {
+      "page_idx": 303,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.136,
+            0.027,
+            0.432,
+            0.043
+          ],
+          "content": "\\* 第二十三章 向量函数微分学"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.358,
+            0.079,
+            0.764,
+            0.209
+          ],
+          "content": "\\begin{array}{l} = \\left( \\begin{array}{c c c c} f _ {x} & 0 & f _ {u} & 0 \\\\ 0 & g _ {y} & 0 & g _ {v} \\end{array} \\right) \\left( \\begin{array}{c c c} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ \\psi_ {x} & \\psi_ {y} & \\psi_ {v} \\\\ 0 & 0 & 1 \\end{array} \\right) \\left( \\begin{array}{c c} 1 & 0 \\\\ 0 & 1 \\\\ \\varphi_ {x} & \\varphi_ {y} \\end{array} \\right) \\\\ = \\left( \\begin{array}{c c} f _ {x} + f _ {u} \\psi_ {x} + f _ {u} \\varphi_ {x} \\psi_ {v} & f _ {u} \\psi_ {y} + f _ {u} \\varphi_ {y} \\psi_ {v} \\\\ g _ {v} \\varphi_ {x} & g _ {y} + g _ {v} \\varphi_ {y} \\end{array} \\right). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_303_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.217,
+            0.957,
+            0.256
+          ],
+          "content": "定理23.14(微分中值不等式) 设  $D \\subset R^{n}$  是凸开集,  $f: D \\to R^{m}$ . 若 f 在 D 内可微, 则对任何两点  $a, b \\in D$ , 必存在点  $\\xi = a + \\theta (b - a), 0 < \\theta < 1$ , 使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.349,
+            0.26,
+            0.955,
+            0.278
+          ],
+          "content": "\\| f (\\boldsymbol {b}) - f (\\boldsymbol {a}) \\| \\leqslant \\| f ^ {\\prime} (\\boldsymbol {\\xi}) \\| \\| \\boldsymbol {b} - \\boldsymbol {a} \\| ①. \\tag {18}",
+          "image_source": "../../raw/pages_0289-0320/images/page_303_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.179,
+            0.283,
+            0.251,
+            0.3
+          ],
+          "content": "证令"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.396,
+            0.305,
+            0.697,
+            0.323
+          ],
+          "content": "\\varphi (\\boldsymbol {x}) = \\left[ \\boldsymbol {f} (\\boldsymbol {b}) - \\boldsymbol {f} (\\boldsymbol {a}) \\right] ^ {\\mathrm{T}} \\boldsymbol {f} (\\boldsymbol {x}),",
+          "image_source": "../../raw/pages_0289-0320/images/page_303_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.328,
+            0.959,
+            0.367
+          ],
+          "content": "则  $\\varphi$  是 D 上的一个实值函数, 且满足中值定理 (定理 17.8) 的条件. 所以存在  $\\xi = a + \\theta (b - a), 0 < \\theta < 1$ , 使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.39,
+            0.372,
+            0.704,
+            0.39
+          ],
+          "content": "\\varphi (\\boldsymbol {b}) - \\varphi (\\boldsymbol {a}) = \\varphi^ {\\prime} (\\boldsymbol {\\xi}) ^ {\\mathrm{T}} (\\boldsymbol {b} - \\boldsymbol {a}),",
+          "image_source": "../../raw/pages_0289-0320/images/page_303_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.395,
+            0.184,
+            0.411
+          ],
+          "content": "其中"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.383,
+            0.417,
+            0.708,
+            0.461
+          ],
+          "content": "\\begin{array}{l} \\varphi^ {\\prime} (\\boldsymbol {\\xi}) ^ {\\mathrm{T}} = \\left[ \\varphi_ {x _ {1}} (\\boldsymbol {\\xi}), \\dots , \\varphi_ {x _ {n}} (\\boldsymbol {\\xi}) \\right] \\\\ = [ \\boldsymbol {f} (\\boldsymbol {b}) - \\boldsymbol {f} (\\boldsymbol {a}) ] ^ {\\mathrm{T}} \\boldsymbol {f} ^ {\\prime} (\\boldsymbol {\\xi}). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_303_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.466,
+            0.848,
+            0.485
+          ],
+          "content": "由于  $\\varphi(\\boldsymbol{b})-\\varphi(\\boldsymbol{a})=\\left[\\boldsymbol{f}(\\boldsymbol{b})-\\boldsymbol{f}(\\boldsymbol{a})\\right]^{\\mathrm{T}}\\left[\\boldsymbol{f}(\\boldsymbol{b})-\\boldsymbol{f}(\\boldsymbol{a})\\right]=\\parallel\\boldsymbol{f}(\\boldsymbol{b})-\\boldsymbol{f}(\\boldsymbol{a})\\parallel^{2}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.49,
+            0.229,
+            0.506
+          ],
+          "content": "因此又有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.254,
+            0.512,
+            0.843,
+            0.55
+          ],
+          "content": "\\begin{array}{l} \\| \\boldsymbol {f} (\\boldsymbol {b}) - \\boldsymbol {f} (\\boldsymbol {a}) \\| ^ {2} = \\left[ \\boldsymbol {f} (\\boldsymbol {b}) - \\boldsymbol {f} (\\boldsymbol {a}) \\right] ^ {\\mathrm{T}} \\boldsymbol {f} ^ {\\prime} (\\boldsymbol {\\xi}) (\\boldsymbol {b} - \\boldsymbol {a}) \\\\ \\leqslant \\| f (\\boldsymbol {b}) - f (\\boldsymbol {a}) \\| \\| f ^ {\\prime} (\\boldsymbol {\\xi}) \\| \\| \\boldsymbol {b} - \\boldsymbol {a} \\|\\. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_303_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.556,
+            0.328,
+            0.573
+          ],
+          "content": "由此得不等式(18)."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.136,
+            0.584,
+            0.367,
+            0.603
+          ],
+          "level": 2,
+          "content": "三、黑塞矩阵与极值"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.614,
+            0.96,
+            0.654
+          ],
+          "content": "在讨论高阶导数时,这里只限于考察两种情形:一元向量函数的高阶导数和多元实值函数的二阶导数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.179,
+            0.659,
+            0.54,
+            0.676
+          ],
+          "content": "对于一元向量函数  $x: I \\rightarrow R^{n}, I \\subset R$ ，即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.387,
+            0.682,
+            0.702,
+            0.7
+          ],
+          "content": "x _ {1} = x _ {1} (t), \\dots , x _ {n} = x _ {n} (t), t \\in I.",
+          "image_source": "../../raw/pages_0289-0320/images/page_303_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.705,
+            0.957,
+            0.747
+          ],
+          "content": "只要  $x_{i}^{(k)}(t)(i=1,2,\\cdots,n)$  存在，按向量函数的导数定义，x 的 k 阶导数  $\\boldsymbol{x}^{(k)}(t)=\\left[x_{1}^{(k)}(t),\\cdots,x_{n}^{(k)}(t)\\right]^{\\mathrm{T}}$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.178,
+            0.753,
+            0.832,
+            0.771
+          ],
+          "content": "对于 n 元实值函数  $f: D \\rightarrow R, D \\subset R^{n}$  为开集, 如果 f 在 D 上可微, 则由"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.437,
+            0.777,
+            0.649,
+            0.812
+          ],
+          "content": "f ^ {\\prime} (x) = \\left(\\frac {\\partial f}{\\partial x _ {1}}, \\dots , \\frac {\\partial f}{\\partial x _ {n}}\\right)",
+          "image_source": "../../raw/pages_0289-0320/images/page_303_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.817,
+            0.96,
+            0.881
+          ],
+          "content": "确定了 $f$ 的导函数 $f': D \\to \\mathbf{R}^n$, 它是一个向量函数 (即 $f$ 的梯度向量函数). 如果 $f'$ 还在 $D$ (或 $D$ 内某一点) 上可微, 则称 $f$ 在 $D$ (或 $D$ 内某一点) 上二阶可微, 并定义 $(f')^\\mathrm{T}$ 的导数为 $f$ 的二阶导数, 记作 $f''(x)$ 或 $\\mathrm{D}^2 f(x)$. 由公式 (7) 得"
+        },
+        {
+          "type": "page_footnote",
+          "bbox": [
+            0.134,
+            0.912,
+            0.424,
+            0.928
+          ],
+          "content": "① 这里的  $\\left\\|\\boldsymbol{f}^{\\prime}(\\boldsymbol{\\xi})\\right\\|$  是矩阵的模."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.094,
+            0.96,
+            0.124,
+            0.972
+          ],
+          "content": "296"
+        }
+      ]
+    },
+    {
+      "page_idx": 304,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.65,
+            0.034,
+            0.827,
+            0.048
+          ],
+          "content": "§ 2 向量函数的微分"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.293,
+            0.083,
+            0.857,
+            0.186
+          ],
+          "content": "f ^ {\\prime \\prime} (\\boldsymbol {x}) = \\left( \\begin{array}{c c c} \\frac {\\partial^ {2} f}{\\partial x _ {1} ^ {2}} & \\dots & \\frac {\\partial^ {2} f}{\\partial x _ {1} \\partial x _ {n}} \\\\ \\vdots & & \\vdots \\\\ \\frac {\\partial^ {2} f}{\\partial x _ {n} \\partial x _ {1}} & \\dots & \\frac {\\partial^ {2} f}{\\partial x _ {n} ^ {2}} \\end{array} \\right). \\tag {19}",
+          "image_source": "../../raw/pages_0289-0320/images/page_304_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.192,
+            0.842,
+            0.21
+          ],
+          "content": "此矩阵又称为函数 f 的黑塞矩阵, 当 f 的二阶混合偏导数连续时, 它是一个对称矩阵."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.214,
+            0.495,
+            0.232
+          ],
+          "content": "这时 $f$ 在 $\\pmb{x}_0$ 的二阶泰勒公式可简单地写成"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.136,
+            0.239,
+            0.857,
+            0.294
+          ],
+          "content": "\\begin{array}{l} f (\\boldsymbol {x}) = f (\\boldsymbol {x} _ {0}) + \\boldsymbol {f} ^ {\\prime} (\\boldsymbol {x} _ {0}) (\\boldsymbol {x} - \\boldsymbol {x} _ {0}) + \\frac {1}{2} (\\boldsymbol {x} - \\boldsymbol {x} _ {0}) ^ {\\mathrm{T}} \\boldsymbol {f} ^ {\\prime \\prime} (\\boldsymbol {x} _ {0}) (\\boldsymbol {x} - \\boldsymbol {x} _ {0}) + \\\\ o \\left(\\| \\boldsymbol {x} - \\boldsymbol {x} _ {0} \\| ^ {2}\\right). \\tag {20} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_304_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.298,
+            0.695,
+            0.316
+          ],
+          "content": "利用它还能把第十七章里对二元极值问题的讨论引向更一般的形式."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.32,
+            0.862,
+            0.36
+          ],
+          "content": "为此我们把定理 17.10 和定理 17.11 中的二维极值点改为 n 维极值点, 即得以下相应结论(详细证明从略)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.364,
+            0.862,
+            0.403
+          ],
+          "content": "定理23.15（极值必要条件）设 $D\\subset \\mathbf{R}^n$ 为开集，实值函数 $f:D\\to \\mathbf{R}$ 在 $\\pmb {x}_0\\in D$ 可微，且取极值，则"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.037,
+            0.407,
+            0.862,
+            0.49
+          ],
+          "sub_type": "text",
+          "content": "(i)  $x_{0}$  必为 f 的稳定点, 即  $f'(x_{0}) = 0$ ;\n（ii）又若 $f$ 在 $\\pmb{x}_0$ 的某邻域 $U(\\pmb{x}_0)\\subset D$ 存在连续二阶偏导数，则当 $f(x_0)$ 为极小值时，$f$ 在 $\\pmb{x}_0$ 的黑塞矩阵 $f''(x_0)$ 为正定或半正定；当 $f(x_0)$ 为极大值时，$f$ 在 $\\pmb{x}_0$ 的黑塞矩阵 $f''(x_0)$ 为负定或半负定."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.495,
+            0.856,
+            0.514
+          ],
+          "content": "此定理的直接推论是: 若 f 在  $x_{0}$  的黑塞矩阵  $f''(x_{0})$  为不定时, 则 f 在  $x_{0}$  不取极值."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.517,
+            0.86,
+            0.557
+          ],
+          "content": "定理23.16（极值充分条件）上述函数 $f$ 若在 $U(x_0) \\subset D$ 存在连续二阶偏导数，且 $f'(x_0) = 0$ ，则当 $f''(x_0)$ 为正定（负定）时，$f$ 在 $x_0$ 取严格极小（极大）值."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.081,
+            0.56,
+            0.304,
+            0.577
+          ],
+          "content": "例4 试讨论二次函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.325,
+            0.585,
+            0.857,
+            0.613
+          ],
+          "content": "f (\\boldsymbol {x}) = \\frac {1}{2} \\boldsymbol {x} ^ {\\mathrm{T}} \\boldsymbol {A} \\boldsymbol {x} + \\boldsymbol {b} ^ {\\mathrm{T}} \\boldsymbol {x} + c \\tag {21}",
+          "image_source": "../../raw/pages_0289-0320/images/page_304_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.621,
+            0.734,
+            0.639
+          ],
+          "content": "的极值. 其中  $x \\in R^{n}$  为变量, A 为  $n \\times n$  对称矩阵, b 为  $n \\times 1$  向量, c 为实数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.081,
+            0.643,
+            0.197,
+            0.659
+          ],
+          "content": "解 由方程"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.345,
+            0.663,
+            0.552,
+            0.682
+          ],
+          "content": "\\boldsymbol {f} ^ {\\prime} (\\boldsymbol {x}) = \\boldsymbol {x} ^ {\\mathrm{T}} \\boldsymbol {A} + \\boldsymbol {b} ^ {\\mathrm{T}} = \\boldsymbol {0}",
+          "image_source": "../../raw/pages_0289-0320/images/page_304_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.686,
+            0.676,
+            0.705
+          ],
+          "content": "求得 $f$ 的稳定点 $\\pmb{x}_0 = -\\pmb{A}^{-1}\\pmb{b}$ （这里设 $\\pmb{A}$ 可逆）.再求得 $f$ 的黑塞矩阵"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.391,
+            0.708,
+            0.504,
+            0.726
+          ],
+          "content": "f ^ {\\prime \\prime} (x) = A,",
+          "image_source": "../../raw/pages_0289-0320/images/page_304_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.034,
+            0.73,
+            0.862,
+            0.769
+          ],
+          "content": "便可知道当 $\\mathbf{A}$ 为正定时 $f(x_0)$ 为极小值；$\\mathbf{A}$ 为负定时 $f(x_0)$ 为极大值. 可以验证 $f(x_0)$ 为 $f$ 的最小值和最大值，其值为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.234,
+            0.776,
+            0.535,
+            0.884
+          ],
+          "content": "\\begin{array}{l} = \\frac {1}{2} \\boldsymbol {b} ^ {\\mathrm{T}} \\boldsymbol {A} ^ {- 1} \\boldsymbol {b} - \\boldsymbol {b} ^ {\\mathrm{T}} \\boldsymbol {A} ^ {- 1} \\boldsymbol {b} + c \\\\ = - \\frac {1}{2} \\boldsymbol {b} ^ {\\mathrm{T}} \\boldsymbol {A} ^ {- 1} \\boldsymbol {b} + c. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_304_equation_21.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.234,
+            0.776,
+            0.66,
+            0.805
+          ],
+          "content": "f \\left(\\boldsymbol {x} _ {0}\\right) = \\frac {1}{2} \\left(\\boldsymbol {A} ^ {- 1} \\boldsymbol {b}\\right) ^ {\\mathrm{T}} \\boldsymbol {A} \\left(\\boldsymbol {A} ^ {- 1} \\boldsymbol {b}\\right) - \\boldsymbol {b} ^ {\\mathrm{T}} \\left(\\boldsymbol {A} ^ {- 1} \\boldsymbol {b}\\right) + c",
+          "image_source": "../../raw/pages_0289-0320/images/page_304_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.891,
+            0.822,
+            0.909
+          ],
+          "content": "当 A 为不定阵时, 求得的稳定点  $x_{0}$  相当于一个鞍点, 这时  $x_{0}$  不是 f 的极值点."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.839,
+            0.916,
+            0.857,
+            0.931
+          ],
+          "content": "□"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.877,
+            0.967,
+            0.906,
+            0.977
+          ],
+          "content": "297"
+        }
+      ]
+    },
+    {
+      "page_idx": 305,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.142,
+            0.03,
+            0.44,
+            0.045
+          ],
+          "content": "\\* 第二十三章 向量函数微分学"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.472,
+            0.105,
+            0.632,
+            0.124
+          ],
+          "level": 2,
+          "content": "习题 23.2"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.18,
+            0.145,
+            0.343,
+            0.159
+          ],
+          "content": "1. 证明定理23.12."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.179,
+            0.165,
+            0.373,
+            0.18
+          ],
+          "content": "2. 求下列函数的导数:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.18,
+            0.189,
+            0.755,
+            0.236
+          ],
+          "sub_type": "text",
+          "content": "(1) $f(x_{1},x_{2})=(x_{1}\\sin x_{2},(x_{1}-x_{2})^{2},2x_{2}^{2})^{\\mathrm{T}}$, 求 $f'(x_{1},x_{2})$ 和 $f'\\left(0,\\frac{\\pi}{2}\\right)$;\n(2) $f(x_{1},x_{2},x_{3})=(x_{1}^{2}+x_{2},x_{2}\\mathrm{e}^{x_{1}+x_{3}})^{\\mathrm{T}}$, 求 $f'(x_{1},x_{2},x_{3})$ 和 $f'(1,0,1)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.178,
+            0.241,
+            0.831,
+            0.256
+          ],
+          "content": "3. 设 $D \\subset \\mathbf{R}^n$ 为开集, $f, g: D \\to \\mathbf{R}^m$ 均为可微函数. 证明: $f^\\mathrm{T}g$ 也是可微函数, 而且"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.462,
+            0.26,
+            0.644,
+            0.277
+          ],
+          "content": "(f ^ {\\mathrm{T}} g) ^ {\\prime} = f ^ {\\mathrm{T}} g ^ {\\prime} + g ^ {\\mathrm{T}} f ^ {\\prime}.",
+          "image_source": "../../raw/pages_0289-0320/images/page_305_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.178,
+            0.282,
+            0.46,
+            0.296
+          ],
+          "content": "4. 设函数 $f, g, h, s, t$ 的定义如下:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.387,
+            0.302,
+            0.713,
+            0.407
+          ],
+          "content": "\\begin{array}{l} f \\left(x _ {1}, x _ {2}\\right) = x _ {1} - x _ {2}, \\\\ \\boldsymbol {g} (x) = (\\sin x, \\cos x) ^ {\\mathrm{T}}, \\\\ \\boldsymbol {h} (x _ {1}, x _ {2}) = (x _ {1} x _ {2}, x _ {2} - x _ {1}) ^ {\\mathrm{T}}, \\\\ s (x _ {1}, x _ {2}) = (x _ {1} ^ {2}, 2 x _ {2}, x _ {2} + 4) ^ {\\mathrm{T}}, \\\\ \\boldsymbol {t} (x _ {1}, x _ {2}, x _ {3}) = (x _ {1} x _ {2} x _ {3}, x _ {1} + x _ {2} + x _ {3}) ^ {\\mathrm{T}}. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_305_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.412,
+            0.463,
+            0.426
+          ],
+          "content": "试依链式法则求下列复合函数的导数:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.181,
+            0.431,
+            0.593,
+            0.467
+          ],
+          "sub_type": "text",
+          "content": "(1) $(f \\circ g)'$ ;\n(2) $(\\boldsymbol{g} \\circ f)'$;\n(3) $(\\pmb{h} \\circ \\pmb{h})'$;\n(4) $(s\\circ h)'$ ;\n(5)  $(t \\circ s)'$ ;\n(6)  $(s \\circ t)'$ ."
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.178,
+            0.472,
+            0.791,
+            0.506
+          ],
+          "sub_type": "text",
+          "content": "5. 设  $u = f(x, y)$ ,  $v = g(x, y, u)$ ,  $w = h(x, u, v)$ , 应用链式法则计算  $\\boldsymbol{w}'(x, y)$ .\n6. 设  $D \\subset R^{n}$  为开域,  $f: D \\rightarrow R^{m}$  为可微函数. 利用定理 23.14 证明:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.18,
+            0.512,
+            0.736,
+            0.547
+          ],
+          "sub_type": "text",
+          "content": "(1) 若在 D 上  $f'(x)$  恒为 0（零矩阵），则  $f(x)$  为常向量函数；\n(2) 若在 D 上  $f'(x) \\equiv c$  （常数矩阵），则  $f(x) = cx + b, x \\in D, b \\in \\mathbf{R}^{m}$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.178,
+            0.552,
+            0.73,
+            0.567
+          ],
+          "content": "7. 设  $f: R^{n} \\rightarrow R^{m}$  为可微函数, 试求分别满足以下条件的函数  $f(x)$ :"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.142,
+            0.572,
+            0.968,
+            0.629
+          ],
+          "sub_type": "text",
+          "content": "(1)  $f'(x) \\equiv I$  (单位矩阵);\n(2) $f'(x) = \\text{diag}(\\varphi_i(x_i))$, 即以 $\\varphi_1(x_1), \\varphi_2(x_2), \\cdots, \\varphi_n(x_n)$ 为主对角线元的对角矩阵, $x = (x_1, \\cdots, x_n)^{\\text{T}}$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.178,
+            0.633,
+            0.764,
+            0.648
+          ],
+          "content": "8. 求下列函数 f 的黑塞矩阵, 并根据例 4 的结果判断该函数的极值点:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.181,
+            0.653,
+            0.57,
+            0.69
+          ],
+          "sub_type": "text",
+          "content": "(1)  $f(x) = x_{1}^{2} - 2x_{1}x_{2} + 2x_{2}^{2} + x_{3}^{2} - x_{2}x_{3} + x_{1} + 3x_{2} - x_{3};$\n(2)  $f(x) = -x_{1}^{2} + 4x_{1}x_{2} - 2x_{2}^{2} + 4x_{3}^{2} - 6x_{2}x_{3} + 6x_{1}x_{3}.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.179,
+            0.715,
+            0.519,
+            0.73
+          ],
+          "content": "9. 设 $f, g, h, s, t$ 为第4题中的五个函数."
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.142,
+            0.735,
+            0.968,
+            0.789
+          ],
+          "sub_type": "text",
+          "content": "（1）试问:除第4题6个小题中的两个函数的复合外，还有哪些两个函数可以进行复合，并求这些复合函数的导数；\n(2) 求下列复合函数的导数:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.182,
+            0.795,
+            0.314,
+            0.81
+          ],
+          "content": "(i)  $(\\boldsymbol{g} \\circ f \\circ \\boldsymbol{h})'$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.351,
+            0.795,
+            0.466,
+            0.81
+          ],
+          "content": "(ii)  $(s \\circ t \\circ s)'$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.815,
+            0.968,
+            0.85
+          ],
+          "content": "10. 设 $D \\subset \\mathbf{R}^n$ 为开集, $f: D \\to \\mathbf{R}^m$ 在 $x_0 \\in D$ 可微. 试证明: (1) 任给 $\\varepsilon > 0$, 存在 $\\delta > 0$, 当 $x \\in U(x_0; \\delta)$ 时, 有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.337,
+            0.855,
+            0.78,
+            0.871
+          ],
+          "content": "\\| f (x) - f (x _ {0}) \\| \\leqslant (\\| f ^ {\\prime} (x _ {0}) \\| + \\varepsilon) \\| x - x _ {0} \\|;",
+          "image_source": "../../raw/pages_0289-0320/images/page_305_equation_40.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.182,
+            0.875,
+            0.524,
+            0.89
+          ],
+          "content": "(2) 存在  $\\delta>0, K>0$  ，当  $\\boldsymbol{x}\\in U(\\boldsymbol{x}_{0};\\delta)$  时，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.408,
+            0.895,
+            0.705,
+            0.911
+          ],
+          "content": "\\| f (x) - f (x _ {0}) \\| \\leqslant K \\| x - x _ {0} \\|\\cdot",
+          "image_source": "../../raw/pages_0289-0320/images/page_305_equation_42.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.915,
+            0.564,
+            0.929
+          ],
+          "content": "(这称为在可微点邻域内满足局部利普希茨条件.)"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.102,
+            0.964,
+            0.132,
+            0.974
+          ],
+          "content": "298"
+        }
+      ]
+    },
+    {
+      "page_idx": 306,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.573,
+            0.035,
+            0.83,
+            0.05
+          ],
+          "content": "§ 3 反函数定理和隐函数定理"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.075,
+            0.083,
+            0.859,
+            0.099
+          ],
+          "content": "11. 设 $D \\subset \\mathbf{R}^n$ 是凸开集, $\\pmb{g}: D \\to \\mathbf{R}^n$ 是可微函数, 且满足: 对任何 $\\pmb{x} \\in D$ 和任何非零的 $\\pmb{h} \\in \\mathbf{R}^n$, 恒有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.382,
+            0.107,
+            0.512,
+            0.124
+          ],
+          "content": "\\boldsymbol {h} ^ {\\mathrm{T}} \\boldsymbol {g} ^ {\\prime} (\\boldsymbol {x}) \\boldsymbol {h} > 0.",
+          "image_source": "../../raw/pages_0289-0320/images/page_306_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.036,
+            0.134,
+            0.864,
+            0.171
+          ],
+          "content": "试证明 $\\pmb{g}$ 在 $D$ 上是一一映射.（提示:若 $\\pmb{g}(\\pmb{x}_1) = \\pmb{g}(\\pmb{x}_2),\\pmb{x}_1,\\pmb{x}_2\\in D.$ 令 $\\pmb {h} = \\pmb{x}_2 - \\pmb{x}_1\\neq \\mathbf{0},f(\\pmb {x}) = [\\pmb {g}(\\pmb {x})-$ $\\pmb {g}(\\pmb{x}_1)]^{\\mathrm{T}}\\pmb {h}.$ 对 $f$ 应用中值定理.）"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.075,
+            0.176,
+            0.785,
+            0.192
+          ],
+          "content": "12. 设 $\\varphi: \\mathbf{R} \\to \\mathbf{R}$ 二阶可导，且有稳定点；$f: \\mathbf{R}^n \\to \\mathbf{R}$，且 $f(x) = \\varphi(a \\cdot x), a, x \\in \\mathbf{R}^n, a \\neq \\mathbf{0}$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.196,
+            0.297,
+            0.211
+          ],
+          "content": "(1) 试求 f 的所有稳定点；"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.036,
+            0.217,
+            0.862,
+            0.251
+          ],
+          "content": "（2）证明 $f$ 的所有稳定点都是退化的，即在这些稳定点处，$f''(x)$ 是退化矩阵（即在稳定点处 $\\det f''(x) = 0^{①}$）."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.241,
+            0.298,
+            0.669,
+            0.322
+          ],
+          "level": 2,
+          "content": "§ 3 反函数定理和隐函数定理"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.366,
+            0.864,
+            0.405
+          ],
+          "content": "在第十八章里,我们对隐函数定理和反函数定理的基本形式作了比较详细的讨论.这里要在更一般的形式上来完成对这两个定理的叙述和论证."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.039,
+            0.416,
+            0.216,
+            0.435
+          ],
+          "level": 2,
+          "content": "一、反函数定理"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.447,
+            0.452,
+            0.464
+          ],
+          "content": "考虑定义在开集 $D\\subset \\mathbf{R}^n$ 上的向量函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.387,
+            0.469,
+            0.502,
+            0.487
+          ],
+          "content": "f: D \\to \\mathbf {R} ^ {n}.",
+          "image_source": "../../raw/pages_0289-0320/images/page_306_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.034,
+            0.491,
+            0.864,
+            0.553
+          ],
+          "content": "如果向量函数 $f$ 是一一映射. 即不仅对每一个 $x \\in D$ 只有一个 $y \\in \\mathbf{R}^n$ 与之对应, 且对每一个 $y \\in f(D)$ 也只有惟一确定的 $x \\in D$, 使得 $f(x) = y$. 于是由后者能确定一个定义在 $f(D)$ 上的函数, 记为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.363,
+            0.557,
+            0.531,
+            0.575
+          ],
+          "content": "f ^ {- 1}: f (D) \\to D,",
+          "image_source": "../../raw/pages_0289-0320/images/page_306_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.036,
+            0.579,
+            0.576,
+            0.597
+          ],
+          "content": "称它为函数 $f$ 的反函数. 函数 $f$ 及其反函数 $f^{-1}$ 显然满足"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.317,
+            0.601,
+            0.86,
+            0.619
+          ],
+          "content": "(f ^ {- 1} \\circ f) (x) = x, \\quad x \\in D, \\tag {1}",
+          "image_source": "../../raw/pages_0289-0320/images/page_306_equation_15.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.301,
+            0.623,
+            0.86,
+            0.641
+          ],
+          "content": "(f \\circ f ^ {- 1}) (y) = y, \\quad y \\in f (D). \\tag {2}",
+          "image_source": "../../raw/pages_0289-0320/images/page_306_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.081,
+            0.645,
+            0.788,
+            0.662
+          ],
+          "content": "定理 23.17(反函数定理) 设  $D \\subset R^{n}$  是开集, 函数  $f: D \\to R^{n}$  满足以下条件:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.082,
+            0.667,
+            0.422,
+            0.706
+          ],
+          "sub_type": "text",
+          "content": "(i) 在 D 上可微, 且  $f'$  连续,\n(ii) 存在  $x_{0} \\in D$ ，使  $\\det f'(x_{0}) \\neq 0$ ，"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.711,
+            0.348,
+            0.728
+          ],
+          "content": "则存在邻域  $U = U(\\boldsymbol{x}_{0}) \\subset D$ ，使得"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.08,
+            0.734,
+            0.822,
+            0.773
+          ],
+          "sub_type": "text",
+          "content": "$1^{\\circ}$ $f$ 在 $U$ 上是一一映射，从而存在反函数 $f^{-1}:V\\to U$ ，其中 $V = f(U)$ 是开集；\n$2^{\\circ} \\quad f^{-1}$ 在 $V$ 上存在连续导数 $(f^{-1})'$，且"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.21,
+            0.777,
+            0.86,
+            0.796
+          ],
+          "content": "(f ^ {- 1}) ^ {\\prime} (y) = (f ^ {\\prime} (x)) ^ {- 1}, \\quad x = f ^ {- 1} (y), y \\in V. \\tag {3}",
+          "image_source": "../../raw/pages_0289-0320/images/page_306_equation_25.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.8,
+            0.569,
+            0.817
+          ],
+          "content": "证 1）将函数 f 变换为定义在零点邻域内的函数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.035,
+            0.822,
+            0.864,
+            0.861
+          ],
+          "content": "设 $T = f'(x_0)$，由(i)(ii)存在点 $x_0$ 的邻域 $W \\subset D$，使得 $f'(x)$ 在 $W$ 内非零。在 $W - x_0 = \\{x - x_0 \\mid x \\in W\\}$ 上定义函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.199,
+            0.866,
+            0.86,
+            0.885
+          ],
+          "content": "\\boldsymbol {F} (\\boldsymbol {x}) = \\boldsymbol {T} ^ {- 1} \\left[ \\begin{array}{l l} \\boldsymbol {f} (\\boldsymbol {x} _ {0} + \\boldsymbol {x}) & - \\boldsymbol {f} (\\boldsymbol {x} _ {0}) \\end{array} \\right], \\quad \\boldsymbol {x} \\in W - \\boldsymbol {x} _ {0}. \\tag {4}",
+          "image_source": "../../raw/pages_0289-0320/images/page_306_equation_28.jpg"
+        },
+        {
+          "type": "page_footnote",
+          "bbox": [
+            0.036,
+            0.919,
+            0.438,
+            0.934
+          ],
+          "content": "① 若 A 为方阵, 则记号  $\\det A$  表示 A 的行列式."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.88,
+            0.968,
+            0.91,
+            0.979
+          ],
+          "content": "299"
+        }
+      ]
+    },
+    {
+      "page_idx": 307,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.141,
+            0.032,
+            0.44,
+            0.047
+          ],
+          "content": "\\* 第二十三章 向量函数微分学"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.081,
+            0.339,
+            0.098
+          ],
+          "content": "记 $W - x_0$ 为 $W_{1}$ ，即有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.373,
+            0.101,
+            0.728,
+            0.117
+          ],
+          "content": "\\mathbf {0} \\in W _ {1}, \\quad \\boldsymbol {F} (\\mathbf {0}) = \\mathbf {0}, \\quad \\boldsymbol {F} ^ {\\prime} (\\mathbf {0}) = \\boldsymbol {I},",
+          "image_source": "../../raw/pages_0289-0320/images/page_307_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.12,
+            0.869,
+            0.138
+          ],
+          "content": "这里 I 是单位矩阵, 而且 F 在  $W_{1}$  上可微,  $F'$  连续, 对所有  $x \\in W_{1}, F'(x) \\neq O$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.182,
+            0.143,
+            0.719,
+            0.16
+          ],
+          "content": "2）证明存在邻域 $W_{2} \\subset W_{1}$，使得 $\\pmb{F}$ 在 $W_{2}$ 上是一一映射."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.191,
+            0.165,
+            0.964,
+            0.182
+          ],
+          "content": "设 $\\varphi (x) = x - F(x),\\qquad x\\in W_1,$ (5)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.186,
+            0.965,
+            0.226
+          ],
+          "content": "则 $\\varphi^{\\prime}(\\mathbf{0}) = \\mathbf{0}$. 取定 $0 < \\alpha < 1$, 由 $\\varphi^{\\prime}(x)$ 的连续性, 存在中心在原点的开球 $W_{2} \\subset W_{1}$, 使得对 $x \\in W_{2}$, 有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.477,
+            0.231,
+            0.963,
+            0.248
+          ],
+          "content": "\\| \\varphi^ {\\prime} (x) \\| <   \\alpha . \\tag {6}",
+          "image_source": "../../raw/pages_0289-0320/images/page_307_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.253,
+            0.538,
+            0.27
+          ],
+          "content": "应用定理 23.14 微分中值不等式, 我们有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.293,
+            0.275,
+            0.814,
+            0.293
+          ],
+          "content": "\\| \\varphi (x ^ {\\prime \\prime}) - \\varphi (x ^ {\\prime}) \\| \\leqslant \\alpha \\| x ^ {\\prime \\prime} - x ^ {\\prime} \\|, \\quad x ^ {\\prime}, x ^ {\\prime \\prime} \\in W _ {2}.",
+          "image_source": "../../raw/pages_0289-0320/images/page_307_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.297,
+            0.453,
+            0.314
+          ],
+          "content": "由(5)式及三角不等式可以推出"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.343,
+            0.319,
+            0.963,
+            0.337
+          ],
+          "content": "\\| \\boldsymbol {F} (\\boldsymbol {x} ^ {\\prime \\prime}) - \\boldsymbol {F} (\\boldsymbol {x} ^ {\\prime}) \\| \\geqslant (1 - \\alpha) \\| \\boldsymbol {x} ^ {\\prime \\prime} - \\boldsymbol {x} ^ {\\prime} \\|, \\tag {7}",
+          "image_source": "../../raw/pages_0289-0320/images/page_307_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.341,
+            0.766,
+            0.359
+          ],
+          "content": "所以 F 在  $W_{2}$  内是一一映射. 若定义 F 的反函数  $H: F(W_{2}) \\rightarrow W_{2}$ ,"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.415,
+            0.364,
+            0.686,
+            0.381
+          ],
+          "content": "\\boldsymbol {H} (\\boldsymbol {F} (\\boldsymbol {x})) = \\boldsymbol {x}, \\quad \\boldsymbol {x} \\in W _ {2}.",
+          "image_source": "../../raw/pages_0289-0320/images/page_307_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.385,
+            0.408,
+            0.402
+          ],
+          "content": "由(7)式,即有 H 是连续的."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.183,
+            0.407,
+            0.807,
+            0.425
+          ],
+          "content": "3）证明  $\\boldsymbol{F}(W_{2})\\supset(1-\\alpha)W_{2}, U=\\boldsymbol{H}(V)$  是开集，其中  $V=(1-\\alpha)W_{2}$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.43,
+            0.968,
+            0.47
+          ],
+          "content": "任取  $y \\in (1 - \\alpha) W_{2}$ ，对任何 n > 1，应用迭代法构造  $x_{0}, \\cdots, x_{n}$ ，使得  $x_{0} = 0, x_{i} = y + \\varphi(x_{i-1}), x_{i-1} \\in W_{2}$ ，且"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.351,
+            0.472,
+            0.964,
+            0.49
+          ],
+          "content": "\\| \\boldsymbol {x} _ {i} - \\boldsymbol {x} _ {i - 1} \\| \\leqslant \\alpha^ {i - 1} \\| \\boldsymbol {y} \\|, \\quad 1 \\leqslant i \\leqslant n. \\tag {8}",
+          "image_source": "../../raw/pages_0289-0320/images/page_307_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.492,
+            0.213,
+            0.509
+          ],
+          "content": "于是有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.274,
+            0.513,
+            0.841,
+            0.55
+          ],
+          "content": "\\| \\boldsymbol {x} _ {n} \\| \\leqslant \\sum_ {i = 1} ^ {n} \\| \\boldsymbol {x} _ {i} - \\boldsymbol {x} _ {i - 1} \\| \\leqslant \\sum_ {i = 1} ^ {n} \\alpha^ {i - 1} \\| \\boldsymbol {y} \\| <   \\frac {1}{1 - \\alpha} \\| \\boldsymbol {y} \\|,",
+          "image_source": "../../raw/pages_0289-0320/images/page_307_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.552,
+            0.253,
+            0.57
+          ],
+          "content": "即  $x_{n} \\in W_{2}$ ,"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.464,
+            0.572,
+            0.964,
+            0.589
+          ],
+          "content": "\\boldsymbol {x} _ {n + 1} = \\boldsymbol {y} + \\boldsymbol {\\varphi} (\\boldsymbol {x} _ {n}), \\tag {9}",
+          "image_source": "../../raw/pages_0289-0320/images/page_307_equation_21.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.281,
+            0.591,
+            0.834,
+            0.609
+          ],
+          "content": "\\| \\boldsymbol {x} _ {n + 1} - \\boldsymbol {x} _ {n} \\| = \\| \\varphi (\\boldsymbol {x} _ {n}) - \\varphi (\\boldsymbol {x} _ {n - 1}) \\| \\leqslant \\alpha \\| \\boldsymbol {x} _ {n} - \\boldsymbol {x} _ {n - 1} \\|,",
+          "image_source": "../../raw/pages_0289-0320/images/page_307_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.611,
+            0.538,
+            0.628
+          ],
+          "content": "所以将 n 换成  $n+1$  时归纳法假设也成立."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.633,
+            0.969,
+            0.696
+          ],
+          "content": "由于 $\\alpha < 1$ ，因此 $\\{\\pmb{x}_n\\}$ 是 $\\mathbf{R}^n$ 中的柯西序列，于是有 $x_{n}\\rightarrow x\\in W_{2}$ .由(5)式和(9)式令$n\\to \\infty$ ，即有 $F(x) = y.$ 设 $V = (1 - \\alpha)W_{2}$ ，于是有 $U = F^{-1}(V)$ .因为 $\\pmb{F}$ 连续，而开集的原象是开集，所以 $U$ 是开集."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.183,
+            0.702,
+            0.62,
+            0.721
+          ],
+          "content": "4）若  $y \\in V, x = H(y)$ ，则  $H'(y) = [F'(x)]^{-1}$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.727,
+            0.824,
+            0.746
+          ],
+          "content": "设 $y \\in V, y + k \\in V, k \\neq 0, x = H(y), x + h = H(y + k), S = F'(x)$，于是有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.314,
+            0.75,
+            0.792,
+            0.796
+          ],
+          "content": "\\begin{array}{l} H (y + k) - H (y) - S ^ {- 1} k = h - S ^ {- 1} k \\\\ = S ^ {- 1} (S h - k) = - S ^ {- 1} [ F (x + h) - F (x) - S h ]. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_307_equation_27.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.803,
+            0.205,
+            0.819
+          ],
+          "content": "由(7)"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.387,
+            0.826,
+            0.602,
+            0.845
+          ],
+          "content": "(1 - \\alpha) \\|   \\boldsymbol {h}   \\| \\leqslant \\|   \\boldsymbol {k}   \\| ,",
+          "image_source": "../../raw/pages_0289-0320/images/page_307_equation_29.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.144,
+            0.85,
+            0.681,
+            0.89
+          ],
+          "content": "因此 $\\frac{\\|H(y + k) - H(y) - S^{-1}k\\|}{\\|k\\|}$"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.359,
+            0.897,
+            0.965,
+            0.933
+          ],
+          "content": "\\leqslant \\| S ^ {- 1} \\| \\frac {\\| \\boldsymbol {F} (\\boldsymbol {x} + \\boldsymbol {h}) - \\boldsymbol {F} (\\boldsymbol {x}) - \\boldsymbol {S h} \\|}{(1 - \\alpha) \\| \\boldsymbol {h} \\|}. \\tag {10}",
+          "image_source": "../../raw/pages_0289-0320/images/page_307_equation_31.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.102,
+            0.965,
+            0.131,
+            0.976
+          ],
+          "content": "300"
+        }
+      ]
+    },
+    {
+      "page_idx": 308,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.559,
+            0.035,
+            0.816,
+            0.049
+          ],
+          "content": "§ 3 反函数定理和隐函数定理"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.084,
+            0.481,
+            0.1
+          ],
+          "content": "当  $k \\rightarrow 0$  时,  $h \\rightarrow 0$ , 即有(10)式右边趋于零, 因此"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.331,
+            0.105,
+            0.534,
+            0.123
+          ],
+          "content": "\\boldsymbol {H} ^ {\\prime} (\\boldsymbol {y}) = \\left[ \\boldsymbol {F} ^ {\\prime} (\\boldsymbol {x}) \\right] ^ {- 1}.",
+          "image_source": "../../raw/pages_0289-0320/images/page_308_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.066,
+            0.128,
+            0.285,
+            0.145
+          ],
+          "content": "5)  $H'(x)$  在 V 内连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.068,
+            0.15,
+            0.262,
+            0.167
+          ],
+          "content": "我们有下述不等式:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.173,
+            0.849,
+            0.244
+          ],
+          "content": "\\begin{array}{l} \\| \\boldsymbol {H} ^ {\\prime} (\\boldsymbol {y} + \\boldsymbol {k}) - \\boldsymbol {H} ^ {\\prime} (\\boldsymbol {y}) \\| \\\\ \\leqslant \\left\\| \\left[ \\boldsymbol {F} ^ {\\prime} (\\boldsymbol {x} + \\boldsymbol {h}) \\right] ^ {- 1} - \\left[ \\boldsymbol {F} ^ {\\prime} (\\boldsymbol {x}) \\right] ^ {- 1} \\right\\| \\\\ \\leqslant \\left\\| \\left[ \\boldsymbol {F} ^ {\\prime} (\\boldsymbol {x} + \\boldsymbol {h}) \\right] ^ {- 1} \\right\\| \\left\\| \\boldsymbol {F} ^ {\\prime} (\\boldsymbol {x} + \\boldsymbol {h}) - \\boldsymbol {F} ^ {\\prime} (\\boldsymbol {x}) \\right\\| \\left\\| \\left[ \\boldsymbol {F} ^ {\\prime} (\\boldsymbol {x}) \\right] ^ {- 1} \\right\\|. \\tag {11} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_308_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.25,
+            0.357,
+            0.267
+          ],
+          "content": "由  $F'$  的连续性, 当  $\\|h\\|$  充分小时,"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.213,
+            0.275,
+            0.659,
+            0.306
+          ],
+          "content": "\\| \\boldsymbol {F} ^ {\\prime} (\\boldsymbol {x} + \\boldsymbol {h}) - \\boldsymbol {F} ^ {\\prime} (\\boldsymbol {x}) \\| \\| [ \\boldsymbol {F} ^ {\\prime} (\\boldsymbol {x}) ] ^ {- 1} \\| <   \\frac {1}{2}.",
+          "image_source": "../../raw/pages_0289-0320/images/page_308_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.316,
+            0.222,
+            0.332
+          ],
+          "content": "由(11)式,可以得到"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.242,
+            0.338,
+            0.635,
+            0.359
+          ],
+          "content": "\\| \\left[ \\boldsymbol {F} ^ {\\prime} (\\boldsymbol {x} + \\boldsymbol {h}) \\right] ^ {- 1} \\| \\leqslant 2 \\| \\left[ \\boldsymbol {F} ^ {\\prime} (\\boldsymbol {x}) \\right] ^ {- 1} \\|,",
+          "image_source": "../../raw/pages_0289-0320/images/page_308_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.364,
+            0.474,
+            0.383
+          ],
+          "content": "于是 $\\| H^{\\prime}(y + k) - H^{\\prime}(y)\\|$"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.216,
+            0.387,
+            0.654,
+            0.407
+          ],
+          "content": "\\leqslant 2 \\left\\| \\left[ \\boldsymbol {F} ^ {\\prime} (\\boldsymbol {x}) \\right] ^ {- 1} \\right\\| ^ {2} \\left\\| \\boldsymbol {F} ^ {\\prime} (\\boldsymbol {x} + \\boldsymbol {h}) - \\boldsymbol {F} ^ {\\prime} (\\boldsymbol {x}) \\right\\|.",
+          "image_source": "../../raw/pages_0289-0320/images/page_308_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.413,
+            0.35,
+            0.43
+          ],
+          "content": "由  $F'$  的连续性, 即有  $H'$  的连续性."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.067,
+            0.436,
+            0.492,
+            0.455
+          ],
+          "content": "例1 记 $\\boldsymbol{w} = (x, y, z)^{\\mathrm{T}}, \\boldsymbol{p} = (r, \\theta, \\varphi)^{\\mathrm{T}}$，求函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.22,
+            0.462,
+            0.847,
+            0.48
+          ],
+          "content": "\\boldsymbol {w} = \\boldsymbol {f} (\\boldsymbol {p}) = (r \\sin \\theta \\cos \\varphi , r \\sin \\theta \\sin \\varphi , r \\cos \\theta) \\tag {12}",
+          "image_source": "../../raw/pages_0289-0320/images/page_308_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.486,
+            0.191,
+            0.502
+          ],
+          "content": "的反函数的导数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.068,
+            0.508,
+            0.22,
+            0.525
+          ],
+          "content": "解 由公式(3)"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.095,
+            0.533,
+            0.779,
+            0.806
+          ],
+          "content": "\\begin{array}{l} (\\boldsymbol {f} ^ {- 1}) ^ {\\prime} (\\boldsymbol {w}) = [ \\boldsymbol {f} ^ {\\prime} (\\boldsymbol {p}) ] ^ {- 1} = \\left( \\begin{array}{c c c} \\sin \\theta \\cos \\varphi & r \\cos \\theta \\cos \\varphi & - r \\sin \\theta \\sin \\varphi \\\\ \\sin \\theta \\sin \\varphi & r \\cos \\theta \\sin \\varphi & r \\sin \\theta \\cos \\varphi \\\\ \\cos \\theta & - r \\sin \\theta & 0 \\end{array} \\right) ^ {- 1} \\\\ = \\frac {1}{r ^ {2} \\sin \\theta} \\left( \\begin{array}{c c c} r ^ {2} \\sin^ {2} \\theta \\cos \\varphi & r ^ {2} \\sin^ {2} \\theta \\sin \\varphi & r ^ {2} \\sin \\theta \\cos \\theta \\\\ r \\sin \\theta \\cos \\theta \\cos \\varphi & r \\sin \\theta \\cos \\theta \\sin \\varphi & - r \\sin^ {2} \\theta \\\\ - r \\sin \\varphi & r \\cos \\varphi & 0 \\end{array} \\right) \\\\ = \\left( \\begin{array}{c c c} \\sin \\theta \\cos \\varphi & \\sin \\theta \\sin \\varphi & \\cos \\theta \\\\ \\frac {\\cos \\theta \\cos \\varphi}{r} & \\frac {\\cos \\theta \\sin \\varphi}{r} & - \\frac {\\sin \\theta}{r} \\\\ - \\frac {\\sin \\varphi}{r \\sin \\theta} & \\frac {\\cos \\varphi}{r \\sin \\theta} & 0 \\end{array} \\right) \\quad (r ^ {2} \\sin \\theta \\neq 0). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_308_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.816,
+            0.32,
+            0.833
+          ],
+          "content": "若用 $w = f(p)$ 代入上式后则得"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.866,
+            0.967,
+            0.894,
+            0.979
+          ],
+          "content": "301"
+        }
+      ]
+    },
+    {
+      "page_idx": 309,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.141,
+            0.031,
+            0.44,
+            0.047
+          ],
+          "content": "\\* 第二十三章 向量函数微分学"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.295,
+            0.083,
+            0.965,
+            0.219
+          ],
+          "content": "\\left(\\boldsymbol {f} ^ {- 1}\\right) ^ {\\prime} (\\boldsymbol {w}) = \\left( \\begin{array}{c c c} \\frac {x}{r} & \\frac {y}{r} & \\frac {z}{r} \\\\ \\frac {x z}{r ^ {2} \\sqrt {x ^ {2} + y ^ {2}}} & \\frac {y z}{r ^ {2} \\sqrt {x ^ {2} + y ^ {2}}} & - \\frac {\\sqrt {x ^ {2} + y ^ {2}}}{r ^ {2}} \\\\ - \\frac {y}{x ^ {2} + y ^ {2}} & \\frac {x}{x ^ {2} + y ^ {2}} & 0 \\end{array} \\right) \\tag {13}",
+          "image_source": "../../raw/pages_0289-0320/images/page_309_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.227,
+            0.453,
+            0.247
+          ],
+          "content": "$(x^{2}+y^{2}\\neq0)$ ，其中  $r=\\sqrt{x^{2}+y^{2}+z^{2}}$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.252,
+            0.969,
+            0.292
+          ],
+          "content": "注 并不是每一个函数的反函数都能像上述那样经代入后得到(13)式. 这是因为所存在的反函数(即使它可导)并不都能由它的自变量用显式来表示."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.143,
+            0.302,
+            0.322,
+            0.322
+          ],
+          "level": 2,
+          "content": "二、隐函数定理"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.187,
+            0.334,
+            0.799,
+            0.352
+          ],
+          "content": "设 $X \\subset \\mathbf{R}^n, Y \\subset \\mathbf{R}^m, \\Omega = X \\times Y \\subset \\mathbf{R}^{n+m}, F: \\Omega \\to \\mathbf{R}^m$. 考察向量函数方程"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.406,
+            0.358,
+            0.965,
+            0.373
+          ],
+          "content": "F (x, y) = 0, \\quad x \\in X, y \\in Y. \\tag {14}",
+          "image_source": "../../raw/pages_0289-0320/images/page_309_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.378,
+            0.969,
+            0.417
+          ],
+          "content": "如果存在向量函数 $f: U \\to Y (U \\subset X)$, 当用 $f(x), x \\in U$ 去替换方程(14)中的 $y$ 时, 能使方程(14)变成恒等式"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.425,
+            0.424,
+            0.965,
+            0.439
+          ],
+          "content": "\\boldsymbol {F} (\\boldsymbol {x}, \\boldsymbol {f} (\\boldsymbol {x})) \\equiv \\boldsymbol {0}, \\quad \\boldsymbol {x} \\in U, \\tag {15}",
+          "image_source": "../../raw/pages_0289-0320/images/page_309_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.444,
+            0.763,
+            0.462
+          ],
+          "content": "这时我们称函数 f 是由方程(14)所确定的定义在 U 上的隐函数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.466,
+            0.969,
+            0.506
+          ],
+          "content": "用以前(第十八章)的话来说,方程(14)是一组含有  $n+m$  个变元的 m 个方程;而  $y=f(x)$  则是(14)的“解”,即由(14)所确定的隐函数组."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.51,
+            0.969,
+            0.55
+          ],
+          "content": "出于叙述定理的需要,我们引入向量函数关于一部分变元的偏导数符号:对上述函数 F, 当固定  $y \\in Y$  时, 它关于 x 的偏导数记为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.319,
+            0.555,
+            0.965,
+            0.573
+          ],
+          "content": "F _ {x} ^ {\\prime} (  x, y) \\quad \\text {或} \\quad \\mathrm{D} _ {x} F (  x, y) \\quad (\\text {为} m \\times n \\text {矩阵}). \\tag {16}",
+          "image_source": "../../raw/pages_0289-0320/images/page_309_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.144,
+            0.577,
+            0.534,
+            0.594
+          ],
+          "content": "当固定  $x \\in X$  时, 它关于 y 的偏导数记为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.324,
+            0.6,
+            0.965,
+            0.618
+          ],
+          "content": "\\boldsymbol {F} _ {y} ^ {\\prime} (\\boldsymbol {x}, \\boldsymbol {y}) \\quad \\text {或} \\quad \\mathrm{D} _ {y} \\boldsymbol {F} (\\boldsymbol {x}, \\boldsymbol {y}) \\quad (\\text {为} m \\times m \\text {矩阵}) \\tag {17}",
+          "image_source": "../../raw/pages_0289-0320/images/page_309_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.623,
+            0.969,
+            0.663
+          ],
+          "content": "定理 23.18（隐函数定理）设  $X \\subset R^{n}, Y \\subset R^{m}$  都是开集， $\\Omega = X \\times Y \\subset R^{n+m}$ （亦为开集）， $F: \\Omega \\to R^{m}$ . 如果 F 满足下列条件:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.189,
+            0.668,
+            0.6,
+            0.731
+          ],
+          "sub_type": "text",
+          "content": "(i) 存在  $x_{0} \\in X, y_{0} \\in Y$ ，使得  $F(x_{0}, y_{0}) = 0$ ，\n(ii) F 在  $\\Omega$  上可微, 且  $F'$  连续,\n(iii)  $\\det F_{y}^{\\prime}(x_{0},y_{0})\\neq0,$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.735,
+            0.97,
+            0.796
+          ],
+          "content": "则存在点  $x_{0}$  的 n 维邻域  $U = U(x_{0}) \\subset X$  和点  $y_{0}$  的 m 维邻域  $V = V(y_{0}) \\subset Y$ ，使得在点  $(x_{0}, y_{0})$  的  $n + m$  维邻域  $W = U \\times V \\subset \\Omega$  内，由方程（14）惟一地确定了隐函数 f:  $U \\to V$ ，它满足"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.189,
+            0.802,
+            0.689,
+            0.841
+          ],
+          "sub_type": "text",
+          "content": "$1^{\\circ}$   $y_{0}=f(x_{0})$ ;\n$2^{\\circ}$ 当 $\\pmb {x} \\in U$ 时 $(\\pmb{x}, \\pmb{f}(\\pmb{x})) \\in W$，且有恒等式(15)，即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.47,
+            0.846,
+            0.646,
+            0.863
+          ],
+          "content": "F (x, f (x)) \\equiv 0;",
+          "image_source": "../../raw/pages_0289-0320/images/page_309_equation_24.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.188,
+            0.868,
+            0.54,
+            0.885
+          ],
+          "content": "$3^{\\circ}$ $f$ 在 $U$ 内存在连续偏导数 $f'$，且"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.326,
+            0.891,
+            0.965,
+            0.908
+          ],
+          "content": "f ^ {\\prime} (x) = - \\left[ F _ {y} ^ {\\prime} (x, y) \\right] ^ {- 1} F _ {x} ^ {\\prime} (x, y), \\quad (x, y) \\in W. \\tag {18}",
+          "image_source": "../../raw/pages_0289-0320/images/page_309_equation_26.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.19,
+            0.914,
+            0.476,
+            0.931
+          ],
+          "content": "证 定义函数  $G: \\Omega \\rightarrow R^{n} \\times R^{m}$ ,"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.105,
+            0.964,
+            0.135,
+            0.976
+          ],
+          "content": "302"
+        }
+      ]
+    },
+    {
+      "page_idx": 310,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.567,
+            0.035,
+            0.824,
+            0.049
+          ],
+          "content": "§ 3 反函数定理和隐函数定理"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.324,
+            0.083,
+            0.562,
+            0.101
+          ],
+          "content": "\\boldsymbol {G} (\\boldsymbol {x}, \\boldsymbol {y}) = (\\boldsymbol {x}, \\boldsymbol {F} (\\boldsymbol {x}, \\boldsymbol {y})),",
+          "image_source": "../../raw/pages_0289-0320/images/page_310_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.105,
+            0.447,
+            0.124
+          ],
+          "content": "即有  $\\det G^{\\prime}(x_{0},y_{0})=\\det F^{\\prime}_{y}(x_{0},y_{0})\\neq0,$"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.13,
+            0.128,
+            0.487,
+            0.146
+          ],
+          "content": "\\boldsymbol {G} (\\boldsymbol {x} _ {0}, \\boldsymbol {y} _ {0}) = (\\boldsymbol {x} _ {0}, \\boldsymbol {F} (\\boldsymbol {x} _ {0}, \\boldsymbol {y} _ {0})) = (\\boldsymbol {x} _ {0}, \\boldsymbol {0}).",
+          "image_source": "../../raw/pages_0289-0320/images/page_310_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.03,
+            0.152,
+            0.86,
+            0.193
+          ],
+          "content": "应用定理 23.17, 存在  $R^{n} \\times R^{m}$  中包含  $(x_{0}, 0)$  的开集  $U \\times V'$ ,  $U \\subset R^{n}$ ,  $V' \\subset R^{m}$  和  $R^{n} \\times R^{m}$  中包含  $(x_{0}, y_{0})$  的开集  $U' \\times V$ ,  $U' \\subset R^{n}$ ,  $V \\subset R^{m}$ , 使得  $G: U' \\times V \\to U \\times V'$  具有可微反函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.34,
+            0.198,
+            0.855,
+            0.215
+          ],
+          "content": "\\boldsymbol {H}: U \\times V ^ {\\prime} \\rightarrow U ^ {\\prime} \\times V. \\tag {19}",
+          "image_source": "../../raw/pages_0289-0320/images/page_310_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.22,
+            0.6,
+            0.238
+          ],
+          "content": "因为  $\\boldsymbol{G}(\\boldsymbol{x},\\boldsymbol{y})=(\\boldsymbol{x},\\boldsymbol{F}(\\boldsymbol{x},\\boldsymbol{y}))$ ，所以 H 也具有类似形式:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.324,
+            0.242,
+            0.855,
+            0.26
+          ],
+          "content": "\\boldsymbol {H} (\\boldsymbol {x}, \\boldsymbol {y}) = (\\boldsymbol {x}, \\boldsymbol {k} (\\boldsymbol {x}, \\boldsymbol {y})), \\tag {20}",
+          "image_source": "../../raw/pages_0289-0320/images/page_310_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.031,
+            0.264,
+            0.464,
+            0.281
+          ],
+          "content": "其中  $k(x,y)$  是从  $U \\times V'$  到 V 的可微向量函数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.287,
+            0.327,
+            0.304
+          ],
+          "content": "定义映射  $\\pi:R^{n}\\times R^{m}\\rightarrow R^{m}$ ,"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.381,
+            0.31,
+            0.855,
+            0.327
+          ],
+          "content": "\\pi (x, y) = y. \\tag {21}",
+          "image_source": "../../raw/pages_0289-0320/images/page_310_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.333,
+            0.218,
+            0.35
+          ],
+          "content": "由于  $\\pi \\circ G = F$ ，于是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.202,
+            0.357,
+            0.68,
+            0.397
+          ],
+          "content": "\\begin{array}{l} F (x, k (x, y)) = F \\circ H (x, y) = (\\pi \\circ G) \\circ H (x, y) \\\\ = \\pi \\circ (\\boldsymbol {G} \\circ \\boldsymbol {H}) (\\boldsymbol {x}, \\boldsymbol {y}) = \\pi (\\boldsymbol {x}, \\boldsymbol {y}) = \\boldsymbol {y}, \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_310_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.402,
+            0.259,
+            0.418
+          ],
+          "content": "因此  $F(x,k(x,0))=0.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.075,
+            0.424,
+            0.507,
+            0.441
+          ],
+          "content": "若定义 $f(x) = k(x,0)$，即有 $x \\in U, f(x) \\in V$"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.293,
+            0.446,
+            0.589,
+            0.464
+          ],
+          "content": "F (x, f (x)) = 0, \\quad y _ {0} = f (x _ {0}).",
+          "image_source": "../../raw/pages_0289-0320/images/page_310_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.468,
+            0.432,
+            0.485
+          ],
+          "content": "为了证明结论 $3^{\\circ}$ ，引入向量增量符号"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.235,
+            0.491,
+            0.648,
+            0.508
+          ],
+          "content": "\\Delta f = f (x + \\Delta x) - f (x), \\quad x, x + \\Delta x \\in U.",
+          "image_source": "../../raw/pages_0289-0320/images/page_310_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.513,
+            0.102,
+            0.529
+          ],
+          "content": "于是有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.223,
+            0.535,
+            0.856,
+            0.575
+          ],
+          "content": "\\begin{array}{l} F (x + \\Delta x, f (x + \\Delta x)) - F (x, f (x)) \\\\ = F (x + \\Delta x, f (x) + \\Delta f) - F (x, f (x)) = 0. \\tag {22} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_310_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.031,
+            0.579,
+            0.382,
+            0.596
+          ],
+          "content": "把它的各分量式写成微分中值公式:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.068,
+            0.601,
+            0.856,
+            0.688
+          ],
+          "content": "\\begin{array}{l} F _ {i} (x + \\Delta x, f (x) + \\Delta f) - F _ {i} (x, f (x)) \\\\ = \\sum_ {k = 1} ^ {n} \\frac {\\partial F _ {i}}{\\partial x _ {k}} (\\boldsymbol {x} + \\theta_ {i} \\Delta \\boldsymbol {x}, \\boldsymbol {f} (\\boldsymbol {x}) + \\theta_ {i} \\Delta \\boldsymbol {f}) \\Delta x _ {k} + \\sum_ {j = 1} ^ {m} \\frac {\\partial F _ {i}}{\\partial y _ {j}} (\\boldsymbol {x} + \\theta_ {i} \\Delta \\boldsymbol {x}, \\boldsymbol {f} (\\boldsymbol {x}) + \\theta_ {i} \\Delta \\boldsymbol {f}) \\Delta f _ {j} \\\\ = 0 \\quad (i = 1, 2, \\dots , m). \\tag {23} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_310_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.031,
+            0.693,
+            0.859,
+            0.755
+          ],
+          "content": "从这些方程首先可证明 $f_{j}$ 对 $x_{k}$ 的偏导数存在 $(j = 1,2,\\dots ,m;k = 1,2,\\dots ,n)$，这些偏导数可由 $\\Delta f_{j} / \\Delta x_{k}$ 的极限（ $\\Delta x_{k}\\rightarrow 0,\\Delta x_{1} = \\dots = \\Delta x_{k - 1} = \\Delta x_{k + 1} = \\dots = \\Delta x_{n} = 0$）而求得，其中间过程为（这里用到 $\\Delta f\\to 0$ ，即 $f$ 的连续性）"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.251,
+            0.761,
+            0.856,
+            0.823
+          ],
+          "content": "\\begin{array}{l} \\sum_ {j = 1} ^ {m} \\frac {\\partial F _ {i}}{\\partial y _ {j}} (\\boldsymbol {x}, \\boldsymbol {f} (\\boldsymbol {x})) \\frac {\\partial f _ {j}}{\\partial x _ {k}} = - \\frac {\\partial F _ {i}}{\\partial x _ {k}} (\\boldsymbol {x}, \\boldsymbol {f} (\\boldsymbol {x})) \\tag {24} \\\\ (i = 1, 2, \\dots , m; k = 1, 2, \\dots , n). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_310_equation_23.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.031,
+            0.828,
+            0.369,
+            0.844
+          ],
+          "content": "把这  $m \\times n$  个式子列成矩阵式, 即为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.154,
+            0.85,
+            0.729,
+            0.868
+          ],
+          "content": "\\boldsymbol {F} _ {y} ^ {\\prime} (\\boldsymbol {x}, \\boldsymbol {y}) \\boldsymbol {f} ^ {\\prime} (\\boldsymbol {x}) = - \\boldsymbol {F} _ {x} ^ {\\prime} (\\boldsymbol {x}, \\boldsymbol {y}), \\quad \\boldsymbol {y} = \\boldsymbol {f} (\\boldsymbol {x}), \\quad (\\boldsymbol {x}, \\boldsymbol {y}) \\in U \\times V.",
+          "image_source": "../../raw/pages_0289-0320/images/page_310_equation_25.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.031,
+            0.872,
+            0.857,
+            0.911
+          ],
+          "content": "由于  $F_{y}^{\\prime}$  在 U 内可逆, 从而立即就可解出  $f^{\\prime}(x)$  如(18)式所示, 且由条件(ii)推得  $f^{\\prime}(x)$  在 U 上是连续的."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.917,
+            0.859,
+            0.934
+          ],
+          "content": "在定理 23.18 中, 当 n = m = 1 和 n = m = 2 时可分别得到定理 18.1, 18.2 和定理"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.875,
+            0.967,
+            0.904,
+            0.978
+          ],
+          "content": "303"
+        }
+      ]
+    },
+    {
+      "page_idx": 311,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.142,
+            0.031,
+            0.441,
+            0.047
+          ],
+          "content": "\\* 第二十三章 向量函数微分学"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.081,
+            0.872,
+            0.098
+          ],
+          "content": "18.4 的结果, 只是定理 23.18 所给的条件更一般些, 这是为了证明上的简便."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.102,
+            0.968,
+            0.164
+          ],
+          "content": "例2 设 $\\Omega \\subset \\mathbf{R}^4, F, G: \\Omega \\to \\mathbf{R}$. 若向量 $H = (F, G)^{\\mathrm{T}}$ 在点 $(z_0, w_0)^{\\mathrm{T}} \\in \\Omega$ （其中 $z_0 = (x_0, y_0)^{\\mathrm{T}}, w_0 = (u_0, v_0)^{\\mathrm{T}}$）的某邻域内满足定理23.18的条件，且 $\\det H_w' (z_0, w_0) \\neq 0$，则方程"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.475,
+            0.17,
+            0.637,
+            0.187
+          ],
+          "content": "\\boldsymbol {H} (x, y, u, v) = \\boldsymbol {0}",
+          "image_source": "../../raw/pages_0289-0320/images/page_311_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.201,
+            0.949,
+            0.218
+          ],
+          "content": "在点 $z_0$ 的某邻域内能确定一个可微的隐函数 $w = f(z)$，并由公式(18)求得它的导数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.386,
+            0.223,
+            0.714,
+            0.242
+          ],
+          "content": "f ^ {\\prime} (z) = - \\left[ H _ {w} ^ {\\prime} (z, w) \\right] ^ {- 1} H _ {z} ^ {\\prime} (z, w).",
+          "image_source": "../../raw/pages_0289-0320/images/page_311_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.248,
+            0.506,
+            0.265
+          ],
+          "content": "现按 §2 公式(7)，上式可详细地写作"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.328,
+            0.273,
+            0.774,
+            0.507
+          ],
+          "content": "\\begin{array}{l} \\boldsymbol {f} ^ {\\prime} (\\boldsymbol {z}) = \\left( \\begin{array}{c c} \\frac {\\partial u}{\\partial x} & \\frac {\\partial u}{\\partial y} \\\\ \\frac {\\partial v}{\\partial x} & \\frac {\\partial v}{\\partial y} \\end{array} \\right) = - \\left( \\begin{array}{c c} \\frac {\\partial F}{\\partial u} & \\frac {\\partial F}{\\partial v} \\\\ \\frac {\\partial G}{\\partial u} & \\frac {\\partial G}{\\partial v} \\end{array} \\right) ^ {- 1} \\left( \\begin{array}{c c} \\frac {\\partial F}{\\partial x} & \\frac {\\partial F}{\\partial y} \\\\ \\frac {\\partial G}{\\partial x} & \\frac {\\partial G}{\\partial y} \\end{array} \\right) \\\\ = - \\frac {1}{J} \\left( \\begin{array}{c c} \\frac {\\partial G}{\\partial v} & - \\frac {\\partial F}{\\partial v} \\\\ - \\frac {\\partial G}{\\partial u} & \\frac {\\partial F}{\\partial u} \\end{array} \\right) \\left( \\begin{array}{c c} \\frac {\\partial F}{\\partial x} & \\frac {\\partial F}{\\partial y} \\\\ \\frac {\\partial G}{\\partial x} & \\frac {\\partial G}{\\partial y} \\end{array} \\right) \\\\ = - \\frac {1}{J} \\left( \\begin{array}{c c} \\frac {\\partial (F , G)}{\\partial (x , v)} & \\frac {\\partial (F , G)}{\\partial (y , v)} \\\\ \\frac {\\partial (F , G)}{\\partial (u , x)} & \\frac {\\partial (F , G)}{\\partial (u , y)} \\end{array} \\right), \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_311_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.52,
+            0.666,
+            0.554
+          ],
+          "content": "这里 $J = \\frac{\\partial(F, G)}{\\partial(u, v)}$. 这个结果正是第十八章 §2 公式 (5)."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.946,
+            0.527,
+            0.964,
+            0.543
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_311_image_9.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.143,
+            0.565,
+            0.373,
+            0.584
+          ],
+          "level": 2,
+          "content": "三、拉格朗日乘数法"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.595,
+            0.968,
+            0.634
+          ],
+          "content": "条件极值问题在第十八章 §4 中进行过初步的讨论. 现在证明高维情况下的拉格朗日乘数法."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.64,
+            0.966,
+            0.681
+          ],
+          "content": "设  $D \\subset R^{n}$  是开集， $f: D \\to R, \\varphi: D \\to R^{m}, n = m + r$ ，并改用行向量记  $\\boldsymbol{x} = (x_{1}, \\cdots, x_{n}) = (x_{1}, \\cdots, x_{r}, x_{r+1}, \\cdots, x_{r+m}) = (\\boldsymbol{y}, z), \\boldsymbol{y} \\in \\mathbf{R}^{r}, z \\in \\mathbf{R}^{m}$ 。现在讨论在条件"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.466,
+            0.688,
+            0.964,
+            0.703
+          ],
+          "content": "\\varphi (x) = \\varphi (y, z) = 0 \\tag {25}",
+          "image_source": "../../raw/pages_0289-0320/images/page_311_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.708,
+            0.903,
+            0.726
+          ],
+          "content": "限制下,求函数 $f(x)=f(y,z)$ 的极值.对于这个条件极值问题,它的拉格朗日函数为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.349,
+            0.731,
+            0.964,
+            0.748
+          ],
+          "content": "L (\\boldsymbol {x}, \\boldsymbol {\\lambda}) = L (\\boldsymbol {y}, z, \\boldsymbol {\\lambda}) = f (\\boldsymbol {y}, z) + \\boldsymbol {\\lambda} ^ {\\mathrm{T}} \\boldsymbol {\\varphi} (\\boldsymbol {y}, z), \\tag {26}",
+          "image_source": "../../raw/pages_0289-0320/images/page_311_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.753,
+            0.864,
+            0.771
+          ],
+          "content": "其中  $\\boldsymbol{\\lambda}=(\\lambda_{1},\\cdots,\\lambda_{m})^{\\mathrm{T}}$  为拉格朗日乘数向量.于是定理18.6的向量形式是:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.776,
+            0.671,
+            0.793
+          ],
+          "content": "定理 23.19 对以上所设的函数 f,  $\\varphi$  若满足条件:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.187,
+            0.798,
+            0.709,
+            0.882
+          ],
+          "sub_type": "text",
+          "content": "(i)  $f, \\varphi$  在 D 内有连续导数；\n(ii)  $\\varphi(x_{0})=\\varphi(y_{0},z_{0})=0;$\n(iii) rank  $\\boldsymbol{\\varphi}^{\\prime}(\\boldsymbol{x}_{0})=\\mathrm{rank}\\left[\\boldsymbol{\\varphi}_{y}^{\\prime}(\\boldsymbol{y}_{0},\\boldsymbol{z}_{0}),\\boldsymbol{\\varphi}_{z}^{\\prime}(\\boldsymbol{y}_{0},\\boldsymbol{z}_{0})\\right]=m^{①}$ ;\n(iv)  $\\boldsymbol{x}_{0}=(\\boldsymbol{y}_{0},\\boldsymbol{z}_{0})$  是 f 在条件 (25) 下的条件极值点，"
+        },
+        {
+          "type": "page_footnote",
+          "bbox": [
+            0.141,
+            0.916,
+            0.387,
+            0.931
+          ],
+          "content": "① rank A 表示矩阵 A 的秩."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.102,
+            0.964,
+            0.131,
+            0.976
+          ],
+          "content": "304"
+        }
+      ]
+    },
+    {
+      "page_idx": 312,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.572,
+            0.027,
+            0.83,
+            0.042
+          ],
+          "content": "§ 3 反函数定理和隐函数定理"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.077,
+            0.701,
+            0.094
+          ],
+          "content": "则存在  $\\Lambda_{0} \\in R^{m}$ ，使得  $(x_{0}, \\Lambda_{0})$  是 (26) 式所设函数 L 的稳定点，即满足"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.225,
+            0.099,
+            0.861,
+            0.117
+          ],
+          "content": "L ^ {\\prime} (x _ {0}, \\Lambda_ {0}) = [ L _ {x} (x _ {0}, \\Lambda_ {0}) + L _ {\\lambda} (x _ {0}, \\Lambda_ {0}) ] = 0. \\tag {27}",
+          "image_source": "../../raw/pages_0289-0320/images/page_312_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.123,
+            0.636,
+            0.141
+          ],
+          "content": "但因 $L_{\\lambda}(x_0, \\Lambda_0) = [\\varphi(x_0)]^{\\mathrm{T}} = 0$ （条件（ii）），故(27)式等同于"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.268,
+            0.146,
+            0.861,
+            0.165
+          ],
+          "content": "\\boldsymbol {L} _ {x} (\\boldsymbol {x} _ {0}, \\boldsymbol {\\Lambda} _ {0}) = f ^ {\\prime} (\\boldsymbol {x} _ {0}) + \\boldsymbol {\\Lambda} _ {0} ^ {\\mathrm{T}} \\boldsymbol {\\varphi} ^ {\\prime} (\\boldsymbol {x} _ {0}) = \\boldsymbol {0}. \\tag {28}",
+          "image_source": "../../raw/pages_0289-0320/images/page_312_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.17,
+            0.447,
+            0.186
+          ],
+          "content": "证 为简单起见,由条件(iii),不妨设"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.35,
+            0.192,
+            0.861,
+            0.21
+          ],
+          "content": "\\det \\varphi_ {z} ^ {\\prime} (y _ {0}, z _ {0}) \\neq 0, \\tag {29}",
+          "image_source": "../../raw/pages_0289-0320/images/page_312_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.038,
+            0.215,
+            0.832,
+            0.232
+          ],
+          "content": "于是条件(i)，(ii)连同(29)式满足定理23.18.故由方程(25)确定了惟一的隐函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.225,
+            0.237,
+            0.67,
+            0.255
+          ],
+          "content": "z = g (y), \\quad (y, z) \\in U (y _ {0}) \\times U (z _ {0}) \\subset D,",
+          "image_source": "../../raw/pages_0289-0320/images/page_312_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.039,
+            0.259,
+            0.087,
+            0.275
+          ],
+          "content": "使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.231,
+            0.282,
+            0.665,
+            0.3
+          ],
+          "content": "z _ {0} = g (y _ {0}), \\quad \\varphi (y, g (y)) \\equiv 0, \\quad y \\in U (y _ {0})",
+          "image_source": "../../raw/pages_0289-0320/images/page_312_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.039,
+            0.304,
+            0.613,
+            0.321
+          ],
+          "content": "且 $\\pmb{g}$ 在 $U(\\mathbf{y}_0)$ 存在连续导数. 于是由复合函数求导法则得到"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.282,
+            0.327,
+            0.861,
+            0.345
+          ],
+          "content": "\\varphi_ {y} (y _ {0}, z _ {0}) + \\varphi_ {z} (y _ {0}, z _ {0}) g ^ {\\prime} (y _ {0}) = 0. \\tag {30}",
+          "image_source": "../../raw/pages_0289-0320/images/page_312_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.038,
+            0.349,
+            0.865,
+            0.388
+          ],
+          "content": "另一方面, 因为  $(\\mathbf{y}_{0}, \\mathbf{z}_{0})$  是 f 的条件极值点, 所以  $y_{0}$  是  $h(\\mathbf{y}) = f(\\mathbf{y}, \\mathbf{g}(\\mathbf{y}))$  的极值点. 于是有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.286,
+            0.394,
+            0.861,
+            0.413
+          ],
+          "content": "f _ {y} (y _ {0}, z _ {0}) + f _ {z} (y _ {0}, z _ {0}) g ^ {\\prime} (y _ {0}) = 0. \\tag {31}",
+          "image_source": "../../raw/pages_0289-0320/images/page_312_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.081,
+            0.418,
+            0.362,
+            0.435
+          ],
+          "content": "取  $\\Lambda_{0} \\in R^{m}$  为下列方程的解:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.302,
+            0.441,
+            0.861,
+            0.46
+          ],
+          "content": "f _ {z} (\\boldsymbol {y} _ {0}, z _ {0}) + \\boldsymbol {\\Lambda} _ {0} ^ {\\mathrm{T}} \\boldsymbol {\\varphi} _ {z} (\\boldsymbol {y} _ {0}, z _ {0}) = \\boldsymbol {0}. \\tag {32}",
+          "image_source": "../../raw/pages_0289-0320/images/page_312_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.038,
+            0.464,
+            0.864,
+            0.503
+          ],
+          "content": "由于条件(29)，上述方程的解是存在的. 最后，以  $\\Lambda_{0}^{T}$  乘(30)式，用(32)式代入，并与(31)式相加，得到"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.302,
+            0.508,
+            0.589,
+            0.527
+          ],
+          "content": "f _ {y} (y _ {0}, z _ {0}) + \\Lambda_ {0} ^ {\\mathrm{T}} \\varphi_ {y} (y _ {0}, z _ {0}) = 0.",
+          "image_source": "../../raw/pages_0289-0320/images/page_312_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.038,
+            0.53,
+            0.492,
+            0.548
+          ],
+          "content": "把它与(32)式合起来,便是所要证明的(28)式."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.369,
+            0.578,
+            0.53,
+            0.597
+          ],
+          "level": 2,
+          "content": "习题 23.3"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.618,
+            0.184,
+            0.632
+          ],
+          "content": "1. 设方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.346,
+            0.636,
+            0.553,
+            0.692
+          ],
+          "content": "\\left\\{ \\begin{array}{l} 3 x + y - z + u ^ {2} = 0, \\\\ x - y + 2 z + u = 0, \\\\ 2 x + 2 y - 3 z + 2 u = 0. \\end{array} \\right.",
+          "image_source": "../../raw/pages_0289-0320/images/page_312_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.039,
+            0.697,
+            0.774,
+            0.712
+          ],
+          "content": "证明:除了不能把 x,y,z 用 u 惟一表出外,其他任何三个变量都能用第四个变量惟一表出."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.075,
+            0.717,
+            0.429,
+            0.732
+          ],
+          "content": "2. 应用隐函数求导公式(18)，求由方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.311,
+            0.739,
+            0.594,
+            0.752
+          ],
+          "content": "x = u \\cos v, \\quad y = u \\sin v, \\quad z = v",
+          "image_source": "../../raw/pages_0289-0320/images/page_312_equation_25.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.039,
+            0.757,
+            0.516,
+            0.772
+          ],
+          "content": "所确定的隐函数(其中之一) $z=z(x,y)$ 的所有二阶偏导数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.777,
+            0.184,
+            0.791
+          ],
+          "content": "3. 设方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.319,
+            0.797,
+            0.584,
+            0.832
+          ],
+          "content": "\\left\\{ \\begin{array}{l} u = f (x - u v, y - u v, z - u v), \\\\ g (x, y, z) = 0. \\end{array} \\right.",
+          "image_source": "../../raw/pages_0289-0320/images/page_312_equation_28.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.039,
+            0.837,
+            0.688,
+            0.852
+          ],
+          "content": "试问:(1) 在什么条件下,能确定以 x,y,v 为自变量,u,z 为因变量的隐函数组?"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.077,
+            0.857,
+            0.571,
+            0.906
+          ],
+          "sub_type": "text",
+          "content": "(2) 能否确定以 x, y, z 为自变量, u, v 为因变量的隐函数组;\n(3) 计算 $\\frac{\\partial u}{\\partial x}, \\frac{\\partial u}{\\partial y}, \\frac{\\partial u}{\\partial v}.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.911,
+            0.363,
+            0.927
+          ],
+          "content": "4. 设  $f(x,y)=(\\mathrm{e}^{x}\\cos y,\\mathrm{e}^{x}\\sin y)^{\\mathrm{T}}$ ."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.883,
+            0.96,
+            0.912,
+            0.971
+          ],
+          "content": "305"
+        }
+      ]
+    },
+    {
+      "page_idx": 313,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.139,
+            0.025,
+            0.437,
+            0.041
+          ],
+          "content": "\\* 第二十三章 向量函数微分学"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.175,
+            0.074,
+            0.778,
+            0.108
+          ],
+          "sub_type": "text",
+          "content": "(1) 证明: 当  $(x, y) \\in \\mathbf{R}^{2}$  时,  $\\det f'(x, y) \\neq 0$ , 但在  $R^{2}$  上 f 不是一一映射;\n(2) 证明: $f$ 在 $D = \\{(x, y) | 0 < y < 2\\pi\\}$ 上是一一映射, 并求 $(f^{-1})'(0, e)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.174,
+            0.117,
+            0.785,
+            0.146
+          ],
+          "content": "5. 利用反函数的导数公式, 计算下列函数反函数的偏导数  $\\frac{\\partial x}{\\partial u}, \\frac{\\partial x}{\\partial v}, \\frac{\\partial y}{\\partial u}, \\frac{\\partial y}{\\partial v}$ :"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.177,
+            0.152,
+            0.48,
+            0.205
+          ],
+          "sub_type": "text",
+          "content": "(1) $(u, v)^{\\mathrm{T}} = \\left(x \\cos \\frac{y}{x}, x \\sin \\frac{y}{x}\\right)^{\\mathrm{T}}$;\n(2) $(u, v)^{\\mathrm{T}} = (\\mathrm{e}^{x} + x\\sin y, \\mathrm{e}^{x} - x\\cos y)^{\\mathrm{T}}$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.174,
+            0.231,
+            0.604,
+            0.246
+          ],
+          "content": "6. 设 $n > 2, D \\subset \\mathbf{R}^n$ 为开集，$\\varphi, \\psi: D \\to \\mathbf{R}, f: D \\to \\mathbf{R}^2$，且"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.386,
+            0.251,
+            0.707,
+            0.267
+          ],
+          "content": "f (\\boldsymbol {x}) = \\left[ \\varphi (\\boldsymbol {x}), \\varphi (\\boldsymbol {x}) \\psi (\\boldsymbol {x}) \\right] ^ {\\mathrm{T}}, \\boldsymbol {x} \\in D.",
+          "image_source": "../../raw/pages_0289-0320/images/page_313_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.271,
+            0.965,
+            0.307
+          ],
+          "content": "证明: 在满足  $f(x_{0})=0$  的点  $x_{0}$  处,  $\\operatorname{rank} f'(x_{0})<2$ . 但是由方程  $f(x)=0$  仍可能在点  $x_{0}$  的邻域内确定隐函数  $g:E\\to R^{2}, E\\subset R^{n-2}$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.175,
+            0.313,
+            0.453,
+            0.327
+          ],
+          "content": "7. 设  $D \\subset R^{n}$ ,  $f: D \\to R^{n}$ , 而且适合"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.177,
+            0.334,
+            0.43,
+            0.367
+          ],
+          "sub_type": "text",
+          "content": "(i) f 在 D 上可微, 且  $f'$  连续;\n(ii) 当  $x \\in D$  时,  $\\det f'(x) \\neq 0$ ,"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.374,
+            0.271,
+            0.388
+          ],
+          "content": "则  $f(D)$  是开集."
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.135,
+            0.394,
+            0.962,
+            0.448
+          ],
+          "sub_type": "text",
+          "content": "8. 设 $D, E \\subset \\mathbb{R}^n$ 都是开集, $f: D \\to E$ 与 $f^{-1}: E \\to D$ 互为反函数. 证明: 若 $f$ 在 $x \\in D$ 可微, $f^{-1}$ 在 $y = f(x) \\in E$ 可微, 则 $f'(x)$ 与 $(f^{-1})'(y)$ 为互逆矩阵. (可望有一个比定理23.17更为简单的证明.)\n9. 对 n 次多项式进行因式分解"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.318,
+            0.454,
+            0.78,
+            0.47
+          ],
+          "content": "F _ {n} (x) = x ^ {n} + a _ {n - 1} x ^ {n - 1} + \\dots + a _ {0} = (x - r _ {1}) \\dots (x - r _ {n}).",
+          "image_source": "../../raw/pages_0289-0320/images/page_313_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.474,
+            0.942,
+            0.489
+          ],
+          "content": "从某种意义上说,这也是一个反函数问题.因为多项式的每个系数都是它的 n 个根的已知函数,即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.383,
+            0.495,
+            0.962,
+            0.51
+          ],
+          "content": "a _ {i} = a _ {i} (r _ {1}, \\dots , r _ {n}), \\quad i = 0, 1, \\dots , n - 1. \\tag {33}",
+          "image_source": "../../raw/pages_0289-0320/images/page_313_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.515,
+            0.538,
+            0.529
+          ],
+          "content": "而我们感兴趣的是要求得到用系数表示的根,即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.381,
+            0.535,
+            0.962,
+            0.55
+          ],
+          "content": "r _ {j} = r _ {j} (a _ {0}, a _ {1}, \\dots , a _ {n - 1}), \\quad j = 1, 2, \\dots , n. \\tag {34}",
+          "image_source": "../../raw/pages_0289-0320/images/page_313_equation_23.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.554,
+            0.915,
+            0.569
+          ],
+          "content": "试对 n=2 与 n=3 两种情形, 证明: 当方程  $F_{n}(x)=0$  无重根时, 函数组(33)存在反函数组(34)."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.407,
+            0.618,
+            0.7,
+            0.641
+          ],
+          "level": 2,
+          "content": "第二十三章总练习题"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.177,
+            0.687,
+            0.95,
+            0.702
+          ],
+          "content": "1. 证明: 若 $D \\subset \\mathbf{R}^n$ 为任何闭集, $f: D \\to D$, 且存在正实数 $q \\in (0,1)$, 使得对任何 $x', x'' \\in D$, 满足"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.405,
+            0.708,
+            0.705,
+            0.723
+          ],
+          "content": "\\| f (x ^ {\\prime}) - f (x ^ {\\prime \\prime}) \\| \\leqslant q \\| x ^ {\\prime} - x ^ {\\prime \\prime} \\|,",
+          "image_source": "../../raw/pages_0289-0320/images/page_313_equation_27.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.727,
+            0.916,
+            0.742
+          ],
+          "content": "则在 $D$ 中存在 $\\pmb{f}$ 的惟一不动点 $x^{*}$，即 $f(x^{*}) = x^{*}$。（本命题称为不动点原理或压缩映射定理。）"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.175,
+            0.748,
+            0.921,
+            0.763
+          ],
+          "content": "2. 设 $B = \\{x \\mid \\rho(x, x_0) \\leqslant r\\} \\subset \\mathbf{R}^n, f: B \\to \\mathbf{R}^n$，且存在正实数 $q \\in (0,1)$，对一切 $x', x'' \\in B$，满足"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.255,
+            0.768,
+            0.85,
+            0.783
+          ],
+          "content": "\\| f \\left(x ^ {\\prime}\\right) - f \\left(x ^ {\\prime \\prime}\\right) \\| \\leqslant q \\| x ^ {\\prime} - x ^ {\\prime \\prime} \\| \\quad \\text {与} \\quad \\| f \\left(x _ {0}\\right) - x _ {0} \\| \\leqslant (1 - q) r.",
+          "image_source": "../../raw/pages_0289-0320/images/page_313_equation_30.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.788,
+            0.543,
+            0.802
+          ],
+          "content": "利用不动点定理证明: f 在 B 中有惟一的不动点."
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.136,
+            0.808,
+            0.965,
+            0.923
+          ],
+          "sub_type": "text",
+          "content": "3. 应用定理 23.11 证明: 设  $D \\subset R^{n}$ ,  $f, g: D \\rightarrow R$ , 若 f 在  $x_{0} \\in D$  可微,  $f(x_{0}) = 0$ , g 在  $x_{0}$  连续, 则  $f \\circ g$  在  $x_{0}$  可微.\n4. 设 $D \\subset \\mathbf{R}^n$ 是开集, $f: D \\to \\mathbf{R}^n$ 为可微函数, 且对任何 $x \\in D$, $\\det f'(x) \\neq 0$. 试证: 若 $y \\notin f(D)$, $\\varphi(x) = \\| y - f(x) \\|^2$, 则对一切 $x \\in D, \\varphi'(x) \\neq 0$.\n5. 证明: 若 $D \\subset \\mathbf{R}^n$ 是凸开集, $f: D \\to \\mathbf{R}^m$ 是 $D$ 上的可微函数, 则对任意两点 $\\boldsymbol{a}, \\boldsymbol{b} \\in D$, 以及每一常向量 $\\boldsymbol{\\beta} \\in \\mathbf{R}^m$, 必存在点 $c = a + \\theta (b - a) \\in D, 0 < \\theta < 1$, 满足"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.1,
+            0.959,
+            0.129,
+            0.969
+          ],
+          "content": "306"
+        }
+      ]
+    },
+    {
+      "page_idx": 314,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.654,
+            0.029,
+            0.827,
+            0.042
+          ],
+          "content": "第二十三章 总练习题"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.284,
+            0.076,
+            0.605,
+            0.093
+          ],
+          "content": "\\boldsymbol {\\beta} ^ {\\mathrm{T}} [ \\boldsymbol {f} (\\boldsymbol {b}) - \\boldsymbol {f} (\\boldsymbol {a}) ] = \\boldsymbol {\\beta} ^ {\\mathrm{T}} \\boldsymbol {f} ^ {\\prime} (\\boldsymbol {c}) (\\boldsymbol {b} - \\boldsymbol {a}).",
+          "image_source": "../../raw/pages_0289-0320/images/page_314_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.097,
+            0.398,
+            0.111
+          ],
+          "content": "(本命题也称为向量函数的微分中值定理.)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.117,
+            0.395,
+            0.131
+          ],
+          "content": "6. 利用上题结果导出微分中值不等式"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.274,
+            0.136,
+            0.626,
+            0.153
+          ],
+          "content": "\\| f (b) - f (a) \\| \\leqslant \\| f ^ {\\prime} (c) \\| \\| b - a \\|,",
+          "image_source": "../../raw/pages_0289-0320/images/page_314_equation_4.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.311,
+            0.157,
+            0.584,
+            0.171
+          ],
+          "content": "c = a + \\theta (b - a), \\quad 0 <   \\theta <   1.",
+          "image_source": "../../raw/pages_0289-0320/images/page_314_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.176,
+            0.397,
+            0.191
+          ],
+          "content": "7. 设  $f(t)=(\\cos t,\\sin t)^{\\mathrm{T}}, a=0, b=2\\pi.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.075,
+            0.196,
+            0.337,
+            0.21
+          ],
+          "content": "(1) 是否存在  $c \\in (0, 2\\pi)$ ，满足"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.318,
+            0.216,
+            0.571,
+            0.232
+          ],
+          "content": "f (b) - f (a) = f ^ {\\prime} (c) (b - a).",
+          "image_source": "../../raw/pages_0289-0320/images/page_314_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.033,
+            0.236,
+            0.86,
+            0.27
+          ],
+          "content": "（2）按第5题所示的中值定理，对每一 $\\pmb{\\beta} \\in \\mathbb{R}^2$ ，应该存在 $c \\in (0, 2\\pi)$ ，使得 $\\pmb{\\beta}^{\\mathrm{T}}[\\pmb{f}(b) - \\pmb{f}(a)] = \\pmb{\\beta}^{\\mathrm{T}}\\pmb{f}'(c)(b - a)$，试求用 $\\pmb{\\beta}$ 表示这里的中值点 $c$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.072,
+            0.276,
+            0.769,
+            0.291
+          ],
+          "content": "8. 设 $f: \\mathbf{R}^n \\to \\mathbf{R}^n$ 可微，且 $f'$ 在 $\\mathbf{R}^n$ 上连续。若存在常数 $c > 0$，使对一切 $x_1, x_2 \\in \\mathbf{R}^n$，均有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.299,
+            0.296,
+            0.599,
+            0.312
+          ],
+          "content": "\\| f (x _ {1}) - f (x _ {2}) \\| \\geqslant c \\| x _ {1} - x _ {2} \\|\\cdot",
+          "image_source": "../../raw/pages_0289-0320/images/page_314_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.315,
+            0.107,
+            0.329
+          ],
+          "content": "试证明:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.075,
+            0.335,
+            0.362,
+            0.37
+          ],
+          "sub_type": "text",
+          "content": "(1) f 是  $R^{n}$  上的一一映射；\n(2) 对一切  $x \\in R^{n}$ ,  $\\| f'(x) \\| \\neq 0$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.072,
+            0.375,
+            0.687,
+            0.391
+          ],
+          "content": "9. 设 $A \\subset \\mathbf{R}^n$ 是有界闭集, $f: A \\to A$, 如果对任意的 $x_1, x_2 \\in A, x_1 \\neq x_2$, 都满足"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.303,
+            0.395,
+            0.598,
+            0.411
+          ],
+          "content": "\\| f (x _ {1}) - f (x _ {2}) \\| <   \\| x _ {1} - x _ {2} \\|,",
+          "image_source": "../../raw/pages_0289-0320/images/page_314_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.036,
+            0.415,
+            0.351,
+            0.43
+          ],
+          "content": "则 A 中有且仅有一点 x，使得  $f(x)=x$ ."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.878,
+            0.961,
+            0.907,
+            0.972
+          ],
+          "content": "307"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "14612606",
+      "created_at": "2020-03-29T14:58:01+08:00",
+      "modified_at": "2020-03-29T14:58:01+08:00",
+      "creator_application": "Pdg2Pic",
+      "producer_application": "FreePic2Pdf_Lib - v3.16",
+      "page_count": 340,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "ocr"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 292,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 293,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 294,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 295,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 296,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 297,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 298,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 299,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 300,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 301,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 302,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 303,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 304,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 305,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 306,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 307,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 308,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 309,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 310,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 311,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 312,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 313,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        },
+        {
+          "page_idx": 314,
+          "width_pt": 495.21258544921875,
+          "height_pt": 749.8361206054688
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}
