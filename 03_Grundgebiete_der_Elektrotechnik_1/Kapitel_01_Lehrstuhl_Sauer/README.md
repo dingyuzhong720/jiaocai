@@ -12,4 +12,4 @@ FULL 内容视图保留模型识别出的页眉、页脚、页码、边栏、脚
 
 | 章节 | 原始 PDF 页码 |
 | --- | --- |
-| [Kapitel 1 – Lehrstuhl Sauer](chapters/000_Kapitel 1 – Lehrstuhl Sauer/content.md) | 1–45 |
+| [Kapitel 1 – Lehrstuhl Sauer](chapters/000_Kapitel%201%20%E2%80%93%20Lehrstuhl%20Sauer/content.md) | 1–45 |
