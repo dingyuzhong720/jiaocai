@@ -12,4 +12,4 @@ FULL 内容视图保留模型识别出的页眉、页脚、页码、边栏、脚
 
 | 章节 | 原始 PDF 页码 |
 | --- | --- |
-| [Kapitel 0A – Motivation Elektrotechnik](chapters/000_Kapitel 0A – Motivation Elektrotechnik/content.md) | 1–52 |
+| [Kapitel 0A – Motivation Elektrotechnik](chapters/000_Kapitel%200A%20%E2%80%93%20Motivation%20Elektrotechnik/content.md) | 1–52 |
