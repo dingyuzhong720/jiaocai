@@ -13,4 +13,4 @@
 
 课名依据及具体教材清单见各目录 README。[books.json](books.json) 记录 23 份源 PDF、SHA-256 与解析状态。
 
-本批计划在 Colab Tesla T4 本地运行 MinerU 4.0.12 Standard（小模型 + VLM 混合模式）。逐书保留原 PDF、结构化结果、图片和公式，按章节整理。完成并校验后的书将提供独立 ZIP Release 附件。解析状态以清单为准。
+本批在 Colab Tesla T4 本地运行 MinerU 4.0.12 **Advanced（最高精度）**，使用小模型与 VLM，并投入比 Standard 更多的推理计算。逐书保留原 PDF、结构化结果、图片和公式，按章节整理。完成并校验后的书将提供独立 ZIP Release 附件。解析状态以清单为准。
