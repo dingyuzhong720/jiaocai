@@ -1,0 +1,3539 @@
+{
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "created_at": "2023-02-21T10:55:49-05:00",
+      "modified_at": "2023-02-22T08:38:08+08:00",
+      "page_count": 545,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "ocr"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 522,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 523,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 524,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 525,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 526,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 527,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 528,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 529,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 530,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 531,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 532,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        }
+      ]
+    }
+  },
+  "pages": [
+    {
+      "page_idx": 522,
+      "blocks": [
+        {
+          "type": "image",
+          "index": 0,
+          "bbox": [
+            0.195,
+            0.048,
+            0.672,
+            0.269
+          ],
+          "content": [
+            {
+              "type": "image_body",
+              "index": 0,
+              "bbox": [
+                0.195,
+                0.048,
+                0.672,
+                0.269
+              ],
+              "image_path": "raw/pages_0513-0544/images/page_522_image_0.jpg",
+              "content": "附录 C\nPSpice 简介"
+            }
+          ],
+          "sub_type": "text_image"
+        },
+        {
+          "type": "text",
+          "index": 1,
+          "bbox": [
+            0.104,
+            0.326,
+            0.821,
+            0.368
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "本附录简要介绍电路计算机辅助分析的有关概念和常用的一种电路模拟程序, 即 PSpice 的初步知识。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 2,
+          "bbox": [
+            0.145,
+            0.391,
+            0.495,
+            0.414
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "§C-1 电路的计算机辅助分析"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.105,
+            0.437,
+            0.825,
+            0.568
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "电路的计算机辅助分析是利用计算机作为辅助手段对电路进行分析。电路分析包括许多内容，其中主要有电阻电路分析（或直流电路分析）、正弦电流电路分析、线性动态电路分析、非线性电路分析等。用计算机进行电路分析，一般需要针对要求解决问题的类型编制程序，让计算机执行。当进行电路分析时，首先需要把电路拓扑结构的信息、电路元件的类型及元件值作为数据送进计算机。然后，使计算机根据输入数据自动形成电路方程并进行求解。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.106,
+            0.572,
+            0.825,
+            0.612
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "下面主要介绍建立电路方程的一些有关问题,其目的是为了说明编制程序的一些思路。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.106,
+            0.617,
+            0.826,
+            0.703
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "现结合图 C-1(a) 所示电路说明如何应用计算机形成节点列表法方程。图 C-1(b) 所示为该电路的图，它共有 4 个节点和 8 条支路。特别需要注意的是:每条支路仅含一个元件。独立电压源和独立电流源为同频率正弦量，因此用向量法进行分析。为了简化起见，没有考虑受控源、耦合电感、理想变压器等。节点和支路的编号如图 C-1(b) 所"
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "index": 6,
+          "bbox": [
+            0.214,
+            0.713,
+            0.528,
+            0.852
+          ],
+          "content": [
+            {
+              "type": "image_body",
+              "index": 6,
+              "bbox": [
+                0.214,
+                0.713,
+                0.528,
+                0.852
+              ],
+              "image_path": "raw/pages_0513-0544/images/page_522_image_6.jpg",
+              "content": "iS7\n①\nR1\nL2\n② + uS4 -\n③\nC3\nR5\niS8"
+            },
+            {
+              "type": "image_caption",
+              "index": 7,
+              "bbox": [
+                0.361,
+                0.859,
+                0.38,
+                0.873
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "(a)"
+                }
+              ]
+            }
+          ],
+          "sub_type": "text_image"
+        },
+        {
+          "type": "image",
+          "index": 8,
+          "bbox": [
+            0.547,
+            0.719,
+            0.718,
+            0.852
+          ],
+          "content": [
+            {
+              "type": "image_body",
+              "index": 8,
+              "bbox": [
+                0.547,
+                0.719,
+                0.718,
+                0.852
+              ],
+              "image_path": "raw/pages_0513-0544/images/page_522_image_8.jpg",
+              "content": "```mermaid\ngraph TD\n  1[\"①\"] -->|\"2\"| 2[\"②\"]\n  n1[\"1\"] -->|\"7\"| 0[\"①\"]\n  n2[\"2\"] -->|\"4\"| 3[\"③\"]\n  n3[\"3\"] -->|\"8\"| 8[\"⑧\"]\n  n0[\"0\"] -->|\"1\"| n3\n  n1 -->|\"3\"| 5[\"⑤\"]\n```"
+            },
+            {
+              "type": "image_caption",
+              "index": 9,
+              "bbox": [
+                0.626,
+                0.858,
+                0.646,
+                0.872
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "(b)"
+                }
+              ]
+            },
+            {
+              "type": "image_caption",
+              "index": 10,
+              "bbox": [
+                0.347,
+                0.883,
+                0.581,
+                0.898
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "图 C-1 建立节点列表法的电路"
+                }
+              ]
+            }
+          ],
+          "sub_type": "flowchart"
+        },
+        {
+          "type": "image",
+          "index": 11,
+          "bbox": [
+            0.887,
+            0.075,
+            0.961,
+            0.182
+          ],
+          "content": [
+            {
+              "type": "image_body",
+              "index": 11,
+              "bbox": [
+                0.887,
+                0.075,
+                0.961,
+                0.182
+              ],
+              "image_path": "raw/pages_0513-0544/images/page_522_image_11.jpg",
+              "content": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 523,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.0,
+            0.014,
+            0.127,
+            0.134
+          ],
+          "content": []
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.139,
+            0.055,
+            0.168,
+            0.068
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "500"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 2,
+          "bbox": [
+            0.221,
+            0.054,
+            0.385,
+            0.07
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "附录 C PSpice 简介"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.134,
+            0.106,
+            0.869,
+            0.147
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "示,其中每条支路有一个始节点和一个终节点,支路的参考方向自始节点指向终节点,因此依据始节点和终节点的编号顺序就明确了支路的方向。"
+            }
+          ],
+          "continues_prev": true
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.134,
+            0.152,
+            0.87,
+            0.239
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "这里设计一个5变量数组 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "(k,i,j,g,h)"
+            },
+            {
+              "type": "text",
+              "content": " ，其中k表示支路编号；i表示第k支路的始节点；j表示第k支路的终节点；g是一个数，用来表示元件的类型，例如可用“1”表示电阻，用“2”表示电容，用“3”表示电感，用“4”表示独立电压源，用“5”表示独立电流源；h表示元件的参数值。这个数组共5列和8行，即"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "index": 5,
+          "bbox": [
+            0.137,
+            0.248,
+            0.87,
+            0.464
+          ],
+          "content": [
+            {
+              "type": "table_body",
+              "index": 5,
+              "bbox": [
+                0.137,
+                0.248,
+                0.87,
+                0.464
+              ],
+              "image_path": "raw/pages_0513-0544/images/page_523_table_5.jpg",
+              "content": "<table><tr><td>支路号</td><td>始节点号</td><td>终节点号</td><td>元件类型</td><td>元件值</td></tr><tr><td>1</td><td>1</td><td>0</td><td>1</td><td><eq>R_{1}</eq></td></tr><tr><td>2</td><td>1</td><td>2</td><td>3</td><td><eq>L_{2}</eq></td></tr><tr><td>3</td><td>2</td><td>0</td><td>2</td><td><eq>C_{3}</eq></td></tr><tr><td>4</td><td>3</td><td>2</td><td>4</td><td><eq>-U_{s4}</eq></td></tr><tr><td>5</td><td>3</td><td>0</td><td>1</td><td><eq>R_{5}</eq></td></tr><tr><td>6</td><td>1</td><td>3</td><td>1</td><td><eq>R_{6}</eq></td></tr><tr><td>7</td><td>0</td><td>1</td><td>5</td><td><eq>I_{s7}</eq></td></tr><tr><td>8</td><td>0</td><td>3</td><td>5</td><td><eq>I_{s8}</eq></td></tr></table>"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.173,
+            0.482,
+            0.382,
+            0.499
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "节点列表法的方程如下:"
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "index": 7,
+          "bbox": [
+            0.47,
+            0.503,
+            0.528,
+            0.52
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_523_equation_7.jpg",
+          "content": "A \\dot {I} = 0"
+        },
+        {
+          "type": "equation",
+          "index": 8,
+          "bbox": [
+            0.444,
+            0.526,
+            0.556,
+            0.546
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_523_equation_8.jpg",
+          "content": "- A ^ {\\mathrm{T}} \\dot {U} _ {\\mathrm{n}} + \\dot {U} = 0"
+        },
+        {
+          "type": "equation",
+          "index": 9,
+          "bbox": [
+            0.429,
+            0.552,
+            0.567,
+            0.573
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_523_equation_9.jpg",
+          "content": "F \\dot {U} + H \\dot {I} = \\dot {U} _ {\\mathrm{s}} + \\dot {I} _ {\\mathrm{s}}"
+        },
+        {
+          "type": "text",
+          "index": 10,
+          "bbox": [
+            0.132,
+            0.579,
+            0.867,
+            0.621
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "其中  "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\dot{U}_{n}"
+            },
+            {
+              "type": "text",
+              "content": "  为节点电压列向量,  "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\dot{U}"
+            },
+            {
+              "type": "text",
+              "content": "  和  "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\dot{I}"
+            },
+            {
+              "type": "text",
+              "content": "  分别为支路电压列向量和支路电流列向量, 它们是方程中的未知量。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 11,
+          "bbox": [
+            0.132,
+            0.626,
+            0.868,
+            0.711
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "上列第一式可以按如下的步骤形成。按数组第2、3列，即从始节点编号到终节点编号，令 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "i, j"
+            },
+            {
+              "type": "text",
+              "content": " 自1到3依次寻找连接于相同编号节点的支路，凡支路与同号始节点连接的，这些支路电流分别乘以“+1”，凡支路与同号终节点连接的，这些支路电流则分别乘以“-1”；这样可得"
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "index": 12,
+          "bbox": [
+            0.426,
+            0.713,
+            0.573,
+            0.736
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_523_equation_12.jpg",
+          "content": "\\dot {I} _ {1} + \\dot {I} _ {2} + \\dot {I} _ {6} - \\dot {I} _ {7} = 0"
+        },
+        {
+          "type": "equation",
+          "index": 13,
+          "bbox": [
+            0.434,
+            0.74,
+            0.562,
+            0.761
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_523_equation_13.jpg",
+          "content": "- \\dot {I} _ {2} + \\dot {I} _ {3} - \\dot {I} _ {4} = 0"
+        },
+        {
+          "type": "equation",
+          "index": 14,
+          "bbox": [
+            0.427,
+            0.766,
+            0.572,
+            0.788
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_523_equation_14.jpg",
+          "content": "\\dot {I} _ {4} + \\dot {I} _ {5} - \\dot {I} _ {6} - \\dot {I} _ {8} = 0"
+        },
+        {
+          "type": "text",
+          "index": 15,
+          "bbox": [
+            0.129,
+            0.792,
+            0.865,
+            0.881
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第二式可以按如下的步骤直接形成。令数组第1列的k自1到8，依次检查第2、3列的i和j。当i>0，该节点电压 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\dot{U}_{ni}"
+            },
+            {
+              "type": "text",
+              "content": " 乘以“-1”，当i=0，该节点电压 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\dot{U}_{ni}"
+            },
+            {
+              "type": "text",
+              "content": " 乘以“0”；当j>0，该节点电压 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\dot{U}_{nj}"
+            },
+            {
+              "type": "text",
+              "content": " 乘以“+1”，当j=0，则该节点电压 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\dot{U}_{nj}"
+            },
+            {
+              "type": "text",
+              "content": " 乘以“0”；支路电压 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\dot{U}_{k}"
+            },
+            {
+              "type": "text",
+              "content": " 则依次分别乘以“+1”。这样可得"
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "index": 16,
+          "bbox": [
+            0.444,
+            0.884,
+            0.548,
+            0.906
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_523_equation_16.jpg",
+          "content": "- \\dot {U} _ {\\mathrm{n1}} + \\dot {U} _ {1} = 0"
+        }
+      ]
+    },
+    {
+      "page_idx": 524,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.508,
+            0.058,
+            0.738,
+            0.074
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "§ C-1 电路的计算机辅助分析"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.792,
+            0.058,
+            0.82,
+            0.071
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "501"
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "index": 2,
+          "bbox": [
+            0.389,
+            0.108,
+            0.531,
+            0.13
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_524_equation_2.jpg",
+          "content": "- \\dot {U} _ {\\mathrm{n1}} + \\dot {U} _ {\\mathrm{n2}} + \\dot {U} _ {2} = 0"
+        },
+        {
+          "type": "equation",
+          "index": 3,
+          "bbox": [
+            0.411,
+            0.135,
+            0.51,
+            0.154
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_524_equation_3.jpg",
+          "content": "- \\dot {U} _ {\\mathrm{n2}} + \\dot {U} _ {3} = 0"
+        },
+        {
+          "type": "equation",
+          "index": 4,
+          "bbox": [
+            0.421,
+            0.163,
+            0.504,
+            0.199
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_524_equation_4.jpg",
+          "content": "\\begin{array}{l} \\dots \\\\ \\dot {U} _ {\\mathrm{n3}} + \\dot {U} _ {8} = 0 \\end{array}"
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.104,
+            0.202,
+            0.827,
+            0.321
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第三式形成的步骤如下。按数组第1列，令 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "k"
+            },
+            {
+              "type": "text",
+              "content": " 从1到8，依次检查第4列和第5列。当第 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "k"
+            },
+            {
+              "type": "text",
+              "content": " 支路为电容 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "C_k"
+            },
+            {
+              "type": "text",
+              "content": " 时，该支路电压 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\dot{U}_k"
+            },
+            {
+              "type": "text",
+              "content": " 乘以 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\mathrm{j}\\omega C_k"
+            },
+            {
+              "type": "text",
+              "content": " ，支路电流 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\dot{I}_k"
+            },
+            {
+              "type": "text",
+              "content": " 乘以“-1”；当第 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "k"
+            },
+            {
+              "type": "text",
+              "content": " 支路为电阻 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "R_{k}"
+            },
+            {
+              "type": "text",
+              "content": " 或电感 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "L_{k}"
+            },
+            {
+              "type": "text",
+              "content": " 时，该支路电压 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\dot{U}_k"
+            },
+            {
+              "type": "text",
+              "content": " 乘以“-1”，支路电流 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\dot{I}_k"
+            },
+            {
+              "type": "text",
+              "content": " 乘以 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "R_{k}"
+            },
+            {
+              "type": "text",
+              "content": " 或 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\mathrm{j}\\omega L_k"
+            },
+            {
+              "type": "text",
+              "content": " 。当第 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "k"
+            },
+            {
+              "type": "text",
+              "content": " 支路为独立电压源时，该支路电压 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\dot{U}_k"
+            },
+            {
+              "type": "text",
+              "content": " 乘以“+1”，右方 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\dot{U}_{sk}"
+            },
+            {
+              "type": "text",
+              "content": " 赋予元件值；当第 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "k"
+            },
+            {
+              "type": "text",
+              "content": " 支路为独立电流源时，该支路电流 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\dot{I}_k"
+            },
+            {
+              "type": "text",
+              "content": " 乘以“+1”，右方 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\dot{I}_{sk}"
+            },
+            {
+              "type": "text",
+              "content": " 赋予元件值。这样可得"
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "index": 6,
+          "bbox": [
+            0.406,
+            0.325,
+            0.523,
+            0.346
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_524_equation_6.jpg",
+          "content": "- \\dot {U} _ {1} + R _ {1} \\dot {I} _ {1} = 0"
+        },
+        {
+          "type": "equation",
+          "index": 7,
+          "bbox": [
+            0.403,
+            0.352,
+            0.525,
+            0.371
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_524_equation_7.jpg",
+          "content": "- \\dot {U} _ {2} + \\mathrm{j} \\omega L _ {2} \\dot {I} _ {2} = 0"
+        },
+        {
+          "type": "equation",
+          "index": 8,
+          "bbox": [
+            0.407,
+            0.377,
+            0.52,
+            0.397
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_524_equation_8.jpg",
+          "content": "\\mathrm{j} \\omega \\dot {C} _ {3} \\dot {U} _ {3} - \\dot {I} _ {3} = 0"
+        },
+        {
+          "type": "equation",
+          "index": 9,
+          "bbox": [
+            0.429,
+            0.402,
+            0.503,
+            0.422
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_524_equation_9.jpg",
+          "content": "\\dot {U} _ {4} = - \\dot {U} _ {\\mathrm{s4}}"
+        },
+        {
+          "type": "equation",
+          "index": 10,
+          "bbox": [
+            0.411,
+            0.428,
+            0.519,
+            0.447
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_524_equation_10.jpg",
+          "content": "- \\dot {U} _ {s} + R _ {s} \\dot {I} _ {s} = 0"
+        },
+        {
+          "type": "equation",
+          "index": 11,
+          "bbox": [
+            0.412,
+            0.453,
+            0.519,
+            0.473
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_524_equation_11.jpg",
+          "content": "- \\dot {U} _ {6} + R _ {6} \\dot {I} _ {6} = 0"
+        },
+        {
+          "type": "equation",
+          "index": 12,
+          "bbox": [
+            0.439,
+            0.478,
+            0.498,
+            0.498
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_524_equation_12.jpg",
+          "content": "\\dot {I} _ {7} = \\dot {I} _ {\\mathrm{s} 7}"
+        },
+        {
+          "type": "equation",
+          "index": 13,
+          "bbox": [
+            0.439,
+            0.504,
+            0.498,
+            0.523
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_524_equation_13.jpg",
+          "content": "\\dot {I} _ {8} = \\dot {I} _ {s 8}"
+        },
+        {
+          "type": "text",
+          "index": 14,
+          "bbox": [
+            0.108,
+            0.527,
+            0.83,
+            0.614
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "以上通过一个简单的实例说明了如何根据输入的数据直接形成节点列表法方程的思路。如果电路中有受控源、耦合电感、理想变压器等，只要相应地改变输入数据的结构，仍然可以直接建立节点列表法所需方程。显然，如果要建立其他形式的电路方程，形成的方法将随之改变。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 15,
+          "bbox": [
+            0.109,
+            0.617,
+            0.831,
+            0.704
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "动态电路方程的形成以及电路方程的数值求解法超出本书范围。在计算机辅助分析中，线性代数方程的求解一般采用的有高斯消去法、LU分解法、高斯-塞德尔迭代法、稀疏矩阵法等。对于动态电路的分析，则要求解微分方程，常用的计算方法有梯形法、龙格-库塔法、基尔法等，可参阅有关书籍。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 16,
+          "bbox": [
+            0.11,
+            0.706,
+            0.832,
+            0.793
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "目前国内外有很多电路的计算机辅助分析程序,为了便于使用者应用,这类程序往往只要求使用者将被分析电路的有关信息以及进行哪种分析和所需要的输出,按规定编写成一个输入文件,输入计算机中,让计算机执行。至于该程序是根据什么原理(包括使用的电路方程的形式、数值求解法等)编制的,其细节如何,使用者无须了解。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 17,
+          "bbox": [
+            0.111,
+            0.796,
+            0.832,
+            0.884
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "使用计算机对电路进行分析和计算具有许多优点,计算机能处理大规模电路,如具有成千节点的集成电路、大型电力系统电路等。并且计算速度迅速,结果精确可靠。依靠计算机辅助分析还可以验证电路设计的正确性,所以计算机辅助分析是计算机辅助设计的重要组成部分。"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 18,
+          "bbox": [
+            0.834,
+            0.016,
+            0.962,
+            0.136
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "1. 工程图"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 525,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.0,
+            0.014,
+            0.123,
+            0.134
+          ],
+          "content": []
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.137,
+            0.055,
+            0.165,
+            0.067
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "502"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 2,
+          "bbox": [
+            0.22,
+            0.054,
+            0.383,
+            0.07
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "附录 C PSpice 简介"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 3,
+          "bbox": [
+            0.175,
+            0.127,
+            0.367,
+            0.151
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "§C-2 PSpice"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.13,
+            0.175,
+            0.865,
+            0.282
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "PSpice 是国际上广泛应用的通用电路模拟程序。主要是面向电子电路和集成电路的分析软件, 是 Spice (Simulation Program with Integrated Circuit Emphasis) 的一种 (PC) 微机版本, 而且版本不断地在完善、修改和更新。PSpice 电路数据的输入既可以为文本方式, 也可以为图形方式。供教学使用的 PSpice 通常只能分析规模较小的电路。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.129,
+            0.286,
+            0.865,
+            0.35
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "目前在 Windows 方式下的 PSpice 通常包括以下几个基本程序模块:电路原理图编辑程序 Capture, 激励源编辑程序 Stimulus Editor, 电路仿真程序 PSpice A/D, 曲线输出程序 Probe, 模型参数编辑程序 Model Editor, 元器件模型参数库 LIB。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.128,
+            0.354,
+            0.863,
+            0.461
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "PSpice 能够处理的电子元器件非常广泛,可直接输入的电路元器件有:线性电路元件(包括电阻、电容、电感、耦合电感、独立电源,线性受控源、传输线等);非线性受控源;电子元器件(包括二极管、双极型晶体管、结型场效应管和 MOS 场效应管、运算放大器等);功率电子器件(包括晶闸管、电力晶体管、功率 MOS 管、IGBT 等);用于电子测量、控制等常见的集成芯片等。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.128,
+            0.466,
+            0.863,
+            0.507
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "PSpice 的分析功能十分强大,它可以进行直流分析(电阻电路分析)、交流分析(正弦稳态分析)、瞬态分析(动态电路的时域分析)、傅里叶分析以及其他分析。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 8,
+          "bbox": [
+            0.126,
+            0.51,
+            0.861,
+            0.683
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "在 PSpice 中,电路结构和参数的输入有两种方式。一种是在 (File/New/Textfile) 的文本环境中,用电路描述语言编辑并保存符合语法规则的文本电路数据文件,用 (Simulation/Run) 命令直接执行 OrCAD/PSpiceA/D 程序进行仿真。另一种是调用 OrCAD/Captur 程序在图形方式下建立并编辑电路原理图,根据电路数据修改元器件的参数或型号。然后在主菜单 (PSpice) 中选取 (New Simulation Profile) 菜单设置或编辑分析类型,再进行仿真计算。无论采用何种输入方式,所有版本的 PSpice 最终都要通过电路文本格式文件确定元件间的连接关系,然后根据分析类型进行分析计算。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.123,
+            0.689,
+            0.859,
+            0.864
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "PSpice 的文本输入任务是构造一个文本格式的输入文件。在计算机中,有关电路信息可以通过元器件名称、连接节点、元件值等组成的语句来确定,文件名的后缀为“.cir”。在编写文本输入文件前,先要给电路节点编号,一般采用正整数,参考节点的编号必须为数字“0”,其他节点的编号可任意选取,序号可不连续。PSpice 要求文本输入文件中每一条语句必须独占一行。文件中星号“*”或“;”后的内容,只起解释作用,不参与分析计算。首行为标题,“.END”语句表示结束,其中圆点“.”不能省略,文本中其余语句顺序任意。文本格式为:标题描述、元件描述、电路分析功能描述、输出结果和要求描述、说明语句和结束描述。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 10,
+          "bbox": [
+            0.123,
+            0.868,
+            0.858,
+            0.911
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "标题描述可以是任何类型的注释,对电路的分析和计算不起任何影响。元件描述用下列关键字母,电阻用 R、电感用 L、电容用 C、互感用 K、二极管用 D、VCVS 用 E、"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 526,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.617,
+            0.055,
+            0.738,
+            0.07
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "§ C-2 PSpice"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.794,
+            0.055,
+            0.823,
+            0.069
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "503"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 2,
+          "bbox": [
+            0.105,
+            0.108,
+            0.798,
+            0.126
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "CCCS 用 F、VCCS 用 G、CCVS 用 H、独立电压源用 V、独立电流源用 I、压控开关用 S。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.105,
+            0.13,
+            0.823,
+            0.239
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "执行和输出功能描述用下列关键词:交流分析用.AC,直流分用.DC,瞬态分析用.TRAN,打印输出数据用.PRINT,打印输出曲线用.PLOT;另一种曲线输出语句为.PROBE,在执行.PROBE语句后,PSPICE将在屏幕上显示一个菜单界面,用户可根据需要随时使用菜单添加输出变量,随后在屏幕上就可显示根据输出数据处理后所描绘的图形曲线。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.106,
+            0.243,
+            0.824,
+            0.283
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "使用的数字可以用整数、浮点数和指数（如 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "1.45\\mathrm{E} - 12,1.25\\mathrm{E} + 4"
+            },
+            {
+              "type": "text",
+              "content": "）。比例因子规定有10种，以下只列出8种:"
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "index": 5,
+          "bbox": [
+            0.109,
+            0.287,
+            0.824,
+            0.328
+          ],
+          "image_path": "raw/pages_0513-0544/images/page_526_equation_5.jpg",
+          "content": "\\mathrm{M} = 1 \\mathrm{E} - 3, \\mathrm{U} = 1 \\mathrm{E} - 6, \\mathrm{N} = 1 \\mathrm{E} - 9, \\mathrm{P} = 1 \\mathrm{E} - 1 2, \\mathrm{K} = 1 \\mathrm{E} + 3, \\mathrm{MEG} = 1 \\mathrm{E} + 6, \\mathrm{G} = 1 \\mathrm{E} + 9, \\mathrm{T} = 1 \\mathrm{E} + 1 2 。"
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.108,
+            0.332,
+            0.827,
+            0.463
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "此外，在数值后也可紧跟一些字母，如用 V、A、OHM 等表示电压、电流、电阻的单位。还需要注意的是:文件中不区分字母的大小写，当一行中数据没有写完时，续行的第一列必须用“+”号来表示；数据之间的分隔符，采用空格或逗号；电路中同类型的元件，元件名不能相同。为了确保电路在工作点处有唯一解，PSpice 要求电路中既不能含有电压源和电容构成的回路，也不能含有电流源和电感构成的割集。下面通过 3 个实例简要介绍文本输入，然后再通过例题简要介绍图形输入。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 7,
+          "bbox": [
+            0.149,
+            0.469,
+            0.251,
+            0.485
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "1. 文本输入"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 8,
+          "bbox": [
+            0.11,
+            0.488,
+            0.828,
+            0.574
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "（1）直流分析:PSpice 的直流分析功能可以分析电路的静态工作点(.OP)、直流小信号传递特性(.TF)、直流扫描特性(.DC)、直流灵敏度(.SENS)。在直流分析中，电感直接按短路处理，电容直接按开路处理，PSpice 的基本输出量通常为节点电压、支路电压和支路电流。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.112,
+            0.578,
+            0.827,
+            0.62
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "例 C-1 图 C-2 所示的线性电路中, 已知  "
+            },
+            {
+              "type": "equation_inline",
+              "content": "R_{1}=R_{2}=R_{3}=10\\ \\Omega, U_{s}=1\\ V, I_{s}=0.2\\ A"
+            },
+            {
+              "type": "text",
+              "content": " , VCCS 中的控制系数 g=0.2 S, 试按给定节点求出节点电压  "
+            },
+            {
+              "type": "equation_inline",
+              "content": "u_{n1}, u_{n2}, u_{n3}"
+            },
+            {
+              "type": "text",
+              "content": " 。"
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "index": 10,
+          "bbox": [
+            0.296,
+            0.629,
+            0.648,
+            0.764
+          ],
+          "content": [
+            {
+              "type": "image_body",
+              "index": 10,
+              "bbox": [
+                0.296,
+                0.629,
+                0.648,
+                0.764
+              ],
+              "image_path": "raw/pages_0513-0544/images/page_526_image_10.jpg",
+              "content": "Is\nR1 + u1 -\n① R2\n② + Us - ③\nR3\n0.2u1\n①"
+            },
+            {
+              "type": "image_caption",
+              "index": 11,
+              "bbox": [
+                0.39,
+                0.773,
+                0.549,
+                0.788
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "图 C-2 例 C-1 电路"
+                }
+              ]
+            }
+          ],
+          "sub_type": "text_image"
+        },
+        {
+          "type": "text",
+          "index": 12,
+          "bbox": [
+            0.154,
+            0.806,
+            0.282,
+            0.823
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "解 输入文件:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 13,
+          "bbox": [
+            0.156,
+            0.829,
+            0.194,
+            0.844
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "EX1"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 14,
+          "bbox": [
+            0.156,
+            0.85,
+            0.282,
+            0.866
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "VS 2 3 DC 1"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 15,
+          "bbox": [
+            0.157,
+            0.873,
+            0.303,
+            0.888
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "IS 0 1 DC 0.2"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 16,
+          "bbox": [
+            0.157,
+            0.894,
+            0.303,
+            0.909
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "G 0 3 1 0 0.2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 527,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.0,
+            0.014,
+            0.123,
+            0.13
+          ],
+          "content": []
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.134,
+            0.053,
+            0.163,
+            0.066
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "504"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 2,
+          "bbox": [
+            0.218,
+            0.053,
+            0.382,
+            0.068
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "附录 C PSpice 简介"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 3,
+          "bbox": [
+            0.17,
+            0.104,
+            0.273,
+            0.21
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 3,
+              "bbox": [
+                0.17,
+                0.104,
+                0.273,
+                0.21
+              ],
+              "content": "R1 1 0 10\nR2 1 2 10\nR3 3 0 10\n. OP\n. END"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.169,
+            0.216,
+            0.378,
+            0.234
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "输入描述语言说明如下:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.168,
+            0.239,
+            0.54,
+            0.258
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 1 句是标题说明(可以由任意字符构成)。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.128,
+            0.262,
+            0.862,
+            0.324
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 2 句是独立电压源的说明, 指出电源的名称, “2”“3”表示其正极和负极连接的节点编号, “DC”表示直流, “1”表示电压的幅值为 1 V(对于正弦量, 其大小均用幅值, 而不用有效值)。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.129,
+            0.329,
+            0.861,
+            0.37
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第3句是独立电流源的说明,指出电源的名称,“0”“1”表示电流从“0”节点流向“1”节点,“DC”表示直流,“0.2”表示电流的幅值为0.2A。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 8,
+          "bbox": [
+            0.128,
+            0.374,
+            0.861,
+            0.415
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 4 句是 VCCS 的说明, 受控电流源从一个节点流向另一个节点的 2 个节点的编号, 控制电压的正极和负极连接的 2 个节点的编号, 控制系数 g 值。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.127,
+            0.419,
+            0.859,
+            0.457
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 5~7 句是电阻的说明,给出了电阻的名称,连接的始节点和终节点的编号和电阻值(单位为  "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\Omega"
+            },
+            {
+              "type": "text",
+              "content": " )。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 10,
+          "bbox": [
+            0.127,
+            0.463,
+            0.859,
+            0.503
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 8 句是直流工作点分析语句说明,该语句没有参数项,它能给出各节点电压、电压源电流及电路总的直流功率。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 11,
+          "bbox": [
+            0.166,
+            0.507,
+            0.376,
+            0.524
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 9 句是结束语句说明。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 12,
+          "bbox": [
+            0.126,
+            0.53,
+            0.859,
+            0.569
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "注意: 当需要计算某支路电流时, 通常采取在该支路中串接一个电压为零的电压源来实现。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 13,
+          "bbox": [
+            0.125,
+            0.574,
+            0.859,
+            0.635
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "为了对电路进行分析,确保电路方程不致奇异,PSpice规定,每一个节点必须要有一条到地的直流通路。如果电路不满足该要求,必须在该节点与地之间连接一个对电路没有影响的大电阻。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 14,
+          "bbox": [
+            0.124,
+            0.641,
+            0.857,
+            0.679
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "最后计算时, 调用 PSpice, 输入该数据, 在后缀为“.out”的文件中可得以下输出结果:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 15,
+          "bbox": [
+            0.237,
+            0.685,
+            0.745,
+            0.726
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 15,
+              "bbox": [
+                0.237,
+                0.685,
+                0.745,
+                0.726
+              ],
+              "content": "NODE     VOLTAGE   NODE    VOLTAGE   NODE    VOLTAGE\n(1)      5.000 V      (2)      8.000 V      (3)      7.000 V"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 16,
+          "bbox": [
+            0.123,
+            0.73,
+            0.857,
+            0.815
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "（2）瞬态分析:在电路进行瞬态分析时，需要给定输入信号和初始值。为了能够获得可靠的数值分析结果，时间步长的选取是很重要的，最大计算步长则限定 PSpice 的内部计算步长不得超过此值。瞬态分析可以计算动态电路的节点电压、支路电压和支路电流瞬时值，能够获得瞬时值随时间的变化曲线。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 17,
+          "bbox": [
+            0.122,
+            0.819,
+            0.856,
+            0.905
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "例 C-2 电路如图 C-3 所示, 已知 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "R_{1} = 0.45 \\mathrm{k} \\Omega, R_{2} = 1 \\mathrm{k} \\Omega, R_{1} = 1 \\mathrm{M} \\Omega, R_{0} = 100 \\Omega, R_{3} = 500 \\Omega, R_{4} = 1 \\mathrm{k} \\Omega, C_{1} = C_{2} = 4 \\mu \\mathrm{F}, \\mathrm{VCVS}"
+            },
+            {
+              "type": "text",
+              "content": " 的增益 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "A = 5 \\times 10^{5}"
+            },
+            {
+              "type": "text",
+              "content": " 。输入正弦电压 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "u_{\\mathrm{i}}"
+            },
+            {
+              "type": "text",
+              "content": " 的幅值为 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "2 \\mathrm{~V}"
+            },
+            {
+              "type": "text",
+              "content": ", 频率可变。要求在频率 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "1 \\mathrm{~Hz} \\sim 10 \\mathrm{kHz}"
+            },
+            {
+              "type": "text",
+              "content": " 范围内, 按每个数量级取 20 个频率点, 绘制输出电压 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "u_{4}"
+            },
+            {
+              "type": "text",
+              "content": " 的幅频特性。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 528,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.614,
+            0.055,
+            0.734,
+            0.07
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "§ C-2 PSpice"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.792,
+            0.055,
+            0.819,
+            0.068
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "505"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 2,
+          "bbox": [
+            0.832,
+            0.014,
+            0.959,
+            0.134
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "1. 工程图"
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "index": 3,
+          "bbox": [
+            0.235,
+            0.114,
+            0.691,
+            0.282
+          ],
+          "content": [
+            {
+              "type": "image_body",
+              "index": 3,
+              "bbox": [
+                0.235,
+                0.114,
+                0.691,
+                0.282
+              ],
+              "image_path": "raw/pages_0513-0544/images/page_528_image_3.jpg",
+              "content": "C2\n① R1 ② C1 ③ R3\n+ ui -\nR2 - u3 +\n⑤ R0 ④ +\nAu3 +\n- R4 u4\n-"
+            },
+            {
+              "type": "image_caption",
+              "index": 4,
+              "bbox": [
+                0.37,
+                0.289,
+                0.551,
+                0.304
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "图 C-3 例 C-2 电路图"
+                }
+              ]
+            }
+          ],
+          "sub_type": "text_image"
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.144,
+            0.324,
+            0.272,
+            0.342
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "解 输入文件:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.147,
+            0.348,
+            0.184,
+            0.362
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "EX2"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.147,
+            0.37,
+            0.294,
+            0.385
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "VIN 10 AC 2V"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 8,
+          "bbox": [
+            0.147,
+            0.393,
+            0.27,
+            0.407
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "R1 1 2 0.45K"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.147,
+            0.416,
+            0.243,
+            0.43
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "R2 2 0 1K"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 10,
+          "bbox": [
+            0.147,
+            0.438,
+            0.27,
+            0.453
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "RI 3 0 1MEG"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 11,
+          "bbox": [
+            0.148,
+            0.461,
+            0.25,
+            0.476
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "R0 5 4 100"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 12,
+          "bbox": [
+            0.148,
+            0.484,
+            0.25,
+            0.498
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "R3 3 4 500"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 13,
+          "bbox": [
+            0.148,
+            0.506,
+            0.244,
+            0.521
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "R4 4 0.1K"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 14,
+          "bbox": [
+            0.148,
+            0.529,
+            0.244,
+            0.544
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C1 2 3 4U"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 15,
+          "bbox": [
+            0.149,
+            0.552,
+            0.244,
+            0.566
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C2 2 4 4U"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 16,
+          "bbox": [
+            0.149,
+            0.574,
+            0.301,
+            0.589
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "E1 5 0 0 3 500K"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 17,
+          "bbox": [
+            0.15,
+            0.596,
+            0.327,
+            0.612
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": ". AC DEC 20 1 10K"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 18,
+          "bbox": [
+            0.15,
+            0.619,
+            0.309,
+            0.636
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": ".PLOT AC VM(4)"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 19,
+          "bbox": [
+            0.151,
+            0.643,
+            0.224,
+            0.657
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": ".PROBE"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 20,
+          "bbox": [
+            0.151,
+            0.666,
+            0.201,
+            0.68
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": ".END"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 21,
+          "bbox": [
+            0.149,
+            0.686,
+            0.355,
+            0.704
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "输入描述语言说明如下:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 22,
+          "bbox": [
+            0.149,
+            0.709,
+            0.317,
+            0.727
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 1 句是标题说明。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 23,
+          "bbox": [
+            0.112,
+            0.73,
+            0.827,
+            0.772
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 2 句是独立电压源的说明，“AC”表示交流，“2”表示电压的幅值为 2 V（正弦量的大小都用幅值，不用有效值）。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 24,
+          "bbox": [
+            0.15,
+            0.777,
+            0.361,
+            0.794
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 3~8 句是电阻的说明。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 25,
+          "bbox": [
+            0.112,
+            0.798,
+            0.826,
+            0.841
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 9~10 句是电容的说明,给出了电容的名称,连接的始节点和终节点的编号,电容值(单位为 F)。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 26,
+          "bbox": [
+            0.112,
+            0.844,
+            0.826,
+            0.885
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 11 句是 VCVS 的说明, 受控电压源的正极和负极连接的 2 个节点编号, 控制电压的正极和负极连接的 2 个节点编号, 控制系数 A 值。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 27,
+          "bbox": [
+            0.15,
+            0.889,
+            0.827,
+            0.908
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 12 句是 AC 频率范围的说明，“DEC”表示按数量级变化，“20”表示在每一数量"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 529,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.0,
+            0.0,
+            0.123,
+            0.13
+          ],
+          "content": []
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.137,
+            0.052,
+            0.167,
+            0.064
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "506"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 2,
+          "bbox": [
+            0.219,
+            0.051,
+            0.384,
+            0.068
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "附录C PSpice简介"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.132,
+            0.104,
+            0.617,
+            0.122
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "级内取 20 个点, 最后 2 个数字表示起始频率和终止频率。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.132,
+            0.127,
+            0.867,
+            0.168
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 13 句是曲线打印语句，“AC”表示分析类型，“VM”表示输出为电压幅值，括号内的“4”表示该电压是节点 4 的节点电压（输出电压）。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.131,
+            0.172,
+            0.865,
+            0.211
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 14 句是探针显示语句。“.PROBÉ”是 PSpice 的一个图形后处理程序, 可用来观察图形、曲线的局部细节。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.17,
+            0.217,
+            0.604,
+            0.234
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "图 C-4 给出了打印出的输出电压的幅频特性曲线。"
+            }
+          ]
+        },
+        {
+          "type": "chart",
+          "index": 7,
+          "bbox": [
+            0.191,
+            0.246,
+            0.8,
+            0.549
+          ],
+          "content": [
+            {
+              "type": "chart_body",
+              "index": 7,
+              "bbox": [
+                0.191,
+                0.246,
+                0.8,
+                0.549
+              ],
+              "image_path": "raw/pages_0513-0544/images/page_529_chart_7.jpg",
+              "content": "| Frequency | V(4) (V) |\n| --- | --- |\n| 1.0 Hz | ~0.02 |\n| 3.0 Hz | ~0.08 |\n| 10 Hz | ~0.25 |\n| 30 Hz | ~0.55 |\n| 100 Hz | ~1.1 |\n| 300 Hz | ~0.65 |\n| 1.0 KHz | ~0.35 |\n| 3.0 KHz | ~0.15 |\n| 10 KHz | ~0.02 |"
+            },
+            {
+              "type": "chart_caption",
+              "index": 8,
+              "bbox": [
+                0.362,
+                0.556,
+                0.621,
+                0.573
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "图 C-4 输出电压的幅频特性曲线"
+                }
+              ]
+            }
+          ],
+          "sub_type": "line"
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.126,
+            0.587,
+            0.86,
+            0.651
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "例 C-3 电路如图 C-5 所示, 已知 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "R_{1} = R_{2} = 20 \\Omega, R_{3} = 4 \\mathrm{k} \\Omega, L = 0.2 \\mathrm{H}, C = 0.5 \\mu \\mathrm{F}, u_{\\mathrm{s}}(t) = 10 \\varepsilon(t) \\mathrm{V}"
+            },
+            {
+              "type": "text",
+              "content": ", 其中 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "\\varepsilon(t)"
+            },
+            {
+              "type": "text",
+              "content": " 为单位阶跃函数, "
+            },
+            {
+              "type": "equation_inline",
+              "content": "u_{c}(0) = 2 \\mathrm{~V}, i_{L}(0) = 0.2 \\mathrm{~A}"
+            },
+            {
+              "type": "text",
+              "content": ", 求 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "u_{c}(t)"
+            },
+            {
+              "type": "text",
+              "content": ", 并绘制 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "u_{c}(t)"
+            },
+            {
+              "type": "text",
+              "content": " 波形, 设时间区间为 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "0 \\sim 30 \\mathrm{~ms}"
+            },
+            {
+              "type": "text",
+              "content": ", 打印时间间隔为 "
+            },
+            {
+              "type": "equation_inline",
+              "content": "0.1 \\mathrm{~ms}"
+            },
+            {
+              "type": "text",
+              "content": "。"
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "index": 10,
+          "bbox": [
+            0.302,
+            0.659,
+            0.677,
+            0.791
+          ],
+          "content": [
+            {
+              "type": "image_body",
+              "index": 10,
+              "bbox": [
+                0.302,
+                0.659,
+                0.677,
+                0.791
+              ],
+              "image_path": "raw/pages_0513-0544/images/page_529_image_10.jpg",
+              "content": "① R₁ ② L ③\n+ uₛ - R₂ C u꜀ - R₃\n①"
+            },
+            {
+              "type": "image_caption",
+              "index": 11,
+              "bbox": [
+                0.399,
+                0.798,
+                0.576,
+                0.814
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "图 C-5 例 C-3 电路图"
+                }
+              ]
+            }
+          ],
+          "sub_type": "text_image"
+        },
+        {
+          "type": "text",
+          "index": 12,
+          "bbox": [
+            0.163,
+            0.828,
+            0.294,
+            0.846
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "解 输入文件:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 13,
+          "bbox": [
+            0.165,
+            0.852,
+            0.203,
+            0.866
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "EX3"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 14,
+          "bbox": [
+            0.165,
+            0.874,
+            0.258,
+            0.889
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "VS 1 0 10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 530,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.622,
+            0.054,
+            0.743,
+            0.069
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "§ C-2 PSpice"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.8,
+            0.054,
+            0.828,
+            0.067
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "507"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 2,
+          "bbox": [
+            0.148,
+            0.108,
+            0.241,
+            0.124
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "R1 1 2 20"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.149,
+            0.131,
+            0.241,
+            0.146
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "R2 2 0 20"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.149,
+            0.153,
+            0.244,
+            0.168
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "R3 3 0 4K"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.149,
+            0.175,
+            0.323,
+            0.19
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "L 2 3 0.2 IC = 0.2"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.15,
+            0.198,
+            0.317,
+            0.213
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C 300.5U IC=2"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.15,
+            0.219,
+            0.357,
+            0.235
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": ". TRAN 0.1M 30M UIC"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 8,
+          "bbox": [
+            0.15,
+            0.242,
+            0.337,
+            0.259
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": ".PLOT TRAN V(3,0)"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.15,
+            0.265,
+            0.224,
+            0.28
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": ".PROBE"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 10,
+          "bbox": [
+            0.15,
+            0.287,
+            0.202,
+            0.302
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": ".END"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 11,
+          "bbox": [
+            0.149,
+            0.309,
+            0.354,
+            0.326
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "输入描述语言说明如下:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 12,
+          "bbox": [
+            0.15,
+            0.331,
+            0.317,
+            0.348
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 1 句是标题说明。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 13,
+          "bbox": [
+            0.112,
+            0.352,
+            0.83,
+            0.393
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 2 句是独立电压源的说明,指出电源的名称,它的正极和负极连接的节点编号和电压值。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 14,
+          "bbox": [
+            0.149,
+            0.397,
+            0.826,
+            0.414
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 3~4 句是电阻的说明,指出电阻的名称,连接的始节点和终节点编号和电阻值。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 15,
+          "bbox": [
+            0.112,
+            0.419,
+            0.832,
+            0.46
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 5 句是电感的说明,指出电感的名称,连接的始节点和终节点编号和电感值。注意电感电流的初始值用“IC”表示。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 16,
+          "bbox": [
+            0.112,
+            0.464,
+            0.833,
+            0.505
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 6 句是电容的说明, 指出电容的名称, 连接的始节点和终节点编号和电容值。注意电容电压的初始值也用“IC”表示。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 17,
+          "bbox": [
+            0.113,
+            0.508,
+            0.834,
+            0.594
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 7 句“.TRAN”定义瞬态分析,打印的时间间隔(0.1 M 表示 0.1 ms),打印的终止时间(30 M 表示 30 ms),而“UIC”表示使用者自己规定初始条件来进行瞬态分析,同时也规定了节点电压的初始值。所以第 2 句本来是直流电压源的说明,不过此句用了“UIC”,它表示此电压为阶跃电压。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 18,
+          "bbox": [
+            0.114,
+            0.597,
+            0.834,
+            0.639
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 8 句是曲线打印语句，“TRAN”表示分析类型，“V(3,0)”表示节点“3”和“0”之间的电压，即题中要求的电容电压。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 19,
+          "bbox": [
+            0.153,
+            0.644,
+            0.358,
+            0.661
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 9 句是探针显示语句。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 20,
+          "bbox": [
+            0.154,
+            0.666,
+            0.331,
+            0.683
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第 10 句是结束语句。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 21,
+          "bbox": [
+            0.154,
+            0.687,
+            0.587,
+            0.705
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "图 C-6 给出了打印出的电容电压  "
+            },
+            {
+              "type": "equation_inline",
+              "content": "u_{c}(t)"
+            },
+            {
+              "type": "text",
+              "content": "  的变化曲线。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 22,
+          "bbox": [
+            0.155,
+            0.711,
+            0.257,
+            0.727
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "2. 图形输入"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 23,
+          "bbox": [
+            0.115,
+            0.731,
+            0.831,
+            0.773
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "为了简要说明图形输入的要点,按图形输入的命令次序来说明完成一个电路题目分析的操作过程。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 24,
+          "bbox": [
+            0.114,
+            0.776,
+            0.836,
+            0.907
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "（1）在 WIN98 或 WIN2000 下单击“程序”，选中“orCAD Demo”，进入“Capture CIS Demo”窗口，选择执行 Fil/New/Project 命令，新建电路分析题目（在 Name 框中，键入带后缀.cir 的题目名）。选中“Analog or Mixed Signal Circuit”单选框，并按“OK”按钮，即表示对设计的电路可进行 PSpice 的数模混合仿真。随后，在元器件库中对元器件库进行再配置，按“Add”按钮，将元器件库增添进选用框中，再按“完成”按钮，即可进入图形编辑状态。"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 25,
+          "bbox": [
+            0.839,
+            0.018,
+            0.964,
+            0.134
+          ],
+          "content": []
+        }
+      ]
+    },
+    {
+      "page_idx": 531,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.0,
+            0.022,
+            0.117,
+            0.13
+          ],
+          "content": []
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.131,
+            0.054,
+            0.16,
+            0.068
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "508"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 2,
+          "bbox": [
+            0.212,
+            0.054,
+            0.375,
+            0.07
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "附录 C PSpice 简介"
+            }
+          ]
+        },
+        {
+          "type": "chart",
+          "index": 3,
+          "bbox": [
+            0.175,
+            0.111,
+            0.812,
+            0.362
+          ],
+          "content": [
+            {
+              "type": "chart_body",
+              "index": 3,
+              "bbox": [
+                0.175,
+                0.111,
+                0.812,
+                0.362
+              ],
+              "image_path": "raw/pages_0513-0544/images/page_531_chart_3.jpg",
+              "content": "| Time (ms) | Voltage (V) |\n| --- | --- |\n| 0 | 0 |\n| ~0.5 | ~65 |\n| ~1 | ~110 |\n| ~1.5 | ~45 |\n| ~2 | ~-70 |\n| ~2.5 | ~-38 |\n| ~3 | ~20 |\n| ~3.5 | ~65 |\n| ~4 | ~8 |\n| ~4.5 | ~-50 |\n| ~5 | ~10 |\n| ~5.5 | ~45 |\n| ~6 | ~25 |\n| ~6.5 | ~-25 |\n| ~7 | ~28 |\n| ~7.5 | ~-10 |\n| ~8 | ~18 |\n| ~8.5 | ~-5 |\n| ~9 | ~12 |\n| ~9.5 | ~-8 |\n| ~10 | ~10 |\n| ~10.5 | ~-5 |\n| ~11 | ~8 |\n| ~11.5 | ~-2 |\n| ~12 | ~6 |\n| ~12.5 | ~-1 |\n| ~13 | ~4 |\n| ~13.5 | ~-1 |\n| ~14 | ~3 |\n| ~14.5 | ~-1 |\n| ~15 | ~2 |\n| ~15.5 | ~-1 |\n| ~16 | ~1 |\n| ~16.5 | ~-1 |\n| ~17 | ~1 |\n| ~17.5 | ~-1 |\n| ~18 | ~1 |\n| ~18.5 | ~-1 |\n| ~19 | ~1 |\n| ~19.5 | ~-1 |\n| ~20 | ~1 |\n| ~20.5 | ~-1 |\n| ~21 | ~1 |\n| ~21.5 | ~-1 |\n| ~22 | ~1 |\n| ~22.5 | ~-1 |\n| ~23 | ~1 |\n| ~23.5 | ~-1 |\n| ~24 | ~1 |\n| ~24.5 | ~-1 |\n| ~25 | ~1 |\n| ~25.5 | ~-1 |\n| ~26 | ~1 |\n| ~26.5 | ~-1 |\n| ~27 | ~1 |\n| ~27.5 | ~-1 |\n| ~28 | ~1 |\n| ~28.5 | ~-1 |\n| 30 | 0 |"
+            },
+            {
+              "type": "chart_caption",
+              "index": 4,
+              "bbox": [
+                0.389,
+                0.37,
+                0.589,
+                0.386
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "图 C-6  "
+                },
+                {
+                  "type": "equation_inline",
+                  "content": "u_{c}(t)"
+                },
+                {
+                  "type": "text",
+                  "content": "  的变化曲线"
+                }
+              ]
+            }
+          ],
+          "sub_type": "line"
+        },
+        {
+          "type": "list",
+          "index": 10,
+          "bbox": [
+            0.122,
+            0.403,
+            0.856,
+            0.799
+          ],
+          "content": [
+            {
+              "type": "text",
+              "index": 5,
+              "bbox": [
+                0.123,
+                0.403,
+                0.856,
+                0.531
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "（2）开始设计电路，放置元器件，用鼠标单击“Place”菜单下的“Part”选项（或点击窗口右侧的“与门”图形符号），键入元器件的特征字符，选定并拖放元器件到图中相应位置。单击“Place”菜单下的“Wire”选项（或点击窗口右侧的连线图形符号）进行连线，单击鼠标左键选择连线起始点进行连接。单击“Place”菜单下的“Ground”选项（或点击窗口右侧的接地图形符号）设置接地点，注意每一个电路图中都必须设置接地点。"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 6,
+              "bbox": [
+                0.122,
+                0.536,
+                0.854,
+                0.576
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "（3）电路图编辑结束后，需定义和设置元器件的参数值。用鼠标双击元器件的图形符号或参数，弹出元器件对话框，键入修正值。"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 7,
+              "bbox": [
+                0.122,
+                0.58,
+                0.854,
+                0.752
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "（4）单击“PSpice”菜单下的“New Simulation Profile”选项设置分析类型，PSpice9.0可供选择的四项基本分析功能为:Bias Point(直流工作点分析)；DC Sweep(直流分析)；AC Sweep/Noise(正弦小信号分析)；Time Domain/Transient(瞬态分析)。其他分析功能如Temperature(温度)、Parametric(参数)、Fourier(傅里叶)嵌套在此四项基本分析功能中。当屏幕上弹出New Simulation对话框，在Name文本栏内键入模拟类型分组名，按“Creat”按钮，当屏幕上弹出分析类型和参数设置对话框后，即可进行分析类型和参数的设置。分析类型和参数的设置选择执行“PSpice/Edit Simulation Settings”选项进行设置。"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 8,
+              "bbox": [
+                0.16,
+                0.758,
+                0.625,
+                0.777
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "(5) 单击“PSpice”菜单下的“Run”选项进行仿真计算。"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 9,
+              "bbox": [
+                0.16,
+                0.78,
+                0.841,
+                0.799
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "(6) 计算结束后,通过“Trace”菜单中的“Add”选项可得到分析结果的波形曲线。"
+                }
+              ]
+            }
+          ],
+          "sub_type": "text"
+        },
+        {
+          "type": "text",
+          "index": 11,
+          "bbox": [
+            0.119,
+            0.803,
+            0.851,
+            0.864
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "例 C-4 设计一 RLC 串联谐振电路, "
+            },
+            {
+              "type": "equation_inline",
+              "content": "L=0.25\\ H"
+            },
+            {
+              "type": "text",
+              "content": " , "
+            },
+            {
+              "type": "equation_inline",
+              "content": "C=0.1\\ \\mu F"
+            },
+            {
+              "type": "text",
+              "content": " , "
+            },
+            {
+              "type": "equation_inline",
+              "content": "R=500\\ \\Omega"
+            },
+            {
+              "type": "text",
+              "content": " , 电源电压有效值  "
+            },
+            {
+              "type": "equation_inline",
+              "content": "U=10\\ V"
+            },
+            {
+              "type": "text",
+              "content": " 。当电源频率 f 从  "
+            },
+            {
+              "type": "equation_inline",
+              "content": "100\\ Hz\\sim10\\ kHz"
+            },
+            {
+              "type": "text",
+              "content": "  变化时, 试求以电阻电压为输出的频率特性。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 12,
+          "bbox": [
+            0.12,
+            0.869,
+            0.851,
+            0.911
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "解 按 PSpice9.0 图形输入的规定次序命令进行操作, 设计电路, 在“PSpice”菜单下编辑的电路如图 C-7 所示。单击“PSpice”菜单下的“Run”选项进行仿真分析。计"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 532,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.608,
+            0.055,
+            0.728,
+            0.07
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "§ C-2 PSpice"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.782,
+            0.055,
+            0.812,
+            0.068
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "509"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 2,
+          "bbox": [
+            0.093,
+            0.107,
+            0.808,
+            0.126
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "算结束后,通过“Trace”菜单中的“Add”选项得到分析结果的波形曲线如图 C-8 所示。"
+            }
+          ],
+          "continues_prev": true
+        },
+        {
+          "type": "image",
+          "index": 3,
+          "bbox": [
+            0.275,
+            0.14,
+            0.637,
+            0.273
+          ],
+          "content": [
+            {
+              "type": "image_body",
+              "index": 3,
+              "bbox": [
+                0.275,
+                0.14,
+                0.637,
+                0.273
+              ],
+              "image_path": "raw/pages_0513-0544/images/page_532_image_3.jpg",
+              "content": "L1\n0.25H\nC1\n0.1uF\nR1\n500OHM\n10V\nV1\ni\n-0"
+            },
+            {
+              "type": "image_caption",
+              "index": 4,
+              "bbox": [
+                0.365,
+                0.285,
+                0.542,
+                0.3
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "图 C-7 例 C-4 电路图"
+                }
+              ]
+            }
+          ],
+          "sub_type": "text_image"
+        },
+        {
+          "type": "chart",
+          "index": 5,
+          "bbox": [
+            0.119,
+            0.33,
+            0.803,
+            0.513
+          ],
+          "content": [
+            {
+              "type": "chart_body",
+              "index": 5,
+              "bbox": [
+                0.119,
+                0.33,
+                0.803,
+                0.513
+              ],
+              "image_path": "raw/pages_0513-0544/images/page_532_chart_5.jpg",
+              "content": "| Frequency (KHz) | Voltage (V) |\n| --- | --- |\n| 100 | ~0.2 |\n| 300 | ~1.5 |\n| 1.0 | 10 |\n| 3.0 | ~2.0 |\n| 10 | ~0.8 |"
+            },
+            {
+              "type": "chart_caption",
+              "index": 6,
+              "bbox": [
+                0.332,
+                0.522,
+                0.585,
+                0.537
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "图 C-8 输出电压的幅频特性曲线"
+                }
+              ]
+            }
+          ],
+          "sub_type": "line"
+        },
+        {
+          "type": "image",
+          "index": 7,
+          "bbox": [
+            0.823,
+            0.009,
+            0.961,
+            0.134
+          ],
+          "content": [
+            {
+              "type": "image_body",
+              "index": 7,
+              "bbox": [
+                0.823,
+                0.009,
+                0.961,
+                0.134
+              ],
+              "image_path": "raw/pages_0513-0544/images/page_532_image_7.jpg",
+              "content": "Pure mechanical assembly diagram without any text, numbers, or symbols"
+            }
+          ],
+          "sub_type": "natural_image"
+        }
+      ]
+    }
+  ],
+  "is_full_document": false,
+  "schema": "docvortex.middle",
+  "schema_version": "2.0"
+}

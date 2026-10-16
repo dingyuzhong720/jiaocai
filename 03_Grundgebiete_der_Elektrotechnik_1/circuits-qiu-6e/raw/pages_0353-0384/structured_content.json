@@ -1,0 +1,7230 @@
+{
+  "pages": [
+    {
+      "page_idx": 352,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.437,
+            0.067,
+            0.741,
+            0.082
+          ],
+          "content": "§ 14-3 拉普拉斯反变换的部分分式展开"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.797,
+            0.068,
+            0.826,
+            0.081
+          ],
+          "content": "329"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.293,
+            0.118,
+            0.633,
+            0.159
+          ],
+          "content": "K _ {2} = \\left[ (s - \\alpha + \\mathrm{j} \\omega) F (s) \\right] _ {s = \\alpha - \\mathrm{j} \\omega} = \\frac {N (s)}{D ^ {\\prime} (s)} \\Bigg | _ {s = \\alpha - \\mathrm{j} \\omega}",
+          "image_source": "images/page_352_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.161,
+            0.559,
+            0.179
+          ],
+          "content": "由于  $F(s)$  是实系数多项式之比，故  $K_{1}, K_{2}$  为共轭复数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.185,
+            0.459,
+            0.206
+          ],
+          "content": "设  $\\dot{K}_{1}=\\left|K_{1}\\right|e^{j\\theta_{1}}$ ，则  $K_{2}=\\left|K_{1}\\right|e^{-j\\theta_{1}}$ ，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.354,
+            0.21,
+            0.824,
+            0.311
+          ],
+          "content": "\\begin{array}{l} f (t) = K _ {1} \\mathrm{e} ^ {(\\alpha + \\mathrm{j} \\omega) t} + K _ {2} \\mathrm{e} ^ {(\\alpha - \\mathrm{j} \\omega) t} \\\\ = \\left| K _ {1} \\right| \\mathrm{e} ^ {\\mathrm{j} \\theta_ {1}} \\mathrm{e} ^ {(\\alpha + \\mathrm{j} \\omega) t} + \\left| K _ {1} \\right| \\mathrm{e} ^ {- \\mathrm{j} \\theta_ {1}} \\mathrm{e} ^ {(\\alpha - \\mathrm{j} \\omega) t} \\\\ = \\left| K _ {1} \\right| \\mathrm{e} ^ {\\alpha t} \\left[ \\mathrm{e} ^ {\\mathrm{j} (\\omega t + \\theta_ {1})} + \\mathrm{e} ^ {- \\mathrm{j} (\\omega t + \\theta_ {1})} \\right] \\\\ = 2 \\mid K _ {1} \\mid \\mathrm{e} ^ {\\alpha t} \\cos (\\omega t + \\theta_ {1}) \\tag {14-6} \\\\ \\end{array}",
+          "image_source": "images/page_352_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.315,
+            0.502,
+            0.351
+          ],
+          "content": "例14-7 求 $F(s) = \\frac{s + 3}{s^2 + 2s + 5}$ 的原函数 $f(t)$。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.358,
+            0.582,
+            0.377
+          ],
+          "content": "解 $D(s) = 0$ 的根为共轭复根，$p_{1} = -1 + \\mathrm{j}2, p_{2} = -1 - \\mathrm{j}2$。"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.346,
+            0.38,
+            0.58,
+            0.422
+          ],
+          "content": "K _ {1} = \\frac {N (s)}{D ^ {\\prime} (s)} \\Bigg | _ {s = p _ {1}} = \\frac {s + 3}{2 s + 2} \\Bigg | _ {s = - 1 + j 2}",
+          "image_source": "images/page_352_equation_8.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.373,
+            0.427,
+            0.564,
+            0.453
+          ],
+          "content": "= 0. 5 - \\mathrm{j} 0. 5 = 0. 5 \\sqrt {2} \\mathrm{e} ^ {- \\mathrm{j} \\frac {\\pi}{4}}",
+          "image_source": "images/page_352_equation_9.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.358,
+            0.46,
+            0.568,
+            0.485
+          ],
+          "content": "K _ {2} = \\mid K _ {1} \\mid \\mathrm{e} ^ {- \\mathrm{j} \\theta_ {1}} = 0. 5 \\sqrt {2} \\mathrm{e} ^ {\\mathrm{j} \\frac {\\pi}{4}}",
+          "image_source": "images/page_352_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.489,
+            0.269,
+            0.507
+          ],
+          "content": "根据式(14-6)可得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.344,
+            0.516,
+            0.573,
+            0.594
+          ],
+          "content": "\\begin{array}{l} f (t) = 2 \\mid K _ {1} \\mid \\mathrm{e} ^ {- t} \\cos \\left(2 t - \\frac {\\pi}{4}\\right) \\\\ = \\sqrt {2}   \\mathrm{e} ^ {- t} \\cos \\left(2 t - \\frac {\\pi}{4}\\right) \\\\ \\end{array}",
+          "image_source": "images/page_352_equation_12.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.143,
+            0.598,
+            0.206,
+            0.614
+          ],
+          "level": 2,
+          "content": "3. 重根"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.621,
+            0.825,
+            0.661
+          ],
+          "content": "如果 $D(s) = 0$ 具有重根，则应含 $(s - p_1)^n$ 的因式。现设 $D(s)$ 中含有 $(s - p_1)^3$ 的因式，$p_i$ 为 $D(s) = 0$ 的三重根，其余为单根，$F(s)$ 可分解为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.273,
+            0.667,
+            0.823,
+            0.709
+          ],
+          "content": "F (s) = \\frac {K _ {1 3}}{s - p _ {1}} + \\frac {K _ {1 2}}{(s - p _ {1}) ^ {2}} + \\frac {K _ {1 1}}{(s - p _ {1}) ^ {3}} + \\left(\\frac {K _ {2}}{s - p _ {2}} + \\dots\\right) ① \\tag {14-7}",
+          "image_source": "images/page_352_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.714,
+            0.82,
+            0.777
+          ],
+          "content": "对于单根，仍采用 $K_{i} = \\frac{N(s)}{D'(s)}\\Bigg|_{s = p_i}$ 公式计算。为了确定 $K_{11}, K_{12}$ 和 $K_{13}$ 可以将式(14-7)两边都乘以 $(s - p_1)^3$ ，则 $K_{11}$ 被单独分离出来，即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.209,
+            0.784,
+            0.82,
+            0.823
+          ],
+          "content": "(s - p _ {1}) ^ {3} F (s) = (s - p _ {1}) ^ {2} K _ {1 3} + (s - p _ {1}) K _ {1 2} + \\dot {K} _ {1 1} + (s - p _ {1}) ^ {3} \\left(\\frac {K _ {2}}{s - p _ {2}} + \\dots\\right) \\tag {14-8}",
+          "image_source": "images/page_352_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.828,
+            0.554,
+            0.85
+          ],
+          "content": "则 $K_{11} = (s - p_1)^3 F(s)\\big|_{s = p_1}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.852,
+            0.524,
+            0.871
+          ],
+          "content": "式(14-8)两边再对 s 求导一次, $K_{12}$  被分离出来,即"
+        },
+        {
+          "type": "page_footnote",
+          "bbox": [
+            0.133,
+            0.901,
+            0.305,
+            0.916
+          ],
+          "content": "① 括号中为其余单根项。"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.837,
+            0.029,
+            0.969,
+            0.145
+          ],
+          "content": "1. 工程图"
+        }
+      ]
+    },
+    {
+      "page_idx": 353,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.033,
+            0.125,
+            0.15
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.137,
+            0.072,
+            0.164,
+            0.084
+          ],
+          "content": "330"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.218,
+            0.069,
+            0.506,
+            0.085
+          ],
+          "content": "第十四章 线性动态电路的复频域分析"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.24,
+            0.121,
+            0.754,
+            0.162
+          ],
+          "content": "\\frac {\\mathrm{d}}{\\mathrm{d} s} \\left[ (s - p _ {1}) ^ {3} F (s) \\right] = 2 (s - p _ {1}) K _ {1 3} + K _ {1 2} + \\frac {\\mathrm{d}}{\\mathrm{d} s} \\left[ (s - p _ {1}) ^ {3} \\left(\\frac {K _ {2}}{s - p _ {2}} + \\dots\\right) \\right]",
+          "image_source": "images/page_353_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.167,
+            0.179,
+            0.184
+          ],
+          "content": "所以"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.389,
+            0.188,
+            0.611,
+            0.223
+          ],
+          "content": "K _ {1 2} = \\frac {\\mathrm{d}}{\\mathrm{d} s} \\left[ (s - p _ {1}) ^ {3} F (s) \\right] _ {s = p _ {1}}",
+          "image_source": "images/page_353_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.231,
+            0.297,
+            0.249
+          ],
+          "content": "用同样的方法可得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.375,
+            0.251,
+            0.626,
+            0.289
+          ],
+          "content": "K _ {1 3} = \\frac {1}{2} \\frac {\\mathrm{d} ^ {2}}{\\mathrm{d} s ^ {2}} \\left[ (s - p _ {1}) ^ {3} F (s) \\right] _ {s = p _ {1}}",
+          "image_source": "images/page_353_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.294,
+            0.867,
+            0.336
+          ],
+          "content": "从以上分析过程可以推论得出当 $D(s) = 0$ 具有 $q$ 阶重根，其余为单根时的分解式为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.298,
+            0.341,
+            0.863,
+            0.381
+          ],
+          "content": "F (s) = \\frac {K _ {1 q}}{s - p _ {1}} + \\frac {K _ {1 (q - 1)}}{(s - p _ {1}) ^ {2}} + \\dots + \\frac {K _ {1 1}}{(s - p _ {1}) ^ {q}} + \\left(\\frac {K _ {2}}{s - p _ {2}} + \\dots\\right) \\tag {14-9}",
+          "image_source": "images/page_353_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.388,
+            0.179,
+            0.405
+          ],
+          "content": "式中"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.34,
+            0.406,
+            0.531,
+            0.43
+          ],
+          "content": "K _ {1 1} = (s - p _ {1}) ^ {q} F (s) \\mid_ {s = p _ {1}}",
+          "image_source": "images/page_353_equation_11.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.343,
+            0.436,
+            0.573,
+            0.478
+          ],
+          "content": "K _ {1 2} = \\frac {\\mathrm{d}}{\\mathrm{d} s} \\left[ (s - p _ {1}) ^ {q} F (s) \\right] \\Bigg | _ {s = p _ {1}}",
+          "image_source": "images/page_353_equation_12.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.343,
+            0.484,
+            0.602,
+            0.528
+          ],
+          "content": "K _ {1 3} = \\frac {1}{2} \\frac {\\mathrm{d} ^ {2}}{\\mathrm{d} s ^ {2}} \\left[ (s - p _ {1}) ^ {q} F (s) \\right] \\Bigg | _ {s = p _ {1}}",
+          "image_source": "images/page_353_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.345,
+            0.538,
+            0.426,
+            0.548
+          ],
+          "content": "• • • • • • • • • • • •"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.343,
+            0.556,
+            0.658,
+            0.601
+          ],
+          "content": "K _ {1 q} = \\frac {1}{(q - 1) !} \\frac {\\mathrm{d} ^ {q - 1}}{\\mathrm{d} s ^ {q - 1}} \\left[ (s - p _ {1}) ^ {q} F (s) \\right] \\Bigg | _ {s = p _ {1}}",
+          "image_source": "images/page_353_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.174,
+            0.614,
+            0.848,
+            0.632
+          ],
+          "content": "如果  $D(s)=0$  具有多个重根时, 对每个重根分别利用上述方法即可得到各系数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.174,
+            0.639,
+            0.55,
+            0.676
+          ],
+          "content": "例14-8 求 $F(s) = \\frac{1}{(s + 1)^3 s^2}$ 的原函数 $f(t)$。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.174,
+            0.679,
+            0.759,
+            0.699
+          ],
+          "content": "解 令 $D(s) = (s + 1)^3 s^2 = 0$，有 $p_1 = -1$ 为三重根，$p_2 = 0$ 为二重根，所以"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.333,
+            0.703,
+            0.671,
+            0.744
+          ],
+          "content": "F (s) = \\frac {K _ {1 3}}{s + 1} + \\frac {K _ {1 2}}{(s + 1) ^ {2}} + \\frac {K _ {1 1}}{(s + 1) ^ {3}} + \\frac {K _ {2 2}}{s} + \\frac {K _ {2 1}}{s ^ {2}}",
+          "image_source": "images/page_353_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.748,
+            0.373,
+            0.767
+          ],
+          "content": "首先以 $(s + 1)^{3}$ 乘以 $F(s)$ 得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.431,
+            0.771,
+            0.573,
+            0.807
+          ],
+          "content": "(s + 1) ^ {3} F (s) = \\frac {1}{s ^ {2}}",
+          "image_source": "images/page_353_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.815,
+            0.287,
+            0.833
+          ],
+          "content": "应用式(14-9)得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.437,
+            0.835,
+            0.564,
+            0.875
+          ],
+          "content": "K _ {1 1} = \\frac {1}{s ^ {2}} \\Bigg | _ {s = - 1} = 1",
+          "image_source": "images/page_353_equation_23.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.39,
+            0.878,
+            0.614,
+            0.92
+          ],
+          "content": "K _ {1 2} = \\frac {\\mathrm{d}}{\\mathrm{d} s} \\frac {1}{s ^ {2}} \\Bigg | _ {s = - 1} = \\frac {- 2}{s ^ {3}} \\Bigg | _ {s = - 1} = 2",
+          "image_source": "images/page_353_equation_24.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 354,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.598,
+            0.068,
+            0.736,
+            0.083
+          ],
+          "content": "§ 14-4 运算电路"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.793,
+            0.068,
+            0.82,
+            0.081
+          ],
+          "content": "331"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.323,
+            0.117,
+            0.594,
+            0.159
+          ],
+          "content": "K _ {1 3} = \\frac {1}{2} \\frac {\\mathrm{d} ^ {2}}{\\mathrm{d} s ^ {2}} \\frac {1}{s ^ {2}} \\Bigg | _ {s = - 1} = \\frac {1}{2} \\frac {6}{s ^ {4}} \\Bigg | _ {s = - 1} = 3",
+          "image_source": "images/page_354_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.163,
+            0.461,
+            0.182
+          ],
+          "content": "同样为计算 $K_{21}$ 和 $K_{22}$, 首先以 $s^2$ 乘 $F(s)$ 得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.389,
+            0.188,
+            0.528,
+            0.225
+          ],
+          "content": "s ^ {2} F (s) = \\frac {1}{(s + 1) ^ {3}}",
+          "image_source": "images/page_354_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.23,
+            0.287,
+            0.247
+          ],
+          "content": "应用式(14-9)可求得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.433,
+            0.254,
+            0.484,
+            0.269
+          ],
+          "content": "K _ {2 1} = 1",
+          "image_source": "images/page_354_equation_6.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.427,
+            0.276,
+            0.491,
+            0.292
+          ],
+          "content": "K _ {2 2} = - 3",
+          "image_source": "images/page_354_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.297,
+            0.147,
+            0.313
+          ],
+          "content": "所以"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.258,
+            0.32,
+            0.665,
+            0.358
+          ],
+          "content": "F (s) = \\frac {1}{(s + 1) ^ {3} s ^ {2}} = \\frac {3}{s + 1} + \\frac {2}{(s + 1) ^ {2}} + \\frac {1}{(s + 1) ^ {3}} - \\frac {3}{s} + \\frac {1}{s ^ {2}}",
+          "image_source": "images/page_354_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.363,
+            0.243,
+            0.38
+          ],
+          "content": "相应的原函数为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.336,
+            0.387,
+            0.582,
+            0.42
+          ],
+          "content": "f (t) = 3 \\mathrm{e} ^ {- t} + 2 t \\mathrm{e} ^ {- t} + \\frac {1}{2} t ^ {2} \\mathrm{e} ^ {- t} - 3 + t",
+          "image_source": "images/page_354_equation_11.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.143,
+            0.448,
+            0.351,
+            0.469
+          ],
+          "level": 2,
+          "content": "§14-4 运算电路"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.495,
+            0.402,
+            0.512
+          ],
+          "content": "基尔霍夫定律的时域表示式为:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.517,
+            0.361,
+            0.535
+          ],
+          "content": "对任一节点  $\\sum i(t)=0$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.54,
+            0.364,
+            0.557
+          ],
+          "content": "对任一回路 $\\sum u(t) = 0$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.562,
+            0.652,
+            0.58
+          ],
+          "content": "根据拉氏变换的线性性质得出基尔霍夫定律的运算形式如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.584,
+            0.363,
+            0.601
+          ],
+          "content": "对任一节点  $\\sum I(s)=0$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.607,
+            0.367,
+            0.624
+          ],
+          "content": "对任一回路  $\\sum U(s)=0$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.629,
+            0.79,
+            0.647
+          ],
+          "content": "根据元件电压、电流的时域关系,可以推导出各元件电压电流关系的运算形式。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.652,
+            0.791,
+            0.669
+          ],
+          "content": "图 14-2(a) 所示电阻元件的电压电流关系为  $u(t)=Ri(t)$ ，两边取拉氏变换，得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.405,
+            0.674,
+            0.818,
+            0.692
+          ],
+          "content": "U (s) = R I (s) \\tag {14-10}",
+          "image_source": "images/page_354_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.696,
+            0.729,
+            0.714
+          ],
+          "content": "式(14-10)就是电阻 VCR 的运算形式, 图 14-2(b) 称为电阻 R 的运算电路。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.268,
+            0.725,
+            0.432,
+            0.764
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.341,
+                0.78,
+                0.361,
+                0.794
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_354_image_23.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.487,
+            0.725,
+            0.653,
+            0.764
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.562,
+                0.78,
+                0.583,
+                0.795
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.363,
+                0.804,
+                0.555,
+                0.82
+              ],
+              "content": "图14-2 电阻的运算电路"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_354_image_25.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.837,
+            0.82,
+            0.895
+          ],
+          "content": "对于图 14-3(a) 所示电感有  $u(t)=L\\frac{\\mathrm{d}i(t)}{\\mathrm{d}t}$ ，取拉氏变换并根据拉氏变换的微分性质，得"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.833,
+            0.027,
+            0.967,
+            0.145
+          ],
+          "sub_type": "natural_image",
+          "content": "Pure technical line drawing of a mechanical or architectural component without any text, numbers, or symbols",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_354_image_29.jpg"
+        },
+        {
+          "type": "aside_text",
+          "bbox": [
+            0.979,
+            0.365,
+            0.991,
+            0.398
+          ],
+          "content": "[Illegible]"
+        }
+      ]
+    },
+    {
+      "page_idx": 355,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.03,
+            0.123,
+            0.148
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.136,
+            0.07,
+            0.164,
+            0.083
+          ],
+          "content": "332"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.219,
+            0.068,
+            0.506,
+            0.084
+          ],
+          "content": "第十四章 线性动态电路的复频域分析"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.398,
+            0.12,
+            0.597,
+            0.157
+          ],
+          "content": "\\mathcal {L} [ u (t) ] = \\mathcal {L} \\bigg [ L \\frac {\\mathrm{d} i (t)}{\\mathrm{d} t} \\bigg ]",
+          "image_source": "images/page_355_equation_3.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.408,
+            0.161,
+            0.862,
+            0.18
+          ],
+          "content": "U (s) = s L I (s) - L i (0 _ {-}) \\tag {14-11a}",
+          "image_source": "images/page_355_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.184,
+            0.867,
+            0.248
+          ],
+          "content": "式中 $sL$ 为电感的运算阻抗，$i(0_{-})$ 表示电感中的初始电流。这样就可以得到图14-3(b)所示运算电路，$Li(0_{-})$ 表示附加电压源的电压，它反映了电感中初始电流的作用。还可以把式(14-11a)改写为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.406,
+            0.252,
+            0.862,
+            0.29
+          ],
+          "content": "I (s) = \\frac {1}{s L} U (s) + \\frac {i (0 _ {-})}{s} \\tag {14-11b}",
+          "image_source": "images/page_355_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.298,
+            0.865,
+            0.36
+          ],
+          "content": "就可以获得图 14-3(c) 所示运算电路, 其中  $\\frac{1}{sL}$  为电感的运算导纳,  $\\frac{i(0_{-})}{s}$  表示附加电流源的电流。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.181,
+            0.411,
+            0.361,
+            0.452
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.26,
+                0.46,
+                0.282,
+                0.474
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_355_image_8.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.398,
+            0.402,
+            0.605,
+            0.451
+          ],
+          "sub_type": "text_image",
+          "content": "I(s) sL - Li(0_) +\nU(s) + -",
+          "captions": [
+            {
+              "bbox": [
+                0.494,
+                0.46,
+                0.516,
+                0.474
+              ],
+              "content": "(b)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_355_image_10.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.647,
+            0.362,
+            0.818,
+            0.456
+          ],
+          "sub_type": "text_image",
+          "content": "1/sL\ni(0_)/s\nI(s)\n+\nU(s)\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.733,
+                0.459,
+                0.753,
+                0.473
+              ],
+              "content": "(c)"
+            },
+            {
+              "bbox": [
+                0.402,
+                0.484,
+                0.598,
+                0.5
+              ],
+              "content": "图 14-3 电感的运算电路"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_355_image_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.519,
+            0.867,
+            0.579
+          ],
+          "content": "同理,对于图 14-4(a) 所示,电容有  $u(t)=\\frac{1}{C}\\int_{0_{-}}^{t}i(\\xi)\\mathrm{d}\\xi+u(0_{-})$ , 取拉氏变换并根据拉氏变换的积分性质, 得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.396,
+            0.584,
+            0.863,
+            0.647
+          ],
+          "content": "\\left. \\begin{array}{l} U (s) = \\frac {1}{s C} I (s) + \\frac {u (0 _ {-})}{s} \\\\ I (s) = s C U (s) - C u (0 _ {-}) \\end{array} \\right\\} \\tag {14-12}",
+          "image_source": "images/page_355_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.655,
+            0.865,
+            0.76
+          ],
+          "content": "这样可以分别获得图 14-4(b)(c) 所示运算电路, 其中  $\\frac{1}{sC}$  和 sC 分别为电容 C 的运算阻抗和运算导纳,  $\\frac{u(0_{-})}{s}$  和  $Cu(0_{-})$  分别为反映电容初始电压的附加电压源的电压和附加电流源的电流。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.187,
+            0.811,
+            0.348,
+            0.861
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.261,
+                0.879,
+                0.282,
+                0.894
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_355_image_18.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.388,
+            0.794,
+            0.589,
+            0.862
+          ],
+          "sub_type": "text_image",
+          "content": "I(s)\n+   +   -   +\n      1/sC       u(0_)\n        /s\n          U(s)\n           -\n           -",
+          "captions": [
+            {
+              "bbox": [
+                0.461,
+                0.878,
+                0.482,
+                0.893
+              ],
+              "content": "(b)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_355_image_20.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.622,
+            0.762,
+            0.815,
+            0.873
+          ],
+          "sub_type": "text_image",
+          "content": "+\nsC\n-\nCu(0_)\nI(s)\n+\nU(s)\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.709,
+                0.877,
+                0.729,
+                0.892
+              ],
+              "content": "(c)"
+            },
+            {
+              "bbox": [
+                0.403,
+                0.902,
+                0.597,
+                0.918
+              ],
+              "content": "图 14-4 电容的运算电路"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_355_image_22.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 356,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.604,
+            0.064,
+            0.743,
+            0.079
+          ],
+          "content": "§ 14-4 运算电路"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.797,
+            0.065,
+            0.826,
+            0.077
+          ],
+          "content": "333"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.837,
+            0.027,
+            0.964,
+            0.142
+          ],
+          "content": ""
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.116,
+            0.823,
+            0.134
+          ],
+          "content": "对两个耦合电感,运算电路中应包括由于互感引起的附加电源。根据图 14-5(a),有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.394,
+            0.139,
+            0.537,
+            0.176
+          ],
+          "content": "u _ {1} = L _ {1} \\frac {\\mathrm{d} i _ {1}}{\\mathrm{d} t} + M \\frac {\\mathrm{d} i _ {2}}{\\mathrm{d} t}",
+          "image_source": "images/page_356_equation_4.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.397,
+            0.183,
+            0.537,
+            0.22
+          ],
+          "content": "u _ {2} = L _ {2} \\frac {\\mathrm{d} i _ {2}}{\\mathrm{d} t} + M \\frac {\\mathrm{d} i _ {1}}{\\mathrm{d} t}",
+          "image_source": "images/page_356_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.109,
+            0.228,
+            0.325,
+            0.244
+          ],
+          "content": "对上式两边取拉氏变换有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.283,
+            0.25,
+            0.649,
+            0.268
+          ],
+          "content": "U _ {1} (s) = s L _ {1} I _ {1} (s) - L _ {1} i _ {1} (0 _ {-}) + s M I _ {2} (s) - M i _ {2} (0 _ {-})",
+          "image_source": "images/page_356_equation_7.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.285,
+            0.273,
+            0.824,
+            0.291
+          ],
+          "content": "U _ {2} (s) = s L _ {2} I _ {2} (s) - L _ {2} i _ {2} (0 _ {-}) + s M I _ {1} (s) - M i _ {1} (0 _ {-}) \\tag {14-13}",
+          "image_source": "images/page_356_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.109,
+            0.295,
+            0.826,
+            0.335
+          ],
+          "content": "式中 $sM$ 称为互感运算阻抗，$Mi_{1}(0_{-})$ 和 $Mi_{2}(0_{-})$ 都是附加的电压源，附加电压源的方向与电流 $i_{1}, i_{2}$ 的参考方向有关。图 14-5(b) 为具有耦合电感的运算电路。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.211,
+            0.385,
+            0.425,
+            0.52
+          ],
+          "sub_type": "text_image",
+          "content": "i₁\n+\nM\ni₂\n+\nu₁\nL₁\nL₂\nu₂\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.31,
+                0.533,
+                0.33,
+                0.546
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_356_image_10.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.469,
+            0.345,
+            0.724,
+            0.52
+          ],
+          "sub_type": "text_image",
+          "content": "I₁(s)\n+\nsL₁\nsM\nI₂(s)\n+\nsL₂\nU₁(s)\n-\nL₁i₁(0_)\n+\n-\nL₂i₂(0_)\n+\nU₂(s)\nMi₂(0_)\n+\n-\nMi₁(0_)\n+",
+          "captions": [
+            {
+              "bbox": [
+                0.586,
+                0.532,
+                0.607,
+                0.546
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.354,
+                0.556,
+                0.58,
+                0.571
+              ],
+              "content": "图14-5 耦合电感的运算电路"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_356_image_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.111,
+            0.587,
+            0.827,
+            0.628
+          ],
+          "content": "图 14-6(a) 所示为 RLC 串联电路。设电源电压为  $u(t)$ ，电感中初始电流为  $i(0_{-})$ ，电容中初始电压为  $u_{c}(0_{-})$ 。如用运算电路表示，将得到图 14-6(b)。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.238,
+            0.651,
+            0.428,
+            0.779
+          ],
+          "sub_type": "text_image",
+          "content": "i(t)\n+\nu(t)\n-\nS\nR\nL\nC\n+",
+          "captions": [
+            {
+              "bbox": [
+                0.323,
+                0.796,
+                0.342,
+                0.81
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_356_image_16.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.459,
+            0.638,
+            0.7,
+            0.79
+          ],
+          "sub_type": "text_image",
+          "content": "I(s)\nS\nR\nsL\n+\nU(s)\n-\nLi(0_)\n-\n1/sC\n-\n+\n-\nuC(0_)/s",
+          "captions": [
+            {
+              "bbox": [
+                0.568,
+                0.796,
+                0.589,
+                0.81
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.38,
+                0.82,
+                0.555,
+                0.834
+              ],
+              "content": "图 14-6 RLC 串联电路"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_356_image_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.852,
+            0.31,
+            0.869
+          ],
+          "content": "根据  $\\sum U(s)=0$  , 有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.279,
+            0.874,
+            0.657,
+            0.911
+          ],
+          "content": "R I (s) + s L I (s) - L i (0 _ {-}) + \\frac {1}{s C} I (s) + \\frac {u _ {c} (0 _ {-})}{s} = U (s)",
+          "image_source": "images/page_356_equation_22.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 357,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.032,
+            0.117,
+            0.142
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.132,
+            0.065,
+            0.16,
+            0.078
+          ],
+          "content": "334"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.214,
+            0.064,
+            0.5,
+            0.08
+          ],
+          "content": "第十四章 线性动态电路的复频域分析"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.117,
+            0.154,
+            0.133
+          ],
+          "content": "或"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.321,
+            0.139,
+            0.664,
+            0.181
+          ],
+          "content": "\\left(R + s L + \\frac {1}{s C}\\right) I (s) = U (s) + L i (0 _ {-}) - \\frac {u _ {c} (0 _ {-})}{s}",
+          "image_source": "images/page_357_equation_4.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.35,
+            0.183,
+            0.637,
+            0.22
+          ],
+          "content": "Z (s) I (s) = U (s) + L i (0 _ {-}) - \\frac {u _ {c} (0 _ {-})}{s}",
+          "image_source": "images/page_357_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.23,
+            0.857,
+            0.289
+          ],
+          "content": "式中 $Z(s) = R + sL + \\frac{1}{sC}$ 为RLC串联电路的运算阻抗。在零值初始条件下，$i(0_{-}) = 0$，$u_{c}(0_{-}) = 0$，则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.422,
+            0.293,
+            0.562,
+            0.311
+          ],
+          "content": "Z (s) I (s) = U (s)",
+          "image_source": "images/page_357_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.315,
+            0.396,
+            0.333
+          ],
+          "content": "上式即为运算形式的欧姆定律。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.169,
+            0.358,
+            0.667,
+            0.38
+          ],
+          "level": 2,
+          "content": "§14-5 应用拉普拉斯变换法分析线性电路"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.405,
+            0.86,
+            0.602
+          ],
+          "content": "运算法与相量法的基本思想类似。相量法把正弦量变换为相量(复数)，从而把求解线性电路的正弦稳态问题归结为以相量为变量的线性代数方程。运算法把时间函数变换为对应的象函数，从而把问题归结为求解以象函数为变量的线性代数方程。当电路的所有独立初始条件为零时，电路元件VCR的运算形式与相量形式是类似的，加之KCL和KVL的运算形式与相量形式也是类似的，所以对于同一电路列出的零状态下的运算形式的方程和相量方程在形式上相似，但这两种方程具有不同的意义。在非零状态条件下，电路方程的运算形式中还应考虑附加电源的作用。当电路中的非零独立初始条件考虑成附加电源之后，电路方程的运算形式仍与相量方程类似。可见相量法中各种计算方法和定理在形式上完全可以移用于运算法。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.167,
+            0.606,
+            0.797,
+            0.624
+          ],
+          "content": "在运算法中求得象函数之后,利用拉氏反变换就可以求得对应的时间函数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.167,
+            0.629,
+            0.838,
+            0.647
+          ],
+          "content": "根据上述思想,以下将通过一些实例说明拉氏变换法在线性电路分析中的应用。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.651,
+            0.859,
+            0.692
+          ],
+          "content": "例 14-9 图 14-7(a) 所示电路原处于稳态。t=0 时开关 S 闭合，试用运算法求解换路后的电流  $i_{L}(t)$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.135,
+            0.699,
+            0.853,
+            0.832
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.287,
+                0.838,
+                0.308,
+                0.852
+              ],
+              "content": "(a)"
+            },
+            {
+              "bbox": [
+                0.664,
+                0.839,
+                0.687,
+                0.853
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.414,
+                0.857,
+                0.568,
+                0.873
+              ],
+              "content": "图14-7 例14-9图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_357_image_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.169,
+            0.889,
+            0.398,
+            0.907
+          ],
+          "content": "解 首先求  $U_{s}$  的拉氏变换"
+        }
+      ]
+    },
+    {
+      "page_idx": 358,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.421,
+            0.068,
+            0.741,
+            0.083
+          ],
+          "content": "§ 14-5 应用拉普拉斯变换法分析线性电路"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.796,
+            0.068,
+            0.823,
+            0.081
+          ],
+          "content": "335"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.374,
+            0.121,
+            0.554,
+            0.155
+          ],
+          "content": "\\mathcal {L} \\left[ U _ {\\mathrm{s}} \\right] = \\mathcal {L} \\left[ 1 \\right] = \\frac {1}{s}",
+          "image_source": "images/page_358_equation_2.jpg"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.835,
+            0.032,
+            0.964,
+            0.145
+          ],
+          "content": "1. 工程图"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.162,
+            0.823,
+            0.203
+          ],
+          "content": "由于开关闭合前电路已处于稳态,所以电感电流  $i_{L}(0_{-})=0$ , 电容电压  $u_{C}(0_{-})=1\\ V$ 。该电路的运算电路如图 14-7(b) 所示。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.207,
+            0.819,
+            0.225
+          ],
+          "content": "应用回路电流法,设回路电流为  $I_{\\mathrm{a}}(s)$ 、 $I_{\\mathrm{b}}(s)$ ,方向如图 14-7(b) 所示,可列出方程"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.295,
+            0.229,
+            0.635,
+            0.315
+          ],
+          "content": "\\begin{array}{l} \\left(R _ {1} + s L + \\frac {1}{s C}\\right) I _ {\\mathrm{a}} (s) - \\frac {1}{s C} I _ {\\mathrm{b}} (s) = \\frac {1}{s} - \\frac {u _ {c} (0 _ {-})}{s} \\\\ - \\frac {1}{s C} I _ {\\mathrm{a}} (s) + \\left(R _ {2} + \\frac {1}{s C}\\right) I _ {\\mathrm{b}} (s) = \\frac {u _ {C} (0 _ {-})}{s} \\\\ \\end{array}",
+          "image_source": "images/page_358_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.32,
+            0.257,
+            0.337
+          ],
+          "content": "代入已知数据,得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.348,
+            0.342,
+            0.585,
+            0.422
+          ],
+          "content": "\\begin{array}{l} \\left(1 + s + \\frac {1}{s}\\right) I _ {\\mathrm{a}} (s) - \\frac {1}{s} I _ {\\mathrm{b}} (s) = 0 \\\\ - \\frac {1}{s} I _ {\\mathrm{a}} (s) + \\left(1 + \\frac {1}{s}\\right) I _ {\\mathrm{b}} (s) = \\frac {1}{s} \\\\ \\end{array}",
+          "image_source": "images/page_358_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.427,
+            0.152,
+            0.443
+          ],
+          "content": "解得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.358,
+            0.45,
+            0.573,
+            0.487
+          ],
+          "content": "I _ {L} (s) = I _ {\\mathrm{a}} (s) = \\frac {1}{s (s ^ {2} + 2 s + 2)}",
+          "image_source": "images/page_358_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.493,
+            0.21,
+            0.51
+          ],
+          "content": "求其反变换"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.316,
+            0.516,
+            0.615,
+            0.55
+          ],
+          "content": "\\mathcal {L} ^ {- 1} \\left[ I _ {L} (s) \\right] = \\frac {1}{2} (1 - \\mathrm{e} ^ {- t} \\cos t - \\mathrm{e} ^ {- t} \\sin t)",
+          "image_source": "images/page_358_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.11,
+            0.558,
+            0.631,
+            0.592
+          ],
+          "content": "所以 $i_{L}(t) = \\frac{1}{2} (1 - \\mathrm{e}^{-t}\\cos t - \\mathrm{e}^{-t}\\sin t)\\mathrm{A}\\quad (t\\geqslant 0)$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.599,
+            0.709,
+            0.617
+          ],
+          "content": "例 14-10 图 14-8(a) 所示为 RC 并联电路, 激励为电流源  $i_{\\mathrm{s}}(t)$ , 若"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.149,
+            0.622,
+            0.309,
+            0.662
+          ],
+          "sub_type": "text",
+          "content": "(1)  $i_{\\mathrm{S}}(t)=\\varepsilon(t)\\mathrm{A};$\n(2)  $i_{\\mathrm{S}}(t)=\\delta(t)\\mathrm{A}$ 。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.11,
+            0.668,
+            0.283,
+            0.685
+          ],
+          "content": "试求电路响应  $u(t)$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.218,
+            0.695,
+            0.449,
+            0.804
+          ],
+          "sub_type": "text_image",
+          "content": "i_S(t)\nC\nR\nu(t)\n+",
+          "captions": [
+            {
+              "bbox": [
+                0.325,
+                0.813,
+                0.344,
+                0.826
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_358_image_19.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.482,
+            0.695,
+            0.72,
+            0.804
+          ],
+          "sub_type": "text_image",
+          "content": "I_s(s)\n1/sC\nR\n+\nU(s)\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.588,
+                0.812,
+                0.608,
+                0.825
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.386,
+                0.836,
+                0.547,
+                0.851
+              ],
+              "content": "图14-8 例14-10图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_358_image_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.868,
+            0.432,
+            0.885
+          ],
+          "content": "解 运算电路如图 14-8(b) 所示。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.89,
+            0.356,
+            0.908
+          ],
+          "content": "(1) 当  $i_{\\mathrm{S}}(t)=\\varepsilon(t)\\mathrm{A}$  时，"
+        }
+      ]
+    },
+    {
+      "page_idx": 359,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.033,
+            0.117,
+            0.145
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.128,
+            0.067,
+            0.158,
+            0.08
+          ],
+          "content": "336"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.213,
+            0.066,
+            0.499,
+            0.082
+          ],
+          "content": "第十四章 线性动态电路的复频域分析"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.368,
+            0.12,
+            0.62,
+            0.302
+          ],
+          "content": "\\begin{array}{l} I _ {s} (s) = \\frac {1}{s} \\\\ U (s) = Z (s) I _ {\\mathrm{s}} (s) = \\frac {R \\cdot \\frac {1}{s C}}{R + \\frac {1}{s C}} \\cdot \\frac {1}{s} \\\\ = \\frac {1}{s C \\left(s + \\frac {1}{R C}\\right)} = \\frac {R}{s} - \\frac {R}{s + \\frac {1}{R C}} \\\\ \\end{array}",
+          "image_source": "images/page_359_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.125,
+            0.306,
+            0.229,
+            0.323
+          ],
+          "content": "其反变换为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.332,
+            0.329,
+            0.65,
+            0.357
+          ],
+          "content": "u (t) = \\mathscr {L} ^ {- 1} [ U (\\dot {s}) ] = R (1 - \\mathrm{e} ^ {- \\frac {1}{R C} t}) \\varepsilon (t) \\mathrm{V}",
+          "image_source": "images/page_359_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.166,
+            0.36,
+            0.376,
+            0.378
+          ],
+          "content": "(2) 当  $i_{\\mathrm{s}}(t)=\\delta(t)\\mathrm{A}$  时，"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.454,
+            0.383,
+            0.528,
+            0.401
+          ],
+          "content": "I _ {s} (s) = 1",
+          "image_source": "images/page_359_equation_7.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.384,
+            0.407,
+            0.602,
+            0.481
+          ],
+          "content": "U (s) = Z (s) I _ {s} (s) = \\frac {R \\cdot \\frac {1}{s C}}{R + \\frac {1}{s C}}",
+          "image_source": "images/page_359_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.126,
+            0.498,
+            0.229,
+            0.515
+          ],
+          "content": "其反变换为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.407,
+            0.488,
+            0.575,
+            0.523
+          ],
+          "content": "u (t) = \\frac {1}{C} \\mathrm{e} ^ {- \\frac {1}{R C} t} \\varepsilon (t) \\mathrm{V}",
+          "image_source": "images/page_359_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.125,
+            0.53,
+            0.857,
+            0.569
+          ],
+          "content": "以上结果分别为 RC 并联电路的阶跃响应和冲激响应。用拉氏变换法求得的结果与第七章的结果相同。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.124,
+            0.575,
+            0.857,
+            0.616
+          ],
+          "content": "例 14-11 图 14-9(a) 所示电路中, 电路原处于稳态, t=0 时将开关 S 闭合, 求换路后的  $u_{L}(t)$ , 已知  $u_{S1}=2e^{-2t}V, u_{S2}=5V, R_{1}=R_{2}=5\\Omega, L=1H$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.132,
+            0.621,
+            0.48,
+            0.749
+          ],
+          "sub_type": "text_image",
+          "content": "S\nR1\nR2\n(t=0)\niL\n+\nus1\n-\nL\nuL\n-\n+\nus2\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.287,
+                0.771,
+                0.307,
+                0.785
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_359_image_13.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.502,
+            0.622,
+            0.852,
+            0.764
+          ],
+          "sub_type": "text_image",
+          "content": "R₁\n+\n-\n2/s+2.\nUₗ(s)\n①\nsL\n-\nLi(0_)\n+\n-\n①\nR₂\n+\n-\n5/s\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.662,
+                0.772,
+                0.684,
+                0.786
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.407,
+                0.789,
+                0.571,
+                0.804
+              ],
+              "content": "图14-9 例14-11图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_359_image_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.82,
+            0.647,
+            0.837
+          ],
+          "content": "解 与图 14-9(a) 相对应的运算电路见图 14-9(b), 其中"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.378,
+            0.843,
+            0.601,
+            0.877
+          ],
+          "content": "\\mathscr {L} \\left[ u _ {\\mathrm{S1}} \\right] = \\mathscr {L} \\left[ 2 \\mathrm{e} ^ {- 2 t} \\right] = \\frac {2}{s + 2}",
+          "image_source": "images/page_359_equation_19.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.381,
+            0.883,
+            0.562,
+            0.918
+          ],
+          "content": "\\mathcal {L} \\left[ u _ {\\mathrm{s2}} \\right] = \\mathcal {L} \\left[ 5 \\right] = \\frac {5}{s}",
+          "image_source": "images/page_359_equation_20.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 360,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.422,
+            0.068,
+            0.741,
+            0.084
+          ],
+          "content": "§ 14-5 应用拉普拉斯变换法分析线性电路"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.799,
+            0.069,
+            0.828,
+            0.082
+          ],
+          "content": "337"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.109,
+            0.121,
+            0.284,
+            0.138
+          ],
+          "content": "电感电流的初始值为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.392,
+            0.147,
+            0.537,
+            0.182
+          ],
+          "content": "i _ {L} (0 _ {-}) = \\frac {u _ {\\mathrm{S2}}}{R _ {2}} = 1 \\mathrm{A}",
+          "image_source": "images/page_360_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.186,
+            0.734,
+            0.206
+          ],
+          "content": "应用节点法求解。设①点为参考节点，节点电压 $U_{\\mathrm{n1}}(s)$ 就是 $U_{L}(s)$ 。有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.303,
+            0.21,
+            0.632,
+            0.269
+          ],
+          "content": "\\left(\\frac {1}{R _ {1}} + \\frac {1}{R _ {2}} + \\frac {1}{s L}\\right) U _ {L} (s) = \\frac {\\frac {2}{s + 2}}{R _ {1}} + \\frac {\\frac {5}{s}}{R _ {2}} - \\frac {L i (0 _ {-})}{s L}",
+          "image_source": "images/page_360_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.109,
+            0.273,
+            0.259,
+            0.29
+          ],
+          "content": "代入已知数据,得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.326,
+            0.295,
+            0.61,
+            0.333
+          ],
+          "content": "\\left(\\frac {2}{5} + \\frac {1}{s}\\right) U _ {L} (s) = \\frac {2}{5 (s + 2)} + \\frac {1}{s} - \\frac {1}{s}",
+          "image_source": "images/page_360_equation_7.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.378,
+            0.338,
+            0.56,
+            0.375
+          ],
+          "content": "U _ {L} (s) = \\frac {2 s}{(s + 2) (2 s + 5)}",
+          "image_source": "images/page_360_equation_8.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.268,
+            0.378,
+            0.666,
+            0.398
+          ],
+          "content": "u _ {L} (t) = \\mathscr {L} ^ {- 1} [ U _ {L} (s) ] = (- 4 \\mathrm{e} ^ {- 2 t} + 5 \\mathrm{e} ^ {- 2. 5 t}) \\mathrm{V} \\quad (t \\geqslant 0)",
+          "image_source": "images/page_360_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.11,
+            0.402,
+            0.831,
+            0.443
+          ],
+          "content": "例 14-12 图 14-10(a) 所示电路中, 已知  $R_{1}=R_{2}=1\\ \\Omega, L_{1}=L_{2}=0.1\\ H, M=0.05\\ H$  激励为直流电压  $U_{s}=1\\ V, t=0$  时开关闭合, 试求换路后的电流  $i_{1}(t)$  和  $i_{2}(t)$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.145,
+            0.454,
+            0.451,
+            0.582
+          ],
+          "sub_type": "text_image",
+          "content": "S\nR₁\n+\nuₛ\n-\ni₁\nM\nL₁\nL₂\ni₂\nR₂",
+          "captions": [
+            {
+              "bbox": [
+                0.287,
+                0.595,
+                0.308,
+                0.609
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_360_image_11.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.468,
+            0.453,
+            0.797,
+            0.58
+          ],
+          "sub_type": "text_image",
+          "content": "R₁\n+\n1/s\n-\nI₁(s)\nsL₁\nsM\nsL₂\nI₂(s)\nR₂",
+          "captions": [
+            {
+              "bbox": [
+                0.614,
+                0.594,
+                0.635,
+                0.608
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.384,
+                0.618,
+                0.553,
+                0.633
+              ],
+              "content": "图14-10 例14-12图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_360_image_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.65,
+            0.752,
+            0.667
+          ],
+          "content": "解 图 14-10(b) 为与图 14-10(a) 相应的运算电路。列出回路电流方程"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.354,
+            0.673,
+            0.589,
+            0.706
+          ],
+          "content": "(R _ {1} + s L _ {1}) I _ {1} (s) - s M I _ {2} (s) = \\frac {1}{s}",
+          "image_source": "images/page_360_equation_17.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.357,
+            0.711,
+            0.59,
+            0.731
+          ],
+          "content": "- s M I _ {1} (s) + (R _ {2} + s L _ {2}) I _ {2} (s) = 0",
+          "image_source": "images/page_360_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.735,
+            0.281,
+            0.752
+          ],
+          "content": "代入已知数据,可得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.342,
+            0.757,
+            0.603,
+            0.79
+          ],
+          "content": "(1 + 0, 1 s) I _ {1} (s) - 0. 0 5 s I _ {2} (s) = \\frac {1}{s}",
+          "image_source": "images/page_360_equation_20.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.343,
+            0.794,
+            0.603,
+            0.815
+          ],
+          "content": "- 0. 0 5 s I _ {1} (s) + (1 + 0. 1 s) I _ {2} (s) = 0",
+          "image_source": "images/page_360_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.819,
+            0.157,
+            0.835
+          ],
+          "content": "解得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.313,
+            0.84,
+            0.573,
+            0.879
+          ],
+          "content": "I _ {1} (s) = \\frac {0 . 1 s + 1}{s (0 . 7 5 \\times 1 0 ^ {- 2} s ^ {2} + 0 . 2 s + 1)}",
+          "image_source": "images/page_360_equation_23.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.315,
+            0.882,
+            0.543,
+            0.92
+          ],
+          "content": "I _ {2} (s) = \\frac {0 . 0 5 s}{0 . 7 5 \\times 1 0 ^ {- 2} s ^ {2} + 0 . 2 s + 1}",
+          "image_source": "images/page_360_equation_24.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.839,
+            0.03,
+            0.964,
+            0.145
+          ],
+          "sub_type": "natural_image",
+          "content": "Pure technical line drawing of intersecting lines and shapes without any text, numbers, or symbols",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_360_image_25.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 361,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.035,
+            0.117,
+            0.145
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.129,
+            0.068,
+            0.158,
+            0.08
+          ],
+          "content": "338"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.21,
+            0.066,
+            0.498,
+            0.082
+          ],
+          "content": "第十四章 线性动态电路的复频域分析"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.327,
+            0.117,
+            0.671,
+            0.137
+          ],
+          "content": "i _ {1} (t) = (1 - 0. 5 \\mathrm{e} ^ {- 6. 6 7 t} - 0. 5 \\mathrm{e} ^ {- 2 0 t}) \\mathrm{A} \\quad (t \\geqslant 0)",
+          "image_source": "images/page_361_equation_3.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.331,
+            0.141,
+            0.619,
+            0.16
+          ],
+          "content": "i _ {2} (t) = 0. 5 (\\mathrm{e} ^ {- 6. 6 7 t} - \\mathrm{e} ^ {- 2 0 t}) \\mathrm{A} \\quad (t \\geqslant 0)",
+          "image_source": "images/page_361_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.126,
+            0.165,
+            0.857,
+            0.204
+          ],
+          "content": "例 14-13 电路如图 14-11(a) 所示, 开关 S 原来闭合, t=0 时打开, 求换路后电路中的电流及电感元件上的电压。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.21,
+            0.778,
+            0.25
+          ],
+          "content": "解 $L_{1}$ 中的初始电流为 $\\frac{U_{\\mathrm{s}}}{R_1} = 5\\mathrm{A},\\mathrm{S}$ 打开后的运算如图14-11(b)所示，故"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.337,
+            0.256,
+            0.641,
+            0.314
+          ],
+          "content": "I (s) = \\frac {\\frac {1 0}{s} + 5 L _ {1}}{R _ {1} + R _ {2} + s (L _ {1} + L _ {2})} = \\frac {1 0 + 1 . 5 s}{s (5 + 0 . 4 s)}",
+          "image_source": "images/page_361_equation_7.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.377,
+            0.318,
+            0.595,
+            0.355
+          ],
+          "content": "= \\frac {3 . 7 5 s + 2 5}{s (s + 1 2 . 5)} = \\frac {2}{s} + \\frac {1 . 7 5}{s + 1 2 . 5}",
+          "image_source": "images/page_361_equation_8.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.355,
+            0.359,
+            0.623,
+            0.378
+          ],
+          "content": "i (t) = (2 + 1. 7 5 \\mathrm{e} ^ {- 1 2. 5 t}) \\mathrm{A} \\quad (t \\geqslant 0)",
+          "image_source": "images/page_361_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.124,
+            0.382,
+            0.855,
+            0.423
+          ],
+          "content": "电流随时间变化的曲线如图 14-11(c) 所示。本题中  $L_{1}$  原有电流 5 A,  $L_{2}$  中没有电流，但开关打开后， $L_{1}$  和  $L_{2}$  的电流在  $t=0_{+}$ 时都被强制为同一电流，其数值为  $i(0_{+})=3.75\\mathrm{~A}$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.327,
+            0.433,
+            0.66,
+            0.539
+          ],
+          "sub_type": "text_image",
+          "content": "R₁ 2 Ω L₁ 0.3 H R₂ 3 Ω\n+ Uₛ=10 V S L₂ 0.1 H\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.479,
+                0.543,
+                0.5,
+                0.557
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_361_image_11.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.177,
+            0.592,
+            0.517,
+            0.706
+          ],
+          "sub_type": "text_image",
+          "content": "I(s)\nR₁\nsL₁\nL₁i₁(0₋)\n+\nR₂\n10/s\n-\nsL₂",
+          "captions": [
+            {
+              "bbox": [
+                0.341,
+                0.708,
+                0.361,
+                0.722
+              ],
+              "content": "(b)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_361_image_13.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.56,
+            0.571,
+            0.804,
+            0.702
+          ],
+          "sub_type": "line",
+          "content": "| t/s | i/A |\n| --- | --- |\n| 0 | 3.75 |\n| ~100 | ~2.2 |",
+          "captions": [
+            {
+              "bbox": [
+                0.671,
+                0.708,
+                0.693,
+                0.723
+              ],
+              "content": "(c)"
+            },
+            {
+              "bbox": [
+                0.402,
+                0.732,
+                0.571,
+                0.747
+              ],
+              "content": "图14-11 例14-13图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_361_chart_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.124,
+            0.763,
+            0.854,
+            0.808
+          ],
+          "content": "可见两个电感的电流都发生了跃变。由于电流的跃变，电感 $L_{1}$ 和 $L_{2}$ 的电压 $u_{L_{1}}$ 和 $u_{L_{2}}$ 中将有冲激函数出现。电压 $u_{L_{1}}$ 和 $u_{L_{2}}$ 可求得如下:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.361,
+            0.81,
+            0.612,
+            0.917
+          ],
+          "content": "\\begin{array}{l} U _ {L _ {1}} (s) = 0. 3 s I (s) - 1. 5 \\\\ = 0. 6 + \\frac {0 . 3 s \\times 1 . 7 5}{s + 1 2 . 5} - 1. 5 \\\\ = - \\frac {6 . 5 6}{s + 1 2 . 5} - 0. 3 7 5 \\\\ \\end{array}",
+          "image_source": "images/page_361_equation_19.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 362,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.43,
+            0.065,
+            0.748,
+            0.08
+          ],
+          "content": "§ 14-5 应用拉普拉斯变换法分析线性电路"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.804,
+            0.066,
+            0.833,
+            0.079
+          ],
+          "content": "339"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.343,
+            0.119,
+            0.603,
+            0.152
+          ],
+          "content": "U _ {L _ {2}} (s) = 0. 1 s I (s) = 0. 2 + \\frac {0 . 1 7 5 s}{s + 1 2 . 5}",
+          "image_source": "images/page_362_equation_2.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.395,
+            0.162,
+            0.543,
+            0.194
+          ],
+          "content": "= - \\frac {2 . 1 9}{s + 1 2 . 5} + 0. 3 7 5",
+          "image_source": "images/page_362_equation_3.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.305,
+            0.201,
+            0.641,
+            0.223
+          ],
+          "content": "u _ {L _ {1}} (t) = [ - 6. 5 6 \\mathrm{e} ^ {- 1 2. 5 t} \\varepsilon (t) - 0. 3 7 5 \\delta (t) ] \\mathrm{V}",
+          "image_source": "images/page_362_equation_4.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.305,
+            0.227,
+            0.641,
+            0.248
+          ],
+          "content": "u _ {L _ {2}} (t) = [ - 2. 1 9 \\mathrm{e} ^ {- 1 2. 5 t} \\dot {\\varepsilon} (t) + 0. 3 7 5 \\delta (t) ] \\mathrm{V}",
+          "image_source": "images/page_362_equation_5.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.336,
+            0.252,
+            0.609,
+            0.274
+          ],
+          "content": "u _ {L _ {1}} (t) + u _ {L _ {2}} (t) = - 8. 7 5 \\mathrm{e} ^ {- 1 2. 5 t} \\varepsilon (t) \\mathrm{V}",
+          "image_source": "images/page_362_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.276,
+            0.832,
+            0.339
+          ],
+          "content": "可见  $u_{L_{1}} + u_{L_{2}}$  中并无冲激函数出现，这是因为虽然  $L_{1}$ 、 $L_{2}$  中的电流发生了跃变，因而分别有冲激电压出现，但两者大小相同而方向相反，故在整个回路中，不会出现冲激电压，保证满足 KVL。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.345,
+            0.833,
+            0.385
+          ],
+          "content": "从这个实例中可以看出,由于拉氏变换式中下限取 0,故自动地把冲激函数考虑进去,因此无须先求  $t=0_{+}$  时的跃变值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.389,
+            0.833,
+            0.43
+          ],
+          "content": "例 14-14 图 14-12(a) 所示为含有受控源的零状态电路, 试求电容电压  $u_{c}(t)$ 。已知激励为  $u_{s}(t)=20\\sin t\\varepsilon(t)V$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.116,
+            0.44,
+            0.834,
+            0.582
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.388,
+                0.592,
+                0.556,
+                0.606
+              ],
+              "content": "图14-12 例14-14图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_362_image_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.626,
+            0.833,
+            0.668
+          ],
+          "content": "解 已知电路为零状态电路, $t \\geqslant 0$ 时运算电路如图14-12(b)所示。以 $I_{1}(s)$ 、 $I_{2}(s)$ 为变量列得电路的KVL方程为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.318,
+            0.675,
+            0.629,
+            0.713
+          ],
+          "content": "\\left(1 + 1 + \\frac {1}{s}\\right) I _ {1} (s) - \\left(\\frac {1}{s} + 1\\right) I _ {2} (s) = U _ {\\mathrm{S}} (s)",
+          "image_source": "images/page_362_equation_13.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.32,
+            0.718,
+            0.679,
+            0.757
+          ],
+          "content": "- \\left(\\frac {1}{s} + 1\\right) I _ {1} (s) + \\left(1 + \\frac {1}{s} + \\frac {1}{s}\\right) I _ {2} (s) = - 2 U _ {c} (s)",
+          "image_source": "images/page_362_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.764,
+            0.517,
+            0.799
+          ],
+          "content": "而 $U_{c}(s) = \\frac{1}{s} [I_{1}(s) - I_{2}(s)]$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.118,
+            0.807,
+            0.22,
+            0.824
+          ],
+          "content": "联立求解得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.389,
+            0.831,
+            0.556,
+            0.867
+          ],
+          "content": "U _ {c} (s) = \\frac {1}{s ^ {2} + s + 1} U _ {\\mathrm{s}} (s)",
+          "image_source": "images/page_362_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.877,
+            0.526,
+            0.913
+          ],
+          "content": "而 $U_{\\mathrm{s}}(s) = \\frac{20}{s^2 + 1}$"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.842,
+            0.03,
+            0.968,
+            0.142
+          ],
+          "content": ""
+        }
+      ]
+    },
+    {
+      "page_idx": 363,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.03,
+            0.117,
+            0.142
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.131,
+            0.065,
+            0.159,
+            0.078
+          ],
+          "content": "340"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.213,
+            0.065,
+            0.501,
+            0.08
+          ],
+          "content": "第十四章 线性动态电路的复频域分析"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.118,
+            0.62,
+            0.157
+          ],
+          "content": "所以 $U_{G}(s) = \\frac{20}{(s^{2} + s + 1)(s^{2} + 1)} = 20\\left(\\frac{s + 1}{s^{2} + s + 1} -\\frac{s}{s^{2} + 1}\\right)$"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.301,
+            0.159,
+            0.724,
+            0.245
+          ],
+          "content": "= 2 0 \\left[ \\frac {s + \\frac {1}{2}}{\\left(s + \\frac {1}{2}\\right) ^ {2} + \\left(\\frac {\\sqrt {3}}{2}\\right) ^ {2}} + \\frac {1}{\\sqrt {3}} \\frac {\\frac {\\sqrt {3}}{2}}{\\left(s + \\frac {1}{2}\\right) ^ {2} + \\left(\\frac {\\sqrt {3}}{2}\\right) ^ {2}} - \\frac {s}{s ^ {2} + 1} \\right]",
+          "image_source": "images/page_363_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.245,
+            0.373,
+            0.263
+          ],
+          "content": "求 $U_{c}(s)$ 的反变换,则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.223,
+            0.266,
+            0.763,
+            0.307
+          ],
+          "content": "u _ {c} (t) = \\mathscr {L} ^ {- 1} [ U _ {c} (s) ] = 2 0 \\mathrm{e} ^ {- \\frac {1}{2} t} \\left[ \\cos \\left(\\frac {\\sqrt {3}}{2} t\\right) + \\frac {1}{\\sqrt {3}} \\sin \\left(\\frac {\\sqrt {3}}{2} t\\right) \\right] - 2 0 \\cos t",
+          "image_source": "images/page_363_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.31,
+            0.669,
+            0.352
+          ],
+          "content": "即 $u_{c}(t) = \\left\\{20\\mathrm{e}^{-\\frac{1}{2} t}\\left[\\cos \\left(\\frac{\\sqrt{3}}{2} t\\right) + \\frac{1}{\\sqrt{3}}\\sin \\left(\\frac{\\sqrt{3}}{2} t\\right)\\right] - 20\\cos t\\right\\} \\varepsilon (t)$ V."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.126,
+            0.353,
+            0.86,
+            0.46
+          ],
+          "content": "第十四章采用拉普拉斯变换法分析动态电路，与第七章直接在时域通过微分方程求解分析不同，拉普拉斯变换法是建立动态电路的复频域模型，通过复数代数方程求解，先求得电路的复频域响应(象函数)，再通过拉普拉斯反变换求得电路的时域响应。对于动态电路的分析，还可以采用第十五章介绍的状态方程法。可见，同一电路问题可以采用不同方法获得解决，所谓条条道路通罗马。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.166,
+            0.483,
+            0.457,
+            0.506
+          ],
+          "level": 2,
+          "content": "§14-6 网络函数的定义"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.126,
+            0.53,
+            0.857,
+            0.569
+          ],
+          "content": "在第十一章指出,线性电路在单一正弦激励下达到稳态时,其响应相量与激励相量之比定义为网络函数。这里讨论在 s 域的网络函数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.126,
+            0.573,
+            0.857,
+            0.613
+          ],
+          "content": "线性时不变电路在单一电源激励下,其零状态响应  $r(t)$  的象函数  $R(s)$  与激励  $e(t)$  的象函数  $E(s)$  之比定义为该电路的网络函数  $H(s)$ , 即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.42,
+            0.618,
+            0.855,
+            0.655
+          ],
+          "content": "H (s) \\stackrel {\\text {def}} {=} \\frac {R (s)}{E (s)} \\tag {14-14}",
+          "image_source": "images/page_363_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.125,
+            0.659,
+            0.857,
+            0.721
+          ],
+          "content": "由于激励  $E(s)$  可以是独立的电压源或独立的电流源, 响应  $R(s)$  可以是电路中任意两点之间的电压或任意一支路的电流, 故网络函数可能是驱动点阻抗(导纳)、转移阻抗(导纳)、电压转移函数或电流转移函数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.125,
+            0.725,
+            0.854,
+            0.765
+          ],
+          "content": "根据网络函数的定义,若  $E(s)=1$ , 则  $R(s)=H(s)$ , 即网络函数就是该响应的象函数, 而当  $E(s)=1$  时,  $e(t)=\\delta(t)$ , 所以网络函数的原函数  $h(t)$  是电路的单位冲激响应, 即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.407,
+            0.768,
+            0.855,
+            0.788
+          ],
+          "content": "h (t) = \\mathscr {L} ^ {- 1} [ H (s) ] \\tag {14-15}",
+          "image_source": "images/page_363_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.79,
+            0.856,
+            0.809
+          ],
+          "content": "例14-15 图14-13(a)中电路激励为 $i_{\\mathrm{s}}(t) = \\delta (t)$，求冲激激励下的电容电压 $u_{C}(t)$。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.125,
+            0.812,
+            0.854,
+            0.852
+          ],
+          "content": "解 图 14-13(b)为其运算电路,由于此冲激响应与冲激电流激励属于同一端口,因而网络函数为驱动点阻抗,即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.292,
+            0.856,
+            0.685,
+            0.915
+          ],
+          "content": "H (s) = \\frac {R (s)}{E (s)} = \\frac {U _ {c} (s)}{1} = Z (s) = \\frac {1}{s C + G} = \\frac {1}{C} \\cdot \\frac {1}{s + \\frac {1}{R C}}",
+          "image_source": "images/page_363_equation_18.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 364,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.557,
+            0.063,
+            0.748,
+            0.079
+          ],
+          "content": "§ 14-6 网络函数的定义"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.801,
+            0.063,
+            0.83,
+            0.077
+          ],
+          "content": "341"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.227,
+            0.114,
+            0.71,
+            0.171
+          ],
+          "content": "h (t) = u _ {C} (t) = \\mathscr {L} ^ {- 1} [ H (s) ] = \\mathscr {L} ^ {- 1} \\left[ \\frac {1}{C} \\cdot \\frac {1}{s + \\frac {1}{R C}} \\right] = \\frac {1}{C} \\mathrm{e} ^ {- \\frac {1}{R C} t} \\varepsilon (t)",
+          "image_source": "images/page_364_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.112,
+            0.179,
+            0.357,
+            0.197
+          ],
+          "content": "此结果与第七章所得的相同。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.243,
+            0.203,
+            0.455,
+            0.298
+          ],
+          "sub_type": "text_image",
+          "content": "i_S\nG = 1/R\nu_C + C\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.338,
+                0.299,
+                0.357,
+                0.311
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_364_image_4.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.469,
+            0.203,
+            0.7,
+            0.297
+          ],
+          "sub_type": "text_image",
+          "content": "I_s(s)\nG\nU_C(s) +\n-\nsC",
+          "captions": [
+            {
+              "bbox": [
+                0.569,
+                0.298,
+                0.589,
+                0.31
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.384,
+                0.317,
+                0.556,
+                0.332
+              ],
+              "content": "图14-13 例14-15图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_364_image_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.347,
+            0.837,
+            0.458
+          ],
+          "content": "例14-16 图14-14(a)所示电路为一低通滤波电路，激励是电压源 $u_{1}(t)$ 。已知$L_{1} = 1.5\\mathrm{H},C_{2} = \\frac{4}{3}\\mathrm{F},L_{3} = 0.5\\mathrm{H},R = 1\\Omega$ 。求电压转移函数 $H_{1}(s) = \\frac{U_{2}(s)}{U_{1}(s)}$ 和驱动点导纳函数 $H_{2}(s) = \\frac{I_{1}(s)}{U_{1}(s)}$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.119,
+            0.463,
+            0.458,
+            0.581
+          ],
+          "sub_type": "text_image",
+          "content": "i₁(t) L₁ L₃\nu₁(t) C₂ R i₂(t)\n+ u₂(t)",
+          "captions": [
+            {
+              "bbox": [
+                0.288,
+                0.582,
+                0.307,
+                0.594
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_364_image_10.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.486,
+            0.462,
+            0.835,
+            0.579
+          ],
+          "sub_type": "text_image",
+          "content": "I₁(s) sL₁ sL₃\nU₁(s) I₁(s) 1/sC₂ I₂(s) R I₂(s)\n+ U₂(s)",
+          "captions": [
+            {
+              "bbox": [
+                0.653,
+                0.58,
+                0.673,
+                0.593
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.388,
+                0.6,
+                0.56,
+                0.616
+              ],
+              "content": "图14-14 例14-16图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_364_image_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.119,
+            0.631,
+            0.837,
+            0.674
+          ],
+          "content": "解 给定电路的运算电路如图 14-14(b) 所示。用回路电流法列出回路电流  $I_{1}(s)$  和  $I_{2}(s)$  的方程, 有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.337,
+            0.678,
+            0.613,
+            0.716
+          ],
+          "content": "\\left(s L _ {1} + \\frac {1}{s C _ {2}}\\right) I _ {1} (s) - \\frac {1}{s C _ {2}} I _ {2} (s) = U _ {1} (s)",
+          "image_source": "images/page_364_equation_16.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.342,
+            0.72,
+            0.615,
+            0.758
+          ],
+          "content": "- \\frac {1}{s C _ {2}} I _ {1} (s) + \\left(s L _ {3} + \\frac {1}{s C _ {2}} + R\\right) I _ {2} (s) = 0",
+          "image_source": "images/page_364_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.121,
+            0.764,
+            0.166,
+            0.781
+          ],
+          "content": "解得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.361,
+            0.783,
+            0.591,
+            0.824
+          ],
+          "content": "I _ {1} (s) = \\frac {L _ {3} C _ {2} s ^ {2} + R C _ {2} s + 1}{D (s)} U _ {1} (s)",
+          "image_source": "images/page_364_equation_19.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.399,
+            0.83,
+            0.553,
+            0.866
+          ],
+          "content": "I _ {2} (s) = \\frac {1}{D (s)} U _ {1} (s)",
+          "image_source": "images/page_364_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.871,
+            0.636,
+            0.891
+          ],
+          "content": "其中 $D(s) = L_{1}L_{3}C_{2}s^{3} + RL_{1}C_{2}s^{2} + (L_{1} + L_{3})s + R$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.126,
+            0.896,
+            0.539,
+            0.913
+          ],
+          "content": "而 $U_{2}(s) = RI_{2}(s)$"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.842,
+            0.025,
+            0.964,
+            0.14
+          ],
+          "content": "1. 工程图"
+        }
+      ]
+    },
+    {
+      "page_idx": 365,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.033,
+            0.112,
+            0.142
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.126,
+            0.065,
+            0.156,
+            0.078
+          ],
+          "content": "342"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.209,
+            0.065,
+            0.497,
+            0.081
+          ],
+          "content": "第十四章 线性动态电路的复频域分析"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.116,
+            0.246,
+            0.134
+          ],
+          "content": "代入数据后得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.404,
+            0.139,
+            0.572,
+            0.159
+          ],
+          "content": "D (s) = s ^ {3} + 2 s ^ {2} + 2 s + 1",
+          "image_source": "images/page_365_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.162,
+            0.265,
+            0.18
+          ],
+          "content": "电压转移函数为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.292,
+            0.186,
+            0.682,
+            0.229
+          ],
+          "content": "H _ {1} (s) = \\frac {U _ {2} (s)}{U _ {1} (s)} = \\frac {1}{s ^ {3} + 2 s ^ {2} + 2 s + 1} = \\frac {1}{(s + 1) (s ^ {2} + s + 1)}",
+          "image_source": "images/page_365_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.122,
+            0.231,
+            0.282,
+            0.249
+          ],
+          "content": "驱动点导纳函数为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.35,
+            0.256,
+            0.624,
+            0.299
+          ],
+          "content": "H _ {2} (s) = \\frac {I _ {1} (s)}{U _ {1} (s)} = \\frac {2 s ^ {2} + 4 s + 3}{3 (s ^ {3} + 2 s ^ {2} + 2 s + 1)}",
+          "image_source": "images/page_365_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.119,
+            0.302,
+            0.853,
+            0.366
+          ],
+          "content": "由以上的例题及网络函数的定义,可见对于由  $R、L(M)$ 、C 及受控源等元件组成的电路,网络函数是 s 的实系数有理函数,其分子和分母多项式的根或为实数或为共轭复数。另外,可以看出网络函数中不会出现激励的象函数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.119,
+            0.37,
+            0.853,
+            0.409
+          ],
+          "content": "根据网络函数的定义,还可以应用卷积定理求电路响应。从式(14-14)可知,网络响应  $R(s)$  为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.408,
+            0.415,
+            0.848,
+            0.435
+          ],
+          "content": "R (s) = E (s) H (s) \\tag {14-16}",
+          "image_source": "images/page_365_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.158,
+            0.437,
+            0.515,
+            0.455
+          ],
+          "content": "求  $R(s)$  的拉氏反变换, 得到时域中的响应"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.301,
+            0.461,
+            0.848,
+            0.493
+          ],
+          "content": "r (t) = \\mathscr {L} ^ {- 1} [ E (s) H (s) ] = \\int_ {0} ^ {t} e (t - \\xi) h (\\xi) \\mathrm{d} \\xi \\tag {14-17}",
+          "image_source": "images/page_365_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.497,
+            0.851,
+            0.562
+          ],
+          "content": "这里 $e(t)$ 为外施激励的时间函数形式，$h(t)$ 为网络的冲激响应，给定任何激励函数后，就可以求该网络的零状态响应。所以可以通过求网络函数 $H(s)$ 与任意激励的象函数 $E(s)$ 之积 $[R(s) = E(s)H(s)]$ 的拉氏反变换求得该网络在任何激励下的零状态响应。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.157,
+            0.585,
+            0.527,
+            0.607
+          ],
+          "level": 2,
+          "content": "§14-7 网络函数的极点和零点"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.156,
+            0.632,
+            0.766,
+            0.652
+          ],
+          "content": "由于网络函数  $H(s)$  的分子和分母都是 s 的多项式, 故其一般形式可写为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.331,
+            0.654,
+            0.845,
+            0.83
+          ],
+          "content": "\\begin{array}{l} H (s) = \\frac {N (s)}{D (s)} = \\frac {b _ {m} s ^ {m} + b _ {m - 1} s ^ {m - 1} + \\cdots + b _ {0}}{a _ {n} s ^ {n} + a _ {n - 1} s ^ {n - 1} + \\cdots + a _ {0}} \\\\ = H _ {0} \\frac {\\left(s - z _ {1}\\right) \\left(s - z _ {2}\\right) \\cdots \\left(s - z _ {i}\\right) \\cdots \\left(s - z _ {m}\\right)}{\\left(s - p _ {1}\\right) \\left(s - p _ {2}\\right) \\cdots \\left(s - p _ {j}\\right) \\cdots \\left(s - p _ {n}\\right)} \\\\ = H _ {0} \\frac {\\prod_ {i = 1} ^ {m} (s - z _ {i})}{\\prod_ {j = 1} ^ {n} (s - p _ {j})} \\tag {14-18} \\\\ \\end{array}",
+          "image_source": "images/page_365_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.112,
+            0.831,
+            0.846,
+            0.919
+          ],
+          "content": "其中 $H_0$ 为一常数，$z_1, z_2, \\cdots, z_i, \\cdots, z_m$ 是 $N(s) = 0$ 的根，$p_1, p_2, \\cdots, p_j, \\cdots, p_n$ 是 $D(s) = 0$ 的根。当 $s = z_i$ 时 $H(s) = 0$，故 $z_1, z_2, \\cdots, z_i, \\cdots, z_m$ 称为网络函数的零点。当 $s = p_j$ 时，$D(s) = 0, H(s)$ 将趋近无限大，故 $p_1, p_2, \\cdots, p_j, \\cdots, p_n$ 称为网络函数的极点。如果 $N(s)$ 和 $D(s)$ 分别有重根，则称之为重零点和重极点。"
+        }
+      ]
+    },
+    {
+      "page_idx": 366,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.506,
+            0.063,
+            0.748,
+            0.079
+          ],
+          "content": "§ 14-7 网络函数的极点和零点"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.8,
+            0.063,
+            0.83,
+            0.077
+          ],
+          "content": "343"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.111,
+            0.115,
+            0.831,
+            0.178
+          ],
+          "content": "网络函数的零点和极点可能是实数、虚数或复数。如果以复数 $s$ 的实部 $\\sigma$ 为横轴，虚部 $\\mathrm{j}\\omega$ 为纵轴，就得到一个复频率平面，简称为复平面或 $s$ 平面。在复平面上把 $H(s)$ 的零点用“$\\circ$”表示，极点用“$\\times$”表示，就得到网络函数的零、极点分布图。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.111,
+            0.182,
+            0.833,
+            0.246
+          ],
+          "content": "例 14-17 图 14-15 所示电路含理想运算放大器, 已知  $u_{\\mathrm{s}}(t)=2\\varepsilon(t)\\mathrm{V}$ , 试求电压转移函数  $H(s)=\\frac{U_{2}(s)}{U_{s}(s)}$ , 并在复平面上绘出其零、极点图。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.262,
+            0.257,
+            0.691,
+            0.45
+          ],
+          "sub_type": "text_image",
+          "content": "1/2 F\nC2\nR3\n0.5 Ω\n① 1 F\nC1\n③\nR2 1 Ω\nuS(t)\n+\n-\nR1\n②\n+\n+\nu2(t)\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.388,
+                0.458,
+                0.556,
+                0.473
+              ],
+              "content": "图14-15 例14-17图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_366_image_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.155,
+            0.49,
+            0.478,
+            0.507
+          ],
+          "content": "解 对节点①、③分别列节点电压方程"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.254,
+            0.512,
+            0.701,
+            0.598
+          ],
+          "content": "\\begin{array}{l} \\left(\\frac {1}{R _ {1}} + \\frac {1}{R _ {2}} + s C _ {1} + s C _ {2}\\right) U _ {1} (s) - s C _ {1} U _ {3} (s) - s C _ {2} U _ {2} (s) = \\frac {U _ {s} (s)}{R _ {1}} \\\\ - s C _ {1} U _ {1} (s) + \\left(s C _ {1} + \\frac {1}{R _ {3}}\\right) U _ {3} (s) - \\frac {1}{R _ {3}} U _ {2} (s) = 0 \\\\ \\end{array}",
+          "image_source": "images/page_366_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.118,
+            0.602,
+            0.373,
+            0.62
+          ],
+          "content": "根据理想运算放大器的性质有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.437,
+            0.624,
+            0.516,
+            0.642
+          ],
+          "content": "U _ {3} (s) = 0",
+          "image_source": "images/page_366_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.648,
+            0.645,
+            0.734
+          ],
+          "content": "解得 $U_{2}(s) = \\frac{-\\frac{C_{1}}{R_{1}}sU_{s}(s)}{s^{2}C_{1}C_{2} + s\\frac{(C_{1} + C_{2})}{R_{3}} + \\left(\\frac{1}{R_{1}} + \\frac{1}{R_{2}}\\right)\\frac{1}{R_{3}}}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.74,
+            0.241,
+            0.757
+          ],
+          "content": "代入已知参数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.38,
+            0.761,
+            0.575,
+            0.802
+          ],
+          "content": "H (s) = \\frac {U _ {2} (s)}{U _ {\\mathrm{s}} (s)} = \\frac {- 2 s}{s ^ {2} + 6 s + 8}",
+          "image_source": "images/page_366_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.121,
+            0.807,
+            0.84,
+            0.849
+          ],
+          "content": "该网络函数有1个零点， $z_{1} = 0$ ；有2个极点， $p_1 = -2, p_2 = -4$ 。其零、极点图如图14-16所示。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.122,
+            0.852,
+            0.838,
+            0.894
+          ],
+          "content": "零、极点在 s 平面上的分布与网络的时域响应和正弦稳态响应有着密切的关系，后两节中将详细分析。"
+        }
+      ]
+    },
+    {
+      "page_idx": 367,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.027,
+            0.115,
+            0.136
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.128,
+            0.06,
+            0.157,
+            0.073
+          ],
+          "content": "344"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.211,
+            0.06,
+            0.498,
+            0.076
+          ],
+          "content": "第十四章 线性动态电路的复频域分析"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.317,
+            0.119,
+            0.662,
+            0.246
+          ],
+          "sub_type": "text_image",
+          "content": "jω\n-4 -2 O σ",
+          "captions": [
+            {
+              "bbox": [
+                0.373,
+                0.255,
+                0.604,
+                0.271
+              ],
+              "content": "图14-16 例14-17零、极点图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_367_image_3.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.305,
+            0.533,
+            0.329
+          ],
+          "level": 2,
+          "content": "§14-8 极点、零点与冲激响应"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.16,
+            0.352,
+            0.627,
+            0.371
+          ],
+          "content": "根据网络函数的定义可知,电路的零状态响应的象函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.35,
+            0.376,
+            0.624,
+            0.415
+          ],
+          "content": "R (s) = H (s) E (s) = \\frac {N (s)}{D (s)} \\cdot \\frac {P (s)}{Q (s)}",
+          "image_source": "images/page_367_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.119,
+            0.418,
+            0.853,
+            0.522
+          ],
+          "content": "式中 $H(s) = \\frac{N(s)}{D(s)}, E(s) = \\frac{P(s)}{Q(s)}$，而 $N(s), D(s), P(s), Q(s)$ 都是 $s$ 的多项式。用部分分式法求响应的原函数时，$D(s)Q(s) = 0$ 的根将包含 $D(s) = 0$ 和 $Q(s) = 0$ 的根。响应中包含 $Q(s) = 0$ 的根的那些项属于强制分量，而包含 $D(s) = 0$ 的根（即网络函数的极点）的那些项则是自由分量或瞬态分量。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.157,
+            0.527,
+            0.663,
+            0.546
+          ],
+          "content": "若网络函数为真分式且分母具有单根,则网络的冲激响应为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.288,
+            0.552,
+            0.848,
+            0.591
+          ],
+          "content": "h (t) = \\mathcal {L} ^ {- 1} [ H (s) ] = \\mathcal {L} ^ {- 1} \\left[ \\sum_ {i = 1} ^ {n} \\frac {K _ {i}}{s - p _ {i}} \\right] = \\sum_ {i = 1} ^ {n} K _ {i} \\mathrm{e} ^ {p _ {i} t} \\tag {14-19}",
+          "image_source": "images/page_367_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.598,
+            0.85,
+            0.821
+          ],
+          "content": "式中 $p_i$ 为 $H(s)$ 的极点。从式(14-19)可以看出，当 $p_i$ 为负实根时，$\\mathrm{e}^{p_i t}$ 为衰减指数函数；当 $p_i$ 为正实根时，$\\mathrm{e}^{p_i t}$ 为增长的指数函数；而且 $|p_i|$ 越大，衰减或增长的速度越快。这说明若 $H(s)$ 的极点都位于负实轴上，则 $h(t)$ 将随 $t$ 的增大而衰减，这种电路是稳定的；若有一个极点位于正实轴上，则 $h(t)$ 将随 $t$ 的增长而增长，这种电路是不稳定的。当极点 $p_i$ 为共轭复数时，根据式(14-19)可知 $h(t)$ 是以指数曲线为包络线的正弦函数，其实部的正或负确定增长或衰减的正弦项。当 $p_i$ 为虚根时，则将是纯正弦项。图14-17画出了网络函数的极点分别为负实数、正实数、虚数以及共轭复数时，对应的时域响应的波形。总之，只要极点位于左半平面，则 $h(t)$ 必随时间增长而衰减，故电路是稳定的。所以一个实际的线性电路，其网络函数的极点一定位于左半平面。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.827,
+            0.846,
+            0.889
+          ],
+          "content": "从式(14-19)还可以看出, $p_{i}$ 仅由电路的结构及元件值确定,因而将 $p_{i}$ 称为该电路变量的自然频率或固有频率, $p_{i}$ 也称为该电路的一个固有频率。因此,电路的固有频率就是该电路所有变量的固有频率。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.153,
+            0.894,
+            0.845,
+            0.914
+          ],
+          "content": "由于一般情况下  $h(t)$  的特性就是时域响应中自由分量的特性,而强制分量的特点"
+        }
+      ]
+    },
+    {
+      "page_idx": 368,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.515,
+            0.064,
+            0.743,
+            0.079
+          ],
+          "content": "§ 14-8 极点、零点与冲激响应"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.8,
+            0.064,
+            0.828,
+            0.076
+          ],
+          "content": "345"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.11,
+            0.115,
+            0.827,
+            0.157
+          ],
+          "continues_prev": true,
+          "content": "又仅仅决定于激励的变化规律,所以,根据  $H(s)$  的极点分布情况和激励的变化规律不难预见时域响应的全部特点。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.189,
+            0.167,
+            0.761,
+            0.62
+          ],
+          "sub_type": "text_image",
+          "content": "jω\nO\nt\nO\nt\nO\nσ\nO\nt\nO\nt",
+          "captions": [
+            {
+              "bbox": [
+                0.348,
+                0.628,
+                0.599,
+                0.644
+              ],
+              "content": "图14-17 极点与冲激响应的关系"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_368_image_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.662,
+            0.834,
+            0.729
+          ],
+          "content": "例 14-18 RLC 串联电路接通恒定电压源  $U_{s}$ ，如图 14-18(a) 所示。根据网络函数  $H(s)=\\frac{U_{c}(s)}{U_{s}(s)}$  的极点分布情况分析  $u_{c}(t)$  的变化规律。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.231,
+            0.737,
+            0.51,
+            0.858
+          ],
+          "sub_type": "text_image",
+          "content": "S(t=0)\nR\nL\nUs\n+\n-\nC\n+\nuc\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.376,
+                0.874,
+                0.395,
+                0.888
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_368_image_6.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.529,
+            0.733,
+            0.722,
+            0.871
+          ],
+          "sub_type": "text_image",
+          "content": "jω\np₁'\np₁\njωₐ\np₂\"\np₁\"\nO\nσ\np₂\np₂'",
+          "captions": [
+            {
+              "bbox": [
+                0.616,
+                0.873,
+                0.636,
+                0.887
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.39,
+                0.897,
+                0.56,
+                0.912
+              ],
+              "content": "图14-18 例14-18图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_368_image_8.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.84,
+            0.029,
+            0.964,
+            0.142
+          ],
+          "sub_type": "natural_image",
+          "content": "Pure technical line drawing of intersecting lines and shapes without any text, numbers, or symbols",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_368_image_11.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 369,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.029,
+            0.117,
+            0.142
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.13,
+            0.064,
+            0.159,
+            0.077
+          ],
+          "content": "346"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.212,
+            0.064,
+            0.499,
+            0.079
+          ],
+          "content": "第十四章 线性动态电路的复频域分析"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.169,
+            0.116,
+            0.451,
+            0.174
+          ],
+          "content": "解 $H(s) = \\frac{U_{c}(s)}{U_{s}(s)} = \\frac{1}{R + sL + \\frac{1}{sC}}\\cdot \\frac{1}{sC}$"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.254,
+            0.182,
+            0.531,
+            0.219
+          ],
+          "content": "= \\frac {1}{s ^ {2} L C + s R C + 1} = \\frac {1}{L C} \\frac {1}{\\left(s - p _ {1}\\right) \\left(s - p _ {2}\\right)}",
+          "image_source": "images/page_369_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.166,
+            0.225,
+            0.512,
+            0.263
+          ],
+          "content": "(1) 当  $0 < R < 2 \\sqrt{\\frac{L}{C}}$  时,  $p_{1,2} = -\\delta \\pm j \\omega_{d}$ , 其中"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.365,
+            0.269,
+            0.614,
+            0.309
+          ],
+          "content": "\\delta = \\frac {R}{2 L}, \\omega_ {\\mathrm{d}} = \\sqrt {\\omega_ {0} ^ {2} - \\delta^ {2}}, \\omega_ {0} = \\frac {1}{\\sqrt {L C}}",
+          "image_source": "images/page_369_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.124,
+            0.312,
+            0.857,
+            0.375
+          ],
+          "content": "这时 $H(s)$ 的极点位于左半平面，如图14-18(b)中的 $p_1, p_2$，因此 $u_c(t)$ 的自由分量 $u_c''(t)$ 为衰减的正弦振荡，其包络线的指数为 $\\mathrm{e}^{-\\delta t}$，振荡角频率为 $\\omega_{\\mathrm{d}}$ 且极点离开虚轴越远，振荡衰减越快。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.38,
+            0.854,
+            0.42
+          ],
+          "content": "（2）当 R=0 时， $\\delta=0,\\omega_{d}=\\omega_{0}$ ，故  $p_{1,2}^{\\prime}=\\pm\\mathrm{j}\\omega_{0}$ ，这说明  $H(s)$  的极点位于虚轴上，因此， $u_{c}^{\\prime\\prime}(t)$  为等幅振荡且  $\\omega_{d}$  的绝对值越大，等幅振荡的振荡频率越高。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.425,
+            0.356,
+            0.463
+          ],
+          "content": "(3) 当  $R > 2 \\sqrt{\\frac{L}{C}}$  时, 有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.387,
+            0.47,
+            0.589,
+            0.558
+          ],
+          "content": "\\begin{array}{l} p _ {1} ^ {\\prime \\prime} = - \\frac {R}{2 L} + \\sqrt {\\left(\\frac {R}{2 L}\\right) ^ {2} - \\frac {1}{L C}} \\\\ p _ {2} ^ {\\prime \\prime} = - \\frac {R}{2 L} - \\sqrt {\\left(\\frac {R}{2 L}\\right) ^ {2} - \\frac {1}{L C}} \\\\ \\end{array}",
+          "image_source": "images/page_369_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.56,
+            0.853,
+            0.599
+          ],
+          "content": "此时  $H(s)$  的极点位于负实轴上，因此  $u_{c}^{\\prime\\prime}(t)$  是由 2 个衰减速度不同的指数函数组成。且极点离原点越远， $u_{c}^{\\prime\\prime}(t)$  衰减越快。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.16,
+            0.603,
+            0.705,
+            0.622
+          ],
+          "content": "$u_{c}(t)$ 中的强制分量 $u_{c}^{\\prime}(t)$ 取决于激励的情况,本例中 $u_{c}^{\\prime}(t)=U_{s}$ 。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.645,
+            0.532,
+            0.667
+          ],
+          "level": 2,
+          "content": "§14-9 极点、零点与频率响应"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.121,
+            0.692,
+            0.853,
+            0.776
+          ],
+          "content": "如果用相量法求图 14-14(a) 所示电路在正弦稳态情况下的电压转移函数, 则图 14-14(b) 中的 $sL_{1}、\\frac{1}{sC_{2}}$ 和 $sL_{3}$ 将分别是 $\\mathrm{j}\\omega L_{1}、\\frac{1}{\\mathrm{j}\\omega C_{2}}$ 和 $\\mathrm{j}\\omega L_{3}$, 输入电压 $U_{1}(s)$ 和输出电压 $U_{2}(s)$ 将是相量 $\\dot{U}_{1}$ 和 $\\dot{U}_{2}$, 而回路电流将是相量 $\\dot{I}_{1}$ 和 $\\dot{I}_{2}$。不难求得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.43,
+            0.781,
+            0.545,
+            0.817
+          ],
+          "content": "\\dot {I} _ {2} = \\frac {1}{D (\\mathrm{j} \\omega)} \\dot {U} _ {1}",
+          "image_source": "images/page_369_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.82,
+            0.61,
+            0.839
+          ],
+          "content": "其中  $D(j\\omega)=L_{1}L_{3}C_{2}(j\\omega)^{3}+RL_{1}C_{2}(j\\omega)^{2}+(L_{1}+L_{2})j\\omega+R$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.121,
+            0.842,
+            0.253,
+            0.86
+          ],
+          "content": "代入数据后,有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.356,
+            0.862,
+            0.61,
+            0.914
+          ],
+          "content": "\\frac {\\dot {U} _ {2}}{\\dot {U} _ {1}} = \\frac {1}{(\\mathrm{j} \\omega) ^ {3} + 2 (\\mathrm{j} \\omega) ^ {2} + 2 (\\mathrm{j} \\omega) + 1}",
+          "image_source": "images/page_369_equation_18.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 370,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.51,
+            0.066,
+            0.741,
+            0.081
+          ],
+          "content": "§ 14-9 极点、零点与频率响应"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.796,
+            0.066,
+            0.825,
+            0.079
+          ],
+          "content": "347"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.116,
+            0.826,
+            0.213
+          ],
+          "content": "可见,若把例14-16的解 $H_{1}(s)$ 中的s用jω代替,则 $H_{1}(j\\omega)=\\frac{\\dot{U}_{2}}{\\dot{U}_{1}}$ 。就是说,在 $s=j\\omega$ 处计算所得网络函数 $H_{1}(s)$ 即 $H_{1}(j\\omega)$ ,而 $H_{1}(j\\omega)$ 是角频率为 $\\omega$ 时正弦稳态情况下的输出相量与输入相量之比。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.218,
+            0.22,
+            0.235
+          ],
+          "content": "同理,有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.361,
+            0.235,
+            0.572,
+            0.287
+          ],
+          "content": "H _ {2} (\\mathrm{j} \\omega) = H _ {2} (s) \\mid_ {s = \\mathrm{j} \\omega} = \\frac {\\dot {I} _ {1}}{\\dot {U} _ {1}}",
+          "image_source": "images/page_370_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.291,
+            0.829,
+            0.355
+          ],
+          "content": "上述结论在一般情况下也成立。所以，如果令网络函数  $H(s)$  中复频率 s 等于  $j\\omega$ ，分析  $H(j\\omega)$  随  $\\omega$  变化的情况就可以预见相应的转移函数或驱动点函数在正弦稳态情况下随  $\\omega$  变化的特性。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.359,
+            0.665,
+            0.376
+          ],
+          "content": "对于某一固定角频率  $\\omega, H(j\\omega)$  通常是一个复数, 即可以表示为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.293,
+            0.38,
+            0.826,
+            0.406
+          ],
+          "content": "H (\\mathrm{j} \\omega) = | H (\\mathrm{j} \\omega) | \\mathrm{e} ^ {\\mathrm{j} \\varphi} = | H (\\mathrm{j} \\omega) | / \\varphi (\\mathrm{j} \\omega) \\tag {14-20}",
+          "image_source": "images/page_370_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.11,
+            0.409,
+            0.832,
+            0.496
+          ],
+          "content": "式中 $|H(\\mathrm{j}\\omega)|$ 为网络函数在频率 $\\omega$ 处的模值，而 $\\varphi = \\arg [H(\\mathrm{j}\\omega)]$ 为网络函数在频率 $\\omega$ 处的相位。将 $|H(\\mathrm{j}\\omega)|$ 随 $\\omega$ 变化的关系称为幅值频率响应，简称幅频响应；$\\arg [H(\\mathrm{j}\\omega)]$ 随 $\\omega$ 变化的关系称为相位频率响应，简称相频特性。显然，这里关于 $H(\\mathrm{j}\\omega)$ 的定义和讨论与第十一章的内容是一致的。根据式(14-18)有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.361,
+            0.502,
+            0.572,
+            0.582
+          ],
+          "content": "H (\\mathrm{j} \\omega) = H _ {0} \\frac { \\prod_ {i = 1} ^ {m} (\\mathrm{j} \\omega - z _ {i})}{ \\prod_ {j = 1} ^ {n} (\\mathrm{j} \\omega - p _ {j})}",
+          "image_source": "images/page_370_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.585,
+            0.178,
+            0.601
+          ],
+          "content": "于是有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.339,
+            0.606,
+            0.829,
+            0.687
+          ],
+          "content": "\\mid H (\\mathrm{j} \\omega) \\mid = H _ {0} \\frac {\\prod_ {i = 1} ^ {m} \\mid (\\mathrm{j} \\omega - z _ {i}) \\mid}{\\prod_ {j = 1} ^ {n} \\mid (\\mathrm{j} \\omega - p _ {j}) \\mid} \\tag {14-21}",
+          "image_source": "images/page_370_equation_11.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.29,
+            0.69,
+            0.649,
+            0.727
+          ],
+          "content": "\\arg \\left[ H (\\mathrm{j} \\omega) \\right] = \\sum_ {i = 1} ^ {m} \\arg \\left(\\mathrm{j} \\omega - z _ {i}\\right) - \\sum_ {j = 1} ^ {n} \\arg \\left(\\mathrm{j} \\omega - p _ {j}\\right)",
+          "image_source": "images/page_370_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.729,
+            0.831,
+            0.77
+          ],
+          "content": "所以若已知网络函数的极点和零点，则按式(14-21)便可以计算对应的频率响应，同时还可以通过在 $s$ 平面上作图的方法定性描绘出频率响应。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.775,
+            0.596,
+            0.816
+          ],
+          "content": "例 14-19 图 14-19 为 RC 串联电路, 试定性分析以电压  $u_{2}$  为输出时该电路的频率响应。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.154,
+            0.819,
+            0.452,
+            0.837
+          ],
+          "content": "解 以 $u_{2}$ 为电路变量的网络函数为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.27,
+            0.842,
+            0.445,
+            0.917
+          ],
+          "content": "H (s) = \\frac {U _ {2} (s)}{U _ {1} (s)} = \\frac {\\frac {1}{R C}}{s + \\frac {1}{R C}}",
+          "image_source": "images/page_370_equation_16.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.61,
+            0.779,
+            0.834,
+            0.89
+          ],
+          "sub_type": "text_image",
+          "content": "R\n+\nu₁\n-\nC\n+\nu₂\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.633,
+                0.898,
+                0.805,
+                0.913
+              ],
+              "content": "图14-19 例14-19图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_370_image_17.jpg"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.837,
+            0.027,
+            0.964,
+            0.144
+          ],
+          "content": ""
+        }
+      ]
+    },
+    {
+      "page_idx": 371,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.03,
+            0.117,
+            0.142
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.131,
+            0.064,
+            0.16,
+            0.078
+          ],
+          "content": "348"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.211,
+            0.063,
+            0.5,
+            0.08
+          ],
+          "content": "第十四章 线性动态电路的复频域分析"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.116,
+            0.453,
+            0.152
+          ],
+          "content": "其极点  $p_{1}=-\\frac{1}{RC}$ ，如图 14-20(a). 所示。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.158,
+            0.393,
+            0.177
+          ],
+          "content": "将  $H(s)$  中 s 用  $j\\omega$  代替, 得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.424,
+            0.182,
+            0.564,
+            0.259
+          ],
+          "content": "H (\\mathrm{j} \\omega) = \\frac {\\frac {1}{R C}}{\\mathrm{j} \\omega + \\frac {1}{R C}}",
+          "image_source": "images/page_371_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.125,
+            0.267,
+            0.862,
+            0.37
+          ],
+          "content": "$H(\\mathrm{j}\\omega)$ 在 $\\omega = \\omega_{1},\\omega_{2}$ 和 $\\omega_{3}$ 时的模值分别为 $\\frac{1}{RC}$ 除以图14-20(a)中的线段长度 $M_{1},M_{2}$ 和$M_3$ ，对应的相位分别为同图中的 $\\theta_{1},\\theta_{2}$ 和 $\\theta_{3}$ 的负值。随 $\\omega$ 从零沿虚轴向 $\\infty$ 增长时，$|H(\\mathrm{j}\\omega)|$ 趋于零，而相位从零趋近- $90^{\\circ}$ 。由此定性画出的幅频特性和相频特性分别如图14-20(b)和(c)所示。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.345,
+            0.377,
+            0.607,
+            0.542
+          ],
+          "sub_type": "text_image",
+          "content": "jω\njω₃\nM₃\njω₂\nM₂\njω₁\nM₁\nθ₁ θ₂ θ₃\n-1/RC O σ",
+          "captions": [
+            {
+              "bbox": [
+                0.466,
+                0.546,
+                0.487,
+                0.56
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_371_image_7.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.235,
+            0.543,
+            0.46,
+            0.759
+          ],
+          "sub_type": "line",
+          "content": "| 0 | 1 |\n| --- | --- |\n| \\(\\omega1\\) | ~0.85 |\n| \\(\\omega2\\) | ~0.65 |\n| \\(\\omega3\\) | ~0.45 |",
+          "captions": [
+            {
+              "bbox": [
+                0.339,
+                0.765,
+                0.361,
+                0.779
+              ],
+              "content": "(b)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_371_chart_9.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.509,
+            0.581,
+            0.734,
+            0.757
+          ],
+          "sub_type": "line",
+          "content": "| Point | \\(\\omega\\) | \\(\\theta\\) |\n| --- | --- | --- |\n| Start | 0 | 0 |\n| \\(\\omega_{1}\\) | \\(\\omega_{1}\\) | ~\\(\\pi/2\\) |\n| \\(\\omega_{2}\\) | \\(\\omega_{2}\\) | ~\\(\\pi/4\\) |\n| \\(\\omega_{3}\\) | \\(\\omega_{3}\\) | ~\\(\\pi/8\\) |",
+          "captions": [
+            {
+              "bbox": [
+                0.609,
+                0.766,
+                0.629,
+                0.78
+              ],
+              "content": "(c)"
+            },
+            {
+              "bbox": [
+                0.353,
+                0.789,
+                0.616,
+                0.806
+              ],
+              "content": "图14-20 $RC$ 串联电路的频率响应"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_371_chart_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.818,
+            0.853,
+            0.917
+          ],
+          "content": "可以看出，该电路具有低通特性。当 $\\omega = 0$ 时，$\\frac{\\dot{U}_2}{\\dot{U}_1} = 1 / 0^\\circ$；$\\omega = \\frac{1}{RC}$ 时，$\\frac{\\dot{U}_2}{\\dot{U}_1} = \\frac{1}{1 + j} = \\frac{1}{\\sqrt{2}} / -45^\\circ$，即 $\\frac{U_2}{U_1} = 0.707$，相当于 $\\omega = 0$ 时模值的 0.707，此频率有时称为低通滤波电路的"
+        }
+      ]
+    },
+    {
+      "page_idx": 372,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.51,
+            0.063,
+            0.741,
+            0.078
+          ],
+          "content": "§ 14-9 极点、零点与频率响应"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.797,
+            0.062,
+            0.826,
+            0.075
+          ],
+          "content": "349"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.115,
+            0.581,
+            0.133
+          ],
+          "continues_prev": true,
+          "content": "截止频率,用  $\\omega_{c}$  表示,而 0 到  $\\omega_{c}$  的频率范围称为通频带。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.137,
+            0.826,
+            0.205
+          ],
+          "content": "例 14-20 图 14-21(a) 所示为 RLC 串联电路, 设电容电压为输出电压  $u_{2}$ , 电压转移函数  $H(s)=\\frac{U_{2}(s)}{U_{1}(s)}$ ; 试根据该网络函数的极点和零点, 定性地绘出  $H(j\\omega)$ 。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.212,
+            0.388,
+            0.286
+          ],
+          "content": "解 $H(s) = \\frac{U_2(s)}{U_1(s)} = \\frac{\\frac{1}{sC}}{R + sL + \\frac{1}{sC}}$"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.149,
+            0.212,
+            0.451,
+            0.382
+          ],
+          "content": "\\begin{array}{l} = \\frac {1}{L C} \\frac {1}{(s - p _ {1}) (s - p _ {2})} \\\\ = H _ {0} \\frac {1}{(s - p _ {1}) (s - p _ {2})} \\\\ \\end{array}",
+          "image_source": "images/page_372_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.111,
+            0.389,
+            0.207,
+            0.406
+          ],
+          "content": "令 $s = \\mathrm{j}\\omega$ ，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.331,
+            0.41,
+            0.607,
+            0.456
+          ],
+          "content": "\\frac {\\dot {U} _ {2}}{\\dot {U} _ {1}} = H (\\mathrm{j} \\omega) = H _ {0} \\frac {1}{(\\mathrm{j} \\omega - p _ {1}) (\\mathrm{j} \\omega - p _ {2})}",
+          "image_source": "images/page_372_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.111,
+            0.464,
+            0.336,
+            0.481
+          ],
+          "content": "设极点为一对共轭复数,即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.328,
+            0.49,
+            0.607,
+            0.532
+          ],
+          "content": "p _ {1, 2} = - \\frac {R}{2 L} \\pm \\mathrm{j} \\sqrt {\\frac {1}{L C} - \\left(\\frac {R}{2 L}\\right) ^ {2}} = - \\delta \\pm \\mathrm{j} \\omega_ {\\mathrm{d}}",
+          "image_source": "images/page_372_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.111,
+            0.542,
+            0.778,
+            0.582
+          ],
+          "content": "式中 $\\omega_{\\mathrm{d}} = \\sqrt{\\omega_0^2 - \\delta^2}$，而 $\\omega_0 = \\frac{1}{\\sqrt{LC}} = \\sqrt{\\omega_{\\mathrm{d}}^2 + \\delta^2}$。当 $\\omega = \\omega_{1}$ 时，有[如图14-21(b)所示]"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.306,
+            0.589,
+            0.641,
+            0.631
+          ],
+          "content": "\\mid H (\\mathrm{j} \\omega_ {1}) \\mid = \\frac {H _ {0}}{\\mid \\mathrm{j} \\omega_ {1} - p _ {1} \\mid \\mid \\mathrm{j} \\omega_ {1} - p _ {2} \\mid} = \\frac {H _ {0}}{M _ {1} M _ {2}}",
+          "image_source": "images/page_372_equation_11.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.373,
+            0.637,
+            0.566,
+            0.656
+          ],
+          "content": "\\arg \\bigl [ H (\\mathrm{j} \\omega) \\bigr ] = - (\\theta_ {1} + \\theta_ {2})",
+          "image_source": "images/page_372_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.663,
+            0.571,
+            0.68
+          ],
+          "content": "定性绘出幅频特性和相频特性如图 14-21(c)(d) 所示。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.685,
+            0.834,
+            0.915
+          ],
+          "content": "从上述分析中可以看出, 当 $p_1, p_2$ 远离虚轴, 如图 14-21(b) 所示位置时, 随 $\\omega$ 变化的 $M_1$ 和 $M_2$ 的变化几乎相等, 可以看到没有一个极点对频率响应起主要作用。如果极点位置如图 14-21(e) 所示, 即极点 $p_1, p_2$ 接近 j$\\omega$ 轴, 则在 j$\\omega$ 与 $p_1$ 之间的向量 $M_1$ 的长度和角度对 $|H(j\\omega)|$ 和 $\\arg[H(j\\omega)]$ 都产生较大的影响, 而 $M_2$ 却改变较少。经分析计算可得到, 当 $\\omega \\approx \\omega_0$ 时, $|H(j\\omega)|$ 达到峰值, 而 $\\omega = \\omega_0 = \\frac{1}{\\sqrt{LC}}$ 为 RLC 串联电路的谐振角频率。因此, 当极点为共轭复数时, 极点到坐标原点的距离与极点的实部之比对网络的频率响应影响很大, 有时把此值的一半, 即 $\\frac{\\omega_0}{2\\delta}$ 定义为极点的品质因数, 以 $Q_p$ 表示。对于二阶电路"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.837,
+            0.023,
+            0.967,
+            0.138
+          ],
+          "content": ""
+        }
+      ]
+    },
+    {
+      "page_idx": 373,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.029,
+            0.117,
+            0.142
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.13,
+            0.064,
+            0.159,
+            0.078
+          ],
+          "content": "350"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.213,
+            0.064,
+            0.5,
+            0.08
+          ],
+          "content": "第十四章 线性动态电路的复频域分析"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.386,
+            0.118,
+            0.597,
+            0.158
+          ],
+          "content": "Q _ {p} = \\frac {\\omega_ {0}}{2 \\delta} = \\frac {\\omega_ {0} L}{R} = \\frac {1}{R} \\sqrt {\\frac {L}{C}} = Q",
+          "image_source": "images/page_373_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.126,
+            0.162,
+            0.484,
+            0.181
+          ],
+          "content": "可以看出  $Q_{p}=Q$ ，而 Q 即回路的品质因数。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.224,
+            0.241,
+            0.477,
+            0.354
+          ],
+          "sub_type": "text_image",
+          "content": "R\nL\n+\nu₁\n-\nC\n+\nu₂\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.339,
+                0.362,
+                0.36,
+                0.376
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_373_image_5.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.556,
+            0.192,
+            0.75,
+            0.361
+          ],
+          "sub_type": "text_image",
+          "content": "jω\nP₁\nθ₁\nM₁\nO\nσ\nM₂\nθ₂\nP₂",
+          "captions": [
+            {
+              "bbox": [
+                0.639,
+                0.363,
+                0.661,
+                0.378
+              ],
+              "content": "(b)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_373_image_7.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.187,
+            0.413,
+            0.473,
+            0.546
+          ],
+          "sub_type": "line",
+          "content": "| 0 | 1 |\n| --- | --- |\n| ~0.25 | ~0.9 |\n| ~0.5 | ~0.6 |\n| ~0.75 | ~0.3 |\n| 1 | ~0.1 |",
+          "captions": [
+            {
+              "bbox": [
+                0.337,
+                0.556,
+                0.358,
+                0.571
+              ],
+              "content": "(c)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_373_chart_9.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.48,
+            0.393,
+            0.777,
+            0.543
+          ],
+          "sub_type": "line",
+          "content": "| \\(\\omega\\) | \\(arg[H(j\\omega)]\\) |\n| --- | --- |\n| 0 | 0 |\n| \\(\\omega_{0}\\) | \\(\\pi/2\\) |\n| \\(>\\omega_{0}\\) | \\(-\\pi\\) |",
+          "captions": [
+            {
+              "bbox": [
+                0.638,
+                0.557,
+                0.659,
+                0.572
+              ],
+              "content": "(d)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_373_chart_11.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.275,
+            0.59,
+            0.418,
+            0.75
+          ],
+          "sub_type": "text_image",
+          "content": "jω\np₁\nM₁\nθ₁\nO\nσ\nM₂\nθ₂\np₂",
+          "captions": [
+            {
+              "bbox": [
+                0.341,
+                0.758,
+                0.362,
+                0.772
+              ],
+              "content": "(e)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_373_image_13.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.51,
+            0.59,
+            0.791,
+            0.751
+          ],
+          "sub_type": "line",
+          "content": "| 0 | 1 | 1 |\n| --- | --- | --- |\n| \\(\\omega0\\) | ~0.8 | ~1.4 |",
+          "captions": [
+            {
+              "bbox": [
+                0.647,
+                0.759,
+                0.667,
+                0.774
+              ],
+              "content": "(f)"
+            },
+            {
+              "bbox": [
+                0.399,
+                0.783,
+                0.571,
+                0.798
+              ],
+              "content": "图14-21 例14-20图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_373_chart_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.121,
+            0.817,
+            0.85,
+            0.903
+          ],
+          "content": "根据第十一章讨论可知,对例14-20中的电路,当 $Q_{p}<\\frac{1}{\\sqrt{2}}$ 时, $|H(j\\omega)|$ 随 $\\omega$ 的增长而单调减小,如图14-21(c)所示,而当 $Q_{p}$ 增大时, $|H(j\\omega)|$ 出现峰值,如图14-21(f)所示,且峰值随 $Q_{p}$ 的增大而增大,峰值对应的频率值 $\\omega$ 随 $Q_{p}$ 的增大而趋于 $\\omega_{0}$ 。"
+        }
+      ]
+    },
+    {
+      "page_idx": 374,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.701,
+            0.062,
+            0.736,
+            0.077
+          ],
+          "content": "习题"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.792,
+            0.063,
+            0.82,
+            0.075
+          ],
+          "content": "351"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.834,
+            0.022,
+            0.962,
+            0.142
+          ],
+          "content": "1. 工程图"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.105,
+            0.131,
+            0.131,
+            0.164
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_374_image_3.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.139,
+            0.137,
+            0.229,
+            0.156
+          ],
+          "level": 2,
+          "content": "思考题"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.182,
+            0.823,
+            0.246
+          ],
+          "content": "14-1 在应用拉普拉斯变换法分析含有耦合电感的电路时,一种方法是直接分析,一种是用去耦等效电路分析,试比较这两种方法在处理附加电源的方法上有何不同。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.249,
+            0.823,
+            0.291
+          ],
+          "content": "14-2 试比较经典法和运算法两种方法,总结一下什么情况宜用经典法,什么情况宜用运算法。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.294,
+            0.824,
+            0.336
+          ],
+          "content": "14-3 当激励是冲激函数时,试比较用经典法和拉普拉斯变化法求解的结果是否完全相同。为什么？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.339,
+            0.824,
+            0.381
+          ],
+          "content": "14-4 求拉普拉斯反变换,除了本章介绍的部分分式展开法外,试采用复变函数中的方法。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.145,
+            0.385,
+            0.775,
+            0.402
+          ],
+          "content": "14-5 试分析网络函数的零、极点在复平面不同位置时,对网络函数的影响。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.109,
+            0.407,
+            0.825,
+            0.47
+          ],
+          "content": "14-6 对于线性电路,我们总可以获得某个网络函数,例如它是电路中一条支路上的电压与电压源电压之比。请说明在相同激励位置施加正弦电压激励时,若电路达到稳态,在响应位置处电压与网络函数的关系。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.106,
+            0.492,
+            0.136,
+            0.524
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_374_image_11.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.142,
+            0.497,
+            0.211,
+            0.516
+          ],
+          "level": 2,
+          "content": "习题"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.543,
+            0.41,
+            0.56
+          ],
+          "content": "14-1 求下列各函数的象函数:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.566,
+            0.291,
+            0.586
+          ],
+          "content": "(1) $f(t) = 1 - \\mathrm{e}^{-at}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.46,
+            0.566,
+            0.637,
+            0.584
+          ],
+          "content": "(2) $f(t) = \\sin (\\omega t + \\varphi)$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.602,
+            0.322,
+            0.621
+          ],
+          "content": "(3) $f(t) = \\mathrm{e}^{-at}(1 - at)$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.46,
+            0.593,
+            0.631,
+            0.626
+          ],
+          "content": "(4) $f(t) = \\frac{1}{a} (1 - \\mathrm{e}^{-at})$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.636,
+            0.254,
+            0.656
+          ],
+          "content": "(5) $f(t) = t^2$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.46,
+            0.636,
+            0.634,
+            0.654
+          ],
+          "content": "(6) $f(t) = t + 2 + 3\\delta (t)$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.662,
+            0.313,
+            0.681
+          ],
+          "content": "(7) $f(t) = t\\cos (at)$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.46,
+            0.661,
+            0.623,
+            0.679
+          ],
+          "content": "(8) $f(t) = \\mathrm{e}^{-at} + at - 1$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.687,
+            0.411,
+            0.704
+          ],
+          "content": "14-2 求下列各函数的原函数:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.712,
+            0.303,
+            0.75
+          ],
+          "content": "(1) $\\frac{(s + 1)(s + 3)}{s(s + 2)(s + 4)}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.46,
+            0.709,
+            0.648,
+            0.75
+          ],
+          "content": "(2) $\\frac{2s^2 + 16}{(s^2 + 5s + 6)(s + 12)}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.153,
+            0.757,
+            0.27,
+            0.795
+          ],
+          "content": "(3) $\\frac{2s^2 + 9s + 9}{s^2 + 3s + 2}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.46,
+            0.756,
+            0.596,
+            0.795
+          ],
+          "content": "(4) $\\frac{s^3}{(s^2 + 3s + 2)s}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.804,
+            0.411,
+            0.821
+          ],
+          "content": "14-3 求下列各函数的原函数:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.154,
+            0.83,
+            0.305,
+            0.868
+          ],
+          "content": "(1) $\\frac{1}{(s + 1)(s + 2)^2}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.461,
+            0.827,
+            0.58,
+            0.865
+          ],
+          "content": "(2) $\\frac{(s + 1)}{s^3 + 2s^2 + 2s}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.155,
+            0.874,
+            0.29,
+            0.914
+          ],
+          "content": "(3) $\\frac{s^2 + 6s + 5}{s(s^2 + 4s + 5)}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.461,
+            0.878,
+            0.569,
+            0.912
+          ],
+          "content": "(4) $\\frac{s}{(s^2 + 1)^2}$"
+        }
+      ]
+    },
+    {
+      "page_idx": 375,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.022,
+            0.123,
+            0.139
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.137,
+            0.062,
+            0.167,
+            0.075
+          ],
+          "content": "352"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.22,
+            0.062,
+            0.507,
+            0.078
+          ],
+          "content": "第十四章 线性动态电路的复频域分析"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.114,
+            0.865,
+            0.154
+          ],
+          "content": "14-4 题 14-4 图 (a)(b)(c) 所示电路原已达稳态, t=0 时把开关 S 合上, 分别画出运算电路。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.257,
+            0.171,
+            0.734,
+            0.285
+          ],
+          "sub_type": "text_image",
+          "content": "1 H\n- 5 V +\n1 Ω\nS\n2 Ω\n2 F\n10 V +\n-\n2 H\n1 Ω\n+\n1 V -\n1 F\n+\n6 V -\n2 Ω",
+          "captions": [
+            {
+              "bbox": [
+                0.487,
+                0.29,
+                0.508,
+                0.303
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_375_image_4.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.209,
+            0.344,
+            0.52,
+            0.464
+          ],
+          "sub_type": "text_image",
+          "content": "2 A\n1 Ω\n1 H\n1 H\nS\n+\n1 V\n-\n1 F",
+          "captions": [
+            {
+              "bbox": [
+                0.341,
+                0.469,
+                0.363,
+                0.484
+              ],
+              "content": "(b)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_375_image_6.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.549,
+            0.318,
+            0.785,
+            0.468
+          ],
+          "sub_type": "text_image",
+          "content": "0.5 H\n1H\n1H\n1Ω\nS\n1F\n1F\n3Ω\n+\n-\n10 V",
+          "captions": [
+            {
+              "bbox": [
+                0.655,
+                0.471,
+                0.675,
+                0.486
+              ],
+              "content": "(c)"
+            },
+            {
+              "bbox": [
+                0.454,
+                0.494,
+                0.536,
+                0.509
+              ],
+              "content": "题14-4图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_375_image_8.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.129,
+            0.527,
+            0.86,
+            0.592
+          ],
+          "sub_type": "text",
+          "content": "14-5 题 14-5 图所示电路原处于零状态, t=0 时合上开关 S, 试求电流  $i_{L}$ 。\n14-6 电路如题 14-6 图所示, 已知  $i_{L}(0_{-}) = 0 \\mathrm{~A}, t = 0$  时将开关 S 闭合, 求 t > 0 时的  $u_{L}(t)$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.179,
+            0.609,
+            0.432,
+            0.735
+          ],
+          "sub_type": "text_image",
+          "content": "S\n(t=0)\n50 Ω\n+\n50 V\n-\n1.33 H\niL\n100 μF\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.261,
+                0.747,
+                0.341,
+                0.762
+              ],
+              "content": "题 14-5 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_375_image_14.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.492,
+            0.607,
+            0.812,
+            0.739
+          ],
+          "sub_type": "text_image",
+          "content": "4Ω\n2u₁ +\nS\n(t=0)\n10e⁻ᵗ V\n+\n-\n4Ω\nu₁ +\n-\n1 H\nuₗ\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.608,
+                0.749,
+                0.692,
+                0.764
+              ],
+              "content": "题14-6图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_375_image_16.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.128,
+            0.779,
+            0.856,
+            0.867
+          ],
+          "sub_type": "text",
+          "content": "14-7 电路如题 14-7 图所示, 设电容上原有电压  $U_{c0}=100\\ V$ , 电源电压  $U_{s}=200\\ V, R_{1}=30\\ \\Omega, R_{2}=10\\ \\Omega, L=0.1\\ H, C=1\\ 000\\ \\mu F$ 。求 S 合上后电感中的电流  $i_{L}(t)$ 。\n14-8 题 14-8 图所示电路中的储能元件均为零初始值, $u_{s}(t)=5\\varepsilon(t)\\mathrm{V}$ , 在下列条件下求  $U_{1}(s)$ :"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.17,
+            0.873,
+            0.286,
+            0.912
+          ],
+          "sub_type": "text",
+          "content": "(1) $r = -3\\Omega_{\\circ}$.\n(2)  $r=3\\ \\Omega_{0}$"
+        }
+      ]
+    },
+    {
+      "page_idx": 376,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.701,
+            0.063,
+            0.738,
+            0.078
+          ],
+          "content": "习题"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.792,
+            0.064,
+            0.822,
+            0.076
+          ],
+          "content": "353"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.105,
+            0.149,
+            0.396,
+            0.246
+          ],
+          "sub_type": "text_image",
+          "content": "R₁\niₗ\nL\nUₛ\n+\n-\nS\n-\nC\nUc₀\n+\nR₂",
+          "captions": [
+            {
+              "bbox": [
+                0.211,
+                0.257,
+                0.292,
+                0.273
+              ],
+              "content": "题14-7图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_376_image_2.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.457,
+            0.126,
+            0.821,
+            0.246
+          ],
+          "sub_type": "text_image",
+          "content": "i₁ 1 Ω\n+ uₛ -\n1 H\n1 Ω\n+\n- ri₁ +\n1 Ω\nu₁ 1 F\n-\n2 Ω",
+          "captions": [
+            {
+              "bbox": [
+                0.596,
+                0.256,
+                0.678,
+                0.272
+              ],
+              "content": "题14-8图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_376_image_4.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.105,
+            0.292,
+            0.824,
+            0.379
+          ],
+          "sub_type": "text",
+          "content": "14-9 题 14-9 图所示电路中， $i_{\\mathrm{S}} = 2 \\sin (1000 t) \\mathrm{~A}, R_{1} = R_{2} = 20 \\Omega, C = 1000 \\mu \\mathrm{F}, t = 0$ 时合上开关 S，用运算法求 $u_{C}(t)$ 。\n14-10 题 14-10 图所示电路中  $L_{1}=1\\ H, L_{2}=4\\ H, M=2\\ H, R_{1}=R_{2}=1\\ \\Omega, U_{s}=1\\ V$ ，电感中原无磁场能量。t=0 时合上开关 S，用运算法求  $i_{1}, i_{2}$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.187,
+            0.4,
+            0.399,
+            0.508
+          ],
+          "sub_type": "text_image",
+          "content": "i_S\nR_1\nC\n+\nu_C\n-\nR_2\nS",
+          "captions": [
+            {
+              "bbox": [
+                0.255,
+                0.52,
+                0.334,
+                0.535
+              ],
+              "content": "题14-9图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_376_image_9.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.462,
+            0.392,
+            0.743,
+            0.509
+          ],
+          "sub_type": "text_image",
+          "content": "S\nR₁\n+\nUₛ\n-\ni₁\nL₁\nM\nL₂ i₂\nR₂",
+          "captions": [
+            {
+              "bbox": [
+                0.557,
+                0.519,
+                0.645,
+                0.533
+              ],
+              "content": "题 14-10 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_376_image_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.554,
+            0.824,
+            0.596
+          ],
+          "content": "14-11 题图 14-11 所示电路, 当 t<0 时开关 S 打开, 电路已稳定; 当 t=0 时闭合开关 S。求当 t>0 时的电流  $i_{2}(t)$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.268,
+            0.612,
+            0.665,
+            0.768
+          ],
+          "sub_type": "text_image",
+          "content": "+\n10 V\n-\n2.5 Ω\nS\n2.5 Ω\n3 H\n2 H\ni₂(t)\n3 H\n2.5 Ω",
+          "captions": [
+            {
+              "bbox": [
+                0.42,
+                0.775,
+                0.51,
+                0.79
+              ],
+              "content": "题14-11图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_376_image_14.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.108,
+            0.807,
+            0.824,
+            0.894
+          ],
+          "sub_type": "text",
+          "content": "14-12 题图 14-12 所示电路含理想运算放大器, 已知 $R_{1} = 1 \\mathrm{k} \\Omega, R_{2} = 2 \\mathrm{k} \\Omega, C_{1} = 1 \\mu \\mathrm{F}, C_{2} = 2 \\mu \\mathrm{F}, u_{\\mathrm{S}}(t) = 2 \\varepsilon(t) \\mathrm{~V}$, 试求电压 $u_{2}(t)$。\n14-13 题图 14-13 所示电路含理想变压器, 已知 $R = 1 \\Omega, C_1 = 1 \\mathrm{~F}, C_2 = 2 \\mathrm{~F}$, $i_{\\mathrm{S}}(t) = \\mathrm{e}^{-t} \\varepsilon(t) \\mathrm{~V}$, 试求电路的零状态响应 $u(t)$。"
+        }
+      ]
+    },
+    {
+      "page_idx": 377,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.027,
+            0.123,
+            0.142
+          ],
+          "content": "图 3-1"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.135,
+            0.065,
+            0.164,
+            0.078
+          ],
+          "content": "354"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.218,
+            0.065,
+            0.505,
+            0.08
+          ],
+          "content": "第十四章 线性动态电路的复频域分析"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.133,
+            0.116,
+            0.535,
+            0.296
+          ],
+          "sub_type": "text_image",
+          "content": "i₁(t)\nC₁\nR₁\nR₂\nC₂\nuₛ(t)\n+\n-\n∞\n+\n+\nu₂(t)",
+          "captions": [
+            {
+              "bbox": [
+                0.286,
+                0.303,
+                0.376,
+                0.317
+              ],
+              "content": "题 14-12 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_377_image_3.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.56,
+            0.148,
+            0.865,
+            0.298
+          ],
+          "sub_type": "text_image",
+          "content": "i_S(t)\n+\nu(t)\n-\nR\n1:2\nC_1\nC_2",
+          "captions": [
+            {
+              "bbox": [
+                0.664,
+                0.303,
+                0.756,
+                0.318
+              ],
+              "content": "题 14-13 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_377_image_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.331,
+            0.862,
+            0.372
+          ],
+          "content": "14-14 题 14-14 图(a)所示电路激励  $u_{\\mathrm{s}}(t)$  的波形如题 14-14 图(b)所示, 已知  $R_{1}=6\\Omega, R_{2}=3\\Omega, L=1\\mathrm{H}, \\mu=1$ , 求电路的零状态响应  $i_{L}(t)$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.217,
+            0.381,
+            0.593,
+            0.494
+          ],
+          "sub_type": "text_image",
+          "content": "uS(t)\n+\n-\nR1\n+\nuL(t)\n-\nL\nR2\n+\nμuL(t)\n-\niL(t)",
+          "captions": [
+            {
+              "bbox": [
+                0.393,
+                0.498,
+                0.411,
+                0.512
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_377_image_8.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.602,
+            0.388,
+            0.774,
+            0.5
+          ],
+          "sub_type": "line",
+          "content": "| t/s | uS(t)/V |\n| --- | --- |\n| 0 | 0 |\n| 1 | 1 |",
+          "captions": [
+            {
+              "bbox": [
+                0.677,
+                0.5,
+                0.699,
+                0.514
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.45,
+                0.518,
+                0.538,
+                0.532
+              ],
+              "content": "题 14-14 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_377_chart_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.168,
+            0.548,
+            0.845,
+            0.568
+          ],
+          "content": "14-15 题 14-15 图所示各电路在 t=0 时合上开关 S，用运算法求  $i(t)$  及  $u_{c}(t)$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.253,
+            0.574,
+            0.465,
+            0.691
+          ],
+          "sub_type": "text_image",
+          "content": "100 V\n+\n-\nS\n3 μF\ni\n3 μF\n+\nuc\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.361,
+                0.694,
+                0.379,
+                0.707
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_377_image_14.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.48,
+            0.575,
+            0.735,
+            0.692
+          ],
+          "sub_type": "text_image",
+          "content": "2 Ω\n0.5 F\nS\n+\n4 V\n-\n1 F\n1 F\ni\n+\nuC\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.605,
+                0.695,
+                0.626,
+                0.708
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.447,
+                0.713,
+                0.536,
+                0.728
+              ],
+              "content": "题14-15图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_377_image_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.166,
+            0.744,
+            0.851,
+            0.764
+          ],
+          "content": "14-16 电路如题14-16图所示，已知 $u_{\\mathrm{S1}}(t) = \\varepsilon (t)\\mathrm{V},u_{\\mathrm{S2}}(t) = \\delta (t)\\mathrm{V}$ ，试求 $u_{1}(t)$ 和 $u_{2}(t)$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.334,
+            0.773,
+            0.648,
+            0.892
+          ],
+          "sub_type": "text_image",
+          "content": "1 Ω\n1 Ω\n+\nus1\n-\n1 F\n+\nu1\n-\n1 F\n+\nu2\n-\n1 Ω\n+\nus2\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.446,
+                0.9,
+                0.534,
+                0.915
+              ],
+              "content": "题14-16图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_377_image_20.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 378,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.701,
+            0.069,
+            0.739,
+            0.084
+          ],
+          "content": "习题"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.795,
+            0.07,
+            0.823,
+            0.083
+          ],
+          "content": "355"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.104,
+            0.121,
+            0.824,
+            0.209
+          ],
+          "sub_type": "text",
+          "content": "14-17 电路如题 14-17 图所示, 已知 $u_{\\mathrm{S}}(t) = [\\varepsilon(t) + \\varepsilon(t - 1) - 2\\varepsilon(t - 2)] \\mathrm{~V}$, 求 $i_{L}(t)$。\n14-18 电路如题 14-18 图所示, 开关 S 原是闭合的, 电路处于稳态。若 S 在 t=0 时打开, 已知  $U_{S}=2\\ V, L_{1}=L_{2}=1\\ H, R_{1}=R_{2}=1\\ \\Omega$ 。试求  $t\\geqslant0$  时的  $i_{1}(t)$  和  $u_{L_{2}}(t)$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.154,
+            0.222,
+            0.372,
+            0.329
+          ],
+          "sub_type": "text_image",
+          "content": "1 Ω\n+\nus\n-\n5 H\niL\n- 5 Ω",
+          "captions": [
+            {
+              "bbox": [
+                0.219,
+                0.341,
+                0.307,
+                0.356
+              ],
+              "content": "题 14-17 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_378_image_5.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.429,
+            0.217,
+            0.775,
+            0.331
+          ],
+          "sub_type": "text_image",
+          "content": "+ uL2 -\nR2\ni1\nL2\n+\nus\n-\nR1\nL1\nS(t=0)",
+          "captions": [
+            {
+              "bbox": [
+                0.555,
+                0.341,
+                0.643,
+                0.356
+              ],
+              "content": "题 14-18 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_378_image_7.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.105,
+            0.368,
+            0.824,
+            0.46
+          ],
+          "sub_type": "text",
+          "content": "14-19 题 14-19 图所示电路中 $U_{\\mathrm{s}}$ 为恒定值, $u_{C_2}(0_-) = 0$, 开关闭合前电路已达稳态, $t = 0$ 时 S 闭合, 求开关闭合后, 电容电压 $u_{C_1}$ 和 $u_{C_2}$, 电流 $i_{C_1}$ 和 $i_{C_2}$。\n14-20 题 14-20 图所示电路中两电容原来未充电，在 t=0 时将开关 S 闭合，已知  $U_{S}=10\\ V, R=5\\ \\Omega, C_{1}=2\\ F, C_{2}=3\\ F$ 。求  $t\\geqslant0$  时的  $u_{C_{1}}, u_{C_{2}}$  及  $i_{1}, i_{2}, i_{0}$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.163,
+            0.477,
+            0.428,
+            0.612
+          ],
+          "sub_type": "text_image",
+          "content": "R\n+\nUs\n-\niC1\n+\nuc1\n-\nC1\nS\n(t=0)\niC2\n+\nuc2\n-\nC2",
+          "captions": [
+            {
+              "bbox": [
+                0.254,
+                0.624,
+                0.341,
+                0.638
+              ],
+              "content": "题 14-19 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_378_image_12.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.487,
+            0.468,
+            0.765,
+            0.613
+          ],
+          "sub_type": "text_image",
+          "content": "S\n(t=0)\n+\nUs\n-\ni₁\n+\nuC₁\n-\nC₁\ni\nR\ni₂\nu_C₂\n+\nC₂\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.581,
+                0.624,
+                0.668,
+                0.638
+              ],
+              "content": "题 14-20 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_378_image_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.652,
+            0.824,
+            0.716
+          ],
+          "content": "14-21 电路如题 14-21 图所示, 已知电容 $C_{1}$ 和 $C_{2}$ 原带电荷, 方向如图所示, $C_{1} = 3 \\mathrm{~F}, q_{c_{1}}(0_{-}) = 15 \\mathrm{~C}, C_{2} = 6 \\mathrm{~F}, q_{c_{2}}(0_{-}) = 60 \\mathrm{~C}, t = 0$ 时, 开关 S 闭合, 求开关 S 闭合后电压 $u(t)$。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.27,
+            0.725,
+            0.658,
+            0.873
+          ],
+          "sub_type": "text_image",
+          "content": "10 V\n+\n-\n5 Ω\nqC1(0_)\n+\nC1\n-\nuC1\n+\n-\nuC2\nqC2(0_)\n+\nC2\n-\nuC2\nu(t)\n+\n10uC2\n-\nS",
+          "captions": [
+            {
+              "bbox": [
+                0.418,
+                0.882,
+                0.505,
+                0.896
+              ],
+              "content": "题 14-21 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_378_image_17.jpg"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.834,
+            0.029,
+            0.967,
+            0.148
+          ],
+          "content": "1. 用 $\\mathrm{H}_{2}$ 气体中加入一个液体，使气体浓度从 $\\mathrm{H}_{2}$ 气体中的 $\\mathrm{H}_{2}$ 气体的体积逐渐减小。"
+        }
+      ]
+    },
+    {
+      "page_idx": 379,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.032,
+            0.123,
+            0.148
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.133,
+            0.07,
+            0.161,
+            0.083
+          ],
+          "content": "356"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.216,
+            0.069,
+            0.501,
+            0.084
+          ],
+          "content": "第十四章 线性动态电路的复频域分析"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.128,
+            0.119,
+            0.862,
+            0.205
+          ],
+          "sub_type": "text",
+          "content": "14-22 绘出 $H(s) = \\frac{2s^2 - 12s + 16}{s^3 + 4s^2 + 6s + 3}$ 的零、极点图。\n14-23 试求题 14-23 图所示线性一端口网络的驱动点阻抗  $Z(s)$  的表达式，并在 s 平面上绘出极点和零点。已知  $R=1\\Omega, L=0.5H, C=0.5F$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.248,
+            0.213,
+            0.4,
+            0.307
+          ],
+          "sub_type": "text_image",
+          "content": "L\nR",
+          "captions": [
+            {
+              "bbox": [
+                0.315,
+                0.311,
+                0.335,
+                0.324
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_379_image_6.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.419,
+            0.213,
+            0.574,
+            0.306
+          ],
+          "sub_type": "text_image",
+          "content": "R\nL\nC",
+          "captions": [
+            {
+              "bbox": [
+                0.486,
+                0.311,
+                0.505,
+                0.324
+              ],
+              "content": "(b)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_379_image_8.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.591,
+            0.213,
+            0.745,
+            0.306
+          ],
+          "sub_type": "text_image",
+          "content": "R\nL\nC\nR",
+          "captions": [
+            {
+              "bbox": [
+                0.658,
+                0.31,
+                0.676,
+                0.324
+              ],
+              "content": "(c)"
+            },
+            {
+              "bbox": [
+                0.451,
+                0.33,
+                0.54,
+                0.344
+              ],
+              "content": "题 14-23 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_379_image_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.361,
+            0.86,
+            0.401
+          ],
+          "content": "14-24 求题 14-24 图所示各电路的驱动点阻抗  $Z(s)$  的表达式，并在 s 平面上绘出极点和零点。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.277,
+            0.404,
+            0.49,
+            0.514
+          ],
+          "sub_type": "text_image",
+          "content": "1 Ω\n3 F\nZ₁ →\n2 H\n4 Ω",
+          "captions": [
+            {
+              "bbox": [
+                0.379,
+                0.515,
+                0.398,
+                0.528
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_379_image_14.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.51,
+            0.407,
+            0.718,
+            0.514
+          ],
+          "sub_type": "text_image",
+          "content": "0.5 H\nZi → 3u1 1 Ω + u1 -\n1 F",
+          "captions": [
+            {
+              "bbox": [
+                0.599,
+                0.515,
+                0.619,
+                0.528
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.451,
+                0.531,
+                0.539,
+                0.545
+              ],
+              "content": "题 14-24 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_379_image_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.17,
+            0.562,
+            0.716,
+            0.58
+          ],
+          "content": "14-25 题 14-25 图所示为一线性电路, 输入电流源的电流为  $i_{s}$ 。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.171,
+            0.584,
+            0.599,
+            0.691
+          ],
+          "sub_type": "text",
+          "content": "(1) 试计算驱动点阻抗  $Z_{\\mathrm{d}}(s)=\\frac{U_{1}(s)}{I_{\\mathrm{s}}(s)}$ 。\n(2) 试计算转移阻抗  $Z_{1}(s)=\\frac{U_{2}(s)}{I_{s}(s)}$ 。\n(3) 在 s 平面上绘出  $Z_{\\mathrm{d}}(s)$  和  $Z_{\\mathrm{t}}(s)$  的极点和零点。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.324,
+            0.696,
+            0.667,
+            0.823
+          ],
+          "sub_type": "text_image",
+          "content": "+\ni_s\nu_1\n-\n96/55 Ω\n0.2 H\n96/125 H\n1/11 F\n+\nu_2\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.45,
+                0.828,
+                0.537,
+                0.843
+              ],
+              "content": "题 14-25 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_379_image_24.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.859,
+            0.856,
+            0.922
+          ],
+          "content": "14-26 电路如题 14-26 图所示, 已知 $u_{\\mathrm{S}}(t) = 4\\varepsilon(t)\\mathrm{~V}$。(1) 求网络函数 $H(s) = \\frac{U_{\\mathrm{o}}(s)}{U_{\\mathrm{a}}(s)}$。(2) 绘出 $H(s)$ 的零、极点图。"
+        }
+      ]
+    },
+    {
+      "page_idx": 380,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.7,
+            0.064,
+            0.735,
+            0.079
+          ],
+          "content": "习题"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.791,
+            0.064,
+            0.818,
+            0.077
+          ],
+          "content": "357"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.828,
+            0.023,
+            0.964,
+            0.144
+          ],
+          "content": "1. 用 $\\mathrm{H}_2\\mathrm{O}$ 气体分解出氢气的气体，用于吸收和处理过程中的气体。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.269,
+            0.121,
+            0.648,
+            0.224
+          ],
+          "sub_type": "text_image",
+          "content": "1 Ω\n+\nus(t)\n-\n+\nuc=2F\n-\n2uc\n2F uO(t)\n+\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.413,
+                0.233,
+                0.504,
+                0.247
+              ],
+              "content": "题 14-26 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_380_image_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.266,
+            0.705,
+            0.306
+          ],
+          "content": "14-27 题 14-27 图所示为 RC 电路, 求它的转移函数  $H(s)=\\frac{U_{o}(s)}{U_{i}(s)}$ 。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.311,
+            0.816,
+            0.375
+          ],
+          "content": "14-28 题 14-28 图所示电路中, $L = 0.2 \\mathrm{H}, C = 0.1 \\mathrm{~F}, R_{1} = 6 \\Omega, R_{2} = 4 \\Omega, u_{\\mathrm{s}}(t) = 7 \\mathrm{e}^{-2 t} \\mathrm{V}$, 求 $R_{2}$ 中的电流 $i_{2}(t)$, 并求网络函数 $H(s) = \\frac{I_{2}(s)}{U_{s}(s)}$ 及单位冲激响应。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.174,
+            0.386,
+            0.434,
+            0.52
+          ],
+          "sub_type": "text_image",
+          "content": "R₁\nC₁\n+\nu₁\nR₂\nC₂\nuₒ\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.259,
+                0.532,
+                0.347,
+                0.547
+              ],
+              "content": "题14-27图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_380_image_7.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.494,
+            0.401,
+            0.747,
+            0.522
+          ],
+          "sub_type": "text_image",
+          "content": "L\nC\n+\nus\n-\nR1\ni2\nR2",
+          "captions": [
+            {
+              "bbox": [
+                0.576,
+                0.532,
+                0.664,
+                0.547
+              ],
+              "content": "题14-28图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_380_image_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.561,
+            0.347,
+            0.577
+          ],
+          "content": "14-29 已知网络函数为"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.146,
+            0.585,
+            0.344,
+            0.709
+          ],
+          "sub_type": "text",
+          "content": "(1)  $H(s)=\\frac{2}{s-0.3}$ 。\n(2) $H(s) = \\frac{s - 5}{s^2 - 10s + 125}$。\n(3)  $H(s)=\\frac{s+10}{s^{2}+20s+500}$ 。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.717,
+            0.384,
+            0.733
+          ],
+          "content": "试定性作出单位冲激响应的波形。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.739,
+            0.816,
+            0.779
+          ],
+          "content": "14-30 设某线性电路的冲激响应 $h(t) = \\mathrm{e}^{-t} + 2\\mathrm{e}^{-2t}$，试求相应的网络函数，并绘出零、极点图。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.785,
+            0.385,
+            0.802
+          ],
+          "content": "14-31 设网络的冲激响应为"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.145,
+            0.81,
+            0.38,
+            0.91
+          ],
+          "sub_type": "text",
+          "content": "(1)  $h(t)=\\delta(t)+\\frac{3}{5}e^{-t}$ 。\n(2)  $h(t)=\\mathrm{e}^{-at}\\sin(\\omega t+\\theta)$ 。\n(3)  $h(t)=\\frac{3}{5}\\mathrm{e}^{-t}-\\frac{7}{9}t\\mathrm{e}^{-3t}+3t_{0}$"
+        }
+      ]
+    },
+    {
+      "page_idx": 381,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.018,
+            0.132,
+            0.142
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.142,
+            0.063,
+            0.171,
+            0.076
+          ],
+          "content": "358"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.223,
+            0.062,
+            0.51,
+            0.078
+          ],
+          "content": "第十四章 线性动态电路的复频域分析"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.114,
+            0.389,
+            0.132
+          ],
+          "content": "试求相应的网络函数的极点。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.176,
+            0.136,
+            0.862,
+            0.155
+          ],
+          "content": "14-32 画出与题 14-32 图所示零、极点分布相应的幅频响应  $\\left|H(j\\omega)\\right|-\\omega$  曲线。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.249,
+            0.163,
+            0.76,
+            0.364
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.458,
+                0.373,
+                0.548,
+                0.387
+              ],
+              "content": "题 14-32 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_381_image_5.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.138,
+            0.405,
+            0.869,
+            0.533
+          ],
+          "sub_type": "text",
+          "content": "14-33 已知电路如题 14-33 图所示, 求网络函数  $H(s)=\\frac{U_{2}(s)}{U_{a}(s)}$ , 定性画出幅频特性和相频特性示意图。\n14-34 题 14-34 图所示电路为 RLC 并联电路, 试用网络函数的图解法分析  $H(s)=\\frac{U_{2}(s)}{I_{8}(s)}$  的频率响应特性。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.202,
+            0.543,
+            0.48,
+            0.664
+          ],
+          "sub_type": "text_image",
+          "content": "1 Ω\n+\nus\n-\n1 F\n1 Ω\n-\n1 F\n+\nu2\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.295,
+                0.675,
+                0.384,
+                0.69
+              ],
+              "content": "题 14-33 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_381_image_10.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.541,
+            0.559,
+            0.804,
+            0.668
+          ],
+          "sub_type": "text_image",
+          "content": "i_S\nR\nL\nC\n+\nu_2\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.625,
+                0.675,
+                0.716,
+                0.69
+              ],
+              "content": "题 14-34 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_381_image_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.177,
+            0.703,
+            0.489,
+            0.721
+          ],
+          "content": "14-35 题 14-35 图所示电路, 试求:"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.32,
+            0.731,
+            0.681,
+            0.865
+          ],
+          "sub_type": "text_image",
+          "content": "1 F\n+ 1 Ω 1 Ω\nu₁ + u₂ 1 F + 2u₂ u₃\n- - -\n- -",
+          "captions": [
+            {
+              "bbox": [
+                0.456,
+                0.873,
+                0.545,
+                0.888
+              ],
+              "content": "题 14-35 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_381_image_15.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 382,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.703,
+            0.067,
+            0.739,
+            0.081
+          ],
+          "content": "习题"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.794,
+            0.067,
+            0.823,
+            0.08
+          ],
+          "content": "359"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.834,
+            0.028,
+            0.962,
+            0.145
+          ],
+          "content": ""
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.142,
+            0.119,
+            0.585,
+            0.181
+          ],
+          "sub_type": "text",
+          "content": "(1) 网络函数  $H(s)=\\frac{U_{3}(s)}{U_{1}(s)}$ ，并绘出幅频特性示意图。\n(2) 冲激响应  $h(t)$ 。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.185,
+            0.812,
+            0.226
+          ],
+          "content": "14-36 求题 14-36 图所示电路的电压转移函数 $H(s) = \\frac{U_{\\mathrm{o}}(s)}{U_{\\mathrm{i}}(s)}$，设运放是理想的。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.269,
+            0.228,
+            0.652,
+            0.391
+          ],
+          "sub_type": "text_image",
+          "content": "1\nsC₁\nR₁\nR₂\n- ∞\n+\n1\nsC₂\nUi(s)\nUₒ(s)\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.416,
+                0.398,
+                0.505,
+                0.413
+              ],
+              "content": "题 14-36 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_382_image_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.43,
+            0.687,
+            0.447
+          ],
+          "content": "14-37 题 14-37 图所示电路为一低通滤波器, 若已知冲激响应为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.334,
+            0.453,
+            0.587,
+            0.494
+          ],
+          "content": "h \\left(t\\right) = \\left[ \\sqrt {2} \\mathrm{e} ^ {- \\frac {\\sqrt {2}}{2} t} \\sin \\left(\\frac {1}{\\sqrt {2}} t\\right) \\right] \\varepsilon \\left(t\\right)",
+          "image_source": "images/page_382_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.498,
+            0.281,
+            0.515
+          ],
+          "content": "求:(1)L、C值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.144,
+            0.52,
+            0.423,
+            0.538
+          ],
+          "content": "(2) 幅频响应  $\\left|H(j\\omega)\\right|-\\omega$  曲线。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.542,
+            0.823,
+            0.583
+          ],
+          "content": "14-38 电路如题 14-38 图所示, 已知激励  $u(t)=10\\mathrm{e}^{-at}\\left[\\varepsilon(t)-\\varepsilon(t-1)\\right]\\mathrm{V}$ , 试用卷积定理求电流  $i(t)$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.207,
+            0.593,
+            0.441,
+            0.709
+          ],
+          "sub_type": "text_image",
+          "content": "L\n+\nu₁ C C R u₂\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.282,
+                0.719,
+                0.367,
+                0.734
+              ],
+              "content": "题14-37图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_382_image_14.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.5,
+            0.609,
+            0.72,
+            0.71
+          ],
+          "sub_type": "text_image",
+          "content": "2 Ω\nu(t)\n+\n-\ni(t)\n1 H",
+          "captions": [
+            {
+              "bbox": [
+                0.564,
+                0.719,
+                0.652,
+                0.734
+              ],
+              "content": "题14-38图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_382_image_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.747,
+            0.819,
+            0.807
+          ],
+          "content": "\\* 14-39 电路如题 14-39 图所示, 网络 N 为线性无源网络, 已知其网络函数 $H(s) = \\frac{I(s)}{U(s)} = \\frac{s}{s^2 + 2s + 2}$。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.144,
+            0.813,
+            0.521,
+            0.853
+          ],
+          "sub_type": "text",
+          "content": "(1) 给出该网络的一种结构及合适的元件值。\n(2) 判断该网络冲激响应的性质。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.858,
+            0.587,
+            0.917
+          ],
+          "content": "14-40 电路如题 14-40 图所示, 网络函数  $H(s)=\\frac{U(s)}{I(s)}$ , 其零、极点分布如题 14-40 图 (b) 所示, 且  $H(0)=1$ ,"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.602,
+            0.797,
+            0.823,
+            0.895
+          ],
+          "sub_type": "text_image",
+          "content": "I(s)\n+\nU(s)\nN\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.665,
+                0.902,
+                0.754,
+                0.917
+              ],
+              "content": "题14-39图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_382_image_23.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 383,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.032,
+            0.123,
+            0.148
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.133,
+            0.069,
+            0.163,
+            0.082
+          ],
+          "content": "360"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.217,
+            0.068,
+            0.505,
+            0.084
+          ],
+          "content": "第十四章 线性动态电路的复频域分析"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.12,
+            0.271,
+            0.137
+          ],
+          "content": "求 R、L、C 的值。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.26,
+            0.147,
+            0.481,
+            0.266
+          ],
+          "sub_type": "text_image",
+          "content": "I(s)\n+\nU(s)\n-\nC\nL\nR",
+          "captions": [
+            {
+              "bbox": [
+                0.371,
+                0.27,
+                0.391,
+                0.284
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_383_image_4.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.509,
+            0.147,
+            0.736,
+            0.268
+          ],
+          "sub_type": "contour",
+          "content": "| \\(\\sigma\\) | \\(j\\omega\\) |\n| --- | --- |\n| -2 | 0 |\n| -1 | 1/2 |\n| 0 | 0 |\n| \\(\\sigma\\) | 0 |",
+          "captions": [
+            {
+              "bbox": [
+                0.631,
+                0.269,
+                0.65,
+                0.283
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.453,
+                0.294,
+                0.543,
+                0.308
+              ],
+              "content": "题14-40图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_383_chart_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.17,
+            0.325,
+            0.823,
+            0.361
+          ],
+          "content": "14-41 电路如题图 14-41 所示, 已知 $R_{1} = R_{2} = 1 \\Omega, C = \\frac{1}{2} \\mathrm{~F}, L = 2 \\mathrm{~H}, g = \\frac{1}{2} \\mathrm{~S}$。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.172,
+            0.368,
+            0.616,
+            0.431
+          ],
+          "sub_type": "text",
+          "content": "(1) 求电压转移函数  $H(s)=\\frac{U_{o}(s)}{U_{s}(s)}$  及其冲激响应。\n(2) 定性绘出  $\\left|H(j\\omega)\\right|-\\omega$  及  $\\arg[H(j\\omega)]-\\omega$  曲线。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.02,
+            0.456,
+            0.107,
+            0.524
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.021,
+                0.528,
+                0.106,
+                0.561
+              ],
+              "content": "第十四章部分习题答案"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_383_image_13.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.322,
+            0.44,
+            0.672,
+            0.549
+          ],
+          "sub_type": "text_image",
+          "content": "R₁\n① L\n②\n+ uₛ C + u₁ - gu₁ R₂ + u₀ -\n-",
+          "captions": [
+            {
+              "bbox": [
+                0.453,
+                0.558,
+                0.542,
+                0.572
+              ],
+              "content": "题 14-41 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_383_image_15.jpg"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "created_at": "2023-02-21T10:55:49-05:00",
+      "modified_at": "2023-02-22T08:38:08+08:00",
+      "page_count": 545,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "ocr"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 352,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 353,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 354,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 355,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 356,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 357,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 358,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 359,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 360,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 361,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 362,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 363,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 364,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 365,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 366,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 367,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 368,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 369,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 370,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 371,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 372,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 373,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 374,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 375,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 376,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 377,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 378,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 379,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 380,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 381,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 382,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 383,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

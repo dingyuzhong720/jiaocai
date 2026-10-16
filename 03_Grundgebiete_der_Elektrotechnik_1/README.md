@@ -7,7 +7,7 @@
 | 教材／讲义 | 页数 | 状态／下载 |
 | --- | ---: | --- |
 | 模拟电子技术基础 | — | 待解析／整理 |
-| 电路 第6版（邱关源） | — | 待解析／整理 |
+| [电路 第6版（邱关源）](circuits-qiu-6e/) | 545 | [ZIP](https://github.com/dingyuzhong720/jiaocai/releases/download/mineru-advanced-2026-10-16/circuits-qiu-6e.mineru-advanced.zip) |
 | [Grundgebiete der Elektrotechnik](grundgebiete-der-elektrotechnik/) | 288 | [ZIP](https://github.com/dingyuzhong720/jiaocai/releases/download/mineru-advanced-2026-10-16/grundgebiete-der-elektrotechnik.mineru-advanced.zip) |
 | [G1 Kapitel 0A – Motivation Elektrotechnik](Kapitel_00A_Motivation_Elektrotechnik/) | 52 | [ZIP](https://github.com/dingyuzhong720/jiaocai/releases/download/mineru-advanced-2026-10-16/Kapitel_00A_Motivation_Elektrotechnik.mineru-advanced.zip) |
 | [G1 Kapitel 1 – Lehrstuhl Sauer](Kapitel_01_Lehrstuhl_Sauer/) | 45 | [ZIP](https://github.com/dingyuzhong720/jiaocai/releases/download/mineru-advanced-2026-10-16/Kapitel_01_Lehrstuhl_Sauer.mineru-advanced.zip) |

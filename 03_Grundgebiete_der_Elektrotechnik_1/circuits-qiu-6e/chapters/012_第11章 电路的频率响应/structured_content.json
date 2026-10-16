@@ -1,0 +1,4480 @@
+{
+  "pages": [
+    {
+      "page_idx": 284,
+      "blocks": [
+        {
+          "type": "doc_title",
+          "bbox": [
+            0.459,
+            0.118,
+            0.63,
+            0.148
+          ],
+          "level": 1,
+          "content": "第十一章"
+        },
+        {
+          "type": "doc_title",
+          "bbox": [
+            0.459,
+            0.153,
+            0.73,
+            0.181
+          ],
+          "level": 1,
+          "content": "电路的频率响应"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.89,
+            0.084,
+            0.966,
+            0.192
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_284_image_2.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.104,
+            0.334,
+            0.13,
+            0.366
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_284_image_3.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.137,
+            0.337,
+            0.204,
+            0.358
+          ],
+          "level": 2,
+          "content": "导读"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.373,
+            0.825,
+            0.459
+          ],
+          "content": "由于电路中存在着电感和电容,当电路中正弦激励源的频率变化时,电路中的感抗、容抗将跟随频率变化,从而导致电路的电压电流亦跟随频率变化。此外,电路和系统还可能遭到外部的各种频率电磁信号的干扰,如雷电或太阳风暴对电路和系统的袭击而造成的破坏。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.464,
+            0.825,
+            0.55
+          ],
+          "content": "电路和系统的工作状态跟随频率而变化的现象,称为电路和系统的频率特性,又称频率响应。通常采用网络函数来描述电路和系统的频率特性。谐振是线性电路在某些特定频率时的一种物理现象,电路发生谐振时,使得电路某一部分呈现出纯电阻,并往往在储能元件中产生过电压或过电流。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.555,
+            0.825,
+            0.595
+          ],
+          "content": "所以,对电路系统的频率特性和谐振的分析研究是正弦稳态电路分析的重要组成部分。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.145,
+            0.621,
+            0.348,
+            0.644
+          ],
+          "level": 2,
+          "content": "§11-1 网络函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.668,
+            0.823,
+            0.8
+          ],
+          "content": "由于电路和系统中存在着电感和电容,当电路中激励源的频率变化时,电路中的感抗、容抗将跟随频率变化,从而导致电路的工作状态亦跟随频率变化。当频率的变化超出一定的范围时,电路将偏离正常的工作范围,并可能导致电路失效,甚至使电路遭到损坏。此外,电路和系统还可能遭到外部的各种频率的电磁干扰,如雷电或太阳风暴对电路和系统的袭击而造成的破坏,所以,对电路和系统的频率特性的分析研究就显得格外重要。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.806,
+            0.822,
+            0.892
+          ],
+          "content": "电路和系统的工作状态跟随频率而变化的现象,称为电路和系统的频率特性,又称频率响应。通常是采用单输入(一个激励变量)-单输出(一个输出变量)的方式,在输入变量和输出变量之间建立函数关系,来描述电路的频率特性,这一函数关系就称为电路和系统的网络函数。本章仅对正弦稳态电路的频率特性作初步分析和研究。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.145,
+            0.897,
+            0.821,
+            0.915
+          ],
+          "content": "电路在一个正弦电源激励下稳定时,各部分的响应都是同频率的正弦量,通过正弦"
+        }
+      ]
+    },
+    {
+      "page_idx": 285,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.029,
+            0.121,
+            0.142
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.133,
+            0.065,
+            0.163,
+            0.078
+          ],
+          "content": "262"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.216,
+            0.064,
+            0.42,
+            0.079
+          ],
+          "content": "第十一章 电路的频率响应"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.116,
+            0.423,
+            0.134
+          ],
+          "content": "量的相量,网络函数  $H(j\\omega)$  定义为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.422,
+            0.136,
+            0.572,
+            0.184
+          ],
+          "content": "H (\\mathrm{j} \\omega) {\\stackrel {\\mathrm{def}} {=}} \\frac {\\dot {R} _ {k} (\\mathrm{j} \\omega)}{\\dot {E} _ {\\mathrm{sj}} (\\mathrm{j} \\omega)}",
+          "image_source": "../../raw/pages_0257-0288/images/page_285_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.188,
+            0.865,
+            0.414
+          ],
+          "content": "此式定义的网络函数是描述正弦稳态下响应与激励之间的一种关系。式中 $\\dot{R}_k(\\mathrm{j}\\omega)$ 为输出端口 $k$ 的响应，为电压相量 $\\dot{U}_k(\\mathrm{j}\\omega)$ 或电流相量 $\\dot{I}_k(\\mathrm{j}\\omega);\\dot{E}_{sj}(\\mathrm{j}\\omega)$ 为输入端口 $j$ 的输入变量（正弦激励），为电压源相量 $\\dot{U}_{sj}(\\mathrm{j}\\omega)$ 或电流源相量 $\\dot{I}_{sj}(\\mathrm{j}\\omega)$ 。显然，网络函数有多种类型，当 $k = j$ 时（同一端口），网络函数就是第九章 §9-1 中定义的阻抗 $Z\\left(\\frac{\\dot{U}_k}{\\dot{I}_{sk}}\\right)$ 或导纳 $Y\\left(\\frac{\\dot{I}_k}{\\dot{U}_{sk}}\\right)$，称为驱动点阻抗或导纳。当 $k \\neq j$ 时，即不同端口，统称为转移函数，分别为转移阻抗 $\\left(\\frac{\\dot{U}_k}{\\dot{I}_{sj}}\\right)$、转移电流比 $\\left(\\frac{\\dot{I}_k}{\\dot{I}_{sj}}\\right)$、转移导纳 $\\left(\\frac{\\dot{I}_k}{\\dot{U}_{sj}}\\right)$ 和转移电压比 $\\left(\\frac{\\dot{U}_k}{\\dot{U}_{sj}}\\right)$。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.416,
+            0.863,
+            0.501
+          ],
+          "content": "网络函数不仅与电路的结构、参数值有关，还与输入、输出变量的类型以及端口对的相互位置有关。这犹如从不同“窗口”来分析研究网络的频率特性，可以从不同角度寻找电路比较优越的频率特性和电路工作的最佳频域范围。网络函数是网络性质的一种体现，与输入、输出幅值无关。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.505,
+            0.863,
+            0.613
+          ],
+          "content": "网络函数是一个复数,它的频率特性分为两个部分。它的模(值) $|H(j\\omega)|$ 是两个正弦量的有效值(或振幅)的比值,它与频率的关系 $|H(j\\omega)|-\\omega$ 称为幅频特性。它的幅角 $\\varphi(j\\omega)=\\arg[H(j\\omega)]$ 是两个同频正弦量的相位差(又称相移),它与频率的关系 $\\varphi(j\\omega)-\\omega$ 称为相频特性。这两种特性与频率的关系,都可以在图上用曲线表示,称为网络的频率响应曲线。即幅频响应和相频响应曲线。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.169,
+            0.617,
+            0.594,
+            0.634
+          ],
+          "content": "网络函数可以用相量法中任一分析求解方法获得。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.168,
+            0.637,
+            0.606,
+            0.684
+          ],
+          "content": "例11-1 求图11-1所示电路的网络函数 $\\frac{\\dot{I}_2}{\\dot{U}_s}$ 和 $\\frac{\\dot{U}_L}{\\dot{U}_s}$。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.309,
+            0.694,
+            0.677,
+            0.813
+          ],
+          "sub_type": "text_image",
+          "content": "jω\n+   jω\n-   +\nÛL\n-   Ê2\nÜs 2 Ω 2 Ω\n-   Ê1 2 Ω\n-   Ê2",
+          "captions": [
+            {
+              "bbox": [
+                0.416,
+                0.821,
+                0.569,
+                0.837
+              ],
+              "content": "图11-1 例11-1图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_285_image_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.168,
+            0.851,
+            0.396,
+            0.871
+          ],
+          "content": "解 列网孔方程解电流  $\\dot{I}_{2}$"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.407,
+            0.875,
+            0.579,
+            0.898
+          ],
+          "content": "(2 + \\mathrm{j} \\omega) \\dot {I} _ {1} - 2 \\dot {I} _ {2} = \\dot {U} _ {\\mathrm{a}}",
+          "image_source": "../../raw/pages_0257-0288/images/page_285_equation_13.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 286,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.517,
+            0.065,
+            0.738,
+            0.08
+          ],
+          "content": "§ 11-2 RLC 串联电路的谐振"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.792,
+            0.066,
+            0.823,
+            0.08
+          ],
+          "content": "263"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.375,
+            0.113,
+            0.545,
+            0.136
+          ],
+          "content": "- 2 \\dot {I} _ {1} + (4 + \\mathrm{j} \\omega) \\dot {I} _ {2} = 0",
+          "image_source": "../../raw/pages_0257-0288/images/page_286_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.14,
+            0.275,
+            0.16
+          ],
+          "content": "解得电流  $\\dot{I}_{2}$  为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.388,
+            0.164,
+            0.537,
+            0.21
+          ],
+          "content": "\\dot {I} _ {2} = \\frac {2 \\dot {U} _ {\\mathrm{s}}}{4 + (\\mathrm{j} \\omega) ^ {2} + \\mathrm{j} 6 \\omega}",
+          "image_source": "../../raw/pages_0257-0288/images/page_286_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.213,
+            0.282,
+            0.231
+          ],
+          "content": "网络函数分别为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.348,
+            0.233,
+            0.571,
+            0.28
+          ],
+          "content": "\\frac {\\dot {I} _ {2}}{\\dot {U} _ {\\mathrm{s}}} = \\frac {2}{4 - \\omega^ {2} + \\mathrm{j} 6 \\omega} (\\text {转移导纳})",
+          "image_source": "../../raw/pages_0257-0288/images/page_286_equation_6.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.357,
+            0.284,
+            0.562,
+            0.331
+          ],
+          "content": "\\frac {\\dot {U} _ {L}}{\\dot {U} _ {\\mathrm{s}}} = \\frac {\\mathrm{j} 2 \\omega}{4 - \\omega^ {2} + \\mathrm{j} 6 \\omega} (\\text {电压比})",
+          "image_source": "../../raw/pages_0257-0288/images/page_286_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.336,
+            0.823,
+            0.404
+          ],
+          "content": "本例也可以求得 $\\frac{\\dot{I}_1}{\\dot{U}_s}$ (驱动点导纳)。如果将 $\\dot{U}_s$ 改为 $\\dot{I}_s$，即可求得其他形式的网络函数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.408,
+            0.824,
+            0.47
+          ],
+          "content": "以网络函数中 $(\\mathrm{j}\\omega)$ 的最高次方的次数来定义网络函数的阶数,如本例为二阶(与网络的阶数相同)。一旦获得端口对的网络函数,也就能求得网络在任意正弦输入时的端口正弦响应,即有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.339,
+            0.472,
+            0.585,
+            0.495
+          ],
+          "content": "\\dot {U} _ {k} (\\text {或} \\dot {I} _ {k}) = H (\\mathrm{j} \\omega) \\dot {U} _ {\\mathrm{sj}} (\\text {或} \\dot {I} _ {\\mathrm{sj}})",
+          "image_source": "../../raw/pages_0257-0288/images/page_286_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.499,
+            0.569,
+            0.52
+          ],
+          "content": "网络函数等于单位激励( $\\dot{U}_{sj}$  或  $\\dot{I}_{sj}$  为 1 单位量)的响应。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.144,
+            0.543,
+            0.491,
+            0.566
+          ],
+          "level": 2,
+          "content": "§11-2 RLC 串联电路的谐振"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.59,
+            0.823,
+            0.656
+          ],
+          "content": "图 11-2 所示为 RLC 串联电路, 在可变频的正弦电压源  $u_{s}$  激励下, 由于感抗、容抗随频率变动, 所以, 电路中的电压、电流响应亦随频率变动。本节将首先分析研究工程上特别关注的谐振状态。根据相量法, 电路的输入阻抗  $Z(j\\omega)$  可表示为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.253,
+            0.661,
+            0.432,
+            0.698
+          ],
+          "content": "Z (\\mathrm{j} \\omega) = R + \\mathrm{j} \\left(\\omega L - \\frac {1}{\\omega C}\\right)",
+          "image_source": "../../raw/pages_0257-0288/images/page_286_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.702,
+            0.245,
+            0.719
+          ],
+          "content": "频率特性表示为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.241,
+            0.726,
+            0.445,
+            0.787
+          ],
+          "content": "\\varphi (\\mathrm{j} \\omega) = \\arctan \\left(\\frac {\\omega L - \\frac {1}{\\omega C}}{R}\\right)",
+          "image_source": "../../raw/pages_0257-0288/images/page_286_equation_16.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.251,
+            0.792,
+            0.446,
+            0.83
+          ],
+          "content": "\\mid Z (\\mathrm{j} \\omega) \\mid = \\frac {R}{\\cos [ \\varphi (\\mathrm{j} \\omega) ]}",
+          "image_source": "../../raw/pages_0257-0288/images/page_286_equation_17.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.596,
+            0.681,
+            0.822,
+            0.779
+          ],
+          "sub_type": "text_image",
+          "content": "i\nR\nL\nus\nC",
+          "captions": [
+            {
+              "bbox": [
+                0.619,
+                0.787,
+                0.795,
+                0.803
+              ],
+              "content": "图 11-2 RLC 串联电路"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_286_image_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.834,
+            0.821,
+            0.917
+          ],
+          "content": "可以看出,由于串联电路中同时存在着电感 L 和电容 C,两者的频率特性不仅相反(感抗与  $\\omega$  成正比,而容抗与  $\\omega$  成反比),而且直接相减(电抗角差  $180^{\\circ}$ )。可以肯定,一定存在一个角频率  $\\omega_{0}$ ,使感抗和容抗相互完全抵消,即  $X(j\\omega_{0})=0$ 。因此,阻抗  $Z(j\\omega)$  以  $\\omega_{0}$  为中心,在全频域内随频率变动的情况分为 3 个频区,描述如下:"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.851,
+            0.522,
+            0.942,
+            0.59
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.851,
+                0.594,
+                0.94,
+                0.628
+              ],
+              "content": "RLC 串联电路的谐振"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_286_image_21.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 287,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.028,
+            0.123,
+            0.142
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.134,
+            0.065,
+            0.164,
+            0.078
+          ],
+          "content": "264"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.217,
+            0.064,
+            0.423,
+            0.08
+          ],
+          "content": "第十一章 电路的频率响应"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.228,
+            0.12,
+            0.277,
+            0.136
+          ],
+          "content": "\\omega <   \\omega_ {0}",
+          "image_source": "../../raw/pages_0257-0288/images/page_287_equation_3.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.159,
+            0.142,
+            0.345,
+            0.16
+          ],
+          "content": "X (\\mathrm{j} \\omega) <   0, \\quad \\varphi (\\mathrm{j} \\omega) <   0",
+          "image_source": "../../raw/pages_0257-0288/images/page_287_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.221,
+            0.165,
+            0.284,
+            0.181
+          ],
+          "content": "容性区"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.195,
+            0.185,
+            0.304,
+            0.205
+          ],
+          "content": "R <   \\mid Z (\\mathrm{j} \\omega) \\mid",
+          "image_source": "../../raw/pages_0257-0288/images/page_287_equation_6.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.169,
+            0.208,
+            0.332,
+            0.233
+          ],
+          "content": "\\text {且} \\lim _ {\\omega \\to 0} \\mid Z (\\mathrm{j} \\omega) \\mid = \\infty",
+          "image_source": "../../raw/pages_0257-0288/images/page_287_equation_7.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.461,
+            0.135,
+            0.513,
+            0.149
+          ],
+          "content": "\\omega = \\omega_ {0}",
+          "image_source": "../../raw/pages_0257-0288/images/page_287_equation_8.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.389,
+            0.156,
+            0.586,
+            0.174
+          ],
+          "content": "X (\\mathrm{j} \\omega) = 0, \\quad \\varphi (\\mathrm{j} \\omega) = 0",
+          "image_source": "../../raw/pages_0257-0288/images/page_287_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.456,
+            0.179,
+            0.519,
+            0.195
+          ],
+          "content": "电阻性"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.44,
+            0.2,
+            0.534,
+            0.219
+          ],
+          "content": "Z (\\mathrm{j} \\omega_ {0}) = R",
+          "image_source": "../../raw/pages_0257-0288/images/page_287_equation_11.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.708,
+            0.12,
+            0.757,
+            0.135
+          ],
+          "content": "\\omega > \\omega_ {0}",
+          "image_source": "../../raw/pages_0257-0288/images/page_287_equation_12.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.639,
+            0.142,
+            0.827,
+            0.16
+          ],
+          "content": "X (\\mathrm{j} \\omega) > 0, \\quad \\varphi (\\mathrm{j} \\omega) > 0",
+          "image_source": "../../raw/pages_0257-0288/images/page_287_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.701,
+            0.165,
+            0.764,
+            0.181
+          ],
+          "content": "感性区"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.675,
+            0.186,
+            0.786,
+            0.204
+          ],
+          "content": "R <   | Z (\\mathrm{j} \\omega) |",
+          "image_source": "../../raw/pages_0257-0288/images/page_287_equation_15.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.647,
+            0.208,
+            0.816,
+            0.233
+          ],
+          "content": "\\text {且} \\lim _ {\\omega \\to \\infty} | Z (\\mathrm{j} \\omega) | = \\infty",
+          "image_source": "../../raw/pages_0257-0288/images/page_287_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.255,
+            0.51,
+            0.273
+          ],
+          "content": "阻抗随频率变化的频响曲线如图 11-3 所示。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.277,
+            0.565,
+            0.317
+          ],
+          "content": "当  $\\omega=\\omega_{0}$  时,  $X(j\\omega_{0})=0$ , 电路的工作状况将出现一些重要的特征, 现分述如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.321,
+            0.565,
+            0.407
+          ],
+          "content": "(1) $\\varphi(\\mathrm{j}\\omega_0) = 0$，所以 $\\dot{I}(\\mathrm{j}\\omega_0)$ 与 $\\dot{U}_{\\mathrm{s}}(\\mathrm{j}\\omega_0)$ 同相，工程上将电路的这一特殊状态定义为谐振，由于是在 $RLC$ 串联电路中发生的谐振，又常称为串联谐振。由上述分析可知，谐振发生的条件为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.193,
+            0.414,
+            0.504,
+            0.45
+          ],
+          "content": "\\mathrm{Im} \\left[ Z (\\mathrm{j} \\omega_ {0}) \\right] = X (\\mathrm{j} \\omega_ {0}) = \\omega_ {0} L - \\frac {1}{\\omega_ {0} C} = 0",
+          "image_source": "../../raw/pages_0257-0288/images/page_287_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.454,
+            0.566,
+            0.517
+          ],
+          "content": "这只有在电感、电容同时存在时，上述条件才能满足。由上式可知电路发生谐振的角频率  $\\omega_{0}$  和频率  $f_{0}$  为"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.582,
+            0.261,
+            0.865,
+            0.482
+          ],
+          "sub_type": "line",
+          "content": "| 0 | Max |\n| --- | --- |\n| \\(\\omega_{0}\\) | Min |",
+          "captions": [
+            {
+              "bbox": [
+                0.621,
+                0.491,
+                0.818,
+                0.507
+              ],
+              "content": "图11-3 $Z(\\mathrm{j}\\omega)$ 频响曲线"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_287_chart_22.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.389,
+            0.522,
+            0.604,
+            0.564
+          ],
+          "content": "\\omega_ {0} = \\frac {1}{\\sqrt {L C}} \\quad f _ {0} = \\frac {1}{2 \\pi \\sqrt {L C}}",
+          "image_source": "../../raw/pages_0257-0288/images/page_287_equation_24.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.567,
+            0.863,
+            0.676
+          ],
+          "content": "可以看出，RLC串联电路的谐振频率只有1个，而且，仅与电路中L、C有关，与电阻R无关。 $\\omega_{0}$ （或 $f_{0}$ ）称为电路的固有频率（或自由频率）。因此，只有当输入信号 $u_{s}$ 的频率与电路的固有频率 $f_{0}$ 相同时（合拍），才能在电路中激起谐振。如果电路中L、C可调，改变电路的固有频率，则RLC串联电路就具有选择任一频率谐振（调谐），或避开某一频率谐振（失谐）的性能，也可以利用串联谐振现象，判别输入信号的频率。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.679,
+            0.863,
+            0.72
+          ],
+          "content": "(2) $Z(\\mathrm{j}\\omega_0) = R$ 为最小值（极小值），电路在谐振时的电流 $I(\\mathrm{j}\\omega_0)$ 为极大值（也是最大值），有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.248,
+            0.724,
+            0.396,
+            0.763
+          ],
+          "content": "I (\\mathrm{j} \\omega_ {0}) = \\frac {U _ {\\mathrm{s}} (\\mathrm{j} \\omega_ {0})}{R}",
+          "image_source": "../../raw/pages_0257-0288/images/page_287_equation_27.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.768,
+            0.514,
+            0.919
+          ],
+          "content": "此极大值又称为谐振峰, 这是 RLC 串联电路发生谐振时的突出标志, 据此, 可以判断电路是否发生了谐振。当  $u_{s}$  的幅值不变时, 谐振峰仅与电阻 R 有关, 所以, 电阻 R 是唯一能控制和调节谐振峰的电路元件, 从而控制谐振时的电感和电容的电压及其储能状态(下面有说明)。图 11-4 所示为两个参数不同的 RLC 串"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.526,
+            0.732,
+            0.861,
+            0.894
+          ],
+          "sub_type": "line",
+          "content": "| Series | Description |\n| --- | --- |\n| (1) R1 | Solid curve representing the primary signal peak |\n| (2) R2 | Dashed curve representing a secondary, lower-amplitude response |\n| \\(\\omega01\\) | Peak frequency point on the x-axis |\n| \\(\\omega02\\) | Peak frequency point on the x-axis |",
+          "captions": [
+            {
+              "bbox": [
+                0.587,
+                0.9,
+                0.799,
+                0.917
+              ],
+              "content": "图 11-4 电流  $I(\\mathrm{j}\\omega)$  的特性"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_287_chart_29.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 288,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.518,
+            0.065,
+            0.74,
+            0.081
+          ],
+          "content": "§ 11-2 RLC 串联电路的谐振"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.794,
+            0.067,
+            0.823,
+            0.08
+          ],
+          "content": "265"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.116,
+            0.823,
+            0.157
+          ],
+          "content": "联电路 $(u_{s}$ 相同 $)$ 电流的幅频特性, 即  $\\left|\\dot{I}(j\\omega)\\right|-\\omega$ , 从特性可以看出, 两者在全频域内的变化走向是相同的, 但曲线的整体形状差异很大, 这将在下一节作重点分析比较。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.161,
+            0.41,
+            0.179
+          ],
+          "content": "(3) 电抗电压  $U_{X}(j\\omega_{0})=0$  , 即有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.201,
+            0.183,
+            0.728,
+            0.247
+          ],
+          "content": "\\begin{array}{l} \\dot {U} _ {x} (\\mathrm{j} \\omega_ {0}) = \\mathrm{j} \\left(\\omega_ {0} L - \\frac {1}{\\omega_ {0} C}\\right) \\dot {I} (\\mathrm{j} \\omega_ {0}) = \\mathrm{j} \\frac {\\omega_ {0} L}{R} \\dot {U} _ {s} (\\mathrm{j} \\omega_ {0}) - \\mathrm{j} \\frac {1}{\\omega_ {0} C R} \\dot {U} _ {s} (\\mathrm{j} \\omega_ {0}) \\\\ = \\dot {U} _ {L} (\\mathrm{j} \\omega_ {0}) + \\dot {U} _ {C} (\\mathrm{j} \\omega_ {0}) = 0 \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_288_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.25,
+            0.823,
+            0.335
+          ],
+          "content": "因此，$L$、$C$ 串联端口相当于短路，但 $\\dot{U}_L(\\mathrm{j}\\omega_0)$、$\\dot{U}_C(\\mathrm{j}\\omega_0)$ 分别都不等于零，两者模值相等且反相，相互完全抵消。根据这一特点，串联谐振又称为电压谐振。此外，工程上将式中的比值 $\\frac{\\omega_0L}{R} = \\frac{1}{\\omega_0CR}$ 定义为谐振电路的品质因数 $Q$（称 $Q$ 值），即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.36,
+            0.34,
+            0.567,
+            0.38
+          ],
+          "content": "Q \\stackrel {\\mathrm{def}} {=} \\frac {\\omega_ {0} L}{R} = \\frac {1}{\\omega_ {0} C R} = \\frac {1}{R} \\sqrt {\\frac {L}{C}}",
+          "image_source": "../../raw/pages_0289-0320/images/page_288_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.382,
+            0.821,
+            0.445
+          ],
+          "content": "(注意: Q 在这里不表示无功功率)。进一步分析可知, Q 值不仅综合反映了电路中三个参数对谐振状态的影响, 而且, 也是分析和比较谐振电路频率特性的一个重要的辅助参数。用 Q 值表示  $U_{L}(j\\omega_{0})$  和  $U_{C}(j\\omega_{0})$  为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.338,
+            0.447,
+            0.585,
+            0.466
+          ],
+          "content": "U _ {L} (\\mathrm{j} \\omega_ {0}) = U _ {C} (\\mathrm{j} \\omega_ {0}) = Q U _ {\\mathrm{s}} (\\mathrm{j} \\omega_ {0})",
+          "image_source": "../../raw/pages_0289-0320/images/page_288_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.468,
+            0.82,
+            0.552
+          ],
+          "content": "显然，当 $Q > 1$ 时，电感和电容两端将分别出现比 $U_{\\mathrm{s}}(\\mathrm{j}\\omega_0)$ 高 $Q$ 倍的过电压。在高电压的电路系统中（如电力系统），这种过电压非常高，可能会危及系统的安全，必须采取必要的防范措施。但在低电压的电路系统中，如无线电接收系统中，则要利用谐振时出现的过电压来获得较大的输入信号。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.557,
+            0.557,
+            0.575
+          ],
+          "content": "Q 值可通过测定谐振时的电感或电容电压求得, 即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.248,
+            0.579,
+            0.432,
+            0.62
+          ],
+          "content": "Q = \\frac {U _ {c} (\\mathrm{j} \\omega_ {0})}{U _ {s} (\\mathrm{j} \\omega_ {0})} = \\frac {U _ {L} (\\mathrm{j} \\omega_ {0})}{U _ {s} (\\mathrm{j} \\omega_ {0})}",
+          "image_source": "../../raw/pages_0289-0320/images/page_288_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.623,
+            0.414,
+            0.642
+          ],
+          "content": "而谐振时电阻 R 的端电压  $U_{R}(j\\omega_{0})$  为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.261,
+            0.647,
+            0.419,
+            0.668
+          ],
+          "content": "\\dot {U} _ {R} (\\mathrm{j} \\omega_ {0}) = \\dot {U} _ {\\mathrm{s}} (\\mathrm{j} \\omega_ {0})",
+          "image_source": "../../raw/pages_0289-0320/images/page_288_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.671,
+            0.573,
+            0.711
+          ],
+          "content": "这也是谐振峰,表明谐振时,电阻 R 上将获得全额的输入电压。图 11-5 为谐振时的电压相量图。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.716,
+            0.574,
+            0.779
+          ],
+          "content": "根据上述分析可知,RLC 串联电路中的三个元件都可以作为信号的输出端口,只要参数选配确当,输出信号的幅值就能大于或等于输入信号的幅值。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.636,
+            0.566,
+            0.752,
+            0.739
+          ],
+          "sub_type": "text_image",
+          "content": "ÛL\nÛR\nQ>1\nO\nÛC\nÛs",
+          "captions": [
+            {
+              "bbox": [
+                0.58,
+                0.748,
+                0.805,
+                0.764
+              ],
+              "content": "图11-5 谐振时的电压相量图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_288_image_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.784,
+            0.559,
+            0.802
+          ],
+          "content": "(4) $Q(\\mathrm{j}\\omega_{0})=0$ , 即电路吸收的无功功率等于零, 有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.227,
+            0.809,
+            0.696,
+            0.846
+          ],
+          "content": "Q (\\mathrm{j} \\omega_ {0}) = Q _ {L} (\\mathrm{j} \\omega_ {0}) + Q _ {C} (\\mathrm{j} \\omega_ {0}) = \\omega_ {0} L I ^ {2} (\\mathrm{j} \\omega_ {0}) - \\frac {1}{\\omega_ {0} C} I ^ {2} (\\mathrm{j} \\omega_ {0}) = 0",
+          "image_source": "../../raw/pages_0289-0320/images/page_288_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.849,
+            0.816,
+            0.915
+          ],
+          "content": "上式表明,电感吸收的无功功率等于电容发出的无功功率,但各自不等于零。电路中储存的电磁能在L和C之间以两倍于谐振频率的频率做周期性的交换,相互完全补偿,自成独立系统,与外源无能量交换。储存的电磁能的总和为一常数,可根据i或 $u_{s}$ 的最"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.834,
+            0.027,
+            0.967,
+            0.145
+          ],
+          "content": ""
+        }
+      ]
+    },
+    {
+      "page_idx": 289,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.035,
+            0.121,
+            0.148
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.133,
+            0.069,
+            0.161,
+            0.082
+          ],
+          "content": "266"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.215,
+            0.067,
+            0.419,
+            0.083
+          ],
+          "content": "第十一章 电路的频率响应"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.12,
+            0.245,
+            0.137
+          ],
+          "content": "大值求得,即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.258,
+            0.142,
+            0.732,
+            0.202
+          ],
+          "content": "\\begin{array}{l} W (\\mathrm{j} \\omega_ {0}) = W _ {L} (\\mathrm{j} \\omega_ {0}) + W _ {C} (\\mathrm{j} \\omega_ {0}) = \\frac {1}{2} L I _ {\\mathrm{m}} ^ {2} (\\mathrm{j} \\omega_ {0}) = \\frac {1}{2} C U _ {c m} ^ {2} (\\mathrm{j} \\omega_ {0}) \\\\ = C Q ^ {2} U _ {\\mathrm{s}} ^ {2} (\\mathrm{j} \\omega_ {0}) \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_289_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.206,
+            0.862,
+            0.247
+          ],
+          "content": "(式中 Q 为电路的品质因数)。此时,电压源  $u_{s}$  只发出有功功率  $P(j\\omega_{0})$ ,供电阻 R 消耗,即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.334,
+            0.25,
+            0.655,
+            0.289
+          ],
+          "content": "\\overline {{S}} _ {\\mathrm{s}} (\\mathrm{j} \\omega_ {0}) = R I ^ {2} (\\mathrm{j} \\omega_ {0}) = \\frac {U _ {\\mathrm{s}} ^ {2} (\\mathrm{j} \\omega_ {0})}{R} = P (\\mathrm{j} \\omega_ {0})",
+          "image_source": "../../raw/pages_0289-0320/images/page_289_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.295,
+            0.862,
+            0.336
+          ],
+          "content": "电路的 Q 值亦可根据谐振时,电感或电容的无功功率和电阻消耗的有功功率  $P(j\\omega_{0})$  的比值来表示"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.316,
+            0.339,
+            0.677,
+            0.383
+          ],
+          "content": "Q = \\frac {\\omega_ {0} L I ^ {2} (\\mathrm{j} \\omega_ {0})}{R I ^ {2} (\\mathrm{j} \\omega_ {0})} = \\frac {| Q _ {L} (\\mathrm{j} \\omega_ {0}) |}{P (\\mathrm{j} \\omega_ {0})} = \\frac {| Q _ {C} (\\mathrm{j} \\omega_ {0}) |}{P (\\mathrm{j} \\omega_ {0})}",
+          "image_source": "../../raw/pages_0289-0320/images/page_289_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.387,
+            0.862,
+            0.428
+          ],
+          "content": "例 11-2 图 11-2 所示电路中, $U_{s}=0.1\\ V$, $R=1\\Omega$, $L=2\\ \\mu H$, $C=200\\ pF$ 时, 电流 $I=0.1\\ A$。求正弦电压源 $u_{s}$ 的频率 $\\omega$ 和电压 $U_{C}$、$U_{L}$ 以及电路的 $Q$ 值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.169,
+            0.433,
+            0.616,
+            0.456
+          ],
+          "content": "解 令 $\\dot{U}_{s}=0.1/0^{\\circ}\\mathrm{V}$, 设电流为 $\\dot{I}=0.1/\\phi_{i}\\mathrm{A}$, 则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.412,
+            0.461,
+            0.582,
+            0.502
+          ],
+          "content": "0. 1 / \\phi_ {i} = \\frac {0 . 1 / 0 ^ {\\circ}}{1 + \\mathrm{j} X (\\mathrm{j} \\omega)}",
+          "image_source": "../../raw/pages_0289-0320/images/page_289_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.505,
+            0.862,
+            0.525
+          ],
+          "content": "显然有  $X(j\\omega)=0,\\phi_{i}=0^{\\circ}$ ，所以电流  $\\dot{I}$  与电压  $\\dot{U}_{s}$  同相，电路处于谐振状态。谐振频率  $\\omega_{0}$  为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.286,
+            0.529,
+            0.707,
+            0.571
+          ],
+          "content": "\\omega_ {0} = \\frac {1}{\\sqrt {L C}} = \\frac {1}{\\sqrt {2 \\times 1 0 ^ {- 6} \\times 2 0 0 \\times 1 0 ^ {- 1 2}}} \\mathrm{rad/s} = 5 0 \\times 1 0 ^ {6} \\mathrm{rad/s}",
+          "image_source": "../../raw/pages_0289-0320/images/page_289_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.576,
+            0.488,
+            0.594
+          ],
+          "content": "$\\omega_{0}$  即为电压源  $u_{s}$  的频率。电路的 Q 值为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.429,
+            0.6,
+            0.566,
+            0.64
+          ],
+          "content": "Q = \\frac {1}{R} \\sqrt {\\frac {L}{C}} = 1 0 0",
+          "image_source": "../../raw/pages_0289-0320/images/page_289_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.645,
+            0.336,
+            0.663
+          ],
+          "content": "谐振时电压  $U_{L}$  和  $U_{C}$  为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.414,
+            0.667,
+            0.58,
+            0.685
+          ],
+          "content": "U _ {L} = U _ {c} = Q U _ {\\mathrm{s}} = 1 0 \\mathrm{V}",
+          "image_source": "../../raw/pages_0289-0320/images/page_289_equation_17.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.172,
+            0.71,
+            0.58,
+            0.732
+          ],
+          "level": 2,
+          "content": "§11-3 RLC 串联电路的频率响应"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.755,
+            0.862,
+            0.8
+          ],
+          "content": "上一节着重分析了 RLC 串联电路在谐振点  $\\omega_{0}$  的状态。本节将分析下述网络函数（电压比）:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.373,
+            0.801,
+            0.619,
+            0.852
+          ],
+          "content": "\\frac {\\dot {U} _ {R} (\\mathrm{j} \\omega)}{\\dot {U} _ {\\mathrm{s}} (\\mathrm{j} \\omega)}, \\frac {\\dot {U} _ {L} (\\mathrm{j} \\omega)}{\\dot {U} _ {\\mathrm{s}} (\\mathrm{j} \\omega)} \\text {和} \\frac {\\dot {U} _ {G} (\\mathrm{j} \\omega)}{\\dot {U} _ {\\mathrm{s}} (\\mathrm{j} \\omega)}",
+          "image_source": "../../raw/pages_0289-0320/images/page_289_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.856,
+            0.862,
+            0.919
+          ],
+          "content": "的频率特性。当输入信号  $u_{s}$  的幅值不变而  $\\omega$  变动时，这犹如从输入端口输入变量  $\\omega$ ，而在不同“窗口”（输出端口）观察频率  $\\omega$  的响应，所以，这些网络函数的频率特性又统称为电路的频率响应，为了便于比较不同参数的 RLC 串联电路的频率响应之间在性能"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.022,
+            0.689,
+            0.107,
+            0.756
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.023,
+                0.762,
+                0.106,
+                0.813
+              ],
+              "content": "RLC 串联电路的频率响应"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_289_image_22.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 290,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.481,
+            0.068,
+            0.738,
+            0.083
+          ],
+          "content": "§ 11-3 RLC 串联电路的频率响应"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.792,
+            0.069,
+            0.82,
+            0.082
+          ],
+          "content": "267"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.118,
+            0.823,
+            0.269
+          ],
+          "continues_prev": true,
+          "content": "上的差异，纵、横坐标都采用相对于谐振点的比值(倍率)作为绘制频率特性的坐标系。由于已设定 $U_{\\mathrm{s}}(\\mathrm{j}\\omega)=U_{\\mathrm{s}}(\\mathrm{j}\\omega_{0})$ ，所以上述电压比的模就表示任一频率时的输出电压与其谐振点的输入电压之比值；而横坐标也用与谐振频率 $\\omega_{0}$ 的比值表示，即 $\\eta=\\frac{\\omega}{\\omega_{0}},\\omega=\\eta\\omega_{0}$ 。这样，所有的RLC电路都在 $\\eta=1$ 处谐振，都在同一个相对尺度下来比较相互频率特性的差异，这一共同的尺度也表示各谐振电路的偏谐程度（偏离谐振点程度），下面用新坐标系来分析上述网络函数的频率特性，这样绘制的频率响应曲线，称为通用曲线。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.273,
+            0.714,
+            0.292
+          ],
+          "content": "(1) 当以电阻电压  $\\dot{U}_{R}(j\\eta)$  作为输出变量, 其网络函数  $H_{R}(j\\eta)$  表示为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.26,
+            0.297,
+            0.658,
+            0.361
+          ],
+          "content": "H _ {R} (\\mathrm{j} \\eta) = \\frac {\\dot {U} _ {R} (\\mathrm{j} \\omega)}{\\dot {U} _ {\\mathrm{s}} (\\mathrm{j} \\omega)} = \\frac {R}{R + \\mathrm{j} \\left(\\omega L - \\frac {1}{\\omega C}\\right)} = \\frac {1}{1 + \\mathrm{j} Q \\left(\\eta - \\frac {1}{\\eta}\\right)}",
+          "image_source": "../../raw/pages_0289-0320/images/page_290_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.362,
+            0.241,
+            0.38
+          ],
+          "content": "频率响应分别为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.292,
+            0.388,
+            0.623,
+            0.425
+          ],
+          "content": "\\phi (\\mathrm{j} \\eta) = - \\arctan \\left[ Q \\left(\\eta - \\frac {1}{\\eta}\\right) \\right] (\\text {相频特性})",
+          "image_source": "../../raw/pages_0289-0320/images/page_290_equation_6.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.31,
+            0.427,
+            0.611,
+            0.448
+          ],
+          "content": "\\mid H _ {R} (\\mathrm{j} \\eta) \\mid = \\cos [ \\phi (\\mathrm{j} \\eta) ] (\\text {幅频特性})",
+          "image_source": "../../raw/pages_0289-0320/images/page_290_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.098,
+            0.45,
+            0.82,
+            0.514
+          ],
+          "content": "从上式可以看出,不同参数的 RLC 串联电路在频响上的差异,可以通过各自的 Q 值体现出来。电路的谐振曲线如图 11-6(a)(b) 所示,图中  $Q_{1} \\gg Q_{2}$ 。从幅频特性可以很清楚地看出,它们有如下的共同点及差异:"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.102,
+            0.522,
+            0.469,
+            0.746
+          ],
+          "sub_type": "line",
+          "content": "| \\(\\eta\\) | Curve (1) | Curve (2) |\n| --- | --- | --- |\n| ~0.5 | — | \\(1/\\sqrt{2}\\) |\n| 1 | 1 | 1 |\n| ~1.5 | — | \\(1/\\sqrt{2}\\) |",
+          "captions": [
+            {
+              "bbox": [
+                0.267,
+                0.755,
+                0.288,
+                0.769
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_290_chart_9.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.507,
+            0.558,
+            0.817,
+            0.743
+          ],
+          "sub_type": "contour",
+          "content": "| \\(\\eta\\) | Curve (1) \\(({}^{\\circ})\\) | Curve (2) \\(({}^{\\circ})\\) |\n| --- | --- | --- |\n| 0 | ~88 | ~85 |\n| 1 | 0 | 0 |\n| ~1.3 | ~-88 | ~-85 |",
+          "captions": [
+            {
+              "bbox": [
+                0.635,
+                0.757,
+                0.656,
+                0.771
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.324,
+                0.774,
+                0.588,
+                0.794
+              ],
+              "content": "图 11-6  $\\dot{U}_{R}(j\\eta)/\\dot{U}_{s}(j1)$  频率响应"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_290_chart_11.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.098,
+            0.811,
+            0.816,
+            0.92
+          ],
+          "sub_type": "text",
+          "content": "① 它们都在谐振点  $\\eta=1$  处出现峰值，在其邻域  $\\eta=1+\\Delta\\eta$  内都有较大幅度的输出信号，这表明 RLC 串联电路都具有在全频域内选择各自谐振信号的性能，工程上称这一性能为“选择性”。\n② 当信号的频率偏离谐振频率 $(\\eta\\neq1)$ 后, 输出信号的幅度都从峰值开始下降, 表明电路对非谐振频率的信号有抑制能力(简称抑非能力), 电路的这种抑非能力取决于"
+        }
+      ]
+    },
+    {
+      "page_idx": 291,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.03,
+            0.123,
+            0.148
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.135,
+            0.07,
+            0.164,
+            0.084
+          ],
+          "content": "268"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.219,
+            0.069,
+            0.424,
+            0.084
+          ],
+          "content": "第十一章 电路的频率响应"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.121,
+            0.206,
+            0.139
+          ],
+          "content": "述比值:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.3,
+            0.14,
+            0.701,
+            0.182
+          ],
+          "content": "\\left| Q \\left(\\eta - \\frac {1}{\\eta}\\right) \\right| _ {\\eta \\neq 1} = \\left| \\frac {X (1 + \\Delta \\eta)}{R} \\right| \\quad [ R = Z (\\mathrm{j} \\omega_ {0}) ]",
+          "image_source": "../../raw/pages_0289-0320/images/page_291_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.183,
+            0.869,
+            0.337
+          ],
+          "content": "该比值为信号偏离谐振频率后，电路电抗的增量[因为 $X(\\mathrm{j}1) = 0$ ]与谐振时阻抗的比值，它与电路的 $Q$ 值成正比，$Q$ 值越大，该比值越大，电抗的相对增量就越大，电路的抑非能力越强，这也说明，电路的抑非能力主要是由非零电抗引起的。从曲线可以看出，由于 $Q_{1} \\gg Q_{2}$，曲线(1)代表的电路的抑非能力强于曲线(2)代表的电路，所以曲线(1)急速下降，显得十分陡峭，而曲线(2)下降很慢，顶部的变化显得比较平缓。曲线的整体形状显示了电路在抑非能力上的差异，而这一差异在谐振点附近显得尤为突出；当信号的频率远离谐振频率后，左侧趋同于 $RC$ 电路，右侧趋同于 $RL$ 电路，彼此的差异逐渐缩小，而趋于消失。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.34,
+            0.868,
+            0.427
+          ],
+          "content": "③ 电路在全频域内都有信号的输出,但只有在谐振点附近的邻域 $(\\eta=1+\\Delta\\eta)$ 内输出幅度较大,具有工程实际应用价值。为此,工程上设定一个输出幅度指标来界定频率范围,划分出谐振电路的通频带(简称通带)和阻带。通带限定的频域范围称为带宽,记为BW。工程上按下式决定通带的BW,即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.344,
+            0.432,
+            0.66,
+            0.472
+          ],
+          "content": "\\mid H _ {R} (\\mathrm{j} \\eta) \\mid \\geqslant \\frac {1}{\\sqrt {2}} = 0. 7 0 7 (\\text {设定的指标})",
+          "image_source": "../../raw/pages_0289-0320/images/page_291_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.476,
+            0.472,
+            0.495
+          ],
+          "content": "上式取等号时,根据  $H_{R}(j\\eta)$  的表达式有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.439,
+            0.499,
+            0.564,
+            0.536
+          ],
+          "content": "Q \\bigg (\\eta - \\frac {1}{\\eta} \\bigg) = \\pm 1",
+          "image_source": "../../raw/pages_0289-0320/images/page_291_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.539,
+            0.867,
+            0.582
+          ],
+          "content": "根据该方程可求得两个频率点,作为通带BW的上下界,可分别设 $\\eta_{j1}<1$ (谐振点左侧)称为下界(下截止频率), $\\eta_{j2}>1$ (谐振点右侧)称为上界(上截止频率),分别为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.294,
+            0.587,
+            0.707,
+            0.628
+          ],
+          "content": "\\eta_ {\\mathrm{j1}} = - \\frac {1}{2 Q} + \\sqrt {\\left(\\frac {1}{2 Q}\\right) ^ {2} + 1} <   1 \\quad \\text {和} \\quad \\omega_ {\\mathrm{j1}} = \\eta_ {\\mathrm{j1}} \\omega_ {0} (\\text {下界})",
+          "image_source": "../../raw/pages_0289-0320/images/page_291_equation_11.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.302,
+            0.633,
+            0.702,
+            0.675
+          ],
+          "content": "\\eta_ {\\mathrm{j2}} = \\frac {1}{2 Q} + \\sqrt {\\left(\\frac {1}{2 Q}\\right) ^ {2} + 1} > 1 \\quad \\text {和} \\quad \\omega_ {\\mathrm{j2}} = \\eta_ {\\mathrm{j2}} \\omega_ {0} (\\text {上界})",
+          "image_source": "../../raw/pages_0289-0320/images/page_291_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.68,
+            0.258,
+            0.697
+          ],
+          "content": "通带的 $BW$ 为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.368,
+            0.701,
+            0.637,
+            0.741
+          ],
+          "content": "B W = \\omega_ {\\mathrm{j2}} - \\omega_ {\\mathrm{j1}} = \\frac {\\omega_ {0}}{Q} \\quad \\text {或} \\quad B W = \\frac {f _ {0}}{Q}",
+          "image_source": "../../raw/pages_0289-0320/images/page_291_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.744,
+            0.868,
+            0.786
+          ],
+          "content": "上述界定的通带位于频域中段,呈带状形,所以网络函数  $H_{R}(j\\eta)$  称为带通函数。通带的频率范围为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.448,
+            0.792,
+            0.554,
+            0.809
+          ],
+          "content": "\\omega_ {\\mathrm{j} 1} \\leqslant \\omega \\leqslant \\omega_ {\\mathrm{j} 2}",
+          "image_source": "../../raw/pages_0289-0320/images/page_291_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.812,
+            0.598,
+            0.832
+          ],
+          "content": "$\\omega_{j1}$ 、 $\\omega_{j2}$ 分别位于 $\\omega_{0}$ 两侧，因此 $\\omega_{0}$ 又常称为中心频率。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.833,
+            0.868,
+            0.876
+          ],
+          "content": "工程上对  $\\omega_{j1}, \\omega_{j2}$  常另有称谓，如 3dB 点 $^{①}$ ，半功率点（因为此时电阻上的功耗等于谐振时电阻功耗的一半），并有  $\\varphi(j\\eta_{j1}) = 45^{\\circ}, \\varphi(j\\eta_{j2}) = -45^{\\circ}$ 。"
+        },
+        {
+          "type": "page_footnote",
+          "bbox": [
+            0.165,
+            0.905,
+            0.691,
+            0.921
+          ],
+          "content": "① 按分贝的定义,此电压比值相当于  $20 \\lg(0.707) = -3 \\text{ dB}$ , 即电压下降了 3 dB。"
+        }
+      ]
+    },
+    {
+      "page_idx": 292,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.486,
+            0.065,
+            0.743,
+            0.08
+          ],
+          "content": "§ 11-3 RLC 串联电路的频率响应"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.798,
+            0.065,
+            0.826,
+            0.078
+          ],
+          "content": "269"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.117,
+            0.827,
+            0.226
+          ],
+          "content": "工程上亦常用通带的 $BW$ 来比较和评价电路的选择性，由上面的论述可以看出，$BW$ 与 $Q$ 值成反比，$Q$ 值越大，$BW$ 越窄，电路选择性越好，抑非能力越强，反之，$Q$ 值越小，$BW$ 就越宽，抑非能力越弱，选择性能越差，但宽带包含的信号多，信号流失少，有利于减少信号的失真。上述两种情况都有工程实用价值。$BW$ 如图11-6(a)所示，读者可将曲线(1)和曲线(2)的 $BW_{(1)}$ 和 $BW_{(2)}$ 作一比较。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.229,
+            0.827,
+            0.269
+          ],
+          "content": "通过本节的分析可知，RLC串联谐振电路是一种简单、易调和频响性能优良的谐振电路。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.273,
+            0.827,
+            0.315
+          ],
+          "content": "(2) 分别以电感电压  $\\dot{U}_{L}(\\mathrm{j}\\eta)$  和电容电压  $\\dot{U}_{c}(\\mathrm{j}\\eta)$  为输出变量的网络函数  $H_{L}(\\mathrm{j}\\eta)$ 、 $H_{c}(\\mathrm{j}\\eta)$  分别为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.331,
+            0.318,
+            0.603,
+            0.363
+          ],
+          "content": "H _ {c} (\\mathrm{j} \\eta) = \\frac {\\dot {U} _ {c} (\\mathrm{j} \\eta)}{\\dot {U} _ {s} (\\mathrm{j} 1)} = \\frac {- \\mathrm{j} Q}{\\eta + \\mathrm{j} Q (\\eta^ {2} - 1)}",
+          "image_source": "../../raw/pages_0289-0320/images/page_292_equation_5.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.332,
+            0.366,
+            0.606,
+            0.43
+          ],
+          "content": "H _ {L} (\\mathrm{j} \\eta) = \\frac {\\dot {U} _ {L} (\\mathrm{j} \\eta)}{\\dot {U} _ {\\mathrm{s}} (\\mathrm{j} 1)} = \\frac {\\mathrm{j} Q}{\\frac {1}{\\eta} + \\mathrm{j} Q \\left(1 - \\frac {1}{\\eta^ {2}}\\right)}",
+          "image_source": "../../raw/pages_0289-0320/images/page_292_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.11,
+            0.432,
+            0.829,
+            0.474
+          ],
+          "content": "由于  $\\dot{U}_{c}(\\mathrm{j}\\eta)$  滞后  $\\dot{U}_{R}(\\mathrm{j}\\eta)90^{\\circ}$ ，而  $\\dot{U}_{L}(\\mathrm{j}\\eta)$  超前  $90^{\\circ}$ ，所以，上述网络函数的相频特性可不予分析。而描绘幅频特性曲线时，必须首先确定函数的极值点。函数  $H_{c}(\\mathrm{j}\\eta)$  的极值条件为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.397,
+            0.477,
+            0.536,
+            0.516
+          ],
+          "content": "\\frac {\\mathrm{d}}{\\mathrm{d} \\eta} \\left[ \\frac {U _ {c} (\\mathrm{j} \\eta)}{U _ {\\mathrm{s}} (\\mathrm{j} 1)} \\right] = 0",
+          "image_source": "../../raw/pages_0289-0320/images/page_292_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.111,
+            0.52,
+            0.555,
+            0.538
+          ],
+          "content": "可求得如下三个极值点  $\\eta_{c1}, \\eta_{c2}$  和  $\\eta_{c3}$  及对应的极值:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.218,
+            0.54,
+            0.404,
+            0.58
+          ],
+          "content": "\\eta_ {c 1} = 0, \\quad \\frac {U _ {c} (\\mathrm{j} \\eta_ {c 1})}{U _ {\\mathrm{s}} (\\mathrm{j} 1)} = 1",
+          "image_source": "../../raw/pages_0289-0320/images/page_292_equation_10.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.218,
+            0.586,
+            0.717,
+            0.651
+          ],
+          "content": "\\eta_ {c 2} = \\sqrt {1 - \\frac {1}{2 Q ^ {2}}}, \\quad \\frac {U _ {c} (\\mathrm{j} \\eta_ {c 2})}{U _ {\\mathrm{s}} (\\mathrm{j} 1)} = \\frac {Q}{\\sqrt {1 - \\frac {1}{4 Q ^ {2}}}} > Q \\quad (\\text {当} Q > 0. 7 0 7 \\text {时})",
+          "image_source": "../../raw/pages_0289-0320/images/page_292_equation_11.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.22,
+            0.654,
+            0.413,
+            0.694
+          ],
+          "content": "\\eta_ {c 3} = \\infty , \\quad \\frac {U _ {c} (\\mathrm{j} \\eta_ {c 3})}{U _ {\\mathrm{e}} (\\mathrm{j} 1)} = 0",
+          "image_source": "../../raw/pages_0289-0320/images/page_292_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.112,
+            0.698,
+            0.83,
+            0.758
+          ],
+          "content": "对于 $\\frac{U_L(\\mathrm{j}\\eta)}{U_2(\\mathrm{j}1)}$ 可作类似的分析，从表达式可知，$\\eta_{L} = \\frac{1}{\\eta_{C}}$ 所以三个极值点 $\\eta_{L1}, \\eta_{L2}$ 和 $\\eta_{L3}$ 及对应的极值为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.36,
+            0.76,
+            0.582,
+            0.801
+          ],
+          "content": "\\eta_ {L 1} = \\frac {1}{\\eta_ {c 3}} = 0, \\quad \\frac {U _ {L} (\\mathrm{j} \\eta_ {L 1})}{U _ {\\mathrm{s}} (\\mathrm{j} 1)} = 0",
+          "image_source": "../../raw/pages_0289-0320/images/page_292_equation_14.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.205,
+            0.804,
+            0.734,
+            0.87
+          ],
+          "content": "\\eta_ {L 2} = \\frac {1}{\\eta_ {c 2}} = \\sqrt {\\frac {2 Q ^ {2}}{2 Q ^ {2} - 1}}, \\quad \\frac {U _ {L} (\\mathrm{j} \\eta_ {L 2})}{U _ {\\mathrm{a}} (\\mathrm{j} 1)} = \\frac {Q}{\\sqrt {1 - \\frac {1}{4 Q ^ {2}}}} > Q \\quad (\\text {当} Q > 0. 7 0 7 \\text {时})",
+          "image_source": "../../raw/pages_0289-0320/images/page_292_equation_15.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.355,
+            0.873,
+            0.585,
+            0.915
+          ],
+          "content": "\\eta_ {L 3} = \\frac {1}{\\eta_ {c 1}} = \\infty , \\quad \\frac {U _ {L} (\\mathrm{j} \\eta_ {L 3})}{U _ {\\mathrm{s}} (\\mathrm{j} 1)} = 1",
+          "image_source": "../../raw/pages_0289-0320/images/page_292_equation_16.jpg"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.839,
+            0.029,
+            0.964,
+            0.142
+          ],
+          "content": ""
+        }
+      ]
+    },
+    {
+      "page_idx": 293,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.032,
+            0.117,
+            0.142
+          ],
+          "content": "1. 用 $\\mathrm{H}_{2}$ 气相反应, 用 $\\mathrm{H}_{2}$ 气相反应, 用 $\\mathrm{H}_{2}$ 气相反应, 用 $\\mathrm{H}_{2}$ 气相反应, 用 $\\mathrm{H}_{2}$ 气相反应"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.128,
+            0.065,
+            0.158,
+            0.078
+          ],
+          "content": "270"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.211,
+            0.064,
+            0.416,
+            0.08
+          ],
+          "content": "第十一章 电路的频率响应"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.115,
+            0.499,
+            0.36
+          ],
+          "content": "两条幅频特性如图11-7所示，图中粗虚线表示 $Q \\leqslant 0.707$ 时的幅频特性。从图中可以看出，$H_{C}(\\mathrm{j}\\eta)$ 为低通函数，当 $Q \\gg 1$ 时，可求得上截止频率 $\\omega_{\\mathrm{j}} = 1.55\\omega_{0}$，其通频带域 $0 \\leqslant \\omega \\leqslant \\omega_{\\mathrm{j}}$；函数 $H_{L}(\\mathrm{j}\\eta)$ 为高通函数，当 $Q \\gg 1$ 时，求得下截止频率 $\\omega_{\\mathrm{j}} = \\frac{\\omega_{0}}{1.55} = 0.645\\omega_{0}$，通频带域为 $\\omega_{\\mathrm{j}} \\leqslant \\omega < \\infty$，当 $Q > 0.707$ 时，两者都有大于 $Q$ 且相等的峰值，当 $Q$ 增大时，$\\eta_{C2}, \\eta_{L2}$ 都向 $\\eta = 1$ 靠拢，峰值增高，图中 $a, b, c$ 三点在抬高的同时，逐渐向 $c$ 点合拢，当 $Q \\to \\infty$，三点合于无穷远。"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.51,
+            0.114,
+            0.861,
+            0.339
+          ],
+          "sub_type": "line",
+          "content": "| \\(\\eta\\) | UL/Us | UC/Us | Dashed Curve |\n| --- | --- | --- | --- |\n| 0 | 1 | 0 | 1 |\n| \\(\\eta C2\\) | Peak | — | — |\n| 1 | — | Peak | — |\n| \\(\\eta L2\\) | Peak | — | — |",
+          "captions": [
+            {
+              "bbox": [
+                0.542,
+                0.341,
+                0.82,
+                0.358
+              ],
+              "content": "图 11-7  $H_{L}(j\\eta)$ 、 $H_{C}(j\\eta)$  的幅频特性"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_293_chart_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.124,
+            0.366,
+            0.857,
+            0.406
+          ],
+          "content": "例 11-3 RLC 串联电路中  $U_{s}=200\\ V, C=6.34\\ \\mu F$ ，电路的固有频率  $\\omega_{0}=314\\ rad/s$ ，带通函数的带宽  $BW=6.28\\ rad/s$ 。求 L、R 和  $U_{L}$ 、 $U_{C}$ 。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.408,
+            0.33,
+            0.426
+          ],
+          "content": "解 电路的 Q 值为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.414,
+            0.433,
+            0.567,
+            0.468
+          ],
+          "content": "Q = \\frac {\\omega_ {0}}{B W} = \\frac {3 1 4}{6 . 2 8} = 5 0",
+          "image_source": "../../raw/pages_0289-0320/images/page_293_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.125,
+            0.472,
+            0.376,
+            0.49
+          ],
+          "content": "谐振时容抗等于感抗,则 L 为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.327,
+            0.495,
+            0.651,
+            0.533
+          ],
+          "content": "L = \\frac {1}{\\omega_ {0} ^ {2} C} = \\frac {1}{(3 1 4) ^ {2} \\times 6 . 3 4 \\times 1 0 ^ {- 6}} \\mathrm{H} = 1. 6 0 \\mathrm{H}",
+          "image_source": "../../raw/pages_0289-0320/images/page_293_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.125,
+            0.536,
+            0.206,
+            0.553
+          ],
+          "content": "$R$ 的值为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.379,
+            0.559,
+            0.602,
+            0.597
+          ],
+          "content": "R = \\frac {\\omega_ {0} L}{Q} = \\frac {3 1 4 \\times 1 . 6}{5 0} \\Omega = 1 0 \\Omega",
+          "image_source": "../../raw/pages_0289-0320/images/page_293_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.125,
+            0.601,
+            0.299,
+            0.62
+          ],
+          "content": "$U_{L}(j\\omega_{0})$ 、 $U_{C}(j\\omega_{0})$ 为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.268,
+            0.623,
+            0.712,
+            0.642
+          ],
+          "content": "U _ {L} (\\mathrm{j} \\omega_ {0}) = U _ {c} (\\mathrm{j} \\omega_ {0}) = Q U _ {\\mathrm{s}} (\\mathrm{j} \\omega_ {0}) = 5 0 \\times 2 0 0 \\mathrm{V} = 1 0 0 0 0 \\mathrm{V}",
+          "image_source": "../../raw/pages_0289-0320/images/page_293_equation_14.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.165,
+            0.665,
+            0.494,
+            0.687
+          ],
+          "level": 2,
+          "content": "§11-4 RLC 并联谐振电路"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.712,
+            0.832,
+            0.731
+          ],
+          "content": "图 11-8(a) 所示 RLC 并联电路是与 RLC 串联电路相对应的另一种形式的谐振电路。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.122,
+            0.735,
+            0.857,
+            0.8
+          ],
+          "content": "并联谐振的定义与串联谐振的定义相同,即端口上的电压  $\\dot{U}$  与输入电流  $\\dot{I}$  同相时的工作状况称为谐振。由于发生在并联电路中,所以称为并联谐振。分析方法与 RLC 串联电路相同,并联谐振的条件为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.419,
+            0.805,
+            0.556,
+            0.824
+          ],
+          "content": "\\mathrm{Im} \\left[ Y (\\mathrm{j} \\omega_ {0}) \\right] = 0",
+          "image_source": "../../raw/pages_0289-0320/images/page_293_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.124,
+            0.831,
+            0.714,
+            0.868
+          ],
+          "content": "因为 $Y(\\mathrm{j}\\omega_0) = G + \\mathrm{j}\\left(\\omega_0C - \\frac{1}{\\omega_0L}\\right)$，可解得谐振时的角频率 $\\omega_0$ 和频率 $f_0$ 为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.447,
+            0.875,
+            0.528,
+            0.916
+          ],
+          "content": "\\omega_ {0} = \\frac {1}{\\sqrt {L C}}",
+          "image_source": "../../raw/pages_0289-0320/images/page_293_equation_20.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.013,
+            0.643,
+            0.099,
+            0.71
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.013,
+                0.713,
+                0.098,
+                0.747
+              ],
+              "content": "RLC并联谐振电路"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_293_image_21.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 294,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.538,
+            0.068,
+            0.743,
+            0.083
+          ],
+          "content": "§ 11-4 RLC 并联谐振电路"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.798,
+            0.068,
+            0.826,
+            0.081
+          ],
+          "content": "271"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.227,
+            0.123,
+            0.327,
+            0.162
+          ],
+          "content": "f _ {0} = \\frac {1}{2 \\pi \\sqrt {L C}}",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.112,
+            0.168,
+            0.353,
+            0.184
+          ],
+          "content": "该频率称为电路的固有频率。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.19,
+            0.438,
+            0.207
+          ],
+          "content": "并联谐振时,输入导纳  $Y(\\mathrm{j}\\omega_{0})$  为最小"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.163,
+            0.213,
+            0.395,
+            0.25
+          ],
+          "content": "Y (\\mathrm{j} \\omega_ {0}) = G + \\mathrm{j} \\left(\\omega_ {0} C - \\frac {1}{\\omega_ {0} L}\\right) = G",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.112,
+            0.254,
+            0.445,
+            0.294
+          ],
+          "content": "或者说输入阻抗最大, $Z(j\\omega_{0})=R$ ,所以谐振时端电压达最大值"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.46,
+            0.123,
+            0.699,
+            0.237
+          ],
+          "sub_type": "text_image",
+          "content": "i̇\n+   i̇G   i̇L   i̇C\n      G       1\n      /jωL     jωC\n      U\n      -",
+          "captions": [
+            {
+              "bbox": [
+                0.564,
+                0.251,
+                0.585,
+                0.265
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_294_image_7.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.704,
+            0.125,
+            0.828,
+            0.248
+          ],
+          "sub_type": "text_image",
+          "content": "I_C\nI_G\nO\nI_L\nI_S\nU",
+          "captions": [
+            {
+              "bbox": [
+                0.752,
+                0.25,
+                0.774,
+                0.264
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.553,
+                0.269,
+                0.731,
+                0.285
+              ],
+              "content": "图 11-8 并联谐振电路"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_294_image_9.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.357,
+            0.297,
+            0.578,
+            0.317
+          ],
+          "content": "U (\\omega_ {0}) = \\mid Z (\\mathrm{j} \\omega_ {0}) \\mid I _ {\\mathrm{s}} = R I _ {\\mathrm{s}}",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.322,
+            0.529,
+            0.339
+          ],
+          "content": "可以根据这一现象判别并联电路是否发生了谐振。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.342,
+            0.617,
+            0.361
+          ],
+          "content": "并联谐振时有  $\\dot{I}_{L} + \\dot{I}_{C} = 0$  (所以并联谐振又称电流谐振):"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.315,
+            0.366,
+            0.628,
+            0.402
+          ],
+          "content": "\\dot {I} _ {L} (\\omega_ {0}) = - \\mathrm{j} \\frac {1}{\\omega_ {0} L} \\dot {U} = - \\mathrm{j} \\frac {1}{\\omega_ {0} L G} \\dot {I} _ {\\mathrm{s}} = - \\mathrm{j} Q \\dot {I} _ {\\mathrm{s}}",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_15.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.339,
+            0.408,
+            0.605,
+            0.443
+          ],
+          "content": "\\dot {I} _ {c} (\\omega_ {0}) = \\mathrm{j} \\omega_ {0} C \\dot {U} = \\mathrm{j} \\frac {\\omega_ {0} C}{G} \\dot {I} _ {\\mathrm{s}} = \\mathrm{j} Q \\dot {I} _ {\\mathrm{s}}",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.452,
+            0.427,
+            0.469
+          ],
+          "content": "式中 Q 称为并联谐振电路的品质因数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.302,
+            0.474,
+            0.64,
+            0.515
+          ],
+          "content": "Q = \\frac {I _ {L} (\\omega_ {0})}{I _ {\\mathrm{s}}} = \\frac {I _ {C} (\\omega_ {0})}{I _ {\\mathrm{s}}} = \\frac {1}{\\omega_ {0} L G} = \\frac {\\omega_ {0} C}{G} = \\frac {1}{G} \\sqrt {\\frac {C}{L}}",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.518,
+            0.831,
+            0.559
+          ],
+          "content": "如果 $Q \\gg 1$，则谐振时在电感和电容中会出现过电流，但从 $L, C$ 两端看进去的等效电纳等于零，即阻抗为无限大，相当于开路。图11-8(b)为并联谐振时的电流相量图。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.567,
+            0.83,
+            0.623
+          ],
+          "content": "谐振时无功功率 $Q_{L} = \\frac{1}{\\omega_{0}L} U^{2}, Q_{C} = -\\omega_{0}CU^{2}$，所以 $Q_{L} + Q_{C} = 0$，表明在谐振时，电感的磁场能量与电容的电场能量彼此相互交换，完全补偿，两种能量的总和为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.306,
+            0.626,
+            0.638,
+            0.646
+          ],
+          "content": "W (\\omega_ {0}) = W _ {L} (\\omega_ {0}) + W _ {C} (\\omega_ {0}) = L Q ^ {2} I _ {\\mathrm{s}} ^ {2} = \\text {常数}",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.649,
+            0.83,
+            0.69
+          ],
+          "content": "工程中采用的电感线圈和电容并联的谐振电路,如图 11-9(a) 所示,其中电感线圈用 R 和 L 串联组合表示。谐振时,有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.402,
+            0.694,
+            0.538,
+            0.712
+          ],
+          "content": "\\mathrm{Im} \\left[ Y (\\mathrm{j} \\omega_ {0}) \\right] = 0",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_23.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.118,
+            0.718,
+            0.142,
+            0.734
+          ],
+          "content": "而"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.234,
+            0.738,
+            0.715,
+            0.78
+          ],
+          "content": "Y (\\mathrm{j} \\omega_ {0}) = \\mathrm{j} \\omega_ {0} C + \\frac {1}{R + \\mathrm{j} \\omega_ {0} L} = \\mathrm{j} \\omega_ {0} C + \\frac {R}{| Z (\\mathrm{j} \\omega_ {0}) | ^ {2}} - \\mathrm{j} \\frac {\\omega_ {0} L}{| Z (\\mathrm{j} \\omega_ {0}) | ^ {2}}",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_25.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.118,
+            0.786,
+            0.16,
+            0.802
+          ],
+          "content": "故有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.382,
+            0.807,
+            0.56,
+            0.848
+          ],
+          "content": "\\omega_ {0} C - \\frac {\\omega_ {0} L}{\\mid Z (\\mathrm{j} \\omega_ {0}) \\mid^ {2}} = 0",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_27.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.853,
+            0.236,
+            0.87
+          ],
+          "content": "由上式可解得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.396,
+            0.876,
+            0.547,
+            0.92
+          ],
+          "content": "\\omega_ {0} = \\frac {1}{\\sqrt {L C}} \\sqrt {1 - \\frac {C R ^ {2}}{L}}",
+          "image_source": "../../raw/pages_0289-0320/images/page_294_equation_29.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 295,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.035,
+            0.117,
+            0.142
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.127,
+            0.067,
+            0.156,
+            0.08
+          ],
+          "content": "272"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.209,
+            0.066,
+            0.414,
+            0.082
+          ],
+          "content": "第十一章 电路的频率响应"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.12,
+            0.857,
+            0.182
+          ],
+          "content": "显然，只有当 $1 - \\frac{CR^2}{L} > 0$ ，即 $R < \\sqrt{\\frac{L}{C}}$ 时，$\\omega_0$ 才是实数，所以 $R > \\sqrt{\\frac{L}{C}}$ 时，电路不会发生谐振。该电路调节电阻可改变电路的固有频率。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.187,
+            0.345,
+            0.204
+          ],
+          "content": "谐振时的输入导纳为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.182,
+            0.209,
+            0.408,
+            0.249
+          ],
+          "content": "Y (\\mathrm{j} \\omega_ {0}) = \\frac {R}{| Z (\\mathrm{j} \\omega_ {0}) | ^ {2}} = \\frac {C R}{L}",
+          "image_source": "../../raw/pages_0289-0320/images/page_295_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.253,
+            0.464,
+            0.406
+          ],
+          "content": "可以证明,该电路发生谐振时的输入导纳不是最小值(即输入阻抗不是最大值),所以谐振时的端电压不是最大值。这种电路只有当  $R \\ll \\sqrt{\\frac{L}{C}}$  时,它发生谐振时的特点才与图 11-8(a) 所示 GLC 并联谐振的特点接近。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.476,
+            0.193,
+            0.86,
+            0.353
+          ],
+          "sub_type": "text_image",
+          "content": "i_s\n+\nI_1\nR\njωL\ni_2\n1\njωC\nO\ni_s\nφ_1\nU\ni_2\ni_1\n(a)\n(b)",
+          "captions": [
+            {
+              "bbox": [
+                0.558,
+                0.361,
+                0.772,
+                0.376
+              ],
+              "content": "图 11-9 一种并联谐振电路"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_295_image_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.411,
+            0.747,
+            0.429
+          ],
+          "content": "此并联电路发生电流谐振时的电流相量图如图 11-9(b) 所示, 这时有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.404,
+            0.434,
+            0.573,
+            0.452
+          ],
+          "content": "I _ {2} = I _ {1} \\sin \\varphi_ {1} = I _ {\\mathrm{s}} \\tan \\varphi_ {1}",
+          "image_source": "../../raw/pages_0289-0320/images/page_295_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.455,
+            0.744,
+            0.473
+          ],
+          "content": "若电感线圈的阻抗角  $\\varphi_{1}$  很大, 谐振时有过电流出现在电感支路和电容中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.478,
+            0.628,
+            0.495
+          ],
+          "content": "下面对电路中的各种过电压和过电流现象做简单讨论。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.122,
+            0.499,
+            0.857,
+            0.606
+          ],
+          "content": "当 RLC 串联电路发生谐振时, 若品质因数 Q 大于 1, 电容电压和电感电压大于激励电压, 呈现过电压现象。当 RLC 并联电路发生谐振时, 若品质因数 Q 大于 1, 电容中电流和电感中电流大于激励电流, 呈现过电流现象。需要指出的是, 正弦稳态电路出现的过电压和过电流是谐振过电压和谐振过电流, 只要电路结构参数和正弦激励频率不改变, 这种过电压和过电流将持续存在。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.122,
+            0.611,
+            0.856,
+            0.673
+          ],
+          "content": "正弦稳态电路的谐振过电压和过电流与动态电路换路后产生的过电压和过电流的机理完全不同,有本质的区别,请学习者从两者产生的原因、电路方程、电路响应表达式等方面分析两者的差异。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.122,
+            0.678,
+            0.857,
+            0.718
+          ],
+          "content": "在实际电路中还有一种情形,当电路中出现短路时,会出现过电流现象。请学习者独立思考电路短路发生初期和电路达到稳态后,短路电流表达式有何变化。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.122,
+            0.723,
+            0.856,
+            0.785
+          ],
+          "content": "虽然电路中有各种过电压和过电流现象,但物理本质不同。学习者要善于透过现象看本质,从电路各种过电压和过电流现象入手,通过电路理论分析,从物理理论上理解电路不同过电压和过电流的本质。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.162,
+            0.809,
+            0.36,
+            0.831
+          ],
+          "level": 2,
+          "content": "§11-5 波特图 $^{①}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.16,
+            0.856,
+            0.854,
+            0.875
+          ],
+          "content": "对电路和系统的频率特性进行分析时,为了直观地观察频率特性随频率变化的趋"
+        },
+        {
+          "type": "page_footnote",
+          "bbox": [
+            0.15,
+            0.903,
+            0.463,
+            0.918
+          ],
+          "content": "① H. W. Bode 最先使用这种图形, 故称波特图。"
+        }
+      ]
+    },
+    {
+      "page_idx": 296,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.621,
+            0.068,
+            0.741,
+            0.082
+          ],
+          "content": "§ 11-5 波特图"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.8,
+            0.069,
+            0.828,
+            0.081
+          ],
+          "content": "273"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.119,
+            0.828,
+            0.205
+          ],
+          "continues_prev": true,
+          "content": "势和特征,需要准确地描绘频率响应曲线,这往往不是一件容易的事。工程上常采用对数坐标绘制频响曲线,这样做可以在不同频域内用直线近似代替曲线,使曲线局部直线化,整个曲线则折线化,从而使频响曲线变得易于描绘。这种用对数坐标描绘的频率响应图就称为频响波特图。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.211,
+            0.507,
+            0.228
+          ],
+          "content": "网络函数  $H(j\\omega)$  是一个复数, 其指数形式为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.363,
+            0.231,
+            0.566,
+            0.252
+          ],
+          "content": "H (\\mathrm{j} \\omega) = \\mid H (\\mathrm{j} \\omega) \\mid \\mathrm{e} ^ {\\mathrm{j} \\varphi (\\mathrm{j} \\omega)}",
+          "image_source": "../../raw/pages_0289-0320/images/page_296_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.256,
+            0.228,
+            0.274
+          ],
+          "content": "对其取对数有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.313,
+            0.279,
+            0.615,
+            0.297
+          ],
+          "content": "\\ln [ H (\\mathrm{j} \\omega) ] = \\ln [ | H (\\mathrm{j} \\omega) | ] + \\mathrm{j} \\varphi (\\mathrm{j} \\omega)",
+          "image_source": "../../raw/pages_0289-0320/images/page_296_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.302,
+            0.829,
+            0.388
+          ],
+          "content": "其实部为  $H(j\\omega)$  的对数模，而虚部为  $H(j\\omega)$  的相移函数，两者都是  $\\omega$  的实函数。用对数坐标作图时，仍然要作两个图，一为对数模（用分贝表示）与对数频率的关系图形，称为幅频波特图，一为相移与对数频率的关系图形，称为相频波特图。作图时两者的横轴坐标都采用对数频率  $\\lg \\omega$ 。幅频波特图用分贝（dB）表示对数模，记为  $H_{dB}$ ，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.368,
+            0.393,
+            0.563,
+            0.412
+          ],
+          "content": "H _ {\\mathrm{dB}} = 2 0 \\lg [ | H (\\mathrm{j} \\omega) | ]",
+          "image_source": "../../raw/pages_0289-0320/images/page_296_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.109,
+            0.417,
+            0.44,
+            0.433
+          ],
+          "content": "对相频波特图,其纵坐标仍然用度表示。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.44,
+            0.536,
+            0.457
+          ],
+          "content": "下面,通过具体例子来说明绘制波特图的方法。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.463,
+            0.477,
+            0.479
+          ],
+          "content": "例 11-4 画出如下网络函数的波特图。"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.361,
+            0.486,
+            0.575,
+            0.523
+          ],
+          "content": "H (\\mathrm{j} \\omega) = \\frac {2 0 0 \\mathrm{j} \\omega}{(\\mathrm{j} \\omega + 2) (\\mathrm{j} \\omega + 1 0)}",
+          "image_source": "../../raw/pages_0289-0320/images/page_296_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.528,
+            0.452,
+            0.546
+          ],
+          "content": "解 首先将  $H(j\\omega)$  改写成如下形式:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.242,
+            0.552,
+            0.695,
+            0.672
+          ],
+          "content": "\\begin{array}{l} H (\\mathrm{j} \\omega) = \\frac {1 0 \\mathrm{j} \\omega}{\\left(1 + \\frac {\\mathrm{j} \\omega}{2}\\right) \\left(1 + \\frac {\\mathrm{j} \\omega}{1 0}\\right)} \\\\ = \\frac {1 0 \\mid \\mathrm{j} \\omega \\mid}{\\left| 1 + \\frac {\\mathrm{j} \\omega}{2} \\right| \\cdot \\left| 1 + \\frac {\\mathrm{j} \\omega}{1 0} \\right|} \\sqrt {9 0 ^ {\\circ} - \\arctan \\left(\\frac {\\omega}{2}\\right) - \\arctan \\left(\\frac {\\omega}{1 0}\\right)} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_296_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.111,
+            0.678,
+            0.506,
+            0.695
+          ],
+          "content": "因此对数模(单位分贝)和相位(单位度)分别为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.205,
+            0.699,
+            0.726,
+            0.784
+          ],
+          "content": "\\begin{array}{l} H _ {\\mathrm{dB}} = 2 0 \\lg 1 0 + 2 0 \\lg (\\mid \\mathrm{j} \\omega \\mid) - 2 0 \\lg \\left(\\left| 1 + \\mathrm{j} \\frac {\\omega}{2} \\right|\\right) - 2 0 \\lg \\left(\\left| 1 + \\mathrm{j} \\frac {\\omega}{1 0} \\right|\\right) \\\\ \\phi = 9 0 ^ {\\circ} - \\arctan \\left(\\frac {\\omega}{2}\\right) - \\arctan \\left(\\frac {\\omega}{1 0}\\right) \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0289-0320/images/page_296_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.11,
+            0.789,
+            0.824,
+            0.807
+          ],
+          "content": "注意到幅频波特图和相频波特图的横坐标均取对数频率 $\\lg \\omega$ ，对 $H_{\\mathrm{dB}}$ 各项的分析如下:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.111,
+            0.812,
+            0.827,
+            0.919
+          ],
+          "sub_type": "text",
+          "content": "(1)  $20 \\lg 10 = 20 \\, dB$  为常量, 为 20dB 的水平直线。\n(2) $20\\lg(|j\\omega|)$ 为20 dB/10倍频的直线。当 $\\omega=0.1$ 时, $20\\lg(|j0.1|)=-20$ ; 当 $\\omega=1$ 时, $20\\lg(|j1|)=0$ ; 当 $\\omega=10$ 时, $20\\lg(|j10|)=20$ 。\n(3) $-20\\lg \\left(\\left|1 + \\mathrm{j}\\frac{\\omega}{2}\\right|\\right)$ 可由两段直线逼近。当 $\\omega \\rightarrow 0$ 时，$-20\\lg 1 = 0$；当 $\\omega \\rightarrow \\infty$ 时，"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.84,
+            0.032,
+            0.967,
+            0.145
+          ],
+          "sub_type": "text_image",
+          "content": "Technical diagram of a mechanical assembly with labeled components and cross-sectional views",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_296_image_22.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 297,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.038,
+            0.117,
+            0.148
+          ],
+          "content": "[No text]"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.127,
+            0.071,
+            0.156,
+            0.084
+          ],
+          "content": "274"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.21,
+            0.069,
+            0.414,
+            0.085
+          ],
+          "content": "第十一章 电路的频率响应"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.121,
+            0.856,
+            0.182
+          ],
+          "continues_prev": true,
+          "content": "$-20 \\lg \\left( \\left| 1 + j \\frac{\\omega}{2} \\right| \\right) \\approx -20 \\lg \\left( \\frac{\\omega}{2} \\right)$ 。这样，以 $\\omega = 2$ 为分界点，在 $\\omega < 2$ 区间，该项可用斜率为零的直线逼近；在 $\\omega > 2$ 区间，该项用斜率为 $-20 \\mathrm{~dB} / 10$ 倍频的直线逼近。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.187,
+            0.856,
+            0.247
+          ],
+          "content": "(4) $-20\\lg \\left(\\left|1 + \\mathrm{j}\\frac{\\omega}{10}\\right|\\right)$ 的分析与(3)类似，以 $\\omega = 10$ 为分界点，在 $\\omega < 10$ 区间，该项用斜率为零的直线逼近；在 $\\omega > 10$ 区间，该项用斜率等于-20dB/10倍频的直线逼近。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.251,
+            0.729,
+            0.269
+          ],
+          "content": "将以上四项叠加,就得到如图 11-10(a) 中实线所示的幅频波特图。"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.191,
+            0.281,
+            0.8,
+            0.54
+          ],
+          "sub_type": "line",
+          "content": "| \\(lg\\omega\\) | HdB/dB |\n| --- | --- |\n| 0.1 | 0 |\n| 1 | 20 |\n| 10 | 20 |\n| 200 | 0 |",
+          "captions": [
+            {
+              "bbox": [
+                0.438,
+                0.543,
+                0.545,
+                0.558
+              ],
+              "content": "(a) 幅频波特图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_297_chart_6.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.191,
+            0.563,
+            0.797,
+            0.822
+          ],
+          "sub_type": "line",
+          "content": "| \\(1g\\omega/\\omega\\) | \\(\\phi (\\)Solid Line) | \\(\\phi (-\\)arctan(ω/2)) | \\(\\phi (-\\)arctan(ω/10)) |\n| --- | --- | --- | --- |\n| 0.1 | \\(90{}^{\\circ}\\) | — | — |\n| 0.2 | \\(90{}^{\\circ}\\) | 0 | — |\n| 1 | ~\\(75{}^{\\circ}\\) | 0 | 0 |\n| 10 | 0 | — | — |\n| 20 | ~\\(-65{}^{\\circ}\\) | — | — |\n| 100 | \\(-90{}^{\\circ}\\) | — | — |\n| 200 | \\(-90{}^{\\circ}\\) | — | — |",
+          "captions": [
+            {
+              "bbox": [
+                0.437,
+                0.821,
+                0.544,
+                0.835
+              ],
+              "content": "(b) 相频波特图"
+            },
+            {
+              "bbox": [
+                0.389,
+                0.845,
+                0.59,
+                0.861
+              ],
+              "content": "图 11-10  $H(j\\omega)$  的波特图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_297_chart_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.877,
+            0.356,
+            0.894
+          ],
+          "content": "对  $\\phi$  各项的分析如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.166,
+            0.899,
+            0.639,
+            0.917
+          ],
+          "content": "(1)  $90^{\\circ}$  为常量, 在相频波特图上是值为  $90^{\\circ}$  的水平直线。"
+        }
+      ]
+    },
+    {
+      "page_idx": 298,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.587,
+            0.062,
+            0.743,
+            0.078
+          ],
+          "content": "§ 11-6 滤波器简介"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.8,
+            0.062,
+            0.829,
+            0.075
+          ],
+          "content": "275"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.115,
+            0.42,
+            0.176
+          ],
+          "content": "(2)  $-\\arctan\\left(\\frac{\\omega}{2}\\right)=\\left\\{\\begin{aligned}&0&\\omega=0\\\\ &-45^{\\circ}&\\omega=2\\\\ &-90^{\\circ}&\\omega\\rightarrow\\infty\\end{aligned}\\right.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.186,
+            0.831,
+            0.308
+          ],
+          "content": "在 $0 \\leqslant \\omega \\leqslant 0.2$ 区间，$-\\arctan \\left(\\frac{\\omega}{2}\\right) \\approx 0$，该项用值为 $0^{\\circ}$ 的水平直线逼近；当 $\\omega = 2$ 时，$-\\arctan 1 = -45^{\\circ}$；当 $\\omega = 20$ 时，$-\\arctan 10 \\approx -90^{\\circ}$。即在 $0.2 \\leqslant \\omega \\leqslant 20$ 区间，$-\\arctan \\left(\\frac{\\omega}{2}\\right)$ 可用斜率为 $-45^{\\circ} / 10$ 倍频的直线逼近。在 $\\omega \\geqslant 20$ 区间，该项用值为 $-90^{\\circ}$ 的水平直线逼近。三段逼近直线的交点在 $\\omega = 0.2$ 处和 $\\omega = 20$ 处。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.109,
+            0.315,
+            0.832,
+            0.395
+          ],
+          "content": "(3) $-\\arctan \\left(\\frac{\\omega}{10}\\right)$ 的分析与(2)类似, 即在 $1 \\leqslant \\omega \\leqslant 100$ 区间, $-\\arctan \\left(\\frac{\\omega}{10}\\right)$ 用斜率为 $-45^{\\circ} / 10$ 倍频的直线逼近; 在 $0 \\leqslant \\omega \\leqslant 1$ 区间, 该项用值为 $0^{\\circ}$ 的水平直线逼近; 在 $\\omega \\geqslant 100$ 区间, 该项用值为 $-90^{\\circ}$ 的水平直线逼近。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.398,
+            0.722,
+            0.417
+          ],
+          "content": "将以上三条折线叠加,就得到如图 11-10(b) 实线所示的相频波特图。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.15,
+            0.441,
+            0.38,
+            0.463
+          ],
+          "level": 2,
+          "content": "§11-6 滤波器简介"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.11,
+            0.487,
+            0.832,
+            0.594
+          ],
+          "content": "工程上根据输出端口对信号频率范围的要求,设计专门的网络,置于输入-输出端口之间,使输出端口所需要的频率分量能够顺利通过,而抑制不需要的频率分量,这种具有选频功能的中间网络,工程上称为滤波器。通常将希望保留的频率范围称为通带,将希望抑制的频率范围称为阻带。根据通带和阻带在频率范围中的相对位置,滤波器分为低通、高通、带通和带阻四种类型。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.11,
+            0.599,
+            0.833,
+            0.752
+          ],
+          "content": "工程上利用电感 $L$ 和电容 $C$ 彼此相反而又互补的频率特性, 先设计具有一定滤波功能的“单元电路”, 然后再用搭“积木”方式(如并联、级联等), 连接成各种各样的滤波器网络。如图 11-11(a) 所示为 L 形低通滤波器, 图 11-11(b)(c) 所示 T 形和 $\\pi$ 形电路又是 L 形电路的一种镜像连接电路。图 11-12(a) 所示为高通滤波器的单元电路(与图 11-11 类似)。图 11-13 所示为 LC 串并联谐振电路构成的带通滤波器, 它利用谐振电路的频率特性, 只允许谐振频率邻域内的信号通过。图 11-14 所示电路为带阻滤波器, 它阻止谐振频率邻域内的信号通过。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.14,
+            0.767,
+            0.291,
+            0.854
+          ],
+          "sub_type": "chemical",
+          "content": "Simple LC circuit diagram with inductor L and capacitor C",
+          "captions": [
+            {
+              "bbox": [
+                0.195,
+                0.863,
+                0.242,
+                0.877
+              ],
+              "content": "(a) L形"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_298_image_9.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.302,
+            0.768,
+            0.541,
+            0.86
+          ],
+          "sub_type": "chemical",
+          "content": "Electrical circuit diagram with inductors and capacitors labeled L and C",
+          "captions": [
+            {
+              "bbox": [
+                0.403,
+                0.862,
+                0.451,
+                0.876
+              ],
+              "content": "(b) T形"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_298_image_11.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.556,
+            0.768,
+            0.801,
+            0.861
+          ],
+          "sub_type": "chemical",
+          "content": "Electrical circuit diagram with inductors and capacitors labeled L and C",
+          "captions": [
+            {
+              "bbox": [
+                0.661,
+                0.862,
+                0.705,
+                0.876
+              ],
+              "content": "(c) $\\pi$ 形"
+            },
+            {
+              "bbox": [
+                0.343,
+                0.886,
+                0.592,
+                0.902
+              ],
+              "content": "图11-11 低通滤波器的单元电路"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_298_image_13.jpg"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.839,
+            0.027,
+            0.967,
+            0.142
+          ],
+          "content": "1. 用 $\\mathrm{H}_{2}$ 气相分离的气体，用于化学分析（如: $\\mathrm{H}_{2}$ 和 $\\mathrm{H}_{2}$ 气相分离的气体）。"
+        }
+      ]
+    },
+    {
+      "page_idx": 299,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.129,
+            0.062,
+            0.158,
+            0.076
+          ],
+          "content": "276"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.211,
+            0.061,
+            0.416,
+            0.077
+          ],
+          "content": "第十一章 电路的频率响应"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.21,
+            0.111,
+            0.323,
+            0.198
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.24,
+                0.204,
+                0.288,
+                0.219
+              ],
+              "content": "(a) L形"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_299_image_2.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.349,
+            0.111,
+            0.551,
+            0.204
+          ],
+          "sub_type": "chemical",
+          "content": "Electrical circuit diagram with capacitors and inductors labeled C, L, and dashed line",
+          "captions": [
+            {
+              "bbox": [
+                0.422,
+                0.205,
+                0.471,
+                0.219
+              ],
+              "content": "(b) T形"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_299_image_4.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.572,
+            0.112,
+            0.774,
+            0.204
+          ],
+          "sub_type": "chemical",
+          "content": "Electrical circuit diagram with capacitors and inductors labeled C and L",
+          "captions": [
+            {
+              "bbox": [
+                0.649,
+                0.205,
+                0.695,
+                0.219
+              ],
+              "content": "(c) $\\pi$ 形"
+            },
+            {
+              "bbox": [
+                0.362,
+                0.221,
+                0.619,
+                0.237
+              ],
+              "content": "图 11-12 高通滤波器的单元电路"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_299_image_6.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.229,
+            0.261,
+            0.46,
+            0.391
+          ],
+          "sub_type": "chemical",
+          "content": "Electrical circuit diagram with inductors L1 and L2, capacitors C1 and C2, and ground connections",
+          "captions": [
+            {
+              "bbox": [
+                0.259,
+                0.395,
+                0.429,
+                0.41
+              ],
+              "content": "图 11-13 带通滤波器"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_299_image_9.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.521,
+            0.252,
+            0.753,
+            0.392
+          ],
+          "sub_type": "chemical",
+          "content": "Electrical circuit diagram with inductors and capacitors labeled L1, C1, L2, C2",
+          "captions": [
+            {
+              "bbox": [
+                0.55,
+                0.395,
+                0.722,
+                0.411
+              ],
+              "content": "图 11-14 带阻滤波器"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_299_image_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.422,
+            0.829,
+            0.44
+          ],
+          "content": "上述无损耗 LC 滤波器中的电感元件体积较大,难以使滤波器小型化和集成化。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.444,
+            0.857,
+            0.552
+          ],
+          "content": "目前，在滤波器的设计中，已大量使用小型的片式电路元件，可以使滤波器小型化。随着电路和系统集成化的发展，滤波器的设计中，已广泛采用运算放大器，或其他VCVS有源器件，不再使用电感元件，称为RC有源滤波器，实现了滤波器的集成化，有关这方面的初步知识，读者可参阅本章后面的有关习题。滤波器的设计需要专门的理论知识，本书不做论述。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.125,
+            0.569,
+            0.151,
+            0.601
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_299_image_15.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.158,
+            0.575,
+            0.251,
+            0.595
+          ],
+          "level": 2,
+          "content": "思考题"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.125,
+            0.622,
+            0.854,
+            0.661
+          ],
+          "content": "11-1 为什么电路响应的幅值和相位会随着频率的变化而变化？电路的这个性质有哪些应用？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.666,
+            0.788,
+            0.684
+          ],
+          "content": "11-2 驱动点阻抗和导纳与正弦一端口的阻抗和导纳的概念是相同的吗？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.688,
+            0.791,
+            0.706
+          ],
+          "content": "11-3 使 RLC 串联电路发生谐振的方法有哪些？如何避免发生串联谐振？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.711,
+            0.619,
+            0.728
+          ],
+          "content": "11-4 RLC 串联电路发生谐振时,电路具有哪些特征?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.733,
+            0.687,
+            0.751
+          ],
+          "content": "11-5 RLC 串联电路中各元件上的电压响应的频率特性如何？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.755,
+            0.618,
+            0.772
+          ],
+          "content": "11-6 RLC 并联电路发生谐振时,电路具有哪些特征?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.777,
+            0.453,
+            0.794
+          ],
+          "content": "11-7 试简单阐述滤波器的用途？"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.125,
+            0.814,
+            0.151,
+            0.846
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_299_image_24.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.158,
+            0.82,
+            0.227,
+            0.84
+          ],
+          "level": 2,
+          "content": "习题"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.161,
+            0.868,
+            0.853,
+            0.915
+          ],
+          "content": "11-1 求题 11-1 图所示电路端口 1-1' 的驱动点阻抗  $\\frac{\\dot{U}}{\\dot{I}_{1}}$ 、转移电流比  $\\frac{\\dot{I}_{c}}{\\dot{I}_{1}}$  和转移阻"
+        }
+      ]
+    },
+    {
+      "page_idx": 300,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.707,
+            0.071,
+            0.743,
+            0.087
+          ],
+          "content": "习题"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.8,
+            0.071,
+            0.828,
+            0.085
+          ],
+          "content": "277"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.111,
+            0.123,
+            0.168,
+            0.171
+          ],
+          "content": "抗 $\\frac{\\dot{U}_{2}}{\\dot{I}_{1}}$ 。"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.84,
+            0.034,
+            0.967,
+            0.149
+          ],
+          "content": ""
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.173,
+            0.682,
+            0.22
+          ],
+          "content": "11-2 求题 11-2 图所示电路的转移电压比  $\\frac{\\dot{U}_{2}}{\\dot{U}_{1}}$  和驱动点导纳  $\\frac{\\dot{I}_{1}}{\\dot{U}_{1}}$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.145,
+            0.232,
+            0.41,
+            0.345
+          ],
+          "sub_type": "text_image",
+          "content": "i₁ 2 Ω 1 Ω\n+     ↓\nU̇      1 F     2 H\n-       +\n      -",
+          "captions": [
+            {
+              "bbox": [
+                0.24,
+                0.355,
+                0.319,
+                0.37
+              ],
+              "content": "题11-1图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_300_image_5.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.502,
+            0.232,
+            0.8,
+            0.344
+          ],
+          "sub_type": "text_image",
+          "content": "i₁ 2 Ω 1 Ω\n+       +\nÙ₁ 1 F 1 Ω  Ù₂\n-       -",
+          "captions": [
+            {
+              "bbox": [
+                0.609,
+                0.353,
+                0.69,
+                0.367
+              ],
+              "content": "题 11-2 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_300_image_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.152,
+            0.382,
+            0.633,
+            0.399
+          ],
+          "content": "11-3 RLC 串联电路中  $R=1\\Omega, L=0.01\\mathrm{H}, C=1\\mu\\mathrm{F}$ 。求:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.154,
+            0.405,
+            0.418,
+            0.511
+          ],
+          "sub_type": "text",
+          "content": "(1) 输入阻抗与频率  $\\omega$  的关系。\n(2) 画出阻抗的频率响应。\n(3) 谐振频率  $\\omega_{0}$ 。\n(4) 谐振电路的品质因数 Q。\n(5) 通频带的宽度 BW。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.117,
+            0.515,
+            0.834,
+            0.623
+          ],
+          "sub_type": "text",
+          "content": "11-4 RLC 并联电路中  $R = 10 \\, k\\Omega, L = 1 \\, mH, C = 0.1 \\, \\muF$ 。求习题 11-3 中所列各项。\n11-5 已知 RLC 串联电路中, $R = 50 \\Omega, L = 400 \\mathrm{mH}$, 谐振角频率 $\\omega_0 = 5000 \\mathrm{rad/s}$, $U_{\\mathrm{s}} = 1 \\mathrm{~V}$。求电容 $C$ 及各元件电压的瞬时表达式。\n11-6 求题 11-6 图所示电路在哪些频率时短路或开路。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.199,
+            0.664,
+            0.241,
+            0.796
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.216,
+                0.801,
+                0.237,
+                0.816
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_300_image_20.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.329,
+            0.664,
+            0.428,
+            0.795
+          ],
+          "sub_type": "chemical",
+          "content": "Simple LC circuit diagram with inductor L and capacitor C",
+          "captions": [
+            {
+              "bbox": [
+                0.365,
+                0.8,
+                0.386,
+                0.815
+              ],
+              "content": "(b)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_300_image_22.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.485,
+            0.633,
+            0.604,
+            0.796
+          ],
+          "sub_type": "chemical",
+          "content": "Electrical circuit diagram with inductors L1 and L2, and capacitor C1",
+          "captions": [
+            {
+              "bbox": [
+                0.535,
+                0.799,
+                0.556,
+                0.814
+              ],
+              "content": "(c)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_300_image_24.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.633,
+            0.632,
+            0.756,
+            0.795
+          ],
+          "sub_type": "chemical",
+          "content": "Simple LC circuit diagram with inductor L1 and capacitors C1 and C2",
+          "captions": [
+            {
+              "bbox": [
+                0.685,
+                0.798,
+                0.707,
+                0.813
+              ],
+              "content": "(d)"
+            },
+            {
+              "bbox": [
+                0.436,
+                0.824,
+                0.517,
+                0.839
+              ],
+              "content": "题11-6图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_300_image_26.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.121,
+            0.858,
+            0.838,
+            0.922
+          ],
+          "sub_type": "text",
+          "content": "11-7 RLC 串联电路中, $L = 50 \\mu \\mathrm{H}, C = 100 \\mathrm{pF}, Q = 50 \\sqrt{2} = 70.71$, 电源 $U_{\\mathrm{s}} = 1 \\mathrm{mV}$。求电路的谐振频率 $f_{0}$、谐振时的电容电压 $U_{C}$ 和通带 $BW$。\n11-8 RLC 串联电路谐振时，已知 $BW = 6.4\\mathrm{kHz}$，电阻的功耗 $2\\mu \\mathrm{W}, u_{\\mathrm{s}}(t) =$"
+        }
+      ]
+    },
+    {
+      "page_idx": 301,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.0,
+            0.038,
+            0.112,
+            0.151
+          ],
+          "content": ""
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.125,
+            0.074,
+            0.156,
+            0.087
+          ],
+          "content": "278"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.208,
+            0.074,
+            0.414,
+            0.089
+          ],
+          "content": "第十一章 电路的频率响应"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.128,
+            0.728,
+            0.149
+          ],
+          "content": "$\\sqrt{2}\\cos(\\omega_{0}t)$  mV 和 C=400 pF。求 L、谐振频率  $f_{0}$  和谐振时电感电压  $U_{L}$ 。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.121,
+            0.152,
+            0.85,
+            0.193
+          ],
+          "content": "11-9 RLC 串联电路中, $U_{s}=1\\ V$ , 电源频率 $f_{s}=1\\ MHz$ , 发生谐振时 $I(j\\omega_{0})=100\\ mA$ , $U_{c}(j\\omega_{0})=100\\ V$ , 试求 R、L 和 C 的值, Q 值和通带 BW。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.159,
+            0.197,
+            0.845,
+            0.238
+          ],
+          "sub_type": "text",
+          "content": "11-10 RLC 并联谐振时， $f_{0}=1\\ \\mathrm{kHz}, Z(\\mathrm{j}\\omega_{0})=100\\ \\mathrm{k}\\Omega, BW=100\\ \\mathrm{Hz}$ ，求 R、L 和 C。\n11-11 求题 11-11 图所示电路的谐振频率及各频段的电抗性质。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.182,
+            0.25,
+            0.477,
+            0.367
+          ],
+          "sub_type": "chemical",
+          "content": "Electrical circuit diagram with inductors L1 and L2, capacitors C1 and C2, and ground connection",
+          "captions": [
+            {
+              "bbox": [
+                0.318,
+                0.373,
+                0.341,
+                0.388
+              ],
+              "content": "(a)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_301_image_8.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.514,
+            0.248,
+            0.791,
+            0.364
+          ],
+          "sub_type": "text_image",
+          "content": "jωL\n2iC\niC\n1\njωC",
+          "captions": [
+            {
+              "bbox": [
+                0.626,
+                0.374,
+                0.65,
+                0.389
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.44,
+                0.398,
+                0.531,
+                0.413
+              ],
+              "content": "题11-11图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_301_image_10.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.119,
+            0.43,
+            0.85,
+            0.517
+          ],
+          "sub_type": "text",
+          "content": "11-12 题 11-12 图所示电路中 $I_{s} = 20 \\mathrm{~mA}, L = 100 \\mu \\mathrm{H}, C = 400 \\mathrm{pF}, R = 10 \\Omega$ 。电路谐振时的通带 $BW$ 和 $R_{L}$ 等于何值时能获得最大功率？求最大功率。\n11-13 题 11-13 图所示电路中 $R = 10 \\Omega, C = 0.1 \\mu \\mathrm{F}$, 正弦电压 $u_{\\mathrm{s}}$ 的有效值 $U_{\\mathrm{s}} = 1 \\mathrm{~V}$, 电路的 $Q$ 值为 100, 求参数 $L$ 和谐振时的 $U_{L}$。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.169,
+            0.527,
+            0.425,
+            0.63
+          ],
+          "sub_type": "text_image",
+          "content": "i_s\nR\nL\nC\nR_L",
+          "captions": [
+            {
+              "bbox": [
+                0.25,
+                0.642,
+                0.341,
+                0.656
+              ],
+              "content": "题 11-12 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_301_image_16.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.515,
+            0.527,
+            0.801,
+            0.633
+          ],
+          "sub_type": "text_image",
+          "content": "R\nC\n1:5\nuS\n+\n-\nuL\nL'",
+          "captions": [
+            {
+              "bbox": [
+                0.611,
+                0.643,
+                0.702,
+                0.658
+              ],
+              "content": "题11-13图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_301_image_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.671,
+            0.848,
+            0.711
+          ],
+          "content": "11-14 题 11-14 图中  $C_{2}=400\\ pF, L_{1}=100\\ \\mu H$ 。求下列两种条件下，电路的谐振频率  $\\omega_{0}$ 。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.159,
+            0.719,
+            0.327,
+            0.811
+          ],
+          "sub_type": "text",
+          "content": "(1) $R_{1} = R_{2}\\neq \\sqrt{\\frac{L_{1}}{C_{2}}}$\n(2) $R_{1} = R_{2} = \\sqrt{\\frac{L_{1}}{C_{2}}}$"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.388,
+            0.808,
+            0.573,
+            0.908
+          ],
+          "sub_type": "chemical",
+          "content": "Electrical circuit diagram with resistors R1 and R2, inductor L1, and capacitor C2",
+          "captions": [
+            {
+              "bbox": [
+                0.434,
+                0.918,
+                0.524,
+                0.933
+              ],
+              "content": "题11-14图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_301_image_24.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 302,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.707,
+            0.067,
+            0.743,
+            0.082
+          ],
+          "content": "习题"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.797,
+            0.067,
+            0.826,
+            0.081
+          ],
+          "content": "279"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.839,
+            0.029,
+            0.964,
+            0.145
+          ],
+          "content": ""
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.118,
+            0.56,
+            0.164
+          ],
+          "content": "11-15 求题 11-15 图所示电路的转移电压比  $\\frac{\\dot{U}_{2}}{\\dot{U}_{1}}$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.307,
+            0.168,
+            0.631,
+            0.291
+          ],
+          "sub_type": "text_image",
+          "content": "1 Ω\n1 F\n+\nu₁\n-\n1 F u\n+\n-\nku\n+\n-\nu₂\n+",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_302_image_4.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.309,
+            0.307,
+            0.631,
+            0.426
+          ],
+          "sub_type": "text_image",
+          "content": "1 F\n1 Ω\n+\nu₁\n-\n1 F\n+\n1 Ω\nu\n-\n+\nku\n-\nu₂\n+",
+          "captions": [
+            {
+              "bbox": [
+                0.467,
+                0.292,
+                0.485,
+                0.304
+              ],
+              "content": "(a)"
+            },
+            {
+              "bbox": [
+                0.469,
+                0.426,
+                0.488,
+                0.439
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.427,
+                0.449,
+                0.513,
+                0.463
+              ],
+              "content": "题 11-15 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_302_image_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.154,
+            0.477,
+            0.566,
+            0.524
+          ],
+          "content": "11-16 求题 11-16 图所示电路的转移电压比  $\\frac{\\dot{U}_{2}}{\\dot{U}_{1}}$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.114,
+            0.525,
+            0.84,
+            0.664
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.301,
+                0.671,
+                0.322,
+                0.685
+              ],
+              "content": "(a)"
+            },
+            {
+              "bbox": [
+                0.667,
+                0.668,
+                0.69,
+                0.683
+              ],
+              "content": "(b)"
+            },
+            {
+              "bbox": [
+                0.43,
+                0.694,
+                0.517,
+                0.708
+              ],
+              "content": "题 11-16 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_302_image_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.156,
+            0.722,
+            0.633,
+            0.768
+          ],
+          "content": "11-17 题 11-17 图所示电路中, $RC = 1 \\mathrm{~s}$ 。求 $\\frac{\\dot{U}_2}{\\dot{U}_1}$ 和 $\\frac{U_2}{U_1} - \\omega$ 。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.358,
+            0.776,
+            0.593,
+            0.898
+          ],
+          "sub_type": "chemical",
+          "content": "Electrical circuit diagram with two resistors and capacitors in parallel configuration",
+          "captions": [
+            {
+              "bbox": [
+                0.432,
+                0.907,
+                0.519,
+                0.922
+              ],
+              "content": "题 11-17 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_302_image_15.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 303,
+      "blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            0.0,
+            0.03,
+            0.117,
+            0.142
+          ],
+          "sub_type": "natural_image",
+          "content": "Pure mechanical assembly diagram without any text, numbers, or symbols",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_303_image_0.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.132,
+            0.066,
+            0.16,
+            0.078
+          ],
+          "content": "280"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.213,
+            0.065,
+            0.416,
+            0.081
+          ],
+          "content": "第十一章 电路的频率响应"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.126,
+            0.117,
+            0.862,
+            0.207
+          ],
+          "content": "11-18 题 11-18 图(a)所示系统的网络函数 $H(\\mathrm{j}\\omega)=\\frac{\\dot{U}_{2}}{\\dot{U}_{s}}$, 其幅频特性 $|H(\\mathrm{j}\\omega)|-\\omega$ 和相频特性 $\\varphi(\\mathrm{j}\\omega)-\\omega$ 如题 11-18 图(b)所示。求当 $u_{\\mathrm{s}}=10-6.4\\sin t-3.2\\sin(2t)\\sim2.1\\sin(3t)+\\cdots$ 时, 输出 $u_{2}$。"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.248,
+            0.217,
+            0.734,
+            0.402
+          ],
+          "sub_type": "line",
+          "content": "| (a) | -2 | 0 |\n| --- | --- | --- |\n| (a) | -1 | 0 |\n| (a) | 0 | 0 |\n| (a) | 1 | 0 |\n| (a) | 2 | 0 |\n| (b) | -2 | 0 |\n| (b) | -1 | 0 |\n| (b) | 0 | 2 |\n| (b) | 1 | 0 |\n| (b) | 2 | 0 |",
+          "captions": [
+            {
+              "bbox": [
+                0.444,
+                0.41,
+                0.534,
+                0.424
+              ],
+              "content": "题 11-18 图"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_303_chart_4.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.011,
+            0.437,
+            0.099,
+            0.505
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.013,
+                0.509,
+                0.097,
+                0.543
+              ],
+              "content": "第十一章部分习题答案"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0289-0320/images/page_303_image_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.44,
+            0.523,
+            0.459
+          ],
+          "content": "11-19 作下列网络函数  $H(j\\omega)$  的波特图。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.167,
+            0.464,
+            0.378,
+            0.543
+          ],
+          "sub_type": "text",
+          "content": "(1) $H(\\mathrm{j}\\omega) = \\frac{1}{10 + \\mathrm{j}\\omega}$。\n(2) $H(\\mathrm{j}\\omega) = \\frac{5(\\mathrm{j}\\omega + 2)}{\\mathrm{j}\\omega(\\mathrm{j}\\omega + 10)}$。"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "created_at": "2023-02-21T10:55:49-05:00",
+      "modified_at": "2023-02-22T08:38:08+08:00",
+      "page_count": 545,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "ocr"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 284,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 285,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 286,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 287,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 288,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 289,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 290,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 291,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 292,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 293,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 294,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 295,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 296,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 297,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 298,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 299,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 300,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 301,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 302,
+          "width_pt": 510.2049865722656,
+          "height_pt": 685.9539794921875
+        },
+        {
+          "page_idx": 303,
+          "width_pt": 510.20501708984375,
+          "height_pt": 685.9539794921875
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}
