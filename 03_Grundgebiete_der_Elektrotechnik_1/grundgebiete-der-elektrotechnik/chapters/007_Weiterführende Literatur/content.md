@@ -1,0 +1,88 @@
+# Weiterführende Literatur
+
+原始 PDF 第 279–281 页。
+
+## Weiterführende Literatur
+
+## Lehrbücher
+
+[1] W. Ameling. Grundlagen der Elektrotechnik. Band I: 4. Aufl., Band II: 2. Aufl. Braunschweig: Vieweg, 1988/1984.
+[2] H. Benzinger und U. Weyh. Die Grundlagen der Gleichstromlehre (Lehrbuch). 3. Aufl. München: Oldenbourg, 1990.
+[3] K. J. Binns und P. J. Lawrenson. Analysis and Computation of Electric and Magnetic Field Problems. Oxford: Pergamon Press, 1973.
+[4] S. Blume. Theorie elektromagnetischer Felder. 3. Aufl. Heidelberg: Hüthig, 1991.
+[5] E. Böhmer. Elemente der angewandten Elektronik. 15. Aufl. Braunschweig: Vieweg, 2007.
+[6] G. Bosse. Grundlagen der Elektrotechnik. Band I: Elektrostatisches Feld und Gleichstrom, Band II: Magnetisches Feld und Induktion, Band III: Wechselstromlehre, Vierpol- u. Leitungstheorie, Band IV: Drehstrom, Ausgleichsvorgänge in linearen Netzen. Band I: 3. Aufl., Band II: 4. Aufl., Band III: 3. Aufl., Band IV: 2. Aufl. Berlin: Springer, 1996.
+[7] L. O. Chua, C. A. Desoer und E. S. Kuh. Linear and Nonlinear Circuits. New York: McGraw-Hill, 1987.
+[8] H. Clausert. Elektrotechnische Grundlagen der Informatik. München: Oldenbourg, 1995.
+[9] C. A. Desoer und E. S. Kuh. Basic Circuit Theory. 16th printing Singapore: McGraw-Hill, 1987.
+[10] E. Döring. Werkstoffe der Elektrotechnik. 2. Aufl. Braunschweig: Vieweg, 1988.
+[11] J. A. Edminister. Elektrische Netzwerke. 2. Aufl. London: McGraw-Hill, 1990.
+[12] H. Elschner. Grundlagen der Elektrotechnik/Elektronik. Band 1 + 2. Berlin: Verlag Technik, 1990/91.
+[13] H. Fricke und P. Vaske. Elektrische Netzwerke. 17. Aufl. Stuttgart: Teubner, 1982.
+[14] H. Frohne, K.-H. Löcherer, H. Müller, Th. Harriehausen, D. Schwarzenau: Moeller Grundlagen der Elektrotechnik. 22. Aufl. Stuttgart: Teubner, 2011.
+[15] A. Führer, K. Heidemann und W. Nerreter. Grundgebiete der Elektrotechnik. Band l + 2, 8. Aufl. München: Hanser, 2006.
+[16] H. Grafe, J. Loose und H. Kühn. Grundlagen der Elektrotechnik. Band I: Gleichspannungstechnik, Band II: Wechselspannungstechnik. Band I: 13. Aufl., Band II: 9. Aufl. Heidelberg: Hüthig, 1989/1987.
+[17] O. Greuel. Mathematische Ergänzungen und Aufgaben für Elektrotechniker. 12. Aufl. München, Wien: Hanser, 1990.
+[18] W. H. Hayt and J. A. Buck. Engineering Electromagnetics. 7.ed. Tokyo: McGraw-Hill, 2005.
+[19] W. Herzog. Elektrizität und Elektrotechnik, Teil l + 2. Heidelberg: Hüthig, 1979.
+[20] W. Hilberg. Grundlagen elektronischer Schaltungen. 2. Aufl. München: Oldenbourg, 1992.
+[21] H. Hofmann. Das elektromagnetische Feld. 3. Aufl. Wien: Springer, 1986.
+[22] HÜTTE. Die Grundlagen der Ingenieurwissenschaften. H. Czichos (Hrsg.). 34. Aufl. Berlin: Springer, 2012.
+[23] K. Küpfmüller, W. Mathis, A. Reibiger. Theoretische Elektrotechnik und Elektronik. 18. Aufl. Berlin: Springer, 2008.
+[24] K. Lunze. Einführung in die Elektrotechnik (Lehrbuch). 13. Aufl. Heidelberg: Hüthig, 1991.
+[25] R. Paul. Elektrotechnik. Band I: Elektrische Erscheinungen und Felder, Band II: Netzwerke. Band I: 3. Aufl., Band II: 3. Aufl. Berlin: Springer, 1993/94.
+[26] E. Philippow. Grundlagen der Elektrotechnik. 10. Aufl. Berlin: Verlag Technik, 2000.
+[27] G. Piefke. Feldtheorie, Band I-III. Mannheim: Bibliographisches Institut, 1973–1977.
+
+https://doi.org/10.1515/9783110631586-007
+
+---
+
+270
+
+Weiterführende Literatur
+
+[28] A. Prechtl. Vorlesungen über die Grundlagen der Elektrotechnik. Band 1 + 2. 2. Aufl. Wien: Springer, 2006/2007.
+[29] R. Pregla. Grundlagen der Elektrotechnik. Band I: 4. Aufl., Band II: 3. Aufl. Heidelberg: Hüthig, 1990.
+[30] F. Seifert. Elektrotechnik für Informatiker. 2. Aufl. Berlin: Springer, 1991.
+[31] K. Simonyi. Kulturgeschichte der Physik. 2. Aufl. Thun: Verlag Harri Deutsch, 1995.
+[32] K. Simonyi. Theoretische Elektrotechnik. 10. Aufl. Leipzig: J. A. Barth, 1993.
+[33] U. Tietze und Ch. Schenk. Halbleiter-Schaltungstechnik. 13. Aufl. Berlin: Springer, 2010.
+[34] R. Unbehauen. Grundlagen der Elektrotechnik. Band l + 2: 5. Aufl. Berlin: Springer, 1999.
+[35] P. Vaske. Berechnung von Gleichstromschaltungen. 5. Aufl. Stuttgart: Teubner, 1991.
+[36] U. Weyh. Feldlehre. Die Grundlagen der Lehre vom elektrischen und magnetischen Feld (Lehrbuch). 4. Aufl. München: Oldenbourg, 1993.
+[37] I. Wolff. Grundlagen und Anwendungen der Maxwellschen Theorie, Band I + II. 2. Aufl. Mannheim: Bibliographisches Institut, 1991/92.
+[38] I. Wolff. Grundlagen der Elektrotechnik. Teil 1: Das elektrische und das magnetische Feld. 7. Aufl. Aachen: Verlag Nellissen-Wolff, 2004.
+
+## Aufgabensammlungen und Arbeitsbücher
+
+[39] C. Gierl, K. Golde, O. Haas, S. Paul, C. Spieker. Aufgaben zur Elektrotechnik 2. München: Oldenbourg, 2013.
+[40] O. Haas, C. Spieker. Aufgaben zur Elektrotechnik 1. München: Oldenbourg, 2012.
+[41] G. Hagmann. Aufgabensammlung zu den Grundlagen der Elektrotechnik. 12. Aufl. Wiesbaden: Aula-Verlag, 2006.
+[42] H. Lindner. Elektroaufgaben. Band I: Gleichstrom, Band II: Wechselstrom, Band III: Leitungen, Vierpole, Fourier-Analyse, Laplace-Transformation. Band I: 29. Aufl., Band II: 24. Aufl., Band III: 6. Aufl. München: Hanser, 2010.
+[43] K. Lunze. Berechnung elektrischer Stromkreise (Arbeitsbuch). 15. Aufl. Heidelberg: Hüthig, 1990.
+[44] K. Lunze und E. Wagner. Einführung in die Elektrotechnik (Arbeitsbuch). 7. Aufl. Heidelberg: Hüthig, 1991.
+[45] H. Mattes. Übungskurs Elektrotechnik. Band 1: Felder und Gleichstromnetze, Band 2: Wechselstromrechnung. Berlin: Springer, 1992/94.
+[46] G. Wiesemann. Übungen in Grundlagen der Elektrotechnik, Band II: Magnetfeld und Anwendungen des Induktionsgesetzes. 2. Aufl. Berlin: Springer, 1995.
+[47] G. Wiesemann und W. Mecklenbräuker. Übungen in Grundlagen der Elektrotechnik, Band I: Elektrostatisches Feld, Gleichstrom und Netzanalyse. 2. Aufl. Berlin: Springer, 1995.
+
+---
+
+Weiterführende Literatur
+
+271
+
+## Handbücher, Normen, Allgemeines
+
+[48] F. A. Brockhaus. Brockhaus Naturwissenschaften und Technik (3 Bände). Mannheim: F. A. Brockhaus, 2002.
+[49] K. Budig. Fachwörterbuch Elektrotechnik/Elektronik (Deutsch-Engl./Engl.-Deutsch). 6. Aufl. Berlin: Langenscheidt Fachverlag, 2002.
+[50] Hrsg. Bureau International des Poids et Mesures (BIPM). The International System of Units (SI). 9. Aufl. Paris: BIPM 2019. ISBN 978-92-822-2272-0 (Franz. Original).
+[51] DIN Deutsches Institut für Normung e.V. Einheiten und Begriffe für physikalische Größen (DIN Taschenbuch 22). 9. Aufl. Berlin: Beuth, 2009.
+[52] DUDEN Informatik. Mannheim: Bibliographisches Institut, 2003.
+[53] M. Klein. Einführung in die DIN-Normen. 14. Aufl. Stuttgart: Teubner, 2009.
+[54] Hrsg. bisher C. Rint; neu hrsgg. v. Lacroix u. Motz u. Paul u. Reuber. Handbuch der Informationstechnik und Elektronik. Heidelberg: Hüthig, 1989.
+[55] H. Netz. Formeln der Elektrotechnik und Elektronik. 2. Aufl. München: Hanser, 1991.
+[56] E. Philippow. Taschenbuch Elektrotechnik. Band 1: Allgemeine Grundlagen. 3. Aufl. München: Hanser, 1986.
+[57] Hrsg. Physikalisch-Technische Bundesanstalt, Nationales Metrologieinstitut. PTB-Infoblatt – Das neue Internationale Einheitensystem (SI). Braunschweig: 2019. https://www.ptb.de/cms/fileadmin/internet/presse\_aktuelles/broschueren/intern\_einheiten-system/Das\_neue\_Internationale\_Einheitensystem.pdf (Zugriff am 19. Dezember 2021).
+[58] Hrsg. Physikalisch-Technische Bundesanstalt, Nationales Metrologieinstitut. Die gesetzlichen Einheiten in Deutschland. 2. Aufl. Braunschweig: 2020. https://www.ptb.de/cms/fileadmin/internet/presse\_aktuelles/broschueren/intern\_einheiten-system/Die\_gesetzlichen\_Einheiten.pdf (Zugriff am 19. Dezember 2021).
+[59] E. Tiesinga, P. Mohr, D. Newell, B. Taylor. 2018 CODATA Recommended Values of the Fundamental Constants of Physics and Chemistry. Special Publication (NIST SP), National Institute of Standards and Technology, Gaithersburg, MD, [online], 2019. https://tsapps.nist.gov/publication/get\_pdf.cfm?pub\_id=928211 (Accessed December 19, 2021).
