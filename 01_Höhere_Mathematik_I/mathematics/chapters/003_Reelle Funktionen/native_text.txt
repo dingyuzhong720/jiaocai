@@ -1,0 +1,917 @@
+--- PDF page 50 ---
+Kapitel 3
+Reelle Funktionen
+Funktionen sind von zentraler Bedeutung in der höheren Mathematik. Wie immer wird es
+wichtig sein
+ alle unsere Intuition und grundlegendes Wissen hier anzuwenden, um Verständnis für
+die Situation aufzubauen, und
+ zwischen heuristischem Argument und rigorosen Aussagen zu unterscheiden.
+Sie kennen viele Funktionen aus dem Alltag, z.B.,
+x(t) = h −g
+2t2
+h, g ∈R,
+f(x) = x + 1,
+y(θ) = cos θ.
+Was ist eine Funktion?
+3.1
+Denition und erste Eigenschaften
+Denition 3.1.1
+Seien A, B Mengen. Das kartesische Produkt A×B ist die Menge aller geordneten Paare
+(x, y) mit x ∈A, y ∈B.
+Beispiel.
+A := {1, 3},
+B := {2, 4},
+A × B = {(1, 2), (1, 4), (3, 2), (3, 4)}
+Denition 3.1.2
+Eine Teilmenge f ⊆A × B wird Funktion genannt, wenn gilt:
+(x, y) ∈f und (x, y′) ∈f
+=⇒
+y = y′.
+Das heiÿt, zu jedem x ∈A gibt es höchstens ein y ∈B mit (x, y) ∈f.
+
+
+--- PDF page 51 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 45
+Wir denieren den Denitionsbereich D(f) von f als
+D(f) := {x ∈A: es existiert ein y ∈B mit (x, y) ∈f},
+und den Wertebereich W(f) von f als
+W(f) := {y ∈B : es existiert ein x ∈A mit (x, y) ∈f}.
+Anstelle von (x, y) ∈f benutzen wir die eingängigere Schreibweise
+y = f(x)
+und nennen y das Bild von x (unter f) bzw. x ein Urbild von y.
+Für Teilmengen U ⊆B denieren wir das Urbild f −1(U) von U unter f als
+f −1(U) :=
+
+x ∈A: f(x) ∈U}.
+Beachten Sie, dass das Urbild immer deniert ist (kann leer sein). Es ist zu unterscheiden
+von der Umkehrfunktion, die wir später denieren werden!!!
+Wenn A und B Mengen reeller Zahlen sind, dann heiÿt f eine reelle Funktion oder
+eine reellwertige Funktion einer reellen Variablen.
+Grob gesagt: f ist eine Regel, die jedem x ∈D(f) ein eindeutiges y ∈W(f) zuordnet.
+Achtung! Obwohl das Bild von x ∈D(f) eindeutig bestimmt ist, kann ein Wert y ∈W(f)
+mehr als ein Urbild haben. Beispiel: f(x) = x2, y = 4.
+Abbildung 3.1: Illustration einer Funktion
+Beispiele.
+1O f = {(x, x3) : x ∈R} oder f(x) = x3, x ∈R,
+2O f = {(x, √x) : x ≥0} oder f(x) = √x, x ≥0,
+3O f(x) =
+1
+(1−x)2,
+4O f(x) =
+
+
+
+−x
+x < 0
+5
+x = 0
+x2
+x > 0.
+
+
+--- PDF page 52 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 46
+Übung 3.1.3
+Was sind der Denitionsbereich und der Wertebereich der oben denierten Funktionen?
+Oft wird der Denitionsbereich nicht explizit angegeben, z.B. f(x) = x2, g(x) =
+1
+(1−x)2,
+h(x) =
+√
+x2 −4. In diesem Fall nehmen wir an, dass der Denitionsbereich so groÿ wie mög-
+lich ist, z.B. D(f) = R, D(g) = {x ∈R : x̸ = 1} , D(h) = {x ∈R : x ≥2 oder x ≤−2} =
+(−∞, −2] ∪[2, ∞).
+Es ist oft nützlich den Graphen einer Funktion anzuschauen.
+Beispiel. f(x) =
+1 + x
+x < 0
+−1 −x
+x > 0.
+Vom Graphen erkennt man
+D(f) = R \ {0} ,
+W(f) = (−∞, 1).
+(Achtung! Hier haben wir den Graphen benutzt um zu erkennen, dass W(f) = (−∞, 1).
+Wenn nach einem Beweis oder einer Begründung gefragt wird, reicht es nicht aus, ein Bild
+zu malen. Trotzdem hilft das Bild.)
+Beispiel. Finden Sie den Denitionsbereich von f(x) :=
+√
+−x3 + 2x −1.
+Die Nullstellen von p(x) := −x3 + 2x −1 sind
+x1 = 1, x2,3 = −1 ±
+√
+5
+2
+.
+Wir schreiben das Polynom in faktorisierter Form
+−x3 + 2x −1 = −(x −1)
+ 
+x −−1 +
+√
+5
+2
+! 
+x −−1 −
+√
+5
+2
+!
+um abzulesen, wo das Polynom positiv ist. Da der Denitionsbereich der Wurzel [0, ∞) ist,
+ist der Denitionsbereich von f genau die Menge, wo p nicht negativ ist:
+ 
+−∞, −1 −
+√
+5
+2
+#
+∪
+"
+−1 +
+√
+5
+2
+, 1
+#
+.
+
+
+--- PDF page 53 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 47
+Bemerkung.
+(1) Jede vertikale Linie berührt den Graph einer Funktion genau einmal.
+(2) Eine horizontale Linie kann den Graph einer Funktion mehr als einmal berühren.
+Was bedeutet es, wenn eine waagerechte Linie y = b den Graph einer Funktion f genau
+einmal berührt? Dass b nur ein Urbild hat, d. h., dass es nur ein x ∈D(f) gibt, so dass
+
+
+--- PDF page 54 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 48
+f(x) = b.
+Was bedeutet es, wenn jede waagerechte Linie den Graph einer Funktion f nur einmal
+berührt? Dass für jeden Wert y ∈W(f) es nur ein x ∈D(f) gibt, so dass f(x) = y.
+Was bedeutet es, wenn jede waagerechte Linie den Graph einer Funktion f mindestens einmal
+berührt? Dass der Wertebereich der Funktion ganz R ist.
+Denition 3.1.4
+Eine Funktion f heiÿt injektiv (oder eins zu eins), wenn gilt:
+f(x1) = f(x2)
+=⇒
+x1 = x2.
+Das heiÿt, bei Gleichheit der Bilder müssen die Urbilder auch gleich sein.
+Damit verbunden ist die Eigenschaft der Surjektivität.
+Denition 3.1.5
+Eine Funktion f : X →Y heiÿt surjektiv von X nach Y, wenn gilt:
+für jedes y ∈Y existiert x ∈X mit f(x) = y.
+Wenn f sowohl surjektiv als auch injektiv ist, dann sagen wir, dass f bijektiv ist.
+Man merkt: f : X →Y ist surjektiv genau dann, wenn W(f) = Y .
+Eine kurze Zusammenfassung ist: Eine Funktion f : X →Y ist
+(1) injektiv, wenn kein y ∈Y mehr als ein Urbild in X hat (bspw. x2, x ≥0),
+(2) surjektiv, wenn jedes y ∈Y mindestens ein Urbild in X hat (bspw. x3), und
+(3) bijektiv, wenn jedes y ∈Y genau ein Urbild in X hat (bspw. x).
+Erinnerung: Graphen helfen uns enorm, die Eigenschaften einer Funktion zu bemerken.
+Wenn allerdings nach einem Beweis gefragt wird, müssen wir analytisch argumentieren.
+Beispiel. Finden Sie den Wertebereich W(f) von f(x) =
+1
+(x−4)2.
+Lösung. 1Der Wertebereich ist (0, ∞). Dies begründen wir wie folgt. Zunächst bemerken
+wir, dass
+D(f) = {x ∈R : x̸ = 4} .
+Für alle x ∈D(f) ist (x −4)2 > 0, und damit auch
+f(x) =
+1
+(x −4)2 > 0,
+
+
+--- PDF page 55 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 49
+so dass W(f) ⊆(0, ∞). Andererseits können wir für alle
+y0 ∈(0, ∞)
+setzen:
+x0 :=
+1
+√y0
++ 4.
+Dann ist x0 > 4, so dass x ∈D(f), und es gilt
+f(x0) =
+1
+(x0 −4)2 =
+1
+
+1
+√y0
+2 = y0.
+Also gilt W(f) ⊇(0, ∞). (Man hätte auch
+˜x0 = −1
+√y0
++ 4,
+das Urbild auf dem erstem Ast von f, wählen können.)
+Wir erinnern uns an die Denition 1.1.2, wo wir gesehen haben, wie man die Gleichheit zweier
+Mengen zeigt.
+Wir betrachten jetzt ein paar andere mögliche Eigenschaften einer Funktion.
+Denition 3.1.6
+Eine reelle Funktion f heiÿt gerade, wenn gilt
+(1) für jedes x ∈D(f) ist auch −x ∈D(f), und
+(2) für jedes x ∈D(f) ist f(x) = f(−x).
+Analog heiÿt die Funktion heiÿt ungerade, wenn gilt
+(1) für jedes x ∈D(f) ist auch −x ∈D(f), und
+(2) für jedes x ∈D(f) ist f(x) = −f(−x).
+Beispiel. Die Funktion f(x) = x2 ist gerade. Die Funktion f(x) = x ist ungerade. Allgemein
+ist f(x) = x2n, n ∈N, gerade und f(x) = x2n−1, n ∈N, ungerade.
+Beispiel. sin(x) ist ungerade. cos(x) ist gerade.
+Übung 3.1.7
+Geben Sie an, ob folgende Funktionen gerade, ungerade oder keins von beiden sind:
+
+
+--- PDF page 56 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 50
+tan(x), sinh(x), cosh(x), tanh(x), exp(x2).
+Denition 3.1.8
+Wir nennen eine reelle Funktion f monoton wachsend (bzw. monoton fallend), wenn für
+alle x, y ∈D(f) die folgende Implikation gilt:
+x < y
+=⇒
+f(x) ≤f(y)
+(
+bzw.
+x < y
+=⇒
+f(x) ≥f(y)
+).
+Wenn f monoton wachsend oder monoton fallend ist, dann nennen wir f monoton.
+Die Funktion f ist streng monoton wachsend, wenn für alle x, y ∈D(f) gilt:
+x < y
+=⇒
+f(x) < f(y),
+mit einer analogen Aussage für f streng monoton fallend. Wenn f streng monoton wach-
+send oder streng monoton fallend ist, dann nennen wir f streng monoton.
+Achtung! Nach der Denition ist f(x) ≡2 monoton wachsend! Das gleiche gilt für
+g(x) =
+
+
+
+x + 1
+x ≤−1
+0
+−1 < x ≤1
+x −1
+x > 1.
+Wir kennen den Begri von Beschränktheit einer Menge. Was bedeutet es für eine Funk-
+tion, beschränkt zu sein?
+Denition 3.1.9
+Eine reelle Funktion f heiÿt nach unten beschränkt, wenn es eine reelle Zahl m gibt, die
+eine untere Schranke für W(f) ist. Das heiÿt, falls gilt:
+für alle x ∈D(f) haben wir m ≤f(x).
+Analog für nach oben beschränkt. Ist f sowohl nach unten als auch nach oben beschränkt,
+so nennen wir f beschränkt.
+Diese Eigenschaft ist wichtig, zum Beispiel für Optimierungsprobleme. Für f(x) = x3
+besitzt das Problem
+inf
+x∈R f(x) = inf {f(x) : x ∈R}
+keine Lösung. Ist f nach unten beschränkt, so existiert das Inmum
+inf
+x∈R f(x).
+Aber Vorsicht: Dies bedeutet nicht, dass es ein x0 ∈R gibt, so dass f(x0) = inf
+x∈R f(x).
+Beispiel. Es gilt
+inf
+x∈R tanh(x) = −1
+aber es gibt kein x∗∈R, so dass tanh(x∗) = −1.
+
+
+--- PDF page 57 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 51
+3.2
+Die Umkehrfunktion
+Oft interessieren wir uns für die sogenannte Umkehrfunktion einer Funktion.
+Denition 3.2.1
+Sei f : X →Y eine Funktion. Gibt es eine Funktion g : Y →X mit
+g(f(x)) = x
+für alle x ∈X
+(3.2.1)
+und
+f(g(y)) = y
+für alle y ∈Y ,
+(3.2.2)
+dann nennen wir g die Umkehrfunktion von f. Wir schreiben
+g(y) = f −1(y)
+und sagen, dass f eine Umkehrfunktion besitzt, oder, dass f invertierbar ist.
+Bemerkung. Beachten Sie, dass dasselbe Symbol f −1 auch für das Urbild einer Menge
+benutzt wird; siehe Denition 3.1.2. Falls f eine reelle Funktion ist, schreiben wir auch
+(f(y))−1 =
+1
+f(y).
+Auf den Kontext achten!!!
+Beispiel. Bestimmen Sie, ob die folgenden Funktionen eine Umkehrfunktion besitzen. Wenn
+ja, nden Sie die Umkehrfunktion. Wenn nein, nden Sie das gröÿte Intervall I ⊆D(f), so
+dass f auf I eine Umkehrfunktion besitzt und geben Sie diese Funktion an.
+1O f(x) = x2 besitzt keine Umkehrfunktion, aber g(x) = x2, x ∈[0, ∞) besitzt die Umkehr-
+funktion
+g−1(y) = √y,
+y ∈[0, ∞).
+(Oder g−1(x) = √x, x ∈[0, ∞).) Analog besitzt g(x) = x2, x ∈(−∞, 0] die Umkehrfunk-
+tion g−1(x) = −√x, x ∈[0, ∞).
+2O f(x) =
+ 1
+2(x + 1)
+−1 ≤x < 1
+−x2 + 2x + 4
+1 ≤x ≤3.
+x
+y
+−1
+1
+2
+3
+4
+5
+−1
+1
+2
+3
+4
+5
+f
+x
+y
+1
+2
+3
+4
+5
+−1
+1
+2
+3
+4
+5
+f −1
+
+
+--- PDF page 58 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 52
+Auf [−1, 1) gilt
+y = 1
+2(x + 1)
+⇔
+x = 2y −1.
+Auf [1, 3] gilt
+y = −(x2 −2x −4)
+= −[(x −1)2 −5]
+⇔(x −1)2 = −y + 5
+⇔x =
+p
+5 −y + 1
+weil x ≥1 ist).
+Also ist die Umkehrfunktion
+f −1(x) =
+2x −1
+x ∈[0, 1)
+√5 −x + 1
+x ∈[1, 5].
+Dieses Beispiel zeigt, dass eine Funktion nicht monoton sein muss, um eine Umkehr-
+funktion zu besitzen.
+3O f(x) =
+ 1
+2(x + 1)
+0 ≤x < 1
+−x2 + 2x
+1 ≤x ≤3.
+x
+y
+−3
+−2
+−1
+1
+2
+3
+−3
+−2
+−1
+1
+2
+3
+f
+x
+y
+−3
+−2
+−1
+1
+2
+3
+−3
+−2
+−1
+1
+2
+3
+g−1
+f besitzt keine Umkehrfunktion, aber g(x) = −x2+2x, x ∈[1, 3] besitzt die Umkehrfunk-
+tion g−1(x) = 1 + √1 −x, x ∈[−3, 1].
+Man stellt sich die allgemeine Frage: Welche Funktionen besitzen eine Umkehrfunktion?
+Satz 3.2.2
+Eine Funktion f : X →Y besitzt eine Umkehrfunktion g : Y →X genau dann, wenn f
+von X nach Y bijektiv ist. Auÿerdem ist die Umkehrfunktion eindeutig bestimmt.
+
+
+--- PDF page 59 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 53
+Beweis. Schritt 1: Bijektivität ist hinreichend. Wenn f : X →Y bijektiv ist, dann
+wählen wir für jedes y ∈Y das eindeutig-bestimmte x ∈X, so dass f(x) = y, und wir
+denieren g(y) := x. Die Funktion g : Y →X so deniert ist eine Umkehrfunktion von f,
+da für jedes x ∈X gilt g(f(x)) = g(y) = x und für jedes y ∈Y gilt f(g(y)) = f(x) = y.
+Schritt 2: Bijektivität ist notwendig. Wir nehmen an, dass f : X →Y eine Umkehrfunk-
+tion g : Y →X besitzt und zeigen, dass dann f bijektiv ist. Wenn für x, ˜x ∈X gilt
+f(x) = f(˜x), dann ergibt (3.2.1), dass
+x = g(f(x)) = g(f(˜x)) = ˜x.
+Also ist f injektiv. Jetzt betrachten wir ein beliebiges y ∈Y . Wir denieren x ∈X
+durch x := g(y). Dann gilt nach (3.2.2)
+f(x) = f(g(y)) = y.
+Also ist f surjektiv.
+Schritt 3: Eindeutigkeit der Umkehrfunktion. Um die Eindeutigkeit zu bestätigen,
+nehmen wir an, dass es für f : X →Y zwei Funktionen g, ˜g gibt, die (3.2.1) und (3.2.2)
+erfüllen. Wir betrachten y ∈Y . Nach dem Argument oben ist f surjektiv, also gibt es
+ein x ∈X, so dass y = f(x). Aus (3.2.1) schlieÿen wir
+g(y) = g(f(x)) = x = ˜g(f(x)) = ˜g(y).
+Also gilt g = ˜g auf Y .
+Bemerkung. Angesichts der Eindeutigkeit reden wir von der Umkehrfunktion einer Funk-
+tion. Da f : X →Y nur eine Umkehrfunktion besitzt, wenn f surjektiv ist, nehmen wir an,
+wenn nur die Funktion f und nicht die Menge Y gegeben wird, dass Y = W(f) gemeint
+wird. z.B. ist tanh invertierbar, weil tanh : R →(−1, 1) invertierbar ist. Aber tanh : R →R
+ist nicht invertierbar.
+Mit der Denition 3.1.2 und nach Satz 3.2.2 wäre eine äquivalente Denition von Um-
+kehrfunktion:
+Denition 2.1.2'. Sei f : X →Y eine injektive Funktion. Dann nennt man
+g = {(y, x) ∈Y × X : (x, y) ∈f}
+die Umkehrfunktion von f. Die Funktion g ist injektiv und
+D(g) = W(f),
+W(g) = D(f).
+Wie das triviale Beispiel f(x) ≡2 zeigt, impliziert f ist monoton nicht, dass f −1 existiert.
+Strenge Monotonie reicht jedoch aus.
+Satz 3.2.3
+Eine streng monotone Funktion besitzt eine Umkehrfunktion
+
+
+--- PDF page 60 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 54
+Beweis. Sei f eine streng monotone Funktion. Wie jede Funktion ist f surjektiv auf
+W(f). Wir müssen also nur überprüfen, ob f injektiv ist. Da f streng monoton ist,
+impliziert
+x1 < x2
+oder
+x1 > x2,
+dass
+f(x1) < f(x2)
+oder
+f(x1) > f(x2).
+Also gilt f(x1) = f(x2) genau dann, wenn
+x1 = x2.
+Nach Satz 3.2.2 besitzt f eine Umkehrfunktion.
+3.3
+Neue Funktionen aus Alten
+Seien f und g reelle Funktionen. Sei A = D(f) ∩D(g). Dann ist die Summe deniert als
+f + g : A →R,
+(f + g)(x) := f(x) + g(x)
+für alle x ∈A.
+Analog deniert man
+f −g :A →R,
+(f −g)(x) := f(x) −g(x)
+und f · g : A →R,
+(f · g)(x) := f(x) · g(x).
+Auf A′ = {x ∈A : g(x)̸ = 0} deniert man
+f
+g : A′ →R,
+f
+g (x) := f(x)
+g(x).
+Die Zusammensetzung von f und g ist deniert als
+(g ◦f)(x) = g(f(x))
+für alle x ∈D(f) mit f(x) ∈D(g).
+Beispiele der Zusammensetzung:
+1O Sei E potentielle Energie als Funktion von h:
+E(h) = mgh,
+m, g ∈R+.
+Sei h die Höhe eines fallenden Körpers zum Zeitpunkt t:
+h(t) = h0 −g
+2t2,
+h0 ∈R+, t ∈
+
+0,
+s
+2h0
+g
+
+.
+
+
+--- PDF page 61 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 55
+Dann ist die potentielle Energie des Körpers als Funktion von t gegeben durch die
+Zusammensetzung:
+(E ◦h)(t) = mg
+
+h0 −g
+2t2
+,
+t ∈
+
+0,
+s
+2h0
+g
+
+.
+2O Sei d = d(t) die Verschiebung eines Teilchens als Funktion von t, wobei t Zeit in
+Minuten ist. Sei t(s) =
+s
+60. Dann ist D(s) = d ◦t(s) = d
+  s
+60
+
+die Verschiebung als
+Funktion von s, wobei s Zeit in Sekunden ist.
+3O f(x) =
+√
+x2 −4, g(x) = 1
+x. Dann ist
+g ◦f(x) =
+1
+√
+x2 −4.
+Hier ist D(f) = (−∞, −2] ∪[2, ∞) und
+D(g ◦f) = (−∞, −2) ∪(2, ∞).
+Man bemerkt, dass −2 und 2 nicht zu D(g ◦f) gehören, weil f(−2) und f(2) nicht zu
+D(g) gehören.
+3.4
+Polynome und rationale Funktionen
+Denition 3.4.1
+Für n = 0, 1, 2, . . . heiÿt eine Funktion f : R →R (reelles) Polynom vom Grad n, wenn
+es reelle Zahlen a0, ..., an mit an̸ = 0 gibt, so dass
+f(x) = anxn + an−1xn−1 + ... + a1x + a0,
+x ∈R.
+Die Zahlen a0, ..., an heiÿen Koezienten von f.
+Wir schreiben oft pn(x) für ein Polynom, wobei n den Grad des Polynoms bezeichnet.
+Wir bemerken, dass konstante Funktionen, die nicht gleich Null sind, Polynome nullten
+Grades sind. Das Nullpolynom f ≡0 ist auch ein Polynom, aber das Grad des Nullpolynoms
+ist nicht Null, da a0 = 0 ausgeschlossen wurde. Es ist (aus technischen Gründen) bequem zu
+denieren:
+Denition 3.4.2
+Wir denieren das Grad des Nullpolynoms als −∞. Wenn wir also für n = 0, 1, . . . von
+Polynomen Grad n und weniger reden, ist das Nullpolynom immer mit dabei.
+
+
+--- PDF page 62 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 56
+Satz 3.4.3
+Zwei Polynome sind genau dann gleich, wenn ihre Koezienten gleich sind. Das heiÿt:
+Ein Polynom ist durch seine Koezienten bestimmt.
+Beweis. Seien
+pn(x) =
+n
+X
+k=0
+akxk,
+qn(x) =
+n
+X
+k=0
+bkxk
+zwei Polynome vom Grad n. Die Tatsache, dass pn(x) = qn(x), wenn ak = bk für alle
+k = 0, .., n ist klar. Für die umgekehrte Richtung müssen wir zeigen, dass
+pn(x) = qn(x)
+für alle x ∈R
+(3.4.1)
+impliziert, dass
+ak = bk
+für alle k = 0, .., n
+(3.4.2)
+gilt. Zunächst setzen wir x = 0 in (3.4.1) und erhalten
+a0 = b0.
+(3.4.3)
+Wir benutzen (3.4.3) in (3.4.1) um zu schlieÿen, dass
+pn(x) −a0 = qn(x) −b0
+für alle x ∈R,
+also
+anxn + an−1xn−1 + ... + a1x = bnxn + bn−1xn−1 + ... + b1x
+für alle x ∈R.
+Für x ∈R \ {0} dividieren wir durch x und erhalten
+anxn−1 + an−1xn−2 + ... + a1 = bnxn−1 + bn−1xn−2 + ... + b1
+für alle x ∈R \ {0} .
+(3.4.4)
+Wir behaupten, dass a1 = b1 aus (3.4.4) folgt. Wir können aber nicht wie mit (3.4.3)
+argumentieren, da x = 0 in (3.4.4) nicht erlaubt ist. Stattdessen nden wir eine obere
+Schranke für |a1 −b1| wie folgt:
+|a1 −b1|
+(3.4.4)
+≤
+|anxn−1 + ... + a2x −bnxn−1 −... −b2x|
+≤
+ (|an| + |bn|)xn−2 + ... + |a2| + |b2|
+
+|x|
+
+für alle x ∈R \ {0}
+≤
+||an| + |bn| + ... + |a2| + |b2|| |x|
+für alle x ∈(−1, 1) \ {0}
+≤
+C|x|
+für alle x ∈(−1, 1) \ {0}
+
+
+--- PDF page 63 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 57
+für ein C < ∞. Da wir |x| beliebig klein wählen können, erhalten wir aus Lemma 1.5.1,
+dass
+|a1 −b1| = 0,
+also
+a1 = b1.
+Die Gleichheit der übrigen Koezienten zeigt man genauso.
+Was macht man mit Polynomen? Übliche Fragen sind z.B. folgende:
+(1) Was sind die Nullstellen des Polynoms, d. h., für welche x ∈R gilt pn(x) = 0?
+(2) Wie kann man das Polynom in Faktoren zerlegen?
+(3) Wie kann man eine komplizierte Funktion durch Polynome approximieren? (Polynome
+sind glatt und relativ einfach - also gäbe es einen Vorteil daran...)
+Wir fangen mit Nullstellen an.
+Denition 3.4.4
+Eine reelle Zahl x0 ∈R heiÿt Nullstelle von pn(x), falls gilt
+pn(x0) = 0.
+Ein x0 ∈R heiÿt m-fache Nullstelle des Polynoms pn(x), wenn es ein Polynom qn−m vom
+Grad n −m gibt mit der Eigenschaft, dass für alle x ∈R gilt
+pn(x) = (x −x0)mqn−m(x),
+und qn−m(x0)̸ = 0. Man nennt m die Vielfachheit oder die Multiplizität der Nullstelle
+x0. Man nennt x −x0 einen Linearfaktor des Polynoms.
+Beispiele.
+1O p(x) = x2 −4 hat zwei einfache Nullstellen x1 = 2 und x2 = −2.
+2O p(x) = x3 −4x2 +4x = x(x−2)2 hat eine einfache Nullstelle x1 = 0 und eine zweifache
+Nullstelle x2 = 2.
+3O p(x) = x2 + 1 kann nicht in Linearfaktoren zerlegt werden und besitzt keine reellen
+Nullstellen.
+Das Problem, das wir im dritten Beispiel entdeckt haben, ist das einzige Problem, das
+vorkommt. Diese Tatsache machen wir in der untenstehenden Bemerkung genauer.
+Denition 3.4.5
+Ein Polynom mit der quadratischen Form
+a2x2 + a1x + a0
+mit a0, a1, a2 ∈R,
+das man nicht in der Form a2(x −x1)(x −x2) mit reellen Zahlen x1, x2 schreiben kann,
+
+
+--- PDF page 64 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 58
+wird ein irreduzibles quadratisches Polynom genannt.
+Bemerkung (Zerlegung eines Polynoms). Was kann man im Allgemeinen über die Zerlegung
+eines Polynoms sagen?
+(1) Der Fundamentalsatz der Algebra [Gauÿ] sagt, dass jedes Polynom n-ten Grades mit
+reellen Koezienten in n Linearfaktoren mit komplexen Zahlen zerlegt werden kann:
+pn(x) = an(x −z1)(x −z2) · ... · (x −zn),
+z1, ..., zn ∈C.
+(2) Wenn z ∈C eine Nullstelle des reellen Polynoms pn ist, dann ist auch z, die zu z
+konjugierte komplexe Zahl, eine Nullstelle von pn. (Aus pn(z) = 0 erhält man pn(z) =
+0.)
+(3) Es folgt, dass irreduzible Polynome das einzige potenzielle Problem sind im folgenden
+Sinn:
+Jedes reelle Polynom n-ten Grades pn(x) kann als Produkt von Linearfak-
+toren mit reellen Nullstellen und gegebenenfalls irreduziblen quadratischen
+Polynomen geschrieben werden.
+(Um dies aus den vorherigen Punkten zu schlieÿen, beachten Sie, dass für jedes z ∈C
+(x −z)(x −z)
+ein reelles Polynom in x ist.)
+Der Fundamentalsatz der Algebra impliziert nicht, dass es leicht ist, die Nullstellen zu
+nden! Sie kennen die Lösungsformel für quadratische Gleichungen: Das Polynom
+p(x) = ax2 + bx + c
+hat die Nullstellen
+x± = −b ±
+√
+b2 −4ac
+2a
+.
+Die Formel für kubische Polynome ist viel komplizierter. Für Polynome des Grades 5 und
+gröÿer kann es keine geschlossene Formel geben [Abel-Runi, Galois].
+Trotzdem schaen wir es, die Nullstellen in nett ausgewählten Beispielen zu nden.
+Beispiel. Finden Sie alle komplexen Nullstellen von x3 + 3x2 + x −5. Man ndet durch
+Ausprobieren schnell die Nullstelle x1 = 1, sodass man durch Polynomdivision
+(x3 + 3x2 + x −5) : (x −1) = x2 + 4x + 5
+auf die Faktorisierung (x −1)(x2 + 4x + 5) kommt. Nun ndet man leicht die zusätzlichen
+Nullstellen x2 = −2 +
+p
+(−1) = −2 + i und x3 = −2 −i. Daraus ergibt sich die Zerlegung
+in Linearfaktoren:
+x3 + 3x2 + x −5 = (x −1)(x −(−2 + i))(x −(−2 −i)) = (x −1)(x + 2 −i)(x + 2 + i).
+
+
+--- PDF page 65 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 59
+Denition 3.4.6
+Seien pn(x) und qm(x) Polynome von Grad n bzw. m. Dann heiÿt
+R(x) = pn(x)
+qm(x)
+eine rationale Funktion. Der Denitionsbereich von R ist {x ∈R: qm(x)̸ = 0}.
+Jetzt suchen wir eine äquivalente Darstellung von R in dem Fall m < n.
+Satz 3.4.7
+Sei R(x) =
+pn(x)
+qm(x), wobei pn und qm Polynome vom Grad n bzw. m sind und n ≥m.
+Dann gibt es Polynome sn−m und tk, so dass für alle x ∈D(R) gilt
+R(x) = sn−m(x) + tk(x)
+qm(x).
+(3.4.5)
+Die Funktion tk ist entweder identisch Null oder ein Polynom vom Grad k < m.
+Beweis. Der übliche Divisions-Algorithmus ergibt
+pn(x)
+qm(x) = anxn + an−1xn−1 + . . . + a1x + a0
+bmxm + bm−1xm−1 + . . . + b1x + b0
+= an
+bm
+xn−m + tn−1(x)
+qm(x) ,
+(3.4.6)
+wobei
+tn−1(x) = pn(x) −an
+bm
+xn−mqm(x)
+vom Grad kleiner gleich n−1 ist, weil der n-te Term verschwindet. Dies wiederholt man,
+bis der Grad des Zählerpolynoms in (3.4.6) kleiner gleich dem Grad des Nennerpolynoms
+ist (also, maximal n −m + 1 mal).
+Beispiel. Schreiben Sie
+R(x) = x3 + x
+x −1
+in der Form (3.4.5). Zeichnen Sie den Graphen der Funktion.
+Lösung. Man erhält
+R(x) = x2 + x + 2 +
+2
+x −1.
+
+
+--- PDF page 66 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 60
+Für die Parabel zeichnet man
+x
+y
+−3 −2 −1
+1
+2
+1
+2
+3
+4
+5
+6
+7
+8
+x2 + x + 2 = (x + 1
+2)2 + 7
+4
+Für den Restterm zeichnet man in Schritten:
+x
+y
+−2 −1
+1
+2
+−4
+−3
+−2
+−1
+1
+2
+3
+4
+1
+x
+x
+y
+−1
+−1
+1
+2
+3
+−4
+−3
+−2
+−1
+1
+2
+3
+4
+1
+(x−1)
+x
+y
+−1
+−1
+1
+2
+3
+−4
+−3
+−2
+−1
+1
+2
+3
+4
+2
+(x−1)
+Die Summe ergibt:
+x
+y
+−1
+−1
+1
+2
+3
+−4
+−3
+−2
+−1
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+R(x)
+Man erkennt D(R) = R \ {1} und W(R) = R.
+
+
+--- PDF page 67 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 61
+3.5
+Trigonometrische Funktionen
+Wir erinnern an die Funktionen
+sin(x) = b,
+cos(x) = a,
+tan(x) = sin(x)
+cos(x),
+wobei (a, b) ein Punkt des Einheitskreises ist und x der Winkel gegen den Uhrzeigersinn
+zwischen der x-Achse und dem Segment von (0, 0) bis (a, b) ist.
+x
+y
+(0,0)
+(1,0)
+x
+(a,b)
+Wir werden ab und zu die folgenden Eigenschaften brauchen:
+ sin(0) = 0,
+cos(0) = 1,
+ |sin(x)| ≤1,
+|cos(x)| ≤1,
+ sin ist ungerade, cos ist gerade,
+ sin und cos sind periodisch mit Periode 2π,
+ sin2(x) + cos2(x) = 1,
+ cos(x) = 1 −2 sin2   x
+2
+
+,
+ sin(x ± y) = sin(x) cos(y) ± cos(x) sin(y),
+ cos(x) = sin
+  π
+2 −x
+
+,
+sin(x) = cos
+  π
+2 −x
+
+,
+ 0 < x cos(x) < sin(x) < x für x ∈(0, π
+2].
+Man deniert Arkussinus und Arkuscosinus,
+arcsin : [−1, 1] →[−π/2, π/2]
+arccos : [−1, 1] →[0, π],
+als die Umkehrfunktionen von sin : [−π/2, π/2] →[−1, 1] bzw. cos : [0, π] →[−1, 1].

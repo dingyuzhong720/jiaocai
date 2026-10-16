@@ -1,0 +1,1698 @@
+--- PDF page 164 ---
+Kapitel 7
+Unendliche Reihen
+Wir kennen die Sigma-Notation
+3
+X
+k=1
+ak = a1 + a2 + a3.
+In diesem Abschnitt stellen wir uns die Frage, was mit
+∞
+X
+k=1
+ak
+(7.0.1)
+gemeint wird. Natürlich können wir nicht unendlich viele Terme addieren (man hat nicht
+genug Zeit dafür). Stattdessen addiert man zunächst n Terme und dann n + 1 Terme usw.
+und man hot, dass man ungefähr die richtige Zahl erhält, wenn man genügend Terme
+addiert hat. Das heiÿt, wenn wir
+s1 := a1
+s2 := a1 + a2
+...
+sn := a1 + ... + an
+denieren, möchten wir überprüfen, ob die Folge {sn}∞
+n=1 konvergiert. Wenn ja, dann be-
+nutzen wir die Notation (7.0.1) für den Grenzwert. Im Abschnitt 7.1 und 7.2 schauen wir
+uns solche sogennante Reihen an und wir sammeln hinreichende Konvergenzkriterien. Im
+Abschnitt 7.3 schauen wir uns Reihen der Form
+∞
+X
+k=1
+akxk
+an, wobei die Terme nicht einfach reelle Zahlen sind, sondern die Monome akxk. Reihen dieser
+Form werden Potenzreihen genannt. Dies führt zum Abschnitt 7.4, wo wir die Taylor-Formel
+einer Funktion betrachten. Allgemeinere Reihen der Form
+∞
+X
+k=1
+fk(x)
+sind komplizierter als Potenzreihen und werden hier nicht betrachtet, aber sehen Sie hierzu
+zum Beispiel Wade, An Introduction to Analysis, Chapter 7 an.
+
+
+--- PDF page 165 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 159
+7.1
+Reihen reeller Zahlen
+Denition 7.1.1
+Sei {ak}∞
+k=1 eine Zahlenfolge. Dann wird
+sn :=
+n
+X
+k=1
+ak
+die n-te Teilsumme genannt und {sn}∞
+n=1 heiÿt die Folge der Teilsummen. Man nennt
+∞
+X
+k=1
+ak := lim
+n→∞sn
+eine (unendliche) Reihe. Wenn {sn}∞
+n=1 (gegen s ∈R) konvergiert, dann sagen wir, dass
+die Reihe (gegen s) konvergiert. Wir nennen s den Wert (oder die Summe) der Reihe
+und schreiben
+∞
+X
+k=1
+ak = s.
+Wenn {sn}∞
+n=1 divergiert, dann sagen wir, dass die Reihe divergiert. Analog schreibt man
+
+∞
+P
+k=1
+ak = ∞(die Reihe divergiert gegen ∞),
+
+∞
+P
+k=1
+ak = −∞(die Reihe divergiert gegen −∞) bzw.
+
+∞
+P
+k=1
+ak ist unbestimmt divergent,
+wenn sn →∞, sn →−∞bzw. {sn}∞
+n=1 unbestimmt divergent ist.
+Wir nennen ak die Koezienten der Reihe P∞
+k=1 ak.
+Beispiele.
+1O Wir haben in Lemma 4.1.2 gesehen, dass die endliche geometrische Reihe
+sn :=
+n
+X
+k=0
+rk
+die Gleichung
+sn = 1 −rn+1
+1 −r
+für r ∈(0, 1)
+(7.1.1)
+erfüllt. Aus (7.1.1), Denition 7.1.1 und rn+1 →0 für r ∈(0, 1) und n →∞schlieÿen
+
+
+--- PDF page 166 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 160
+wir, dass die (unendliche) geometrische Reihe konvergiert, sowie
+∞
+X
+k=0
+rk =
+1
+1 −r
+für r ∈(0, 1)
+gilt.
+2O Wir betrachten die Reihe
+∞
+X
+n=1
+(−1)n.
+(7.1.2)
+Wir bemerken
+s1 = −1,
+s2 = −1 + 1 = 0
+und im Allgemeinen
+s2k+1 = −1,
+s2k = 0,
+k ∈N.
+Also divergiert die Reihe (7.1.2).
+Wir werden uns mit verschiedenen Kriterien für Konvergenz einer Reihe und passenden
+Beispielen beschäftigen. Da wir sehr oft den Wert einer konvergenten Reihe nicht explizit
+berechnen können, ist es nützlich, das sogenannte Cauchysche Kriterium für Konvergenz
+einer Folge einzuführen.
+Denition 7.1.2
+Eine Zahlenfolge {an}∞
+n=1 wird Cauchyfolge genannt, wenn es zu jedem ε > 0 ein N ∈N
+gibt, so dass
+|an −am| < ε
+für alle n, m > N.
+(7.1.3)
+Achtung! Nicht ausreichend ist die Bedingung
+|an −an+1| < ε
+für alle n > N.
+Ein Gegenbeispiel ist {an} = {√n}, für die gilt
+an →∞
+für n →∞
+obwohl
+|an −an+1| =
+√
+n + 1 −√n ≤
+1
+2√n.
+Das m in (7.1.3) muss beliebig groÿ gewählt werden können, unabhängig von n.
+
+
+--- PDF page 167 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 161
+Satz 7.1.3: Cauchysches Kriterium für Folgen
+Eine Zahlenfolge {an}∞
+n=1 konvergiert genau dann, wenn sie eine Cauchyfolge ist.
+Beweis. (⇒) Sei ε > 0 gegeben. Wenn an gegen a ∈R konvergiert, dann existiert ein
+N ∈N, so dass
+|an −a| < ε
+2
+für alle n ≥N.
+Es folgt aus der Dreiecksungleichung, dass
+|an −am| ≤|an −a| + |am −a| ≤ε
+für alle n, m ≥N.
+(⇐) Wenn {an}∞
+n=1 eine Cauchyfolge ist, dann ist sie beschränkt. Um dies zu sehen,
+setze man ε = 1 und wähle N ∈N so, dass
+|an −am| ≤1
+für alle n, m ≥N.
+Insbesondere gilt
+|am| ≤|am −aN| + |aN| ≤1 + |aN|
+für alle m ≥N,
+so dass
+|an| ≤max {|a1|, |a2|, ..., |aN|, |1 + aN|}
+für alle n ∈N.
+Nach dem Satz von Bolzano-Weierstraÿ existiert eine Teilfolge {ank}∞
+k=1 und ein a ∈R,
+so dass
+ank →a
+für k →∞.
+Sei ε > 0 gegeben. Da {an}∞
+n=1 eine Cauchyfolge ist, existiert ein N ∈N, so dass
+|am −an| < ε
+2
+für alle n, m ≥N.
+Man wähle k ∈N, so dass
+nk ≥N
+und
+|ank −a| < ε
+2.
+Dann gilt für alle m ≥N, dass
+|am −a| ≤|ank −a| + |ank −am| ≤ε.
+
+
+--- PDF page 168 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 162
+Satz 7.1.4: Cauchysches Kriterium für Reihen
+Die Reihe
+∞
+P
+k=1
+ak konvergiert genau dann, wenn es zu jedem ε > 0 ein N ∈N gibt, so
+dass
+
+n+j
+X
+k=n+1
+ak
+ < ε
+für alle n ≥N, j ∈N.
+(7.1.4)
+Dies folgt direkt aus dem Cauchyschen Kriterium für Folgen angewendet auf die Folge
+der Teilsummen von
+∞
+P
+k=1
+ak.
+Korollar 7.1.5. Eine notwendige Bedingung für Konvergenz von
+∞
+P
+k=1
+ak ist
+lim
+k→∞ak = 0.
+(7.1.5)
+Beweis. Dies folgt aus (7.1.4) mit j = 1.
+Es ist wichtig zu merken, dass (7.1.5) keine hinreichende Bedingung ist. Die sogenannte
+harmonische Reihe
+∞
+X
+k=1
+1
+k
+erfüllt (7.1.5) und divergiert gegen Unendlich. Dies kann man zeigen, indem man
+1 + 1
+2 +
+1
+3 + 1
+4
+
+|
+{z
+}
+≥2· 1
+4
++
+1
+5 + 1
+6 + 1
+7 + 1
+8
+
+|
+{z
+}
+≥4· 1
+8
++ . . . +
+
+1
+2K + 1 + . . . +
+1
+2K+1
+
+|
+{z
+}
+≥2K·
+1
+2K+1
+≥1 + 1
+2 + K
+2
+rechnet. Also gilt
+2K+1
+X
+k=1
+1
+k ≥3 + K
+2
+.
+Da die Folge der Teilsummen monoton wachsend ist und eine Teilfolge besitzt, die gegen
+Unendlich divergiert, divergiert die harmonische Reihe gegen Unendlich:
+∞
+X
+k=1
+1
+k = ∞.
+(7.1.6)
+
+
+--- PDF page 169 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 163
+Also ist es für Konvergenz nicht hinreichend, wenn die Terme einer Reihe verschwinden. Wie
+Sie vielleicht raten würden, ist es hinreichend, wenn die Terme schnell genug verschwinden.
+Wir werden zum Beispiel sehen, dass
+∞
+X
+k=1
+1
+k2 < ∞,
+(7.1.7)
+und sogar, dass
+für jedes α > 0
+gilt
+∞
+X
+k=1
+1
+k1+α < ∞.
+(Dies werden wir später beweisen. Sehen Sie dazu die Beweisidee des Cauchyschen Verdicht-
+ungssatzes.)
+Übung 7.1.6
+Bestimmen Sie, ob die Reihe P∞
+k=1 ak mit
+ak = 1
+3k −1
+k
+konvergiert oder divergiert.
+Aus Satz 4.2.8 folgt:
+Satz 7.1.7
+Seien
+∞
+P
+k=1
+ak,
+∞
+P
+k=1
+bk konvergente Reihen. Dann gilt
+∞
+X
+k=1
+αak = α
+∞
+X
+k=1
+ak,
+∞
+X
+k=1
+(ak + bk) =
+∞
+X
+k=1
+ak +
+∞
+X
+k=1
+bk.
+Unsere ersten Kriterien für Konvergenz behandeln Reihen mit positiven Termen.
+Satz 7.1.8: Vergleichskriterium
+Seien 0 ≤ak ≤bk für k groÿ.
+ Wenn P∞
+k=1 bk < ∞, dann gilt P∞
+k=1 ak < ∞.
+ Wenn P∞
+k=1 ak = ∞, dann gilt P∞
+k=1 bk = ∞.
+
+
+--- PDF page 170 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 164
+Satz 7.1.9: Limes-Vergleichskriterium
+Angenommen ak ≥0, bk > 0 für k groÿ und
+L := lim
+k→∞
+ak
+bk
+existiert,
+dann gilt:
+(i) Wenn 0 < L < ∞, dann konvergiert P∞
+k=1 ak genau dann, wenn P∞
+k=1 bk konver-
+giert.
+(ii) Wenn L = 0 und P∞
+k=1 bk konvergiert, dann konvergiert P∞
+k=1 ak.
+(iii) Wenn L = ∞und P∞
+k=1 ak konvergiert, dann konvergiert P∞
+k=1 bk.
+Die Beweise von Satz 7.1.8 und Satz 7.1.9 lassen wir als Übung.
+Im Allgemeinen kann das Vorzeichen der Terme einer Reihe eine wichtige Rolle spielen.
+Diese Idee entwickeln wir im folgenden Beispiel.
+Beispiel. Man betrachte die alternierende harmonische Reihe
+∞
+X
+k=1
+(−1)k+1
+k
+.
+Um Konvergenz dieser Reihe zu überprüfen, reicht es aus
+n+j
+X
+k=n+1
+(−1)k+1
+k
+= (−1)n+2
+
+1
+n + 1 −
+1
+n + 2 +
+1
+n + 3 −... + (−1)j−1
+n + j
+
+für n groÿ und j ∈N zu betrachten. Sei
+f(n, j) :=
+1
+n + 1 −
+1
+n + 2 + ... + (−1)j−1
+n + j .
+Wenn j ungerade ist, so gilt
+1
+n + j ≤f(n, j) ≤
+1
+n + 1.
+(7.1.8)
+Wenn j gerade ist, so gilt
+0 ≤f(n, j) ≤
+1
+n + 1.
+(7.1.9)
+Aus (7.1.8) und (7.1.9) folgt
+|f(n, j)| ≤
+1
+n + 1
+für alle j ∈N,
+
+
+--- PDF page 171 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 165
+so dass für ε > 0 beliebig klein und N groÿ genug gilt
+
+n+j
+X
+k=n+1
+(−1)k+1
+k
+ ≤ε
+für alle n ≥N, j ∈N.
+Wir fassen zusammen:
+ die harmonische Reihe
+∞
+P
+k=1
+1
+k divergiert gegen Unendlich.
+ die alternierende harmonische Reihe
+∞
+P
+k=1
+(−1)k+1
+k
+konvergiert.
+Analog beweist man das folgende wichtige Kriterium für alternierende Reihen.
+Satz 7.1.10: Leibniz-Kriterium
+Sei {ak}∞
+k=1 eine monoton fallende Nullfolge. Dann konvergiert die alternierende Reihe
+∞
+X
+k=1
+(−1)k+1ak.
+Es ist nützlich zwischen Reihen zu unterscheiden, die nur mit Hilfe des Vorzeichens
+konvergieren oder nicht.
+Denition 7.1.11
+Die Reihe P∞
+k=1 ak heiÿt absolut konvergent, wenn P∞
+k=1 |ak| konvergiert. Wenn P∞
+k=1 ak
+konvergiert und P∞
+k=1 |ak| divergiert, so heiÿt P∞
+k=1 ak bedingt konvergent.
+Wenn eine Reihe absolut konvergent ist, dann erhält man den gleichen Wert, wenn man
+die Summanden umordnet. Andererseits, wenn eine Reihe bedingt konvergent ist, dann kann
+man jede reelle Zahl als Summe erhalten mit einer geeigneten Umordnung!
+7.2
+Weitere Konvergenzkriterien
+Wir betrachten die Reihe
+∞
+X
+k=1
+ak.
+Falls
+
+ak+1
+ak
+ konvergiert, kann man den Grenzwert benutzen um Konvergenz der Reihe zu
+überprüfen. (Man möchte, dass ak schnell verschwindetalso ist
+
+ak+1
+ak
+ klein der gute Fall.)
+
+
+--- PDF page 172 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 166
+Satz 7.2.1: Quotientenkriterium
+Sei P∞
+k=1 ak eine Reihe mit ak̸ = 0 für k groÿ. Wenn
+
+ak+1
+ak
+ −→α
+konvergiert,
+dann gilt
+ α < 1
+=⇒
+P∞
+k=1 ak ist absolut konvergent.
+ α > 1
+=⇒
+P∞
+k=1 ak ist divergent.
+Wenn α = 1, dann liefert der Satz KEINE AUSSAGE. Man merkt, dass
+
+ak+1
+ak
+ →1 für
+
+∞
+P
+k=1
+1
+k (divergent),
+
+∞
+P
+k=1
+1
+k(k+1) (konvergent).
+Beweisidee Wenn
+
+ak+1
+ak
+ →α und α < 1, dann hat man ein bisschen Spielraum zwischen
+α und 1. Insbesondere gilt für jedes ε > 0
+|aN+1| ≤(α + ε)|aN|
+für N groÿ genug.
+Wenn wir ε := 1−α
+2
+wählen, erhalten wir
+|aN+1| ≤β|aN|
+für N groÿ (β := α + 1
+2
+< 1).
+Iteration liefert
+|aN+2| ≤β2|aN|
+...
+|am| ≤βm−N|aN|
+für m ≥N
+= βm · β−N|aN|
+|
+{z
+}
+feste Zahl
+.
+Dann benutzt man Konvergenz der geometrischen Reihe
+∞
+X
+m=1
+βm
+für β ∈(0, 1).
+Das Quotientenkriterium ist oft nützlich, wenn die Terme der Reihe ein Produkt oder eine
+Fakultät enthalten.
+
+
+--- PDF page 173 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 167
+Beispiel. Man betrachte
+S :=
+∞
+X
+k=1
+2k
+k! .
+Es gilt
+
+ak+1
+ak
+ =
+
+2k+1
+(k + 1)! · k!
+2k
+ =
+2
+k + 1 →0
+für k →∞.
+Nach dem Quotientenkriterium ist S absolut konvergent.
+Bemerkung. Das Quotientenkriterium ist hinreichend, aber nicht notwendig. Zum Beispiel
+S :=
+∞
+X
+k=1
+2 + (−1)k
+2k−1
+(7.2.1)
+konvergiert
+
+nach Vergleich mit
+∞
+P
+k=1
+3
+2k−1
+
+, obwohl
+
+ak+1
+ak
+ =
+(
+3
+2
+für k ungerade
+1
+6
+für k gerade.
+Das nächste Kriterium, das wir uns anschauen, ist das Wurzelkriterium. Dieses Kriterium
+ist allgemeiner und man kann es zum Beispiel auch für das Analysieren der Reihe in (7.2.1)
+anwenden (siehe unten).
+Satz 7.2.2: Wurzelkriterium
+Sei S := P∞
+k=1 ak eine Reihe und
+α := lim sup
+k→∞
+kp
+|ak|.
+ Wenn α < 1, dann ist S absolut konvergent.
+ Wenn α > 1, dann ist S divergent.
+Wie das Quotientenkriterium liefert auch das Wurzelkriterium für α = 1 keine Aussage.
+Man bemerkt:
+lim sup
+k→∞
+k
+r
+1
+k = lim sup
+k→∞
+k
+r
+1
+k2 = 1,
+aber wir erinnern an (7.1.6) und (7.1.7).
+Beweisidee Die Idee istwie für das Quotientenkriteriummit der geometrischen Reihe
+∞
+P
+k=1
+βk für geeignetes β zu vergleichen. Wieder bieten die Fälle α < 1 und α > 1 hinreichenden
+Spielraum an.
+
+
+--- PDF page 174 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 168
+Beispiele.
+1O Für die Reihe in (7.2.1) berechnen wir
+kp
+|ak| =
+kp
+2 + (−1)k
+2
+k−1
+k
+≤
+k√
+3
+2 · 2−1
+k →1
+2 < 1.
+Das Wurzelkriterium impliziert, dass S absolut konvergent ist.
+2O Wir betrachten
+S :=
+∞
+X
+k=1
+ k + 1
+2k + 3
+k
+.
+Für diese Reihe passt das Wurzelkriterium besonders gut, da die Terme in der Form
+einer Potenz von k sind. Man berechnet
+k
+s k + 1
+2k + 3
+k
+= k + 1
+2k + 3 →1
+2.
+Das Wurzelkriterium impliziert, dass S absolut konvergiert.
+Ein noch stärkeres Werkzeug ist das sogenannte Cauchysche Verdichtungsprinzip, das die
+Idee benutzt, mit der wir Divergenz der harmonischen Reihe gezeigt haben. Wir geben das
+Prinzip an und dann stellen wir die Beweisidee durch das Beispiel
+∞
+P
+k=1
+1
+kα dar.
+Satz 7.2.3: Cauchyscher Verdichtungssatz
+Sei P∞
+k=1 ak eine Reihe mit positiven, monoton fallenden Gliedern. Dann hat P∞
+k=1 ak
+dasselbe Konvergenzverhalten wie die Reihe
+∞
+X
+k=0
+2ka2k.
+Beweisidee Wir demonstrieren die Beweisidee anhand des Beispiels
+S :=
+∞
+X
+k=1
+1
+kα,
+α ∈R.
+Für α < 1 divergiert die Reihe gegen Unendlich nach Vergleich mit der harmonischen Reihe
+(siehe (7.1.6)). Für α > 1 benutzen wir ein analoges Argument, um Konvergenz von S zu
+
+
+--- PDF page 175 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 169
+zeigen. Wir sammeln die Terme der Teilsumme bis 2K+1 −1 wie folgt:
+1 + 1
+2α + 1
+3α + ... +
+1
+(2K+1 −1)α
+=1 +
+ 1
+2α + 1
+3α
+
++
+ 1
+4α + ... + 1
+7α
+
++ ... +
+
+1
+(2K)α + ... +
+1
+(2K+1 −1)α
+
+≤1 + 2 · 1
+2α + 4 · 1
+4α + ... + 2K
+1
+(2K)α
+=
+K
+X
+k=0
+2k · 1
+2kα =
+K
+X
+k=0
+1
+(2α−1
+|{z}
+>1
+)k .
+Wir erinnern daran, dass die geometrische Reihe
+∞
+X
+k=0
+1
+qk ,
+q > 1
+konvergent und insbesondere nach oben beschränkt ist. Da die Folge der Teilsummen mono-
+ton wachsend ist und eine nach oben beschränkte Teilfolge besitzt, ist die Folge selbst nach
+oben beschränkt. Nach Satz 4.2.11 konvergiert die Folge der Teilsummen (also konvergiert
+die Reihe S).
+Wir fassen zusammen: Für eine Reihe
+∞
+P
+k=1
+ak mit positiven Termen ak ≥0 gilt,
+ wenn ak ≥c
+k für ein c > 0, dann divergiert die Reihe. Also reicht das Verschwinden
+der Terme nicht für Konvergenz der Reihe aus.
+ wenn ak ≤
+c
+k1+ε für ein c ∈R und ein ε > 0, dann konvergiert die Reihe. Also reicht
+polynomisches Verschwinden der Terme mit Rate echt gröÿer als Eins für Konvergenz
+der Reihe aus.
+Beweis von Satz 7.2.3. Die Aussage folgt aus der Monotonie der Teilsummen und der
+Bemerkung
+a1 + (a2 + a3) + ... + a2K+1−1 ≤a1 + 2a2 + ... + 2Ka2K
+a1 + (a2 + a3) + ... + a2K ≥a1 + 1
+2(2a2 + ... + 2Ka2K).
+Jetzt stellen wir uns die Frage, ob die Rate
+ak =
+1
+k log(k)
+hinreichend für Konvergenz der zugehörigen Reihe ist. Bemerken Sie, dass für k groÿ gilt
+k < k log(k) < k1+ε
+für alle ε > 0.
+
+
+--- PDF page 176 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 170
+Also verschwindet ak schneller als die Terme der (divergenten) harmonischen Reihe, aber
+langsamer als die Terme der konvergenten Reihe
+∞
+P
+k=1
+1
+k1+ε für jedes ε > 0. Um Konvergenz
+von
+S :=
+∞
+X
+k=2
+1
+k log(k)
+zu überprüfen, wenden wir den Cauchyschen Verdichtungssatz an. Die Terme sind positiv
+und monoton fallend. Da
+∞
+X
+k=1
+2ka2k =
+∞
+X
+k=1
+2k
+1
+2k log(2k)
+=
+∞
+X
+k=1
+1
+k log(2),
+schlieÿen wir aus Satz 7.2.3 und Divergenz der harmonischen Reihe, dass S gegen Unendlich
+divergiert. Bemerken Sie, dass weder das Quotientenkriterium noch das Wurzelkriterium eine
+Aussage für
+∞
+P
+k=2
+1
+k log(k) liefert.
+7.3
+Potenzreihen
+In diesem Abschnitt betrachten wir Objekte der Form
+∞
+X
+k=0
+akxk
+oder
+∞
+X
+k=0
+ak(x −x0)k,
+die Potenzreihen genannt werden. Bemerken Sie, dass die Potenzreihe
+∞
+X
+k=0
+akxk =: f(x)
+eine Funktion von x ist, also viel komplizierter als die Reihen reeller Zahlen, die wir bis jetzt
+betrachtet haben. Insbesondere stellen sich die Fragen:
+(1) Konvergiert
+∞
+P
+k=0
+akxk für alle x ∈R? Für keine x ∈R auÿer 0? Oder für welche?
+(2) Ist f für die x, für die f wohldeniert ist, stetig? Dierenzierbar?
+(3) Wenn f dierenzierbar ist, gilt
+f ′(x) =
+∞
+X
+k=0
+k · akxk−1?
+
+
+--- PDF page 177 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 171
+Potenzreihen sind ein besonderer Fall von Reihen der Form
+∞
+X
+k=0
+ak(x).
+(7.3.1)
+Potenzreihen sind aber viel einfacher zu analysieren als allgemeine Reihen der Form (7.3.1).
+Auÿerdem sind Potenzreihen wichtig, weil die sogenannte Taylorreihe einer Funktion eine
+Potenzreihe ist (siehe Abschnitt 7.4).
+Denition 7.3.1
+Eine Reihe der Form
+∞
+X
+k=0
+akxk
+heiÿt eine Potenzreihe (in x) (um Null). Die Zahlen ak heiÿen Koezienten. Die Zahl
+R := sup
+(
+|x|:
+∞
+X
+k=0
+akxk konvergiert
+)
+wird der Konvergenzradius der Potenzreihe genannt.
+Bemerkung. Allgemeiner nennen wir eine Reihe der Form
+∞
+X
+k=0
+ak(x −x0)k
+für ein x0 ∈R eine Potenzreihe um den Punkt x0 (mit Spezialfall x0 = 0 oben). Der Kon-
+vergenzradius ist dann analog durch Verschieben um x0 deniert:
+R := sup
+(
+|x −x0|:
+∞
+X
+k=0
+ak(x −x0)k konvergiert
+)
+Satz 7.3.2
+Sei
+∞
+P
+k=0
+akxk eine Potenzreihe mit Konvergenzradius R. Es gilt
+(i) Wenn R = 0, so konvergiert die Reihe nur in x = 0.
+(ii) Wenn R > 0, so ist die Potenzreihe absolut konvergent für alle x ∈(−R, R).
+(iii) Für alle x mit |x| > R divergiert die Potenzreihe.
+Ob die Potenzreihe in x = ±R konvergiert, muss man seperat betrachten. (An der Grenze
+muss man immer vorsichtig sein.)
+
+
+--- PDF page 178 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 172
+Beweis von Satz 7.3.2. (i) und (iii) folgen aus der Denition von R. Um (ii) zu zeigen,
+wählen wir ein x ∈(−R, R) \ {0}. Nach Denition 7.3.1 existiert ein y mit
+|x| < |y| < R,
+(7.3.2)
+so dass
+∞
+X
+k=0
+akyk
+konvergiert. Insbesondere ist
+|akyk| ≤1
+für alle k groÿ genug.
+(7.3.3)
+Um absolute Konvergenz in x zu prüfen, schätzen wir ab:
+|akxk| =
+akyk xk
+yk
+
+(7.3.3)
+≤
+
+x
+y
+
+k
+= qk
+für ein q ∈(0, 1),
+wobei wir (7.3.2) angewendet haben. Nach Vergleich mit der geometrischen Reihe schlie-
+ÿen wir absolute Konvergenz von P∞
+k=0 akxk.
+Um den Konvergenzradius einer Potenzreihe zu bestimmen, benutzen wir unsere Werk-
+zeuge für Reihen reeller Zahlen.
+Beispiele.
+1O Finden Sie den Konvergenzradius von
+∞
+X
+k=1
+kkxk
+k! .
+Sei x ∈R fest. Um das Quotientenkriterium anzuwenden, betrachten wir
+lim
+k→∞
+
+ak+1
+ak
+ = lim
+k→∞
+
+(k + 1)k+1xk+1
+(k + 1)!
+·
+k!
+kkxk
+
+= lim
+k→∞
+x
+k + 1
+k
+k
+= |x| · lim
+k→∞
+
+1 + 1
+k
+k
+= |x| · e.
+Nach dem Quotientenkriterium konvergiert die Reihe für |x| < 1
+e und die Reihe diver-
+giert für |x| > 1
+e. Also ist R = 1
+e.
+
+
+--- PDF page 179 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 173
+2O Finden Sie den Konvergenzradius von
+∞
+X
+k=0
+(−1)kx2k+1
+(2k + 1)! .
+Wir betrachten den Quotienten wieder:
+lim
+k→∞
+
+ak+1
+ak
+ = lim
+k→∞
+
+x2k+3
+(2k + 3)! · (2k + 1)!
+x2k+1
+
+= |x|2 · lim
+k→∞
+
+1
+(2k + 2)(2k + 3)
+
+= 0.
+Nach dem Quotientenkriterium konvergiert die Reihe für alle x ∈R, also ist R = ∞.
+Mit dem Wurzelkriterium erhält man die folgende Formel für den Konvergenzradius einer
+Potenzreihe.
+Satz 7.3.3
+Der Konvergenzradius der Potenzreihe
+∞
+X
+k=0
+akxk
+erfüllt die Gleichung
+R =
+1
+lim sup
+k→∞
+kp
+|ak|
+,
+mit der Konvention
+1
+∞:= 0, 1
+0 := ∞.
+Beweis. Das Wurzelkriterium liefert Konvergenz für
+1 > lim sup
+k→∞
+kp
+|ak||x|k = |x| lim sup
+k→∞
+kp
+|ak|
+und Divergenz für
+1 < |x| lim sup
+k→∞
+kp
+|ak|.
+Also ist
+f(x) :=
+∞
+X
+k=0
+akxk
+auf (−R, R) wohldeniert, das heiÿt (−R, R) ⊆D(f). Ob f für x = R und x = −R
+wohldeniert ist, muss man separat untersuchen.
+
+
+--- PDF page 180 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 174
+Beispiel. Finden Sie das gröÿte Intervall I, auf dem
+∞
+P
+k=1
+xk
+k konvergiert. Zunächst berechnen
+wir
+R =
+1
+lim sup
+k→∞
+kq
+1
+k
+= 1.
+Da
+∞
+P
+k=1
+1
+k divergiert und
+∞
+P
+k=1
+(−1)k
+k
+konvergiert, ist I = [−1, 1).
+Satz 7.3.4
+Sei f(x) =
+∞
+P
+k=0
+akxk eine Potenzreihe mit Konvergenzradius R > 0. Dann ist f auf
+(−R, R) stetig.
+Beweis. Sei x ∈(−R, R) gegeben. Wir müssen zeigen, dass aus |x −y| klein folgt
+
+∞
+X
+k=0
+akxk −
+∞
+X
+k=0
+akyk
+ klein.
+Die Idee ist, dass wir N0 ∈N wählen, so dass
+∞
+X
+k=N0
+akxk
+und
+∞
+X
+k=N0
+akyk
+(7.3.4)
+klein sind. Dann bleibt nur die Dierenz zweier Polynome.
+x
+−R
+R
+Da x im Inneren des Konvergenzintervalls ist, können wir ein N0 ∈N nden, so dass
+(7.3.4) für alle y hinreichend nah an x gilt. Um dies deutlich zu machen, setzen wir
+Y := |x| + R −|x|
+2
+und bemerken, dass |x| < Y < R. Wir wählen N0 ∈N, so dass
+∞
+X
+k=N0
+|ak|Y k < ε
+4.
+Nach dem Vergleichsprinzip ist
+
+∞
+X
+k=N0
+akyk
+ ≤
+∞
+X
+k=N0
+|ak|Y k < ε
+4
+(7.3.5)
+
+
+--- PDF page 181 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 175
+für alle y ∈[−Y, Y ]. Andererseits wählen wir δ > 0, so dass aus |x −y| ≤δ folgt
+
+N0
+X
+k=0
+akxk −
+N0
+X
+k=0
+akyk
+ < ε
+2.
+(7.3.6)
+Die Dreiecksungleichung zusammen mit (7.3.5) und (7.3.6) ergibt
+
+∞
+X
+k=0
+akxk −
+∞
+X
+k=0
+akyk
+ ≤
+
+N0
+X
+k=0
+akxk −
+N0
+X
+k=0
+akyk
+ +
+
+∞
+X
+k=N0
+akxk
+ +
+
+∞
+X
+k=N0
+akyk
+
+≤ε
+2 + ε
+4 + ε
+4 = ε
+für alle y, die |x −y| ≤˜δ erfüllen, wobei
+˜δ := min
+
+δ, R −|x|
+2
+
+.
+Wir werden auch in der Lage sein müssen, Potenzreihen miteinander zu multiplizieren.
+Satz 7.3.5
+Seien
+∞
+P
+k=0
+akxk und
+∞
+P
+k=0
+bkxk Potenzreihen mit Konvergenzradius R bzw. ˜R. Dann ist das
+Produkt eine Potenzreihe mit Konvergenzradius gröÿer gleich min
+n
+R, ˜R
+o
+und es gilt
+ ∞
+X
+k=0
+akxk
+!
+·
+ ∞
+X
+k=0
+bkxk
+!
+=
+∞
+X
+k=0
+ckxk
+mit ck =
+kP
+m=0
+ambk−m.
+Man kann zeigen, dass Potenzreihen auf (−R, R) viel besser als stetig sind.
+Satz 7.3.6
+Sei f(x) =
+∞
+P
+k=0
+akxk eine Potenzreihe mit Konvergenzradius R > 0. Dann ist f auf
+(−R, R) dierenzierbar und es gilt
+f ′(x) =
+∞
+X
+k=1
+k · akxk−1
+für x ∈(−R, R).
+(7.3.7)
+Iteration ergibt:
+
+
+--- PDF page 182 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 176
+Korollar 7.3.7. Sei f(x) =
+∞
+P
+k=0
+akxk eine Potenzreihe mit Konvergenzradius R > 0. Dann
+ist f ∈C∞((−R, R)) und es gilt
+f (n)(x) =
+∞
+X
+k=n
+k!
+(k −n)!akxk−n
+für x ∈(−R, R).
+Die Formel (7.3.7) soll man nicht für selbstverständlich halten! Hierbei tauscht man zwei
+Grenzwerte. Dabei muss man immer vorsichtig sein:
+Übung 7.3.8
+Zeigen Sie, dass für
+fn(x) = xn+1
+n + 1
+auf [0, 1]
+gilt
+lim
+n→∞
+d
+dxfn(x)̸ = d
+dx lim
+n→∞fn(x).
+7.4
+Taylor-Formel
+Im vorherigen Abschnitt haben wir mit einer Reihe angefangen, und diese Reihe als Funktion
+von x betrachtet. Jetzt nehmen wir eine andere Sichtweise: Wir fangen mit einer Funktion
+f an, und wollen f ein Polynom zuordnen. Welches Polynom? In Abschnitt 6.1 haben wir
+die beste lineare Approximation eingeführt. Jetzt fragen wir uns:
+Gibt es Polynome höherer Ordnung, die zu f zugeordnet werden können?
+Die Antwort hängt davon ab, wie glatt f ist.
+Frage: Wie glatt musste f sein, damit wir eine beste lineare Approximation nden konn-
+ten?
+Antwort: f musste dierenzierbar (ein Mal dierenzierbar) sein.
+Für eine Funktion, die n-mal differenzierbar ist, werden wir jetzt das richtige Polynom
+n-ter Ordnung denieren. Aber als erstes treten wir einen Schritt zurück: Warum würden
+wir ein Polynom höherer Ordnung denieren wollen?? Lineare Funktionen sind doch schön!
+Um uns zu motivieren, schauen wir uns ein kleines Beispiel an. Wir nehmen f(x) := sin(x).
+Was ist die beste lineare Approximation in x0 = π/2? Richtig, die Funktion ℓ(x) ≡1.
+
+
+--- PDF page 183 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 177
+(a) f und die beste lineare Approximation in π/2.(b) Die grüne Kurve zeigt das Taylorpolynom
+zweiter Ordnung in π/2. Welche Approximation
+ist besser?
+Also lohnt es sich, das beste Polynom n-ter Ordnung zu denieren:
+Denition 7.4.1
+Sei f : (a, b) −→R n-mal dierenzierbar. Das Taylorpolynom n-ter Ordnung um x0 ∈
+(a, b) ist
+Tn(x; x0) :=
+n
+X
+k=0
+f (k)(x0)
+k!
+(x −x0)k.
+Der Restterm ist
+Rn(x; x0) := f(x) −Tn(x; x0).
+Beispiel. Finden Sie das Taylorpolynom dritter Ordnung von f(x) = exp(x) um x0 = 0.
+Wir brauchen f und drei Ableitungen von f im Punkt x0 = 0:
+f(0) = 1,
+f ′(0) = 1,
+f ′′(0) = 1,
+f ′′′(0) = 1.
+Jetzt tun wir sie zusammen wie in Denition 7.4.1:
+T3(x; 0) = 1
+0! + 1
+1!x + 1
+2!x2 + 1
+3!x3 = 1 + x + x2
+2 + x3
+6 .
+Beispiel. Finden Sie das Taylorpolynom zweiter Ordnung für das Beispiel in der obigen
+Abbildung.
+Das Polynom ist das Taylorpolynom zweiter Ordnung von f(x) = sin(x) um x0 = π/2.
+Also brauchen wir
+f(π/2) = 1,
+f ′(π/2) = cos(π/2) = 0,
+f ′′(π/2) = −sin(π/2) = −1.
+Die Formel aus Denition 7.4.1 ergibt:
+T2(x; π/2) = 1 + −1
+2! (x −π/2)2 = 1 −1
+2(x −π/2)2.
+(7.4.1)
+
+
+--- PDF page 184 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 178
+Bemerkung. Manche würden die Formel (7.4.1) ausmultiplizieren. Dies ist erlaubt aber
+nicht empfohlen.
+Natürlich ist f selber im Allgemeinen kein Polynom. Aber solange f n-mal dierenzierbar
+ist, können wir f durch ein Polynom n-ter Ordnung approximieren. Gut, aber dann fragen
+wir uns natürlich, Wie gut ist diese Approximation?
+Wichtig!: Um zu wissen, ob die Approximation gut ist (und für welche x-Werte), müs-
+sen wir den Restterm abschätzen können. Dafür brauchen wir (nur!) noch eine zusätzliche
+Ableitung:
+Satz 7.4.2: Taylor-Formel, Dierentialform des Restterms
+Sei f : (a, b) −→R (n + 1)-mal dierenzierbar. Für x, x0 ∈(a, b) existiert ein c zwischen
+x und x0, so dass
+Rn(x; x0) = f (n+1)(c)
+(n + 1)! (x −x0)n+1.
+Insbesondere gilt
+f(x) =
+n
+X
+k=0
+f (k)(x0)
+k!
+(x −x0)k + f (n+1)(c)
+(n + 1)! (x −x0)n+1.
+(7.4.2)
+Wichtig zu bemerken ist, dass (7.4.2) nicht sagt, dass jede Funktion ein Polynom ist!
+Warum nicht? Weil der Punkt c von x abhängt!
+Für n = 0 ist (7.4.2) der Mittelwertsatz.
+Man kann Satz 7.4.2 anwenden, um die Qualität einer Approximation zu überprüfen.
+Beispiel. Sei f ∈C3((a, b)). Wie gut ist die Approximation für f mit der Taylor-Polynom
+zweiter Ordnung, wenn
+|f ′′′(x)| ≤C
+für alle x ∈(a, b)?
+Es gilt
+|f(x) −T2(x; x0)| ≤C
+6 |x −x0|3.
+Beispiel. Finden Sie das Taylorpolynom zweiter Ordnung von f(x) =
+3√x in x0 = 8. Wie
+genau ist diese Approximation für 7 ≤x ≤9?
+Wir berechnen
+T2(x) = 2 + 1
+12(x −8) −
+1
+288(x −8)2.
+Für 7 ≤x ≤9 gilt
+3√x ≈2 + 1
+12(x −8) −
+1
+288(x −8)2
+und die Genauigkeit schätzen wir mit dem Satz von Taylor ab:
+|R2(x)| =
+
+f ′′′(c)
+3!
+(x −8)3
+ = 5|x −8|3
+81c8/3 ,
+(7.4.3)
+
+
+--- PDF page 185 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 179
+für ein c zwischen x und 8. Für 7 ≤x ≤9 gilt
+|x −8|3 ≤1
+(7.4.4)
+und aus c ≥7 folgt
+c8/3 ≥179.
+(7.4.5)
+Einsetzen von (7.4.4) und (7.4.5) in (7.4.3) ergibt
+|R2(x)| ≤0, 0004.
+Übung 7.4.3
+Geben Sie eine Abschätzung für
+|ex −(x + 1)|
+auf x ∈(0, 1
+2) an.
+Man kann Satz 7.4.2 auch anwenden, um zu bestimmen, ob ein kritischer Punkt x0 zum
+Beispiel ein lokales Minimum ist.
+Übung 7.4.4
+Angenommen f ∈C4((a, b)) und für x0 ∈(a, b) gilt
+f ′(x0) = f ′′(x0) = 0.
+Geben Sie ein Kriterium an, so dass
+(i) x0 ein lokales Minimum ist,
+(ii) x0 ein lokales Maximum ist,
+(iii) x0 kein lokales Extremum ist.
+Hinweis: Betrachten Sie
+f(x) = f(x0) + f ′′′(x0)
+3!
+(x −x0)3 + f (4)(c)
+4!
+(x −x0)4.
+Wenn f ∈C∞((a, b)), dann heiÿt
+∞
+X
+k=0
+f (k)(x0)
+k!
+(x −x0)k
+die Taylorreihe von f um x0. Wenn für jedes x0 ∈(a, b) die Taylorreihe um x0 für alle x in
+einer Umgebung von x0 gegen f(x) konvergiert, dann heiÿt f auf (a, b) analytisch.
+
+
+--- PDF page 186 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 180
+Übung 7.4.5
+Benutzen Sie die Funktion
+f(x) :=
+(
+e−1
+x2
+x̸ = 0
+0
+x = 0.
+um zu zeigen, dass nicht jede C∞-Funktion analytisch ist.
+Man kann zeigen, dass sin(·), cos(·) und exp(·) auf R analytisch sind und dass gilt
+sin(x) =
+∞
+X
+k=0
+(−1)k
+x2k+1
+(2k + 1)!,
+cos(x) =
+∞
+X
+k=0
+(−1)k x2k
+(2k)!,
+exp(x) =
+∞
+X
+k=0
+xk
+k! .
+7.5
+Eine Reihe von Beispielen
+Bestimmen Sie ob konvergent (absolut oder bedingt) oder divergent.
+1O
+∞
+X
+n=1
+n2
+n3 + 1
+2O
+∞
+X
+n=1
+n + n4
+n + n2
+3O
+∞
+X
+n=1
+n + n2
+n + n4
+4O
+∞
+X
+n=2
+n + n2
+n4 −n
+5O
+∞
+X
+n=1
+(−1)n
+4√n
+
+
+--- PDF page 187 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 181
+6O
+∞
+X
+n=1
+(−1)n
+n4
+7O
+∞
+X
+n=1
+
+n
+3n −1
+n
+8O
+∞
+X
+n=1
+r
+n −1
+n
+9O
+∞
+X
+n=1
+sin(n)
+1 + n2
+10
+O
+∞
+X
+n=1
+1
+n(log(n))2
+11
+O
+∞
+X
+n=1
+1 · 3 · 5 · · · · · (2n −1)
+5n n!
+12
+O
+∞
+X
+n=1
+(−1)n+1log(n)
+√n
+Berechnen Sie den Wert.
+1O
+∞
+X
+n=1
+22n+1
+5n
+2O
+∞
+X
+n=1
+(−1)n−1n−3
+3O
+∞
+X
+n=1
+arctan(n + 1) −arctan(n)
+4O
+∞
+X
+n=1
+(−1)nxn
+22nn!
+
+
+--- PDF page 188 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 182
+Bestimmen Sie den Konvergenzradius und das gröÿtmögliche Intervall, auf dem sie kon-
+vergiert.
+1O
+∞
+X
+n=0
+(−3)nx2n
+n + 1
+2O
+∞
+X
+n=1
+xn
+3nn3
+3O
+∞
+X
+n=1
+(x + 1)n
+nn
+4O
+∞
+X
+n=0
+2n(x −3)n
+√n + 3

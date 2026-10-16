@@ -1,0 +1,1506 @@
+--- PDF page 100 ---
+Kapitel 5
+Grenzwerte und Stetigkeit reeller
+Funktionen
+5.1
+Grenzwerte von Funktionen
+Bis jetzt haben wir deniert, was der Grenzwert einer Folge für n →∞ist. In diesem
+Abschnitt möchten wir verstehen, was der Grenzwert einer Funktion in einem Punkt
+ist. Dies werden wir durch Konvergenz von Folgen erledigen.
+x
+y
+−2
+−1
+1
+2
+−3
+−2
+−1
+1
+2
+3
+f
+x
+y
+−2
+−1
+1
+2
+−3
+−2
+−1
+2
+3
+g
+Abbildung 5.1: Beide Funktionen haben den Grenzwert 1 in x = 0.
+In Abbildung 5.1 haben beide Funktionen den Grenzwert 1 in x = 0. Dies kann man
+sehen, indem man eine beliebige Folge xn →0 mit xn̸ = 0 betrachtet und sich überlegt,
+was mit den Funktionswerten
+f(xn),
+g(xn)
+passiert. Die relevante Frage ist, grob ausgedrückt:
+Wohin gehen die Funktionswerte, wenn x gegen Null geht?
+
+
+--- PDF page 101 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 95
+Wichtig ist, dass wir nicht nur eine Folge betrachten, sondern jede Folge. Zum Beispiel
+merkt man in Abbildung 5.2, dass wenn
+xn →0
+für n →∞
+und
+xn > 0
+für alle n ∈N,
+dann geht h(xn) gegen 2. Dies bedeutet allerdings nicht, dass h den Grenzwert 2 in Null
+hat, da es auch Nullfolgen gibt, so dass h(xn) nicht gegen 2 geht.
+x
+y
+−2
+−1
+1
+2
+−3
+−2
+−1
+3
+h
+Abbildung 5.2: Einige Nullfolgen {xn}∞
+n=1 haben h(xn) →1, andere Nullfolgen {xn}∞
+n=1 haben
+h(xn) →2. Die Funktion h besitzt keinen Grenzwert in 0.
+Denition 5.1.1
+Sei f auf einer punktierten Umgebung V von x0 ∈R deniert. Wir sagen, dass f an der
+Stelle x0 den Grenzwert y0 ∈R besitzt, wenn für jede Folge {xn}∞
+n=1 mit
+xn̸ = x0,
+xn ∈V,
+lim
+n→∞xn = x0
+(5.1.1)
+gilt
+lim
+n→∞f(xn) = y0.
+(5.1.2)
+Wir schreiben dafür
+lim
+x→x0 f(x) = y0.
+Wir sagen, dass f in x0 den linksseitigen (bzw. rechtsseitigen) Grenzwert y0 ∈R besitzt,
+wenn f auf (x0 −δ, x0) (bzw. (x0, x0 + δ)) für ein δ > 0 deniert ist und für jede Folge
+{xn}∞
+n=1 mit
+xn ∈(x0 −δ, x0)
+(bzw. xn ∈(x0, x0 + δ)) und
+lim
+n→∞xn = x0
+(5.1.2) gilt. Wir schreiben dafür
+lim
+x↑x0 f(x) = y0
+(bzw. lim
+x↓x0 f(x) = y0)
+
+
+--- PDF page 102 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 96
+oder
+lim
+x→x−
+0
+f(x) = y0
+(bzw. lim
+x→x+
+0
+f(x) = y0).
+Bemerkung. Es reicht aus, Folgen {xn}∞
+n=1 zu betrachten, bei denen xn nah an x0 liegt.
+Deshalb sagt man, dass es eine lokale Eigenschaft ist, den Grenzwert y0 in der Stelle x0 zu
+haben.
+Bemerkung. Den Grenzwert y0 in x0 zu haben, hat nichts mit dem Funktionswert f(x0)
+zu tun! f muss nicht in x0 deniert sein. Auch wenn f in x0 deniert ist, muss f(x0) nicht
+gleich y0 sein. Sehen Sie sich g in Abbildung 5.1 oben an.
+Bemerkung. Es ist unabdingbar, dass in Denition 5.1.1 punktierte Umgebungen betrachtet
+werden! Die Folge x1 = 1, x2 = 0, x3 = 1/3, x4 = 0, x5 = 1/5, x6 = 0, ... ist eine Nullfolge,
+aber für die Funktion g aus Abbildung 5.1 konvergiert g(xn) nicht, obwohl g in Null den
+Grenzwert 1 besitzt.
+Beispiele.
+1O f(x) = x2, x0 = 2. Es gilt lim
+x→2 f(x) = 4.
+2O g(x) =
+(
+2x,
+x > 0
+x −1
+x ≤0.
+Es gilt
+lim
+x↑0 g(x) = −1,
+lim
+x↓0 g(x) = 0,
+und g besitzt in 0 keinen Grenzwert.
+3O h(x) =
+(
+2x,
+x > 0
+x2
+x < 0.
+Es gilt
+lim
+x→0 h(x) = 0.
+4O m(x) =
+(
+0,
+x = 1
+n, n ∈N
+1
+sonst.
+Dann besitzt m in 0 keinen Grenzwert, aber m besitzt den linksseitigen Grenzwert 1:
+lim
+x↑0 m(x) = 1.
+Der Einfachheit halber haben wir in Denition 5.1.1 vorausgesetzt, dass f auf einer
+punktierten Umgebung von x0 deniert ist. Dies wird meist in den Beispielen, die wir uns
+anschauen, der Fall sein. Aber betrachten Sie die Folge
+xn =
+3n
+1 + 6n,
+n ∈N
+
+
+--- PDF page 103 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 97
+und die Funktion f, die durch
+f(xn) = 1
+n,
+n ∈N
+deniert ist. Man möchte schon ausdrücken können, dass f gegen Null geht, wenn x gegen
+1
+2 geht. Allerdings ist f auf keiner punktierten Umgebung von 1
+2 deniert. Somit ist eine
+Verallgemeinerung von Denition 5.1.1:
+Denition 5.1.1'. Wenn es eine Folge ˜xn mit
+˜xn ∈D(f),
+˜xn̸ = x0,
+lim
+n→∞˜xn = x0
+gibt, dann sagen wir, dass f in x0 den Grenzwert y0 besitzt, wenn für jede Folge xn mit
+xn ∈D(f),
+xn̸ = x0,
+lim
+n→∞xn = x0
+gilt
+lim
+n→∞f(xn) = y0.
+Analog für linksseitige und rechtsseitige Grenzwerte.
+Wie bei Folgen möchte man wissen, ob man neue Grenzwerte aus Alten schlieÿen kann.
+Aus Satz 4.2.8 für Folgen erhalten wir:
+Satz 5.1.2
+Seien f, g auf einer punktierten Umgebung von x0 deniert. Wenn für y0, z0 ∈R gilt
+lim
+x→x0 f(x) = y0,
+lim
+x→x0 g(x) = z0,
+dann gilt
+lim
+x→x0(αf(x) + βg(x)) = αy0 + βz0
+für alle α, β ∈R,
+(5.1.3)
+lim
+x→x0(f(x) · g(x)) = y0 · z0,
+(5.1.4)
+lim
+x→x0
+f(x)
+g(x)
+
+= y0
+z0
+,
+sofern z0̸ = 0 ist.
+(5.1.5)
+Bemerkung. Aus (5.1.3) und (5.1.4) erhalten wir, dass
+lim
+x→x0 p(x) = p(x0)
+für jedes Polynom p gilt.
+Wenn lim
+x→x0 f(x) = y0, lim
+x→x0 g(x) = 0, und wir
+lim
+x→x0
+f(x)
+g(x)
+(5.1.6)
+betrachten, dann fragen wir uns:
+
+
+--- PDF page 104 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 98
+ Ist y0 = 0? Wenn nicht, dann divergiert der Quotient in (5.1.6).
+ Wenn y0 = 0 gilt, dann gibt es eine Methode um den Grenzwert des Quotienten
+analysieren zu können. (Wie immer ist die entscheidende Frage, mit welcher Rate f
+und g in x0 verschwinden.)
+Übung 5.1.3
+Berechnen Sie den Grenzwert:
+lim
+x→2
+x2 −4
+x −2 .
+Beispiel. Sei
+R(x) = p(x)
+q(x),
+wobei p, q Polynome sind und x0 eine Nullstelle von beiden ist. Sei x0
+eine m-fache Nullstelle von q und
+eine n-fache Nullstelle von p.
+Dann gilt
+ lim
+x→x0 R(x) = 0, wenn n > m,
+ lim
+x→x0 R(x) existiert und gehört zu R \ {0}, wenn n = m,
+ lim
+x→x0 R(x) existiert nicht (als reelle Zahl), wenn n < m.
+Dies zeigt man, indem man
+p(x) = (x −x0)n˜p(x),
+q(x) = (x −x0)m˜q(x)
+mit ˜p(x0), ˜q(x0)̸ = 0 schreibt und gemeinsame Faktoren von (x −x0) kürzt.
+Beispiel. Für x0 = 1 und
+h(x) = xn −1
+x −1 ,
+n ∈N,
+benutzen wir Lemma 4.3.4, um h als
+h(x) =
+(x −1)
+nP
+k=1
+xn−k
+(x −1)
+
+
+--- PDF page 105 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 99
+darzustellen. Kürzen durch (x −1) ergibt
+lim
+x→1 h(x) = lim
+x→1
+n
+X
+k=1
+xn−k
+=
+n
+X
+k=1
+lim
+x→1 xn−k
+(5.1.7)
+=
+n
+X
+k=1
+1
+= n,
+wobei wir in (5.1.7) Satz 4.2.8 angewendet haben.
+Jetzt bearbeiten wir ein Beispiel, das nicht polynomiell ist.
+Beispiel. Besitzt f(x) = ex−1
+x
+einen Grenzwert in x = 0? Nenner und Zähler verschwinden
+in x = 0. Wir haben in Satz 4.3.7 gesehen, dass die Exponentialfunktion in einer Umgebung
+von 0 linear wächst, also erwarten wir einen von Null verschiedenen Grenzwert. Aus Satz
+4.3.7 (iii) erhalten wir
+
+ex −1
+x
+ ≤
+1
+1 −|x|,
+x ∈(−1, 1) \ {0} .
+(5.1.8)
+Andererseits haben wir
+
+ex −1
+x
+ = ex −1
+x
+(4.3.11)
+≥
+1
+x ∈(0, 1),
+(5.1.9)
+und
+
+ex −1
+x
+ = 1 −ex
+−x
+≥
+1
+1 −x
+x ∈(−1, 0),
+(5.1.10)
+wobei wir (4.3.12) für die letzte Ungleichung benutzt haben. Zusammen implizieren (5.1.9)
+und (5.1.10), dass
+
+ex −1
+x
+ ≥
+1
+1 + |x|.
+(5.1.11)
+Insgesamt ergeben (5.1.8) und (5.1.11)
+1
+1 + |x| ≤
+
+ex −1
+x
+ ≤
+1
+1 −|x|,
+x ∈(−1, 1) \ {0} ,
+(5.1.12)
+
+
+--- PDF page 106 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 100
+x
+y
+−1
+−0.5
+0.5
+1
+0.5
+1
+1.5
+2
+2.5
+ex−1
+x
+1
+1+|x|
+1
+1−|x|
+Abbildung 5.3: Visuelle Darstellung
+von Gleichung (5.1.12).
+und da für jede Nullfolge {xn}∞
+n=1 gilt
+lim
+n→∞
+1
+1 + |xn| = lim
+n→∞
+1
+1 −|xn| = 1,
+schlieÿen wir aus dem Sandwich-Kriterium für Folgen,
+dass
+lim
+n→∞
+
+exn −1
+xn
+ = 1
+für jede Nullfolge {xn}∞
+n=1 mit xn̸ = 0. Aus Denition
+5.1.1 und exp(x) > 1 für x > 0, exp(x) < 1 für x < 0
+schlieÿen wir
+lim
+x→0
+ex −1
+x
+= 1.
+(5.1.13)
+Wir haben eben gesehen, dass das Sandwich-Kriterium für Folgen benutzt werden kann,
+um den Grenzwert einer Funktion zu identizieren. Dies formulieren wir in einen Satz um.
+Satz 5.1.4: Sandwich-Kriterium für Funktionen
+Es seien f, g, h in einer punktierten Umgebung von x0 deniert. Wenn in einer punktier-
+ten Umgebung von x0 gilt
+f(x) ≤g(x) ≤h(x),
+und ferner
+lim
+x→x0 f(x) = lim
+x→x0 h(x) = y0,
+dann ist
+lim
+x→x0 g(x) = y0.
+Übung 5.1.5
+Schreiben Sie den Beweis. (Hinweis: Benutzen Sie Denition 5.1.1 und das Sandwich-
+Kriterium für Folgen.)
+Eine alternative Denition des Grenzwertes einer Funktion ist
+Denition 5.1.1 (Epsilon-Delta Denition von Grenzwert). Sei f auf einer punktierten
+Umgebung V von x0 deniert. f besitzt an der Stelle x0 den Grenzwert y0, wenn es für jedes
+ε > 0 ein δ > 0 gibt, so dass
+|f(x) −y0| < ε für alle x mit 0 < |x −x0| < δ.
+Bemerkung. In Denition 5.1.1′′ wurden keine Folgen benutzt.
+
+
+--- PDF page 107 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 101
+Bemerkung. Hier spielt ε > 0 die Rolle einer Fehlertoleranz. δ > 0 ist der Parameter, den
+wir anpassen können, damit f(x) ε-nah an y0 liegt. Wenn ε sehr klein ist (der schwierige
+Fall), dann muss δ vielleicht auch sehr klein gewählt werden.
+x
+y
+x0
+f(x0)
+y0
+y0 −ε
+y0 + ε
+x0 −δ1
+x0 + δ2
+Abbildung 5.4
+Ein Beispiel, das die neue Denition verdeutlicht, ist in Abbildung 5.4 skizziert. Für ε > 0
+beliebig klein gegeben, wählt man δ := min{δ1, δ2}. Für x ∈(x0 −δ, x0 + δ) mit x̸ = x0 ist
+f(x) ∈(y0 −ε, y0 + ε). Der Graph einer Funktion, die das Kriterium in der neuen Denition
+nicht erfüllt, ist in Abbildung 5.5 skizziert. Zu ε = 1 (und zu jedem positiven ˜ε < 1) gibt es
+kein δ > 0, so dass
+x
+y
+x0
+y0 + 1
+y0
+Abbildung 5.5
+x ∈(x0 −δ, x0 + δ) \ {x0} ⇒f(x) ∈(y0 −ε, y0 + ε).
+Sobald x < x0 nah an x0 liegt (und egal wie nah x an x0 liegt), ist f(x) ≥y0 + 1.
+Übung 5.1.6
+Finden Sie zu f(x) := 5x + 1 den Grenzwert L in x0 = 2. Bestimmen Sie zu ε =
+1
+4
+ein δ > 0, so dass 0 < |x −x0| ≤δ impliziert, dass |f(x) −L| ≤ε. Finden Sie eine
+quadratische Funktion g mit dem gleichen Grenzwert in x0 = 2. Bestimmen Sie, ob zum
+gegebenen ε das geeignete δ gröÿer oder kleiner als das zu f gefundene δ sein müsste.
+
+
+--- PDF page 108 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 102
+Übung 5.1.7
+Finden Sie zu
+f(x) :=
+(
+5x + 1
+x̸ = 2
+27
+x = 2
+den Grenzwert L in x0 = 2. Bestimmen Sie zu ε = 1
+4 ein δ > 0, so dass 0 < |x −x0| ≤δ
+impliziert, dass |f(x) −L| ≤ε.
+Satz 5.1.8
+Denition 5.1.1 und Denition 5.1.1′′ sind äquivalent.
+Beweis. Übung.
+Man redet auch von Konvergenz gegen Unendlich oder vom Verhalten von f für x ge-
+gen Unendlich. Über diese Begrie möchten wir auch reden können. Dafür führen wir die
+folgenden Denitionen ein.
+Denition 5.1.9: Uneigentliche Grenzwerte für x →x0
+Sei f auf einer punktierten Umgebung von x0 deniert. Wir sagen, dass
+lim
+x→x0 f(x) = ∞
+(bzw. lim
+x→x0 f(x) = −∞),
+wenn für jede Folge {xn}∞
+n=1 mit xn̸ = x0 und lim
+n→∞xn = x0 gilt
+lim
+n→∞f(xn) = ∞
+(bzw. lim
+n→∞f(xn) = −∞).
+Analog für einseitige Grenzwerte.
+Satz 5.1.10
+Denition 5.1.9 ist äquivalent zum folgenden Kriterium: Für jedes M ∈R gibt es ein
+δ > 0, so dass 0 < |x −x0| < δ impliziert f(x) ≥M.
+Beispiel.
+lim
+x→0
+1
+x2 = ∞,
+lim
+x→1
+−1
+(x −1)2 = −∞,
+aber 1
+x besitzt in 0 keinen Grenzwert, da
+lim
+x↓0
+1
+x = ∞,
+aber
+lim
+x↑0
+1
+x = −∞.
+
+
+--- PDF page 109 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 103
+Denition 5.1.11: Eigentliche Grenzwerte für x →±∞
+Sei f auf (a, ∞) für ein a ∈R deniert. Sei y0 ∈R. Wir sagen, dass
+lim
+x→∞f(x) = y0,
+wenn für jede Folge {xn}∞
+n=1 auf (a, ∞) mit lim
+n→∞xn = ∞gilt
+lim
+n→∞f(xn) = y0.
+Analog für
+lim
+x→−∞f(x) = y0.
+Beispiel. Man bemerkt
+lim
+x→∞
+1
+x2 = 0,
+lim
+x→∞tanh(x) = 1.
+Satz 5.1.12
+Denition 5.1.11 ist äquivalent zu: zu jedem ε > 0 gibt es ein M ∈R, so dass
+x > M
+=⇒
+|f(x) −y0| < ε.
+Denition 5.1.13: Uneigentliche Grenzwerte für x →±∞
+Sei f auf (a, ∞) für ein a ∈R deniert. Wir sagen, dass
+lim
+x→∞f(x) = ∞,
+wenn für jede Folge {xn}∞
+n=1 auf (a, ∞) mit lim
+n→∞xn = ∞gilt
+lim
+n→∞f(xn) = ∞.
+Analog für
+lim
+x→∞f(x) = −∞,
+lim
+x→−∞f(x) = ∞,
+lim
+x→−∞f(x) = −∞.
+Satz 5.1.14
+Denition 5.1.13 ist äquivalent zu: zu jedem K ∈R gibt es ein M ∈R, so dass
+x > M
+=⇒
+f(x) > K.
+
+
+--- PDF page 110 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 104
+Wie für eigentliche Grenzwerte in x0 ∈R kann man sich fragen, ob für diese uneigentlichen
+Grenzwerte der Grenzwert einer Summe die Summe der Grenzwerten ist, und das Gleiche
+für Produkte und Quotienten. Ein Vergleichskriterium kann man sich auch überlegen. Zum
+Beispiel impliziert
+f(x) ≤g(x) ≤h(x)
+für alle x ∈R
+und lim
+x→∞f(x) = lim
+x→∞h(x) = y0, dass
+lim
+x→∞g(x) = y0.
+Können Sie ein analoges Kriterium nden, das
+lim
+x→∞g(x) = ∞
+impliziert?
+Übung 5.1.15
+Formulieren Sie einen Satz wie Satz 5.1.2 für uneigentliche Grenzwerte.
+Übung 5.1.16
+Berechnen Sie
+lim
+x→0
+|2x −1| −|2x + 1|
+x
+.
+5.2
+Stetigkeit
+Jetzt können wir Stetigkeit einer Funktion f in einem Punkt x0 ∈R leicht denieren. Dies
+bedeutet nichts Anderes als:
+ lim
+x→x0 f(x) existiert,
+ f(x0) ist deniert,
+ und sie sind gleich:
+lim
+x→x0 f(x) = f(x0).
+Während die Existenz des Grenzwerts in x0 nichts mit dem Funktionswert zu tun hat, spielt
+dieser Wert für Stetigkeit eine wichtige Rolle. Stetige Funktionen sind gut in dem Sinne,
+dass sie sich so verhalten, wie man erwartet. Wir werden mehrere wichtige Sätze über stetige
+Funktionen beweisen können.
+
+
+--- PDF page 111 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 105
+Denition 5.2.1
+Sei f auf einer Umgebung von x0 deniert. f ist in x0 stetig, falls der Grenzwert lim
+x→x0 f(x)
+existiert und es gilt
+lim
+x→x0 f(x) = f(x0).
+Sei f auf (a, b) deniert. f ist auf (a, b) stetig (oder einfach stetig), wenn f in jedem
+Punkt von (a, b) stetig ist. Sei f auf [x0, b) deniert. f ist in x0 rechtsseitig stetig, wenn
+lim
+x↓x0 f(x) = f(x0).
+Auÿerdem nennen wir f auf [x0, b) stetig, wenn f auf (x0, b) stetig ist und f in x0
+rechtsseitig stetig ist. Analog für linksseitig stetig. f ist auf (a, ∞) oder (−∞, a) oder
+(−∞, ∞) stetig, wenn f in jedem Punkt des Intervalls stetig ist.
+Bemerkung. Stetigkeit freut uns, weil wir mehr Rechenwege zur Verfügung haben. Zum
+Beispiel können wir Stetigkeit von exp(·) verwenden, um den Grenzwert limn→∞3
+1
+n jetzt als
+lim
+n→∞3
+1
+n = lim
+n→∞exp(log(3
+1
+n)) = lim
+n→∞exp
+1
+n log(3)
+
+= exp
+
+lim
+n→∞
+1
+n log(3)
+
+= 1
+zu berechnen. Wo haben wir Stetigkeit verwendet?
+Übung 5.2.2
+Was passiert, wenn Sie diese Idee mit n1/n anwenden?
+Wie für Grenzwerte, können wir auch Stetigkeit durch ein ε-δ Kriterium denieren.
+Denition 5.2.1' (Epsilon-Delta Denition von Stetigkeit). Sei f auf einer punktierten
+Umgebung V von x0 deniert. f ist in x0 stetig, wenn es für jedes ε > 0 ein δ > 0 gibt, so
+dass
+|f(x) −f(x0)| < ε für alle x mit 
+HH
+0 <|x −x0| < δ.
+Bemerkung. Mit welcher Denition es einfacher ist, zu arbeiten, hängt vom Beispiel ab.
+Übung 5.2.3
+Bestätigen Sie die folgenden Tatsachen.
+ Polynome sind auf R stetig.
+ Eine rationale Funktion p(x)
+q(x) ist auf ihrem Denitionsbereich stetig.
+ Sinus und Cosinus sind stetig auf R.
+ exp(·) ist stetig auf R. log(·) ist stetig auf (0, ∞).
+
+
+--- PDF page 112 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 106
+ Die Funktion
+f(x) =
+(
+0
+x ∈R \ Q
+1
+x ∈Q
+ist nirgendwo stetig.
+ Die Funktion
+f(x) =
+(
+0
+x ∈R \ Q
+1
+q
+x = p
+q ∈Q (vollständig gekürzt)
+ist in jedem x ∈Q nicht stetig und in jedem x ∈R \ Q stetig.
+ Die Funktion
+g(x) =
+(
+1 −x2
+x̸ = 1
+5
+x = 1
+ist in x = 1 nicht stetig. Wir können g aber stetig machen, wenn wir g(1) als 0
+statt 5 denieren.
+ Die Funktion
+1
+x2 ist in x = 0 nicht stetig, und dies können wir nicht reparieren.
+Die letzten Beispiele zeigen, dass es unterschiedliche Weisen gibt, in denen Stetigkeit
+fehlen kann. Wir möchten zwischen diesen Typen unterscheiden können.
+Denition 5.2.4
+Wenn f auf einer punktierten Umgebung ˙U von x0 stetig ist und lim
+x→x0 f(x) existiert (als
+reelle Zahl), dann heiÿt f in x0 stetig ergänzbar. Die Funktion
+˜f(x) =
+(
+f(x)
+x ∈˙U
+lim
+x→x0 f(x)
+x = x0
+ist auf ˙U ∪{x0} stetig und heiÿt die stetige Ergänzung oder die stetige Fortsetzung von
+f. Man sagt, f habe in x0 eine hebbare Unstetigkeit.
+Falls es keine solche Fortsetzung ˜f gibt (weil der Grenzwert nicht existiert), dann
+sagen wir, dass f eine nicht hebbare Unstetigkeit in x0 hat.
+Jetzt möchten wir uns die ersten Eigenschaften stetiger Funktionen anschauen.
+Satz 5.2.5
+(i) Es seien f, g: (a, b) −→R in x0 ∈(a, b) stetig. Dann sind auch f + g und f · g in
+x0 stetig. Falls g(x0)̸ = 0, dann ist f
+g in x0 stetig.
+
+
+--- PDF page 113 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 107
+x
+y
+x0
+(a) hebbare Unstetigkeit
+x
+y
+x0
+(b) nicht hebbare Unstetigkeit
+x
+y
+x0
+(c) nicht hebbare Unstetigkeit
+(ii) Sei lim
+x→x0 f(x) = y0 ∈(c, d) und g: (c, d) −→R in y0 stetig. Dann gilt
+lim
+x→x0 (g ◦f) (x) = g
+
+lim
+x→x0 f(x)
+
+= g(y0).
+(iii) Es seien f : (a, b) −→R in x0 ∈(a, b) stetig und y0 := f(x0) ∈(c, d). Auÿerdem
+sei g: (c, d) −→R in y0 stetig. Dann ist g ◦f in x0 stetig.
+(iv) Es sei f : (a, b) −→R streng monoton und stetig. Dann ist ihre Umkehrfunktion
+f −1 : W(f) −→R ebenfalls streng monoton und stetig. Ferner ist W(f) ein Inter-
+vall.
+Übung 5.2.6
+Teil (ii) drückt aus, dass wir den Grenzübergang n →∞mit der Auswertung der
+Funktion vertauschen können, wenn g stetig ist. Geben Sie ein Gegenbeispiel an in dem
+Fall, dass g in y0 nicht stetig ist.
+Übung 5.2.7
+Verwenden Sie den Satz, um
+lim
+n→∞exp
+
+sin
+1
+n
+
+zu berechnen. (In der Klausur, wäre wahrscheinlich nur nach dem Grenzwert gefragt,
+ohne den Hinweis, welchen Satz bzw. welche Eigenschaft zu verwenden. Sie müssten
+dann erwähnen, was Sie dabei verwenden.)
+
+
+--- PDF page 114 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 108
+Partieller Beweis von Satz 5.2.5. zu (ii): Wir betrachten eine beliebige Folge {xn}∞
+n=1
+mit xn ∈(a, b) und xn̸ = x0 für alle n ∈N, und xn →x0 für n →∞. Nach Annahme
+gilt
+f(xn) →y0.
+(5.2.1)
+Ferner ist f(xn) ∈(c, d) für n groÿ genug. (Warum?) Also deniert {f(xn)}∞
+n=1 eine
+Folge, die gegen y0 konvergiert, und Stetigkeit von g in y0 impliziert
+g(f(xn)) →g(y0).
+Da {xn}∞
+n=1 beliebig war, erhalten wir aus der Denition des Grenzwerts, dass
+lim
+x→x0 g(f(x)) = g(y0) = g
+
+lim
+x→x0 f(x)
+
+.
+zu (iii): Folgt aus (ii) und Stetigkeit von f in x0.
+Bemerkung. Wir sollten die Stetigkeit von g zu schätzen wissen. Fehlt sie, dann kann
+die Zusammensetzung viel schlimmer sein, als die ursprünglichen Funktionen. Zum Beispiel
+kann die Zusammensetzung g ◦f nirgendwo stetig sein, obwohl f nur auf Q nicht stetig ist
+und g nur in einem Punkt nicht stetig ist. Ein Beispiel ist:
+f(x) =
+(
+1
+q,
+x = p
+q ∈Q (vollständig gekürzt)
+0,
+x /∈Q,
+g(x) =
+(
+1,
+x̸ = 0
+0,
+x = 0.
+Die Zusammensetzung
+(g ◦f)(x) =
+(
+1,
+x ∈Q
+0,
+x /∈Q
+ist nirgendwo stetig.
+Übung 5.2.8
+Finden Sie die Konstante c, so dass g auf R stetig ist:
+g(x) =
+(
+x2 −c2
+x < 4
+cx + 20
+x ≥4.
+
+
+--- PDF page 115 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 109
+Übung 5.2.9
+Finden Sie Konstanten c und d, so dass h auf R stetig ist:
+h(x) =
+
+
+
+
+
+2x
+x < 1
+cx2 + d
+1 ≤x ≤2
+4x
+x > 2.
+Übung 5.2.10
+Bestimmen Sie ob für den gegebenen Punkt a die Funktion f eine hebbare Unstetigkeit
+in a hat. Falls ja, dann nden Sie die stetige Fortsetzung.
+1O a = 7,
+f(x) = x −7
+|x −7|.
+2O a = 9,
+f(x) = 3 −√x
+9 −x .
+5.3
+Eigenschaften stetiger Funktionen
+Jetzt schauen wir uns ein paar wichtige und relativ tiefe Eigenschaften stetiger Funktionen
+an. Die Grundlage für die Sätze ist der Satz von Bolzano-Weierstraÿ.
+Satz 5.3.1
+Eine auf [a, b] denierte Funktion, die stetig ist, ist beschränkt.
+Bemerkung. Ein beschränktes, abgeschlossenes Intervall [a, b] ⊆R heiÿt kompakt. Im Satz
+5.3.1 ist Kompaktheit sehr wichtig.
+ Wenn f stetig auf einem unbeschränkten Intervall ist, gilt die Aussage nicht. Gegen-
+beispiel: f(x) = x auf [0, ∞).
+ Wenn f stetig auf einem nicht abgeschlossenen Intervall ist, gilt die Aussage nicht.
+Gegenbeispiel: f(x) = 1
+x auf (0, 1].
+Bemerkung. Im Satz 5.3.1 ist auch Stetigkeit wichtig.
+Erstes Gegenbeispiel:
+f(x) =
+(
+1
+x,
+x ∈(0, 1]
+0,
+x ∈[−1, 0].
+
+
+--- PDF page 116 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 110
+Hier ist f auf [−1, 1] deniert, aber nicht beschränkt.
+Zweites Gegenbeispiel:
+g(x) =
+(
+q,
+x = p
+q ∈Q ∩[0, 1] (vollständig gekürzt)
+0,
+x ∈[0, 1] \ Q.
+Auch hier ist g auf [0, 1] deniert, aber nicht beschränkt.
+Beweis von Satz 5.3.1. Sei f : [a, b] →R stetig. Wir werden zeigen, dass f nach oben
+beschränkt ist. Analog zeigt man, dass f nach unten beschränkt ist.
+Wenn f nicht nach oben beschränkt wäre, würde es für jedes n ∈N ein xn ∈[a, b]
+geben, so dass
+f(xn) ≥n.
+(5.3.1)
+Da {xn}∞
+n=1 beschränkt ist, existiert nach dem Satz von Bolzano-Weierstraÿ eine konver-
+gente Teilfolge {xnk}∞
+n=1 mit Grenzwert x0 ∈R. Aus
+a ≤xnk ≤b
+für alle k ∈N
+folgt, dass
+a ≤x0 ≤b,
+also x0 ∈D(f). Da f stetig ist, gilt
+f(x0) = lim
+k→∞f(xnk)
+(5.3.1)
+=
+∞,
+was widerspricht, dass x0 ∈D(f).
+Wir haben häug bemerkt, dass eine Funktion sein Supremum und Inmum nicht an-
+nehmen muss (z.B. f(x) = x auf (0, 1) oder tanh(x) auf R). Der nächste Satz sagt uns, dass
+stetige Funktionen auf kompakten Mengen doch ihr Supremum und ihr Inmum annehmen.
+(Dies ist später z.B. für Optimierungsprobleme und den Mittelwertsatz wichtig.)
+Satz 5.3.2: Satz über die Extremwerte
+Wenn f auf [a, b] stetig ist, existieren Punkte xm, xM ∈[a, b], so dass
+f(xm) = inf
+[a,b] f,
+f(xM) = sup
+[a,b]
+f.
+Bemerkung. Der Satz ist nicht konstruktiv: Er sagt uns nicht, was xm, xM sind, oder wie
+wir die Zahlen nden oder approximieren können.
+
+
+--- PDF page 117 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 111
+Beweis von Satz 5.3.2. Seien
+m := inf
+[a,b] f,
+M := sup
+[a,b]
+f.
+Satz 5.3.1 sagt, dass m, M ∈R. Nach der Approximations-Eigenschaft des Supremums
+existiert eine Folge {yn}∞
+n=1 und eine Folge {xn}∞
+n=1, so dass
+xn ∈[a, b]
+für alle n ∈N,
+yn = f(xn)
+und
+lim
+n→∞yn = M.
+(5.3.2)
+Angesichts
+a ≤xn ≤b
+existieren nach dem Satz von Bolzano-Weierstraÿ eine Teilfolge {xnk}∞
+k=1 und ein Grenz-
+wert x0 ∈R, so dass
+xnk →x0 für k →∞
+und
+a ≤x0 ≤b.
+Stetigkeit von f liefert
+f(x0) = f( lim
+k→∞xnk) = lim
+k→∞f(xnk)
+(5.3.2)
+=
+M.
+Analog für das Minimum.
+Übung 5.3.3
+Begründen Sie folgende Behauptung:
+Ich baue ein rechteckiges Gehege. Dafür habe ich 100m Zaun zur Verfügung.
+Es gibt ein gröÿtmögliches Gehege, das ich einrichten kann.
+Der nächste Satz liefert Lösungen der Gleichung
+f(x) = y.
+Satz 5.3.4: Zwischenwertsatz
+Sei f : [a, b] →R stetig. Seien
+m := min
+[a,b] f,
+M := max
+[a,b] f.
+Dann gibt es zu jedem y ∈[m, M] mindestens ein x ∈[a, b], so dass
+f(x) = y.
+
+
+--- PDF page 118 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 112
+Bemerkung. Obwohl die Aussage des Satzes nicht konstruktiv ist, geben wir einen konstru-
+kiven Beweis an.
+Bemerkung. Wissen Sie noch, wieviel Mühe es gekostet hat, zu zeigen, dass W(exp(·)) =
+(0, ∞) gilt? Geben Sie eine Abkürzung mithilfe des Zwischenwertsatzes an. Vergessen Sie
+nicht, Stetigkeit zu verwenden.
+Bemerkung. Eine leichte Folgerung ist, dass, wenn
+f(a) · f(b) < 0
+ist, f eine Nullstelle auf (a, b) besitzt. Insbesondere besitzt jedes Polynom (2n−1)-ten Grades
+mindestens eine (reelle) Nullstelle.
+Bemerkung. Wenn f nicht stetig ist, gilt der Satz nicht! Gegenbeispiel:
+f(x) =
+(
+x2 + 1,
+x ∈[1, 2]
+x2 −2,
+x ∈[0, 1).
+Dann ist
+min
+[0,2] f = −2,
+max
+[0,2] f = 5,
+aber es gibt z.B. kein x ∈[0, 2], so dass
+f(x) = 1.
+Übung 5.3.5
+Begründen Sie, dass es kein x ∈[0, 2] gibt, so dass für die obige Funktion gilt f(x) = 1.
+Übung 5.3.6
+Betrachten Sie
+f(x) =
+(
+1 −x2
+0 ≤x ≤1
+1 + x
+2
+1 < x ≤2.
+1O Zeigen Sie, dass f nicht stetig auf [0, 2] ist.
+2O Zeigen Sie, dass f nicht jeden Wert zwischen f(0) und f(2) annimmt.
+Beweis von Satz 5.3.4. Wenn m = M ist, dann ist f konstant:
+f(x) = m
+für alle x ∈[a, b].
+Also nehmen wir an, dass m < M. Dass es xm, xM gibt mit f(xm) = m, f(xM) = M,
+folgt aus dem Satz über die Extremwerte. Also nehmen wir o.B.d.A. an, dass
+y ∈(m, M).
+(5.3.3)
+
+
+--- PDF page 119 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 113
+Wir denieren
+g(x) := f(x) −y.
+Nach (5.3.3) gilt
+g(xm) < 0,
+g(xM) > 0.
+(5.3.4)
+Es reicht aus zu zeigen, dass es ein ¯x zwischen xm und xM gibt, so dass
+g(¯x) = 0.
+Wenn xm < xM, denieren wir
+a1 = xm,
+b1 := xM,
+ansonsten umgekehrt. Auf jeden Fall impliziert (5.3.4), dass
+g(a1) · g(b1) < 0.
+Jetzt betrachten wir
+c := a1 + b1
+2
+.
+Es gilt entweder
+g(c) = 0
+oder
+g(c) · g(b1) > 0
+oder
+g(c) · g(b1) < 0.
+Im ersten Fall setzen wir ¯x := c. Im zweiten Fall denieren wir
+a2 := a1,
+b2 := c,
+und im dritten Fall denieren wir
+a2 := c,
+b2 := b1.
+Falls für ein n ∈N gilt g(c) = 0, dann haben wir die gewünschte Nullstelle ¯x gefunden.
+Ansonsten haben wir eine Intervallschachtelung {[an, bn]}∞
+n=1 deniert, wobei
+g(an) · g(bn) < 0
+für alle n ∈N.
+(5.3.5)
+Da bn −an ≤|b −a|/2n−1 ist, gilt nach Lemma 4.4.8
+lim
+n→∞an = lim
+n→∞bn =: ¯x
+
+
+--- PDF page 120 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 114
+für ein ¯x ∈[a, b]. Da g stetig ist, gilt
+lim
+n→∞g(an) = g(¯x) = lim
+n→∞g(bn).
+Aus (5.3.5) schlieÿen wir
+0 ≥lim
+n→∞g(an)g(bn) = g(¯x)2,
+so dass
+g(¯x) = 0.
+Übung 5.3.7
+Begründen Sie die Aussage:
+Für jedes Polynom (2n −1)-ten Grades ist der Wertebereich ganz R.
+Übung 5.3.8
+Zeigen Sie, dass p(x) = x2 + x −1 zwei reelle Nullstellen x± hat und bestimmen Sie
+ganze Zahlen s±, so dass gilt
+x−∈(s−, s−+ 1),
+x+ ∈(s+, s+ + 1).
+Übung 5.3.9
+Zeigen Sie, dass eine positive Lösung der Gleichung
+cos(x) = exp(x) −1
+existiert.
+Übung 5.3.10
+Zeigen Sie, dass
+sin (x) = exp(−x)
+eine Lösung besitzt.
+
+
+--- PDF page 121 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 115
+Übung 5.3.11
+Zeigen Sie, dass
+sin
+1
+x
+
+= exp(−x)
+eine Lösung x∗∈(0, 2π) besitzt.
+Übung 5.3.12
+Für die Funktion f gegeben durch
+f(x) = x3 −1
+x,
+zeigen Sie, dass es einen Punkt x∗gibt, so dass f(x∗) = 10.
+Übung 5.3.13
+Verwenden Sie den Zwischenwertsatz, um zu zeigen, dass es ein r ∈R gibt, so dass
+r2 = 2.
+Übung 5.3.14
+Sie gehen am Montag vom Marktplatz zum Hauptgebäude. Sie verlassen den Marktplatz
+um 10 Uhr und kommen am Hauptgebäude um 10 : 24 Uhr an. Am Dienstag nehmen
+Sie den gleichen Pfad vom Hauptgebäude um 10 Uhr zum Marktplatz und kommen um
+10 : 24 Uhr an. Beweisen Sie, dass es einen Punkt entlang des Pfades gibt, wo Sie zum
+genau gleichen Zeitpunkt an beiden Tagen waren.
+Methode zur Nullstellenbestimmung:
+Wie erwähnt, enthält der Beweis einen Algo-
+rithmus, durch den man den Punkt ¯x nden kann. Das so genannte Bisektionsverfahren ist
+eine zuverlässige Methode, Nullstellen zu nden, aber leider konvergiert es sehr langsam.
+In dieser Methode nimmt man immer den Mittelpunkt c = an+bn
+2
+um das neue Intervall zu
+denieren, egal wie sich f verhält. Eine andere Möglichkeit wäre es, mehr Infomation über
+die Funktion f zu benutzen, um ein neues Intervall zu nden.
+a
+b
+α
+f
+
+
+--- PDF page 122 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 116
+Stellen Sie sich vor: Wir suchen eine Nullstelle ¯x von f. Wir betrachten die Sekante l, die
+(a, f(a)) und (b, f(b)) miteinander verbindet. Wenn f fast linear wäre, also f(x) ≈l(x) (in
+irgendeinem Sinne), dann wäre es schlau, ¯x durch die Nullstelle α von l zu approximieren.
+Diese Idee führt zur Sekantenmethode.
+Die Sekantenmethode
+Gegeben seien a, b ∈R mit
+f(a) · f(b) < 0.
+Man deniere
+α := a −f(a) ·
+b −a
+f(b) −f(a).
+Wenn f(α)̸ = 0 ist, dann fährt man wie folgt fort:
+Wenn f(a) · f(α) < 0 ist , dann setze man
+a1 = a,
+b1 = α,
+sonst
+a1 = α,
+b1 = b.
+Dann iteriert man mit
+αn+1 = an −f(an) ·
+bn −an
+f(bn) −f(an).
+Die Sekantenmethode ist schneller als das Bisektionsverfahren und ist relativ zuverlässig,
+insbesondere wenn man ungefähr weiÿ, wo die Lösung liegt.
+Übung 5.3.15
+Betrachten Sie die Gleichung f(x) = x2 −2 = 0 auf [1, 2].
+1O Finden Sie die nächsten zwei Intervalle, die Sie mit dem Bisektionsverfahren er-
+halten.
+2O Finden Sie die nächsten zwei Werte α1 und α2 und Intervalle, die Sie mit der
+Sekantenmethode erhalten.
+3O Welche Methode liefert eine bessere Approximation nach zwei Schritten?
+Noch schneller ist das so gennante Newtonverfahren. Wir können die Methode genauer be-
+sprechen, wenn wir die Ableitung deniert haben. Die grobe Idee ist, dass die Newtonsche
+Methode eine Folge {αn}∞
+n=1 erzeugt mit
+αn = φ(αn−1),
+für eine stetige Funktion φ. Man hot, dass
+
+
+--- PDF page 123 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 117
+αn für n →∞gegen ¯α ∈R konvergiert.
+Dann ist ¯α die gesuchte Nullstelle. Wenn {αn}∞
+n=1 konvergiert, dann löst ¯α die Gleichung
+¯α = φ(¯α).
+Also ist ¯α ein Fixpunkt von φ.
+Bemerkung. Man kann an konkreten Beispielen sehen, dass im Allgemeinen die Rate des
+Newtonverfahrens besser ist.
+Denition 5.3.16
+Ein Fixpunkt einer Funktion f ist ein Punkt x ∈R, so dass
+x = f(x).
+¯α
+¯α
+y = x
+φ
+Abbildung 5.7: Der Fixpunkt ¯α ist der Schnittpunkt zweier Graphen: dem von φ und dem
+von y(x) = x.
+Beispiel. Die Funktion f(x) = x + 1 hat keine Fixpunkte. Die Funktion f(x) = x2 hat zwei
+Fixpunkte, x = 0 und x = 1. Jedes x ∈R ist ein Fixpunkt der Funktion f(x) = x.
+Der letzte Satz dieses Abschnitts liefert Existenz eines Fixpunkts einer stetigen Funktion.
+Satz 5.3.17
+Sei f : [a, b] →R stetig mit W(f) ⊆[a, b]. Dann besitzt f mindestens einen Fixpunkt.
+Beweis. Wenn f(a) = a bzw. f(b) = b, dann ist a bzw. b ein Fixpunkt. Wenn nicht,
+dann ist f(a) ∈(a, b] und f(b) ∈[a, b). Also gilt für ˜f(x) := f(x) −x, dass
+˜f(a) > 0,
+˜f(b) < 0.
+Nach dem Zwischenwertsatz gibt es ein ¯x ∈(a, b) mit ˜f(¯x) = 0. Also ist ¯x ein Fixpunkt
+von f.
+Fixpunkte sind oft wichtig für numerische Verfahren (z.B. für Runge-Kutta Methoden)
+und sind auch für die Theorie wichtig (z.B. um zu zeigen, dass Lösungen von gewöhnlichen
+Dierentialgleichungen existieren).
+
+
+--- PDF page 124 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 118
+5.4
+Gleichmäÿige Stetigkeit
+Denition 5.4.1
+Eine reelle Funktion heiÿt gleichmäÿig stetig, wenn es zu jedem ε > 0 ein δ > 0 gibt, so
+dass
+|x −y| ≤δ
+=⇒
+|f(x) −f(y)| ≤ε
+für alle x, y ∈D(f).
+War dies nicht die Denition von Stetigkeit? Was ist der Unterschied?
+In der Deniton oben hängt δ von εund nur von εab. Dass f auf D(f) stetig ist,
+bedeutet, dass f in jedem Punkt x0 ∈D(f) stetig ist. Die Funktion f ist in x0 stetig, wenn
+es zu jedem ε > 0 ein δ > 0 gibt, so dass
+|x −x0| ≤δ
+impliziert
+|f(x) −f(x0)| ≤ε
+für alle x ∈D(f).
+Hier hängt δ sowohl von ε als auch von x0 ab.
+Beispiel. Um den Unterschied besser zu verstehen, schauen wir uns das Beispiel f(x) =
+1
+x, x ∈(0, 1) an. Die Funktion f ist stetig. Aber was passiert mit δ = δ(ε, x) für x nah an 0?
+x1
+x2
+1
+1
+x1
+1
+x2
+Abbildung 5.8: Für x1 nah an 0 ist δ = δ(ε, x1) viel kleiner als δ = δ(ε, x2) für x2 nah an 1.
+Sei ε > 0 gegeben und x0 ∈(0, 1). Wir suchen ein Kriterium, damit
+
+1
+x −1
+x0
+ ≤ε
+ist. Es gilt
+
+1
+x −1
+x0
+ =
+
+x0 −x
+xx0
+ ≤ε,
+wenn
+x ≥x0
+2
+und
+|x −x0| ≤x2
+0ε
+2 .
+
+
+--- PDF page 125 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 119
+Da aus |x −x0| ≤x0
+2 die Ungleichung x ≥x0 −|x −x0| ≥x0
+2 folgt, reicht es aus, wenn wir
+δ = min
+x0
+2 , x2
+0
+2 ε
+
+wählen. Man merkt, dass δ von x0 abhängt. Jetzt zeigen wir, dass f in der Tat nicht gleich-
+mäÿig stetig ist. Sei ε = 1. Wenn f gleichmäÿig stetig wäre, würde es ein δ > 0 geben, so
+dass
+|x −y| ≤δ ⇒|f(x) −f(y)| ≤1.
+Insbesondere würde aus
+|x −y| ≤min
+
+δ, 1
+2
+
+=: ˜δ
+die Ungleichung
+|f(x) −f(y)| ≤1
+folgen. Aber für x = ˜δ, y =
+˜δ
+2 gilt
+|x −y| =
+˜δ
+2 ≤˜δ
+und
+|f(x) −f(y)| =
+
+1
+˜δ
+−2
+˜δ
+ = 1
+˜δ
+≥1
+1
+2
+= 2.
+Im letzten Beispiel haben wir die Struktur der Funktion f(x) =
+1
+x benutzt, um einen
+direkten Beweis zu geben. Jetzt schauen wir uns ein Beispiel an, in dem die Funktion kom-
+plizierter ist.
+Beispiel. Die Funktion log(·) : (0, ∞) →R ist nicht gleichmäÿig stetig. Dies zeigen wir mit
+einem Beweis durch Widerspruch. Wir nehmen an, dass es für ε = 1 ein δ > 0 gäbe, so dass
+|log(x) −log(y)| ≤1
+für alle x, y ∈(0, 1]
+mit
+|x −y| ≤δ.
+(5.4.1)
+(Hier betrachten wir nur |x| ≤1, weil das Verhalten in einer Umgebung von Null das Problem
+ist.) O.B.d.A. dürfen wir annehmen (warum?), dass
+δ < 1.
+(5.4.2)
+Wir wählen x0 > 0 mit
+x0 < δ,
+|log(x0)| > 3
+δ.
+(5.4.3)
+Dies ist möglich, weil
+lim
+x↓0|log(x)| = ∞.
+
+
+--- PDF page 126 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 120
+Allerdings gilt
+|log(x0)| = |log(x0) −log(1)|
+≤|log(x0) −log(δ)| + |log(δ) −log(2δ)| + ... + |log(Nδ) −log(1)|,
+(5.4.4)
+wobei N =
+ 1
+δ
+
+(die gröÿte ganze Zahl kleiner gleich 1
+δ). Aus (5.4.1) und (5.4.4) schlieÿen
+wir
+|log(x0)| ≤N + 1 ≤1
+δ + 1
+(5.4.2)
+<
+2
+δ,
+(5.4.5)
+da die Vorraussetzung |x −y| ≤δ aus (5.4.1) für alle Summanden in (5.4.4) erfüllt ist. Die
+Ungleichung (5.4.5) widerspricht (5.4.3).
+Übung 5.4.2
+Zeigen Sie, dass
+1O x2 auf (0, 1) gleichmäÿig stetig ist.
+2O x2 auf R nicht gleichmäÿig stetig ist.
+Wir haben eben zwei Beispiele gesehen, bei denen eine nichtbeschränkte, stetige Funktion auf
+einem oenen Interval nicht gleichmäÿig stetig ist. Man kann den obigen Beweis anpassen,
+um eine allgemeine Tatsache zu zeigen:
+Satz 5.4.3
+Wenn f : (a, b) −→R gleichmäÿig stetig ist, dann ist f beschränkt.
+Übung 5.4.4
+Beweisen Sie den Satz. Andererseits geben Sie ein Beispiel an, in dem eine auf (a, b)
+stetige und beschränkte Funktion nicht gleichmäÿig stetig ist.
+Übung 5.4.5
+Zeigen Sie, dass log(x) auf (1, ∞) gleichmäÿig stetig ist.
+Übung 5.4.6
+Zeigen Sie, dass x2 auf (0, L) für L ∈R gleichmäÿig stetig ist.
+Der einfache Fall ist: Wenn f auf [a, b] deniert und stetig ist, dann ist f auf [a, b]
+gleichmäÿig stetig. Die Idee ist, dass es in diesem Fall ein schlimmstes δ gibt.
+
+
+--- PDF page 127 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 121
+Satz 5.4.7
+Eine auf einem beschränkten, abgeschlossenen Intervall denierte und stetige Funktion
+ist gleichmäÿig stetig.
+Beweis. Sei f : [a, b] →R stetig. Wir nehmen für den Widerspruch an, dass f nicht
+gleichmäÿig stetig ist. Dann existiert ε0 > 0 und für jedes n ∈N Punkte xn, yn ∈[a, b],
+so dass
+|xn −yn| ≤1
+n
+und
+|f(xn) −f(yn)| ≥ε0.
+Da {xn}∞
+n=1 und {yn}∞
+n=1 beschränkt sind, besitzen sie nach dem Satz von Bolzano-
+Weierstraÿ konvergente Teilfolgen
+xnk →x,
+ynk →y
+für k →∞,
+wobei x, y ∈[a, b]. Auÿerdem impliziert |xn −yn| < 1
+n, dass
+x = y.
+Da f stetig ist, gilt für k →∞
+f(xnk) →f(x),
+f(ynk) →f(x).
+Aber dann erhalten wir aus dem Vergleichskriterium und dem Satz über den Grenzwert
+einer Summe den Widerspruch, dass
+ε0 ≤lim
+k→∞(f(xnk) −f(ynk)) = f(x) −f(x) = 0.
+Angesichts Satz 5.4.7 ist f(x) = √x auf [0, 1] gleichmäÿig stetig, obwohl der Graph sehr steil
+ist für x klein (f ′(x) →∞für x ↓0).
+Auf beschränkten, abgeschlossenen Intervallen sind alle stetige Funktionen gleichmäÿig
+stetig. Wie sieht es auf beschränkten, oenen Intervallen aus? Was ist der Unterschied zwi-
+schen
+√x,
+1
+x,
+x,
+oder sin
+1
+x
+
+auf (0, 1)?
+Welche sind gleichmäÿig stetig?
+Übung 5.4.8
+Untersuchen Sie auf gleichmäÿige Stetigkeit auf (0, 1):
+1O
+x2 log(x),
+
+
+--- PDF page 128 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 122
+2O
+1
+√x,
+3O
+x sin
+1
+x
+
+,
+4O
+xα sin
+1
+x
+
+.
+Übung 5.4.9
+Zeigen Sie, dass 1/(x2 + 1) auf R gleichmäÿig stetig ist.

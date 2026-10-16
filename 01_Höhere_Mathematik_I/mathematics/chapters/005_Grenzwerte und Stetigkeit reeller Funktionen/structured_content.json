@@ -1,0 +1,6628 @@
+{
+  "pages": [
+    {
+      "page_idx": 99,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.114,
+            0.219,
+            0.3,
+            0.251
+          ],
+          "level": 2,
+          "content": "Kapitel 5"
+        },
+        {
+          "type": "doc_title",
+          "bbox": [
+            0.114,
+            0.277,
+            0.757,
+            0.343
+          ],
+          "level": 1,
+          "content": "Grenzwerte und Stetigkeit reeller Funktionen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.114,
+            0.394,
+            0.573,
+            0.416
+          ],
+          "level": 2,
+          "content": "5.1 Grenzwerte von Funktionen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.431,
+            0.908,
+            0.485
+          ],
+          "content": "Bis jetzt haben wir definiert, was der Grenzwert einer Folge für  $n \\rightarrow \\infty$  ist. In diesem Abschnitt möchten wir verstehen, was der Grenzwert einer Funktion in einem Punkt ist. Dies werden wir durch Konvergenz von Folgen erledigen."
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.216,
+            0.499,
+            0.41,
+            0.685
+          ],
+          "sub_type": "contour",
+          "content": "| X | Y |\n| --- | --- |\n| -1 | 0 |\n| 0 | 1 |\n| 1 | 0 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0097-0128/images/page_99_chart_4.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.609,
+            0.499,
+            0.804,
+            0.684
+          ],
+          "sub_type": "contour",
+          "content": "| X | Y |\n| --- | --- |\n| 0 | 2 |",
+          "captions": [
+            {
+              "bbox": [
+                0.22,
+                0.693,
+                0.8,
+                0.711
+              ],
+              "content": "Abbildung 5.1: Beide Funktionen haben den Grenzwert 1 in x = 0."
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0097-0128/images/page_99_chart_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.732,
+            0.908,
+            0.784
+          ],
+          "content": "In Abbildung 5.1 haben beide Funktionen den Grenzwert 1 in x = 0. Dies kann man „sehen“, indem man eine beliebige Folge  $x_{n} \\rightarrow 0$  mit  $x_{n} \\neq 0$  betrachtet und sich überlegt, was mit den Funktionswerten"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.481,
+            0.798,
+            0.54,
+            0.817
+          ],
+          "content": "f (x _ {n}),",
+          "image_source": "../../raw/pages_0097-0128/images/page_99_equation_8.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.488,
+            0.819,
+            0.539,
+            0.838
+          ],
+          "content": "g (x _ {n})",
+          "image_source": "../../raw/pages_0097-0128/images/page_99_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.85,
+            0.557,
+            0.868
+          ],
+          "content": "passiert. Die relevante Frage ist, grob ausgedrückt:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.163,
+            0.879,
+            0.706,
+            0.898
+          ],
+          "content": "Wohin „gehen“ die Funktionswerte, wenn x gegen Null „geht“?"
+        }
+      ]
+    },
+    {
+      "page_idx": 100,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.827,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 95"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.135,
+            0.907,
+            0.17
+          ],
+          "content": "Wichtig ist, dass wir nicht nur eine Folge betrachten, sondern jede Folge. Zum Beispiel merkt man in Abbildung 5.2, dass wenn"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.26,
+            0.184,
+            0.759,
+            0.201
+          ],
+          "content": "x _ {n} \\rightarrow 0 \\quad \\text {fur} n \\rightarrow \\infty \\quad \\text {und} \\quad x _ {n} > 0 \\quad \\text {für alle} n \\in \\mathbb {N},",
+          "image_source": "../../raw/pages_0097-0128/images/page_100_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.112,
+            0.214,
+            0.907,
+            0.25
+          ],
+          "content": "dann „geht“ $h(x_n)$ gegen 2. Dies bedeutet allerdings nicht, dass $h$ den Grenzwert 2 in Null hat, da es auch Nullfolgen gibt, so dass $h(x_n)$ nicht gegen 2 „geht“."
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.414,
+            0.267,
+            0.605,
+            0.451
+          ],
+          "sub_type": "contour",
+          "content": "| X | Y |\n| --- | --- |\n| 0 | 2 |\n| -1 | 0 |\n| 0 | 1 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0097-0128/images/page_100_chart_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.475,
+            0.907,
+            0.51
+          ],
+          "content": "Abbildung 5.2: Einige Nullfolgen  $\\{x_{n}\\}_{n=1}^{\\infty}$  haben  $h(x_{n}) \\to 1$ , andere Nullfolgen  $\\{x_{n}\\}_{n=1}^{\\infty}$  haben  $h(x_{n}) \\to 2$ . Die Funktion h besitzt keinen Grenzwert in 0."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.544,
+            0.283,
+            0.559
+          ],
+          "level": 2,
+          "content": "Definition 5.1.1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.571,
+            0.89,
+            0.608
+          ],
+          "content": "Sei $f$ auf einer punktierten Umgebung $V$ von $x_0 \\in \\mathbb{R}$ definiert. Wir sagen, dass $f$ an der Stelle $x_0$ den Grenzwert $y_0 \\in \\mathbb{R}$ besitzt, wenn für jede Folge $\\{x_n\\}_{n=1}^{\\infty}$ mit"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.362,
+            0.62,
+            0.888,
+            0.644
+          ],
+          "content": "x _ {n} \\neq x _ {0}, \\quad x _ {n} \\in V, \\quad \\lim _ {n \\to \\infty} x _ {n} = x _ {0} \\tag {5.1.1}",
+          "image_source": "../../raw/pages_0097-0128/images/page_100_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.656,
+            0.168,
+            0.673
+          ],
+          "content": "gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.438,
+            0.672,
+            0.887,
+            0.697
+          ],
+          "content": "\\lim _ {n \\to \\infty} f (x _ {n}) = y _ {0}. \\tag {5.1.2}",
+          "image_source": "../../raw/pages_0097-0128/images/page_100_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.701,
+            0.31,
+            0.717
+          ],
+          "content": "Wir schreiben dafür"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.443,
+            0.718,
+            0.576,
+            0.743
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} f (x) = y _ {0}.",
+          "image_source": "../../raw/pages_0097-0128/images/page_100_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.749,
+            0.89,
+            0.803
+          ],
+          "content": "Wir sagen, dass $f$ in $x_0$ den linksseitigen (bzw. rechtsseitigen) Grenzwert $y_0 \\in \\mathbb{R}$ besitzt, wenn $f$ auf $(x_0 - \\delta, x_0)$ (bzw. $(x_0, x_0 + \\delta)$) für ein $\\delta > 0$ definiert ist und für jede Folge $\\{x_n\\}_{n=1}^{\\infty}$ mit"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.24,
+            0.814,
+            0.78,
+            0.839
+          ],
+          "content": "x _ {n} \\in (x _ {0} - \\delta , x _ {0}) \\quad (\\text {bzw.} x _ {n} \\in (x _ {0}, x _ {0} + \\delta)) \\text {und} \\quad \\lim _ {n \\to \\infty} x _ {n} = x _ {0}",
+          "image_source": "../../raw/pages_0097-0128/images/page_100_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.85,
+            0.414,
+            0.868
+          ],
+          "content": "(5.1.2) gilt. Wir schreiben dafür"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.35,
+            0.882,
+            0.669,
+            0.908
+          ],
+          "content": "\\lim _ {x \\uparrow x _ {0}} f (x) = y _ {0} \\quad (\\text {bzw.} \\lim _ {x \\downarrow x _ {0}} f (x) = y _ {0})",
+          "image_source": "../../raw/pages_0097-0128/images/page_100_equation_18.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 101,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.092,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.564,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.827,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 96"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.134,
+            0.175,
+            0.149
+          ],
+          "content": "oder"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.337,
+            0.15,
+            0.682,
+            0.18
+          ],
+          "content": "\\lim _ {x \\to x _ {0} ^ {-}} f (x) = y _ {0} \\quad (\\text {bzw.} \\lim _ {x \\to x _ {0} ^ {+}} f (x) = y _ {0}).",
+          "image_source": "../../raw/pages_0097-0128/images/page_101_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.194,
+            0.907,
+            0.245
+          ],
+          "content": "Bemerkung. Es reicht aus, Folgen  $\\{x_{n}\\}_{n=1}^{\\infty}$  zu betrachten, bei denen  $x_{n}$  nah an  $x_{0}$  liegt. Deshalb sagt man, dass es eine „lokale Eigenschaft“ ist, den Grenzwert  $y_{0}$  in der Stelle  $x_{0}$  zu haben."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.256,
+            0.907,
+            0.308
+          ],
+          "content": "Bemerkung. Den Grenzwert  $y_{0}$  in  $x_{0}$  zu haben, hat nichts mit dem Funktionswert  $f(x_{0})$  zu tun! f muss nicht in  $x_{0}$  definiert sein. Auch wenn f in  $x_{0}$  definiert ist, muss  $f(x_{0})$  nicht gleich  $y_{0}$  sein. Sehen Sie sich g in Abbildung 5.1 oben an."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.317,
+            0.907,
+            0.385
+          ],
+          "content": "Bemerkung. Es ist unabdingbar, dass in Definition 5.1.1 punktierte Umgebungen betrachtet werden! Die Folge  $x_{1}=1, x_{2}=0, x_{3}=1/3, x_{4}=0, x_{5}=1/5, x_{6}=0, \\ldots$  ist eine Nullfolge, aber für die Funktion g aus Abbildung 5.1 konvergiert  $g(x_{n})$  nicht, obwohl g in Null den Grenzwert 1 besitzt."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.115,
+            0.396,
+            0.212,
+            0.413
+          ],
+          "level": 2,
+          "content": "Beispiele."
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.128,
+            0.422,
+            0.51,
+            0.504
+          ],
+          "sub_type": "text",
+          "content": "①  $f(x) = x^{2}$ ,  $x_{0} = 2$ . Es gilt  $\\lim_{x \\to 2} f(x) = 4$ .\n②  $g(x)=\\begin{cases}2x,&x>0\\\\x-1&x\\leq0.\\end{cases}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.506,
+            0.226,
+            0.523
+          ],
+          "content": "Es gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.402,
+            0.535,
+            0.666,
+            0.56
+          ],
+          "content": "\\lim _ {x \\uparrow 0} g (x) = - 1, \\quad \\lim _ {x \\downarrow 0} g (x) = 0,",
+          "image_source": "../../raw/pages_0097-0128/images/page_101_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.57,
+            0.48,
+            0.587
+          ],
+          "content": "und g besitzt in 0 keinen Grenzwert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.596,
+            0.348,
+            0.642
+          ],
+          "content": "③  $h(x)=\\left\\{\\begin{aligned}&2x,&x>0\\\\ &x^{2}&x<0.\\end{aligned}\\right.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.645,
+            0.226,
+            0.661
+          ],
+          "content": "Es gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.475,
+            0.674,
+            0.593,
+            0.698
+          ],
+          "content": "\\lim _ {x \\to 0} h (x) = 0.",
+          "image_source": "../../raw/pages_0097-0128/images/page_101_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.713,
+            0.405,
+            0.759
+          ],
+          "content": "④  $m(x)=\\left\\{\\begin{aligned}0,&x=\\frac{1}{n},n\\in\\mathbb{N}\\\\ 1&\\text{sonst.}\\end{aligned}\\right.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.762,
+            0.895,
+            0.779
+          ],
+          "content": "Dann besitzt m in 0 keinen Grenzwert, aber m besitzt den linksseitigen Grenzwert 1:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.473,
+            0.791,
+            0.595,
+            0.816
+          ],
+          "content": "\\lim _ {x \\uparrow 0} m (x) = 1.",
+          "image_source": "../../raw/pages_0097-0128/images/page_101_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.826,
+            0.907,
+            0.879
+          ],
+          "content": "Der Einfachheit halber haben wir in Definition 5.1.1 vorausgesetzt, dass f auf einer punktierten Umgebung von  $x_{0}$  definiert ist. Dies wird meist in den Beispielen, die wir uns anschauen, der Fall sein. Aber betrachten Sie die Folge"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.413,
+            0.887,
+            0.607,
+            0.92
+          ],
+          "content": "x _ {n} = \\frac {3 n}{1 + 6 n}, \\quad n \\in \\mathbb {N}",
+          "image_source": "../../raw/pages_0097-0128/images/page_101_equation_22.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 102,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.827,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 97"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.135,
+            0.38,
+            0.153
+          ],
+          "content": "und die Funktion $f$, die durch"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.422,
+            0.16,
+            0.6,
+            0.193
+          ],
+          "content": "f (x _ {n}) = \\frac {1}{n}, \\quad n \\in \\mathbb {N}",
+          "image_source": "../../raw/pages_0097-0128/images/page_102_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.199,
+            0.907,
+            0.251
+          ],
+          "content": "definiert ist. Man möchte schon ausdrücken können, dass $f$ gegen Null „geht“, wenn $x$ gegen $\\frac{1}{2}$ „geht“. Allerdings ist $f$ auf keiner punktierten Umgebung von $\\frac{1}{2}$ definiert. Somit ist eine Verallgemeinerung von Definition 5.1.1:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.259,
+            0.528,
+            0.276
+          ],
+          "content": "Definition 5.1.1'. Wenn es eine Folge $\\tilde{x}_n$ mit"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.346,
+            0.286,
+            0.673,
+            0.311
+          ],
+          "content": "\\tilde {x} _ {n} \\in \\mathcal {D} (f), \\quad \\tilde {x} _ {n} \\neq x _ {0}, \\quad \\lim _ {n \\to \\infty} \\tilde {x} _ {n} = x _ {0}",
+          "image_source": "../../raw/pages_0097-0128/images/page_102_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.317,
+            0.875,
+            0.336
+          ],
+          "content": "gibt, dann sagen wir, dass $f$ in $x_0$ den Grenzwert $y_0$ besitzt, wenn für jede Folge $x_n$ mit"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.346,
+            0.345,
+            0.673,
+            0.369
+          ],
+          "content": "x _ {n} \\in \\mathcal {D} (f), \\quad x _ {n} \\neq x _ {0}, \\quad \\lim _ {n \\to \\infty} x _ {n} = x _ {0}",
+          "image_source": "../../raw/pages_0097-0128/images/page_102_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.377,
+            0.15,
+            0.394
+          ],
+          "content": "gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.438,
+            0.403,
+            0.582,
+            0.427
+          ],
+          "content": "\\lim _ {n \\to \\infty} f (x _ {n}) = y _ {0}.",
+          "image_source": "../../raw/pages_0097-0128/images/page_102_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.434,
+            0.568,
+            0.452
+          ],
+          "content": "Analog für linksseitige und rechtsseitige Grenzwerte."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.459,
+            0.906,
+            0.494
+          ],
+          "content": "Wie bei Folgen möchte man wissen, ob man neue Grenzwerte aus Alten schließen kann. Aus Satz 4.2.8 für Folgen erhalten wir:"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.505,
+            0.236,
+            0.523
+          ],
+          "level": 2,
+          "content": "Satz 5.1.2"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.533,
+            0.867,
+            0.552
+          ],
+          "content": "Seien $f, g$ auf einer punktierten Umgebung von $x_0$ definiert. Wenn für $y_0, z_0 \\in \\mathbb{R}$ gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.368,
+            0.565,
+            0.652,
+            0.59
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} f (x) = y _ {0}, \\quad \\lim _ {x \\to x _ {0}} g (x) = z _ {0},",
+          "image_source": "../../raw/pages_0097-0128/images/page_102_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.602,
+            0.216,
+            0.619
+          ],
+          "content": "dann gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.271,
+            0.632,
+            0.888,
+            0.657
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} (\\alpha f (x) + \\beta g (x)) = \\alpha y _ {0} + \\beta z _ {0} \\quad \\text {furalle} \\alpha , \\beta \\in \\mathbb {R}, \\tag {5.1.3}",
+          "image_source": "../../raw/pages_0097-0128/images/page_102_equation_18.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.307,
+            0.66,
+            0.888,
+            0.685
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} (f (x) \\cdot g (x)) = y _ {0} \\cdot z _ {0}, \\tag {5.1.4}",
+          "image_source": "../../raw/pages_0097-0128/images/page_102_equation_19.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.336,
+            0.688,
+            0.888,
+            0.726
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} \\left(\\frac {f (x)}{g (x)}\\right) = \\frac {y _ {0}}{z _ {0}}, \\qquad \\text {sofern} z _ {0} \\neq 0 \\text {ist.} \\tag {5.1.5}",
+          "image_source": "../../raw/pages_0097-0128/images/page_102_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.744,
+            0.61,
+            0.762
+          ],
+          "content": "Bemerkung. Aus (5.1.3) und (5.1.4) erhalten wir, dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.433,
+            0.771,
+            0.587,
+            0.796
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} p (x) = p (x _ {0})",
+          "image_source": "../../raw/pages_0097-0128/images/page_102_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.804,
+            0.332,
+            0.821
+          ],
+          "content": "für jedes Polynom p gilt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.144,
+            0.829,
+            0.534,
+            0.854
+          ],
+          "content": "Wenn $\\lim_{x\\to x_0}f(x) = y_0,\\lim_{x\\to x_0}g(x) = 0$ , und wir"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.466,
+            0.862,
+            0.906,
+            0.899
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} \\frac {f (x)}{g (x)} \\tag {5.1.6}",
+          "image_source": "../../raw/pages_0097-0128/images/page_102_equation_25.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.906,
+            0.401,
+            0.923
+          ],
+          "content": "betrachten, dann fragen wir uns:"
+        }
+      ]
+    },
+    {
+      "page_idx": 103,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.564,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.827,
+            0.093,
+            0.899,
+            0.107
+          ],
+          "content": "Seite 98"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.144,
+            0.135,
+            0.906,
+            0.217
+          ],
+          "sub_type": "text",
+          "content": "- Ist $y_0 = 0$? Wenn nicht, dann divergiert der Quotient in (5.1.6).\n- Wenn $y_0 = 0$ gilt, dann gibt es eine Methode um den Grenzwert des Quotienten analysieren zu können. (Wie immer ist die entscheidende Frage, mit welcher Rate $f$ und $g$ in $x_0$ verschwinden.)"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.243,
+            0.254,
+            0.264
+          ],
+          "level": 2,
+          "content": "Übung 5.1.3"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.273,
+            0.396,
+            0.289
+          ],
+          "content": "Berechnen Sie den Grenzwert:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.459,
+            0.285,
+            0.56,
+            0.32
+          ],
+          "content": "\\lim _ {x \\to 2} \\frac {x ^ {2} - 4}{x - 2}.",
+          "image_source": "../../raw/pages_0097-0128/images/page_103_equation_8.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.115,
+            0.342,
+            0.241,
+            0.359
+          ],
+          "level": 2,
+          "content": "Beispiel. Sei"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.451,
+            0.371,
+            0.57,
+            0.408
+          ],
+          "content": "R (x) = \\frac {p (x)}{q (x)},",
+          "image_source": "../../raw/pages_0097-0128/images/page_103_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.419,
+            0.722,
+            0.437
+          ],
+          "content": "wobei $p$, $q$ Polynome sind und $x_0$ eine Nullstelle von beiden ist. Sei $x_0$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.164,
+            0.448,
+            0.461,
+            0.484
+          ],
+          "content": "eine m-fache Nullstelle von q und\neine n-fache Nullstelle von p."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.116,
+            0.494,
+            0.204,
+            0.511
+          ],
+          "level": 2,
+          "content": "Dann gilt"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.144,
+            0.523,
+            0.646,
+            0.617
+          ],
+          "sub_type": "text",
+          "content": "- $\\lim_{x\\to x_0}R(x) = 0$, wenn $n > m$,\n- $\\lim_{x\\to x_0}R(x)$ existiert und gehört zu $\\mathbb{R}\\setminus\\{0\\}$, wenn $n=m$,\n- $\\lim_{x\\to x_0}R(x)$ existiert nicht (als reelle Zahl), wenn $n < m$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.628,
+            0.359,
+            0.644
+          ],
+          "content": "Dies zeigt man, indem man"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.31,
+            0.658,
+            0.707,
+            0.677
+          ],
+          "content": "p (x) = (x - x _ {0}) ^ {n} \\tilde {p} (x), \\quad q (x) = (x - x _ {0}) ^ {m} \\tilde {q} (x)",
+          "image_source": "../../raw/pages_0097-0128/images/page_103_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.69,
+            0.763,
+            0.708
+          ],
+          "content": "mit  $\\tilde{p}(x_{0})$ ,  $\\tilde{q}(x_{0}) \\neq 0$  schreibt und gemeinsame Faktoren von  $(x - x_{0})$  kürzt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.719,
+            0.347,
+            0.736
+          ],
+          "content": "Beispiel. Für  $x_{0}=1$  und"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.402,
+            0.747,
+            0.617,
+            0.781
+          ],
+          "content": "h (x) = \\frac {x ^ {n} - 1}{x - 1}, \\quad n \\in \\mathbb {N},",
+          "image_source": "../../raw/pages_0097-0128/images/page_103_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.793,
+            0.436,
+            0.809
+          ],
+          "content": "benutzen wir Lemma 4.3.4, um h als"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.406,
+            0.821,
+            0.613,
+            0.877
+          ],
+          "content": "h (x) = \\frac {(x - 1) \\sum_ {k = 1} ^ {n} x ^ {n - k}}{(x - 1)}",
+          "image_source": "../../raw/pages_0097-0128/images/page_103_equation_24.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 104,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.564,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.827,
+            0.093,
+            0.899,
+            0.107
+          ],
+          "content": "Seite 99"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.135,
+            0.475,
+            0.153
+          ],
+          "content": "darzustellen. Kürzen durch  $(x - 1)$  ergibt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.406,
+            0.166,
+            0.906,
+            0.322
+          ],
+          "content": "\\begin{array}{l} \\lim _ {x \\to 1} h (x) = \\lim _ {x \\to 1} \\sum_ {k = 1} ^ {n} x ^ {n - k} \\\\ = \\sum_ {k = 1} ^ {n} \\lim _ {x \\to 1} x ^ {n - k} \\tag {5.1.7} \\\\ = \\sum_ {k = 1} ^ {n} 1 \\\\ = n, \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0097-0128/images/page_104_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.337,
+            0.545,
+            0.353
+          ],
+          "content": "wobei wir in (5.1.7) Satz 4.2.8 angewendet haben."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.144,
+            0.366,
+            0.657,
+            0.383
+          ],
+          "content": "Jetzt bearbeiten wir ein Beispiel, das nicht polynomiell ist."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.393,
+            0.908,
+            0.462
+          ],
+          "content": "Beispiel. Besitzt  $f(x) = \\frac{e^{x}-1}{x}$  einen Grenzwert in x = 0? Nenner und Zähler verschwinden in x = 0. Wir haben in Satz 4.3.7 gesehen, dass die Exponentialfunktion in einer Umgebung von 0 linear wächst, also erwarten wir einen von Null verschiedenen Grenzwert. Aus Satz 4.3.7 (iii) erhalten wir"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.338,
+            0.475,
+            0.906,
+            0.513
+          ],
+          "content": "\\left| \\frac {e ^ {x} - 1}{x} \\right| \\leq \\frac {1}{1 - | x |}, \\quad x \\in (- 1, 1) \\setminus \\{0 \\}. \\tag {5.1.8}",
+          "image_source": "../../raw/pages_0097-0128/images/page_104_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.524,
+            0.318,
+            0.539
+          ],
+          "content": "Andererseits haben wir"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.277,
+            0.55,
+            0.906,
+            0.628
+          ],
+          "content": "\\begin{array}{l} \\left| \\frac {e ^ {x} - 1}{x} \\right| = \\frac {e ^ {x} - 1}{x} \\stackrel {(4. 3. 1 1)} {\\geq} 1 \\quad x \\in (0, 1), (5.1.9) \\\\ u n d \\quad \\left| \\frac {e ^ {x} - 1}{x} \\right| = \\frac {1 - e ^ {x}}{- x} \\geq \\frac {1}{1 - x} x \\in (- 1, 0), (5.1.10) \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0097-0128/images/page_104_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.64,
+            0.906,
+            0.674
+          ],
+          "content": "wobei wir (4.3.12) für die letzte Ungleichung benutzt haben. Zusammen implizieren (5.1.9) und (5.1.10), dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.427,
+            0.687,
+            0.906,
+            0.725
+          ],
+          "content": "\\left| \\frac {e ^ {x} - 1}{x} \\right| \\geq \\frac {1}{1 + | x |}. \\tag {5.1.11}",
+          "image_source": "../../raw/pages_0097-0128/images/page_104_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.736,
+            0.453,
+            0.754
+          ],
+          "content": "Insgesamt ergeben (5.1.8) und (5.1.11)"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.294,
+            0.766,
+            0.906,
+            0.805
+          ],
+          "content": "\\frac {1}{1 + | x |} \\leq \\left| \\frac {e ^ {x} - 1}{x} \\right| \\leq \\frac {1}{1 - | x |}, \\quad x \\in (- 1, 1) \\setminus \\{0 \\}, \\tag {5.1.12}",
+          "image_source": "../../raw/pages_0097-0128/images/page_104_equation_14.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 105,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.092,
+            0.274,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 100"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.179,
+            0.151,
+            0.418,
+            0.372
+          ],
+          "sub_type": "contour",
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.144,
+                0.398,
+                0.457,
+                0.433
+              ],
+              "content": "Abbildung 5.3: Visuelle Darstellung von Gleichung (5.1.12)."
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0097-0128/images/page_105_chart_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.456,
+            0.15,
+            0.785,
+            0.17
+          ],
+          "content": "und da für jede Nullfolge $\\{x_{n}\\}_{n = 1}^{\\infty}$ gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.546,
+            0.18,
+            0.843,
+            0.217
+          ],
+          "content": "\\lim _ {n \\to \\infty} \\frac {1}{1 + | x _ {n} |} = \\lim _ {n \\to \\infty} \\frac {1}{1 - | x _ {n} |} = 1,",
+          "image_source": "../../raw/pages_0097-0128/images/page_105_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.455,
+            0.227,
+            0.931,
+            0.26
+          ],
+          "content": "schließen wir aus dem Sandwich-Kriterium für Folgen, dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.613,
+            0.27,
+            0.774,
+            0.309
+          ],
+          "content": "\\lim _ {n \\to \\infty} \\left| \\frac {e ^ {x _ {n}} - 1}{x _ {n}} \\right| = 1",
+          "image_source": "../../raw/pages_0097-0128/images/page_105_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.455,
+            0.32,
+            0.934,
+            0.372
+          ],
+          "content": "für jede Nullfolge  $\\{x_{n}\\}_{n=1}^{\\infty}$  mit  $x_{n} \\neq 0$ . Aus Definition 5.1.1 und  $\\exp(x) > 1$  für x > 0,  $\\exp(x) < 1$  für x < 0 schließen wir"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.625,
+            0.383,
+            0.932,
+            0.416
+          ],
+          "content": "\\lim _ {x \\to 0} \\frac {e ^ {x} - 1}{x} = 1. \\tag {5.1.13}",
+          "image_source": "../../raw/pages_0097-0128/images/page_105_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.442,
+            0.906,
+            0.476
+          ],
+          "content": "Wir haben eben gesehen, dass das Sandwich-Kriterium für Folgen benutzt werden kann, um den Grenzwert einer Funktion zu identifizieren. Dies formulieren wir in einen Satz um."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.132,
+            0.487,
+            0.578,
+            0.505
+          ],
+          "level": 2,
+          "content": "Satz 5.1.4: Sandwich-Kriterium für Funktionen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.516,
+            0.89,
+            0.551
+          ],
+          "content": "Es seien $f, g, h$ in einer punktierten Umgebung von $x_0$ definiert. Wenn in einer punktierten Umgebung von $x_0$ gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.422,
+            0.551,
+            0.599,
+            0.568
+          ],
+          "content": "f (x) \\leq g (x) \\leq h (x),",
+          "image_source": "../../raw/pages_0097-0128/images/page_105_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.575,
+            0.227,
+            0.59
+          ],
+          "content": "und ferner"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.391,
+            0.592,
+            0.63,
+            0.617
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} f (x) = \\lim _ {x \\to x _ {0}} h (x) = y _ {0},",
+          "image_source": "../../raw/pages_0097-0128/images/page_105_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.623,
+            0.208,
+            0.638
+          ],
+          "content": "dann ist"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.445,
+            0.64,
+            0.576,
+            0.664
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} g (x) = y _ {0}.",
+          "image_source": "../../raw/pages_0097-0128/images/page_105_equation_18.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.697,
+            0.254,
+            0.716
+          ],
+          "level": 2,
+          "content": "Übung 5.1.5"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.727,
+            0.89,
+            0.763
+          ],
+          "content": "Schreiben Sie den Beweis. (Hinweis: Benutzen Sie Definition 5.1.1 und das Sandwich-Kriterium für Folgen.)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.783,
+            0.655,
+            0.8
+          ],
+          "content": "Eine alternative Definition des Grenzwertes einer Funktion ist"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.811,
+            0.908,
+            0.863
+          ],
+          "content": "Definition 5.1.1\" (Epsilon-Delta Definition von Grenzwert). Sei $f$ auf einer punktierten Umgebung $V$ von $x_0$ definiert. $f$ besitzt an der Stelle $x_0$ den Grenzwert $y_0$, wenn es für jedes $\\varepsilon > 0$ ein $\\delta > 0$ gibt, so dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.306,
+            0.875,
+            0.714,
+            0.894
+          ],
+          "content": "| f (x) - y _ {0} | <   \\varepsilon \\text {fur alle} x \\text {mit} 0 <   | x - x _ {0} | <   \\delta .",
+          "image_source": "../../raw/pages_0097-0128/images/page_105_equation_23.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.906,
+            0.671,
+            0.924
+          ],
+          "content": "Bemerkung. In Definition 5.1.1\" wurden keine Folgen benutzt."
+        }
+      ]
+    },
+    {
+      "page_idx": 106,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.564,
+            0.107
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.898,
+            0.107
+          ],
+          "content": "Seite 101"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.136,
+            0.908,
+            0.187
+          ],
+          "content": "Bemerkung. Hier spielt $\\varepsilon > 0$ die Rolle einer Fehlertoleranz. $\\delta > 0$ ist der Parameter, den wir anpassen können, damit $f(x)$ $\\varepsilon$-nah an $y_0$ liegt. Wenn $\\varepsilon$ sehr klein ist („der schwierige Fall“), dann muss $\\delta$ vielleicht auch sehr klein gewählt werden."
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.396,
+            0.216,
+            0.627,
+            0.34
+          ],
+          "sub_type": "contour",
+          "content": "| Point | X-coordinate | Y-coordinate |\n| --- | --- | --- |\n| Point 1 | x0 | y0 |\n| Point 2 | x0 | y0 - \\(\\epsilon\\) |",
+          "captions": [
+            {
+              "bbox": [
+                0.448,
+                0.368,
+                0.573,
+                0.385
+              ],
+              "content": "Abbildung 5.4"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0097-0128/images/page_106_chart_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.403,
+            0.907,
+            0.489
+          ],
+          "content": "Ein Beispiel, das die neue Definition verdeutlicht, ist in Abbildung 5.4 skizziert. Für $\\varepsilon > 0$ beliebig klein gegeben, wählt man $\\delta := \\min\\{\\delta_1, \\delta_2\\}$. Für $x \\in (x_0 - \\delta, x_0 + \\delta)$ mit $x \\neq x_0$ ist $f(x) \\in (y_0 - \\varepsilon, y_0 + \\varepsilon)$. Der Graph einer Funktion, die das Kriterium in der neuen Definition nicht erfüllt, ist in Abbildung 5.5 skizziert. Zu $\\varepsilon = 1$ (und zu jedem positiven $\\tilde{\\varepsilon} < 1$) gibt es kein $\\delta > 0$, so dass"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.393,
+            0.505,
+            0.631,
+            0.648
+          ],
+          "sub_type": "contour",
+          "content": "| Point | X | Y |\n| --- | --- | --- |\n| y0 | x0 | y0 |\n| y0 + 1 | x0 | y0 + 1 |",
+          "captions": [
+            {
+              "bbox": [
+                0.448,
+                0.675,
+                0.573,
+                0.692
+              ],
+              "content": "Abbildung 5.5"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0097-0128/images/page_106_chart_7.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.282,
+            0.725,
+            0.737,
+            0.744
+          ],
+          "content": "x \\in (x _ {0} - \\delta , x _ {0} + \\delta) \\setminus \\{x _ {0} \\} \\Rightarrow f (x) \\in (y _ {0} - \\varepsilon , y _ {0} + \\varepsilon).",
+          "image_source": "../../raw/pages_0097-0128/images/page_106_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.757,
+            0.819,
+            0.775
+          ],
+          "content": "Sobald $x < x_0$ nah an $x_0$ liegt (und egal wie nah $x$ an $x_0$ liegt), ist $f(x) \\geq y_0 + 1$."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.789,
+            0.254,
+            0.809
+          ],
+          "level": 2,
+          "content": "Übung 5.1.6"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.82,
+            0.892,
+            0.891
+          ],
+          "content": "Finden Sie zu  $f(x) := 5x + 1$  den Grenzwert L in  $x_{0} = 2$ . Bestimmen Sie zu  $\\varepsilon = \\frac{1}{4}$  ein  $\\delta > 0$ , so dass  $0 < |x - x_{0}| \\leq \\delta$  impliziert, dass  $|f(x) - L| \\leq \\varepsilon$ . Finden Sie eine quadratische Funktion g mit dem gleichen Grenzwert in  $x_{0} = 2$ . Bestimmen Sie, ob zum gegebenen  $\\varepsilon$  das geeignete  $\\delta$  größer oder kleiner als das zu f gefundene  $\\delta$  sein müsste."
+        }
+      ]
+    },
+    {
+      "page_idx": 107,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 102"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.138,
+            0.254,
+            0.158
+          ],
+          "level": 2,
+          "content": "Übung 5.1.7"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.168,
+            0.256,
+            0.184
+          ],
+          "content": "Finden Sie zu"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.402,
+            0.194,
+            0.621,
+            0.241
+          ],
+          "content": "f (x) := \\left\\{ \\begin{array}{l l} 5 x + 1 & x \\neq 2 \\\\ 2 7 & x = 2 \\end{array} \\right.",
+          "image_source": "../../raw/pages_0097-0128/images/page_107_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.253,
+            0.89,
+            0.29
+          ],
+          "content": "den Grenzwert L in  $x_{0}=2$ . Bestimmen Sie zu  $\\varepsilon=\\frac{1}{4}$  ein  $\\delta>0$ , so dass  $0<|x-x_{0}|\\leq\\delta$  impliziert, dass  $|f(x)-L|\\leq\\varepsilon$ ."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.314,
+            0.234,
+            0.33
+          ],
+          "level": 2,
+          "content": "Satz 5.1.8"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.342,
+            0.597,
+            0.361
+          ],
+          "content": "Definition 5.1.1 und Definition 5.1.1\" sind äquivalent."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.386,
+            0.275,
+            0.406
+          ],
+          "content": "Beweis. Übung."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.869,
+            0.388,
+            0.889,
+            0.403
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0097-0128/images/page_107_image_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.422,
+            0.907,
+            0.473
+          ],
+          "content": "Man redet auch von „Konvergenz gegen Unendlich“ oder vom „Verhalten von f für x gegen Unendlich“. Über diese Begriffe möchten wir auch reden können. Dafür führen wir die folgenden Definitionen ein."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.132,
+            0.485,
+            0.641,
+            0.503
+          ],
+          "level": 2,
+          "content": "Definition 5.1.9: Uneigentliche Grenzwerte für $x \\to x_0$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.513,
+            0.757,
+            0.532
+          ],
+          "content": "Sei $f$ auf einer punktierten Umgebung von $x_0$ definiert. Wir sagen, dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.33,
+            0.544,
+            0.69,
+            0.569
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} f (x) = \\infty \\quad (\\text {bzw.} \\lim _ {x \\to x _ {0}} f (x) = - \\infty),",
+          "image_source": "../../raw/pages_0097-0128/images/page_107_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.581,
+            0.678,
+            0.606
+          ],
+          "content": "wenn für jede Folge  $\\{x_{n}\\}_{n=1}^{\\infty}$  mit  $x_{n} \\neq x_{0}$  und  $\\lim_{n\\to\\infty}x_{n}=x_{0}$  gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.321,
+            0.618,
+            0.698,
+            0.642
+          ],
+          "content": "\\lim _ {n \\to \\infty} f (x _ {n}) = \\infty \\quad (\\text {bzw.} \\lim _ {n \\to \\infty} f (x _ {n}) = - \\infty).",
+          "image_source": "../../raw/pages_0097-0128/images/page_107_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.653,
+            0.424,
+            0.671
+          ],
+          "content": "Analog für einseitige Grenzwerte."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.696,
+            0.245,
+            0.712
+          ],
+          "level": 2,
+          "content": "Satz 5.1.10"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.724,
+            0.89,
+            0.76
+          ],
+          "content": "Definition 5.1.9 ist äquivalent zum folgenden Kriterium: Für jedes $M \\in \\mathbb{R}$ gibt es ein $\\delta > 0$, so dass $0 < |x - x_0| < \\delta$ impliziert $f(x) \\geq M$."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.115,
+            0.777,
+            0.204,
+            0.794
+          ],
+          "level": 2,
+          "content": "Beispiel."
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.354,
+            0.8,
+            0.666,
+            0.836
+          ],
+          "content": "\\lim _ {x \\to 0} \\frac {1}{x ^ {2}} = \\infty , \\quad \\lim _ {x \\to 1} \\frac {- 1}{(x - 1) ^ {2}} = - \\infty ,",
+          "image_source": "../../raw/pages_0097-0128/images/page_107_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.843,
+            0.467,
+            0.863
+          ],
+          "content": "aber  $\\frac{1}{x}$  besitzt in 0 keinen Grenzwert, da"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.359,
+            0.869,
+            0.66,
+            0.903
+          ],
+          "content": "\\lim _ {x \\downarrow 0} \\frac {1}{x} = \\infty , \\quad a b e r \\quad \\lim _ {x \\uparrow 0} \\frac {1}{x} = - \\infty .",
+          "image_source": "../../raw/pages_0097-0128/images/page_107_equation_23.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 108,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 103"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.132,
+            0.139,
+            0.646,
+            0.158
+          ],
+          "level": 2,
+          "content": "Definition 5.1.11: Eigentliche Grenzwerte für $x \\to \\pm \\infty$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.168,
+            0.72,
+            0.186
+          ],
+          "content": "Sei $f$ auf $(a,\\infty)$ für ein $a\\in \\mathbb{R}$ definiert. Sei $y_0\\in \\mathbb{R}$. Wir sagen, dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.443,
+            0.199,
+            0.577,
+            0.223
+          ],
+          "content": "\\lim _ {x \\to \\infty} f (x) = y _ {0},",
+          "image_source": "../../raw/pages_0097-0128/images/page_108_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.235,
+            0.667,
+            0.26
+          ],
+          "content": "wenn für jede Folge  $\\{x_{n}\\}_{n=1}^{\\infty}$  auf  $(a,\\infty)$  mit  $\\lim_{n\\to\\infty}x_{n}=\\infty$  gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.438,
+            0.272,
+            0.582,
+            0.295
+          ],
+          "content": "\\lim _ {n \\to \\infty} f (x _ {n}) = y _ {0}.",
+          "image_source": "../../raw/pages_0097-0128/images/page_108_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.307,
+            0.374,
+            0.332
+          ],
+          "content": "Analog für $\\lim_{x\\to -\\infty}f(x) = y_0$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.355,
+            0.325,
+            0.372
+          ],
+          "content": "Beispiel. Man bemerkt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.359,
+            0.384,
+            0.662,
+            0.417
+          ],
+          "content": "\\lim _ {x \\to \\infty} \\frac {1}{x ^ {2}} = 0, \\quad \\lim _ {x \\to \\infty} \\tanh (x) = 1.",
+          "image_source": "../../raw/pages_0097-0128/images/page_108_equation_10.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.132,
+            0.446,
+            0.245,
+            0.461
+          ],
+          "level": 2,
+          "content": "Satz 5.1.12"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.474,
+            0.804,
+            0.491
+          ],
+          "content": "Definition 5.1.11 ist äquivalent zu: zu jedem $\\varepsilon > 0$ gibt es ein $M \\in \\mathbb{R}$, so dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.369,
+            0.505,
+            0.65,
+            0.525
+          ],
+          "content": "x > M \\quad \\Longrightarrow \\quad | f (x) - y _ {0} | <   \\varepsilon .",
+          "image_source": "../../raw/pages_0097-0128/images/page_108_equation_13.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.132,
+            0.558,
+            0.669,
+            0.576
+          ],
+          "level": 2,
+          "content": "Definition 5.1.13: Uneigentliche Grenzwerte für $x \\to \\pm \\infty$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.587,
+            0.62,
+            0.605
+          ],
+          "content": "Sei $f$ auf $(a,\\infty)$ für ein $a\\in\\mathbb{R}$ definiert. Wir sagen, dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.442,
+            0.618,
+            0.578,
+            0.642
+          ],
+          "content": "\\lim _ {x \\to \\infty} f (x) = \\infty ,",
+          "image_source": "../../raw/pages_0097-0128/images/page_108_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.654,
+            0.667,
+            0.679
+          ],
+          "content": "wenn für jede Folge  $\\{x_{n}\\}_{n=1}^{\\infty}$  auf  $(a,\\infty)$  mit  $\\lim_{n\\to\\infty}x_{n}=\\infty$  gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.437,
+            0.69,
+            0.582,
+            0.715
+          ],
+          "content": "\\lim _ {n \\to \\infty} f (x _ {n}) = \\infty .",
+          "image_source": "../../raw/pages_0097-0128/images/page_108_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.726,
+            0.231,
+            0.743
+          ],
+          "content": "Analog für"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.261,
+            0.757,
+            0.758,
+            0.781
+          ],
+          "content": "\\lim _ {x \\to \\infty} f (x) = - \\infty , \\quad \\lim _ {x \\to - \\infty} f (x) = \\infty , \\quad \\lim _ {x \\to - \\infty} f (x) = - \\infty .",
+          "image_source": "../../raw/pages_0097-0128/images/page_108_equation_20.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.132,
+            0.817,
+            0.245,
+            0.833
+          ],
+          "level": 2,
+          "content": "Satz 5.1.14"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.845,
+            0.816,
+            0.863
+          ],
+          "content": "Definition 5.1.13 ist äquivalent zu: zu jedem $K \\in \\mathbb{R}$ gibt es ein $M \\in \\mathbb{R}$, so dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.392,
+            0.876,
+            0.627,
+            0.895
+          ],
+          "content": "x > M \\quad \\Longrightarrow \\quad f (x) > K.",
+          "image_source": "../../raw/pages_0097-0128/images/page_108_equation_23.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 109,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.564,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 104"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.135,
+            0.907,
+            0.205
+          ],
+          "content": "Wie für eigentliche Grenzwerte in  $x_{0} \\in R$  kann man sich fragen, ob für diese uneigentlichen Grenzwerte der Grenzwert einer Summe die Summe der Grenzwerten ist, und das Gleiche für Produkte und Quotienten. Ein Vergleichskriterium kann man sich auch überlegen. Zum Beispiel impliziert"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.353,
+            0.218,
+            0.668,
+            0.237
+          ],
+          "content": "f (x) \\leq g (x) \\leq h (x) \\quad \\text { für   alle } x \\in \\mathbb {R}",
+          "image_source": "../../raw/pages_0097-0128/images/page_109_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.249,
+            0.436,
+            0.273
+          ],
+          "content": "und $\\lim_{x\\to \\infty}f(x) = \\lim_{x\\to \\infty}h(x) = y_0$ ,dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.444,
+            0.287,
+            0.576,
+            0.311
+          ],
+          "content": "\\lim _ {x \\to \\infty} g (x) = y _ {0}.",
+          "image_source": "../../raw/pages_0097-0128/images/page_109_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.322,
+            0.521,
+            0.339
+          ],
+          "content": "Können Sie ein analoges Kriterium finden, das"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.445,
+            0.354,
+            0.575,
+            0.378
+          ],
+          "content": "\\lim _ {x \\to \\infty} g (x) = \\infty",
+          "image_source": "../../raw/pages_0097-0128/images/page_109_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.388,
+            0.212,
+            0.406
+          ],
+          "content": "impliziert?"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.42,
+            0.266,
+            0.44
+          ],
+          "level": 2,
+          "content": "Übung 5.1.15"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.45,
+            0.751,
+            0.468
+          ],
+          "content": "Formulieren Sie einen Satz wie Satz 5.1.2 für uneigentliche Grenzwerte."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.501,
+            0.266,
+            0.521
+          ],
+          "level": 2,
+          "content": "Übung 5.1.16"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.531,
+            0.259,
+            0.547
+          ],
+          "content": "Berechnen Sie"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.407,
+            0.542,
+            0.612,
+            0.577
+          ],
+          "content": "\\lim _ {x \\to 0} \\frac {| 2 x - 1 | - | 2 x + 1 |}{x}.",
+          "image_source": "../../raw/pages_0097-0128/images/page_109_equation_14.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.115,
+            0.613,
+            0.321,
+            0.636
+          ],
+          "level": 2,
+          "content": "5.2 Stetigkeit"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.65,
+            0.907,
+            0.683
+          ],
+          "content": "Jetzt können wir Stetigkeit einer Funktion $f$ in einem Punkt $x_0 \\in \\mathbb{R}$ leicht definieren. Dies bedeutet nichts Anderes als:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.145,
+            0.696,
+            0.33,
+            0.777
+          ],
+          "sub_type": "text",
+          "content": "- $\\lim_{x\\to x_0}f(x)$ existiert,\n- $f(x_0)$ ist definiert,\n- und sie sind gleich:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.453,
+            0.791,
+            0.615,
+            0.816
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} f (x) = f (x _ {0}).",
+          "image_source": "../../raw/pages_0097-0128/images/page_109_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.833,
+            0.907,
+            0.902
+          ],
+          "content": "Während die Existenz des Grenzwerts in  $x_{0}$  nichts mit dem Funktionswert zu tun hat, spielt dieser Wert für Stetigkeit eine wichtige Rolle. Stetige Funktionen sind „gut“ in dem Sinne, dass sie sich so verhalten, wie man erwartet. Wir werden mehrere wichtige Sätze über stetige Funktionen beweisen können."
+        }
+      ]
+    },
+    {
+      "page_idx": 110,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.564,
+            0.107
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.899,
+            0.107
+          ],
+          "content": "Seite 105"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.139,
+            0.283,
+            0.156
+          ],
+          "level": 2,
+          "content": "Definition 5.2.1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.168,
+            0.889,
+            0.207
+          ],
+          "content": "Sei $f$ auf einer Umgebung von $x_0$ definiert. $f$ ist in $x_0$ stetig, falls der Grenzwert $\\lim_{x\\to x_0}f(x)$ existiert und es gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.428,
+            0.208,
+            0.591,
+            0.232
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} f (x) = f (x _ {0}).",
+          "image_source": "../../raw/pages_0097-0128/images/page_110_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.238,
+            0.889,
+            0.275
+          ],
+          "content": "Sei $f$ auf $(a,b)$ definiert. $f$ ist auf $(a,b)$ stetig (oder einfach stetig), wenn $f$ in jedem Punkt von $(a,b)$ stetig ist. Sei $f$ auf $[x_0,b)$ definiert. $f$ ist in $x_0$ rechtsseitig stetig, wenn"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.431,
+            0.286,
+            0.587,
+            0.312
+          ],
+          "content": "\\lim _ {x \\downarrow x _ {0}} f (x) = f (x _ {0}).",
+          "image_source": "../../raw/pages_0097-0128/images/page_110_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.325,
+            0.89,
+            0.378
+          ],
+          "content": "Außerdem nennen wir $f$ auf $[x_0, b)$ stetig, wenn $f$ auf $(x_0, b)$ stetig ist und $f$ in $x_0$ rechtsseitig stetig ist. Analog für linksseitig stetig. $f$ ist auf $(a, \\infty)$ oder $(- \\infty, a)$ oder $(- \\infty, \\infty)$ stetig, wenn $f$ in jedem Punkt des Intervalls stetig ist."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.394,
+            0.908,
+            0.429
+          ],
+          "content": "Bemerkung. Stetigkeit freut uns, weil wir mehr Rechenwege zur Verfügung haben. Zum Beispiel können wir Stetigkeit von  $\\exp(\\cdot)$  verwenden, um den Grenzwert  $\\lim_{n\\to\\infty}3^{\\frac{1}{n}}$  jetzt als"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.169,
+            0.435,
+            0.851,
+            0.473
+          ],
+          "content": "\\lim _ {n \\to \\infty} 3 ^ {\\frac {1}{n}} = \\lim _ {n \\to \\infty} \\exp (\\log (3 ^ {\\frac {1}{n}})) = \\lim _ {n \\to \\infty} \\exp \\left(\\frac {1}{n} \\log (3)\\right) = \\exp \\left(\\lim _ {n \\to \\infty} \\frac {1}{n} \\log (3)\\right) = 1",
+          "image_source": "../../raw/pages_0097-0128/images/page_110_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.477,
+            0.55,
+            0.494
+          ],
+          "content": "zu berechnen. Wo haben wir Stetigkeit verwendet?"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.132,
+            0.509,
+            0.254,
+            0.529
+          ],
+          "level": 2,
+          "content": "Übung 5.2.2"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.541,
+            0.603,
+            0.559
+          ],
+          "content": "Was passiert, wenn Sie diese Idee mit  $n^{1/n}$  anwenden?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.144,
+            0.575,
+            0.867,
+            0.593
+          ],
+          "content": "Wie für Grenzwerte, können wir auch Stetigkeit durch ein  $\\varepsilon-\\delta$  Kriterium definieren."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.599,
+            0.908,
+            0.649
+          ],
+          "content": "Definition 5.2.1' (Epsilon-Delta Definition von Stetigkeit). Sei $f$ auf einer punktierten Umgebung $V$ von $x_0$ definiert. $f$ ist in $x_0$ stetig, wenn es für jedes $\\varepsilon > 0$ ein $\\delta > 0$ gibt, so dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.293,
+            0.658,
+            0.726,
+            0.677
+          ],
+          "content": "| f (x) - f (x _ {0}) | <   \\varepsilon \\text {fur alle} x \\text {mit} 0 \\ltimes | x - x _ {0} | <   \\delta .",
+          "image_source": "../../raw/pages_0097-0128/images/page_110_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.683,
+            0.893,
+            0.701
+          ],
+          "content": "Bemerkung. Mit welcher Definition es einfacher ist, zu arbeiten, hängt vom Beispiel ab."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.132,
+            0.715,
+            0.254,
+            0.736
+          ],
+          "level": 2,
+          "content": "Übung 5.2.3"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.745,
+            0.478,
+            0.763
+          ],
+          "content": "Bestätigen Sie die folgenden Tatsachen."
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.16,
+            0.804,
+            0.763,
+            0.909
+          ],
+          "sub_type": "text",
+          "content": "- Polynome sind auf $\\mathbb{R}$ stetig.\n- Eine rationale Funktion $\\frac{p(x)}{q(x)}$ ist auf ihrem Definitionsbereich stetig.\n- Sinus und Cosinus sind stetig auf $\\mathbb{R}$.\n- $\\exp(\\cdot)$ ist stetig auf $\\mathbb{R}$. $\\log(\\cdot)$ ist stetig auf $(0, \\infty)$."
+        }
+      ]
+    },
+    {
+      "page_idx": 111,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.564,
+            0.107
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 106"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.161,
+            0.133,
+            0.3,
+            0.149
+          ],
+          "content": "\\- Die Funktion"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.433,
+            0.159,
+            0.637,
+            0.205
+          ],
+          "content": "f (x) = \\left\\{ \\begin{array}{l l} 0 & x \\in \\mathbb {R} \\setminus \\mathbb {Q} \\\\ 1 & x \\in \\mathbb {Q} \\end{array} \\right.",
+          "image_source": "../../raw/pages_0097-0128/images/page_111_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.18,
+            0.216,
+            0.361,
+            0.234
+          ],
+          "content": "ist nirgendwo stetig."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.161,
+            0.245,
+            0.301,
+            0.261
+          ],
+          "content": "\\- Die Funktion"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.338,
+            0.271,
+            0.73,
+            0.318
+          ],
+          "content": "f (x) = \\left\\{ \\begin{array}{l l} 0 & x \\in \\mathbb {R} \\setminus \\mathbb {Q} \\\\ \\frac {1}{q} & x = \\frac {p}{q} \\in \\mathbb {Q} (\\text {vollständig gekürzt}) \\end{array} \\right.",
+          "image_source": "../../raw/pages_0097-0128/images/page_111_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.18,
+            0.329,
+            0.717,
+            0.349
+          ],
+          "content": "ist in jedem $x \\in \\mathbb{Q}$ nicht stetig und in jedem $x \\in \\mathbb{R} \\setminus \\mathbb{Q}$ stetig."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.161,
+            0.358,
+            0.301,
+            0.374
+          ],
+          "content": "\\- Die Funktion"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.43,
+            0.384,
+            0.639,
+            0.431
+          ],
+          "content": "g (x) = \\left\\{ \\begin{array}{l l} 1 - x ^ {2} & x \\neq 1 \\\\ 5 & x = 1 \\end{array} \\right.",
+          "image_source": "../../raw/pages_0097-0128/images/page_111_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.179,
+            0.442,
+            0.89,
+            0.476
+          ],
+          "content": "ist in $x = 1$ nicht stetig. Wir können $g$ aber stetig machen, wenn wir $g(1)$ als 0 statt 5 definieren."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.161,
+            0.488,
+            0.879,
+            0.509
+          ],
+          "content": "\\- Die Funktion $\\frac{1}{x^2}$ ist in $x = 0$ nicht stetig, und dies können wir nicht „reparieren“."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.521,
+            0.907,
+            0.556
+          ],
+          "content": "Die letzten Beispiele zeigen, dass es unterschiedliche Weisen gibt, in denen Stetigkeit fehlen kann. Wir möchten zwischen diesen Typen unterscheiden können."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.57,
+            0.285,
+            0.587
+          ],
+          "level": 2,
+          "content": "Definition 5.2.4"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.6,
+            0.89,
+            0.643
+          ],
+          "content": "Wenn $f$ auf einer punktierten Umgebung $\\dot{U}$ von $x_0$ stetig ist und $\\lim_{x\\to x_0}f(x)$ existiert (als reelle Zahl), dann heißt $f$ in $x_0$ stetig ergänzbar. Die Funktion"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.387,
+            0.656,
+            0.632,
+            0.704
+          ],
+          "content": "\\tilde {f} (x) = \\left\\{ \\begin{array}{l l} f (x) & x \\in \\dot {U} \\\\ \\lim _ {x \\to x _ {0}} f (x) & x = x _ {0} \\end{array} \\right.",
+          "image_source": "../../raw/pages_0097-0128/images/page_111_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.718,
+            0.889,
+            0.753
+          ],
+          "content": "ist auf  $\\dot{U} \\cup \\{x_{0}\\}$  stetig und heißt die stetige Ergänzung oder die stetige Fortsetzung von f. Man sagt, f habe in  $x_{0}$  eine hebbare Unstetigkeit."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.754,
+            0.888,
+            0.79
+          ],
+          "content": "Falls es keine solche Fortsetzung  $\\tilde{f}$  gibt (weil der Grenzwert nicht existiert), dann sagen wir, dass f eine nicht hebbare Unstetigkeit in  $x_{0}$  hat."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.144,
+            0.81,
+            0.831,
+            0.827
+          ],
+          "content": "Jetzt möchten wir uns die ersten Eigenschaften stetiger Funktionen anschauen."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.841,
+            0.234,
+            0.858
+          ],
+          "level": 2,
+          "content": "Satz 5.2.5"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.869,
+            0.89,
+            0.909
+          ],
+          "content": "(i) Es seien $f, g: (a, b) \\longrightarrow \\mathbb{R}$ in $x_0 \\in (a, b)$ stetig. Dann sind auch $f + g$ und $f \\cdot g$ in $x_0$ stetig. Falls $g(x_0) \\neq 0$, dann ist $\\frac{f}{g}$ in $x_0$ stetig."
+        }
+      ]
+    },
+    {
+      "page_idx": 112,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.092,
+            0.274,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 107"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.138,
+            0.134,
+            0.331,
+            0.326
+          ],
+          "sub_type": "text_image",
+          "content": "y\nx\nx₀\nO",
+          "captions": [
+            {
+              "bbox": [
+                0.137,
+                0.347,
+                0.336,
+                0.364
+              ],
+              "content": "(a) hebbare Unstetigkeit"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0097-0128/images/page_112_image_3.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.379,
+            0.134,
+            0.573,
+            0.325
+          ],
+          "sub_type": "text_image",
+          "content": "y\nx\nx₀",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0097-0128/images/page_112_image_5.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.622,
+            0.135,
+            0.815,
+            0.325
+          ],
+          "sub_type": "contour",
+          "content": "| X | Y |\n| --- | --- |\n| 0 | ~0.1 |\n| x0 | >1.0 |",
+          "captions": [
+            {
+              "bbox": [
+                0.359,
+                0.347,
+                0.841,
+                0.365
+              ],
+              "content": "(b) nicht hebbare Unstetigkeit (c) nicht hebbare Unstetigkeit"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0097-0128/images/page_112_chart_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.145,
+            0.386,
+            0.777,
+            0.412
+          ],
+          "content": "(ii) Sei $\\lim_{x\\to x_0}f(x) = y_0\\in (c,d)$ und $g\\colon (c,d)\\longrightarrow \\mathbb{R}$ in $y_0$ stetig. Dann gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.357,
+            0.424,
+            0.713,
+            0.463
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} (g \\circ f) (x) = g \\left(\\lim _ {x \\to x _ {0}} f (x)\\right) = g (y _ {0}).",
+          "image_source": "../../raw/pages_0097-0128/images/page_112_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.494,
+            0.89,
+            0.531
+          ],
+          "content": "(iii) Es seien $f:(a,b)\\longrightarrow\\mathbb{R}$ in $x_{0}\\in(a,b)$ stetig und $y_{0}:=f(x_{0})\\in(c,d)$. Außerdem sei $g:(c,d)\\longrightarrow\\mathbb{R}$ in $y_{0}$ stetig. Dann ist $g\\circ f$ in $x_{0}$ stetig."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.54,
+            0.89,
+            0.592
+          ],
+          "content": "(iv) Es sei  $f: (a, b) \\longrightarrow \\mathbb{R}$  streng monoton und stetig. Dann ist ihre Umkehrfunktion  $f^{-1}: \\mathcal{W}(f) \\longrightarrow \\mathbb{R}$  ebenfalls streng monoton und stetig. Ferner ist  $\\mathcal{W}(f)$  ein Intervall."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.134,
+            0.623,
+            0.254,
+            0.644
+          ],
+          "level": 2,
+          "content": "Übung 5.2.6"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.654,
+            0.89,
+            0.707
+          ],
+          "content": "Teil (ii) drückt aus, dass wir den Grenzübergang  $n \\rightarrow \\infty$  mit der Auswertung der Funktion vertauschen können, wenn g stetig ist. Geben Sie ein Gegenbeispiel an in dem Fall, dass g in  $y_{0}$  nicht stetig ist."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.739,
+            0.254,
+            0.759
+          ],
+          "level": 2,
+          "content": "Übung 5.2.7"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.769,
+            0.383,
+            0.786
+          ],
+          "content": "Verwenden Sie den Satz, um"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.419,
+            0.797,
+            0.599,
+            0.837
+          ],
+          "content": "\\lim _ {n \\to \\infty} \\exp \\left(\\sin \\left(\\frac {1}{n}\\right)\\right)",
+          "image_source": "../../raw/pages_0097-0128/images/page_112_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.847,
+            0.89,
+            0.9
+          ],
+          "content": "zu berechnen. (In der Klausur, wäre wahrscheinlich nur nach dem Grenzwert gefragt, ohne den Hinweis, welchen Satz bzw. welche Eigenschaft zu verwenden. Sie müssten dann erwähnen, was Sie dabei verwenden.)"
+        }
+      ]
+    },
+    {
+      "page_idx": 113,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.564,
+            0.107
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.899,
+            0.107
+          ],
+          "content": "Seite 108"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.139,
+            0.89,
+            0.191
+          ],
+          "content": "Partieller Beweis von Satz 5.2.5. zu (ii): Wir betrachten eine beliebige Folge $\\{x_{n}\\}_{n=1}^{\\infty}$ mit $x_{n} \\in (a, b)$ und $x_{n} \\neq x_{0}$ für alle $n \\in \\mathbb{N}$, und $x_{n} \\to x_{0}$ für $n \\to \\infty$. Nach Annahme gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.456,
+            0.205,
+            0.888,
+            0.223
+          ],
+          "content": "f (x _ {n}) \\rightarrow y _ {0}. \\tag {5.2.1}",
+          "image_source": "../../raw/pages_0097-0128/images/page_113_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.236,
+            0.889,
+            0.272
+          ],
+          "content": "Ferner ist $f(x_n) \\in (c, d)$ für $n$ groß genug. (Warum?) Also definiert $\\{f(x_n)\\}_{n=1}^{\\infty}$ eine Folge, die gegen $y_0$ konvergiert, und Stetigkeit von $g$ in $y_0$ impliziert"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.43,
+            0.285,
+            0.589,
+            0.304
+          ],
+          "content": "g (f (x _ {n})) \\rightarrow g (y _ {0}).",
+          "image_source": "../../raw/pages_0097-0128/images/page_113_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.316,
+            0.81,
+            0.335
+          ],
+          "content": "Da $\\{x_{n}\\}_{n = 1}^{\\infty}$ beliebig war, erhalten wir aus der Definition des Grenzwerts, dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.341,
+            0.347,
+            0.677,
+            0.385
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} g (f (x)) = g (y _ {0}) = g \\left(\\lim _ {x \\to x _ {0}} f (x)\\right).",
+          "image_source": "../../raw/pages_0097-0128/images/page_113_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.396,
+            0.562,
+            0.414
+          ],
+          "content": "zu (iii): Folgt aus (ii) und Stetigkeit von $f$ in $x_0$."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.869,
+            0.397,
+            0.889,
+            0.411
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0097-0128/images/page_113_image_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.436,
+            0.908,
+            0.505
+          ],
+          "content": "Bemerkung. Wir sollten die Stetigkeit von g zu schätzen wissen. Fehlt sie, dann kann die Zusammensetzung viel schlimmer sein, als die ursprünglichen Funktionen. Zum Beispiel kann die Zusammensetzung g ∘ f nirgendwo stetig sein, obwohl f nur auf Q nicht stetig ist und g nur in einem Punkt nicht stetig ist. Ein Beispiel ist:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.31,
+            0.517,
+            0.707,
+            0.562
+          ],
+          "content": "f (x) = \\left\\{ \\begin{array}{l l} \\frac {1}{q}, & x = \\frac {p}{q} \\in \\mathbb {Q} \\text {(vollständig gekürzt)} \\\\ 0, & x \\notin \\mathbb {Q}, \\end{array} \\right.",
+          "image_source": "../../raw/pages_0097-0128/images/page_113_equation_12.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.315,
+            0.564,
+            0.487,
+            0.61
+          ],
+          "content": "g (x) = \\left\\{ \\begin{array}{l l} 1, & x \\neq 0 \\\\ 0, & x = 0. \\end{array} \\right.",
+          "image_source": "../../raw/pages_0097-0128/images/page_113_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.621,
+            0.315,
+            0.638
+          ],
+          "content": "Die Zusammensetzung"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.401,
+            0.65,
+            0.62,
+            0.696
+          ],
+          "content": "(g \\circ f) (x) = \\left\\{ \\begin{array}{l l} 1, & x \\in \\mathbb {Q} \\\\ 0, & x \\notin \\mathbb {Q} \\end{array} \\right.",
+          "image_source": "../../raw/pages_0097-0128/images/page_113_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.707,
+            0.291,
+            0.724
+          ],
+          "content": "ist nirgendwo stetig."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.134,
+            0.75,
+            0.254,
+            0.77
+          ],
+          "level": 2,
+          "content": "Übung 5.2.8"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.78,
+            0.6,
+            0.798
+          ],
+          "content": "Finden Sie die Konstante $c$, so dass $g$ auf $\\mathbb{R}$ stetig ist:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.397,
+            0.809,
+            0.62,
+            0.856
+          ],
+          "content": "g (x) = \\left\\{ \\begin{array}{l l} x ^ {2} - c ^ {2} & x <   4 \\\\ c x + 2 0 & x \\geq 4. \\end{array} \\right.",
+          "image_source": "../../raw/pages_0097-0128/images/page_113_equation_19.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 114,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.092,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 109"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.138,
+            0.254,
+            0.158
+          ],
+          "level": 2,
+          "content": "Übung 5.2.9"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.168,
+            0.637,
+            0.186
+          ],
+          "content": "Finden Sie Konstanten $c$ und $d$, so dass $h$ auf $\\mathbb{R}$ stetig ist:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.381,
+            0.198,
+            0.639,
+            0.263
+          ],
+          "content": "h (x) = \\left\\{ \\begin{array}{l l} 2 x & x <   1 \\\\ c x ^ {2} + d & 1 \\leq x \\leq 2 \\\\ 4 x & x > 2. \\end{array} \\right.",
+          "image_source": "../../raw/pages_0097-0128/images/page_114_equation_5.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.296,
+            0.266,
+            0.316
+          ],
+          "level": 2,
+          "content": "Übung 5.2.10"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.326,
+            0.89,
+            0.361
+          ],
+          "content": "Bestimmen Sie ob für den gegebenen Punkt a die Funktion f eine hebbare Unstetigkeit in a hat. Falls ja, dann finden Sie die stetige Fortsetzung."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.37,
+            0.241,
+            0.392
+          ],
+          "content": "① a = 7,"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.468,
+            0.388,
+            0.603,
+            0.425
+          ],
+          "content": "f (x) = \\frac {x - 7}{| x - 7 |}.",
+          "image_source": "../../raw/pages_0097-0128/images/page_114_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.431,
+            0.239,
+            0.453
+          ],
+          "content": "② a = 9,"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.465,
+            0.45,
+            0.606,
+            0.485
+          ],
+          "content": "f (x) = \\frac {3 - \\sqrt {x}}{9 - x}.",
+          "image_source": "../../raw/pages_0097-0128/images/page_114_equation_11.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.114,
+            0.522,
+            0.655,
+            0.546
+          ],
+          "level": 2,
+          "content": "5.3 Eigenschaften stetiger Funktionen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.559,
+            0.906,
+            0.593
+          ],
+          "content": "Jetzt schauen wir uns ein paar wichtige und relativ tiefe Eigenschaften stetiger Funktionen an. Die Grundlage für die Sätze ist der Satz von Bolzano-Weierstraß."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.608,
+            0.233,
+            0.625
+          ],
+          "level": 2,
+          "content": "Satz 5.3.1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.637,
+            0.681,
+            0.656
+          ],
+          "content": "Eine auf  $[a,b]$  definierte Funktion, die stetig ist, ist beschränkt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.677,
+            0.908,
+            0.713
+          ],
+          "content": "Bemerkung. Ein beschränktes, abgeschlossenes Intervall  $[a,b]\\subseteq\\mathbb{R}$  heißt kompakt. Im Satz 5.3.1 ist Kompaktheit sehr wichtig."
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.143,
+            0.724,
+            0.907,
+            0.806
+          ],
+          "sub_type": "text",
+          "content": "- Wenn $f$ stetig auf einem unbeschränkten Intervall ist, gilt die Aussage nicht. Gegenbeispiel: $f(x) = x$ auf $[0, \\infty)$.\n- Wenn $f$ stetig auf einem nicht abgeschlossenen Intervall ist, gilt die Aussage nicht. Gegenbeispiel: $f(x) = \\frac{1}{x}$ auf $(0,1]$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.816,
+            0.595,
+            0.833
+          ],
+          "content": "Bemerkung. Im Satz 5.3.1 ist auch Stetigkeit wichtig."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.834,
+            0.301,
+            0.851
+          ],
+          "content": "Erstes Gegenbeispiel:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.398,
+            0.862,
+            0.62,
+            0.908
+          ],
+          "content": "f (x) = \\left\\{ \\begin{array}{l l} \\frac {1}{x}, & x \\in (0, 1 ] \\\\ 0, & x \\in [ - 1, 0 ]. \\end{array} \\right.",
+          "image_source": "../../raw/pages_0097-0128/images/page_114_equation_22.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 115,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.092,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 110"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.135,
+            0.578,
+            0.153
+          ],
+          "content": "Hier ist f auf  $[-1,1]$  definiert, aber nicht beschränkt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.153,
+            0.31,
+            0.169
+          ],
+          "content": "Zweites Gegenbeispiel:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.283,
+            0.182,
+            0.737,
+            0.228
+          ],
+          "content": "g (x) = \\left\\{ \\begin{array}{l l} q, & x = \\frac {p}{q} \\in \\mathbb {Q} \\cap [ 0, 1 ] (\\text {vollständig gekürzt}) \\\\ 0, & x \\in [ 0, 1 ] \\setminus \\mathbb {Q}. \\end{array} \\right.",
+          "image_source": "../../raw/pages_0097-0128/images/page_115_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.239,
+            0.606,
+            0.258
+          ],
+          "content": "Auch hier ist g auf [0,1] definiert, aber nicht beschränkt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.284,
+            0.889,
+            0.319
+          ],
+          "content": "Beweis von Satz 5.3.1. Sei $f:[a,b]\\to\\mathbb{R}$ stetig. Wir werden zeigen, dass $f$ nach oben beschränkt ist. Analog zeigt man, dass $f$ nach unten beschränkt ist."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.319,
+            0.889,
+            0.355
+          ],
+          "content": "Wenn $f$ nicht nach oben beschränkt wäre, würde es für jedes $n \\in \\mathbb{N}$ ein $x_{n} \\in [a,b]$ geben, so dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.461,
+            0.367,
+            0.888,
+            0.386
+          ],
+          "content": "f (x _ {n}) \\geq n. \\tag {5.3.1}",
+          "image_source": "../../raw/pages_0097-0128/images/page_115_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.398,
+            0.89,
+            0.436
+          ],
+          "content": "Da  $\\{x_{n}\\}_{n=1}^{\\infty}$  beschränkt ist, existiert nach dem Satz von Bolzano-Weierstraß eine konvergente Teilfolge  $\\{x_{n_{k}}\\}_{n=1}^{\\infty}$  mit Grenzwert  $x_{0} \\in R$ . Aus"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.386,
+            0.447,
+            0.635,
+            0.466
+          ],
+          "content": "a \\leq x _ {n _ {k}} \\leq b \\quad \\text { für   alle } k \\in \\mathbb {N}",
+          "image_source": "../../raw/pages_0097-0128/images/page_115_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.479,
+            0.226,
+            0.496
+          ],
+          "content": "folgt, dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.458,
+            0.51,
+            0.562,
+            0.528
+          ],
+          "content": "a \\leq x _ {0} \\leq b,",
+          "image_source": "../../raw/pages_0097-0128/images/page_115_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.541,
+            0.442,
+            0.56
+          ],
+          "content": "also $x_0 \\in \\mathcal{D}(f)$. Da $f$ stetig ist, gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.384,
+            0.572,
+            0.637,
+            0.602
+          ],
+          "content": "f (x _ {0}) = \\lim _ {k \\to \\infty} f (x _ {n _ {k}}) \\stackrel {(5. 3. 1)} {=} \\infty ,",
+          "image_source": "../../raw/pages_0097-0128/images/page_115_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.614,
+            0.427,
+            0.633
+          ],
+          "content": "was widerspricht, dass $x_0 \\in \\mathcal{D}(f)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.654,
+            0.907,
+            0.725
+          ],
+          "content": "Wir haben häufig bemerkt, dass eine Funktion sein Supremum und Infimum nicht annehmen muss (z.B.  $f(x) = x$  auf (0,1) oder  $\\tanh(x)$  auf R). Der nächste Satz sagt uns, dass stetige Funktionen auf kompakten Mengen doch ihr Supremum und ihr Infimum annehmen. (Dies ist später z.B. für Optimierungsprobleme und den Mittelwertsatz wichtig.)"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.132,
+            0.739,
+            0.5,
+            0.757
+          ],
+          "level": 2,
+          "content": "Satz 5.3.2: Satz über die Extremwerte"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.767,
+            0.733,
+            0.787
+          ],
+          "content": "Wenn $f$ auf $[a,b]$ stetig ist, existieren Punkte $x_{m}$, $x_{M} \\in [a,b]$, so dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.359,
+            0.799,
+            0.662,
+            0.83
+          ],
+          "content": "f (x _ {m}) = \\inf _ {[ a, b ]} f, \\qquad f (x _ {M}) = \\sup _ {[ a, b ]} f.",
+          "image_source": "../../raw/pages_0097-0128/images/page_115_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.852,
+            0.908,
+            0.887
+          ],
+          "content": "Bemerkung. Der Satz ist nicht „konstruktiv“: Er sagt uns nicht, was  $x_{m}$ ,  $x_{M}$  sind, oder wie wir die Zahlen finden oder approximieren können."
+        }
+      ]
+    },
+    {
+      "page_idx": 116,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.898,
+            0.107
+          ],
+          "content": "Seite 111"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.138,
+            0.386,
+            0.155
+          ],
+          "content": "Beweis von Satz 5.3.2. Seien"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.397,
+            0.169,
+            0.623,
+            0.199
+          ],
+          "content": "m := \\inf _ {[ a, b ]} f, \\quad M := \\sup _ {[ a, b ]} f.",
+          "image_source": "../../raw/pages_0097-0128/images/page_116_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.211,
+            0.89,
+            0.248
+          ],
+          "content": "Satz 5.3.1 sagt, dass $m, M \\in \\mathbb{R}$. Nach der Approximations-Eigenschaft des Supremums existiert eine Folge $\\{y_n\\}_{n=1}^{\\infty}$ und eine Folge $\\{x_n\\}_{n=1}^{\\infty}$, so dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.212,
+            0.258,
+            0.888,
+            0.283
+          ],
+          "content": "x _ {n} \\in [ a, b ] \\quad \\text {f ü r a l l e} n \\in \\mathbb {N}, \\quad y _ {n} = f (x _ {n}) \\quad \\text {u n d} \\quad \\lim _ {n \\rightarrow \\infty} y _ {n} = M. \\tag {5.3.2}",
+          "image_source": "../../raw/pages_0097-0128/images/page_116_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.295,
+            0.23,
+            0.312
+          ],
+          "content": "Angesichts"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.461,
+            0.327,
+            0.561,
+            0.344
+          ],
+          "content": "a \\leq x _ {n} \\leq b",
+          "image_source": "../../raw/pages_0097-0128/images/page_116_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.357,
+            0.889,
+            0.392
+          ],
+          "content": "existieren nach dem Satz von Bolzano-Weierstraß eine Teilfolge  $\\{x_{n_{k}}\\}_{k=1}^{\\infty}$  und ein Grenzwert  $x_{0} \\in R$ , so dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.332,
+            0.406,
+            0.686,
+            0.425
+          ],
+          "content": "x _ {n _ {k}} \\to x _ {0} \\text {f ü r} k \\to \\infty \\quad \\text {und} \\quad a \\leq x _ {0} \\leq b.",
+          "image_source": "../../raw/pages_0097-0128/images/page_116_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.437,
+            0.332,
+            0.455
+          ],
+          "content": "Stetigkeit von $f$ liefert"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.324,
+            0.468,
+            0.697,
+            0.497
+          ],
+          "content": "f (x _ {0}) = f (\\lim _ {k \\to \\infty} x _ {n _ {k}}) = \\lim _ {k \\to \\infty} f (x _ {n _ {k}}) \\stackrel {(5. 3. 2)} {=} M.",
+          "image_source": "../../raw/pages_0097-0128/images/page_116_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.509,
+            0.359,
+            0.526
+          ],
+          "content": "Analog für das Minimum."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.869,
+            0.51,
+            0.889,
+            0.523
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0097-0128/images/page_116_image_14.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.559,
+            0.254,
+            0.579
+          ],
+          "level": 2,
+          "content": "Übung 5.3.3"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.589,
+            0.456,
+            0.607
+          ],
+          "content": "Begründen Sie folgende Behauptung:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.18,
+            0.618,
+            0.838,
+            0.653
+          ],
+          "content": "Ich baue ein rechteckiges Gehege. Dafür habe ich 100m Zaun zur Verfügung. Es gibt ein größtmögliches Gehege, das ich einrichten kann."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.674,
+            0.538,
+            0.692
+          ],
+          "content": "Der nächste Satz liefert Lösungen der Gleichung"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.467,
+            0.706,
+            0.553,
+            0.724
+          ],
+          "content": "f (x) = y.",
+          "image_source": "../../raw/pages_0097-0128/images/page_116_equation_19.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.132,
+            0.755,
+            0.412,
+            0.772
+          ],
+          "level": 2,
+          "content": "Satz 5.3.4: Zwischenwertsatz"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.784,
+            0.393,
+            0.802
+          ],
+          "content": "Sei $f:[a,b]\\to \\mathbb{R}$ stetig. Seien"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.38,
+            0.815,
+            0.64,
+            0.842
+          ],
+          "content": "m := \\min _ {[ a, b ]} f, \\qquad M := \\max _ {[ a, b ]} f.",
+          "image_source": "../../raw/pages_0097-0128/images/page_116_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.854,
+            0.717,
+            0.873
+          ],
+          "content": "Dann gibt es zu jedem $y \\in [m, M]$ mindestens ein $x \\in [a, b]$, so dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.468,
+            0.886,
+            0.552,
+            0.904
+          ],
+          "content": "f (x) = y.",
+          "image_source": "../../raw/pages_0097-0128/images/page_116_equation_24.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 117,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.564,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 112"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.136,
+            0.907,
+            0.169
+          ],
+          "content": "Bemerkung. Obwohl die Aussage des Satzes nicht konstruktiv ist, geben wir einen konstrukiven Beweis an."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.176,
+            0.908,
+            0.228
+          ],
+          "content": "Bemerkung. Wissen Sie noch, wieviel Mühe es gekostet hat, zu zeigen, dass  $\\mathcal{W}(\\exp(\\cdot)) = (0, \\infty)$  gilt? Geben Sie eine Abkürzung mithilfe des Zwischenwertsatzes an. Vergessen Sie nicht, Stetigkeit zu verwenden."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.235,
+            0.576,
+            0.252
+          ],
+          "content": "Bemerkung. Eine leichte Folgerung ist, dass, wenn"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.445,
+            0.26,
+            0.576,
+            0.278
+          ],
+          "content": "f (a) \\cdot f (b) <   0",
+          "image_source": "../../raw/pages_0097-0128/images/page_117_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.285,
+            0.908,
+            0.319
+          ],
+          "content": "ist, f eine Nullstelle auf  $(a,b)$  besitzt. Insbesondere besitzt jedes Polynom  $(2n-1)$ -ten Grades mindestens eine (reelle) Nullstelle."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.326,
+            0.746,
+            0.344
+          ],
+          "content": "Bemerkung. Wenn f nicht stetig ist, gilt der Satz nicht! Gegenbeispiel:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.384,
+            0.35,
+            0.635,
+            0.395
+          ],
+          "content": "f (x) = \\left\\{ \\begin{array}{l l} x ^ {2} + 1, & x \\in [ 1, 2 ] \\\\ x ^ {2} - 2, & x \\in [ 0, 1). \\end{array} \\right.",
+          "image_source": "../../raw/pages_0097-0128/images/page_117_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.4,
+            0.197,
+            0.415
+          ],
+          "content": "Dann ist"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.395,
+            0.425,
+            0.624,
+            0.452
+          ],
+          "content": "\\min _ {[ 0, 2 ]} f = - 2, \\quad \\max _ {[ 0, 2 ]} f = 5,",
+          "image_source": "../../raw/pages_0097-0128/images/page_117_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.459,
+            0.459,
+            0.476
+          ],
+          "content": "aber es gibt z.B. kein $x \\in [0,2]$, so dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.467,
+            0.484,
+            0.552,
+            0.502
+          ],
+          "content": "f (x) = 1.",
+          "image_source": "../../raw/pages_0097-0128/images/page_117_equation_13.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.52,
+            0.254,
+            0.54
+          ],
+          "level": 2,
+          "content": "Übung 5.3.5"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.551,
+            0.889,
+            0.57
+          ],
+          "content": "Begründen Sie, dass es kein  $x \\in [0,2]$  gibt, so dass für die obige Funktion gilt  $f(x) = 1$ ."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.592,
+            0.254,
+            0.613
+          ],
+          "level": 2,
+          "content": "Übung 5.3.6"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.623,
+            0.264,
+            0.638
+          ],
+          "content": "Betrachten Sie"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.384,
+            0.649,
+            0.636,
+            0.695
+          ],
+          "content": "f (x) = \\left\\{ \\begin{array}{l l} 1 - x ^ {2} & 0 \\leq x \\leq 1 \\\\ 1 + \\frac {x}{2} & 1 <   x \\leq 2. \\end{array} \\right.",
+          "image_source": "../../raw/pages_0097-0128/images/page_117_equation_18.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.145,
+            0.705,
+            0.787,
+            0.755
+          ],
+          "sub_type": "text",
+          "content": "① Zeigen Sie, dass f nicht stetig auf  $[0,2]$  ist.\n② Zeigen Sie, dass f nicht jeden Wert zwischen  $f(0)$  und  $f(2)$  annimmt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.777,
+            0.676,
+            0.795
+          ],
+          "content": "Beweis von Satz 5.3.4. Wenn $m = M$ ist, dann ist $f$ konstant:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.382,
+            0.808,
+            0.637,
+            0.827
+          ],
+          "content": "f (x) = m \\quad \\text { für   alle } x \\in [ a, b ].",
+          "image_source": "../../raw/pages_0097-0128/images/page_117_equation_23.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.84,
+            0.89,
+            0.875
+          ],
+          "content": "Also nehmen wir an, dass m < M. Dass es  $x_{m}$ ,  $x_{M}$  gibt mit  $f(x_{m}) = m$ ,  $f(x_{M}) = M$ , folgt aus dem Satz über die Extremwerte. Also nehmen wir o.B.d.A. an, dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.455,
+            0.888,
+            0.888,
+            0.907
+          ],
+          "content": "y \\in (m, M). \\tag {5.3.3}",
+          "image_source": "../../raw/pages_0097-0128/images/page_117_equation_25.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 118,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 113"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.133,
+            0.262,
+            0.15
+          ],
+          "content": "Wir definieren"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.434,
+            0.165,
+            0.587,
+            0.183
+          ],
+          "content": "g (x) := f (x) - y.",
+          "image_source": "../../raw/pages_0097-0128/images/page_118_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.195,
+            0.281,
+            0.214
+          ],
+          "content": "Nach (5.3.3) gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.402,
+            0.227,
+            0.888,
+            0.246
+          ],
+          "content": "g (x _ {m}) <   0, \\quad g (x _ {M}) > 0. \\tag {5.3.4}",
+          "image_source": "../../raw/pages_0097-0128/images/page_118_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.259,
+            0.755,
+            0.277
+          ],
+          "content": "Es reicht aus zu zeigen, dass es ein  $\\bar{x}$  zwischen  $x_{m}$  und  $x_{M}$  gibt, so dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.468,
+            0.29,
+            0.551,
+            0.308
+          ],
+          "content": "g (\\bar {x}) = 0.",
+          "image_source": "../../raw/pages_0097-0128/images/page_118_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.322,
+            0.401,
+            0.339
+          ],
+          "content": "Wenn $x_{m} < x_{M}$, definieren wir"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.417,
+            0.354,
+            0.603,
+            0.371
+          ],
+          "content": "a _ {1} = x _ {m}, \\quad b _ {1} := x _ {M},",
+          "image_source": "../../raw/pages_0097-0128/images/page_118_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.384,
+            0.654,
+            0.402
+          ],
+          "content": "ansonsten umgekehrt. Auf jeden Fall impliziert (5.3.4), dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.435,
+            0.415,
+            0.584,
+            0.434
+          ],
+          "content": "g (a _ {1}) \\cdot g (b _ {1}) <   0.",
+          "image_source": "../../raw/pages_0097-0128/images/page_118_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.447,
+            0.314,
+            0.463
+          ],
+          "content": "Jetzt betrachten wir"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.452,
+            0.473,
+            0.569,
+            0.507
+          ],
+          "content": "c := \\frac {a _ {1} + b _ {1}}{2}.",
+          "image_source": "../../raw/pages_0097-0128/images/page_118_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.517,
+            0.276,
+            0.534
+          ],
+          "content": "Es gilt entweder"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.265,
+            0.548,
+            0.754,
+            0.567
+          ],
+          "content": "g (c) = 0 \\quad \\text {oder} \\quad g (c) \\cdot g (b _ {1}) > 0 \\quad \\text {oder} \\quad g (c) \\cdot g (b _ {1}) <   0.",
+          "image_source": "../../raw/pages_0097-0128/images/page_118_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.579,
+            0.678,
+            0.596
+          ],
+          "content": "Im ersten Fall setzen wir  $\\bar{x} := c$ . Im zweiten Fall definieren wir"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.427,
+            0.612,
+            0.593,
+            0.629
+          ],
+          "content": "a _ {2} := a _ {1}, \\quad b _ {2} := c,",
+          "image_source": "../../raw/pages_0097-0128/images/page_118_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.642,
+            0.427,
+            0.658
+          ],
+          "content": "und im dritten Fall definieren wir"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.428,
+            0.674,
+            0.591,
+            0.691
+          ],
+          "content": "a _ {2} := c, \\quad b _ {2} := b _ {1}.",
+          "image_source": "../../raw/pages_0097-0128/images/page_118_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.704,
+            0.889,
+            0.742
+          ],
+          "content": "Falls für ein  $n \\in N$  gilt  $g(c) = 0$ , dann haben wir die gewünschte Nullstelle  $\\bar{x}$  gefunden. Ansonsten haben wir eine Intervallschachtelung  $\\{[a_{n}, b_{n}] \\}_{n=1}^{\\infty}$  definiert, wobei"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.364,
+            0.753,
+            0.888,
+            0.772
+          ],
+          "content": "g (a _ {n}) \\cdot g (b _ {n}) <   0 \\quad \\text {f ü r a l l e} n \\in \\mathbb {N}. \\tag {5.3.5}",
+          "image_source": "../../raw/pages_0097-0128/images/page_118_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.784,
+            0.592,
+            0.803
+          ],
+          "content": "Da $b_{n} - a_{n} \\leq |b - a| / 2^{n-1}$ ist, gilt nach Lemma 4.4.8"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.413,
+            0.816,
+            0.609,
+            0.841
+          ],
+          "content": "\\lim _ {n \\to \\infty} a _ {n} = \\lim _ {n \\to \\infty} b _ {n} =: \\bar {x}",
+          "image_source": "../../raw/pages_0097-0128/images/page_118_equation_24.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 119,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.458,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 114"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.133,
+            0.451,
+            0.152
+          ],
+          "content": "für ein  $\\bar{x} \\in [a, b]$ . Da g stetig ist, gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.375,
+            0.164,
+            0.644,
+            0.189
+          ],
+          "content": "\\lim _ {n \\to \\infty} g (a _ {n}) = g (\\bar {x}) = \\lim _ {n \\to \\infty} g (b _ {n}).",
+          "image_source": "../../raw/pages_0097-0128/images/page_119_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.2,
+            0.351,
+            0.218
+          ],
+          "content": "Aus (5.3.5) schließen wir"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.385,
+            0.23,
+            0.635,
+            0.256
+          ],
+          "content": "0 \\geq \\lim _ {n \\to \\infty} g (a _ {n}) g (b _ {n}) = g (\\bar {x}) ^ {2},",
+          "image_source": "../../raw/pages_0097-0128/images/page_119_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.268,
+            0.199,
+            0.283
+          ],
+          "content": "so dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.468,
+            0.298,
+            0.551,
+            0.317
+          ],
+          "content": "g (\\bar {x}) = 0.",
+          "image_source": "../../raw/pages_0097-0128/images/page_119_equation_8.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.869,
+            0.331,
+            0.889,
+            0.345
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0097-0128/images/page_119_image_9.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.377,
+            0.254,
+            0.398
+          ],
+          "level": 2,
+          "content": "Übung 5.3.7"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.408,
+            0.375,
+            0.426
+          ],
+          "content": "Begründen Sie die Aussage:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.18,
+            0.436,
+            0.78,
+            0.455
+          ],
+          "content": "Für jedes Polynom $(2n - 1)$-ten Grades ist der Wertebereich ganz $\\mathbb{R}$."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.488,
+            0.254,
+            0.508
+          ],
+          "level": 2,
+          "content": "Übung 5.3.8"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.519,
+            0.89,
+            0.556
+          ],
+          "content": "Zeigen Sie, dass  $p(x) = x^{2} + x - 1$  zwei reelle Nullstellen  $x_{\\pm}$  hat und bestimmen Sie ganze Zahlen  $s_{\\pm}$ , so dass gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.331,
+            0.568,
+            0.688,
+            0.587
+          ],
+          "content": "x _ {-} \\in (s _ {-}, s _ {-} + 1), \\qquad x _ {+} \\in (s _ {+}, s _ {+} + 1).",
+          "image_source": "../../raw/pages_0097-0128/images/page_119_equation_15.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.62,
+            0.254,
+            0.64
+          ],
+          "level": 2,
+          "content": "Übung 5.3.9"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.649,
+            0.582,
+            0.668
+          ],
+          "content": "Zeigen Sie, dass eine positive Lösung der Gleichung"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.422,
+            0.681,
+            0.598,
+            0.7
+          ],
+          "content": "\\cos (x) = \\exp (x) - 1",
+          "image_source": "../../raw/pages_0097-0128/images/page_119_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.713,
+            0.212,
+            0.728
+          ],
+          "content": "existiert."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.761,
+            0.265,
+            0.781
+          ],
+          "level": 2,
+          "content": "Übung 5.3.10"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.79,
+            0.273,
+            0.807
+          ],
+          "content": "Zeigen Sie, dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.431,
+            0.807,
+            0.589,
+            0.826
+          ],
+          "content": "\\sin (x) = \\exp (- x)",
+          "image_source": "../../raw/pages_0097-0128/images/page_119_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.833,
+            0.308,
+            0.85
+          ],
+          "content": "eine Lösung besitzt."
+        }
+      ]
+    },
+    {
+      "page_idx": 120,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.092,
+            0.274,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 115"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.138,
+            0.264,
+            0.158
+          ],
+          "level": 2,
+          "content": "Übung 5.3.11"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.168,
+            0.274,
+            0.186
+          ],
+          "content": "Zeigen Sie, dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.421,
+            0.183,
+            0.598,
+            0.22
+          ],
+          "content": "\\sin \\left(\\frac {1}{x}\\right) = \\exp (- x)",
+          "image_source": "../../raw/pages_0097-0128/images/page_120_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.226,
+            0.414,
+            0.243
+          ],
+          "content": "eine Lösung  $x_{*} \\in (0, 2\\pi)$  besitzt."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.277,
+            0.266,
+            0.297
+          ],
+          "level": 2,
+          "content": "Übung 5.3.12"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.307,
+            0.432,
+            0.325
+          ],
+          "content": "Für die Funktion $f$ gegeben durch"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.442,
+            0.336,
+            0.578,
+            0.369
+          ],
+          "content": "f (x) = x ^ {3} - \\frac {1}{x},",
+          "image_source": "../../raw/pages_0097-0128/images/page_120_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.38,
+            0.647,
+            0.399
+          ],
+          "content": "zeigen Sie, dass es einen Punkt  $x_{*}$  gibt, so dass  $f(x_{*}) = 10$ ."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.431,
+            0.266,
+            0.451
+          ],
+          "level": 2,
+          "content": "Übung 5.3.13"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.461,
+            0.89,
+            0.495
+          ],
+          "content": "Verwenden Sie den Zwischenwertsatz, um zu zeigen, dass es ein  $r \\in R$  gibt, so dass  $r^{2} = 2$ ."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.526,
+            0.266,
+            0.547
+          ],
+          "level": 2,
+          "content": "Übung 5.3.14"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.556,
+            0.89,
+            0.644
+          ],
+          "content": "Sie gehen am Montag vom Marktplatz zum Hauptgebäude. Sie verlassen den Marktplatz um 10 Uhr und kommen am Hauptgebäude um 10 : 24 Uhr an. Am Dienstag nehmen Sie den gleichen Pfad vom Hauptgebäude um 10 Uhr zum Marktplatz und kommen um 10 : 24 Uhr an. Beweisen Sie, dass es einen Punkt entlang des Pfades gibt, wo Sie zum genau gleichen Zeitpunkt an beiden Tagen waren."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.112,
+            0.672,
+            0.907,
+            0.776
+          ],
+          "content": "Methode zur Nullstellenbestimmung: Wie erwähnt, enthält der Beweis einen Algorithmus, durch den man den Punkt  $\\bar{x}$  finden kann. Das so genannte Bisektionsverfahren ist eine zuverlässige Methode, Nullstellen zu finden, aber leider konvergiert es sehr langsam. In dieser Methode nimmt man immer den Mittelpunkt  $c = \\frac{a_{n} + b_{n}}{2}$  um das neue Intervall zu definieren, egal wie sich f verhält. Eine andere Möglichkeit wäre es, mehr Infomation über die Funktion f zu benutzen, um ein neues Intervall zu finden."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.426,
+            0.788,
+            0.599,
+            0.915
+          ],
+          "sub_type": "text_image",
+          "content": "a'α\nb'\nf'",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0097-0128/images/page_120_image_16.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 121,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.564,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 116"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.135,
+            0.907,
+            0.203
+          ],
+          "content": "Stellen Sie sich vor: Wir suchen eine Nullstelle  $\\bar{x}$  von f. Wir betrachten die Sekante l, die  $(a, f(a))$  und  $(b, f(b))$  miteinander verbindet. Wenn f „fast linear“ wäre, also  $f(x) \\approx l(x)$  (in irgendeinem Sinne), dann wäre es schlau,  $\\bar{x}$  durch die Nullstelle  $\\alpha$  von l zu approximieren. Diese Idee führt zur Sekantenmethode."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.205,
+            0.307,
+            0.22
+          ],
+          "content": "Die Sekantenmethode"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.222,
+            0.384,
+            0.238
+          ],
+          "content": "Gegeben seien $a, b \\in \\mathbb{R}$ mit"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.442,
+            0.252,
+            0.576,
+            0.27
+          ],
+          "content": "f (a) \\cdot f (b) <   0.",
+          "image_source": "../../raw/pages_0097-0128/images/page_121_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.283,
+            0.238,
+            0.299
+          ],
+          "content": "Man definiere"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.387,
+            0.309,
+            0.632,
+            0.345
+          ],
+          "content": "\\alpha := a - f (a) \\cdot \\frac {b - a}{f (b) - f (a)}.",
+          "image_source": "../../raw/pages_0097-0128/images/page_121_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.356,
+            0.55,
+            0.373
+          ],
+          "content": "Wenn  $f(\\alpha) \\neq 0$  ist, dann fährt man wie folgt fort:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.374,
+            0.484,
+            0.39
+          ],
+          "content": "Wenn  $f(a) \\cdot f(\\alpha) < 0$  ist, dann setze man"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.434,
+            0.405,
+            0.585,
+            0.421
+          ],
+          "content": "a _ {1} = a, \\quad b _ {1} = \\alpha ,",
+          "image_source": "../../raw/pages_0097-0128/images/page_121_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.437,
+            0.163,
+            0.45
+          ],
+          "content": "sonst"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.435,
+            0.466,
+            0.584,
+            0.483
+          ],
+          "content": "a _ {1} = \\alpha , \\quad b _ {1} = b.",
+          "image_source": "../../raw/pages_0097-0128/images/page_121_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.497,
+            0.313,
+            0.512
+          ],
+          "content": "Dann iteriert man mit"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.357,
+            0.522,
+            0.662,
+            0.56
+          ],
+          "content": "\\alpha_ {n + 1} = a _ {n} - f (a _ {n}) \\cdot \\frac {b _ {n} - a _ {n}}{f (b _ {n}) - f (a _ {n})}.",
+          "image_source": "../../raw/pages_0097-0128/images/page_121_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.569,
+            0.906,
+            0.604
+          ],
+          "content": "Die Sekantenmethode ist schneller als das Bisektionsverfahren und ist relativ zuverlässig, insbesondere wenn man ungefähr weiß, wo die Lösung liegt."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.617,
+            0.264,
+            0.637
+          ],
+          "level": 2,
+          "content": "Übung 5.3.15"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.648,
+            0.632,
+            0.667
+          ],
+          "content": "Betrachten Sie die Gleichung  $f(x) = x^{2} - 2 = 0$  auf [1,2]."
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.141,
+            0.672,
+            0.896,
+            0.792
+          ],
+          "sub_type": "text",
+          "content": "① Finden Sie die nächsten zwei Intervalle, die Sie mit dem Bisektionsverfahren erhalten.\n② Finden Sie die nächsten zwei Werte  $\\alpha_{1}$  und  $\\alpha_{2}$  und Intervalle, die Sie mit der Sekantenmethode erhalten.\n③ Welche Methode liefert eine bessere Approximation nach zwei Schritten?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.81,
+            0.907,
+            0.863
+          ],
+          "content": "Noch schneller ist das so gennante Newtonverfahren. Wir können die Methode genauer besprechen, wenn wir die Ableitung definiert haben. Die grobe Idee ist, dass die Newtonsche Methode eine Folge  $\\{\\alpha_{n}\\}_{n=1}^{\\infty}$  erzeugt mit"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.445,
+            0.876,
+            0.574,
+            0.893
+          ],
+          "content": "\\alpha_ {n} = \\varphi (\\alpha_ {n - 1}),",
+          "image_source": "../../raw/pages_0097-0128/images/page_121_equation_24.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.906,
+            0.497,
+            0.923
+          ],
+          "content": "für eine stetige Funktion $\\varphi$. Man hofft, dass"
+        }
+      ]
+    },
+    {
+      "page_idx": 122,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.115,
+            0.092,
+            0.274,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 117"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.136,
+            0.512,
+            0.153
+          ],
+          "content": "$\\alpha_{n}$ für $n \\to \\infty$ gegen $\\bar{\\alpha} \\in R$ konvergiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.159,
+            0.886,
+            0.179
+          ],
+          "content": "Dann ist  $\\bar{\\alpha}$  die gesuchte Nullstelle. Wenn  $\\{\\alpha_{n}\\}_{n=1}^{\\infty}$  konvergiert, dann löst  $\\bar{\\alpha}$  die Gleichung"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.464,
+            0.186,
+            0.555,
+            0.204
+          ],
+          "content": "\\bar {\\alpha} = \\varphi (\\bar {\\alpha}).",
+          "image_source": "../../raw/pages_0097-0128/images/page_122_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.212,
+            0.4,
+            0.231
+          ],
+          "content": "Also ist  $\\bar{\\alpha}$  ein „Fixpunkt“ von  $\\varphi$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.237,
+            0.908,
+            0.271
+          ],
+          "content": "Bemerkung. Man kann an konkreten Beispielen sehen, dass im Allgemeinen die Rate des Newtonverfahrens besser ist."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.289,
+            0.296,
+            0.306
+          ],
+          "level": 2,
+          "content": "Definition 5.3.16"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.317,
+            0.653,
+            0.336
+          ],
+          "content": "Ein Fixpunkt einer Funktion $f$ ist ein Punkt $x \\in \\mathbb{R}$, so dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.466,
+            0.349,
+            0.554,
+            0.367
+          ],
+          "content": "x = f (x).",
+          "image_source": "../../raw/pages_0097-0128/images/page_122_equation_10.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.405,
+            0.392,
+            0.619,
+            0.516
+          ],
+          "sub_type": "line",
+          "content": "| X | y = x | \\(\\phi\\) |\n| --- | --- | --- |\n| 0 | 0 | 0 |\n| \\(\\alpha\\)̅ | \\(\\alpha\\)̅ | \\(\\alpha\\)̅ |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0097-0128/images/page_122_chart_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.542,
+            0.907,
+            0.578
+          ],
+          "content": "Abbildung 5.7: Der Fixpunkt  $\\bar{\\alpha}$  ist der Schnittpunkt zweier Graphen: dem von  $\\varphi$  und dem von  $y(x)=x$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.595,
+            0.908,
+            0.631
+          ],
+          "content": "Beispiel. Die Funktion  $f(x) = x + 1$  hat keine Fixpunkte. Die Funktion  $f(x) = x^{2}$  hat zwei Fixpunkte, x = 0 und x = 1. Jedes  $x \\in R$  ist ein Fixpunkt der Funktion  $f(x) = x$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.637,
+            0.905,
+            0.656
+          ],
+          "content": "Der letzte Satz dieses Abschnitts liefert Existenz eines Fixpunkts einer stetigen Funktion."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.665,
+            0.245,
+            0.682
+          ],
+          "level": 2,
+          "content": "Satz 5.3.17"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.693,
+            0.879,
+            0.713
+          ],
+          "content": "Sei $f:[a,b]\\to \\mathbb{R}$ stetig mit $\\mathcal{W}(f)\\subseteq [a,b]$. Dann besitzt $f$ mindestens einen Fixpunkt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.736,
+            0.89,
+            0.774
+          ],
+          "content": "Beweis. Wenn  $f(a) = a$  bzw.  $f(b) = b$ , dann ist a bzw. b ein Fixpunkt. Wenn nicht, dann ist  $f(a) \\in (a, b]$  und  $f(b) \\in [a, b)$ . Also gilt für  $\\tilde{f}(x) := f(x) - x$ , dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.417,
+            0.783,
+            0.603,
+            0.806
+          ],
+          "content": "\\tilde {f} (a) > 0, \\quad \\tilde {f} (b) <   0.",
+          "image_source": "../../raw/pages_0097-0128/images/page_122_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.819,
+            0.89,
+            0.856
+          ],
+          "content": "Nach dem Zwischenwertsatz gibt es ein  $\\bar{x} \\in (a, b)$  mit  $\\tilde{f}(\\bar{x}) = 0$ . Also ist  $\\bar{x}$  ein Fixpunkt von f. ☐"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.871,
+            0.908,
+            0.924
+          ],
+          "content": "Fixpunkte sind oft wichtig für numerische Verfahren (z.B. für Runge-Kutta Methoden) und sind auch für die Theorie wichtig (z.B. um zu zeigen, dass Lösungen von gewöhnlichen Differentialgleichungen existieren)."
+        }
+      ]
+    },
+    {
+      "page_idx": 123,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.115,
+            0.093,
+            0.274,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 118"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.115,
+            0.135,
+            0.515,
+            0.159
+          ],
+          "level": 2,
+          "content": "5.4 Gleichmäßige Stetigkeit"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.18,
+            0.283,
+            0.196
+          ],
+          "level": 2,
+          "content": "Definition 5.4.1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.207,
+            0.89,
+            0.24
+          ],
+          "content": "Eine reelle Funktion heißt gleichmäßig stetig, wenn es zu jedem  $\\varepsilon > 0$  ein  $\\delta > 0$  gibt, so dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.25,
+            0.242,
+            0.771,
+            0.261
+          ],
+          "content": "| x - y | \\leq \\delta \\quad \\Longrightarrow \\quad | f (x) - f (y) | \\leq \\varepsilon \\quad \\text { für   alle } x, y \\in \\mathcal {D} (f).",
+          "image_source": "../../raw/pages_0097-0128/images/page_123_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.28,
+            0.754,
+            0.296
+          ],
+          "content": "War dies nicht die Definition von Stetigkeit? Was ist der Unterschied?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.297,
+            0.906,
+            0.349
+          ],
+          "content": "In der Definiton oben hängt $\\delta$ von $\\varepsilon$-und nur von $\\varepsilon$-ab. Dass $f$ auf $\\mathcal{D}(f)$ stetig ist, bedeutet, dass $f$ in jedem Punkt $x_0 \\in \\mathcal{D}(f)$ stetig ist. Die Funktion $f$ ist in $x_0$ stetig, wenn es zu jedem $\\varepsilon > 0$ ein $\\delta > 0$ gibt, so dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.229,
+            0.36,
+            0.791,
+            0.38
+          ],
+          "content": "| x - x _ {0} | \\leq \\delta \\quad \\text {impliziert} \\quad | f (x) - f (x _ {0}) | \\leq \\varepsilon \\quad \\text {für alle} x \\in \\mathcal {D} (f).",
+          "image_source": "../../raw/pages_0097-0128/images/page_123_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.389,
+            0.517,
+            0.407
+          ],
+          "content": "Hier hängt $\\delta$ sowohl von $\\varepsilon$ als auch von $x_0$ ab."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.416,
+            0.909,
+            0.454
+          ],
+          "content": "Beispiel. Um den Unterschied besser zu verstehen, schauen wir uns das Beispiel  $f(x) = \\frac{1}{x}$ ,  $x \\in (0,1)$  an. Die Funktion f ist stetig. Aber was passiert mit  $\\delta = \\delta(\\varepsilon, x)$  für x nah an 0?"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.402,
+            0.465,
+            0.629,
+            0.656
+          ],
+          "sub_type": "area",
+          "content": "| X | Y (Curve) | Y (Area) |\n| --- | --- | --- |\n| x1 | 1/x1 | 1/x1 |\n| x2 | 1/x2 | 1/x2 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0097-0128/images/page_123_chart_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.682,
+            0.904,
+            0.7
+          ],
+          "content": "Abbildung 5.8: Für $x_{1}$ nah an 0 ist $\\delta = \\delta (\\varepsilon ,x_1)$ viel kleiner als $\\delta = \\delta (\\varepsilon ,x_2)$ für $x_{2}$ nah an 1."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.144,
+            0.72,
+            0.735,
+            0.737
+          ],
+          "content": "Sei $\\varepsilon > 0$ gegeben und $x_0 \\in (0,1)$. Wir suchen ein Kriterium, damit"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.451,
+            0.747,
+            0.571,
+            0.786
+          ],
+          "content": "\\left| \\frac {1}{x} - \\frac {1}{x _ {0}} \\right| \\leq \\varepsilon",
+          "image_source": "../../raw/pages_0097-0128/images/page_123_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.794,
+            0.212,
+            0.811
+          ],
+          "content": "ist. Es gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.399,
+            0.819,
+            0.622,
+            0.858
+          ],
+          "content": "\\left| \\frac {1}{x} - \\frac {1}{x _ {0}} \\right| = \\left| \\frac {x _ {0} - x}{x x _ {0}} \\right| \\leq \\varepsilon ,",
+          "image_source": "../../raw/pages_0097-0128/images/page_123_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.865,
+            0.166,
+            0.877
+          ],
+          "content": "wenn"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.375,
+            0.886,
+            0.644,
+            0.921
+          ],
+          "content": "x \\geq \\frac {x _ {0}}{2} \\quad u n d \\quad | x - x _ {0} | \\leq \\frac {x _ {0} ^ {2} \\varepsilon}{2}.",
+          "image_source": "../../raw/pages_0097-0128/images/page_123_equation_19.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 124,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.564,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.899,
+            0.107
+          ],
+          "content": "Seite 119"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.135,
+            0.9,
+            0.155
+          ],
+          "content": "Da aus $|x - x_0| \\leq \\frac{x_0}{2}$ die Ungleichung $x \\geq x_0 - |x - x_0| \\geq \\frac{x_0}{2}$ folgt, reicht es aus, wenn wir"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.423,
+            0.164,
+            0.597,
+            0.202
+          ],
+          "content": "\\delta = \\min \\left\\{\\frac {x _ {0}}{2}, \\frac {x _ {0} ^ {2}}{2} \\varepsilon \\right\\}",
+          "image_source": "../../raw/pages_0097-0128/images/page_124_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.211,
+            0.907,
+            0.261
+          ],
+          "content": "wählen. Man merkt, dass  $\\delta$  von  $x_{0}$  abhängt. Jetzt zeigen wir, dass f in der Tat nicht gleichmäßig stetig ist. Sei  $\\varepsilon = 1$ . Wenn f gleichmäßig stetig wäre, würde es ein  $\\delta > 0$  geben, so dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.368,
+            0.274,
+            0.652,
+            0.293
+          ],
+          "content": "| x - y | \\leq \\delta \\Rightarrow | f (x) - f (y) | \\leq 1.",
+          "image_source": "../../raw/pages_0097-0128/images/page_124_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.305,
+            0.322,
+            0.32
+          ],
+          "content": "Insbesondere würde aus"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.396,
+            0.328,
+            0.626,
+            0.366
+          ],
+          "content": "| x - y | \\leq \\min \\left\\{\\delta , \\frac {1}{2} \\right\\} =: \\tilde {\\delta}",
+          "image_source": "../../raw/pages_0097-0128/images/page_124_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.375,
+            0.259,
+            0.392
+          ],
+          "content": "die Ungleichung"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.434,
+            0.403,
+            0.586,
+            0.422
+          ],
+          "content": "| f (x) - f (y) | \\leq 1",
+          "image_source": "../../raw/pages_0097-0128/images/page_124_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.434,
+            0.405,
+            0.456
+          ],
+          "content": "folgen. Aber für  $x = \\tilde{\\delta}$ ,  $y = \\frac{\\tilde{\\delta}}{2}$  gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.44,
+            0.465,
+            0.582,
+            0.502
+          ],
+          "content": "| x - y | = \\frac {\\tilde {\\delta}}{2} \\leq \\tilde {\\delta}",
+          "image_source": "../../raw/pages_0097-0128/images/page_124_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.511,
+            0.154,
+            0.525
+          ],
+          "content": "und"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.343,
+            0.534,
+            0.676,
+            0.575
+          ],
+          "content": "| f (x) - f (y) | = \\left| \\frac {1}{\\tilde {\\delta}} - \\frac {2}{\\tilde {\\delta}} \\right| = \\frac {1}{\\tilde {\\delta}} \\geq \\frac {1}{\\frac {1}{2}} = 2.",
+          "image_source": "../../raw/pages_0097-0128/images/page_124_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.584,
+            0.906,
+            0.636
+          ],
+          "content": "Im letzten Beispiel haben wir die Struktur der Funktion  $f(x) = \\frac{1}{x}$  benutzt, um einen direkten Beweis zu geben. Jetzt schauen wir uns ein Beispiel an, in dem die Funktion komplizierter ist."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.646,
+            0.907,
+            0.681
+          ],
+          "content": "Beispiel. Die Funktion  $\\log(\\cdot):(0,\\infty)\\to\\mathbb{R}$  ist nicht gleichmäßig stetig. Dies zeigen wir mit einem Beweis durch Widerspruch. Wir nehmen an, dass es für  $\\varepsilon=1$  ein  $\\delta>0$  gäbe, so dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.24,
+            0.692,
+            0.905,
+            0.712
+          ],
+          "content": "\\left| \\log (x) - \\log (y) \\right| \\leq 1 \\quad f u r a l l e x, y \\in (0, 1 ] \\quad m i t \\quad | x - y | \\leq \\delta . \\tag {5.4.1}",
+          "image_source": "../../raw/pages_0097-0128/images/page_124_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.721,
+            0.907,
+            0.756
+          ],
+          "content": "(Hier betrachten wir nur $|x| \\leq 1$, weil das Verhalten in einer Umgebung von Null das Problem ist.) O.B.d.A. dürfen wir annehmen (warum?), dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.482,
+            0.768,
+            0.905,
+            0.786
+          ],
+          "content": "\\delta <   1. \\tag {5.4.2}",
+          "image_source": "../../raw/pages_0097-0128/images/page_124_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.797,
+            0.32,
+            0.814
+          ],
+          "content": "Wir wählen $x_0 > 0$ mit"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.406,
+            0.823,
+            0.905,
+            0.856
+          ],
+          "content": "x _ {0} <   \\delta , \\quad | \\log (x _ {0}) | > \\frac {3}{\\delta}. \\tag {5.4.3}",
+          "image_source": "../../raw/pages_0097-0128/images/page_124_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.865,
+            0.305,
+            0.881
+          ],
+          "content": "Dies ist möglich, weil"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.435,
+            0.893,
+            0.584,
+            0.919
+          ],
+          "content": "\\lim _ {x \\downarrow 0} | \\log (x) | = \\infty .",
+          "image_source": "../../raw/pages_0097-0128/images/page_124_equation_23.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 125,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.092,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 120"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.135,
+            0.241,
+            0.153
+          ],
+          "content": "Allerdings gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.16,
+            0.164,
+            0.906,
+            0.205
+          ],
+          "content": "\\begin{array}{l} | \\log (x _ {0}) | = | \\log (x _ {0}) - \\log (1) | \\\\ \\leq | \\log (x _ {0}) - \\log (\\delta) | + | \\log (\\delta) - \\log (2 \\delta) | + \\dots + | \\log (N \\delta) - \\log (1) |, \\tag {5.4.4} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0097-0128/images/page_125_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.215,
+            0.907,
+            0.25
+          ],
+          "content": "wobei  $N = \\left\\lfloor \\frac{1}{\\delta} \\right\\rfloor$  (die größte ganze Zahl kleiner gleich  $\\frac{1}{\\delta}$ ). Aus (5.4.1) und (5.4.4) schließen wir"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.359,
+            0.259,
+            0.907,
+            0.293
+          ],
+          "content": "\\left| \\log (x _ {0}) \\right| \\leq N + 1 \\leq \\frac {1}{\\delta} + 1 ^ {(5. 4. 2)} <   \\frac {2}{\\delta}, \\tag {5.4.5}",
+          "image_source": "../../raw/pages_0097-0128/images/page_125_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.301,
+            0.908,
+            0.336
+          ],
+          "content": "da die Vorraussetzung  $|x-y| \\leq \\delta$  aus (5.4.1) für alle Summanden in (5.4.4) erfüllt ist. Die Ungleichung (5.4.5) widerspricht (5.4.3)."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.36,
+            0.254,
+            0.38
+          ],
+          "level": 2,
+          "content": "Übung 5.4.2"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.39,
+            0.273,
+            0.407
+          ],
+          "content": "Zeigen Sie, dass"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.146,
+            0.417,
+            0.502,
+            0.467
+          ],
+          "sub_type": "text",
+          "content": "①  $x^{2}$  auf  $(0,1)$  gleichmäßig stetig ist.\n②  $x^{2}$  auf R nicht gleichmäßig stetig ist."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.487,
+            0.909,
+            0.539
+          ],
+          "content": "Wir haben eben zwei Beispiele gesehen, bei denen eine nichtbeschränkte, stetige Funktion auf einem offenen Interval nicht gleichmäßig stetig ist. Man kann den obigen Beweis anpassen, um eine allgemeine Tatsache zu zeigen:"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.552,
+            0.234,
+            0.569
+          ],
+          "level": 2,
+          "content": "Satz 5.4.3"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.581,
+            0.713,
+            0.6
+          ],
+          "content": "Wenn  $f: (a, b) \\longrightarrow \\mathbb{R}$  gleichmäßig stetig ist, dann ist f beschränkt."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.63,
+            0.254,
+            0.65
+          ],
+          "level": 2,
+          "content": "Übung 5.4.4"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.661,
+            0.889,
+            0.697
+          ],
+          "content": "Beweisen Sie den Satz. Andererseits geben Sie ein Beispiel an, in dem eine auf  $(a,b)$  stetige und beschränkte Funktion nicht gleichmäßig stetig ist."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.726,
+            0.254,
+            0.746
+          ],
+          "level": 2,
+          "content": "Übung 5.4.5"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.757,
+            0.618,
+            0.775
+          ],
+          "content": "Zeigen Sie, dass  $\\log(x)$  auf  $(1,\\infty)$  gleichmäßig stetig ist."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.806,
+            0.254,
+            0.825
+          ],
+          "level": 2,
+          "content": "Übung 5.4.6"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.836,
+            0.668,
+            0.855
+          ],
+          "content": "Zeigen Sie, dass  $x^{2}$  auf  $(0,L)$  für  $L \\in R$  gleichmäßig stetig ist."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.875,
+            0.906,
+            0.911
+          ],
+          "content": "Der einfache Fall ist: Wenn f auf  $[a,b]$  definiert und stetig ist, dann ist f auf  $[a,b]$  gleichmäßig stetig. Die Idee ist, dass es in diesem Fall ein „schlimmstes  $\\delta$ ” gibt."
+        }
+      ]
+    },
+    {
+      "page_idx": 126,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.817,
+            0.093,
+            0.898,
+            0.107
+          ],
+          "content": "Seite 121"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.132,
+            0.139,
+            0.233,
+            0.155
+          ],
+          "level": 2,
+          "content": "Satz 5.4.7"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.167,
+            0.89,
+            0.202
+          ],
+          "content": "Eine auf einem beschränkten, abgeschlossenen Intervall definierte und stetige Funktion ist gleichmäßig stetig."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.233,
+            0.89,
+            0.283
+          ],
+          "content": "Beweis. Sei $f:[a,b]\\to\\mathbb{R}$ stetig. Wir nehmen für den Widerspruch an, dass $f$ nicht gleichmäßig stetig ist. Dann existiert $\\varepsilon_{0}>0$ und für jedes $n\\in\\mathbb{N}$ Punkte $x_{n},y_{n}\\in[a,b]$, so dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.322,
+            0.294,
+            0.699,
+            0.327
+          ],
+          "content": "| x _ {n} - y _ {n} | \\leq \\frac {1}{n} \\quad \\text {und} \\quad | f (x _ {n}) - f (y _ {n}) | \\geq \\varepsilon_ {0}.",
+          "image_source": "../../raw/pages_0097-0128/images/page_126_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.337,
+            0.889,
+            0.373
+          ],
+          "content": "Da  $\\{x_{n}\\}_{n=1}^{\\infty}$  und  $\\{y_{n}\\}_{n=1}^{\\infty}$  beschränkt sind, besitzen sie nach dem Satz von Bolzano-Weierstraß konvergente Teilfolgen"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.363,
+            0.387,
+            0.656,
+            0.406
+          ],
+          "content": "x _ {n _ {k}} \\rightarrow x, \\quad y _ {n _ {k}} \\rightarrow y \\quad \\text { für } k \\rightarrow \\infty ,",
+          "image_source": "../../raw/pages_0097-0128/images/page_126_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.417,
+            0.648,
+            0.438
+          ],
+          "content": "wobei  $x, y \\in [a, b]$ . Außerdem impliziert  $|x_{n} - y_{n}| < \\frac{1}{n}$ , dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.48,
+            0.452,
+            0.54,
+            0.467
+          ],
+          "content": "x = y.",
+          "image_source": "../../raw/pages_0097-0128/images/page_126_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.48,
+            0.405,
+            0.498
+          ],
+          "content": "Da $f$ stetig ist, gilt für $k \\to \\infty$"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.365,
+            0.511,
+            0.654,
+            0.531
+          ],
+          "content": "f (x _ {n _ {k}}) \\rightarrow f (x), \\quad f (y _ {n _ {k}}) \\rightarrow f (x).",
+          "image_source": "../../raw/pages_0097-0128/images/page_126_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.543,
+            0.89,
+            0.578
+          ],
+          "content": "Aber dann erhalten wir aus dem Vergleichskriterium und dem Satz über den Grenzwert einer Summe den Widerspruch, dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.306,
+            0.591,
+            0.713,
+            0.616
+          ],
+          "content": "\\varepsilon_ {0} \\leq \\lim _ {k \\to \\infty} (f (x _ {n _ {k}}) - f (y _ {n _ {k}})) = f (x) - f (x) = 0.",
+          "image_source": "../../raw/pages_0097-0128/images/page_126_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.661,
+            0.907,
+            0.696
+          ],
+          "content": "Angesichts Satz 5.4.7 ist $f(x) = \\sqrt{x}$ auf [0, 1] gleichmäßig stetig, obwohl der Graph sehr steil ist für $x$ klein ($f'(x) \\to \\infty$ für $x \\downarrow 0$)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.697,
+            0.907,
+            0.745
+          ],
+          "content": "Auf beschränkten, abgeschlossenen Intervallen sind alle stetige Funktionen gleichmäßig stetig. Wie sieht es auf beschränkten, offenen Intervallen aus? Was ist der Unterschied zwischen"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.313,
+            0.743,
+            0.709,
+            0.78
+          ],
+          "content": "\\sqrt {x}, \\quad \\frac {1}{x}, \\quad x, \\quad \\text {oder} \\sin \\left(\\frac {1}{x}\\right) \\qquad \\text {auf} (0, 1)?",
+          "image_source": "../../raw/pages_0097-0128/images/page_126_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.783,
+            0.393,
+            0.801
+          ],
+          "content": "Welche sind gleichmäßig stetig?"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.814,
+            0.254,
+            0.833
+          ],
+          "level": 2,
+          "content": "Übung 5.4.8"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.844,
+            0.603,
+            0.863
+          ],
+          "content": "Untersuchen Sie auf gleichmäßige Stetigkeit auf (0,1):"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.871,
+            0.177,
+            0.893
+          ],
+          "content": "①"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.493,
+            0.889,
+            0.578,
+            0.909
+          ],
+          "content": "x ^ {2} \\log (x),",
+          "image_source": "../../raw/pages_0097-0128/images/page_126_equation_22.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 127,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.458,
+            0.093,
+            0.565,
+            0.107
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.818,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 122"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.131,
+            0.177,
+            0.152
+          ],
+          "content": "②"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.517,
+            0.149,
+            0.556,
+            0.186
+          ],
+          "content": "\\frac {1}{\\sqrt {x}},",
+          "image_source": "../../raw/pages_0097-0128/images/page_127_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.192,
+            0.177,
+            0.214
+          ],
+          "content": "③"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.485,
+            0.21,
+            0.585,
+            0.249
+          ],
+          "content": "x \\sin \\left(\\frac {1}{x}\\right),",
+          "image_source": "../../raw/pages_0097-0128/images/page_127_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.255,
+            0.177,
+            0.276
+          ],
+          "content": "④"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.48,
+            0.273,
+            0.59,
+            0.311
+          ],
+          "content": "x ^ {\\alpha} \\sin \\left(\\frac {1}{x}\\right).",
+          "image_source": "../../raw/pages_0097-0128/images/page_127_equation_8.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.134,
+            0.345,
+            0.254,
+            0.364
+          ],
+          "level": 2,
+          "content": "Übung 5.4.9"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.376,
+            0.615,
+            0.395
+          ],
+          "content": "Zeigen Sie, dass  $1/(x^{2}+1)$  auf R gleichmäßig stetig ist."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "created_at": "2026-07-22T13:17:16+02:00",
+      "modified_at": "2026-07-22T13:17:16+02:00",
+      "creator_application": "LaTeX with hyperref",
+      "producer_application": "MiKTeX pdfTeX-1.40.25",
+      "page_count": 240,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "ocr"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 99,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 100,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 101,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 102,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 103,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 104,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 105,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 106,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 107,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 108,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 109,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 110,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 111,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 112,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 113,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 114,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 115,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 116,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 117,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 118,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 119,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 120,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 121,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 122,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 123,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 124,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 125,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 126,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 127,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

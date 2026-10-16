@@ -1,0 +1,1649 @@
+{
+  "pages": [
+    {
+      "page_idx": 40,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.115,
+            0.219,
+            0.3,
+            0.25
+          ],
+          "level": 2,
+          "content": "Kapitel 2"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.115,
+            0.278,
+            0.368,
+            0.306
+          ],
+          "level": 2,
+          "content": "Vektorräume"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.114,
+            0.358,
+            0.459,
+            0.379
+          ],
+          "level": 2,
+          "content": "2.1 Der Vektorraum $\\mathbb{R}^n$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.395,
+            0.907,
+            0.448
+          ],
+          "content": "Im Zusammenhang mit den komplexen Zahlen C haben wir bereits geordnete Paare reeller Zahlen kennengelernt. Wir haben gesagt, eine komplexe Zahl besteht aus einem Realteil  $x \\in R$  und einem Imaginärteil  $y \\in R$ , die wir wir folgt kombinieren"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.368,
+            0.455,
+            0.906,
+            0.511
+          ],
+          "content": "\\binom {x} {y} = x \\underbrace {\\binom {1} {0}} _ {=: \\mathbf {1}} + y \\underbrace {\\binom {0} {1}} _ {=: \\mathbf {i}} = x \\mathbf {1} + y \\mathbf {i}. \\tag {2.1.1}",
+          "image_source": "../../raw/pages_0033-0064/images/page_40_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.518,
+            0.907,
+            0.587
+          ],
+          "content": "In der Regel werden wir die 1 nicht mehr schreiben. Wir werden auch für jetzt keinen Unterschied machen zwischen der Spaltenschreibweise (2.1.1) und der Zeilenschreibweise  $(x, y)$ . (Wir werden erst später sehen, dass die beiden Objekte nicht dasselbe bedeuten.) Es ist aber sehr wichtig sich klarzumachen, dass die beiden reellen Zahlen geordnet sind:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.398,
+            0.595,
+            0.625,
+            0.632
+          ],
+          "content": "\\binom{x}{y} \\neq \\binom{y}{x} \\quad \\text {falls} x \\neq y.",
+          "image_source": "../../raw/pages_0033-0064/images/page_40_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.639,
+            0.907,
+            0.725
+          ],
+          "content": "Wir können uns eine komplexe Zahl  $z = x + yi$  als einen Punkt in der Ebene vorstellen, wobei x die Koordinate des Punktes in horizontaler Richtung darstellt und y die Koordinate in vertikaler Richtung. Falls der Imaginärteil y gleich null ist, dann identifizieren wir  $z = x + 0i$  mit der reellen Zahl x; in diesem Sinne sind die reellen Zahlen R in den komplexen Zahlen C enthalten. Wir haben gesehen, dass man komplexe Zahlen addieren kann:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.388,
+            0.732,
+            0.907,
+            0.77
+          ],
+          "content": "\\binom {x _ {1}} {y _ {1}} \\oplus \\binom {x _ {2}} {y _ {2}} = \\binom {x _ {1} + x _ {2}} {y _ {1} + y _ {2}}, \\tag {2.1.2}",
+          "image_source": "../../raw/pages_0033-0064/images/page_40_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.776,
+            0.907,
+            0.811
+          ],
+          "content": "d.h. wir addieren die entsprechenden Komponenten miteinander und erhalten eine komplexe Zahl (ein geordnetes Paar reeller Zahlen). Wir können auch multiplizieren:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.357,
+            0.82,
+            0.669,
+            0.857
+          ],
+          "content": "\\binom{x _ {1}}{y _ {1}} \\otimes \\binom{x _ {2}}{y _ {2}} = \\binom{x _ {1} \\cdot x _ {2} - y _ {1} \\cdot y _ {2}}{x _ {1} \\cdot y _ {2} + y _ {1} \\cdot x _ {2}}.",
+          "image_source": "../../raw/pages_0033-0064/images/page_40_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.864,
+            0.845,
+            0.881
+          ],
+          "content": "Falls einer der Faktoren eine reelle Zahl ist (d.h. der Imaginärteil ist null), dann gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.278,
+            0.891,
+            0.906,
+            0.929
+          ],
+          "content": "\\alpha \\cdot \\binom{x}{y} := \\binom{\\alpha}{0} \\otimes \\binom{x}{y} = \\binom{\\alpha \\cdot x - 0 \\cdot y}{\\alpha \\cdot y + 0 \\cdot x} = \\binom{\\alpha \\cdot x}{\\alpha \\cdot y}. \\tag {2.1.3}",
+          "image_source": "../../raw/pages_0033-0064/images/page_40_equation_12.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 41,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.274,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.827,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 36"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.136,
+            0.677,
+            0.152
+          ],
+          "content": "Es werden also die beiden Komponenten x, y mit  $\\alpha$  multipliziert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.112,
+            0.153,
+            0.907,
+            0.29
+          ],
+          "content": "Wir wollen jetzt diese Konstruktion verallgemeinern auf geordnete n-Tupel reeller Zahlen. Mit diesen Objekten, die wir Vektoren nennen werden, wollen wir wieder rechnen können. Wir werden deshalb eine Addition analog zu (2.1.2) definieren. Für die Multiplikation werden wir uns damit zufrieden geben, Vektoren mit reellen Zahlen multiplizieren zu können. Die Multiplikation zweier Vektoren ist im allgemeinen nicht sinnvoll. (Wir werden später sehen, dass wir in speziellen Fällen eine Multiplikation von Vektoren definieren können. Allerdings hat diese Multiplikation unerwartete Eigenschaften; sie ist z.B. nicht mehr kommutativ: Wenn wir die Reihenfolge der Faktoren ändern, ändert sich das Ergebnis.)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.29,
+            0.909,
+            0.412
+          ],
+          "content": "Wir werden im Folgenden die üblichen Symbole + und · für Addition und Multiplikation (mit reellen Zahlen) verwenden. Indem Sie Sich klarmachen, mit welchen Objekten Sie operieren (Zahlen, Vektoren, ...), werden Sie wissen, um welche Multiplikation es sich handelt. Wir werden in der Regel auch das Symbol · ganz weglassen, wie wir das für die Multiplikation reeller Zahlen vereinbart haben. Es gilt wieder: Punktrechnung geht vor Strichrechnung (Multiplikationen zuerst ausführen!). Benutzen Sie im Zweifelsfall Klammern, um die Reihen-folge der Operationen anzuzeigen."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.425,
+            0.283,
+            0.442
+          ],
+          "level": 2,
+          "content": "Definition 2.1.1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.453,
+            0.586,
+            0.472
+          ],
+          "content": "Unter dem Vektorraum $\\mathbb{R}^{n}$ verstehen wir die Menge"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.343,
+            0.483,
+            0.888,
+            0.548
+          ],
+          "content": "\\mathbb {R} ^ {n} := \\left\\{\\underline {{x}} = \\left( \\begin{array}{c} x _ {1} \\\\ \\vdots \\\\ x _ {n} \\end{array} \\right): x _ {1}, \\dots , x _ {n} \\in \\mathbb {R} \\right\\}, \\tag {2.1.4}",
+          "image_source": "../../raw/pages_0033-0064/images/page_41_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.558,
+            0.685,
+            0.575
+          ],
+          "content": "deren Element wir Vektoren nennen, versehen mit der Addition"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.24,
+            0.587,
+            0.78,
+            0.653
+          ],
+          "content": "\\underline {{x}} + \\underline {{y}} := \\left( \\begin{array}{c} x _ {1} + y _ {1} \\\\ \\vdots \\\\ x _ {n} + y _ {n} \\end{array} \\right) \\quad \\text {f ü r a l l e} \\quad \\underline {{x}} = \\left( \\begin{array}{c} x _ {1} \\\\ \\vdots \\\\ x _ {n} \\end{array} \\right), \\underline {{y}} = \\left( \\begin{array}{c} y _ {1} \\\\ \\vdots \\\\ y _ {n} \\end{array} \\right) \\in \\mathbb {R} ^ {n};",
+          "image_source": "../../raw/pages_0033-0064/images/page_41_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.663,
+            0.741,
+            0.681
+          ],
+          "content": "und der skalaren Multiplikation (d.h. einer Multiplikation mit Zahlen)"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.288,
+            0.692,
+            0.731,
+            0.757
+          ],
+          "content": "\\alpha \\underline {{x}} := \\left( \\begin{array}{c} \\alpha x _ {1} \\\\ \\vdots \\\\ \\alpha x _ {n} \\end{array} \\right) \\quad \\text {f ü r a l l e} \\quad \\underline {{x}} = \\left( \\begin{array}{c} x _ {1} \\\\ \\vdots \\\\ x _ {n} \\end{array} \\right) \\in \\mathbb {R} ^ {n}, \\alpha \\in \\mathbb {R}.",
+          "image_source": "../../raw/pages_0033-0064/images/page_41_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.766,
+            0.889,
+            0.802
+          ],
+          "content": "Nach Definition ergeben die Addition und die skalare Multiplikation wieder Vektoren in  $R^{n}$ . Notation: In der Regel hat ein Vektor x die Komponenten  $x_{1},\\ldots,x_{n}\\in R$  etc."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.823,
+            0.876,
+            0.841
+          ],
+          "content": "Bemerkung. Zwei Vektoren sind gleich, wenn alle Komponenten übereinstimmen, also"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.215,
+            0.853,
+            0.803,
+            0.918
+          ],
+          "content": "\\underline {{x}} = \\left( \\begin{array}{c} x _ {1} \\\\ \\vdots \\\\ x _ {n} \\end{array} \\right) = \\left( \\begin{array}{c} y _ {1} \\\\ \\vdots \\\\ y _ {n} \\end{array} \\right) = \\underline {{y}} \\qquad \\Longleftrightarrow \\qquad x _ {i} = y _ {i} f u r \\text {alle} i = 1, \\dots , n.",
+          "image_source": "../../raw/pages_0033-0064/images/page_41_equation_15.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 42,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.564,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.827,
+            0.093,
+            0.899,
+            0.107
+          ],
+          "content": "Seite 37"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.136,
+            0.907,
+            0.187
+          ],
+          "content": "Insbesondere erhält man nach Vertauschen zweier Komponenten  $x_{i} \\neq x_{j}$  mit  $i \\neq j$  einen Vektor, der von x verschieden ist. Wir werden zunächst nicht zwischen der Spaltenschreibweise (2.1.4) und der Zeilenschreibweise  $(x_{1}, \\ldots, x_{n})$  unterscheiden."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.199,
+            0.907,
+            0.251
+          ],
+          "content": "Die Regeln für das Rechnen mit reellen Zahlen haben wir in den algebraischen Axiomen für R zusammengefasst; siehe Abschnitt 1.2.1. Da  $R^{n}$  Tupel reeller Zahlen enthält, übertragen sich einige dieser Rechenregeln auf die Addition und skalare Multiplikation von Vektoren."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.262,
+            0.652,
+            0.281
+          ],
+          "content": "Lemma 2.1.2. Es seien $\\underline{x},\\underline{y},\\underline{z}\\in \\mathbb{R}^n$ und $\\alpha ,\\beta \\in \\mathbb{R}$. Dann gilt"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.114,
+            0.291,
+            0.845,
+            0.441
+          ],
+          "sub_type": "text",
+          "content": "(A1)  $\\underline{x} + \\underline{y} = \\underline{y} + \\underline{x}$  (Kommutativgesetz der Addition);\n$(A2)\\underline{x} +(\\underline{y} +\\underline{z}) = (\\underline{x} +\\underline{y}) + \\underline{z}$ (Assoziativgesetz der Addition);\n(A3)  $\\underline{x} + \\underline{0} = \\underline{x}$  mit  $\\underline{0} := \\begin{pmatrix} 0 \\\\ \\vdots \\\\ 0 \\end{pmatrix}$  (Neutrales Element der Addition);\n(A4) Zu jedem $\\underline{x} \\in \\mathbb{R}^n$ existiert genau ein $y \\in \\mathbb{R}^n$ mit $\\underline{x} + \\underline{y} = \\underline{0}$. Dieses Element ist"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.307,
+            0.454,
+            0.766,
+            0.518
+          ],
+          "content": "\\left( \\begin{array}{c} - x _ {1} \\\\ \\vdots \\\\ - x _ {n} \\end{array} \\right) =: - \\underline {{x}} \\quad (I n v e r s e s E l e m e n t d e r A d d i t i o n);",
+          "image_source": "../../raw/pages_0033-0064/images/page_42_equation_11.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.116,
+            0.534,
+            0.741,
+            0.641
+          ],
+          "sub_type": "text",
+          "content": "$(S1)\\ \\alpha(\\beta\\underline{x}) = (\\alpha\\beta)\\underline{x}\\quad$ (Assoziativgesetz der skalaren Multiplikation);\n$(S2)\\ 1\\underline{x} = \\underline{x}\\qquad (Neutrales Element der skalaren Multiplikation);$\n(D1) $(\\alpha + \\beta)\\underline{x} = \\alpha\\underline{x} + \\beta\\underline{x}$ (Distributivgesetz 1);\n(D2) $\\alpha (\\underline{x} +\\underline{y}) = \\alpha \\underline{x} +\\alpha \\underline{y}$ (Distributivgesetz 2)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.669,
+            0.273,
+            0.688
+          ],
+          "content": "Beweis. Übung."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.71,
+            0.769,
+            0.729
+          ],
+          "content": "Bemerkung. Wir nennen $\\underline{0}$ den Nullvektor in $\\mathbb{R}^n$ und es gilt $-\\underline{x} = (-1)\\underline{x}$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.739,
+            0.907,
+            0.809
+          ],
+          "content": "Bemerkung. Wir werden später andere Vektorräume kennenlernen. Allen Vektorräumen ist gemeinsam, dass auf ihnen eine Addition und skalare Multiplikation definiert sind derart, dass die Rechenregeln in Lemma 2.1.2 erfüllt sind. Man bezeichnet diese dementsprechend auch als Vektorraumaxiome, weil sie die Eigenschaften jedes Vektorraums festlegen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.819,
+            0.906,
+            0.855
+          ],
+          "content": "Analog zu unserem Vorgehen bei den komplexen Zahlen, die wir als Kombination von 1 und i dargestellt haben, wollen wir nun auch für den  $R^{n}$  eine solche Zerlegung angeben."
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.132,
+            0.869,
+            0.283,
+            0.886
+          ],
+          "content": "Definition 2.1.3"
+        }
+      ]
+    },
+    {
+      "page_idx": 43,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.564,
+            0.107
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.827,
+            0.093,
+            0.899,
+            0.107
+          ],
+          "content": "Seite 38"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.143,
+            0.427,
+            0.161
+          ],
+          "content": "Für jedes $j = 1, \\dots, n$ nennen wir"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.316,
+            0.173,
+            0.705,
+            0.307
+          ],
+          "content": "\\underline {{e}} _ {j} := \\left( \\begin{array}{c} 0 \\\\ \\vdots \\\\ 0 \\\\ 1 \\\\ 0 \\\\ \\vdots \\\\ 0 \\end{array} \\right) \\quad (\\text {die 1 steht an der jten Stelle})",
+          "image_source": "../../raw/pages_0033-0064/images/page_43_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.318,
+            0.637,
+            0.336
+          ],
+          "content": "den jten Einheitsvektor des $\\mathbb{R}^{n}$. Für alle $\\underline{x} \\in \\mathbb{R}^{n}$ gilt dann"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.293,
+            0.347,
+            0.726,
+            0.45
+          ],
+          "content": "\\underline {{x}} = \\left( \\begin{array}{c} x _ {1} \\\\ \\vdots \\\\ x _ {n} \\end{array} \\right) = x _ {1} \\underbrace {\\left( \\begin{array}{c} 1 \\\\ 0 \\\\ \\vdots \\\\ 0 \\end{array} \\right)} _ {\\underline {{e}} _ {1}} + \\dots + x _ {n} \\underbrace {\\left( \\begin{array}{c} 0 \\\\ \\vdots \\\\ 0 \\\\ 1 \\end{array} \\right)} _ {\\underline {{e}} _ {n}} = \\sum_ {j = 1} ^ {n} x _ {j} \\underline {{e}} _ {j}.",
+          "image_source": "../../raw/pages_0033-0064/images/page_43_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.461,
+            0.907,
+            0.53
+          ],
+          "content": "Bemerkung. Indem wir 1 mit $\\underline{e_1}$, i mit $\\underline{e_2}$ gleichsetzen, bemerken wir, dass die komplexen Zahlen (siehe Abschnitt (1.2.1)) und der $\\overline{\\text{Vektorraum}} \\mathbb{R}^2$ dieselben Elemente enthält. Beachten Sie aber, dass wir für $\\mathbb{C}$ eine Multiplikation definiert haben (dadurch wurde $\\mathbb{C}$ zu einem Körper, für den die algebraischen Axiome gelten), während $\\mathbb{R}^2$ nur ein Vektorraum ist."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.538,
+            0.907,
+            0.658
+          ],
+          "content": "Wie bereits erwähnt, können wir komplexe Zahlen (und mithin Vektoren in  $R^{2}$ ) als Punkte in der Ebene auffassen. Wir wollen nun Vektoren eine Länge zuordnen. Anschaulich entspricht diese Länge dem Abstand des durch den Vektor repräsentierten Punktes zum Nullpunkt. Diesen Abstand können wir mit dem Satz von Pythagoras berechnen (in einem rechtwinkligen Dreieck ist das Quadrat der Länge der Hypothenuse gleich der Summe der Quadrate der beiden Katheten). Die Verallgemeinerung dieser Anschauung auf den Vektorraum  $R^{n}$  führt auf den Begriff der euklidischen Norm."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.132,
+            0.67,
+            0.283,
+            0.687
+          ],
+          "level": 2,
+          "content": "Definition 2.1.4"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.697,
+            0.711,
+            0.716
+          ],
+          "content": "Für zwei Vektoren  $\\underline{x},\\underline{y}\\in R^{n}$  definieren wir das Skalarprodukt · als"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.352,
+            0.73,
+            0.667,
+            0.773
+          ],
+          "content": "\\underline {{x}} \\cdot \\underline {{y}} := x _ {1} y _ {1} + \\dots + x _ {n} y _ {n} = \\sum_ {i = 1} ^ {n} x _ {i} y _ {i}",
+          "image_source": "../../raw/pages_0033-0064/images/page_43_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.786,
+            0.804,
+            0.803
+          ],
+          "content": "(wird auch inneres Produkt genannt). Alternativ werden wir die Schreibweise"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.451,
+            0.817,
+            0.572,
+            0.837
+          ],
+          "content": "(\\underline {{x}}, \\underline {{y}}) := \\underline {{x}} \\cdot \\underline {{y}}",
+          "image_source": "../../raw/pages_0033-0064/images/page_43_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.848,
+            0.766,
+            0.866
+          ],
+          "content": "für das Skalarprodukt verwenden. Die euklidische Norm eines Vektors ist"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.367,
+            0.88,
+            0.652,
+            0.909
+          ],
+          "content": "\\| \\underline {{x}} \\| := \\sqrt {\\underline {{x}} \\cdot \\underline {{x}}} = \\sqrt {x _ {1} ^ {2} + \\cdots + x _ {n} ^ {2}}.",
+          "image_source": "../../raw/pages_0033-0064/images/page_43_equation_15.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 44,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.827,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 39"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.133,
+            0.614,
+            0.153
+          ],
+          "content": "Zu zwei Vektoren  $\\underline{x},\\underline{y}\\in R^{n}$  definieren wir den Abstand"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.427,
+            0.164,
+            0.592,
+            0.185
+          ],
+          "content": "d (\\underline {{x}}, \\underline {{y}}) := \\| \\underline {{x}} - \\underline {{y}} \\|.",
+          "image_source": "../../raw/pages_0033-0064/images/page_44_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.198,
+            0.907,
+            0.3
+          ],
+          "content": "Bemerkung. Beachten Sie, dass wir in der Vergangenheit das Symbol · für die Multiplikation von reellen Zahlen benutzt haben. Wir haben außerdem vereinbart, diese Schreibweise möglichst nicht mehr zu verwenden. Es ist aus dem Zusammenhang jeweils klar, ob · für die Multiplikation von reellen Zahlen oder das Skalarprodukt steht. Beachten Sie auch, dass das Skalarprodukt eine Zahl liefert, keinen Vektor. Es definiert keine Multiplikation auf dem Vektorraum  $R^{n}$ . Eine solche müsste zwei Vektoren wieder einen Vektor zuordnen."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.132,
+            0.325,
+            0.376,
+            0.342
+          ],
+          "level": 2,
+          "content": "Satz 2.1.5: Skalarprodukt"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.353,
+            0.595,
+            0.371
+          ],
+          "content": "Das Skalarprodukt · hat die folgenden Eigenschaften:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.382,
+            0.359,
+            0.398
+          ],
+          "content": "\\- Positive Definitheit:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.29,
+            0.413,
+            0.778,
+            0.432
+          ],
+          "content": "\\underline {{x}} \\cdot \\underline {{x}} \\geq 0 \\quad \\text {f ü r a l l e} \\underline {{x}} \\in \\mathbb {R} ^ {n}, \\qquad \\underline {{x}} \\cdot \\underline {{x}} = 0 \\quad \\Longleftrightarrow \\quad \\underline {{x}} = \\underline {{0}}.",
+          "image_source": "../../raw/pages_0033-0064/images/page_44_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.451,
+            0.284,
+            0.468
+          ],
+          "content": "\\- Symmetrie:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.396,
+            0.468,
+            0.672,
+            0.487
+          ],
+          "content": "\\underline {{x}} \\cdot \\underline {{y}} = \\underline {{y}} \\cdot \\underline {{x}} \\quad \\text { für   alle } \\underline {{x}}, \\underline {{y}} \\in \\mathbb {R} ^ {n}.",
+          "image_source": "../../raw/pages_0033-0064/images/page_44_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.498,
+            0.277,
+            0.514
+          ],
+          "content": "\\- Linearität:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.235,
+            0.529,
+            0.835,
+            0.55
+          ],
+          "content": "(\\alpha \\underline {{x}} + \\beta \\underline {{y}}) \\cdot \\underline {{z}} = \\alpha (\\underline {{x}} \\cdot \\underline {{z}}) + \\beta (\\underline {{y}} \\cdot \\underline {{z}}) \\quad \\text {f ü r a l l e} \\alpha , \\beta \\in \\mathbb {R} \\text {und} \\underline {{x}}, \\underline {{y}}, \\underline {{z}} \\in \\mathbb {R} ^ {n}.",
+          "image_source": "../../raw/pages_0033-0064/images/page_44_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.18,
+            0.561,
+            0.766,
+            0.579
+          ],
+          "content": "Wegen der Symmetrie gilt dann auch Linearität im zweiten Faktor."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.612,
+            0.273,
+            0.631
+          ],
+          "content": "Beweis. Übung."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.132,
+            0.664,
+            0.299,
+            0.681
+          ],
+          "level": 2,
+          "content": "Satz 2.1.6: Norm"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.693,
+            0.62,
+            0.711
+          ],
+          "content": "Die (euklidische) Norm hat die folgenden Eigenschaften:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.161,
+            0.722,
+            0.358,
+            0.739
+          ],
+          "content": "\\- Positive Definitheit:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.297,
+            0.753,
+            0.772,
+            0.772
+          ],
+          "content": "\\| \\underline {{x}} \\| \\geq 0 \\quad \\text {fur alle} \\underline {{x}} \\in \\mathbb {R} ^ {n}, \\quad \\| \\underline {{x}} \\| = 0 \\quad \\Longleftrightarrow \\quad \\underline {{x}} = \\underline {{0}}.",
+          "image_source": "../../raw/pages_0033-0064/images/page_44_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.791,
+            0.303,
+            0.808
+          ],
+          "content": "\\- Homogenität:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.345,
+            0.808,
+            0.724,
+            0.827
+          ],
+          "content": "\\| \\alpha \\underline {{x}} \\| = | \\alpha | \\| \\underline {{x}} \\| \\quad \\text {furalle} \\alpha \\in \\mathbb {R} \\text {und} \\underline {{x}} \\in \\mathbb {R} ^ {n}.",
+          "image_source": "../../raw/pages_0033-0064/images/page_44_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.162,
+            0.839,
+            0.367,
+            0.857
+          ],
+          "content": "\\- Dreiecksungleichung:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.357,
+            0.87,
+            0.712,
+            0.89
+          ],
+          "content": "\\| \\underline {{x}} + \\underline {{y}} \\| \\leq \\| \\underline {{x}} \\| + \\| \\underline {{y}} \\| \\quad \\text { für   alle } \\underline {{x}}, \\underline {{y}} \\in \\mathbb {R} ^ {n}.",
+          "image_source": "../../raw/pages_0033-0064/images/page_44_equation_23.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 45,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.092,
+            0.274,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.827,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 40"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.14,
+            0.892,
+            0.178
+          ],
+          "content": "Beweis. Die ersten zwei lassen wir als Übung. Die Dreiecksungleichung wird unten in (2.2.3) gezeigt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.196,
+            0.908,
+            0.284
+          ],
+          "content": "Bemerkung. Vergleichen Sie Satz 2.1.6 mit Satz 1.4.2. Der Begriff der Norm verallgemeinert also den Begriff des Absolutbetrags, den wir für reelle Zahlen eingeführt haben. Außer der euklidischen Norm gibt es andere Möglichkeiten, einem Vektor $\\underline{x} \\in \\mathbb{R}^n$ eine Zahl zuzuordnen derart, dass die Eigenschaften positive Definitheit, Homogenität und Dreiecksungleichung wie in Satz 2.1.6 erfüllt sind. Eine solche Zuordnung nennen wir Norm. Beispiele sind"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.256,
+            0.294,
+            0.906,
+            0.314
+          ],
+          "content": "\\| \\underline {{x}} \\| _ {1} := | x _ {1} | + \\dots + | x _ {n} |, \\quad \\| \\underline {{x}} \\| _ {\\infty} := \\max \\{| x _ {1} |, \\dots , | x _ {n} | \\}. \\tag {2.1.5}",
+          "image_source": "../../raw/pages_0033-0064/images/page_45_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.324,
+            0.908,
+            0.395
+          ],
+          "content": "Die Begriffe Norm und Abstand lassen sich auf viele andere Vektorräume verallgemeinern, in manchen Fällen auch der Begriff des Skalarprodukts. Die Rechenregeln in Satz 2.1.6 bezeichnet man auch als Normaxiome, weil sie die Eigenschaften jeder Norm festlegen. Analog sind die Aussagen in Satz 2.1.5 die definierenden Eigenschaften jedes Skalarprodukts."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.416,
+            0.254,
+            0.436
+          ],
+          "level": 2,
+          "content": "Übung 2.1.7"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.446,
+            0.527,
+            0.466
+          ],
+          "content": "Wann ist $\\| \\underline{x} +\\underline{y}\\| = \\| \\underline{x}\\| +\\| \\underline{y}\\|$ für $\\underline{x},\\underline{y}\\in \\mathbb{R}^2?$"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.497,
+            0.254,
+            0.518
+          ],
+          "level": 2,
+          "content": "Übung 2.1.8"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.527,
+            0.351,
+            0.546
+          ],
+          "content": "Skizzieren Sie die Menge"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.422,
+            0.542,
+            0.598,
+            0.571
+          ],
+          "content": "\\Big \\{\\underline {{x}} \\in \\mathbb {R} ^ {2} \\colon \\| \\underline {{x}} \\| \\leq 1 \\Big \\}.",
+          "image_source": "../../raw/pages_0033-0064/images/page_45_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.576,
+            0.882,
+            0.594
+          ],
+          "content": "Was ändert sich, wenn Sie die euklidische Norm durch die Normen in (2.1.5) ersetzen?"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.115,
+            0.63,
+            0.506,
+            0.654
+          ],
+          "level": 2,
+          "content": "2.2 Weitere Ungleichungen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.133,
+            0.674,
+            0.232,
+            0.69
+          ],
+          "level": 2,
+          "content": "Satz 2.2.1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.702,
+            0.572,
+            0.721
+          ],
+          "content": "Für reelle Zahlen $x_{1}, x_{2}, \\ldots, x_{n}$ und $y_{1}, y_{2}, \\ldots, y_{n}$ gilt"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.161,
+            0.731,
+            0.572,
+            0.75
+          ],
+          "content": "\\- die Dreiecksungleichung (für $n$ reelle Zahlen)"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.456,
+            0.761,
+            0.888,
+            0.808
+          ],
+          "content": "\\left| \\sum_ {i = 1} ^ {n} x _ {i} \\right| \\leq \\sum_ {i = 1} ^ {n} | x _ {i} |, \\tag {2.2.1}",
+          "image_source": "../../raw/pages_0033-0064/images/page_45_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.161,
+            0.824,
+            0.506,
+            0.843
+          ],
+          "content": "• die Cauchy-Schwarzsche Ungleichung"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.354,
+            0.854,
+            0.888,
+            0.909
+          ],
+          "content": "\\left| \\sum_ {i = 1} ^ {n} x _ {i} y _ {i} \\right| \\leq \\sum_ {i = 1} ^ {n} | x _ {i} y _ {i} | \\leq \\sqrt {\\sum_ {i = 1} ^ {n} x _ {i} ^ {2}} \\sqrt {\\sum_ {i = 1} ^ {n} y _ {i} ^ {2}}, \\tag {2.2.2}",
+          "image_source": "../../raw/pages_0033-0064/images/page_45_equation_19.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 46,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.564,
+            0.107
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.827,
+            0.093,
+            0.898,
+            0.107
+          ],
+          "content": "Seite 41"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.161,
+            0.133,
+            0.542,
+            0.152
+          ],
+          "content": "\\- die Minkowski- oder Dreiecksungleichung"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.368,
+            0.162,
+            0.888,
+            0.218
+          ],
+          "content": "\\sqrt {\\sum_ {i = 1} ^ {n} (x _ {i} + y _ {i}) ^ {2}} \\leq \\sqrt {\\sum_ {i = 1} ^ {n} x _ {i} ^ {2}} + \\sqrt {\\sum_ {i = 1} ^ {n} y _ {i} ^ {2}}. \\tag {2.2.3}",
+          "image_source": "../../raw/pages_0033-0064/images/page_46_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.233,
+            0.907,
+            0.267
+          ],
+          "content": "Bemerkung. Wenn man  $\\underline{x} = (x_{1}, x_{2}, ..., x_{n}), \\underline{y} = (y_{1}, y_{2}, ..., y_{n})$  als Vektoren in  $R^{n}$  zusammen mit dem Vektorprodukt und der Norm"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.35,
+            0.279,
+            0.672,
+            0.323
+          ],
+          "content": "(\\underline {{x}}, \\underline {{y}}) := \\sum_ {i = 1} ^ {n} x _ {i} y _ {i}, \\qquad \\| \\underline {{x}} \\| ^ {2} := \\sum_ {i = 1} ^ {n} x _ {i} ^ {2}",
+          "image_source": "../../raw/pages_0033-0064/images/page_46_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.335,
+            0.89,
+            0.353
+          ],
+          "content": "betrachtet, dann erhält man aus (2.2.1) und (2.2.2) die Cauchy-Schwarzsche Ungleichung"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.432,
+            0.366,
+            0.589,
+            0.387
+          ],
+          "content": "| (\\underline {{x}}, \\underline {{y}}) | \\leq \\| \\underline {{x}} \\| \\| \\underline {{y}} \\|,",
+          "image_source": "../../raw/pages_0033-0064/images/page_46_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.398,
+            0.836,
+            0.415
+          ],
+          "content": "und man erkennt (2.2.3) als die Dreiecksungleichung der euklidischen Norm in $\\mathbb{R}^n$:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.415,
+            0.429,
+            0.605,
+            0.449
+          ],
+          "content": "\\| \\underline {{x}} + \\underline {{y}} \\| \\leq \\| \\underline {{x}} \\| + \\| \\underline {{y}} \\|.",
+          "image_source": "../../raw/pages_0033-0064/images/page_46_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.478,
+            0.89,
+            0.53
+          ],
+          "content": "Beweis von Satz 2.2.1. Die erste Ungleichung (2.2.1) kann man mit vollständiger Induktion aus der Dreiecksungleichung für den Absolutbetrag reeller Zahlen schließen. (Übung!)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.16,
+            0.531,
+            0.719,
+            0.548
+          ],
+          "content": "Für die Cauchy-Schwarzsche Ungleichung (2.2.2), definieren wir"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.369,
+            0.56,
+            0.652,
+            0.616
+          ],
+          "content": "X := \\sqrt {\\sum_ {i = 1} ^ {n} x _ {i} ^ {2}}, \\quad Y := \\sqrt {\\sum_ {i = 1} ^ {n} y _ {i} ^ {2}}.",
+          "image_source": "../../raw/pages_0033-0064/images/page_46_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.628,
+            0.89,
+            0.695
+          ],
+          "content": "Wenn X = 0, dann ist  $x_{i} = 0$  für alle i = 1, .., n, so dass  $\\left|\\sum_{i=1}^{n} x_{i} y_{i}\\right| = 0$  und (2.2.2) dabei erfüllt wird. Das Gleiche gilt, wenn Y = 0. Also dürfen wir annehmen, dass X > 0, Y > 0. Wir definieren"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.333,
+            0.704,
+            0.687,
+            0.735
+          ],
+          "content": "\\hat {x} _ {i} := \\frac {x _ {i}}{X}, \\quad \\hat {y} _ {i} := \\frac {y _ {i}}{Y} \\quad \\text {f ü r a l l e} i = 1,.., n.",
+          "image_source": "../../raw/pages_0033-0064/images/page_46_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.746,
+            0.396,
+            0.763
+          ],
+          "content": "Dann ist (2.2.2) äquivalent zu"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.397,
+            0.775,
+            0.888,
+            0.822
+          ],
+          "content": "\\left| \\sum_ {i = 1} ^ {n} \\hat {x} _ {i} \\hat {y} _ {i} \\right| \\leq \\sum_ {i = 1} ^ {n} | \\hat {x} _ {i} \\hat {y} _ {i} | \\leq 1. \\tag {2.2.4}",
+          "image_source": "../../raw/pages_0033-0064/images/page_46_equation_17.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 47,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.565,
+            0.108
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.827,
+            0.093,
+            0.9,
+            0.107
+          ],
+          "content": "Seite 42"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.133,
+            0.405,
+            0.15
+          ],
+          "content": "Wir erhalten (2.2.4) direkt aus"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.264,
+            0.161,
+            0.756,
+            0.321
+          ],
+          "content": "\\begin{array}{l} \\left| \\sum_ {i = 1} ^ {n} \\hat {x} _ {i} \\hat {y} _ {i} \\right| \\leq \\sum_ {i = 1} ^ {n} \\left| \\hat {x} _ {i} \\hat {y} _ {i} \\right| \\quad (\\text {aus (2.2.1)}) \\\\ \\leq \\frac {1}{2} \\sum_ {i = 1} ^ {n} \\left(\\hat {x} _ {i} ^ {2} + \\hat {y} _ {i} ^ {2}\\right) \\quad \\text {(Youngsche Ungleichung)} \\\\ = \\frac {1}{2} \\left(\\frac {1}{X ^ {2}} \\sum_ {i = 1} ^ {n} x _ {i} ^ {2} + \\frac {1}{Y ^ {2}} \\sum_ {i = 1} ^ {n} y _ {i} ^ {2}\\right) \\\\ = 1. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0033-0064/images/page_47_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.336,
+            0.337,
+            0.353
+          ],
+          "content": "zu (2.2.3): Wir rechnen"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.129,
+            0.363,
+            0.931,
+            0.527
+          ],
+          "content": "\\begin{array}{l} \\sum_ {i = 1} ^ {n} (x _ {i} + y _ {i}) ^ {2} = \\sum_ {i = 1} ^ {n} x _ {i} ^ {2} + 2 \\sum_ {i = 1} ^ {n} x _ {i} y _ {i} + \\sum_ {i = 1} ^ {n} y _ {i} ^ {2} \\\\ \\leq \\sum_ {i = 1} ^ {n} x _ {i} ^ {2} + 2 \\left(\\sum_ {i = 1} ^ {n} x _ {i} ^ {2} \\sum_ {i = 1} ^ {n} y _ {i} ^ {2}\\right) ^ {\\frac {1}{2}} + \\sum_ {i = 1} ^ {n} y _ {i} ^ {2} \\quad (\\text {Cauchy - Schwarzsche Ungleichung}) \\\\ = \\left(\\sqrt {\\sum_ {i = 1} ^ {n} x _ {i} ^ {2}} + \\sqrt {\\sum_ {i = 1} ^ {n} y _ {i} ^ {2}}\\right) ^ {2}. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0033-0064/images/page_47_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.562,
+            0.909,
+            0.613
+          ],
+          "content": "Bemerkung (Geometrische Perspektive). Man kann den Beweis von (2.2.2) auch aus einer geometrischen Perspektive anschauen. Hier benutzen wir die Notation aus der vorherigen Bemerkung. Man möchte zeigen, dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.433,
+            0.627,
+            0.907,
+            0.648
+          ],
+          "content": "| (\\underline {{x}}, \\underline {{y}}) | \\leq \\| \\underline {{x}} \\| \\| \\underline {{y}} \\|. \\tag {2.2.5}",
+          "image_source": "../../raw/pages_0033-0064/images/page_47_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.659,
+            0.908,
+            0.711
+          ],
+          "content": "Diese Ungleichung ist sicherlich richtig, falls $\\underline{x}$ oder $\\underline{y}$ der Nullvektor ist. Wir betrachen also nur den Fall, dass $\\underline{x} \\neq \\underline{0} \\neq \\underline{y}$. Das impliziert insbesondere, dass $\\| \\underline{x} \\| > 0$ und $\\| \\underline{y} \\| > 0$. Man erhält Informationen über $(\\underline{x}, y)$ durch die Ungleichung"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.345,
+            0.725,
+            0.675,
+            0.747
+          ],
+          "content": "\\| \\underline {{x}} \\| ^ {2} - 2 (\\underline {{x}}, \\underline {{y}}) + \\| \\underline {{y}} \\| ^ {2} = \\| \\underline {{x}} - \\underline {{y}} \\| ^ {2} \\geq 0.",
+          "image_source": "../../raw/pages_0033-0064/images/page_47_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.758,
+            0.31,
+            0.775
+          ],
+          "content": "Es folgt nämlich, dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.412,
+            0.773,
+            0.607,
+            0.795
+          ],
+          "content": "2 (\\underline {{x}}, \\underline {{y}}) \\leq \\| \\underline {{x}} \\| ^ {2} + \\| \\underline {{y}} \\| ^ {2}.",
+          "image_source": "../../raw/pages_0033-0064/images/page_47_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.8,
+            0.908,
+            0.834
+          ],
+          "content": "Diese Ungleichung gilt auch, wenn man y durch ty mit  $t \\in R$  ersetzt hat. Indem wir die Homogenität des Skalarprodukts und der  $\\overline{Norm}$  ausnutzen, erhalten wir"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.348,
+            0.847,
+            0.672,
+            0.869
+          ],
+          "content": "\\| \\underline {{x}} \\| ^ {2} - 2 t (\\underline {{x}}, \\underline {{y}}) + t ^ {2} \\| \\underline {{y}} \\| ^ {2} = \\| \\underline {{x}} - t \\underline {{y}} \\| ^ {2}.",
+          "image_source": "../../raw/pages_0033-0064/images/page_47_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.88,
+            0.908,
+            0.915
+          ],
+          "content": "Diese Identität gilt für alle  $t \\in R$ , insbesondere für jenes t, für das die rechte Seite (äquivalent: die Länge des Vektors x - ty) so klein wie möglich wird. Das passende Bild ist"
+        }
+      ]
+    },
+    {
+      "page_idx": 48,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.116,
+            0.093,
+            0.272,
+            0.11
+          ],
+          "content": "HMI ETech/Phys"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.457,
+            0.093,
+            0.564,
+            0.107
+          ],
+          "content": "WS 2021-22"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.827,
+            0.093,
+            0.899,
+            0.107
+          ],
+          "content": "Seite 43"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.389,
+            0.153,
+            0.636,
+            0.242
+          ],
+          "sub_type": "text_image",
+          "content": "kürzester Vektor\nx\nx - y\ny",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0033-0064/images/page_48_image_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.274,
+            0.908,
+            0.329
+          ],
+          "content": "Anschaulich erwarten wir also, dass wir t so wählen, dass der Vektor  $\\underline{x}-ty$  senkrecht auf  $\\underline{y}$  steht. Das bedeutet, dass das Skalarprodukt  $((\\underline{x}-ty),\\underline{y})$  verschwindet. Umformen ergibt das optimale  $t_{*}=(\\underline{x},\\underline{y})/\\|\\underline{y}\\|^{2}$ . Mit dieser Wahl erhalten wir aus  $0\\leq\\|\\underline{x}-t_{*}\\underline{y}\\|^{2}$ , dass"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.183,
+            0.34,
+            0.837,
+            0.381
+          ],
+          "content": "\\| \\underline {{x}} \\| ^ {2} - 2 \\frac {(\\underline {{x}} , \\underline {{y}})}{\\| \\underline {{y}} \\| ^ {2}} (\\underline {{x}}, \\underline {{y}}) + \\left(\\frac {(\\underline {{x}} , \\underline {{y}})}{\\| \\underline {{y}} \\| ^ {2}}\\right) ^ {2} \\| \\underline {{y}} \\| ^ {2} \\geq 0 \\quad \\Longleftrightarrow \\quad (\\underline {{x}}, \\underline {{y}}) ^ {2} \\leq \\| \\underline {{x}} \\| ^ {2} \\| \\underline {{y}} \\| ^ {2}.",
+          "image_source": "../../raw/pages_0033-0064/images/page_48_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.394,
+            0.489,
+            0.412
+          ],
+          "content": "Das ist äquivalent zur Ungleichung (2.2.5)."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.134,
+            0.439,
+            0.284,
+            0.455
+          ],
+          "level": 2,
+          "content": "Definition 2.2.2"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.467,
+            0.89,
+            0.503
+          ],
+          "content": "Zwei Vektoren  $\\underline{x},\\underline{y}\\in R^{n}$  mit der Eigenschaft  $(\\underline{x},\\underline{y})=0$  nennen wir orthogonal. Orthogonale Vektoren mit Norm eins nennen wir orthonormal."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.525,
+            0.714,
+            0.544
+          ],
+          "content": "Beispiel. Die Einheitsvektoren $\\underline{e}_i$ mit $i = 1,\\dots ,n$ sind orthonormal."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "created_at": "2026-07-22T13:17:16+02:00",
+      "modified_at": "2026-07-22T13:17:16+02:00",
+      "creator_application": "LaTeX with hyperref",
+      "producer_application": "MiKTeX pdfTeX-1.40.25",
+      "page_count": 240,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "ocr"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 40,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 41,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 42,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 43,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 44,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 45,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 46,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 47,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        },
+        {
+          "page_idx": 48,
+          "width_pt": 595.2760009765625,
+          "height_pt": 841.8900146484375
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

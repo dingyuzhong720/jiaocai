@@ -1,0 +1,2663 @@
+--- PDF page 189 ---
+Kapitel 8
+Lineare Algebra
+8.1
+Einleitung und erste Denitionen
+Denition 8.1.1
+Eine nichtleere Menge V heiÿt Vektorraum über R (bzw. über C), wenn auf V eine
+Addition + und eine Multiplikation · mit Elementen aus R (bzw. aus C) erklärt sind, so
+dass für alle α, β ∈R (bzw. C) und a, b, c ∈V gilt:
+(G) α · a + β · b ∈V
+(Geschlossenheit)
+(A1) a + b = b + a
+(Kommutativität)
+(A2) a + (b + c) = (a + b) + c
+(Assoziativität Add.)
+(A3) Es existiert ein Element 0 ∈V , so dass a + 0 = a.
+(Neutrales Element Add.)
+(A4) Für jedes a ∈V existiert ein ˜a ∈V , so dass
+a + ˜a = 0.
+(Inverses Element Add.)
+(M1) (α + β) · a = α · a + β · a
+(Distributivität)
+(M2) α · (a + b) = α · a + α · b
+(Distributivität)
+(M3) α · (β · a) = (αβ) · a
+(Assoziativität Mult.)
+(M4) 1 · a = a
+(Neutrales Element Mult.)
+Die Elemente aus V heiÿen Vektoren, die Elemente aus R (bzw. C) Skalare. Man kann
+zeigen, dass das Element aus (A3) eindeutig deniert ist. Man nennt es den Nullvektor.
+Auch ˜a aus (A4) ist eindeutig deniert und statt ˜a schreiben wir −a.
+Wenn es nicht anders angegeben wird, werden wir mit Vektoren über R arbeiten.
+
+
+--- PDF page 190 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 184
+Beispiele.
+1O Rn mit der üblichen Vektoraddition und Multiplikation mit Skalaren ist ein Vektorraum
+über R. (Aber nicht über C.)
+2O Die Menge P2 aller Polynome von Ordnung zwei oder weniger mit reellen Koezienten
+ist ein Vektorraum über R. (Hierbei erinnern wir an Denition 3.4.2.)
+Oft betrachten wir sogenannte Teilräume eines Vektorraums.
+Denition 8.1.2
+Sei V ein Vektorraum über R. Eine Teilmenge U ⊆V heiÿt Teilraum oder Unterraum
+von V , wenn gilt
+ 0 ∈U
+ a, b ∈U
+=⇒
+α · a + β · b ∈U
+für alle α, β ∈R.
+Also ist U ⊆V ein Teilraum, wenn U den Nullvektor enthält und U abgeschlossen
+bezüglich Addition und Multiplikation mit Skalaren ist.
+Beispiele.
+1O Sei V = R2. U =
+x
+x
+
+∈R2 : x ∈R
+
+ist ein Teilraum.
+2O Sei V der Vektorraum aller 2 × 2-Matrizen mit reellen Koezienten.
+(a) Dann ist
+U :=
+
+A ∈V : A =
+0
+b
+c
+0
+
+, b, c ∈R
+
+ein Teilraum von V .
+(b) Die Menge
+W :=
+
+A ∈V : A =
+a
+b
+c
+d
+
+mit a, b, c, d ∈R und ad = 0, bd = 0
+
+ist kein Teilraum von V , weil
+A1 =
+1
+0
+0
+0
+
+und
+A2 =
+0
+0
+0
+1
+
+zu W gehören, aber A1 + A2 /∈W.
+
+
+--- PDF page 191 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 185
+Denition 8.1.3
+Der Vektor v heiÿt eine Linearkombination der Vektoren v1, . . . , vn, wenn es Skalare
+α1, . . . , αn gibt, so dass
+v = α1v1 + . . . + αnvn.
+Die Menge aller Linearkombinationen von v1, . . . , vn heiÿt lineare Hülle oder Spann von
+v1, . . . , vn und wird mit
+Sp{v1, . . . , vn}
+oder
+span{v1, . . . , vn}
+bezeichnet. Die Vektoren v1, . . . , vn heiÿen Erzeugendensystem für den Teilraum
+Sp{v1, . . . , vn}.
+Wenn V ein Vektorraum ist und v1, ..., vn ∈V , dann ist
+Sp {v1, ..., vn}
+ein Teilraum von V .
+Beispiel. Für den Teilraum U =
+x
+x
+
+∈R2 : x ∈R
+
+aus dem obigen Beispiel gilt
+U = Sp
+1
+1
+
+.
+Übung 8.1.4
+Schreiben Sie p(x) = −1 + 2x2 als Linearkombination von p1(x) = 1 + 2x −2x2, p2(x) =
+−1 −x, p3(x) = −3 −4x + 4x2.
+Denition 8.1.5
+Die Vektoren v1, . . . , vn heiÿen linear abhängig, wenn es Skalare α1, . . . , αn gibt, von
+denen mindestens einer von Null verschieden ist, so dass
+α1v1 + . . . + αnvn = 0.
+Dann sagt man, dass die Menge {v1, . . . , vn} linear abhängig ist. Wenn v1, . . . , vn nicht
+linear abhängig sind, dann heiÿen sie linear unabhängig.
+Also, wenn v1, ..., vn linear unabhängig sind, dann impliziert
+nP
+i=1
+αivi = 0, dass α1 = α2 =
+... = αn = 0.
+
+
+--- PDF page 192 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 186
+Beispiel. Die Vektoren
+1
+1
+  1
+−1
+
+sind linear unabhängig. Tatsächlich überprüfen wir, dass aus
+α
+1
+1
+
++ β
+ 1
+−1
+
+= 0
+folgt α = β und 2α = 0, so dass α = β = 0.
+Mit den oben genannten Begrien können wir jetzt eine Basis denieren.
+Denition 8.1.6: Basis
+Sei V ein Vektorraum. Eine Menge B = {b1, . . . , bn} ⊆V , n ∈N, heiÿt Basis des Vek-
+torraums, wenn B ein minimales Erzeugendensystem von V ist, d.h. B ist ein Erzeugen-
+densystem von V und B ist linear unabhängig.
+Lemma 8.1.7. Wenn {v1, . . . , vn} ein Erzeugendensystem von V ist, dann besitzt V eine
+Basis.
+Beweis. Übung.
+Lemma 8.1.8 (Koordinaten). Sei V ein Vektorraum und B eine Basis davon. Es gibt genau
+eine Möglichkeit, einen Vektor v ∈V als Linearkombination
+v = α1b1 + . . . + αnbn
+zu schreiben.
+Beweis. Übung.
+Denition 8.1.9
+Die Zahlen α1, . . . , αn heiÿen Koordinaten von v bezüglich der Basis B. Wir nennen
+v[B] =
+
+
+
+α1
+...
+αn
+
+
+
+den Koordinatenvektor bezüglich der Basis B.
+
+
+--- PDF page 193 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 187
+Beispiel. Die Vektoren
+b1 =
+
+
+1
+0
+0
+
+
+und
+b2 =
+
+
+1
+1
+0
+
+
+sind linear unabhängig, da aus
+α1
+
+
+1
+0
+0
+
++ α2
+
+
+1
+1
+0
+
+=
+
+
+0
+0
+0
+
+
+folgt, dass α1 = α2 = 0. Der Spann der Vektoren ist
+Sp {b1, b2} =
+
+
+
+
+
+x
+y
+0
+
+: x, y ∈R
+
+
+.
+Der Vektor v =
+
+
+3
+2
+0
+
+∈Sp {b1, b2} besitzt bezüglich dieser Basis die Koordinaten α1 = 1,
+α2 = 2:
+v[B] =
+1
+2
+
+.
+Wir werden jetzt sehen, dass es genau eine richtige Anzahl von Vektoren für eine Basis
+gibt.
+Lemma 8.1.10. Sei B = {b1, . . . , bn} eine Basis des Vektorraums V . Dann ist für m > n
+jede Sammlung von m Vektoren linear abhängig.
+Beweis. Angenommen
+n
+y1, y2, ..., ym
+o
+ist linear unabhängig. Dann ist jedes yj̸ = 0 für
+j = 1, ..., m. Da B eine Basis ist, kann y1 als
+y1 =
+n
+X
+i=1
+αibi
+dargestellt werden, und, da y1̸ = 0, ist ein Koezient von Null verschiedenzum Beispiel
+αk̸ = 0. Dann kann man bk als lineare Kombination der Vektoren aus
+n
+y1, b1, ..., bk−1, bk+1, ..., bn
+o
+= B2
+schreiben. Also wird V von B2 aufgespannt. Jetzt wiederholt man dies mit
+y2 =
+n
+X
+i=1
+i̸=k
+βibi + βky1
+
+
+--- PDF page 194 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 188
+usw., bis man yn+1 als lineare Kombination von y1, ..., yn schreibt, was linearer Unabhängig-
+keit von
+n
+y1, ..., ym
+o
+widerspricht.
+Also besitzt jede Basis eines Vektorraums die gleiche Anzahl von Vektoren. (Warum?) Diese
+Zahl bekommt einen besonderen Namen.
+Denition 8.1.11
+Wenn der nichttriviale Vektorraum V eine Basis {b1, . . . , bn} besitzt, dann heiÿt n die
+Dimension des Vektorraums. Wir schreiben
+dim(V ) = n.
+Die Dimension des trivialen Vektorraums {0} denieren wir als 0.
+Denition 8.1.12
+Wenn ein Vektorraum V Dimension n ∈N besitzt, dann heiÿt er endlich-dimensional.
+Lemma 8.1.13. Sei V ein Vektorraum mit Dimension n. Wenn {v1, . . . , vn} ⊆V linear
+unabhängig ist, dann bildet {v1, . . . , vn} eine Basis von V .
+Beweis. Sei v1, ..., vn linear unabhängig. Sei v ∈V ein beliebiger Vektor. Nach Lemma
+8.1.10 ist
+{v, v1, ..., vn}
+linear abhängig. Also gibt es Konstanten α0, α1, ..., αn, wobei nicht alle Null sind und
+α0v + α1v1 + ... + αnvn = 0.
+Da v1, ..., vn linear unabhängig sind, kann α0 nicht gleich Null sein. Also gilt
+v = −1
+α0
+(α1v1 + ... + αnvn).
+Da v beliebig ist, haben wir gezeigt, dass {v1, ..., vn} ein Erzeugendensystem von V ist.
+Da {v1, ..., vn} auch linear unabhängig ist, ist {v1, ..., vn} eine Basis.
+Bemerkung. Es lohnt sich, eine gute/geeignete Basis zu nden. Zum Beispiel nimmt die
+lineare Abbildung von R2 →R2 deniert durch
+x 7→Projektion von x auf die Richtung v ∈R2
+eine besonders einfache Form an, wenn x bezüglich einer geeigneten Basis dargestellt wird.
+Sei v ein Einheitsvektor. Wir nehmen die Basis
+B = {v, w} ,
+
+
+--- PDF page 195 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 189
+wobei w ein Einheitsvektor orthogonal zu v ist. Wenn x auf die Basis bezogen wird,
+x[B] =
+x1
+x2
+
+,
+dann ist
+x1
+0
+
+die Projektion von x .
+Übung 8.1.14
+1O Finden Sie einen Vektor v, so dass
+1
+1
+
+, v
+
+eine Basis von R2 ist. Schreiben Sie
+1
+0
+
+bezüglich dieser Basis.
+2O Ergänzen Sie v1 =
+
+
+1
+1
+1
+
+und v2 =
+
+
+3
+0
+2
+
+zu einer Basis von R3. Wie kann man
+x ∈R3 bezüglich dieser Basis darstellen?
+Jetzt zeigen wir, dass jede linear unabhängige Sammlung von Vektoren eines endlich-
+dimensionalen Vektorraums zu einer Basis ergänzt werden kann.
+Lemma 8.1.15. Sei V ein Vektorraum mit dim(V ) = n ∈N und {v1, . . . , vm} linear un-
+abhängig. Dann kann {v1, . . . , vm} zu einer Basis ergänzt werden, das heiÿt, es gibt n −m
+Vektoren xi, so dass
+B = {v1, . . . , vm, x1, . . . , xn−m}
+eine Basis von V ist.
+Beweis. Nach Lemma 8.1.10 ist m ≤n. Wenn {v1, ..., vm} V aufspannt, dann ist {v1, ..., vm}
+eine Basis von V . Wenn nicht, dann gibt es ein x1 ∈V , so dass {v1, ..., vm, x1} linear
+unabhängig ist. Entweder gilt Sp {v1, ..., vm, x1} = V oder es existiert ein zusätzliches
+Element x2, so dass {v1, ..., vm, x1, x2} linear unabhängig ist. Nach Lemma 8.1.10 endet
+dieser Prozess in n −m Schritten.
+8.2
+Lineare Abbildungen
+Denition 8.2.1
+
+
+--- PDF page 196 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 190
+Seien V, W Vektorräume über R. Die Abbildung L: V −→W heiÿt linear, wenn gilt
+L(α1v1 + α2v2) = α1L(v1) + α2L(v2)
+für alle α1, α2 ∈R und v1, v2 ∈V .
+Beispiele.
+1O V = W = R2, L =Drehung eines Vektors um θ Grad.
+2O V = W =Polynome in x vom Grad < n, L =
+d
+dx.
+3O V = W = Rn, L =skalare Multiplikation mit α ∈R.
+Zu einer linearen Abbildung sind zwei wichtige Teilräume assoziiert.
+Denition 8.2.2
+Sei L: V −→W eine lineare Abbildung. Das Bild von L ist
+{w ∈W : w = L(v) für ein v ∈V };
+dies ist ein Teilraum von W. Die Dimension des Bildes heiÿt Rang von L.
+Der Kern (oder Nullraum) von L ist
+{v ∈V : L(v) = 0};
+dies ist ein Teilraum von V . Die Dimension des Kerns heiÿt Defekt von L.
+Für Bild und Kern einer linearen Abbildung L werden wir BL und KL schreiben.
+Bemerkung. Eine lineare Abbildung ist injektiv genau dann, wenn Kern(L) = {0}.
+Beispiel. In dem obigen Beispiel
+V = W = Polynome in x vom Grad < n, L = d
+dx,
+ist der Kern von L die Menge der konstanten Funktionen.
+Übung 8.2.3
+Sei L : V →W eine lineare Abbildung. Zeigen Sie, dass Bild(L) ein Teilraum von W ist
+und Kern(L) ein Teilraum von V ist.
+Sehr wichtig für lineare Abbildungen ist die Tatsache:
+Satz 8.2.4
+Sei L: V −→W eine lineare Abbildung. Es gilt
+dim(BL) + dim(KL) = dim(V ).
+
+
+--- PDF page 197 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 191
+Beweisidee. [Ergänzen Sie die Lücken] Zunächst bemerken wir, dass
+dim(BL) ≤dim(V ).
+[Warum?] Wenn dim(BL) = dim(V ), dann ist dim(KL) = 0. [Warum?] Wenn dim(BL) =
+0, dann ist dim(KL) = dim(V ). [Warum?] Also reicht es aus, wenn wir
+1 ≤dim(BL) < dim(V )
+betrachten. Sei {w1, ..., wr} eine Basis von BL und v1, ..., vr zugehörige Urbilder:
+L(vi) = wi,
+i = 1, ..., r.
+Sei {x1, ..., xk} eine Basis von KL. Wir behaupten, dass B = {v1, ..., vr, x1, ..., xk} eine
+Basis von V ist.
+Schritt 1: B ist linear unabhängig. Tatsächlich stimmt das, denn wenn
+α1v1 + ... + αrvr + β1x1 + ... + βkxk = 0,
+dann gilt
+0 =
+r
+X
+i=1
+αiL(vi) =
+r
+X
+i=1
+αiwi,
+so dass α1 = ... = αr = 0 (weil die wi linear unabhängig sind), aber dann ist β1 = ... =
+βk = 0 (weil die xj linear unabhängig sind).
+Schritt 2: B ist ein Erzeugendensystem von V . Sei v ein beliebiger Vektor aus V .
+Man kann L(v) als lineare Kombination der wi schreiben:
+L(v) =
+r
+X
+i=1
+αiwi
+(8.2.1)
+(weil Sp {w1, ..., wr} = BL). Wenn wir ˜v durch
+˜v :=
+r
+X
+i=1
+αivi
+(8.2.2)
+denieren, dann ist v −˜v ∈KL, da
+L(v −˜v)
+(8.2.1),(8.2.2)
+=
+r
+X
+i=1
+αiwi −
+r
+X
+i=1
+αiwi = 0.
+
+
+--- PDF page 198 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 192
+Also existieren Konstanten β1, ..., βk, so dass
+v −˜v =
+k
+X
+j=1
+βjxj
+(weil Sp {x1, ..., xk} = KL). Aber dann haben wir die Darstellung
+v = ˜v +
+k
+X
+j=1
+βjxj
+(8.2.2)
+=
+r
+X
+i=1
+αivi +
+k
+X
+j=1
+βjxj.
+Als Folgerung erhält man zum Beispiel für eine lineare Abbildung L : Rn →Rm, wobei
+m < n, dass es ein v̸ = 0 in Rn gibt, so dass
+Lv = 0.
+Oder für L : Rn →Rn, wobei KL = {0}, dass es für jeden Vektor b ∈Rn eine Lösung der
+Gleichung
+Lx = b
+gibt. (Übung.)
+Denition 8.2.5
+Wenn eine lineare Abbildung L: V −→W bijektiv ist, dann heiÿt sie invertierbar. Man
+schreibt
+L−1
+für die Umkehrfunktion.
+Als Folgerung von Satz 8.2.4 merkt man, dass wenn V, W endlich-dimensional sind und
+L invertierbar ist, dann gilt
+dim(V ) = dim(W).
+Man kann neue Abbildungen aus alten denieren: Seien L1, L2 lineare Abbildungen von V
+nach W. Dann ist
+(L1 + L2) : V →W
+durch
+(L1 + L2)(v) := L1(v) + L2(v)
+
+
+--- PDF page 199 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 193
+deniert. Seien L1 : V →W und L2 : W →X lineare Abbildungen. Dann ist
+L2 ◦L1 : V →X
+durch
+(L2 ◦L1)(v) = L2(L1(v))
+deniert. Verkettung ist assoziativ (L3 ◦(L2 ◦L1) = (L3 ◦L2) ◦L1) und distributiv
+((L3 + L2) ◦L1 = L3 ◦L1 + L2 ◦L1 und L3 ◦(L2 + L1) = L3 ◦L2 + L3 ◦L1), aber im
+Allgemeinen nicht kommutativ (L2 ◦L1̸ = L1 ◦L2)! Weil sie assoziativ und distributiv ist,
+wird die Zusammensetzung zweier linearer Abbildungen oft wie Multiplikation geschrieben:
+L2 ◦L1 = L2L1.
+(Aber nochmals die Warnung, dass L2L1̸ = L1L2.)
+Beispiel. V = W = X =Polynome in x, L1 =
+d
+dx, L2 =Multiplikation mit x. Dann ist
+L1(αp1 + βp2) = d
+dx(αp1(x) + βp2(x)) = αp′
+1(x) + βp′
+2(x) = αL1(p1) + βL1(p2),
+L2(αp1 + βp2) = x(αp1 + βp2) = αxp1(x) + βxp2(x) = αL2(p1) + βL2(p2),
+aber L1 ◦L2(x) =
+d
+dxx2 = 2x̸ = x = L2 ◦L1(x).
+Ein wichtiges Beispiel einer linearen Abbildung ist eine Projektion.
+Denition 8.2.6
+Eine lineare Abbildung P : V →V heiÿt Projektion, falls gilt
+P 2 = P.
+(8.2.3)
+Beispiel. Sei V = Rn und
+P(x1, ..., xn) = (0, 0, x3, x4, ..., xn).
+Dann ist P linear:
+P(αx + βy) = (0, 0, αx3 + βy3, ..., αxn + βyn)
+= α(0, 0, x3, ..., xn) + β(0, 0, y3, ..., yn)
+= αP(x) + βP(y)
+und P erfüllt (8.2.3):
+P 2(x) = P(Px) = P((0, 0, x3, ..., xn))
+= (0, 0, x3, ..., xn)
+= Px.
+
+
+--- PDF page 200 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 194
+Übung 8.2.7
+Sei V = stetige Funktionen auf [−1, 1] und
+(Pf)(x) = f(x) + f(−x)
+2
+(der gerade Teil von f). Zeigen Sie, dass P eine Projektion auf V ist.
+8.3
+Matrizen
+Wir stellen lineare Abbildungen oft durch Matrizen dar.
+Satz 8.3.1
+Für {lij}i=1,...,m
+j=1,...,n ist die Abbildung ˜L: Rn −→Rm, die durch ˜L(x) = w mit
+wi =
+n
+X
+j=1
+lijxj
+(8.3.1)
+gegeben ist, eine lineare Abbildung. Andererseits kann jede lineare Abbildung L: Rn −→
+Rm in der Form (8.3.1) mit geeigneten Zahlen lij dargestellt werden.
+Beweis. Sei ˜L durch (8.3.1) deniert. Dann ist
+[˜L(αx + βy)]i =
+n
+X
+j=1
+lij(αxj + βyj) = [α˜L(x) + β ˜L(y)]i
+für jedes i = 1, ..., m. Andererseits sei L : Rn →Rm eine gegebene lineare Abbildung.
+Sei x ∈Rn ein beliebiger Vektor, der
+x =
+n
+X
+j=1
+xjej
+bezüglich der Standardbasis
+
+ej
+	n
+j=1 (mit ej = (0, 0, ..., 0,
+1
+|{z}
+j-te Stelle
+, 0, ..., 0)) dargestellt
+ist. Da L linear ist, gilt
+L(x) =
+n
+X
+j=1
+xjL(ej).
+(8.3.2)
+
+
+--- PDF page 201 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 195
+Man deniere lij durch die i-te Komponente von Lej:
+lij := (Lej)i.
+Nach (8.3.2) gilt
+[L(x)]i =
+n
+X
+j=1
+xj[L(ej)]i =
+n
+X
+j=1
+xjlij.
+(8.3.3)
+Da dies für jedes x ∈Rn gilt, ist L durch die Zahlen {lij}i,j auf ganz Rn festgelegt.
+Denition 8.3.2
+Sei L: Rn −→Rm eine lineare Abbildung. Die Matrix L von L ist
+L = (lij)i=1,...,m
+j=1,...,n =
+
+
+
+l11
+· · ·
+l1n
+...
+...
+lm1
+· · ·
+lmn
+
+
+,
+wobei lij = (Lej)i. Die Zahlen lij heiÿen Koezienten der Matrix. (li1, . . . , lin) heiÿt die
+i-te Reihe und
+
+
+
+l1j
+...
+lmj
+
+
+
+heiÿt die j-te Spalte.
+Wir nennen L eine m × n-Matrix und schreiben L ∈Rm×n.
+Bemerkung. Der Raum der m×n-Matrizen bildet einen Vektorraum der Dimension m·n.
+Beispiel. Wir betrachten jetzt ein paar Abbildungen und ihre Matrixdarstellungen.
+1O V = W = R2, L sei die Drehung um den Winkel α. Dann ist
+L(e1) =
+cos α
+sin α
+
+,
+L(e2) =
+−sin α
+cos α
+
+,
+1
+1
+α
+α
+so dass die Matrix der Abbildung
+L =
+cos α
+−sin α
+sin α
+cos α
+
+ist.
+
+
+--- PDF page 202 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 196
+2O V = W = R2, v ∈R2 gegeben mit ∥v∥= 1, v =
+v1
+v2
+
+. L sei die Spiegelung an der
+Geraden {tv, t ∈R}.
+L(e1)
+(v, e1) · v
+(v, e1) · v −e1
+e1
+v
+Es gilt
+L(e1) = 2(v, e1)v −e1 = 2v1v −e1,
+L(e2) = 2(v, e2)v −e2 = 2v2v −e2,
+so dass
+L =
+2v2
+1 −1
+2v1v2
+2v2v1
+2v2
+2 −1
+
+.
+(8.3.4)
+3O Finden Sie eine Matrixdarstellung für
+d
+dx auf dem Vektorraum aller Polynome Grades
+2 und kleiner.
+Die Form (8.3.4) ist nicht besonders schön, weil die Standardbasis der Abbildung nicht
+gut passt. Wir werden gleich eine schönere Darstellung identizieren. Zuerst schauen wir uns
+Matrixaddition und -multiplikation an.
+Doch wie stellt man Addition und Multiplikation linearer Abbildungen durch ihre Ma-
+trizen dar? Man merkt Folgendes:
+Seien A, B : V →W lineare Abbildungen mit zugehörigen Matrizen (A)ij = aij, (B)ij =
+bij, i = 1, ..., m, j = 1, ..., n. Dann ist A + B durch die Matrix
+(A + B)ij = aij + bij,
+i = 1, ..., m, j = 1, ..., n
+dargestellt. Seien A : V →W und B : W →X lineare Abbildungen, wobei dim(V ) = l,
+dim(W) = n, dim(X) = m. Seien die zu A bzw. B gehörigen Matrizen
+(A)ij = aij,
+i = 1, ..., n, j = 1, ..., l,
+(B)ki = bki,
+k = 1, ..., m, i = 1, ..., n.
+Dann ist BA durch die Matrix
+(BA)kj =
+n
+X
+i=1
+bkiaij,
+k = 1, ..., m, j = 1, ..., l
+
+
+--- PDF page 203 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 197
+dargestellt. Insbesondere gilt für Matrix-Vektor-Multiplikation für B ∈Rm×n, v ∈Rn×1
+(B v)i =
+n
+X
+j=1
+bijvj.
+Also ist der m-Vektor B v im Spann der Spalten von B. Wenn wir B als Sammlung von
+Spaltenvektoren Bj schreiben:
+B =
+ B1
+B2
+...
+Bm
+
+,
+dann ist
+B v = v1B1 + v2B2 + ... + vmBm.
+Bemerkung. Da im Abschnitt 8.2 gemerkt wurde, dass die Zusammensetzung linearer Ab-
+bildungen im Allgemeinen nicht kommutativ ist, ist Matrixmultiplikation im Allgemeinen
+nicht kommutativ. Beispiel:
+A =
+0
+1
+0
+0
+
+,
+B =
+0
+0
+1
+0
+
+.
+Auÿerdem impliziert A2 = 0 nicht, dass A = 0 ist. Beispiel:
+A =
+0
+1
+0
+0
+
+.
+Denition 8.3.3
+Sei L: Rn −→Rm eine lineare Abbildung und {vj}n
+j=1, {wi}m
+i=1 Basen von Rn bzw. Rm.
+Die Matrix von L bezüglich dieser Basen ist (˜lij)i=1,...,m
+j=1,...,n, wobei ˜lij durch
+L(vj) =
+m
+X
+i=1
+˜lijwi
+deniert ist.
+Beispiel. Jetzt schauen wir uns die Spiegelung an der Geraden {tv, t ∈R} nochmals an.
+Für die Basis von R2
+B = {v, w} ,
+wobei (v, w) = 0,
+gilt
+L(v) = v,
+L(w) = −w.
+Also ist L bezüglich B durch
+˜L =
+1
+0
+0
+−1
+
+dargestellt. Da diagonale Matrizen besonders einfach sind, sehen wir wieder, dass eine ge-
+eignete Wahl der Basis hilfreich sein kann.
+
+
+--- PDF page 204 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 198
+Bemerkung. Wegen der linearen Unabhängigkeit von {w1, ..., wm} in Denition 8.3.3 sind
+die Koezienten ˜lij eindeutig bestimmt.
+Wie sind die Matrizen L und ˜L von L bezüglich der Basen BV , BW miteinander verbun-
+den? Wenn wir B und C durch
+B : vj 7→ej,
+C : wi 7→ei
+denieren, dann gilt
+C ˜L B−1 = L.
+Denition 8.3.4
+Seien L ∈Rn×n und ˜L ∈Rn×n Matrizen, die
+L = B ˜L B−1
+erfüllen für eine invertierbare (n × n)-Matrix B. Dann werden L und ˜L ähnlich genannt.
+Wir werden später Eigenschaften ähnlicher Matrizen genauer anschauen. Da (wie oben
+gemerkt) sie die gleiche lineare Abbildung darstellen, würde man erwarten, dass ihre grund-
+liegenden Eigenschaften gleich sind.
+8.4
+Lineare Gleichungssysteme
+Sehr oft möchte man ein System der Form
+A x = b
+für gegebene A ∈Rm×n, b ∈Rm nach x ∈Rn lösen.
+Denition 8.4.1
+Ein System der Form
+A x = b
+(8.4.1)
+heiÿt lineares Gleichungssystem mit m Gleichungen und n Unbekannten x1, ..., xn. Die
+Zahlen aij = (A)ij heiÿen Koezienten. Wenn b = 0 gilt, dann heiÿt das System
+homogen. Ansonsten heiÿt es inhomogen. Wenn x ∈Rn die Gleichung in (8.4.1) löst, so
+heiÿt x eine Lösung.
+Wichtige Fragen sind
+(1) Gibt es eine Lösung zu (8.4.1)? Äquivalent ist: Ist b ∈Bild(A)?
+
+
+--- PDF page 205 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 199
+(2) Ist die Lösung zu (8.4.1) eindeutig bestimmt? Äquivalent ist: Ist A injektiv?
+(3) Was ist die Lösung? Äquivalent ist: Welches x ∈Rn ist ein Urbild von b ∈Rm unter
+A? Angewandter ausgedrückt: Wie berechnet man die Lösung?
+Aktuelle angewandte Frage: Wie approximiert man schnell die Lösung, wenn A sehr groÿ
+ist?
+Sie wissen aus der Schule, dass es für A ∈R2×2, b ∈R2 drei Möglichkeiten gibt: Das
+lineare Gleichungssystem besitzt eine eindeutige Lösung, keine Lösung oder unendlich viele
+Lösungen.
+l1
+l2
+(a) Eine eindeutige Lösung
+l1
+l2
+(b) Keine Lösung
+l1 = l2
+(c) Unendlich viele Lösungen
+Das Gleiche ist im Allgemeinen wahr. Um dies zu besprechen, übersetzen wir Satz 8.2.4
+für Matrizen. Zunächst denieren wir:
+Denition 8.4.2
+Sei A eine (m × n)-Matrix. Die maximale Anzahl linear unabhängiger Zeilenvektoren
+heiÿt Zeilenrang von A. Die maximale Anzahl linear unabhängiger Spaltenvektoren heiÿt
+Spaltenrang von A. Bild, Kern, und Defekt einer Matrix werden als Bild, Kern, und De-
+fekt der durch A bestimmten linearen Abbildung deniert. (Sehen Sie Denition 8.2.2.)
+Bild und Kern werden mit BA und KA gekürzt. Die Dimension des Bildes wird Rang
+von A genannt.
+Man kann zeigen, dass diese drei Zahlen gleich sind:
+Satz 8.4.3
+Sei A ∈Rm×n. Es gilt
+Zeilenrang von A = Spaltenrang von A = Rang von A.
+Jetzt kehren wir zum System A x = b zurück. Aus Satz 8.2.4 erhalten wir:
+Rang(A) + dim(KA) = n.
+
+
+--- PDF page 206 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 200
+Satz 8.4.4: Lösungen von A x = b
+Seien A ∈Rm×n, b ∈Rm. Dann gilt Folgendes:
+(i) Wenn Rang(A) = m, dann existiert mindestens eine Lösung von A x = b.
+(ii) Wenn Rang(A) = n, dann existiert höchstens eine Lösung von A x = b.
+(iii) Eine Lösung x von A x = b ist eindeutig bestimmt genau dann, wenn
+KA = {0}.
+Ansonsten gibt es unendlich viele Lösungen
+x + αw,
+wobei w ∈KA.
+Wenn m < n, kann es insbesondere keine eindeutig bestimmte Lösung von A x = b
+geben (weil Rang(A) ≤m und Rang(A) + dim(KA) = n
+⇒
+dim(KA) > 0). Das lineare
+Gleichungssystem heiÿt unterbestimmt. Wenn m > n, dann existieren Vektoren b ∈Rm, für
+die es keine Lösung von A x = b gibt (weil Rang(A) ≤n < m). Das lineare Gleichungssystem
+heiÿt überbestimmt.
+Der Algorithmus, durch den wir
+ A x = b lösen,
+ Rang(A) bestimmen und eine Basis von BA nden,
+ Defekt(A) bestimmen und eine Basis von KA nden,
+ die Umkehrung einer Matrix berechnen
+heiÿt das Gauÿsche Eliminationsverfahren. Wir lernen diese Methode durch Beispiele kennen.
+Beispiele.
+1O Lösung(en) von
+x1 + x2 = 3,
+x1 −x2 = 1.
+Wir bauen die erweiterte Matrix
+1
+1
+1
+−1
+
+3
+1
+
+.
+Wir nennen die erste Reihe R1 und die zweite Reihe R2 und ersetzen die zweite Reihe
+durch die zweite Reihe minus (Eins mal) die erste Reihe:
+R2 →R2 −1 · R1.
+
+
+--- PDF page 207 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 201
+Durch diese Operation erhalten wir die geänderte (erweiterte) Matrix
+1
+1
+0
+−2
+
+3
+−2
+
+.
+(8.4.2)
+Was uns wichtig ist, ist, dass wir jetzt eine Matrix in oberer Dreiecksform haben, das
+heiÿt, die Matrix
+1
+1
+0
+−2
+
+hat Nullen unter der Diagonalen. Jetzt, da die Matrix (8.4.2) diese Form erreicht hat,
+lösen wir durch sogenannte Rückwärtselimination (das heiÿt, wir lösen durch Einset-
+zen):
+−2x2 = −2
+⇒
+x2 = 1,
+1 · x1 + 1 · x2 = 3
+⇒
+1 · x1 + 1 = 3
+⇒
+x1 = 2.
+Die eindeutige Lösung ist also
+x1
+x2
+
+=
+2
+1
+
+.
+2O Lösung(en) von
+x1 + x2 + 2x3 = 0,
+2x1 + x2 + x3 = 1,
+x1 + 2x3 = −2.
+Hier ist die erweiterte Matrix
+
+
+1
+1
+2
+2
+1
+1
+1
+0
+2
+
+0
+1
+−2
+
+.
+Zunächst erhalten wir zwei Nullen unter der Eins in Reihe 1, Spalte 1, indem wir
+R2 →R2 −2 · R1
+und
+R3 →R3 −R1
+ersetzen:
+
+
+1
+1
+2
+0
+−1
+−3
+0
+−1
+0
+
+0
+1
+−2
+
+.
+(Hier war uns wichtig, dass a11̸ = 0 war. Das Element a11 wird hier das Pivotelement
+gennant.) Jetzt brauchen wir nur eine Null in Reihe 3, Spalte 2, also ersetzen wir
+R3 →R3 −1 · R2
+
+
+--- PDF page 208 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 202
+und wir erhalten
+
+
+1
+1
+2
+0
+−1
+−3
+0
+0
+3
+
+0
+1
+−3
+
+.
+Rückwärtselimination liefert
+3x3 = −3
+⇒
+x3 = −1,
+−1 · x2 −3x3 = 1
+⇒
+−1 · x2 + 3 = 1
+⇒
+x2 = 2,
+x1 + x2 + 2x3 = 0
+⇒
+x1 + 2 + 2 · (−1) = 0
+⇒
+x1 = 0.
+Die eindeutige Lösung ist
+
+
+x1
+x2
+x3
+
+=
+
+
+0
+2
+−1
+
+.
+3O Lösung(en) von
+
+
+
+
+
+x1 −2x2 −x3 = −2,
+2x1 + x2 + 3x3 = 1,
+−3x1 + x2 −2x3 = 1.
+(8.4.3)
+Die erweiterte Matrix ist
+
+
+1
+−2
+−1
+2
+1
+3
+−3
+1
+−2
+
+−2
+1
+1
+
+
+R2 →R2 −2 · R1,
+R3 →R3 + 3 · R1
+
+
+1
+−2
+−1
+0
+5
+5
+0
+−5
+−5
+
+−2
+5
+−5
+
+
+R3 →R3 + R2
+
+
+1
+−2
+−1
+0
+5
+5
+0
+0
+0
+
+−2
+5
+0
+
+.
+Die letzte Gleichung ist trivial (0T x = 0), und die ersten zwei Gleichungen ergeben
+5x2 + 5x3 = 5
+⇒
+x2 = 1 −x3
+x1 −2x2 −1 · x3 = −2
+⇒
+x1 = 2(1 −x3) + x3 −2 = −x3.
+Hier bleibt x3 als freier Parameter, und Lösungen haben die Form
+x =
+
+
+−c
+1 −c
+c
+
+=
+
+
+0
+1
+0
+
++ c
+
+
+−1
+−1
+1
+
+
+für c ∈R.
+(8.4.4)
+
+
+--- PDF page 209 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 203
+Der Kern der Abbildung ist in diesem Beispiel
+Sp
+
+
+
+
+
+−1
+−1
+1
+
+
+
+
+.
+In diesem Beispiel ist x in(8.4.4) mit c als Parameter allgemeine Lösung von (8.4.3)
+genannt.
+4O Lösung(en) von
+x1 −2x2 −x3 = −2,
+2x1 + x2 + 3x3 = 1,
+−3x1 + x2 −2x3 = 1,1.
+
+
+1
+−2
+−1
+2
+1
+3
+−3
+1
+−2
+
+−2
+1
+1,1
+
+
+R2 →R2 −2 · R1,
+R3 →R3 + 3 · R1
+
+
+1
+−2
+−1
+0
+5
+5
+0
+−5
+−5
+
+−2
+5
+−4,9
+
+
+R3 →R3 + R2
+
+
+1
+−2
+−1
+0
+5
+5
+0
+0
+0
+
+−2
+5
+0,1
+
+.
+Die letzte Gleichung
+0 · x1 + 0 · x2 + 0 · x3 = 0, 1
+kann nicht erfüllt werden. Dieses System besitzt keine Lösung. (Und Rang(A) < 3.)
+Denition 8.4.5
+Falls x∗eine partikuläre Lösung des Systems Ax = b ist und w1, . . . , wj den Kern von
+A aufspannen, dann heiÿt
+x∗+ c1w1 + · · · + cjwj
+allgemeine Lösung des Systems.
+
+
+--- PDF page 210 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 204
+Übung 8.4.6
+Berechnen Sie Bild(A) und Kern(A) für die Matrix aus dem letzten Beispiel.
+Als wir das Gauÿsche Eliminationsverfahren angewendet haben, haben wir das System
+A x = b
+(8.4.5)
+(durch Addition von Reihen usw.) in ein neues System
+˜A x = ˜b
+(8.4.6)
+verändert und behauptet, dass die Lösungen zu (8.4.5) und (8.4.6) gleich sind. Frage: Welche
+Eigenschaften von A und ˜A sind gleich und welche Eigenschaften von A wurden durch das
+Verfahren verändert? Der Gauÿsche Algorithmus basiert auf den Operationen
+(i) zwei Zeilen vertauschen,
+(ii) eine Zeile mit einem reellen α̸ = 0 multiplizieren,
+(iii) die i-te Zeile durch die Summe der Zeilen i und j ersetzen.
+Wenn ˜A aus A durch den Gauÿalgorithmus konstruiert wird, dann sagen wir, dass ˜A und
+A reihenäquivalent sind. Wenn A und ˜A reihenäquivalent sind, dann haben sie den gleichen
+Zeilenspann und dadurch den gleichen Zeilenrang. Da Zeilenrang gleich Rang ist, haben sie
+auch den gleichen Rang. Wenn die erweiterte Matrix
+ A
+b
+und die erweiterte Matrix
+  ˜A ˜b
+
+reihenäquivalent sind, dann ist die Lösung oder Lösungsmenge von
+A x = b
+gleich der Lösung/Lösungsmenge von
+˜A x = ˜b.
+8.5
+Matrixinverse
+Man kann das Gauÿsche Eliminationsverfahren benutzen, um die Inverse einer Matrix zu
+berechnen.
+
+
+--- PDF page 211 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 205
+Denition 8.5.1
+Sei A eine (n × n)-Matrix. A heiÿt invertierbar oder nichtsingulär, wenn es eine (n × n)-
+Matrix B gibt, so dass
+BA = AB = I :=
+
+
+
+
+
+1
+0
+...
+0
+0
+1
+...
+...
+...
+...
+...
+0
+0
+...
+0
+1
+
+
+
+
+.
+Dann heiÿt B die Inverse von A und man schreibt dafür
+B = A−1.
+Wenn A nicht invertierbar ist, so heiÿt A singulär.
+Was immer A bewirkt, wird von A−1 rückgängig gemacht. Nicht alle Matrizen haben eine
+Inverse. A besitzt eine Inverse genau dann, wenn die assoziierte lineare Abbildung bijektiv
+ist, also genau dann, wenn
+Rang(A) = n
+und
+Kern(A) = {0} .
+Nach Satz 8.2.4 gilt dies genau dann, wenn
+Kern(A) = {0} .
+Damit ist bewiesen:
+Satz 8.5.2
+Eine (n × n)-Matrix A ist nichtsingulär genau dann, wenn Kern(A) = {0}.
+Bemerkung. Wenn A invertierbar ist, dann ist
+A x = b
+äquivalent zu
+x = A−1A x = A−1b.
+Allerdings löst man ein lineares System so gut wie nie durch diese Vorgehensweise!
+Beispiele.
+1O Eine Diagonalmatrix
+A =
+
+
+
+
+
+d1
+0
+...
+0
+0
+d2
+...
+...
+...
+...
+...
+0
+0
+...
+0
+dn
+
+
+
+
+
+
+
+--- PDF page 212 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 206
+ist genau dann invertierbar, wenn keines der Diagonalelemente Null ist. Dann ist
+A−1 =
+
+
+
+
+
+1
+d1
+0
+...
+0
+0
+1
+d2
+...
+0
+...
+...
+...
+...
+0
+...
+0
+1
+dn
+
+
+
+
+.
+2O Eine 2 × 2-Matrix
+A =
+a
+b
+c
+d
+
+ist genau dann invertierbar, wenn ad −bc̸ = 0 ist. Dann ist
+A−1 =
+1
+ad −bc
+ d
+−b
+−c
+a
+
+.
+3O Wenn A und B invertierbar sind, so ist A B invertierbar und es gilt
+(A B)−1 = B−1A−1,
+denn
+B−1A−1A B = B−1(A−1A)B
+= B−1I B
+= B−1B
+= I.
+(Wenn man zuerst Socken und dann Schuhe anzieht, dann muss man zuerst die Schuhe
+wieder ausziehen.)
+Es ist fast immer unpraktisch, die Inverse zu berechnen! Allerdings schauen wir uns an,
+wie man die Inverse durch das sogenannte Gauÿ-Jordan-Eliminationsverfahren berechnen
+kann. Man möchte die Gleichung
+A A−1 = I
+spaltenweise lösen. Als Beispiel betrachten wir eine 3 × 3-Matrix A und wir bezeichnen die
+Spalten der gesuchten Matrix A−1 mit
+A−1 =
+ x1
+x2
+x3
+
+.
+Man möchte
+A A−1 = A
+ x1
+x2
+x3
+
+=
+ e1
+e2
+e3
+
+lösen - also muss man drei Gleichungssysteme lösen. Um eine n × n-Matrix zu invertieren,
+muss man n Gleichungssysteme lösen!
+
+
+--- PDF page 213 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 207
+Als konkretes Beispiel betrachten wir
+A =
+
+
+2
+−1
+0
+−1
+2
+−1
+0
+−1
+2
+
+.
+Im Gauÿ-Jordan-Verfahren bearbeitet man die erweiterte Matrix, bis die ursprüngliche Ma-
+trix A in die Einheitsmatrix verändert wird. Aus der erweiterten Matrix
+
+
+2
+−1
+0
+−1
+2
+−1
+0
+−1
+2
+
+1
+0
+0
+0
+1
+0
+0
+0
+1
+
+
+erhalten wir die obere Dreiecksmatrix
+
+
+
+2
+−1
+0
+0
+3
+2
+−1
+0
+0
+4
+3
+
+1
+0
+0
+1
+2
+1
+0
+1
+3
+2
+3
+1
+
+
+,
+und dann gehen wir weiter:
+R2 →3
+4R3 + R2
+
+
+
+2
+−1
+0
+0
+3
+2
+0
+0
+0
+4
+3
+
+1
+0
+0
+3
+4
+3
+2
+3
+4
+1
+3
+2
+3
+1
+
+
+
+R1 →2
+3R2 + R1
+
+
+
+2
+0
+0
+0
+3
+2
+0
+0
+0
+4
+3
+
+3
+2
+1
+1
+2
+3
+4
+3
+2
+3
+4
+1
+3
+2
+3
+1
+
+
+
+R1 →1
+2R1,
+R2 →2
+3R2,
+R3 →3
+4R3
+
+
+
+1
+0
+0
+0
+1
+0
+0
+0
+1
+
+3
+4
+1
+2
+1
+4
+1
+2
+1
+1
+2
+1
+4
+1
+2
+3
+4
+| {z }
+A−1
+
+
+
+.
+8.6
+LU-Zerlegung
+Eine praktischere Alternative zur Lösung eines linearen Systems durch Berechnung der In-
+versen ist, die LU-Zerlegung anzuwenden. Die LU-Zerlegung einer Matrix ist die Zerlegung
+in
+A = L U,
+(8.6.1)
+wobei L eine untere Dreiecksmatrix mit Einsen auf der Diagonalen und U eine obere Dreiecks-
+matrix ist. Der Vorteil der Zerlegung ist, dass Gleichungssysteme mit Dreiecksmatrizen leicht
+zu lösen sind. (Man benutzt Vorwärts- oder Rückwärtselimination.) Sei das Problem
+A x = b
+(8.6.2)
+
+
+--- PDF page 214 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 208
+gegeben. Angenommen man hat eine LU-Zerlegung von A wie in (8.6.1), dann schreibt man
+(8.6.2) als
+L( U x
+|{z}
+y
+) = b.
+Man löst
+L y = b
+nach y und anschlieÿend
+U x = y
+nach x auf.
+Um die LU-Zerlegung genauer anzuschauen, schreiben wir das Gauÿsche Eliminations-
+verfahren als Matrix-Produkt. Der erste Schritt des Algorithmus für A ∈Rm×n, wenn a11
+(das sogenannte Pivotelement) nicht verschwindet, ist
+Rj →Rj −aj1
+a11
+R1
+für j = 2, ..., m.
+Das heiÿt, man berechnet
+M 1A x = M 1b,
+wobei
+M 1 =
+1
+0
+0
+−a21
+a11
+1
+−a31
+a11
+0 1
+0
+−am1
+a11
+0
+0 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+eine sogenannte Eliminationsmatrix ist. Glücklicherweise ist die Inverse von M 1 leicht abzu-
+lesen:
+M −1
+1
+=
+1
+0
+0
+a21
+a11
+1
+a31
+a11
+0 1
+0
+am1
+a11
+0
+0 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.
+Durch solche Eliminationsmatrizen (wenn das Pivotelement in jedem Schritt von Null ver-
+schieden ist) berechnet man
+M n−1...M 1A
+|
+{z
+}
+=: U
+x = M n−1...M 1b
+|
+{z
+}
+=:˜b
+,
+
+
+--- PDF page 215 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 209
+wobei U eine obere Dreiecksmatrix ist. Es folgt
+A = (M n−1...M 1)−1U = M −1
+1 ...M −1
+n−1
+|
+{z
+}
+=:L
+U,
+wobei L eine untere Dreiecksmatrix mit Einsen auf der Diagonalen ist.
+Im allgemeinen Fall, wenn a11 oder ein anderes Pivotelement (M j−1...M 1A)jj verschwindet,
+muss man Zeilen vertauschen. Dies tut man mittels einer Permutationsmatrix.
+Denition 8.6.1
+Eine (n × n)-Permutationsmatrix enthält die n Zeilen von I in einer beliebigen Reihen-
+folge.
+Beispiel. Sei
+A =
+0
+1
+1
+1
+
+.
+Für P =
+0
+1
+1
+0
+
+ist P A =
+1
+1
+0
+1
+
+.
+Im Allgemeinen entfernt man triviale Pivotelemente durch Permutationsmatrizen und
+man erhält eine Matrix
+M = M n−1P n−1...M 1P 1.
+Obwohl diese keine Dreiecksmatrix ist, kann man M trotzdem leicht invertieren. Man kann
+auch die Permutationen umordnen, so dass man im Allgemeinen eine Zerlegung
+P A = L U
+nden kann. Dies geben wir ohne Beweis an.
+Satz 8.6.2
+Jede (n × n)-Matrix A besitzt eine Zerlegung
+PA = LU,
+wobei L eine untere Dreiecksmatrix mit Einsen auf der Diagonalen, U eine obere Dreiecks-
+matrix, und P eine Permutationsmatrix ist. A ist singulär genau dann, wenn U eine Null
+auf der Hauptdiagonalen hat.
+8.7
+Determinanten
+
+
+--- PDF page 216 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 210
+Denition 8.7.1
+Es sei
+A = (aij)i=1,...,m
+j=1,...,n
+eine (m × n)-Matrix. Dann ist die zu A transponierte Matrix AT die (n × m)-Matrix
+AT = (aji)j=1,...,n
+i=1,...,m.
+Wir werden manchmal verwenden:
+Lemma 8.7.2. Es gilt
+(AB)T = BT AT.
+Denition 8.7.3
+Die Determinante det ist eine Funktion von n Rn-Vektoren nach R, die die folgenden
+Eigenschaften erfüllt:
+(i) det(a1, ..., an) = 0, wenn ai = aj für ein Indexpaar i̸ = j.
+(ii) det(a1, ..., an) ist multilinear im folgenden Sinne: Für jeden Index i und beliebige
+Rn-Vektoren aj, j̸ = i, ist die folgende Abbildung linear:
+ai 7→det(a1, . . . , ai, . . . , an).
+(iii) det(e1, . . . , en) = 1, wobei ei der i-te Standardbasisvektor ist.
+Für eine n × n Matrix A =
+ a1, . . . , an
+
+denieren wir die Determinante der Matrix als
+det(A) := det(a1, ..., an),
+d.h., als die Determinante der Spaltenvektoren.
+Zusammenfassung (ohne Beweis) von Bedeutungen/Anwendungen:
+(1) det(A) ist gleich dem (orientierten) Volumen des Parallelepipeds, das von a1, ..., an
+aufgespannt ist. (Wichtig für HM III und Integrale in Rn!)
+(2) A ist singulär ⇔det(A) = 0. (Diese Eigenschaft benutzt man, um Eigenwerte zu
+berechnen.)
+(3) det(A) kann benutzt werden, um Lösungen von
+A x = b
+zu nden. Dies schauen wir uns unten im Satz 8.7.6 an.
+Aus den Eigenschaften (i)-(iii) schlieÿt man Folgendes:
+
+
+--- PDF page 217 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 211
+Satz 8.7.4: Eigenschaften der Determinante
+Es gilt:
+(iv) Wenn ˜A aus A konstruiert wird, indem ai und aj miteinander vertauscht werden,
+dann ist
+det( ˜A) = −det(A).
+(v) n Vektoren a1, . . . , an ∈Rn sind linear abhängig genau dann, wenn
+det(a1, . . . , an) = 0.
+(vi) Wenn ˜A aus A konstruiert wird, indem ˜ai = ai + αaj für j̸ = i, α ∈R, dann gilt
+det(A) = det( ˜A).
+(vii) Wenn A eine Dreiecksmatrix ist, dann ist det(A) gleich dem Produkt der Diagonal-
+elemente.
+(viii) Es gilt
+det(A) = det(AT),
+(8.7.1)
+det(AB) = det(A) det(B),
+det(A−1) =
+1
+det(A),
+wenn A nichtsingulär ist.
+(ix) Es gibt höchstens eine Abbildung, die die Eigenschaften aus Denition 8.7.3 erfüllt.
+(x) Für A ∈Rn×n und t ∈R gilt
+det(tA) = tn det(A).
+Beweis. zu (iv): Sei ak fest für alle k auÿer i und j. Wir setzen b := ai, c := aj und
+d(b, c) = det(A),
+d(c, b) = det( ˜A).
+Man bemerkt
+det(A) = d(b, c) = d(b, c) + d(b, b)
+= d(b, b + c) = d(b, b + c) −d(b + c, b + c)
+= d(−c, b + c)
+= −d(c, b) −d(c, c)
+= −d(c, b) = −det( ˜A).
+
+
+--- PDF page 218 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 212
+zu (v): (⇒): Wenn a1, ..., an linear abhängig sind, dann gibt es einen Vektor aj, der
+als Linearkombination der anderen geschrieben werden kann: Ohne Beschränkung der
+Allgemeinheit nehmen wir an, dass j = 1, so dass
+a1 = c2a2 + ... + cnan.
+Dann ist
+det(a1, ..., an) = det(c2a2 + ... + cnan, a2, ..., an)
+= c2 det(a2, a2, ..., an) + ... + cn det(an, a2, ..., an)
+= 0.
+(⇐): Folgt aus der LU-Zerlegung (insb. Satz 8.6.2) und (vii), (viii) weil det(A) = 0
+⇒
+Kern(A)̸ = {0}
+⇒
+es existiert x̸ = 0, so dass ATx = 0
+⇒
+a1, ..., an sind linear
+abhängig.
+zu (vi): folgt aus (i) und (ii).
+zu (vii):Wenn ein Diagonalelement gleich Null ist, dann ist det(A) = 0. Wenn nicht,
+dann benutzt man Elimination, um A in Diagonalform zu bringen. Dann benutzt man
+(vi) und
+det(D) = d11 · ... · dnn det(I)
+| {z }
+=1
+für jede Diagonalmatrix D.
+zu (viii): Hier benutzt man wieder Gauÿ-Jordansche Elimination und/oder die LU-
+Zerlegung. (Übung)
+zu (ix): Angenommen, es gäbe zwei solche Abbildungen D1 und D2. Wir müssen
+zeigen, dass
+D1(A) = D2(A)
+für alle nichtsinguläre A ∈Rn×n.
+Man erhält aus der LU-Zerlegung U −1L−1P A = I, dass
+D1(U −1L−1P A) = D2(U −1L−1P A).
+Aus (viii) gilt
+D1(U −1)D1(L−1)D1(P)D1(A) = D2(U −1)D2(L−1)D2(P)D2(A).
+Aus (viii), (vii) und (iv) gilt
+D1(U −1) = D2(U −1) =
+1
+u11 · ... · unn
+,
+D1(L−1) = D2(L−1) = 1,
+D1(P) = D2(P) = ±1.
+
+
+--- PDF page 219 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 213
+Also folgt
+D1(A) = D2(A),
+wie gewünscht.
+zu (x): Folgt aus Multilinearität.
+Um Determinanten zu berechnen, benutzt man oft die folgende Rekursionsformel.
+Satz 8.7.5: Formel zur Berechnung der Determinante
+Für n ≥2 und jedes i ∈{1, . . . , n} gilt
+det(A) =
+n
+X
+j=1
+aijCij,
+(8.7.2)
+wobei die Kofaktoren Cij gegeben sind durch
+Cij = (−1)i+j det(A′
+ij)
+(8.7.3)
+mit der Matrix A′
+ij, die wir aus A bekommen, wenn wir die i-te Reihe und j-te Spalte
+eliminieren.
+Man nennt (8.7.2) die Entwicklung der Determinante nach der i-ten Reihe. Angesichts (8.7.1)
+kann man auch die Determinante einer Matrix durch die Entwicklung nach der i-ten Spalte
+berechnen:
+det(A) =
+n
+X
+j=1
+ajiCji
+für jedes i ∈{1, . . . , n}.
+(8.7.4)
+Beispiel.
+A4 =
+
+
+
+
+2
+−1
+0
+0
+−1
+2
+−1
+0
+0
+−1
+2
+−1
+0
+0
+−1
+2
+
+
+
+.
+Wir betrachten eine 4 × 4-Matrix mit 2 auf der Hauptdiagonalen und −1 auf der Nebendia-
+
+
+--- PDF page 220 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 214
+gonalen. Wir entwickeln nach der ersten Zeile (und benutzen die Notation |A| für det(A)):
+|A4| = 2 ·
+
+
+
+2
+−1
+0
+−1
+2
+−1
+0
+−1
+2
+
+
+|
+{z
+}
+=:A3
+
+−(−1) ·
+
+
+
+−1
+−1
+0
+0
+2
+−1
+0
+−1
+2
+
+
+
++ 0 + 0
+= 2|A3| + (−1)
+
+ 2
+−1
+−1
+2
+
+|
+{z
+}
+=:A2
+
+= 2|A3| −|A2|.
+Man berechnet det(A3) = 4 und det(A2) = 3, so dass
+det(A4) = 2 · 4 −3 = 5.
+Für solche −1
+2
+−1-Matrizen erhält man im Allgemeinen
+det(An) = 2 det(An−1) −det(An−2)
+= n + 1.
+Beispiel.
+det
+
+
+
+
+3
+4
+5
+6
+−1
+0
+1
+0
+1
+2
+2
+2
+2
+6
+8
+6
+
+
+
+= d.
+Wir ersetzen Spalte 1 durch Spalte 1 + Spalte 3 und erhalten
+d = det
+
+
+
+
+8
+4
+5
+6
+0
+0
+1
+0
+3
+2
+2
+2
+10
+6
+8
+6
+
+
+
+
+= (−1)2+3 det
+
+
+8
+4
+6
+3
+2
+2
+10
+6
+6
+
+.
+Jetzt ersetzen wir R1 →R1 −3 · R2 und R3 →R3 −3 · R2 (warum dürfen wir das machen?)
+und erhalten
+d = −det
+
+
+−1
+−2
+0
+3
+2
+2
+1
+0
+0
+
+
+= −(−1)3+1 det
+−2
+0
+2
+2
+
+= 4.
+
+
+--- PDF page 221 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 215
+Man kann die Determinante benutzen, um die Lösung eines linearen Gleichungssystems
+zu berechnen.
+Satz 8.7.6: Cramersche Regel
+Sei A ∈Rn×n und det(A)̸ = 0. Die Lösung von
+Ax = b
+ist gegeben durch
+xi =
+det(Bi)
+det(A) ,
+wobei Bi die Matrix ist, die man erhält, wenn man die i-te Spalte von A durch b ersetzt:
+Bi =
+
+
+
+...
+...
+...
+...
+...
+...
+A1
+A2
+. . .
+Ai−1
+b
+Ai+1
+. . .
+An
+...
+...
+...
+...
+...
+...
+
+
+.
+Hier bezeichnet Aj die j-te Spalte von A.
+Beispiel. Benutzen Sie die Cramersche Regel um das folgende System zu lösen:
+x1 −x2 + x3 = 0
+x1 + x2 −2x3 = 1
+x1 + 2x2 + x3 = 6.
+In diesem Beispiel ist
+A =
+
+
+1
+−1
+1
+1
+1
+−2
+1
+2
+1
+
+,
+B1 =
+
+
+0
+−1
+1
+1
+1
+−2
+6
+2
+1
+
+,
+B2 =
+
+
+1
+0
+1
+1
+1
+−2
+1
+6
+1
+
+,
+B3 =
+
+
+1
+−1
+0
+1
+1
+1
+1
+2
+6
+
+.
+Also erhält man det(A) = 9, det(B1) = 9, det(B2) = 18, det(B3) = 9 und, nach der Cra-
+merschen Regel, gilt
+x1 = 1,
+x2 = 2,
+x3 = 1.
+Man überprüft, dass dies in der Tat eine (die!) Lösung des Gleichungssystems ist.
+Wo kommt die Cramersche Regel her? Zunächst erinnern wir an die Formel der Matri-
+xinverse einer nicht singulären 2 × 2 Matrix. Für
+A =
+a
+b
+c
+d
+
+ist
+A−1 =
+1
+ad −bc
+ d
+−b
+−c
+a
+
+,
+wenn ad −bc̸ = 0. Also gilt
+A−1 =
+1
+det(A)
+ d
+−b
+−c
+a
+
+,
+(8.7.5)
+
+
+--- PDF page 222 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 216
+und die Matrix auf der rechten Seite ist genau die Matrix der Kofaktoren (cf. (8.7.3)) von
+A:
+d = C11,
+−b = C21,
+−c = C12,
+a = C22.
+Das heiÿt, wir können (8.7.5) in der Form
+A−1 =
+1
+det(A)
+C11
+C21
+C12
+C22
+
+=
+1
+det(A) CT
+schreiben, wobei C die Matrix der Kofaktoren ist:
+C = (cij).
+Diese Bemerkung liegt der Cramerschen Regel zugrunde.
+Beweis vom Satz 8.7.6. Die Formel
+A−1 =
+1
+det(A) CT
+(8.7.6)
+gilt im Allgemeinen für eine nicht singuläre n × n Matrix A. Dies erkennt man, indem
+man das Matrixprodukt
+Y = A CT =
+
+
+
+a11
+. . .
+a1n
+...
+...
+...
+an1
+. . .
+ann
+
+
+
+
+
+
+C11
+. . .
+Cn1
+...
+...
+...
+C1n
+. . .
+Cnn
+
+
+
+betrachtet. Man bemerkt, dass
+y11 = a11C11 + a12C12 + . . . + a1nC1n = det(A),
+gilt, weil es die Entwicklung der Determinanten bzgl. der ersten Reihe ist. Analog ist
+yjj = aj1Cj1 + aj2Cj2 + . . . + ajnCjn = det(A),
+weil es die Entwicklung der Determinanten bzgl. der j-ten Reihe ist. Auÿerdem bemerkt
+man, dass
+y12 = a11C21 + a12C22 + . . . + a1nC2n = 0
+gilt, weil es die Entwicklung der Determinanten von
+
+
+
+
+
+
+
+a11
+. . .
+a1n
+a11
+. . .
+a1n
+a31
+. . .
+a3n
+...
+...
+an1
+. . .
+ann
+
+
+
+
+
+
+
+
+
+--- PDF page 223 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 217
+bzgl. der zweiten Reihe ist, und analog, dass yij = 0 für jedes i̸ = j, so dass (8.7.6)
+tatsächlich gilt. Der Satz ist bewiesen, wenn man die Lösung des Gleichungssystems als
+x = A−1b
+(8.7.6)
+=
+1
+det(A) CT b
+schreibt, und (CT b)i als die Determinante der Matrix Bi (die in der Aussage vom Satz
+8.7.6 deniert wurde) erkennt.
+8.8
+Weitere Aufgaben in LA
+1O Finden Sie Bedingungen an a, b ∈R, so dass
+v1 =
+
+
+1
+2
+1
+
+
+v2 =
+
+
+1
+a
+3
+
+
+v3 =
+
+
+0
+2
+b
+
+
+linear unabhängig sind.
+2O Sei {v1, v2, v3} eine Menge von nicht trivialen Vektoren in Rm, so dass viT vj = 0 für
+i̸ = j. Zeigen Sie, dass die Menge linear unabhängig ist.
+3O Wenn A und B n×n zwei Matrizen sind, wobei A nichtsingulär ist und A B = 0, dann
+ist B = 0.
+4O Finden Sie den Kern von
+A =
+
+
+1
+2
+1
+3
+2
+4
+3
+1
+3
+6
+6
+2
+
+.
+5O Finden Sie die Lösungsmengen:
+(a)
+x2 + x3 −x4 = 0
+x1 −x2 + 3x3 −x4 = −2
+x1 + x2 + x3 + x4 = 2.
+(b)
+x1 −2x2 + x3 = 2
+2x1 + x2 −x3 = 1
+−3x1 + x2 −2x3 = −5.
+(c)
+x1 −x2 −x3 = 1
+x1 + x3 = 2
+x2 + 2x3 = 3.
+
+
+--- PDF page 224 ---
+HMI ETech/Phys
+WS 2021-22
+Seite 218
+(d)
+x1 + x2 + x3 + 4x4 = 4
+2x1 + 3x2 + 4x3 + 9x4 = 16
+−2x1 + 3x3 −7x4 = 11.
+6O Finden Sie ein kubisches Polynom p(x) = a + bx + cx2 + dx3, so dass
+p(1) = 5,
+p′(1) = 5,
+p(2) = 17,
+p′(2) = 21.
+7O Finden Sie die Matrixinverse zu
+(a)
+A =
+1
+0
+0
+0
+1
+−2
+4
+0
+0
+0
+0
+0
+0
+0 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(b)
+B =
+
+
+2
+1
+1
+4
+−6
+0
+−2
+7
+2
+
+
+8O Betrachten Sie das System
+
+
+1
+2
+0
+2
+1
+0
+3
+1
+a
+
+
+
+
+x
+y
+z
+
+=
+
+
+3
+b
+c
+
+.
+Für welche a, b, c ∈R besitzt das System (i) eine Lösung, (ii) genau eine Lösung, (iii)
+eine nicht leere Lösungsmenge, die ein Vektorraum ist?
+9O Betrachten Sie das System
+
+
+a
+1
+1
+1
+a
+1
+1
+1
+1
+
+
+
+
+x
+y
+z
+
+=
+
+
+b
+c
+2
+
+
+(a) Für welche a, b, c ∈R besitzt das System genau eine Lösung?
+(b) Für die Werte von a, b, c, für die das System eine nicht eindeutig denierte Lösung
+besitzt, beschreiben Sie die Lösungsmenge.
