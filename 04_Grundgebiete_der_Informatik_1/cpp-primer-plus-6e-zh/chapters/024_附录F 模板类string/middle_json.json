@@ -1,0 +1,6109 @@
+{
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "C++ Primer Plus  第6版  中文版",
+      "authors": [
+        "（美）普拉达著"
+      ],
+      "created_at": "2013-05-11T11:47:22+08:00",
+      "modified_at": "2013-05-11T11:47:22+08:00",
+      "creator_application": "Pdg2Pic",
+      "producer_application": "FreePic2Pdf_Lib - v3.02",
+      "page_count": 955,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "ocr"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 879,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 880,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 881,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 882,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 883,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 884,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 885,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 886,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 887,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 888,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 889,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 890,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 891,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 892,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 893,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        }
+      ]
+    }
+  },
+  "pages": [
+    {
+      "page_idx": 879,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "index": 0,
+          "bbox": [
+            0.29,
+            0.138,
+            0.711,
+            0.174
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "附录 F 模板类 string"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 1,
+          "bbox": [
+            0.082,
+            0.231,
+            0.918,
+            0.266
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "本附录的技术性较强，但如果您只想了解模板类 string 的功能，可以将重点放在对各种 string 类方法的描述上。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 2,
+          "bbox": [
+            0.117,
+            0.269,
+            0.375,
+            0.285
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "string 类是基于下述模板定义的:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 3,
+          "bbox": [
+            0.117,
+            0.29,
+            0.603,
+            0.334
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 3,
+              "bbox": [
+                0.117,
+                0.29,
+                0.603,
+                0.334
+              ],
+              "content": "template<class charT, class traits = char_traits<charT>,\n            class Allocator = allocator<charT> >\nclass basic_string {...};"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "cpp"
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.082,
+            0.34,
+            0.918,
+            0.43
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "其中，chatT 是存储在字符串中的类型；traits 参数是一个类，它定义了类型要被表示为字符串时，所必须具备的特征。例如，它必须有 length() 方法，该方法返回被表示为 charT 数组的字符串的长度。这种数组结尾用 charT(0) 值（广义的空值字符）表示。（表达式 charT(0) 将 0 转换为 charT 类型。它可以像类型为 char 时那样为零，也可以是 charT 的一个构造函数创建的对象）。这个类还包含用于对值进行比较等操作的方法。Allocator 参数是用于处理字符串内存分配的类。默认的 allocator<char>模板按标准方式使用 new 和 delete。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.117,
+            0.433,
+            0.311,
+            0.448
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "有 4 种预定义的具体化:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 6,
+          "bbox": [
+            0.117,
+            0.453,
+            0.475,
+            0.513
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 6,
+              "bbox": [
+                0.117,
+                0.453,
+                0.475,
+                0.513
+              ],
+              "content": "typedef basic_string<char> string;\ntypedef basic_string<char16_t> u16string;\ntypedef basic_string<char32_t> u32string;\ntypedef basic_string<wchar_t> wstring;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.12,
+            0.52,
+            0.383,
+            0.536
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "上述具体化又使用下面的具体化:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 8,
+          "bbox": [
+            0.117,
+            0.541,
+            0.304,
+            0.66
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 8,
+              "bbox": [
+                0.117,
+                0.541,
+                0.304,
+                0.66
+              ],
+              "content": "char_traits<char>\nallocator<char>\nchar_traits<char16_t>\nallocator<char_16>\nchar_traits<char_32>\nallocator<char_32>\nchar_traits<wchar_t>\nallocator<wchar_t>"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "erb"
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.119,
+            0.667,
+            0.91,
+            0.684
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "除 char 和 wchar_t 外，还可以通过定义 traits 类和使用 basic_string 模板来为其他一些类型创建一个 string 类。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 10,
+          "bbox": [
+            0.084,
+            0.709,
+            0.452,
+            0.731
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.1 13 种类型和一个常量"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 11,
+          "bbox": [
+            0.119,
+            0.759,
+            0.588,
+            0.774
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "模板 basic_string 定义了几种类型，供以后定义方法时使用:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 12,
+          "bbox": [
+            0.117,
+            0.779,
+            0.658,
+            0.914
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 12,
+              "bbox": [
+                0.117,
+                0.779,
+                0.658,
+                0.914
+              ],
+              "content": "typedef traits\ntypedef typename traits::char_type\ntypedef Allocator\ntypedef typename Allocator::size_type\ntypedef typename Allocator::difference_type\ntypedef typename Allocator::reference\ntypedef typename Allocator::const_reference\ntypedef typename Allocator::pointer\ntypedef typename Allocator::const_pointer"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "cpp"
+        }
+      ]
+    },
+    {
+      "page_idx": 880,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.44,
+            0.068,
+            0.614,
+            0.083
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "附录 F 模板类 string"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.913,
+            0.069,
+            0.942,
+            0.081
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "863"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 2,
+          "bbox": [
+            0.11,
+            0.103,
+            0.936,
+            0.138
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "traits 是对应于特定类型（如 char_traits<char>）的模板参数；traits_type 将成为该特定类型的 typedef。下述表示法意味着 char_type 是 traits 表示的类中定义的一个类型名:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 3,
+          "bbox": [
+            0.143,
+            0.143,
+            0.621,
+            0.156
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 3,
+              "bbox": [
+                0.143,
+                0.143,
+                0.621,
+                0.156
+              ],
+              "content": "typedef typename traits::char_type value_type;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "rust"
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.109,
+            0.163,
+            0.943,
+            0.198
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "关键字 typename 告诉编译器，表达式 trait::char_type 是一种类型。例如，对于 string 具体化，value_type 为 char。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.108,
+            0.2,
+            0.943,
+            0.235
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "size_type 与 size_of 的用法相似，只是它根据存储的类型返回字符串的长度。对于 string 具体化，将根据 char 返回字符串的长度，在这种情况下，size_type 与 size_of 等效。size_type 是一种无符号类型。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.108,
+            0.237,
+            0.943,
+            0.271
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "difference_type 用于度量字符串中两个元素之间的距离（单位为元素的长度）。通常，它是底层类型 size_type 有符号版本。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.109,
+            0.273,
+            0.943,
+            0.326
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "对于 char 具体化来说，pointer 的类型为 char *，而 reference 的类型为 char & 类型。然而，如果要为自己设计的类型创建具体化，则这些类型（pointer 和 reference）可以指向类，与基本指针和引用有相同的特征。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 8,
+          "bbox": [
+            0.144,
+            0.329,
+            0.729,
+            0.345
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "为将标准模板库（STL）算法用于字符串，该模板定义了一些迭代器类型:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 9,
+          "bbox": [
+            0.143,
+            0.35,
+            0.761,
+            0.409
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 9,
+              "bbox": [
+                0.143,
+                0.35,
+                0.761,
+                0.409
+              ],
+              "content": "typedef (models random access iterator)          iterator;\ntypedef (models random access iterator)          const_iterator;\ntypedef std::reverse_iterator<iterator>       reverse_iterator;\ntypedef std::reverse_iterator<const_iterator>  const_reverse_iterator;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "cpp"
+        },
+        {
+          "type": "text",
+          "index": 10,
+          "bbox": [
+            0.145,
+            0.416,
+            0.391,
+            0.431
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "该模板还定义了一个静态常量:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 11,
+          "bbox": [
+            0.143,
+            0.437,
+            0.432,
+            0.451
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 11,
+              "bbox": [
+                0.143,
+                0.437,
+                0.432,
+                0.451
+              ],
+              "content": "static const size_type npos = -1;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 12,
+          "bbox": [
+            0.109,
+            0.457,
+            0.943,
+            0.492
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "由于 size_type 是无符号的，因此将 -1 赋给 npos 相当于将最大的无符号值赋给它，这个值比可能的最大数组索引大 1。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 13,
+          "bbox": [
+            0.109,
+            0.518,
+            0.577,
+            0.54
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.2 数据信息、构造函数及其他"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 14,
+          "bbox": [
+            0.108,
+            0.567,
+            0.943,
+            0.621
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "可以根据其效果来描述构造函数。由于类的私有部分可能依赖于实现，因此可根据公用接口中可用的数据来描述这些效果。表 F.1 列出了一些方法，它们的返回值可用来描述构造函数和其他方法的效果。注意，其中的大部分术语来自 STL。"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "index": 16,
+          "bbox": [
+            0.11,
+            0.657,
+            0.945,
+            0.928
+          ],
+          "content": [
+            {
+              "type": "table_caption",
+              "index": 15,
+              "bbox": [
+                0.147,
+                0.639,
+                0.61,
+                0.655
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "表 F.1 一些 string 数据方法"
+                }
+              ]
+            },
+            {
+              "type": "table_body",
+              "index": 16,
+              "bbox": [
+                0.11,
+                0.657,
+                0.945,
+                0.928
+              ],
+              "image_path": "raw/pages_0865-0896/images/page_880_table_16.jpg",
+              "content": "<table><tr><td>方法</td><td>返回值</td></tr><tr><td>begin()</td><td>指向字符串第一个字符的迭代器</td></tr><tr><td>cbegin()</td><td>一个 const_iterator,指向字符串中的第一个字符(C++11)</td></tr><tr><td>end()</td><td>为超尾值的迭代器</td></tr><tr><td>cend()</td><td>为超尾值的 const_iterator(C++11)</td></tr><tr><td>rbegin()</td><td>为超尾值的反转迭代器</td></tr><tr><td>crbegin()</td><td>为超尾值的反转 const_iterator(C++11)</td></tr><tr><td>rend()</td><td>指向第一个字符的反转迭代器</td></tr><tr><td>crend()</td><td>指向第一个字符的反转 const_iterator(C++11)</td></tr><tr><td>size()</td><td>字符串中的元素数,等于 begin()到 end()之间的距离</td></tr><tr><td>length()</td><td>与 size()相同</td></tr><tr><td>capacity()</td><td>给字符串分配的元素数。这可能大于实际的字符数,capacity()-size()的值表示在字符串末尾附加多少字符后需要分配更多的内存</td></tr><tr><td>max_size()</td><td>字符串的最大长度</td></tr></table>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 881,
+      "blocks": [
+        {
+          "type": "page_number",
+          "index": 0,
+          "bbox": [
+            0.08,
+            0.068,
+            0.11,
+            0.08
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "864"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 1,
+          "bbox": [
+            0.361,
+            0.066,
+            0.631,
+            0.081
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C++ Primer Plus（第6版）中文版"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "index": 3,
+          "bbox": [
+            0.08,
+            0.12,
+            0.914,
+            0.273
+          ],
+          "content": [
+            {
+              "type": "table_caption",
+              "index": 2,
+              "bbox": [
+                0.836,
+                0.101,
+                0.876,
+                0.116
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "续表"
+                }
+              ]
+            },
+            {
+              "type": "table_body",
+              "index": 3,
+              "bbox": [
+                0.08,
+                0.12,
+                0.914,
+                0.273
+              ],
+              "image_path": "raw/pages_0865-0896/images/page_881_table_3.jpg",
+              "content": "<table><tr><td>方法</td><td>返回值</td></tr><tr><td>data()</td><td>一个指向数组第一个元素的 const charT*指针,其第一个 size()元素等于*this 控制的字符串中对应的元素,其下一个元素为 charT 类型的 charT(0)字符(字符串末尾标记)。当 string 对象本身被修改后,该指针可能无效</td></tr><tr><td>c_str()</td><td>一个指向数组第一个元素的 const charT*指针,其第一个 size()元素等于*this 控制的字符串中对应的元素,其下一个元素是 charT 类型的 charT(0)字符(字符串尾标识)。当 string 对象本身被修改后,该指针可能无效</td></tr><tr><td>get_allocator()</td><td>用于为字符串 object 分配内存的 allocator 对象的副本</td></tr></table>"
+            }
+          ],
+          "continues_prev": true
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.077,
+            0.28,
+            0.914,
+            0.389
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "请注意 begin()、rend()、data() 和 c_str() 之间的差别。它们都与字符串的第一个字符相关，但相关的方式不同。begin() 和 rend() 方法返回一个迭代器，正如第 16 章讨论的，这是一种广义指针。具体地说，begin() 返回一个正向迭代器模型，而 rend() 返回反转迭代器的一个副本。这两种方法都引用了 string 对象管理的字符串（由于 string 类使用动态内存分配，因此实际的 string 内容不一定位于对象中，因此，我们使用术语“管理”来描述对象和字符串之间的关系）。可以将返回迭代器的方法用于基于迭代器的 STL 算法中。例如，可以使用 STL reverse() 函数来反转字符串的内容:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 5,
+          "bbox": [
+            0.113,
+            0.394,
+            0.413,
+            0.436
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 5,
+              "bbox": [
+                0.113,
+                0.394,
+                0.413,
+                0.436
+              ],
+              "content": "string word;\ncin >> word;\nreverse(word.begin(), word.end());"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.078,
+            0.443,
+            0.915,
+            0.552
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "而 data() 和 c_str() 方法返回常规指针。另外，返回的指针将指向存储字符串字符的数组的第一个元素。该数组可能（但不一定）是 string 对象管理的字符串的副本（string 对象采用的内部表示可以是数组，但不一定非得是数组）。由于返回的指针可能指向原始数据，而原始数据是 const，因此不能用它们来修改数据。另外，当字符串被修改后，将不能保证这些指针是有效的，这表明它们可能指向原始数据。data() 和 c_str() 的区别在于，c_str() 指向的数组以空值字符（或与之等价的其他字符）结束，而 data() 只是确保实际的字符串字符是存在的。因此，c_str() 方法期望接受一个 C-风格字符串参数:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 7,
+          "bbox": [
+            0.113,
+            0.556,
+            0.386,
+            0.585
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 7,
+              "bbox": [
+                0.113,
+                0.556,
+                0.386,
+                0.585
+              ],
+              "content": "string file(\"tofu.man\");\nofstream outFile(file.c_str());"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 8,
+          "bbox": [
+            0.079,
+            0.592,
+            0.913,
+            0.626
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "同样，data()和 size()可用作这种函数的参数，即接受指向数组元素的指针和表示要处理的元素数目的值:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 9,
+          "bbox": [
+            0.113,
+            0.632,
+            0.585,
+            0.661
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 9,
+              "bbox": [
+                0.113,
+                0.632,
+                0.585,
+                0.661
+              ],
+              "content": "string vampire(\"Do not stake me, oh my darling!\");\nint vlad = byte_check(vampire.data(), vampire.size());"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "rust"
+        },
+        {
+          "type": "text",
+          "index": 10,
+          "bbox": [
+            0.078,
+            0.668,
+            0.914,
+            0.72
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C++实现可能将 string 对象的字符串表示为动态分配的 C-风格字符串，并使用 char* 指针来实现正向迭代器。在这种情况下，实现可能让 begin()、data() 和 c_str() 都返回同样的指针，但返回指向 3 个不同的数据对象的引用也是合法的（虽然更复杂）。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 11,
+          "bbox": [
+            0.113,
+            0.723,
+            0.856,
+            0.739
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "在 C++11 中，模板类 basic_string 有 11 个构造函数（在 C++98 中只有 6 个）和一个析构函数:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 12,
+          "bbox": [
+            0.113,
+            0.744,
+            0.775,
+            0.923
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 12,
+              "bbox": [
+                0.113,
+                0.744,
+                0.775,
+                0.923
+              ],
+              "content": "explicit basic_string(const Allocator& a = Allocator());\nbasic_string(const charT* s, const Allocator& a = Allocator());\nbasic_string(const charT* s, size_type n, const Allocator& a = Allocator());\nbasic_string(const basic_string& str);\nbasic_string(const basic_string& str, const Allocator&);\nbasic_string(const basic_string& str, size_type pos,\n    size_type n = npos, const Allocator& a = Allocator());\nbasic_string(basic_string&& str) noexcept;\nbasic_string(const basic_string&& str, const Allocator&);\nbasic_string(size_type n, charT c, const Allocator& a = Allocator());\ntemplate<class InputIterator>\nbasic_string(InputIterator begin, InputIterator end,"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "cpp"
+        }
+      ]
+    },
+    {
+      "page_idx": 882,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.438,
+            0.067,
+            0.614,
+            0.081
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "附录 F 模板类 string"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.912,
+            0.067,
+            0.942,
+            0.08
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "865"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 2,
+          "bbox": [
+            0.14,
+            0.099,
+            0.752,
+            0.144
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 2,
+              "bbox": [
+                0.14,
+                0.099,
+                0.752,
+                0.144
+              ],
+              "content": "const Allocator& a = Allocator());\nbasic_string(initializer_list<charT>, const Allocator& = Allocator());\n~basic_string();"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.141,
+            0.15,
+            0.806,
+            0.166
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "有些新增的构造函数以不同的方式处理参数。例如， "
+            },
+            {
+              "type": "equation_inline",
+              "content": "C++98"
+            },
+            {
+              "type": "text",
+              "content": "  包含如下复制构造函数:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 4,
+          "bbox": [
+            0.141,
+            0.171,
+            0.649,
+            0.2
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 4,
+              "bbox": [
+                0.141,
+                0.171,
+                0.649,
+                0.2
+              ],
+              "content": "basic_string(const basic_string& str, size_type pos = 0,\n    size_type n = npos, const Allocator& a = Allocator());"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.106,
+            0.207,
+            0.941,
+            0.242
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "而 C++11 用三个构造函数取代了它——上述列表中的第 2~4 个，这提高了编码效率。真正新增的只有移动构造函数（使用右值引用的构造函数，这在第 18 章讨论过）以及使用 initializer_list 参数的构造函数。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.141,
+            0.244,
+            0.608,
+            0.26
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "注意到大多数构造函数构造函数都有一个下面这样的参数:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 7,
+          "bbox": [
+            0.141,
+            0.264,
+            0.421,
+            0.277
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 7,
+              "bbox": [
+                0.141,
+                0.264,
+                0.421,
+                0.277
+              ],
+              "content": "const Allocator& a = Allocator()"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 8,
+          "bbox": [
+            0.106,
+            0.283,
+            0.942,
+            0.336
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "Allocator 是用于管理内存的 allocator 类的模板参数名；Allocator() 是这个类的默认构造函数。因此，在默认情况下，构造函数将使用 allocator 对象的默认版本，但它们使得能够选择使用 allocator 对象的其他版本。下面分别介绍这些构造函数。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 9,
+          "bbox": [
+            0.142,
+            0.347,
+            0.318,
+            0.363
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "E.2.1 默认构造函数"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 10,
+          "bbox": [
+            0.141,
+            0.375,
+            0.354,
+            0.39
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "默认构造函数的原型如下:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 11,
+          "bbox": [
+            0.141,
+            0.393,
+            0.631,
+            0.407
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 11,
+              "bbox": [
+                0.141,
+                0.393,
+                0.631,
+                0.407
+              ],
+              "content": "explicit basic_string(const Allocator& a = Allocator());"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "javascript"
+        },
+        {
+          "type": "text",
+          "index": 12,
+          "bbox": [
+            0.141,
+            0.414,
+            0.715,
+            0.43
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "通常，接受 allocator 类的默认参数，并使用该构造函数来创建空字符串:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 13,
+          "bbox": [
+            0.142,
+            0.435,
+            0.277,
+            0.463
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 13,
+              "bbox": [
+                0.142,
+                0.435,
+                0.277,
+                0.463
+              ],
+              "content": "string bean;\nwstring theory;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "dart"
+        },
+        {
+          "type": "text",
+          "index": 14,
+          "bbox": [
+            0.142,
+            0.47,
+            0.499,
+            0.485
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "调用该默认构造函数后，将存在下面的关系:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "index": 15,
+          "bbox": [
+            0.145,
+            0.488,
+            0.596,
+            0.541
+          ],
+          "content": [
+            {
+              "type": "text",
+              "index": 16,
+              "bbox": [
+                0.145,
+                0.488,
+                0.595,
+                0.503
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "data()方法返回一个非空指针，可以将该指针加上0;"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 17,
+              "bbox": [
+                0.146,
+                0.507,
+                0.322,
+                0.522
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- size()方法返回0;"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 18,
+              "bbox": [
+                0.146,
+                0.526,
+                0.395,
+                0.541
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- capacity()的返回值不确定。"
+                }
+              ]
+            }
+          ],
+          "sub_type": "text"
+        },
+        {
+          "type": "text",
+          "index": 19,
+          "bbox": [
+            0.142,
+            0.543,
+            0.705,
+            0.559
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "将 data() 返回的值赋给指针 str 后，第一个条件意味着 str + 0 是有效的。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 20,
+          "bbox": [
+            0.142,
+            0.57,
+            0.447,
+            0.587
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.2.2 使用 C-风格字符串的构造函数"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 21,
+          "bbox": [
+            0.106,
+            0.598,
+            0.942,
+            0.632
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "使用 C-风格字符串的构造函数让您能够将 string 对象初始化为一个 C-风格字符串；从更普遍的意义上看，它使得能够将 charT 具体化初始化为一个 charT 数组:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 22,
+          "bbox": [
+            0.141,
+            0.635,
+            0.692,
+            0.649
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 22,
+              "bbox": [
+                0.141,
+                0.635,
+                0.692,
+                0.649
+              ],
+              "content": "basic_string(const charT* s, const Allocator& a = Allocator());"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "javascript"
+        },
+        {
+          "type": "text",
+          "index": 23,
+          "bbox": [
+            0.106,
+            0.656,
+            0.942,
+            0.69
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "为确定要复制的字符数，该构造函数将 traits::length() 方法用于 s 指向的数组（s 不能为空指针）。例如，下面的语句使用指定的字符串来初始化 toast 对象:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 24,
+          "bbox": [
+            0.141,
+            0.693,
+            0.526,
+            0.707
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 24,
+              "bbox": [
+                0.141,
+                0.693,
+                0.526,
+                0.707
+              ],
+              "content": "string toast(\"Here's looking at you, kid.\");"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 25,
+          "bbox": [
+            0.141,
+            0.713,
+            0.72,
+            0.729
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "char 类型的 traits::length() 方法将使用空值字符来确定要复制多少个字符。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 26,
+          "bbox": [
+            0.142,
+            0.731,
+            0.481,
+            0.747
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "该构造函数被调用后，将存在下面的关系:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "index": 27,
+          "bbox": [
+            0.145,
+            0.75,
+            0.741,
+            0.803
+          ],
+          "content": [
+            {
+              "type": "text",
+              "index": 28,
+              "bbox": [
+                0.145,
+                0.75,
+                0.741,
+                0.766
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- data()方法返回一个指针，该指针指向数组s的一个副本的第一个元素；"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 29,
+              "bbox": [
+                0.146,
+                0.769,
+                0.534,
+                0.784
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- size()方法返回的值等于 trains::length()的值;"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 30,
+              "bbox": [
+                0.146,
+                0.787,
+                0.534,
+                0.803
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- capacity()方法返回一个至少等于 size()的值。"
+                }
+              ]
+            }
+          ],
+          "sub_type": "text"
+        },
+        {
+          "type": "paragraph_title",
+          "index": 31,
+          "bbox": [
+            0.143,
+            0.814,
+            0.483,
+            0.83
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.2.3 使用部分 C-风格字符串的构造函数"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 32,
+          "bbox": [
+            0.106,
+            0.842,
+            0.941,
+            0.876
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "使用部分 C-风格字符串的构造函数让您能够使用 C-风格字符串的一部分来初始化 string 对象；从更广泛的意义上说，该构造函数使得能够使用 charT 数组的一部分来初始化 charT 具体化:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 33,
+          "bbox": [
+            0.141,
+            0.885,
+            0.804,
+            0.899
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 33,
+              "bbox": [
+                0.141,
+                0.885,
+                0.804,
+                0.899
+              ],
+              "content": "basic_string(const charT* s, size_type n, const Allocator& a = Allocator());"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "javascript"
+        },
+        {
+          "type": "text",
+          "index": 34,
+          "bbox": [
+            0.142,
+            0.906,
+            0.942,
+            0.922
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "该构造函数将 s 指向的数组中的 n 个字符复制到构造的对象中。请注意，如果 s 包含的字符数少于 n，则复"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 883,
+      "blocks": [
+        {
+          "type": "page_number",
+          "index": 0,
+          "bbox": [
+            0.08,
+            0.069,
+            0.111,
+            0.082
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "866"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 1,
+          "bbox": [
+            0.36,
+            0.067,
+            0.63,
+            0.082
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C++ Primer Plus（第6版）中文版"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 2,
+          "bbox": [
+            0.077,
+            0.102,
+            0.892,
+            0.118
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "制过程将不会停止。如果 n 大于 s 的长度，该构造函数将把字符串后面的内存内容解释为 charT 类型的数据。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.076,
+            0.12,
+            0.912,
+            0.174
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "该构造函数要求 s 不能是空值指针，同时 n<npos（npos 是一个静态类常量，它是字符串可能包含的最大元素数目）。如果 n 等于 npos，该构造函数将引发一个 out_of_range 异常（由于 n 的类型为 size_type，而 npos 是 size_type 的最大值，因此 n 不能大于 npos）；否则，在该构造函数被调用后，将存在下面的关系:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "index": 4,
+          "bbox": [
+            0.116,
+            0.177,
+            0.675,
+            0.229
+          ],
+          "content": [
+            {
+              "type": "text",
+              "index": 5,
+              "bbox": [
+                0.116,
+                0.177,
+                0.675,
+                0.192
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "● data()方法返回一个指针，该指针指向数组 s 的副本的第一个元素；"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 6,
+              "bbox": [
+                0.117,
+                0.196,
+                0.293,
+                0.21
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- size()方法返回 n;"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 7,
+              "bbox": [
+                0.117,
+                0.214,
+                0.506,
+                0.229
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- capacity()方法返回一个至少等于 size()的值。"
+                }
+              ]
+            }
+          ],
+          "sub_type": "text"
+        },
+        {
+          "type": "paragraph_title",
+          "index": 8,
+          "bbox": [
+            0.115,
+            0.241,
+            0.376,
+            0.256
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.2.4 使用左值引用的构造函数"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.115,
+            0.269,
+            0.361,
+            0.283
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "复制构造函数类似于下面这样:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 10,
+          "bbox": [
+            0.114,
+            0.287,
+            0.445,
+            0.3
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 10,
+              "bbox": [
+                0.114,
+                0.287,
+                0.445,
+                0.3
+              ],
+              "content": "basic_string(const basic_string& str);"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "cpp"
+        },
+        {
+          "type": "text",
+          "index": 11,
+          "bbox": [
+            0.115,
+            0.307,
+            0.515,
+            0.323
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "它使用一个 string 参数初始化一个新的 string 对象:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 12,
+          "bbox": [
+            0.114,
+            0.328,
+            0.307,
+            0.356
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 12,
+              "bbox": [
+                0.114,
+                0.328,
+                0.307,
+                0.356
+              ],
+              "content": "string mel(\"I'm ok!\");\nstring ida(mel);"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 13,
+          "bbox": [
+            0.115,
+            0.363,
+            0.424,
+            0.378
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "其中，ida 将是 mel 管理的字符串副本。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 14,
+          "bbox": [
+            0.115,
+            0.382,
+            0.433,
+            0.396
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "下一个构造函数要求您指定一个分配器:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 15,
+          "bbox": [
+            0.114,
+            0.4,
+            0.601,
+            0.413
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 15,
+              "bbox": [
+                0.114,
+                0.4,
+                0.601,
+                0.413
+              ],
+              "content": "basic_string(const basic_string& str, const Allocator&);"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        },
+        {
+          "type": "text",
+          "index": 16,
+          "bbox": [
+            0.115,
+            0.42,
+            0.561,
+            0.435
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "调用这两个构造函数中的任何一个后，将存在如下关系:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "index": 17,
+          "bbox": [
+            0.117,
+            0.439,
+            0.91,
+            0.491
+          ],
+          "content": [
+            {
+              "type": "text",
+              "index": 18,
+              "bbox": [
+                0.117,
+                0.439,
+                0.909,
+                0.455
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- data()方法返回一个指针，该指针指向分配的数组副本，该数组的第一个元素是 str.data()指向的；"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 19,
+              "bbox": [
+                0.119,
+                0.458,
+                0.383,
+                0.473
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- size()方法返回 str.size()的值;"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 20,
+              "bbox": [
+                0.118,
+                0.476,
+                0.507,
+                0.491
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- capacity()方法返回一个至少等于 size()的值。"
+                }
+              ]
+            }
+          ],
+          "sub_type": "text"
+        },
+        {
+          "type": "text",
+          "index": 21,
+          "bbox": [
+            0.115,
+            0.494,
+            0.451,
+            0.509
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "再下一个构造函数让您能够指定多项内容:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 22,
+          "bbox": [
+            0.114,
+            0.515,
+            0.739,
+            0.543
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 22,
+              "bbox": [
+                0.114,
+                0.515,
+                0.739,
+                0.543
+              ],
+              "content": "basic_string(const basic_string& str, size_type pos, size_type n = npos,\n    const Allocator& a = Allocator());"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 23,
+          "bbox": [
+            0.115,
+            0.549,
+            0.711,
+            0.565
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第二个参数（pos）指定了源字符串中的位置，将从这个位置开始进行复制:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 24,
+          "bbox": [
+            0.114,
+            0.57,
+            0.376,
+            0.599
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 24,
+              "bbox": [
+                0.114,
+                0.57,
+                0.376,
+                0.599
+              ],
+              "content": "string att(\"Telephone home.\");\nstring et(att, 4);"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 25,
+          "bbox": [
+            0.115,
+            0.606,
+            0.763,
+            0.621
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "位置编号从 0 开始，因此，位置 4 是字符 p。所以，et 被初始化为 “phone home”。"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 26,
+          "bbox": [
+            0.114,
+            0.624,
+            0.905,
+            0.674
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 26,
+              "bbox": [
+                0.114,
+                0.624,
+                0.905,
+                0.674
+              ],
+              "content": "第 3 个参数 n 是可选的，它指定要复制的最大字符数目，因此下面的语句将 pt 初始化为字符串 “phone”:\nstring att(\"Telephone home.\");\nstring pt(att, 4, 5);"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        },
+        {
+          "type": "text",
+          "index": 27,
+          "bbox": [
+            0.115,
+            0.681,
+            0.794,
+            0.696
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "然而，该构造函数不能跨越源字符串的结尾，例如，下面的语句将在复制句点后停止:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 28,
+          "bbox": [
+            0.115,
+            0.7,
+            0.308,
+            0.713
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 28,
+              "bbox": [
+                0.115,
+                0.7,
+                0.308,
+                0.713
+              ],
+              "content": "string pt(att, 4, 200)"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 29,
+          "bbox": [
+            0.115,
+            0.72,
+            0.722,
+            0.735
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "因此，该构造函数实际复制的字符数量等于 n 和 str.size()-pos 中较小的一个。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 30,
+          "bbox": [
+            0.08,
+            0.738,
+            0.915,
+            0.789
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "该构造函数要求 pos 不大于 str.size()，也就是说，被复制的初始位置必须位于源字符串中。如果情况并非如此，该构造函数将引发 out_of_range 异常；否则，该构造函数被调用后，copy_len 将是 n 和 str.size()-pos 中较小的一个，并存在下面的关系:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "index": 31,
+          "bbox": [
+            0.117,
+            0.793,
+            0.914,
+            0.864
+          ],
+          "content": [
+            {
+              "type": "text",
+              "index": 32,
+              "bbox": [
+                0.118,
+                0.793,
+                0.914,
+                0.827
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- data()方法返回一个指向字符串的指针，该字符串包含copy_len个元素，这些元素是从str的pos位置开始复制而得到的；"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 33,
+              "bbox": [
+                0.119,
+                0.83,
+                0.353,
+                0.845
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "size()方法返回 copy_len;"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 34,
+              "bbox": [
+                0.119,
+                0.848,
+                0.49,
+                0.864
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- capacity()方法返回一个不小于 size()的值。"
+                }
+              ]
+            }
+          ],
+          "sub_type": "text"
+        },
+        {
+          "type": "paragraph_title",
+          "index": 35,
+          "bbox": [
+            0.116,
+            0.875,
+            0.458,
+            0.891
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.2.5 使用右值引用的构造函数（C++11）"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 36,
+          "bbox": [
+            0.115,
+            0.903,
+            0.914,
+            0.92
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C++11 给 string 类添加了移动语义。正如第 18 章介绍的，这意味着添加一个移动构造函数，它使用右"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 884,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.443,
+            0.068,
+            0.619,
+            0.084
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "附录 F 模板类 string"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.916,
+            0.069,
+            0.948,
+            0.082
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "867"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 2,
+          "bbox": [
+            0.111,
+            0.103,
+            0.304,
+            0.119
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "值引用而不是左值引用:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.146,
+            0.121,
+            0.515,
+            0.136
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "basic_string(basic_string&& str) noexcept;"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.146,
+            0.142,
+            0.485,
+            0.158
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "在实参为临时对象时将调用这个构造函数:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 5,
+          "bbox": [
+            0.145,
+            0.163,
+            0.68,
+            0.207
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 5,
+              "bbox": [
+                0.145,
+                0.163,
+                0.68,
+                0.207
+              ],
+              "content": "string one(\"din\");      // C-style string constructor\nstring two(one);         // copy constructor - one is an lvalue\nstring three(one+two);  // move constructor, sum is an rvalue"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.111,
+            0.214,
+            0.946,
+            0.247
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "正如第 18 章讨论的，three 将获取 operator + () 创建的对象的所有权，而不是将该对象复制给 three，再销毁原始对象。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.146,
+            0.251,
+            0.576,
+            0.266
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第二个使用右值引用的构造函数让您能够指定分配器:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 8,
+          "bbox": [
+            0.146,
+            0.269,
+            0.643,
+            0.283
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 8,
+              "bbox": [
+                0.146,
+                0.269,
+                0.643,
+                0.283
+              ],
+              "content": "basic_string(const basic_string&& str, const Allocator&);"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.146,
+            0.29,
+            0.593,
+            0.305
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "调用这两个构造函数中的任何一个后，将存在如下关系:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "index": 10,
+          "bbox": [
+            0.149,
+            0.308,
+            0.942,
+            0.36
+          ],
+          "content": [
+            {
+              "type": "text",
+              "index": 11,
+              "bbox": [
+                0.149,
+                0.309,
+                0.942,
+                0.325
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- data()方法返回一个指针，该指针指向分配的数组副本，该数组的第一个元素是 str.data()指向的；"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 12,
+              "bbox": [
+                0.15,
+                0.327,
+                0.415,
+                0.342
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- size()方法返回 str.size()的值;"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 13,
+              "bbox": [
+                0.15,
+                0.345,
+                0.539,
+                0.361
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- capacity()方法返回一个至少等于 size()的值。"
+                }
+              ]
+            }
+          ],
+          "sub_type": "text"
+        },
+        {
+          "type": "paragraph_title",
+          "index": 14,
+          "bbox": [
+            0.147,
+            0.372,
+            0.502,
+            0.388
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.2.6 使用一个字符的 n 个副本的构造函数"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 15,
+          "bbox": [
+            0.146,
+            0.4,
+            0.733,
+            0.416
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "使用一个字符的 n 个副本的构造函数创建一个由 n 个 c 组成的 string 对象:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 16,
+          "bbox": [
+            0.146,
+            0.418,
+            0.747,
+            0.432
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 16,
+              "bbox": [
+                0.146,
+                0.418,
+                0.747,
+                0.432
+              ],
+              "content": "basic_string(size_type n, charT c, const Allocator& a = Allocator());"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 17,
+          "bbox": [
+            0.111,
+            0.439,
+            0.946,
+            0.472
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "该构造函数要求 n<npos。如果 n 等于 npos，该构造函数将引发 out_of_range 异常；否则，该构造函数被调用后，将存在下面的关系:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "index": 18,
+          "bbox": [
+            0.15,
+            0.476,
+            0.945,
+            0.547
+          ],
+          "content": [
+            {
+              "type": "text",
+              "index": 19,
+              "bbox": [
+                0.15,
+                0.476,
+                0.945,
+                0.509
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- data()方法返回一个指向字符串第一个元素的指针，该字符串由 n 个元素组成，其中每个元素的值都为 c;"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 20,
+              "bbox": [
+                0.151,
+                0.513,
+                0.327,
+                0.528
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- size()方法返回 n;"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 21,
+              "bbox": [
+                0.15,
+                0.531,
+                0.485,
+                0.547
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- capacity()方法返回不小于 size()的值。"
+                }
+              ]
+            }
+          ],
+          "sub_type": "text"
+        },
+        {
+          "type": "paragraph_title",
+          "index": 22,
+          "bbox": [
+            0.147,
+            0.559,
+            0.373,
+            0.574
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.2.7 使用区间的构造函数"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 23,
+          "bbox": [
+            0.146,
+            0.586,
+            0.667,
+            0.602
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "使用区间的构造函数使用一个用迭代器定义的、STL-风格的区间:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 24,
+          "bbox": [
+            0.146,
+            0.61,
+            0.601,
+            0.653
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 24,
+              "bbox": [
+                0.146,
+                0.61,
+                0.601,
+                0.653
+              ],
+              "content": "template<class InputIterator>\nbasic_string(InputIterator begin, InputIterator end,\n                    const Allocator& a = Allocator());"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 25,
+          "bbox": [
+            0.146,
+            0.662,
+            0.867,
+            0.678
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "begin 迭代器指向源字符串中要复制的第一个元素，end 指向要复制的最后一个元素的后面。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 26,
+          "bbox": [
+            0.146,
+            0.68,
+            0.526,
+            0.696
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "这种构造函数可用于数组、字符串或STL容器:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 27,
+          "bbox": [
+            0.146,
+            0.704,
+            0.617,
+            0.808
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 27,
+              "bbox": [
+                0.146,
+                0.704,
+                0.617,
+                0.808
+              ],
+              "content": "char cole[40] = \"Old King Cole was a merry old soul.\";\nstring title(cole + 4, cole + 8);\nvector<char> input;\nchar ch;\nwhile (cin.get(ch) && ch != '\\n')\n    input.push_back(ch);\nstring str_input(input.begin(), input.end());"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 28,
+          "bbox": [
+            0.11,
+            0.818,
+            0.945,
+            0.851
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "在第一种用法中，InputIterator 的类型为 const char *；在第二种用法中，InputIterator 的类型为 vector<char>::iterator。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 29,
+          "bbox": [
+            0.147,
+            0.854,
+            0.467,
+            0.869
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "调用该构造函数后，将存在下面的关系:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "index": 30,
+          "bbox": [
+            0.149,
+            0.873,
+            0.945,
+            0.927
+          ],
+          "content": [
+            {
+              "type": "text",
+              "index": 31,
+              "bbox": [
+                0.149,
+                0.873,
+                0.945,
+                0.906
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- data()方法返回一个指向字符串的第一个元素的指针，该字符串是通过复制区间[begin, end)中的元素得到的；"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "index": 32,
+              "bbox": [
+                0.15,
+                0.91,
+                0.945,
+                0.926
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "- size()方法返回 begin 到 end 之间的距离（度量距离时，使用的单位为对迭代器解除引用得到的数"
+                }
+              ]
+            }
+          ],
+          "sub_type": "text"
+        }
+      ]
+    },
+    {
+      "page_idx": 885,
+      "blocks": [
+        {
+          "type": "page_number",
+          "index": 0,
+          "bbox": [
+            0.077,
+            0.069,
+            0.107,
+            0.082
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "868"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 1,
+          "bbox": [
+            0.357,
+            0.067,
+            0.628,
+            0.082
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C++ Primer Plus（第6版）中文版"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 2,
+          "bbox": [
+            0.146,
+            0.103,
+            0.277,
+            0.118
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "据类型的长度);"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.113,
+            0.121,
+            0.485,
+            0.137
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "- capacity()方法返回一个不小于 size()的值。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 4,
+          "bbox": [
+            0.11,
+            0.148,
+            0.471,
+            0.164
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.2.8 使用初始化列表的构造函数（C++11）"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.11,
+            0.176,
+            0.507,
+            0.192
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "这个构造函数接受一个 initializer_list<charT>参数:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 6,
+          "bbox": [
+            0.109,
+            0.194,
+            0.763,
+            0.209
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 6,
+              "bbox": [
+                0.109,
+                0.194,
+                0.763,
+                0.209
+              ],
+              "content": "basic_string(initializer_list<charT> il, const Allocator& a = Allocator());"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.11,
+            0.216,
+            0.467,
+            0.232
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "可将一个用大括号括起的字符列表作为参数:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 8,
+          "bbox": [
+            0.109,
+            0.234,
+            0.451,
+            0.249
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 8,
+              "bbox": [
+                0.109,
+                0.234,
+                0.451,
+                0.249
+              ],
+              "content": "string slow({'s', 'n', 'a', 'i', 'l'});"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "javascript"
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.11,
+            0.256,
+            0.699,
+            0.273
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "这并非初始化 string 的最方便方式，但让 string 的接口类似于 STL 容器类。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 10,
+          "bbox": [
+            0.075,
+            0.275,
+            0.909,
+            0.308
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "initializer_list 类包含成员函数 begin() 和 end()，调用该构造函数的影响与调用使用区间的构造函数相同:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 11,
+          "bbox": [
+            0.109,
+            0.311,
+            0.443,
+            0.325
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 11,
+              "bbox": [
+                0.109,
+                0.311,
+                0.443,
+                0.325
+              ],
+              "content": "basic_string(il.begin(), il.end(), a);"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "javascript"
+        },
+        {
+          "type": "paragraph_title",
+          "index": 12,
+          "bbox": [
+            0.111,
+            0.343,
+            0.247,
+            0.358
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.2.9 内存杂记"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 13,
+          "bbox": [
+            0.075,
+            0.37,
+            0.91,
+            0.404
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "有些方法用于处理内存，如清除内存的内容、调整字符串长度或容量。表 F.2 列出了一些与内存相关的方法。"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "index": 15,
+          "bbox": [
+            0.077,
+            0.44,
+            0.915,
+            0.634
+          ],
+          "content": [
+            {
+              "type": "table_caption",
+              "index": 14,
+              "bbox": [
+                0.113,
+                0.423,
+                0.586,
+                0.438
+              ],
+              "content": [
+                {
+                  "type": "text",
+                  "content": "表 F.2 一些与内存有关的方法"
+                }
+              ]
+            },
+            {
+              "type": "table_body",
+              "index": 15,
+              "bbox": [
+                0.077,
+                0.44,
+                0.915,
+                0.634
+              ],
+              "image_path": "raw/pages_0865-0896/images/page_885_table_15.jpg",
+              "content": "<table><tr><td>方法</td><td>作用</td></tr><tr><td>void resize(size_type n)</td><td>如果n&gt;npos,将引发out_of_range异常;否则,将字符串的长度改为n,如果n</td></tr><tr><td>void resize(size_type n, charT c)</td><td>如果n&gt;npos,将引发out_of_range异常;否则,将字符串长度改为n,如果n</td></tr><tr><td>void reserve(size_type res_arg = 0)</td><td>将capacity()设置为大于或等于res_arg。由于这将重新分配字符串,因此以前的引用、迭代器和指针将无效</td></tr><tr><td>void shrink_to_fit()</td><td>请求让capacity()的值与size()相同,这是C++11新增的</td></tr><tr><td>void clear() noexcept</td><td>删除字符串中所有的字符</td></tr><tr><td>bool empty()const noexcept</td><td>如果size()==0,-则返回true</td></tr></table>"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 16,
+          "bbox": [
+            0.076,
+            0.664,
+            0.319,
+            0.685
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.3 字符串存取"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 17,
+          "bbox": [
+            0.11,
+            0.713,
+            0.826,
+            0.73
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "有 4 种方法可以访问各个字符，其中两种方法使用[]运算符，另外两种方法使用 at() 方法:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 18,
+          "bbox": [
+            0.11,
+            0.735,
+            0.545,
+            0.795
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 18,
+              "bbox": [
+                0.11,
+                0.735,
+                0.545,
+                0.795
+              ],
+              "content": "reference operator[](size_type pos);\nconst_reference operator[](size_type pos) const;\nreference at(size_type n);\nconst_reference at(size_type-n) const;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 19,
+          "bbox": [
+            0.075,
+            0.802,
+            0.909,
+            0.837
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第一个 operator[]() 方法使得能够使用数组表示法来访问字符串的元素，可用于检索或更改值。第二个 operator[]() 方法可用于 const 对象，但只能用于检索值:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 20,
+          "bbox": [
+            0.11,
+            0.843,
+            0.526,
+            0.918
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 20,
+              "bbox": [
+                0.11,
+                0.843,
+                0.526,
+                0.918
+              ],
+              "content": "string word(\"tack\");\ncout << word[0];    // display the t = _\nword[3] = 't';     // overwrite the k with a t\nconst ward(\"garlic\");\ncout << ward[2];    // display the r"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "javascript"
+        }
+      ]
+    },
+    {
+      "page_idx": 886,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.437,
+            0.066,
+            0.61,
+            0.081
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "附录 F 模板类 string"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.91,
+            0.067,
+            0.942,
+            0.079
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "869"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 2,
+          "bbox": [
+            0.14,
+            0.1,
+            0.67,
+            0.117
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "at()方法提供了相似的访问功能，只是索引是通过函数参数提供的:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 3,
+          "bbox": [
+            0.14,
+            0.122,
+            0.483,
+            0.15
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 3,
+              "bbox": [
+                0.14,
+                0.122,
+                0.483,
+                0.15
+              ],
+              "content": "string word(\"tack\");\ncout << word.at(0);    // display the t"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.104,
+            0.157,
+            0.941,
+            0.228
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "差别在于（除语法差别外）:at()方法执行边界检查，如果 pos>=size()，将引发 out_of_range 异常。pos 的类型为 size_type，是无符号的，因此 pos 的值不能为负；而 operator[]() 方法不进行边界检查，因此，如果 pos>=size()，则其行为将是不确定的（如果 pos==size()，const 版本将返回空值字符的等价物）。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.14,
+            0.23,
+            0.839,
+            0.246
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "因此，可以在安全性（使用 at() 检测异常）和执行速度（使用数组表示）之间进行选择。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.14,
+            0.249,
+            0.571,
+            0.265
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "还有一个这样的函数，它返回原始字符串的子字符串:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 7,
+          "bbox": [
+            0.14,
+            0.267,
+            0.707,
+            0.282
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 7,
+              "bbox": [
+                0.14,
+                0.267,
+                0.707,
+                0.282
+              ],
+              "content": "basic_string substr(size_type pos = 0, size_type n = npos) const;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 8,
+          "bbox": [
+            0.105,
+            0.288,
+            0.942,
+            0.322
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "它返回一个字符串——这是从 pos 开始，复制 n 个字符（或到字符串尾部）得到的。例如，下面的代码将 pet 初始化为 “donkey”:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 9,
+          "bbox": [
+            0.139,
+            0.327,
+            0.619,
+            0.356
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 9,
+              "bbox": [
+                0.139,
+                0.327,
+                0.619,
+                0.356
+              ],
+              "content": "string message(\"Maybe the donkey will learn to sing.\");\nstring pet(message.substr(10, 6));"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "javascript"
+        },
+        {
+          "type": "text",
+          "index": 10,
+          "bbox": [
+            0.14,
+            0.363,
+            0.407,
+            0.378
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C++11 新增了如下四个存取方法:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 11,
+          "bbox": [
+            0.14,
+            0.383,
+            0.378,
+            0.442
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 11,
+              "bbox": [
+                0.14,
+                0.383,
+                0.378,
+                0.442
+              ],
+              "content": "const charT& front() const;\ncharT& front();\nconst charT& back() const;\ncharT& back();"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "cpp"
+        },
+        {
+          "type": "text",
+          "index": 12,
+          "bbox": [
+            0.105,
+            0.448,
+            0.942,
+            0.484
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "其中 front() 方法访问 string 的第一个元素，相当于 operator[] (0); back() 方法访问 string 的最后一个元素，相当于 operator[] (size() - 1)。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 13,
+          "bbox": [
+            0.106,
+            0.509,
+            0.317,
+            0.529
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.4 基本赋值"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 14,
+          "bbox": [
+            0.14,
+            0.558,
+            0.707,
+            0.574
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "在 C++11 中，有 5 个重载的赋值方法，在 C++98 的基础上增加了两个:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 15,
+          "bbox": [
+            0.14,
+            0.579,
+            0.692,
+            0.653
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 15,
+              "bbox": [
+                0.14,
+                0.579,
+                0.692,
+                0.653
+              ],
+              "content": "basic_string& operator=(const basic_string& str);\nbasic_string& operator=(const charT* s);\nbasic_string& operator=(charT c);\nbasic_string& operator=(basic_string&& str) noexcept;  // C++11\nbasic_string& operator=(initializer_list<charT>);      // C++11"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        },
+        {
+          "type": "text",
+          "index": 16,
+          "bbox": [
+            0.105,
+            0.66,
+            0.942,
+            0.713
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第一个方法将一个 string 对象赋给另一个；第二个方法将 C-风格字符串赋给 string 对象；第三个方法将一个字符赋给 string 对象；第四个方法使用移动语义，将一个右值 string 对象赋给一个 string 对象；第五个方法让您能够使用初始化列表进行赋值。因此，下面的操作都是可能的:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 17,
+          "bbox": [
+            0.14,
+            0.718,
+            0.586,
+            0.822
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 17,
+              "bbox": [
+                0.14,
+                0.718,
+                0.586,
+                0.822
+              ],
+              "content": "string name(\"George Wash\");\nstring pres, veep, source, join, awkward;\npres = name;\nveep = \"Road Runner\";\nsource = 'X';\njoin = name + source;   // now with move semantics!\nawkward = {'C','l','o','u','s','e','a','u'};"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "paragraph_title",
+          "index": 18,
+          "bbox": [
+            0.106,
+            0.853,
+            0.348,
+            0.873
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.5 字符串搜索"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 19,
+          "bbox": [
+            0.14,
+            0.902,
+            0.797,
+            0.919
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "string 类提供了 6 种搜索函数，其中每个函数都有 4 个原型。下面简要地介绍它们。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 887,
+      "blocks": [
+        {
+          "type": "page_number",
+          "index": 0,
+          "bbox": [
+            0.07,
+            0.067,
+            0.101,
+            0.079
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "870"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 1,
+          "bbox": [
+            0.351,
+            0.065,
+            0.621,
+            0.08
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C++ Primer Plus（第6版）中文版"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 2,
+          "bbox": [
+            0.104,
+            0.109,
+            0.25,
+            0.125
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.5.1 find()系列"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.103,
+            0.136,
+            0.367,
+            0.152
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "在 C++11 中，find() 的原型如下:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 4,
+          "bbox": [
+            0.102,
+            0.157,
+            0.757,
+            0.217
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 4,
+              "bbox": [
+                0.102,
+                0.157,
+                0.757,
+                0.217
+              ],
+              "content": "size_type find (const basic_string& str, size_type pos = 0) const noexcept;\nsize_type find (const charT* s, size_type pos = 0) const;\nsize_type find (const charT* s, size_type pos, size_type n) const;\nsize_type find (charT c, size_type pos = 0) const noexcept;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.068,
+            0.223,
+            0.905,
+            0.258
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第一个返回 str 在调用对象中第一次出现时的起始位置。搜索从 pos 开始，如果没有找到子字符串，将返回 npos。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.104,
+            0.26,
+            0.537,
+            0.275
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "下面的代码在一个字符串中查找字符串 “hat” 的位置:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 7,
+          "bbox": [
+            0.103,
+            0.281,
+            0.691,
+            0.34
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 7,
+              "bbox": [
+                0.103,
+                0.281,
+                0.691,
+                0.34
+              ],
+              "content": "string longer(\"That is a funny hat.\");\nstring shorter(\"hat\");\nsize_type loc1 = longer.find(shorter);          // sets loc1 to 1\nsize_type loc2 = longer.find(shorter, loc1 + 1); // sets loc2 to 16"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 8,
+          "bbox": [
+            0.069,
+            0.347,
+            0.905,
+            0.382
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "由于第二条搜索语句从位置 2 开始（That 中的 a），因此它找到的第一个 hat 位于字符串尾部。要测试是否失败，可使用 string::npos 值:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 9,
+          "bbox": [
+            0.103,
+            0.387,
+            0.335,
+            0.414
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 9,
+              "bbox": [
+                0.103,
+                0.387,
+                0.335,
+                0.414
+              ],
+              "content": "if (loc1 == string::npos)\n    cout << \"Not found\\n\";"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "typescript"
+        },
+        {
+          "type": "text",
+          "index": 10,
+          "bbox": [
+            0.103,
+            0.421,
+            0.746,
+            0.436
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第二个方法完成同样的工作，但它使用字符数组而不是 string 对象作为子字符串:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 11,
+          "bbox": [
+            0.103,
+            0.439,
+            0.675,
+            0.453
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 11,
+              "bbox": [
+                0.103,
+                0.439,
+                0.675,
+                0.453
+              ],
+              "content": "size_type loc3 = longer.find(\"is\");          //sets loc3 to 5"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "javascript"
+        },
+        {
+          "type": "text",
+          "index": 12,
+          "bbox": [
+            0.068,
+            0.46,
+            0.906,
+            0.512
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第三个方法完成相同的工作，但它只使用字符串 s 的前 n 个字符。这与使用 basic_string（const charT *s, size_type n）构造函数，然后将得到的对象用作第一种格式的 find() 的 string 参数的效果完全相同。例如，下面的代码搜索子字符串 “fun”:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 13,
+          "bbox": [
+            0.103,
+            0.514,
+            0.682,
+            0.528
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 13,
+              "bbox": [
+                0.103,
+                0.514,
+                0.682,
+                0.528
+              ],
+              "content": "size_type loc4 = longer.find(\"funds\", 3);          //sets loc4 to 10"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 14,
+          "bbox": [
+            0.103,
+            0.535,
+            0.782,
+            0.551
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第四个方法的功能与第一个相同，但它使用一个字符而不是 string 对象作为子字符串:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 15,
+          "bbox": [
+            0.103,
+            0.553,
+            0.675,
+            0.567
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 15,
+              "bbox": [
+                0.103,
+                0.553,
+                0.675,
+                0.567
+              ],
+              "content": "size_type loc5 = longer.find('a');          //sets loc5 to 2"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "paragraph_title",
+          "index": 16,
+          "bbox": [
+            0.105,
+            0.583,
+            0.259,
+            0.6
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.5.2 rfind( )系列"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 17,
+          "bbox": [
+            0.104,
+            0.611,
+            0.297,
+            0.627
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "rfind()方法的原型如下:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 18,
+          "bbox": [
+            0.103,
+            0.633,
+            0.68,
+            0.706
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 18,
+              "bbox": [
+                0.103,
+                0.633,
+                0.68,
+                0.706
+              ],
+              "content": "size_type rfind(const basic_string& str,\n            size_type pos = npos) const noexcept;\nsize_type rfind(const charT* s, size_type pos = npos) const;\nsize_type rfind(const charT* s, size_type pos, size_type n) const;\nsize_type rfind(charT c, size_type pos = npos) const noexcept;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 19,
+          "bbox": [
+            0.07,
+            0.713,
+            0.906,
+            0.747
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "这些方法与相应 find() 方法的工作方式相似，但它们搜索字符串最后一次出现的位置，该位置位于 pos 之前（包括 pos）。如果没有找到，该方法将返回 npos。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 20,
+          "bbox": [
+            0.104,
+            0.75,
+            0.574,
+            0.765
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "下面的代码从字符串末尾开始查找子字符串 “hat” 的位置:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 21,
+          "bbox": [
+            0.103,
+            0.77,
+            0.699,
+            0.829
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 21,
+              "bbox": [
+                0.103,
+                0.77,
+                0.699,
+                0.829
+              ],
+              "content": "string longer(\"That is a funny hat.\");\nstring shorter(\"hat\");\nsize_type loc1 = longer.rfind(shorter);          // sets loc1 to 16\nsize_type loc2 = longer.rfind(shorter, loc1 - 1); // sets loc2 to 1"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "paragraph_title",
+          "index": 22,
+          "bbox": [
+            0.105,
+            0.838,
+            0.318,
+            0.855
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.5.3 find_first_of()系列"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 23,
+          "bbox": [
+            0.105,
+            0.866,
+            0.354,
+            0.882
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "find_first_of()方法的原型如下:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 24,
+          "bbox": [
+            0.104,
+            0.887,
+            0.611,
+            0.917
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 24,
+              "bbox": [
+                0.104,
+                0.887,
+                0.611,
+                0.917
+              ],
+              "content": "size_type find_first_of(const basic_string& str,\n                    size_type pos = 0) const noexcept;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "page_number",
+          "index": 25,
+          "bbox": [
+            0.119,
+            0.965,
+            0.13,
+            0.973
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "A"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 888,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.432,
+            0.066,
+            0.607,
+            0.082
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "附录 F 模板类 string"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.904,
+            0.066,
+            0.934,
+            0.079
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "871"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 2,
+          "bbox": [
+            0.134,
+            0.099,
+            0.778,
+            0.144
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 2,
+              "bbox": [
+                0.134,
+                0.099,
+                0.778,
+                0.144
+              ],
+              "content": "size_type find_first_of(const-charT* s, size_type pos, size_type n) const;\nsize_type find_first_of(const-charT* s, size_type pos = 0) const;\nsize_type find_first_of(charT c, size_type pos = 0) const noexcept;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.1,
+            0.15,
+            0.936,
+            0.185
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "这些方法与对应 find() 方法的工作方式相似，但它们不是搜索整个子字符串，而是搜索子字符串中的字符首次出现的位置。"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 4,
+          "bbox": [
+            0.134,
+            0.19,
+            0.72,
+            0.25
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 4,
+              "bbox": [
+                0.134,
+                0.19,
+                0.72,
+                0.25
+              ],
+              "content": "string longer(\"That is a funny hat.\");\nstring shorter(\"fluke\");\nsize_type loc1 = longer.find_first_of(shorter);  // sets loc1 to 10\nsize_type loc2 = longer.find_first_of(\"fat\");    // sets loc2 to-2"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.135,
+            0.256,
+            0.919,
+            0.273
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "在 longer 中，首次出现的 fluke 中的字符是 funny 中的 f，而首次出现的 fat 中的字符是 That 中的 a。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 6,
+          "bbox": [
+            0.136,
+            0.284,
+            0.345,
+            0.301
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.5.4 find_last_of()系列"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.136,
+            0.312,
+            0.38,
+            0.329
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "find_last_of()方法的原型如下:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 8,
+          "bbox": [
+            0.135,
+            0.332,
+            0.779,
+            0.407
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 8,
+              "bbox": [
+                0.135,
+                0.332,
+                0.779,
+                0.407
+              ],
+              "content": "size_type find_last_of (const basic_string& str,\n            size_type pos = npos) const noexcept;\nsize_type find_last_of (const charT* s, size_type-pos, size_type_n) const;\nsize_type find_last_of (const charT* s, size_type pos = npos) const;\nsize_type find_last_of (charT_c, size_type pos= npos) const noexcept;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.101,
+            0.413,
+            0.936,
+            0.447
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "这些方法与对应 rfind() 方法的工作方式相似，但它们不是搜索整个子字符串，而是搜索子字符串中的字符出现的最后位置。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 10,
+          "bbox": [
+            0.137,
+            0.45,
+            0.776,
+            0.466
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "下面的代码在一个字符串中查找字符串 “hat” 和 “any” 中字母最后出现的位置:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 11,
+          "bbox": [
+            0.135,
+            0.473,
+            0.713,
+            0.533
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 11,
+              "bbox": [
+                0.135,
+                0.473,
+                0.713,
+                0.533
+              ],
+              "content": "string longer(\"That is a funny hat.\");\nstring shorter(\"hat\");\nsize_type loc1 = longer.find_last_of(shorter);  // sets loc1 to 18\nsize_type loc2 = longer.find_last_of(\"any\");   // sets loc2 to 17"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 12,
+          "bbox": [
+            0.136,
+            0.542,
+            0.88,
+            0.559
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "在 longer 中，最后出现的 hat 中的字符是 hat 中的 t，而最后出现的 any 中的字符是 hat 中的 a。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 13,
+          "bbox": [
+            0.137,
+            0.57,
+            0.383,
+            0.586
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.5.5 find_first_not_of()系列"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 14,
+          "bbox": [
+            0.137,
+            0.597,
+            0.416,
+            0.613
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "find_first_not_of()方法的原型如下:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 15,
+          "bbox": [
+            0.135,
+            0.62,
+            0.755,
+            0.711
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 15,
+              "bbox": [
+                0.135,
+                0.62,
+                0.755,
+                0.711
+              ],
+              "content": "size_type find_first_not_of(const basic_string& str,\n                    size_type pos = 0) const noexcept;\nsize_type find_first_not_of(const charT* s, size_type pos,\n                    size_type n) const;\nsize_type find_first_not_of(const charT* s, size_type pos = 0) const;\nsize_type find_first_not_of(charT c, size_type pos = 0) const noexcept;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 16,
+          "bbox": [
+            0.136,
+            0.72,
+            0.913,
+            0.736
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "这些方法与对应 find_first_of() 方法的工作方式相似，但它们搜索第一个不位于子字符串中的字符。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 17,
+          "bbox": [
+            0.138,
+            0.738,
+            0.756,
+            0.754
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "下面的代码在字符串中查找第一个没有出现在 “This” 和 “Thatch” 中的字母:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 18,
+          "bbox": [
+            0.135,
+            0.761,
+            0.748,
+            0.821
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 18,
+              "bbox": [
+                0.135,
+                0.761,
+                0.748,
+                0.821
+              ],
+              "content": "string longer(\"That is a funny hat.\");\nstring shorter(\"This\");\nsize_type loc1 = longer.find_first_not_of(shorter);  // sets loc1 to 2\nsize_type loc2 = longer.find_first_not_of(\"Thatch\"); // sets loc2 to 4"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 19,
+          "bbox": [
+            0.102,
+            0.83,
+            0.936,
+            0.864
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "在 longer 中，That 中的 a 是第一个在 This 中没有出现的字符，而字符串 longer 中的第一个空格是第一个没有在 Thatch 中出现的字符。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 20,
+          "bbox": [
+            0.137,
+            0.876,
+            0.382,
+            0.894
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.5.6 find_last_not_of()系列"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 21,
+          "bbox": [
+            0.138,
+            0.904,
+            0.414,
+            0.921
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "find_last_not_of()方法的原型如下:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 889,
+      "blocks": [
+        {
+          "type": "page_number",
+          "index": 0,
+          "bbox": [
+            0.078,
+            0.067,
+            0.11,
+            0.079
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "872"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 1,
+          "bbox": [
+            0.359,
+            0.065,
+            0.63,
+            0.08
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C++ Primer Plus（第6版）中文版"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 2,
+          "bbox": [
+            0.109,
+            0.095,
+            0.761,
+            0.202
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 2,
+              "bbox": [
+                0.109,
+                0.095,
+                0.761,
+                0.202
+              ],
+              "content": "size_type find_last_not_of (const basic_string& str,\n                    size_type pos = npos) const noexcept;\nsize_type find_last_not_of (const charT* s, size_type pos,\n                    size_type n) const;\nsize_type find_last_not_of (const charT* s,\n                    size_type pos_ = npos) const;\nsize_type find_last_not_of (charT c, size_type pos = npos) const noexcept;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.075,
+            0.206,
+            0.911,
+            0.241
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "这些方法与对应 find_last_of() 方法的工作方式相似，但它们搜索的是最后一个没有在子字符串中出现的字符。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.113,
+            0.244,
+            0.651,
+            0.26
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "下面的代码在字符串中查找最后一个没有出现在“That.”中的字符:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 5,
+          "bbox": [
+            0.109,
+            0.264,
+            0.756,
+            0.325
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 5,
+              "bbox": [
+                0.109,
+                0.264,
+                0.756,
+                0.325
+              ],
+              "content": "string_longer(\"That.is.a funny hat.\");\nstring_shorter(\"That.\");\nsize_type loc1 = longer.find_last_not_of(shorter); // sets_loc1 to 15;\nsize_type loc2 = -longer.find_last_not_of(shorter, 10); // sets_loc2 to 10;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.074,
+            0.331,
+            0.911,
+            0.366
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "在 longer 中，最后的空格是最后一个没有出现在 shorter 中的字符，而 longer 字符串中的 f 是搜索到位置 10 时，最后一个没有出现在 shorter 中的字符。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 7,
+          "bbox": [
+            0.075,
+            0.392,
+            0.383,
+            0.414
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.6 比较方法和函数"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 8,
+          "bbox": [
+            0.11,
+            0.44,
+            0.676,
+            0.457
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "string 类提供了用于比较 2 个字符串的方法和函数。下面是方法的原型:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 9,
+          "bbox": [
+            0.109,
+            0.461,
+            0.667,
+            0.631
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 9,
+              "bbox": [
+                0.109,
+                0.461,
+                0.667,
+                0.631
+              ],
+              "content": "int compare(const basic_string& str) const noexcept;\n\nint compare(size_type pos1, size_type n1,\n    const basic_string& str) const;\nint compare(size_type.pos1, size_type n1,\n    const basic_string& str,\n    size_type pos2, size_type n2) const;\nint compare(const charT* s) const;\nint compare(size_type pos1, size_type n1, const charT* s) const;\nint compare(size_type pos1, size_type n1,\n    const charT* s, size_type n2.)const;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        },
+        {
+          "type": "text",
+          "index": 10,
+          "bbox": [
+            0.074,
+            0.637,
+            0.915,
+            0.709
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "这些方法使用traits::compare()方法，后者是为用于字符串的字符类型定义的。如果根据traits::compare()提供的顺序，第一个字符串位于第二个字符串之前，则第一个方法将返回一个小于0的值；如果这两个字符串相同，则它将返回0；如果第一个字符串位于第二个字符串的后面，则它将返回一个大于0的值。如果较长的字符串的前半部分与较短的字符串相同，则较短的字符串将位于较长的字符串之前。"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 11,
+          "bbox": [
+            0.109,
+            0.713,
+            0.457,
+            0.787
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 11,
+              "bbox": [
+                0.109,
+                0.713,
+                0.457,
+                0.787
+              ],
+              "content": "string s1(\"bellflower\");\nstring s2(\"bell\");\nstring s3(\"cat\");\nint a13 = s1-compare(s3); // a13 is < 0\nint a12 = s1-compare(s2); // a12 is > 0"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        },
+        {
+          "type": "text",
+          "index": 12,
+          "bbox": [
+            0.074,
+            0.793,
+            0.911,
+            0.827
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第二个方法与第一个方法相似，但它进行比较时，只使用第一个字符串中从位置 pos1 开始的 n1 个字符。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 13,
+          "bbox": [
+            0.113,
+            0.83,
+            0.591,
+            0.846
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "下面的示例将字符串 s1 的前 4 个字符同字符串 s2 进行比较:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 14,
+          "bbox": [
+            0.109,
+            0.85,
+            0.471,
+            0.895
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 14,
+              "bbox": [
+                0.109,
+                0.85,
+                0.471,
+                0.895
+              ],
+              "content": "string-s1(\"bellflower\");\nstring s2(\"bell\");\nint a2 = s1.compare(0, 4, s2); // a2 is 0"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 15,
+          "bbox": [
+            0.109,
+            0.901,
+            0.911,
+            0.918
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第三个方法与第一个方法相似，但它使用第一个字符串中从pos1位置开始的n1个字符和第二个字符串"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 890,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.427,
+            0.07,
+            0.601,
+            0.086
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "附录 F 模板类 string"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.9,
+            0.071,
+            0.931,
+            0.084
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "873"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 2,
+          "bbox": [
+            0.095,
+            0.104,
+            0.926,
+            0.121
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "中从 pos2 位置开始的 n2 个字符进行比较。例如，下面的语句将对 stout 中的 out 和 about 中的 out 进行比较:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 3,
+          "bbox": [
+            0.13,
+            0.126,
+            0.569,
+            0.169
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 3,
+              "bbox": [
+                0.13,
+                0.126,
+                0.569,
+                0.169
+              ],
+              "content": "string st1(\"stout boar\");\nstring st2(\"mad about ewe\");\nint a3 = st1.compare(2, 3, st2, 6, 3);  // a3 is 0"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.13,
+            0.175,
+            0.845,
+            0.192
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第四个方法与第一个方法相似，但它将一个字符数组而不是 string 对象作为第二个字符串。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.13,
+            0.194,
+            0.88,
+            0.21
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第五和六个方法与第三个方法相似，但将一个字符串数组而不是 string 对象作为第二个字符串。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.131,
+            0.213,
+            0.433,
+            0.228
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "非成员比较函数是重载的关系运算符:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 7,
+          "bbox": [
+            0.131,
+            0.234,
+            0.239,
+            0.322
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 7,
+              "bbox": [
+                0.131,
+                0.234,
+                0.239,
+                0.322
+              ],
+              "content": "operator==()\noperator<()\noperator<=()\noperator>()\noperator>=()\noperator!=()"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 8,
+          "bbox": [
+            0.094,
+            0.329,
+            0.931,
+            0.382
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "每一个运算符都被重载，使之将 string 对象与 string 对象进行比较、将 string 对象与 C-风格字符串进行比较、将 C-风格字符串与 string 对象进行比较。它们都是根据 compare() 方法定义的，因此提供了一种在表示方面更为方便的比较方式。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 9,
+          "bbox": [
+            0.096,
+            0.408,
+            0.405,
+            0.43
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.7 字符串修改方法"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 10,
+          "bbox": [
+            0.095,
+            0.457,
+            0.931,
+            0.493
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "string 类提供了多个用于修改字符串的方法，其中绝大多数都拥有大量的重载版本，因此可用于 string 对象、字符串数组、单个字符和迭代器区间。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 11,
+          "bbox": [
+            0.131,
+            0.503,
+            0.376,
+            0.519
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.7.1 用于追加和相加的方法"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 12,
+          "bbox": [
+            0.095,
+            0.531,
+            0.931,
+            0.584
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "可以使用重载的+=运算符或 append()方法将一个字符串追加到另一个字符串的后面。如果得到的字符串长于最大字符串长度，将引发 length_error 异常。+=运算符使得能够将 string 对象、字符串数组或单个字符追加到 string 对象的后面:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 13,
+          "bbox": [
+            0.131,
+            0.589,
+            0.569,
+            0.633
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 13,
+              "bbox": [
+                0.131,
+                0.589,
+                0.569,
+                0.633
+              ],
+              "content": "basic_string& operator+=(const basic_string& str);\nbasic_string& operator+=(const charT* s);\nbasic_string& operator+=(charT c);"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        },
+        {
+          "type": "text",
+          "index": 14,
+          "bbox": [
+            0.095,
+            0.64,
+            0.931,
+            0.711
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "append()方法也使得能够将 string 对象、字符串数组或单个字符追加到 string 对象的后面。此外，通过指定初始位置和追加的字符数，或者通过指定区间，还可以追加 string 对象的一部分。通过指定要使用字符串中的多少个字符，可以追加字符串的一部分。追加字符的版本使得能够指定要复制该字符的多少个实例。下面是各种 append()方法的原型:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 15,
+          "bbox": [
+            0.131,
+            0.716,
+            0.727,
+            0.851
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 15,
+              "bbox": [
+                0.131,
+                0.716,
+                0.727,
+                0.851
+              ],
+              "content": "basic_string& append(const basic_string& str);\nbasic_string& append(const basic_string& str, size_type pos,\n                    size_type n);\ntemplate<class InputIterator>\n  basic_string& append(InputIterator first, InputIterator last);\nbasic_string& append(const charT* s);\nbasic_string& append(const charT* s, size_type n);\nbasic_string& append(size_type n, charT c);  // append n copies of c\nvoid push_back(charT c);                  // appends 1 copy of c"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "cpp"
+        },
+        {
+          "type": "text",
+          "index": 16,
+          "bbox": [
+            0.134,
+            0.857,
+            0.273,
+            0.873
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "下面是几个示例:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 17,
+          "bbox": [
+            0.131,
+            0.878,
+            0.509,
+            0.922
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 17,
+              "bbox": [
+                0.131,
+                0.878,
+                0.509,
+                0.922
+              ],
+              "content": "string test(\"The\");\ntest.append(\"ory\");  // test is \"Theory\"\ntest.append(3,!!');  // test is \"Theory!!!\""
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        }
+      ]
+    },
+    {
+      "page_idx": 891,
+      "blocks": [
+        {
+          "type": "page_number",
+          "index": 0,
+          "bbox": [
+            0.09,
+            0.071,
+            0.122,
+            0.083
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "874"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 1,
+          "bbox": [
+            0.37,
+            0.069,
+            0.64,
+            0.084
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C++ Primer Plus（第6版）中文版"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 2,
+          "bbox": [
+            0.087,
+            0.104,
+            0.923,
+            0.175
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "operator+()函数被重载，以便能够拼接字符串。该重载函数不修改字符串，而是创建一个新的字符串，该字符串是通过将第二个字符串追加到第一个字符串后面得到的。加法函数不是成员函数，它们使得能够将 string 对象和 string 对象、string 对象和字符串数组、字符串数组和 string 对象、string 对象和字符以及字符和 string 对象相加。下面是一些例子:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 3,
+          "bbox": [
+            0.123,
+            0.183,
+            0.526,
+            0.258
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 3,
+              "bbox": [
+                0.123,
+                0.183,
+                0.526,
+                0.258
+              ],
+              "content": "string st1(\"red\");\nstring st2(\"rain\");\nstring st3 = st1 + \"uce\";  // st3 is \"reduce\"\nstring st4 = 't' + st2;    // st4 is \"train\"\nstring st5 = st1 + st2;    // st5 is \"redrain\""
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "paragraph_title",
+          "index": 4,
+          "bbox": [
+            0.125,
+            0.272,
+            0.296,
+            0.288
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.7.2 其他赋值方法"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.09,
+            0.3,
+            0.923,
+            0.335
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "除了基本的赋值运算符外，string 类还提供了 assign() 方法，该方法使得能够将整个字符串、字符串的一部分或由相同字符组成的字符序列赋给 string 对象。下面是各种 assign() 方法的原型:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 6,
+          "bbox": [
+            0.123,
+            0.342,
+            0.71,
+            0.491
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 6,
+              "bbox": [
+                0.123,
+                0.342,
+                0.71,
+                0.491
+              ],
+              "content": "basic_string& assign(const basic_string& str);\nbasic string& assign(basic_string&& str) noexcept;  // C++11\nbasic_string& assign(const basic_string& str, size_type pos,\n                    size_type n);\nbasic_string& assign(const charT* s, size_type n);\nbasic_string& assign(const charT* s);\nbasic_string& assign(size_type n, charT c); // assign n copies of c\ntemplate<class InputIterator>\n  basic_string& assign(InputIterator first, InputIterator last);\nbasic_string& assign(initializer_list<charT>);  // C++11"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "cpp"
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.127,
+            0.501,
+            0.264,
+            0.516
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "下面是几个例子:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 8,
+          "bbox": [
+            0.124,
+            0.525,
+            0.534,
+            0.582
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 8,
+              "bbox": [
+                0.124,
+                0.525,
+                0.534,
+                0.582
+              ],
+              "content": "string test;\nstring stuff(\"set tubs clones ducks\");\ntest.assign(stuff, 1, 5);    // test is \"et tu\"\ntest.assign(6, '#\");          // test is \"########\""
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "rust"
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.089,
+            0.592,
+            0.923,
+            0.627
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "接受右值引用作为参数的 assign() 方法是 C++11 新增的，它支持移动语义；另一个新增的 assign() 方法让您能够将 initializer_list 赋给 string 对象。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 10,
+          "bbox": [
+            0.125,
+            0.638,
+            0.262,
+            0.654
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.7.3 插入方法"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 11,
+          "bbox": [
+            0.088,
+            0.666,
+            0.925,
+            0.756
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "insert()方法使得能够将 string 对象、字符串数组或几个字符插入到 string 对象中。这个方法与 append() 方法相似，但它还接受另一个指定插入位置的参数，该参数可以是位置，也可以是迭代器。数据将被插入到插入点的前面。有几种方法返回一个指向得到的字符串的引用。如果 pos1 超过了目标字符串结尾，或者 pos2 超过了要插入的字符串结尾，该方法将引发 out_of_range 异常。如果得到的字符串长于最大长度，该方法将引发 length_error 异常。下面是各种 insert() 方法的原型:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 12,
+          "bbox": [
+            0.123,
+            0.761,
+            0.718,
+            0.926
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 12,
+              "bbox": [
+                0.123,
+                0.761,
+                0.718,
+                0.926
+              ],
+              "content": "basic_string& insert(size_type pos1, const basic_string& str);\nbasic_string& insert(size_type pos1, const basic_string& str,\n            size_type-pos2, size_type n);\nbasic_string& insert(size_type-pos, const charT* s, size_type n);\nbasic_string& insert(size_type-pos, const charT* s);\nbasic_string& insert(size_type pos, size_type n, charT c);\niterator insert(const_iterator p, charT -c);\niterator insert(const_iterator p, size_type n, charT -c);\ntemplate<class InputIterator>\n    void insert(iterator p, InputIterator first, InputIterator last);\niterator insert(const_iterator p, initializer_list<charT>); // C++11"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        }
+      ]
+    },
+    {
+      "page_idx": 892,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.435,
+            0.072,
+            0.609,
+            0.088
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "附录 F 模板类 string"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.908,
+            0.073,
+            0.939,
+            0.086
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "875"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 2,
+          "bbox": [
+            0.137,
+            0.106,
+            0.773,
+            0.123
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "例如，下面的代码将字符串 “former” 字符串插入到 “The banker.” 中 b 的前面:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 3,
+          "bbox": [
+            0.137,
+            0.128,
+            0.368,
+            0.156
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 3,
+              "bbox": [
+                0.137,
+                0.128,
+                0.368,
+                0.156
+              ],
+              "content": "string st3(\"The banker.\");\nst3.insert(4, \"former \");"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "javascript"
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.103,
+            0.162,
+            0.938,
+            0.196
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "而下面的代码将字符串 “waltzed”（不包括！，它是第9个字符）插入到 “The former banker.” 末尾的句号之前:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 5,
+          "bbox": [
+            0.137,
+            0.2,
+            0.513,
+            0.214
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 5,
+              "bbox": [
+                0.137,
+                0.2,
+                0.513,
+                0.214
+              ],
+              "content": "st3.insert(st3.size() - 1, \" waltzed!\", 8);"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "javascript"
+        },
+        {
+          "type": "paragraph_title",
+          "index": 6,
+          "bbox": [
+            0.139,
+            0.229,
+            0.275,
+            0.245
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.7.4 清除方法"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.137,
+            0.257,
+            0.513,
+            0.273
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "erase()方法从字符串中删除字符，其原型如下:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 8,
+          "bbox": [
+            0.137,
+            0.28,
+            0.653,
+            0.339
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 8,
+              "bbox": [
+                0.137,
+                0.28,
+                0.653,
+                0.339
+              ],
+              "content": "basic_string& erase(size_type pos = 0, size_type n = npos);\niterator erase(const_iterator position);\niterator erase(const_iterator first, iterator last);\nvoid pop_back();"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.102,
+            0.349,
+            0.938,
+            0.421
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "第一种格式将从 pos 位置开始，删除 n 个字符或删除到字符串尾。第二种格式删除迭代器位置引用的字符，并返回指向下一个元素的迭代器；如果后面没有其他元素，则返回 end()。第三种格式删除区间[first, last) 中的字符，即从 first（包括）到 last（不包括）之间的字符；它返回最后一个迭代器，该迭代器指向最后一个被删除的元素后面的一个元素。最后，方法 pop_back() 删除字符串中的最后一个字符。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 10,
+          "bbox": [
+            0.139,
+            0.431,
+            0.275,
+            0.447
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.7.5 替换方法"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 11,
+          "bbox": [
+            0.102,
+            0.459,
+            0.94,
+            0.531
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "各种 replace()方法都指定了要替换的字符串部分和用于替换的内容。可以使用初始位置和字符数目或迭代器区间来指定要替换的部分。替换内容可以是 string 对象、字符串数组，也可以是特定字符的多个实例。对于用于替换的 string 对象和数组，可以通过指定特定部分（使用位置和计数或只使用计数）或迭代器区间做进一步的修改。下面是各种 replace()方法的原型:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 12,
+          "bbox": [
+            0.137,
+            0.537,
+            0.809,
+            0.838
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 12,
+              "bbox": [
+                0.137,
+                0.537,
+                0.809,
+                0.838
+              ],
+              "content": "basic_string& replace(size_type pos1, size_type n1, const basic_string& str);\nbasic_string& replace(size_type pos1, size_type n1, const basic_string& str,\n            size_type pos2, size_type n2);\nbasic_string& replace(size_type pos, size_type n1, const charT* s,\n            size_type n2);\nbasic_string& replace(size_type pos, size_type n1, const charT* s);\nbasic_string& replace(size_type pos, size_type n1, size_type n2, charT c);\nbasic_string& replace(const_iterator i1, const_iterator i2,\n            const basic_string& str);\nbasic_string& replace(const_iterator i1, const_iterator i2,\n            const charT* s, size_type n);\nbasic_string& replace(const_iterator i1, const_iterator i2,\n            const charT* s);\nbasic_string& replace(const_iterator i1, const_iterator i2,\n            size_type n, charT c);\ntemplate<class InputIterator>\n    basic_string& replace(const_iterator i1, const_iterator i2,\n        InputIterator j1, InputIterator j2);\nbasic_string& replace(const_iteraor i1, const_iteraor i2,\n        initializer){list<charT> il);"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        },
+        {
+          "type": "text",
+          "index": 13,
+          "bbox": [
+            0.14,
+            0.845,
+            0.277,
+            0.86
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "下面是一个例子:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 14,
+          "bbox": [
+            0.137,
+            0.868,
+            0.592,
+            0.897
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 14,
+              "bbox": [
+                0.137,
+                0.868,
+                0.592,
+                0.897
+              ],
+              "content": "string test(\"Take a right turn at Main Street.\");\ntest.replace(7,5,\"left\"); // replace right with left"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "java"
+        },
+        {
+          "type": "text",
+          "index": 15,
+          "bbox": [
+            0.137,
+            0.906,
+            0.617,
+            0.923
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "注意，您可以使用 find()来找出要在 replace()中使用的位置:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 893,
+      "blocks": [
+        {
+          "type": "page_number",
+          "index": 0,
+          "bbox": [
+            0.083,
+            0.072,
+            0.114,
+            0.084
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "876"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 1,
+          "bbox": [
+            0.364,
+            0.07,
+            0.633,
+            0.084
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C++ Primer Plus（第6版）中文版"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 2,
+          "bbox": [
+            0.115,
+            0.101,
+            0.449,
+            0.19
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 2,
+              "bbox": [
+                0.115,
+                0.101,
+                0.449,
+                0.19
+              ],
+              "content": "string s1 = \"old\";\nstring s2 = \"mature\";\nstring s3 = \"The old man and the sea\";\nstring::size_type pos = s3.find(s1);\nif (pos != string::npos)\n    s3.replace(pos, s1.size(), s2);"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "cpp"
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.119,
+            0.196,
+            0.361,
+            0.212
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "上述代码将 old 替换为 mature。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 4,
+          "bbox": [
+            0.117,
+            0.223,
+            0.443,
+            0.24
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.7.6 其他修改方法:copy()和 swap()"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.116,
+            0.251,
+            0.664,
+            0.266
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "copy()方法将 string 对象或其中的一部分复制到指定的字符串数组中:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 6,
+          "bbox": [
+            0.116,
+            0.269,
+            0.664,
+            0.283
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 6,
+              "bbox": [
+                0.116,
+                0.269,
+                0.664,
+                0.283
+              ],
+              "content": "size_type copy(charT* s, size_type n, size_type pos = 0) const;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.082,
+            0.29,
+            0.916,
+            0.343
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "其中，s 指向目标数组，n 是要复制的字符数，pos 指出从 string 对象的什么位置开始复制。复制将一直进行下去，直到复制了 n 个字符或到达 string 对象的最后一个字符。函数返回复制的字符数，该方法不追加空值字符，同时由程序员负责检查数组的长度是否足够存储复制的内容。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 8,
+          "bbox": [
+            0.117,
+            0.352,
+            0.692,
+            0.368
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "警告:copy()方法不追加空值字符，也不检查目标数组的长度是否足够。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.117,
+            0.377,
+            0.649,
+            0.394
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "swap()方法使用一个时间恒定的算法来交换两个 string 对象的内容:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 10,
+          "bbox": [
+            0.117,
+            0.402,
+            0.373,
+            0.416
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 10,
+              "bbox": [
+                0.117,
+                0.402,
+                0.373,
+                0.416
+              ],
+              "content": "void swap(basic_string& str);"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "paragraph_title",
+          "index": 11,
+          "bbox": [
+            0.084,
+            0.448,
+            0.327,
+            0.468
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "F.8 输出和输入"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 12,
+          "bbox": [
+            0.117,
+            0.496,
+            0.903,
+            0.513
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "string 类重载了<<运算符来显示 string 对象，该运算符返回 istream 对象的引用，因此可以拼接输出:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 13,
+          "bbox": [
+            0.117,
+            0.517,
+            0.57,
+            0.545
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 13,
+              "bbox": [
+                0.117,
+                0.517,
+                0.57,
+                0.545
+              ],
+              "content": "string claim(\"The string class has many features.\");\ncout << claim << endl;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 14,
+          "bbox": [
+            0.117,
+            0.552,
+            0.593,
+            0.568
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "string 类重载了>>运算符，使得能够将输入读入到字符串中:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 15,
+          "bbox": [
+            0.118,
+            0.573,
+            0.221,
+            0.6
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 15,
+              "bbox": [
+                0.118,
+                0.573,
+                0.221,
+                0.6
+              ],
+              "content": "string=who;\ncin >> who;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "vhdl"
+        },
+        {
+          "type": "text",
+          "index": 16,
+          "bbox": [
+            0.082,
+            0.607,
+            0.916,
+            0.64
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "到达文件尾、读取字符串允许的最大字符数或遇到空白字符后，输入将终止（空白的定义取决于字符集以及 charT 表示的类型）。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 17,
+          "bbox": [
+            0.119,
+            0.644,
+            0.456,
+            0.659
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "有两个 getline()函数，第一个的原型如下:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 18,
+          "bbox": [
+            0.117,
+            0.665,
+            0.734,
+            0.709
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 18,
+              "bbox": [
+                0.117,
+                0.665,
+                0.734,
+                0.709
+              ],
+              "content": "template<class charT, class traits, class Allocator>\n  basic_istream<charT,traits>& getline(basic_istream<charT,traits>& is,\n              basic_string<charT,traits,Allocator>& str, charT delim);"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "cpp"
+        },
+        {
+          "type": "text",
+          "index": 19,
+          "bbox": [
+            0.082,
+            0.716,
+            0.918,
+            0.768
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "这个函数将输入流 is 中的字符读入到字符串 str 中，直到遇到定界字符 delim、到达文件尾或者到达字符串的最大长度。delim 字符将被读取（从输入流中删除），但不被存储。第二个版本没有第三个参数，同时使用换行符（或其广义形式），而不是 delim:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 20,
+          "bbox": [
+            0.117,
+            0.774,
+            0.54,
+            0.817
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 20,
+              "bbox": [
+                0.117,
+                0.774,
+                0.54,
+                0.817
+              ],
+              "content": "string str1, str2;\ngetline(cin, str1);      // read to end-of-line\ngetline(cin, str2, '.');  // read to period"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "cpp"
+        }
+      ]
+    }
+  ],
+  "is_full_document": false,
+  "schema": "docvortex.middle",
+  "schema_version": "2.0"
+}

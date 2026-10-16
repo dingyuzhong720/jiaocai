@@ -1,0 +1,6183 @@
+{
+  "pages": [
+    {
+      "page_idx": 182,
+      "blocks": [
+        {
+          "type": "doc_title",
+          "bbox": [
+            0.2,
+            0.134,
+            0.82,
+            0.168
+          ],
+          "level": 1,
+          "content": "第6章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.142,
+            0.234,
+            0.3,
+            0.253
+          ],
+          "level": 2,
+          "content": "本章内容包括:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.165,
+            0.26,
+            0.443,
+            0.444
+          ],
+          "sub_type": "text",
+          "content": "- if语句。\n- if else 语句。\n● 逻辑运算符:&&、||和!。\n- cctype 字符函数库。\n- 条件运算符:?:。\n- switch 语句。\n- continue 和 break 语句。\n- 读取数字的循环。\n- 基本文件输入/输出。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.482,
+            0.932,
+            0.592
+          ],
+          "content": "设计智能程序的一个关键是使程序具有决策能力。第5章介绍了一种决策方式——循环，在循环中，程序决定是否继续循环。现在，来研究一下C++是如何使用分支语句在可选择的操作中做出决定的。程序应使用哪一种防止吸血鬼的方案（大蒜还是十字架）呢？用户选择了哪个菜单选项呢？用户是否输入了0？C++提供了if和switch语句来进行决策，它们是本章的主要主题。另外，还将介绍条件运算符和逻辑运算符，前者提供了另一种决策方式，而后者允许将两个测试组合在一起。最后，本章将首次介绍文件输入/输出。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.094,
+            0.618,
+            0.26,
+            0.637
+          ],
+          "level": 2,
+          "content": "6.1 if 语句"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.666,
+            0.931,
+            0.755
+          ],
+          "content": "当 C++ 程序必须决定是否执行某个操作时，通常使用 if 语句来实现选择。if 有两种格式:if 和 if else。首先看一看简单的 if，它模仿英语，如 “If you have a Captain Cookie card, you get a free cookie（如果您有一张 Captain Cookie 卡，就可获得免费的小甜饼）”。如果测试条件为 true，则 if 语句将引导程序执行语句或语句块；如果条件是 false，程序将跳过这条语句或语句块。因此，if 语句让程序能够决定是否应执行特定的语句。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.758,
+            0.352,
+            0.773
+          ],
+          "content": "if 语句的语法与 while 相似:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.131,
+            0.779,
+            0.296,
+            0.806
+          ],
+          "sub_type": "code",
+          "content": "```python\nif (test-condition)\n    statement\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.812,
+            0.929,
+            0.883
+          ],
+          "content": "如果 test-condition（测试条件）为 true，则程序将执行 statement（语句），后者既可以是一条语句，也可以是语句块。如果测试条件为 false，则程序将跳过语句（参见图 6.1）。和循环测试条件一样，if 测试条件也将被强制转换为 bool 值，因此 0 将被转换为 false，非零为 true。整个 if 语句被视为一条语句。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.886,
+            0.931,
+            0.922
+          ],
+          "content": "通常情况下，测试条件都是关系表达式，如那些用来控制循环的表达式。例如，假设读者希望程序计算输入中的空格数和字符总数，则可以在while循环中使用cin.get（char）来读取字符，然后使用if语句识"
+        }
+      ]
+    },
+    {
+      "page_idx": 183,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.09,
+            0.077,
+            0.12,
+            0.088
+          ],
+          "content": "166"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.37,
+            0.075,
+            0.64,
+            0.09
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.089,
+            0.109,
+            0.842,
+            0.126
+          ],
+          "continues_prev": true,
+          "content": "别空格字符并计算其总数。程序清单6.1完成了这项工作，它使用句点（）来确定句子的结尾。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.231,
+            0.146,
+            0.778,
+            0.48
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"statement1\"] --> B{\"test_expr\"}\n  subgraph if[\"if语句\"]\n  B -->|true| C[\"statement2\"]\n  C --> D[\"else\"]\n  end\n  B -->|false| E[\"statement3\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.424,
+                0.489,
+                0.585,
+                0.504
+              ],
+              "content": "图6.1 if语句的结构"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_183_image_3.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.12,
+            0.54,
+            0.562,
+            0.858
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// if.cpp -- using the if statement\n#include <iostream>\nint main()\n{\n    using std::cin;      // using declarations\n    using std::cout;\n    char ch;\n    int spaces = 0;\n    int total = 0;\n    cin.get(ch);\n    while (ch != '.')   // quit at end of sentence\n    {\n        if (ch == ' ')   // check if ch is a space\n            ++spaces;\n        ++total;          // done every time\n        cin.get(ch);\n    }\n    cout << spaces << \" spaces, \" << total;\n    cout << \" characters total in sentence\\n\";\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.123,
+                0.518,
+                0.292,
+                0.535
+              ],
+              "content": "程序清单 6.1 if.cpp"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.865,
+            0.298,
+            0.88
+          ],
+          "content": "下面是该程序的输出:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.121,
+            0.885,
+            0.484,
+            0.93
+          ],
+          "sub_type": "code",
+          "content": "```txt\nThe balloonist was an airhead with lofty goals.\n6 spaces, 46 characters total in sentence\n```",
+          "captions": [],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 184,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.39,
+            0.067,
+            0.646,
+            0.082
+          ],
+          "content": "第6章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.905,
+            0.068,
+            0.936,
+            0.082
+          ],
+          "content": "167"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.102,
+            0.936,
+            0.137
+          ],
+          "content": "正如程序中的注释指出的，仅当ch为空格时，语句++spaces;才被执行。因为语句++tota;位于if语句的外面，因此在每轮循环中都将被执行。注意，字符总数中包括按回车键生成的换行符。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.134,
+            0.148,
+            0.287,
+            0.164
+          ],
+          "level": 2,
+          "content": "6.1.1 if else 语句"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.175,
+            0.937,
+            0.266
+          ],
+          "content": "if 语句让程序决定是否执行特定的语句或语句块，而 if else 语句则让程序决定执行两条语句或语句块中的哪一条，这种语句对于选择其中一种操作很有用。C++ 的 if else 语句模仿了简单的英语，如 “If you have a Captain Cookie card, you get a Cookie Plus Plus, else you just get a Cookie d'Ordinaire（如果您拥有 Captain Cookie 卡，将可获得 Cookie Plus Plus，否则只能获得 Cookie d'Ordinaire）”。if else 语句的通用格式如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.133,
+            0.27,
+            0.303,
+            0.329
+          ],
+          "sub_type": "code",
+          "content": "```txt\nif (test-condition)\n    statement1\nelse\n    statement2\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.334,
+            0.936,
+            0.387
+          ],
+          "content": "如果测试条件为 true 或非零，则程序将执行 statement1，跳过 statement2；如果测试条件为 false 或 0，则程序将跳过 statement1，执行 statement2。因此，如果 answer 是 1492，则下面的代码片段将打印第一条信息，否则打印第二条信息:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.133,
+            0.391,
+            0.6,
+            0.45
+          ],
+          "sub_type": "code",
+          "content": "```perl\nif (answer. == 1492).\n    cout << \"That's right!\\n\";\nelse\n    cout << \"You'd better review Chapter 1 again:\\n\";\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.456,
+            0.936,
+            0.491
+          ],
+          "content": "每条语句都既可以是一条语句，也可以是用大括号括起的语句块(参见图6.2)。从语法上看，整个if else结构被视为一条语句。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.256,
+            0.536,
+            0.778,
+            0.764
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  statement1[\"statement1\"] --> Decision{\"test_expr\"}\n  statement3[\"statement3\"] --> Decision\n  Decision -->|false| statement3\n  Decision -->|true| statement2[\"statement2\"]\n  statement2 --> statement4[\"statement4\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.422,
+                0.791,
+                0.612,
+                0.806
+              ],
+              "content": "图 6.2 if else 语句的结构"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_184_image_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.828,
+            0.937,
+            0.9
+          ],
+          "content": "例如，假设要通过对字母进行加密编码来修改输入的文本（换行符不变）。这样，每个输入行都被转换为一行输出，且长度不变。这意味着程序对换行符采用一种操作，而对其他字符采用另一种操作。正如程序清单6.2所表明的，if else使得这项工作非常简单。该程序清单还演示了限定符std:，这是编译指令using的替代品之一。"
+        }
+      ]
+    },
+    {
+      "page_idx": 185,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.08,
+            0.067,
+            0.11,
+            0.079
+          ],
+          "content": "168"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.36,
+            0.065,
+            0.63,
+            0.08
+          ],
+          "content": "C++ Primer Plus（第6版）-中文版"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.113,
+            0.133,
+            0.613,
+            0.466
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nif else.cpp -- using the if else statement\n#include <iostream>\nint main()\n{\n    char ch;\n\n    std::cout << \"Type, and I shall repeat.\\n\";\n    std::cin.get(ch);\n    while (ch != init)\n    {\n        if (ch == '\\n\")\n            std::cout << ch;      // done if newline\n        else\n            std::cout << ++ch;   // done otherwise\n        std::cin.get(ch);\n    }\n// try_ch + 1 instead of ++ch for interesting effect\n    std::cout << \"\\nPlease excuse the slight confusion.\\n\"\n        // -std::cin.get();\n        // std::cin.get();\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.114,
+                0.111,
+                0.316,
+                0.127
+              ],
+              "content": "程序清单 6.2 ifelse.cpp"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.469,
+            0.324,
+            0.485
+          ],
+          "content": "下面是该程序的运行情况:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.114,
+            0.494,
+            0.467,
+            0.582
+          ],
+          "sub_type": "code",
+          "content": "```txt\nType, and I shall repeat.\nAn ineffable joy suffused me as I beheld\nBo!jofggbcmf!kpz!tvggvtfe!nf!bt!J!cfifme\nthe wonders of modern computing.\nuif!xpoefst!pg!npefsoldpnqvujoh\nPlease excuse the slight confusion...\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.593,
+            0.912,
+            0.646
+          ],
+          "content": "注意，程序清单 6.2 中的注释之一指出，将++ch 改为 ch+1 将产生一种有趣的效果。能推断出它是什么吗？如果不能，就试验一下，然后看看是否可以解释发生的情况（提示:想一想 cout 是如何处理不同的类型的）。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.115,
+            0.658,
+            0.325,
+            0.674
+          ],
+          "level": 2,
+          "content": "6.1.2 格式化 if else 语句"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.685,
+            0.914,
+            0.755
+          ],
+          "content": "if else 中的两种操作都必须是一条语句。如果需要多条语句，需要用大括号将它们括起来，组成一个块语句。和有些语言（如 BASIC 和 FORTRAN）不同的是，由于 C++ 不会自动将 if 和 else 之间的所有代码视为一个代码块，因此必须使用大括号将这些语句组合成一个语句块。例如，下面的代码将出现编译器错误:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.114,
+            0.764,
+            0.467,
+            0.853
+          ],
+          "sub_type": "code",
+          "content": "```txt\nif {ch == 'Z'}\n    zorro++;          // if ends here\n    cout << \"Another Zorro candidate\\n\";\nelse                //wrong\n    dull++;            =\n    cout << \"Not a Zorro candidate\\n\";\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.861,
+            0.886,
+            0.896
+          ],
+          "content": "编译器把它看作是一条以 zorro++;语句结尾的简单 if 语句，接下来是一条 cout 语句。到目前为止，切正常。但之后编译器发现一个独立的 else，这被视为语法错误。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.898,
+            0.452,
+            0.914
+          ],
+          "content": "请添加大括号，将语句组合成一个语句块:"
+        }
+      ]
+    },
+    {
+      "page_idx": 186,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.384,
+            0.067,
+            0.64,
+            0.082
+          ],
+          "content": "第 6 章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.9,
+            0.068,
+            0.93,
+            0.081
+          ],
+          "content": "169"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.106,
+            0.482,
+            0.255
+          ],
+          "sub_type": "code",
+          "content": "```txt\nif (ch == 'Z')\n{\n    // if true block\n    zorro++;\n    cout << \"Another Zorro candidate\\n\";\n}\nelse\n{\n    // if false block\n    dull++;\n    cout << \"Not a Zorro candidate\\n\";\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.263,
+            0.929,
+            0.299
+          ],
+          "content": "由于 C++ 是自由格式语言，因此只要使用大括号将语句括起，对大括号的位置没有任何限制。上述代码演示了一种流行的格式，下面是另一种流行的格式:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.304,
+            0.48,
+            0.425
+          ],
+          "sub_type": "code",
+          "content": "```txt\nif (ch == 'Z') {\n    zorro++;\n    cout << \"Another Zorro candidate\\n\";\n}\nelse {\n    dull++;\n    cout << \"Not a Zorro candidate\\n\";\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.433,
+            0.929,
+            0.485
+          ],
+          "content": "第一种格式强调的是语句的块结构，第二种格式则将语句块与关键字 if 和 else 更紧密地结合在一起。这两种风格清晰、一致，应该能够满足要求；然而，可能会有老师或雇主在这个问题上的观点强硬而固执。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.5,
+            0.334,
+            0.515
+          ],
+          "level": 2,
+          "content": "6.1.3 if else if else 结构"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.53,
+            0.929,
+            0.583
+          ],
+          "content": "与实际生活中发生的情况类似，计算机程序也可能提供两个以上的选择。可以将 C++ 的 if else 语句进行扩展来满足这种需求。正如读者知道的，else 之后应是一条语句，也可以是语句块。由于 if else 语句本身是一条语句，所以可以放在 else 的后面:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.588,
+            0.578,
+            0.693
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nif (ch == 'A')\n    a_grade++;                  // alternative # 1\nelse\n    if (ch == 'B')             // alternative # 2\n        b_grade++;          // subalternative # 2a\n    else\n        soso++;                // subalternative # 2b\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.7,
+            0.929,
+            0.734
+          ],
+          "content": "如果 ch 不是'A'，则程序将执行 else。执行到那里，另一个 if else 又提供了两种选择。C++ 的自由格式允许将这些元素排列成便于阅读的格式:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.741,
+            0.534,
+            0.831
+          ],
+          "sub_type": "code",
+          "content": "```c\nif (ch == 'A')\n    a_grade++;            // alternative # 1\nelse if (ch == 'B')\n    b_grade++;            // alternative # 2\nelse\n    soso++;                // alternative # 3\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.839,
+            0.928,
+            0.891
+          ],
+          "content": "这看上去像是一个新的控制结构——if else if else 结构。但实际上，它只是一个 if else 被包含在另一个 if else 中。修订后的格式更为清晰，使程序员通过浏览代码便能确定不同的选择。整个构造仍被视为一条语句。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.894,
+            0.555,
+            0.911
+          ],
+          "content": "程序清单 6.3 使用这种格式创建了一个小型测验程序。"
+        }
+      ]
+    },
+    {
+      "page_idx": 187,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.091,
+            0.067,
+            0.121,
+            0.08
+          ],
+          "content": "170"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.37,
+            0.065,
+            0.64,
+            0.08
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.124,
+            0.133,
+            0.622,
+            0.452
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// ifelseif.cpp -- using if else if else\n#include <iostream>\nconst int Fave = 27;\nint main()\n{\n    using namespace std;\n    int n;\n\n    cout << \"Enter a number in the range 1-100 to find \";\n    cout << \"my favorite number: \";\n    do\n    {\n        cin >> n;\n        if (n < Fave)\n            cout << \"Too low -- guess again: \";\n        else if (n > Fave)\n            cout << \"Too high -- guess again: \";\n        else\n            cout << Fave << \" is right!\\n\";\n    } while (n != Fave);\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.125,
+                0.111,
+                0.335,
+                0.127
+              ],
+              "content": "程序清单 6.3 ifelseif.cpp"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.456,
+            0.3,
+            0.47
+          ],
+          "content": "下面是该程序的输出:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.124,
+            0.476,
+            0.682,
+            0.58
+          ],
+          "sub_type": "code",
+          "content": "```txt\nEnter a number in the range 1-100 to find my favorite number: 50\nToo high -- guess again: 25\nToo low -- guess again: 37\nToo high -- guess again: 31\nToo high -- guess again: 28\nToo high -- guess again: 27\n27 is right!\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.413,
+            0.586,
+            0.599,
+            0.601
+          ],
+          "level": 2,
+          "content": "条件运算符和错误防范"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.09,
+            0.604,
+            0.923,
+            0.638
+          ],
+          "content": "许多程序员将更直观的表达式 variable ==value 反转为 value ==variable，以此来捕获将相等运算符误写为赋值运算符的错误。例如，下述条件有效，可以正常工作:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.125,
+            0.642,
+            0.273,
+            0.654
+          ],
+          "sub_type": "code",
+          "content": "```txt\nif (3 == myNumber)\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.089,
+            0.655,
+            0.924,
+            0.689
+          ],
+          "content": "但如果错误地使用下面的条件，编译器将生成错误消息，因为它以为程序员试图将一个值赋给一个字面值（3总是等于3，而不能将另一个值赋给它）:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.125,
+            0.692,
+            0.265,
+            0.704
+          ],
+          "sub_type": "code",
+          "content": "```txt\nif (3 = myNumber)\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.124,
+            0.706,
+            0.538,
+            0.721
+          ],
+          "content": "假设犯了类似的错误，但使用的是前一种表示方法:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.125,
+            0.724,
+            0.265,
+            0.736
+          ],
+          "sub_type": "code",
+          "content": "```txt\nif (myNumber = 3)\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.088,
+            0.738,
+            0.924,
+            0.79
+          ],
+          "content": "编译器将只是把3赋给myNumber，而if中的语句块将包含非常常见的、而又非常难以发现的错误（然而，很多编译器会发出警告，因此注意警告是明智的）。一般来说，编写让编译器能够发现错误的代码，比找出导致难以理解的错误的原因要容易得多。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.089,
+            0.817,
+            0.329,
+            0.838
+          ],
+          "level": 2,
+          "content": "6.2 逻辑表达式"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.088,
+            0.866,
+            0.925,
+            0.921
+          ],
+          "content": "经常需要测试多种条件。例如，字符要是小写，其值就必须大于或等于'a'，且小于或等于'z'。如果要求用户使用y或n进行响应，则希望用户无论输入大写（Y和N）或小写都可以。为满足这种需要，C++提供了3种逻辑运算符，来组合或修改已有的表达式。这些运算符分别是逻辑OR（||）、逻辑AND（&&）"
+        }
+      ]
+    },
+    {
+      "page_idx": 188,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.384,
+            0.065,
+            0.64,
+            0.08
+          ],
+          "content": "第 6 章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.901,
+            0.066,
+            0.931,
+            0.079
+          ],
+          "content": "171"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.1,
+            0.417,
+            0.116
+          ],
+          "content": "和逻辑 NOT (!)。下面介绍这些运算符。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.128,
+            0.349,
+            0.145
+          ],
+          "level": 2,
+          "content": "6.2.1 逻辑 OR 运算符:||"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.155,
+            0.932,
+            0.227
+          ],
+          "content": "在英语中，当两个条件中有一个或全部满足某个要求时，可以用单词 or 来指明这种情况。例如，如果您或您的配偶在 MegaMicro 公司工作，您就可以参加 MegaMicro 公司的野餐会。C++ 可以采用逻辑 OR 运算符（||），将两个表达式组合在一起。如果原来表达式中的任何一个或全部都为 true（或非零），则得到的表达式的值为 true；否则，表达式的值为 false。下面是一些例子:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.232,
+            0.672,
+            0.307
+          ],
+          "sub_type": "code",
+          "content": "```txt\n5 == 5 || 5 == 9   // true because first expression is true\n5 > 3 || 5 > 10    // true because first expression is true\n5 > 8 || 5 < 10    // true because second expression is true\n5 < 8 || 5 > 2      // true because both expressions are true\n5 > 8 || 5 < 2      // false because both expressions are false\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.314,
+            0.912,
+            0.33
+          ],
+          "content": "由于||的优先级比关系运算符低，因此不需要在这些表达式中使用括号。表6.1总结了||的工作原理。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.332,
+            0.931,
+            0.367
+          ],
+          "content": "C++规定，||运算符是个顺序点（sequence point）。也是说，先修改左侧的值，再对右侧的值进行判定（C++11的说法是，运算符左边的子表达式先于右边的子表达式）。例如，请看下面的表达式:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.132,
+            0.369,
+            0.251,
+            0.382
+          ],
+          "sub_type": "code",
+          "content": "```txt\ni++ < 6||i== j\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.383,
+            0.932,
+            0.435
+          ],
+          "content": "假设 i 原来的值为 10，则在对 i 和 j 进行比较时，i 的值将为 11。另外，如果左侧的表达式为 true，则 C++ 将不会去判定右侧的表达式，因为只要一个表达式为 true，则整个逻辑表达式为 true（读者可能还记得，冒号和逗号运算符也是顺序点）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.438,
+            0.931,
+            0.472
+          ],
+          "content": "程序清单 6.4 在一条 if 语句中使用 || 运算符来检查某个字符的大写或小写。另外，它还使用了 C++ 字符串的拼接特性（参见第 4 章）将一个字符串分布在 3 行中。"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.097,
+            0.498,
+            0.932,
+            0.587
+          ],
+          "content": "|  | expr1 \\|\\| expr2 的值 |  |\n| --- | --- | --- |\n|  | expr1 == true | expr1 == false |\n| expr2 == true | true | true |\n| expr2 == false | true | false |",
+          "captions": [
+            {
+              "bbox": [
+                0.133,
+                0.481,
+                0.548,
+                0.496
+              ],
+              "content": "表 6.1 ||运算符"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_188_table_12.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.626,
+            0.625,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// or.cpp -- using the logical OR operator\n#include <iostream>\nint main()\n{\n    using namespace std;\n    cout << \"This program may reformat your hard disk\\n\"\n        \"and destroy all your data.\\n\"\n        \"Do you wish to continue? <y/n> \";\n    char ch;\n    cin >> ch;\n    if (ch == 'y' || ch == 'Y')          // y or Y\n        cout << \"You were warned!\\a\\a\\n\";\n    else if (ch == 'n' || ch == 'N')         // n or N\n        cout << \"A wise choice ... bye\\n\";\n    else\n    cout << \"That wasn't a y or n! Apparently you \"\n        \"can't follow\\ninstructions, so \"\n        \"I'll trash your disk anyway.\\a\\a\\a\\n\";\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.132,
+                0.604,
+                0.309,
+                0.62
+              ],
+              "content": "程序清单 6.4 or.cpp"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 189,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.084,
+            0.066,
+            0.115,
+            0.078
+          ],
+          "content": "172"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.364,
+            0.065,
+            0.633,
+            0.079
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.099,
+            0.489,
+            0.116
+          ],
+          "content": "该程序不会带来任何威胁，下面是其运行情况:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.116,
+            0.12,
+            0.469,
+            0.179
+          ],
+          "sub_type": "code",
+          "content": "```txt\nThis program may reformat your hard disk and destroy all your data.\nDo you wish to continue? <y/n> N\nA wise choice ... bye\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.186,
+            0.916,
+            0.22
+          ],
+          "content": "由于程序只读取一个字符，因此只读取响应的第一个字符。这意味着用户可以用 NO!（而不是 N）进行回答，程序将只读取 N。然而，如果程序后面再读取输入时，将从 O 开始读取。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.116,
+            0.232,
+            0.361,
+            0.248
+          ],
+          "level": 2,
+          "content": "6.2.2 逻辑 AND 运算符:&&"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.26,
+            0.913,
+            0.293
+          ],
+          "content": "逻辑 AND 运算符（&&），也是将两个表达式组合成一个表达式。仅当原来的两个表达式都为 true 时，得到的表达式的值才为 true。下面是一些例子:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.115,
+            0.299,
+            0.658,
+            0.388
+          ],
+          "sub_type": "code",
+          "content": "```txt\n5 == 5 && 4 == 4    // true because both expressions are true\n5 == 3 && 4 == 4    // false because first expression is false\n5 > 3 && 5 > 10     // false because second expression is false\n5 > 8 && 5 < 10     // false because first expression is false\n5 < 8 && 5 > 2       // true because both expressions are true\n5 > 8 && 5 < 2       // false because both expressions are false\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.395,
+            0.917,
+            0.448
+          ],
+          "content": "由于&&的优先级低于关系运算符，因此不必在这些表达式中使用括号。和||运算符一样，&&运算符也是顺序点，因此将首先判定左侧，并且在右侧被判定之前产生所有的副作用。如果左侧为false，则整个逻辑表达式必定为false，在这种情况下，C++将不会再对右侧进行判定。表6.2总结了&&运算符的工作方式。"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.082,
+            0.48,
+            0.916,
+            0.569
+          ],
+          "content": "|  | expr1 &amp;&amp; expr2 的值 |  |\n| --- | --- | --- |\n|  | expr1 == true | expr1 == false |\n| expr2 == true | true | false |\n| expr2 == false | false | false |",
+          "captions": [
+            {
+              "bbox": [
+                0.119,
+                0.463,
+                0.172,
+                0.477
+              ],
+              "content": "表 6.2"
+            },
+            {
+              "bbox": [
+                0.458,
+                0.463,
+                0.54,
+                0.478
+              ],
+              "content": "&&运算符"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_189_table_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.575,
+            0.917,
+            0.664
+          ],
+          "content": "程序清单 6.5 演示了如何用&&来处理一种常见的情况——由于两种不同的原因而结束 while 循环。在这个程序清单中，一个 while 循环将值读入到数组。一个测试（i&lt;ArSize）在数组被填满时循环结束，另一个测试（temp&gt;=0）让用户通过输入一个负值来提前结束循环。该程序使用&&运算符将两个测试组合成一个条件。该程序还使用了两条 if 语句、一条 if else 语句和一个 for 循环，因此它演示了本章和第 5 章的多个主题。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.116,
+            0.701,
+            0.64,
+            0.927
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// and.cpp -- using the logical AND operator\n#include <iostream>\nconst int ArSize = 6;\nint main()\n{\n    using namespace std;\n    float naaq[ArSize];\n    cout << \"Enter the NAAQs (New Age Awareness Quotients) \"\n           << \"of\\nyour neighbors. Program terminates \"\n           << \"when you make\\n\" << ArSize << \" entries \"\n           << \"or enter a negative value.\\n\";\n\n    int i = 0;\n    float temp;\n    cout << \"First value: \";\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.117,
+                0.678,
+                0.309,
+                0.695
+              ],
+              "content": "程序清单 6.5 and.cpp"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 190,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.383,
+            0.068,
+            0.64,
+            0.084
+          ],
+          "content": "第 6 章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.898,
+            0.069,
+            0.929,
+            0.082
+          ],
+          "content": "173"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.101,
+            0.689,
+            0.513
+          ],
+          "sub_type": "code",
+          "content": "```c\ncin >> temp;\nwhile (i < ArSize && temp >= 0) // 2 quitting criteria\n{\n    naaq[i] = temp;\n    ++i;\n    if (i < ArSize)          // room left in the array,\n    {\n        cout << \"Next value: \";\n        cin >> temp;         // so get next value\n    }\n}\nif (i == 0)\n    cout << \"No data--bye\\n\";\nelse\n{\n    cout << \"Enter your NAAQ: \";\n    float you;\n    cin >> you;\n    int count = 0;\n    for (int j = 0; j < i; j++)\n        if (naaq[j] > you)\n            ++count;\n    cout << count;\n    cout << \" of your neighbors have greater awareness of\\n\"\n        << \"the New Age than you do.\\n\";\n}\nreturn 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.518,
+            0.856,
+            0.553
+          ],
+          "content": "注意，该程序将输入放在临时变量 temp 中。在核实输入有效后，程序才将这个值赋给数组。下面是该程序的两次运行情况。一次在输入 6 个值后结束:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.558,
+            0.553,
+            0.737
+          ],
+          "sub_type": "code",
+          "content": "```txt\nEnter the NAAQs (New Age Awareness Quotients) of\nyour neighbors. Program terminates when you make\n6 entries or enter a negative value.\nFirst value: 28\nNext value: 72\nNext value: 15\nNext value: 6\nNext value: 130\nNext value: 145\nEnter your NAAQ: 50\n3 of your neighbors have greater awareness of\nthe New Age than you do.\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.744,
+            0.341,
+            0.759
+          ],
+          "content": "另一次在输入负值后结束:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.765,
+            0.552,
+            0.93
+          ],
+          "sub_type": "code",
+          "content": "```txt\nEnter the NAAQs (New Age Awareness Quotients) of\nyour neighbors. Program terminates when you make\n6 entries or enter a negative value.\nFirst value: 123\nNext value: 119\nNext value: 4\nNext value: 89\nNext value: -1\nEnter your NAAQ: 123.031\n0 of your neighbors have greater awareness of\nthe New Age than you do.\n```",
+          "captions": [],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 191,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.081,
+            0.071,
+            0.112,
+            0.083
+          ],
+          "content": "174"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.36,
+            0.069,
+            0.631,
+            0.084
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.115,
+            0.105,
+            0.192,
+            0.12
+          ],
+          "level": 2,
+          "content": "程序说明"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.123,
+            0.327,
+            0.139
+          ],
+          "content": "来看看该程序的输入部分:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.114,
+            0.146,
+            0.62,
+            0.309
+          ],
+          "sub_type": "code",
+          "content": "```txt\ncin >> temp;\nwhile (i < ArSize && temp >= 0) // 2 quitting criteria\n{\n    naaq[i] = temp;\n    ++i;\n    if (i < ArSize)          // room left in the array,\n    {\n        cout << \"Next value: \";\n        cin >> temp;         // so get next value\n    }\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.315,
+            0.916,
+            0.387
+          ],
+          "content": "该程序首先将第一个输入值读入到临时变量（temp）中。然后，while 测试条件查看数组中是否还有空间（i&lt;ArSize）以及输入值是否为非负（temp&gt;=0）。如果满足条件，则将 temp 的值复制到数组中，并将数组索引加 1。此时，由于数组下标从 0 开始，因此 i 指示输入了多少个值。也是说，如果 i 从 0 开始，则第一轮循环将一个值赋给 naaq[0]，然后将 i 设置为 1。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.389,
+            0.913,
+            0.424
+          ],
+          "content": "当数组被填满或用户输入了负值时，循环将结束。注意，仅当 i 小于 ArSize 时，即数组中还有空间时，循环才将另外一个值读入到 temp 中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.426,
+            0.915,
+            0.46
+          ],
+          "content": "获得数据后，如果没有输入任何数据（即第一次输入的是一个负数），程序将使用 if else 语句指出这一点，如果存在数据，就对数据进行处理。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.115,
+            0.472,
+            0.348,
+            0.488
+          ],
+          "level": 2,
+          "content": "6.2.3 用&&来设置取值范围"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.499,
+            0.917,
+            0.608
+          ],
+          "content": "&&运算符还允许建立一系列 if else if else 语句，其中每种选择都对应于一个特定的取值范围。程序清单 6.6 演示了这种方法。另外，它还演示了一种用于处理一系列消息的技术。与 char 指针变量可以通过指向一个字符串的开始位置来标识该字符串一样，char 指针数组也可以标识一系列字符串，只要将每一个字符串的地址赋给各个数组元素即可。程序清单 6.6 使用 qualify 数组来存储 4 个字符串的地址，例如，qualify [1] 存储字符串 “mud tug-of-war\\n” 的地址。然后，程序便能够将 cout、strlen() 或 strcmp() 用于 qualify [1]，就像用于其他字符串指针一样。使用 const 限定符可以避免无意间修改这些字符串。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.114,
+            0.642,
+            0.6,
+            0.93
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// more_and.cpp -- using the logical AND operator\n#include <iostream>\nconst char * qualify[4] =          // an array of pointers\n{                                   // to strings\n    \"10,000-meter race.\\n\",\n    \"mud tug-of-war.\\n\",\n    \"masters canoe jousting.\\n\",\n    \"pie-throwing festival.\\n\"\n};\nint main()\n{\n    using namespace std;\n    int age;\n    cout << \"Enter your age in years: \";\n    cin >> age;\n    int index;\n\n    if (age > 17 && age < 35)\n        index = 0;\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.117,
+                0.621,
+                0.356,
+                0.637
+              ],
+              "content": "程序清单 6.6 more\\_and.cpp"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 192,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.377,
+            0.07,
+            0.632,
+            0.086
+          ],
+          "content": "第6章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.892,
+            0.072,
+            0.924,
+            0.084
+          ],
+          "content": "175"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.123,
+            0.102,
+            0.586,
+            0.255
+          ],
+          "sub_type": "code",
+          "content": "```txt\nelse if (age >= 35 && age < 50)\n    -index = 1;\nelse if (age >= 50 && age < 65)\n    index = 2;\nelse\n    index = 3;\n\ncout << \"You qualify for the \" << qualify{index};\nreturn 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.259,
+            0.335,
+            0.274
+          ],
+          "content": "下面是该程序的运行情况:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.123,
+            0.279,
+            0.486,
+            0.307
+          ],
+          "sub_type": "code",
+          "content": "```txt\nEnter your age-in years: 87.\nYou qualify for the pie-throwing festival.\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.312,
+            0.889,
+            0.327
+          ],
+          "content": "由于输入的年龄不与任何测试取值范围匹配，因此程序将索引设置为3，然后打印相应的字符串。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.124,
+            0.33,
+            0.202,
+            0.345
+          ],
+          "level": 2,
+          "content": "程序说明"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.087,
+            0.349,
+            0.924,
+            0.42
+          ],
+          "content": "在程序清单 6.6 中，表达式 age > 17 && age < 35 测试年龄是否位于两个值之间，即年龄是否在 18 岁到 34 岁之间。表达式 age >= 35 && age < 50 使用 <= 运算符将 35 包括在取值范围内。如果程序使用 age > 35 && age < 50，则 35 将被所有的测试忽略。在使用取值范围测试时，应确保取值范围之间既没有缝隙，又没有重叠。另外，应确保正确设置每个取值范围（参见本节后面的旁注“取值范围测试”）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.423,
+            0.6,
+            0.438
+          ],
+          "content": "if else 语句用来选择数组索引，而索引则标识特定的字符串。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.449,
+            0.446,
+            0.563,
+            0.461
+          ],
+          "level": 2,
+          "content": "取值范围测试"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.464,
+            0.767,
+            0.479
+          ],
+          "content": "取值范围测试的每一部分都使用 AND 运算符将两个完整的关系表达式组合起来:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.123,
+            0.483,
+            0.415,
+            0.497
+          ],
+          "sub_type": "code",
+          "content": "```txt\nif (age > 17 && age < 35) : // OK\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.125,
+            0.502,
+            0.374,
+            0.517
+          ],
+          "content": "不要使用数学符号将其表示为:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.123,
+            0.521,
+            0.516,
+            0.534
+          ],
+          "sub_type": "code",
+          "content": "```txt\nif (17 < age < 35) // Don't do this!\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.088,
+            0.539,
+            0.921,
+            0.572
+          ],
+          "content": "编译器不会捕获这种错误，因为它仍然是有效的 C++ 语法。<运算符从左向右结合，因此上述表达式的含义如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.123,
+            0.577,
+            0.31,
+            0.59
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nif (- (17 < age) < -35);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.089,
+            0.595,
+            0.92,
+            0.629
+          ],
+          "content": "但 $17 < \\text{age}$ 的值要么为 true(1)，要么为 false(0)。不管是哪种情况，表达式 $17 < \\text{age}$ 的值都小于 35，因此整个测试的结果总是 true!"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.124,
+            0.641,
+            0.35,
+            0.657
+          ],
+          "level": 2,
+          "content": "6.2.4 逻辑 NOT 运算符:!"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.087,
+            0.67,
+            0.924,
+            0.704
+          ],
+          "content": "运算符将它后面的表达式的真值取反。也是说，如果 expression 为 true，则!expression 是 false；如果 expression 为 false，则!expression 是 true。更准确地说，如果 expression 为 true 或非零，则!expression 为 false。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.706,
+            0.516,
+            0.72
+          ],
+          "content": "通常，不使用这个运算符可以更清楚地表示关系:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.123,
+            0.724,
+            0.605,
+            0.739
+          ],
+          "sub_type": "code",
+          "content": "```txt\nif (! (x > 5)) // if (x <= -5) is clearer\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.087,
+            0.743,
+            0.924,
+            0.796
+          ],
+          "content": "然而，!运算符对于返回 true-false 值或可以被解释为 true-false 值的函数来说很有用。例如，如果 C-风格字符串 s1 和 s2 不同，则 strcmp(s1, s2) 将返回非零（true）值，否则返回 0。这意味着如果这两个字符串相同，则 !strcmp(s1, s2) 为 true。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.087,
+            0.798,
+            0.924,
+            0.851
+          ],
+          "content": "程序清单 6.7 使用这种技术（将!运算符用于函数返回值）来筛选可赋给 int 变量的数字输入。如果用户定义的函数 is\\_int()（稍后将详细介绍）的参数位于 int 类型的取值范围内，则它将返回 true。然后，程序使用 while(!is-int(num))测试来拒绝不在该取值范围内的值。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.124,
+            0.863,
+            0.31,
+            0.88
+          ],
+          "level": 2,
+          "content": "程序清单 6.7 not.cpp"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.123,
+            0.887,
+            0.441,
+            0.932
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// not.cpp -- using the not operator\n#include <iostream>\n#include <climits>\n```",
+          "captions": [],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 193,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.086,
+            0.068,
+            0.116,
+            0.08
+          ],
+          "content": "176"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.365,
+            0.067,
+            0.636,
+            0.082
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.116,
+            0.097,
+            0.689,
+            0.472
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nbool is_int(double);\nint_main{=} \n{\n    using namespace std;\n    double num;\n\n    cout << \"Yo, dude! Enter an integer value: \";\n    cin >> num;\n    while (!is_int(num))   // continue while num is not int-able\n    {\n        cout << \"Out of range -- please try again: \";\n        cin >> num;\n    }\n    int val = int (num);   // type cast\n    cout << \"You've entered the integer \" << val << \"\\nBye\\n\";\n    return 0;\n}\n\nbool is_int(double x)\n{\n    if (x <= INT_MAX && x >= INT_MIN)   // use climits values\n        return true;\n    else\n        return false;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.119,
+            0.48,
+            0.51,
+            0.496
+          ],
+          "content": "下面是该程序在 int 占 32 位的系统上的运行情况:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.117,
+            0.501,
+            0.512,
+            0.574
+          ],
+          "sub_type": "code",
+          "content": "```txt\nYo, dude! Enter an integer value: 6234128679\nOut of range -- please try again: -8000222333\nOut of range -- please try again: 99999\nYou've entered the integer 99999\nBye\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.118,
+            0.581,
+            0.196,
+            0.596
+          ],
+          "level": 2,
+          "content": "程序说明"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.6,
+            0.918,
+            0.67
+          ],
+          "content": "如果给读取 int 值的程序输入一个过大的值，很多 C++ 实现只是将这个值截短为合适的大小，并不会通知丢失了数据。程序清单 6.7 中的程序避免了这样的问题，它首先将可能的 int 值作为 double 值来读取。double 类型的精度足以存储典型的 int 值，且取值范围更大。另一种选择是，使用 long long 来存储输入的值，因为其取值范围比 int 大。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.673,
+            0.918,
+            0.708
+          ],
+          "content": "布尔函数 is\\_int() 使用了 climits 文件(第 3 章讨论过)中定义的两个符号常量(INT\\_MAX 和 INT\\_MIN)来确定其参数是否位于适当的范围内。如果是，该函数将返回 true，否则返回 false。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.71,
+            0.916,
+            0.744
+          ],
+          "content": "main()程序使用 while 循环来拒绝无效输入，直到用户输入有效的值为止。可以在输入超出取值范围时显示 int 的界限，这样程序将更为友好。确认输入有效后，程序将其赋给一个 int 变量。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.117,
+            0.755,
+            0.309,
+            0.772
+          ],
+          "level": 2,
+          "content": "6.2.5 逻辑运算符细节"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.783,
+            0.916,
+            0.816
+          ],
+          "content": "正如本章前面指出的，C++逻辑 OR 和逻辑 AND 运算符的优先级都低于关系运算符。这意味着下面的表达式"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.117,
+            0.82,
+            0.253,
+            0.832
+          ],
+          "sub_type": "code",
+          "content": "```txt\nx > 5 && x < 10\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.84,
+            0.22,
+            0.856
+          ],
+          "content": "将被解释为:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.119,
+            0.86,
+            0.285,
+            0.873
+          ],
+          "sub_type": "code",
+          "content": "```txt\n(x > 5) && (x < 10)\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.88,
+            0.916,
+            0.914
+          ],
+          "content": "另一方面，!运算符的优先级高于所有的关系运算符和算术运算符。因此，要对表达式求反，必须用括号将其括起，如下所示:"
+        }
+      ]
+    },
+    {
+      "page_idx": 194,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.371,
+            0.065,
+            0.628,
+            0.08
+          ],
+          "content": "第 6 章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.886,
+            0.066,
+            0.916,
+            0.078
+          ],
+          "content": "177"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.115,
+            0.103,
+            0.569,
+            0.133
+          ],
+          "sub_type": "code",
+          "content": "```txt\n!(x > 5)      // is it false that x is greater than 5\n!x > 5          // is !x greater than 5\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.139,
+            0.801,
+            0.155
+          ],
+          "content": "第二个表达式总是为 false，因为!x 的值只能为 true 或 false，而它们将被转换为 1 或 0。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.158,
+            0.628,
+            0.173
+          ],
+          "content": "逻辑 AND 运算符的优先级高于逻辑 OR 运算符。因此，表达式:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.117,
+            0.176,
+            0.435,
+            0.19
+          ],
+          "sub_type": "code",
+          "content": "```txt\nage->30 && age=< 45 || weight > 300\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.119,
+            0.197,
+            0.203,
+            0.212
+          ],
+          "content": "被解释为:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.12,
+            0.214,
+            0.451,
+            0.228
+          ],
+          "sub_type": "code",
+          "content": "```javascript\n(age > 30 && age < 45) | weight > 300\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.235,
+            0.916,
+            0.269
+          ],
+          "content": "也是说，一个条件是 age 位于 31～44，另一个条件是 weight 大于 300。如果这两个条件中的一个或全部都为 true，则整个表达式为 true。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.272,
+            0.918,
+            0.306
+          ],
+          "content": "当然，还可以用括号将所希望的解释告诉程序。例如，假设要用&&将 age 大于 50 或 weight 大于 300 的条件与 donation 大于 1000 的条件组合在一起，则必须使用括号将 OR 部分括起:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.116,
+            0.309,
+            0.51,
+            0.322
+          ],
+          "sub_type": "code",
+          "content": "```txt\n(age > 50 | weight > 300) && donation > 1000\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.119,
+            0.329,
+            0.747,
+            0.345
+          ],
+          "content": "否则，编译器将把 weight 条件与 donation 条件（而不是 age 条件）组合在一起。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.347,
+            0.916,
+            0.4
+          ],
+          "content": "虽然C++运算符的优先级规则常可能不使用括号便可以编写复合比较的语句，但最简单的方法还是用括号将测试进行分组，而不管是否需要括号。这样代码容易阅读，避免读者查看不常使用的优先级规则，并减少由于没有准确记住所使用的规则而出错的可能性。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.402,
+            0.916,
+            0.436
+          ],
+          "content": "C++确保程序从左向右进行计算逻辑表达式，并在知道答案后立刻停止。例如，假设有下面的条件:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.118,
+            0.44,
+            0.351,
+            0.453
+          ],
+          "sub_type": "code",
+          "content": "```txt\nx != 0 && 1.0 / x > 100:0\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.46,
+            0.918,
+            0.513
+          ],
+          "content": "如果第一个条件为 false，则整个表达式肯定为 false。这是因为要使整个表达式为 true，每个条件都必须为 true。知道第一个条件为 false 后，程序将不判定第二个条件。这个例子非常幸运，因为计算第二个条件将导致被 0 除，这是计算机没有定义的操作。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.12,
+            0.524,
+            0.294,
+            0.54
+          ],
+          "level": 2,
+          "content": "6.2.6 其他表示方式"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.551,
+            0.919,
+            0.623
+          ],
+          "content": "并不是所有的键盘都提供了用作逻辑运算符的符号，因此 C++标准提供了另一种表示方式，如表 6.3 所示。标识符 and、or 和 not 都是 C++保留字，这意味着不能将它们用作变量名等。它们不是关键字，因为它们都是已有语言特性的另一种表示方式。另外，它们并不是 C 语言中的保留字，但 C 语言程序可以将它们用作运算符，只要在程序中包含了头文件 iso646.h。C++不要求使用头文件。"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.086,
+            0.659,
+            0.92,
+            0.748
+          ],
+          "content": "| 运算符 | 另一种表示方式_ |\n| --- | --- |\n| &amp;&amp; | and |\n| \\|\\|_ | or |\n| ! | not |",
+          "captions": [
+            {
+              "bbox": [
+                0.123,
+                0.642,
+                0.177,
+                0.657
+              ],
+              "content": "表6.3"
+            },
+            {
+              "bbox": [
+                0.383,
+                0.642,
+                0.623,
+                0.657
+              ],
+              "content": "逻辑运算符:另一种表示方式"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_194_table_20.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.085,
+            0.779,
+            0.432,
+            0.802
+          ],
+          "level": 2,
+          "content": "6.3 字符函数库 cctype"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.828,
+            0.92,
+            0.918
+          ],
+          "content": "C++从 C-语言继承了一个与字符相关的、非常方便的函数软件包，它可以简化诸如确定字符是否为大写字母、数字、标点符号等工作，这些函数的原型是在头文件 cctype（老式的风格中为 ctype.h）中定义的。例如，如果 ch 是一个字母，则 isalpha（ch）- 函数返回一个非零值，否则返回 0。同样，如果 ch 是标点符号（如逗号或句号），函数 ispunct（ch）将返回 true。（这些函数的返回类型为 int，而不是 bool，但通常 bool 转换让您能够将它们视为 bool 类型。）"
+        }
+      ]
+    },
+    {
+      "page_idx": 195,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.1,
+            0.066,
+            0.132,
+            0.078
+          ],
+          "content": "178"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.378,
+            0.065,
+            0.649,
+            0.08
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.099,
+            0.93,
+            0.134
+          ],
+          "content": "使用这些函数比使用AND和OR运算符更方便。例如，下面是使用AND和OR来测试字符ch是不是字母字符的代码:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.131,
+            0.135,
+            0.625,
+            0.153
+          ],
+          "sub_type": "code",
+          "content": "```txt\nif ((ch >= 'a' && ch<='z') | |-(ch >= 'A' && ch<='Z'))\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.157,
+            0.307,
+            0.173
+          ],
+          "content": "与使用 isalpha() 相比:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.132,
+            0.175,
+            0.273,
+            0.19
+          ],
+          "sub_type": "code",
+          "content": "```lisp\nif_(isalpha(ch))\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.196,
+            0.929,
+            0.23
+          ],
+          "content": "isalpha()不仅更容易使用，而且更通用。AND/OR格式假设A-Z的字符编码是连续的，其他字符的编码不在这个范围内。这种假设对于ASCII码来说是成立的，但通常并非总是如此。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.232,
+            0.931,
+            0.304
+          ],
+          "content": "程序清单 6.8 演示一些 ctype 库函数。具体地说，它使用 isalpha() 来检查字符是否为字母字符，使用 isdigits() 来测试字符是否为数字字符，如 3，使用 isspace() 来测试字符是否为空白，如换行符、空格和制表符，使用 ispunct() 来测试字符是否为标点符号。该程序还复习了 if else if 结构，并在一个 while 循环中使用了 cin.get(char)。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.131,
+            0.339,
+            0.725,
+            0.891
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// cctype.cpp -- using the ctype.h library\n#include<iostream>\n#include <cctype>          // prototypes for character functions\nint main()\n{\n    using namespace std;\n    cout << \"Enter text for analysis, and type@\"\n        \" to terminate input.\\n\";\n    char ch;\n    int whitespace = -0;\n    int digits = 0;\n    int chars = 0;\n    int punct = 0;\n    int others = 0;\n\n    cin.get(ch);            // get first character\n    while (ch != '@')      // test for sentinel\n    {\n        if(isalpha(ch)[_           // is it an-alphabetic character?\n            chars++;\n        else if(isspace(ch))   // is it a whitespace character?\n            whitespace++;\n        else if(isdigit(ch))   // is it a digit?\n            digits++;\n        else if(ispunct(ch))   // is it punctuation?\n            punct++;\n        else\n            others++;\n        cin.get(ch);             // get next character\n    }\n    cout << chars << \" letters, \"\n        << whitespace << \" whitespace,\"\"\n        << digits << \" digits, \"\n        << punct << \" punctuations, \"\n        << others << \" others.\\n\";\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.132,
+                0.317,
+                0.353,
+                0.334
+              ],
+              "content": "程序清单6.8 cctypes.cpp"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.895,
+            0.633,
+            0.911
+          ],
+          "content": "下面是该程序的运行情况。注意，空白字符计数中包括换行符:"
+        }
+      ]
+    },
+    {
+      "page_idx": 196,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.389,
+            0.065,
+            0.643,
+            0.08
+          ],
+          "content": "第 6 章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.903,
+            0.065,
+            0.934,
+            0.078
+          ],
+          "content": "179"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.134,
+            0.103,
+            0.681,
+            0.191
+          ],
+          "sub_type": "code",
+          "content": "```txt\nEnter text for analysis, and type @ to terminate input. AdrenalVision International producer Adrienne Vismonger announced production of their new 3-D film, a remake of \"My Dinner with Andre,\" scheduled for 2013. \"Wait until you see the new scene with an enraged Collossipede!\"@ 177 letters, 33 whitespace, 5 digits, 9 punctuations, 0 others.\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.197,
+            0.933,
+            0.232
+          ],
+          "content": "表 6.4 对 cctype 软件包中的函数进行了总结。有些系统可能没有表中列出的一些函数，也可能还有在表中没有列出的一些函数。"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.101,
+            0.267,
+            0.937,
+            0.63
+          ],
+          "content": "| 函数名称 | 返回值 |\n| --- | --- |\n| isalnum() | 如果参数是字母数字,即字母或数字,该函数返回 true |\n| isalpha() | 如果参数是字母,该函数返回 true |\n| iscntrl() | 如果参数是控制字符,该函数返回 true |\n| isdigit() | 如果参数是数字(0~9),该函数返回 true |\n| isgraph() | 如果参数是除空格之外的打印字符,该函数返回 true |\n| islower() | 如果参数是小写字母,该函数返回 true |\n| isprint() | 如果参数是打印字符(包括空格),该函数返回 true |\n| ispunct() | 如果参数是标点符号,该函数返回 true |\n| isspace() | 如果参数是标准空白字符,如空格、进纸、换行符、回车、水平制表符或者垂直制表符,该函数返回 true |\n| isupper() | 如果参数是大写字母,该函数返回 true |\n| isxdigit() | 如果参数是十六进制数字,即 0~9、a~f 或 A~F,该函数返回 true |\n| tolower() | 如果参数是大写字符,则返回其小写,否则返回该参数 |\n| toupper() | 如果参数是小写字符,则返回其大写,否则返回该参数 |",
+          "captions": [
+            {
+              "bbox": [
+                0.137,
+                0.251,
+                0.603,
+                0.266
+              ],
+              "content": "表 6.4 cctype 中的字符函数"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_196_table_5.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.1,
+            0.663,
+            0.297,
+            0.684
+          ],
+          "level": 2,
+          "content": "6.4 ?:运算符"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.713,
+            0.936,
+            0.747
+          ],
+          "content": "$-C++$有一个常被用来代替 if else 语句的运算符，这个运算符被称为条件运算符（?:），它是 $C++$中唯一一个需要3个操作数的运算符。该运算符的通用格式如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.136,
+            0.749,
+            0.48,
+            0.761
+          ],
+          "sub_type": "code",
+          "content": "```txt\nexpression1 ? expression2 : expression3\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.772,
+            0.934,
+            0.807
+          ],
+          "content": "如果 expression1 为 true，则整个条件表达式的值为 expression2 的值；否则，整个表达式的值为 expression3 的值。下面的两个示例演示了该运算符是如何工作的:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.134,
+            0.814,
+            0.699,
+            0.846
+          ],
+          "sub_type": "code",
+          "content": "```txt\n5 > 3 ? 10 : 12 // 5 > 3 is true, so expression value is 10 .=\n3 == 9 ? 25 : 18 // 3 == 9 is false, so expression value is 18\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.854,
+            0.95,
+            0.888
+          ],
+          "content": "可以这样解释第一个示例:如果 5 大于 3，则整个表达式的值为 10，否则为 12。当然，在实际的编程中，这些表达式中将包含变量。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.891,
+            0.595,
+            0.907
+          ],
+          "content": "程序清单 6.9 使用条件运算符来确定两个值中较大的一个。"
+        }
+      ]
+    },
+    {
+      "page_idx": 197,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.087,
+            0.064,
+            0.117,
+            0.076
+          ],
+          "content": "180"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.366,
+            0.063,
+            0.636,
+            0.077
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.118,
+            0.128,
+            0.627,
+            0.318
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// condit.cpp -- using the conditional operator\n#include <iostream>\nint main()\n{\n    using namespace std;\n    int a, b;\n    cout << \"Enter two integers: \";\n    cin >> a >> b;\n    cout << \"The larger of \" << a << \" and \" << b;\n    int c = a > b ? a : b;   // c = a if a > b, else c = b\n    cout << \" is \" << c << endl;\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.12,
+                0.106,
+                0.327,
+                0.122
+              ],
+              "content": "程序清单 6.9 condit.cpp"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.323,
+            0.33,
+            0.338
+          ],
+          "content": "下面是该程序的运行情况:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.119,
+            0.343,
+            0.375,
+            0.37
+          ],
+          "sub_type": "code",
+          "content": "```txt\nEnter two integers: 25 28\nThe larger of 25 and 28 is 28\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.377,
+            0.383,
+            0.392
+          ],
+          "content": "该程序的关键部分是下面的语句:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.119,
+            0.396,
+            0.312,
+            0.409
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nint c = a > b ? a : b;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.415,
+            0.294,
+            0.429
+          ],
+          "content": "它与下面的语句等效:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.119,
+            0.43,
+            0.211,
+            0.498
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nint c;\nif (a > b)\n    c = a;\nelse\n    c = b;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.505,
+            0.918,
+            0.592
+          ],
+          "content": "与 if else 序列相比，条件运算符更简洁，但第一次遇到时不那么容易理解。这两种方法之间的区别是，条件运算符生成一个表达式，因此是一个值，可以将其赋给变量或将其放到一个更大的表达式中，程序清单 6.9 中的程序正是这样做的，它将条件表达式的值赋给变量 c。条件运算符格式简洁、语法奇特、外观与众不同，因此在欣赏这些特点的程序员中广受欢迎。其中一个技巧（它完成一个应被谴责的任务——隐藏代码）是将条件表达式嵌套在另一个条件表达式中，如下所示:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.117,
+            0.597,
+            0.589,
+            0.67
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nconst char x[2] [20] = {\"Jason \",\"at your service\\n\"};\nconst char * y = \"Quillstone \";\n\nfor (int i = 0; i < 3; i++)\n    cout << ((i < 2)? !i ? x [i] : y : x[1]);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.118,
+            0.676,
+            0.753,
+            0.691
+          ],
+          "content": "这是一种费解的方式（但绝不是最难理解的），它按下面的顺序打印3个字符串:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.118,
+            0.694,
+            0.401,
+            0.707
+          ],
+          "sub_type": "code",
+          "content": "```txt\nJason Quillstone at your service\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.118,
+            0.713,
+            0.635,
+            0.728
+          ],
+          "content": "从可读性来说，条件运算符最适合于简单关系和简单表达式的值:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.118,
+            0.731,
+            0.296,
+            0.745
+          ],
+          "sub_type": "code",
+          "content": "```txt\nx = (x > y) ? x : y;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.119,
+            0.751,
+            0.599,
+            0.766
+          ],
+          "content": "当代码变得更复杂时，使用 if else 语句来表达可能更为清晰。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.082,
+            0.793,
+            0.326,
+            0.812
+          ],
+          "level": 2,
+          "content": "6.5 switch 语句"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.081,
+            0.84,
+            0.916,
+            0.891
+          ],
+          "content": "假设要创建一个屏幕菜单，要求用户从5个选项中选择一个，例如，便宜、适中、昂贵、奢侈、过度。虽然可以扩展if else if else序列来处理这5种情况，但C++的switch语句能够更容易地从大型列表中进行选择。下面是switch语句的通用格式:"
+        }
+      ]
+    },
+    {
+      "page_idx": 198,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.386,
+            0.067,
+            0.646,
+            0.082
+          ],
+          "content": "第6章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.903,
+            0.068,
+            0.931,
+            0.081
+          ],
+          "content": "181"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.113,
+            0.415,
+            0.219
+          ],
+          "sub_type": "code",
+          "content": "```txt\nswitch (integer expression)\n{\n    case label1 : statement(s)\n    case label2 : statement(s)\n    default : statement(s)\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.224,
+            0.933,
+            0.332
+          ],
+          "content": "C++的 switch 语句就像指路牌，告诉计算机接下来应执行哪行代码。执行到 switch 语句时，程序将跳到使用 integer-expression 的值标记的那一行。例如，如果 integer-expression 的值为 4，则程序将执行标签为 case 4:那一行。顾名思义，integer-expression 必须是一个结果为整数值的表达式。另外，每个标签都必须是整数常量表达式。最常见的标签是 int 或 char 常量（如 1 或 q），也可以是枚举量。如果 integer-expression 不与任何标签匹配，则程序将跳到标签为 default 的那一行。Default 标签是可选的，如果被省略，而又没有匹配的标签，则程序将跳到 switch 后面的语句处执行（参见图 6.3）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.335,
+            0.933,
+            0.406
+          ],
+          "content": "switch 语句与 Pascal 等语言中类似的语句之间存在重大的差别。C++中的 case 标签只是行标签，而不是选项之间的界线。也是说，程序跳到 switch 中特定代码行后，将依次执行之后的所有语句，除非有明确的其他指示。程序不会在执行到下一个 case 处自动停止，要让程序执行完一组特定语句后停止，必须使用 break 语句。这将导致程序跳到 switch 后面的语句处执行。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.408,
+            0.933,
+            0.444
+          ],
+          "content": "\\- 程序清单 6:10 演示了如何使用 switch 和 break 来让用户选择简单菜单。该程序使用 showmenu() 函数显示一组选项，然后使用 switch 语句，根据用户的反应执行相应的操作。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.258,
+            0.485,
+            0.771,
+            0.646
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"如果num为5\"] --> B[\"程序跳到这里\"]\n  C[\"如果num为2\"] --> B\n  B --> D[\"switch (num)\\n{case 1 : statement1 break;\\ncase 2 : statement2 break;\\ncase 3 : statement3 break;\\ndefault : statement4}\\n}\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.418,
+                0.677,
+                0.612,
+                0.692
+              ],
+              "content": "图 6.3 - switch 语句的结构"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_198_image_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.71,
+            0.919,
+            0.727
+          ],
+          "content": "注意:有些硬件/操作系统组合不会将（程序清单6.10的case1中使用的）转义序列a解释为振铃。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.133,
+            0.762,
+            0.51,
+            0.913
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// switch.cpp -- using the switch.statement\n#include <iostream>\nusing namespace.std;\nvoid showmenu(); // function prototypes\nvoid report();\nvoid comfort();\nint main()\n{\n    showmenu();\n    int choice;\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.134,
+                0.738,
+                0.353,
+                0.755
+              ],
+              "content": "程序清单6.10 switch.cpp"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 199,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.08,
+            0.069,
+            0.11,
+            0.081
+          ],
+          "content": "182"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.359,
+            0.067,
+            0.63,
+            0.082
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.113,
+            0.099,
+            0.645,
+            0.694
+          ],
+          "sub_type": "code",
+          "content": "```txt\ncin >> choice;\nwhile (choice != 5)\n{\n    switch(choice)\n    {\n        case 1 : cout << \"\\a\\n\";\n            break;\n        case 2 : report();\n            break;\n        case 3 : cout << \"The boss was in all day.\\n\";\n            break;\n        case 4 : comfort();\n            break;\n        default : cout << \"That's not a choice.\\n\";\n    }\n    showmenu();\n    cin >> choice;\n}\ncout << \"Bye!\\n\";\nreturn 0;\n}\n\nvoid showmenu()\n{\n    cout << \"Please enter 1, 2, 3, 4, or 5:\\n\"\n        \"1) alarm          2) report\\n\"\n        \"3) alibi          4) comfort\\n\"\n        \"5) quit\\n\";\n}\nvoid report()\n{\n    cout << \"It's been an excellent week for business.\\n\"\n        \"Sales are up 120%. Expenses are down 35%.\\n\";\n}\nvoid comfort()\n{\n    cout << \"Your employees think you are the finest CEO\\n\"\n        \"in the industry. The board of directors think\\n\"\n        \"you are the finest CEO in the industry.\\n\";\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.116,
+            0.7,
+            0.324,
+            0.716
+          ],
+          "level": 2,
+          "content": "下面是该程序的运行情况:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.116,
+            0.721,
+            0.51,
+            0.914
+          ],
+          "sub_type": "code",
+          "content": "```txt\nPlease enter 1, 2, 3, 4, or 5:\n1) alarm          2) report\n3) alibi         4) comfort\n5) quit\n4\nYour employees think you are the finest CEO\nin the industry. The board of directors think\nyou are the finest CEO in the industry.\nPlease enter 1, 2, 3, 4, or 5:\n1) alarm          2) report\n3) alibi         4) comfort\n5) quit\n2\n```",
+          "captions": [],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 200,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.377,
+            0.065,
+            0.632,
+            0.079
+          ],
+          "content": "第 6 章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.892,
+            0.066,
+            0.921,
+            0.078
+          ],
+          "content": "183"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.123,
+            0.098,
+            0.481,
+            0.308
+          ],
+          "sub_type": "code",
+          "content": "```txt\nIt's been an excellent week for business.\nSales are up 120%. Expenses are down 35%.\nPlease enter 1, 2, 3, 4, or 5:\n1) alarm          2) report\n3) alibi         4) comfort\n5) quit\n6\nThat's not a choice.\nPlease enter 1, 2, 3, 4, or 5:\n1) alarm          2) report\n3) alibi         4) comfort\n5) quit\n5\nBye!\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.088,
+            0.314,
+            0.921,
+            0.347
+          ],
+          "content": "当用户输入了 5 时，while 循环结束。输入 1 到 4 将执行 switch 列表中相应的操作，输入 6 将执行默认语句。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.088,
+            0.351,
+            0.922,
+            0.385
+          ],
+          "content": "为让这个程序正确运行，输入必须是整数。例如，如果输入一个字母，输入语句将失效，导致循环不断运行，直到您终止程序。为应对不按指示办事的用户，最好使用字符输入。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.088,
+            0.388,
+            0.922,
+            0.476
+          ],
+          "content": "如前所述，该程序需要 break 语句来确保只执行 switch 语句中的特定部分。为检查情况是否如此，可以删除程序清单 6.10 中的 break 语句，然后看看其运行情况。例如，读者将发现，输入 2 后，将执行 case 标签为 2、3、4 和 defualt 中的所有语句。C++之所以这样，是由于这种行为很有用。例如，它使得使用多个标签很简单。例如，假设重新编写程序清单 6.10，使用字符（而不是整数）作为菜单选项和 switch 标签，则可以为大写标签和小写标签提供相同的语句:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.123,
+            0.482,
+            0.603,
+            0.826
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nchar choice;\ncin >> choice;\nwhile (choice != 'Q' && choice != 'q')\n{\n    switch(choice)\n    {\n        case 'a':\n        case 'A': cout << \"\\a\\n\";\n            break;\n        case 'r':\n        case 'R': report();\n            break;\n        case 'l':\n        case 'L': cout << \"The boss was in all day.\\n\";\n            break;\n        case 'c':\n        case 'C': comfort();\n            break;\n        default : cout << \"That's not a choice.\\n\";\n    }\n    showmenu();\n    cin >> choice;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.125,
+            0.832,
+            0.801,
+            0.848
+          ],
+          "content": "由于 case 'a' 后面没有 break 语句，因此程序将接着执行下一行——case 'A' 后面的语句。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.125,
+            0.859,
+            0.334,
+            0.875
+          ],
+          "level": 2,
+          "content": "6.5.1 将枚举量用作标签"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.09,
+            0.888,
+            0.922,
+            0.922
+          ],
+          "content": "程序清单 6.11 使用 enum 定义了一组相关的常量，然后在 switch 语句中使用这些常量。通常，cin 无法识别枚举类型（它不知道程序员是如何定义它们的），因此该程序要求用户选择选项时输入一个整数。当"
+        }
+      ]
+    },
+    {
+      "page_idx": 201,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.09,
+            0.065,
+            0.12,
+            0.077
+          ],
+          "content": "184"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.369,
+            0.063,
+            0.639,
+            0.078
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.085,
+            0.098,
+            0.92,
+            0.133
+          ],
+          "continues_prev": true,
+          "content": "switch 语句将 int 值和枚举量标签进行比较时，将枚举量提升为 int。另外，在 while 循环测试条件中，也会将枚举量提升为 int 类型。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.124,
+            0.167,
+            0.732,
+            0.604
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// enum.cpp -- using enum\n#include <iostream>\n// create named constants for 0 - 6\nenum {red, orange, yellow, green, blue, violet, indigo};\n\nint main()\n{\n    using namespace std;\n    cout << \"Enter color code (0-6): \";\n    int code;\n    cin >> code;\n    while (code >= red && code <= indigo)\n    {\n        switch (code)\n        {\n            case red : cout << \"Her lips were red.\\n\"; break;\n            case orange : cout << \"Her hair was orange.\\n\"; break;\n            case yellow : cout << \"Her shoes were yellow.\\n\"; break;\n            case green : cout << \"Her nails were green.\\n\"; break;\n            case blue : cout << \"Her sweatsuit was blue.\\n\"; break;\n            case violet : cout << \"Her eyes were violet.\\n\"; break;\n            case indigo : cout << \"Her_mood was indigo.\\n\"; break;\n        }\n        cout << \"Enter color code (0-6): \";\n        cin >> code;\n    }\n    cout << \"Bye\\n\";\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.123,
+                0.146,
+                0.339,
+                0.163
+              ],
+              "content": "程序清单 6.11 enum.cpp"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.124,
+            0.63,
+            0.348,
+            0.749
+          ],
+          "sub_type": "code",
+          "content": "```txt\nEnter color code (0-6): 3\nHer nails were green.\nEnter color code (0-6): -5\nHer eyes were violet.\nEnter color code (0-6) = 2\nHer shoes were yellow.\nEnter color code (0-6) = 8\nBye\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.127,
+                0.609,
+                0.298,
+                0.625
+              ],
+              "content": "下面是该程序的输出:"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.123,
+            0.765,
+            0.312,
+            0.78
+          ],
+          "level": 2,
+          "content": "6.5.2 switch 和 if else"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.086,
+            0.793,
+            0.92,
+            0.826
+          ],
+          "content": "switch 语句和 if else 语句都允许程序从选项中进行选择。相比之下，if else 更通用。例如，它可以处理取值范围，如下所示:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.123,
+            0.831,
+            0.395,
+            0.92
+          ],
+          "sub_type": "code",
+          "content": "```txt\nif (age > 17 && age <-35)\n    index = 0;\nelse if (age >= 35 && age < 50)\n    index = 1;\nelse if (age >= 50 && age <- 65)\n    index = 2;\n```",
+          "captions": [],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 202,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.384,
+            0.067,
+            0.64,
+            0.082
+          ],
+          "content": "第 6 章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.9,
+            0.069,
+            0.93,
+            0.081
+          ],
+          "content": "185"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.102,
+            0.17,
+            0.113
+          ],
+          "content": "else"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.165,
+            0.117,
+            0.253,
+            0.129
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nindex = 3;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.135,
+            0.929,
+            0.188
+          ],
+          "content": "然而，switch 并不是为处理取值范围而设计的。switch 语句中的每一个 case 标签都必须是一个单独的值。另外，这个值必须是整数（包括 char），因此 switch 无法处理浮点测试。另外 case 标签值还必须是常量。如果选项涉及取值范围、浮点测试或两个变量的比较，则应使用 if else 语句。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.19,
+            0.931,
+            0.243
+          ],
+          "content": "然而，如果所有的选项都可以使用整数常量来标识，则可以使用 switch 语句或 if else 语句。由于 switch 语句是专门为这种情况设计的，因此，如果选项超过两个，则就代码长度和执行速度而言，switch 语句的效率更高。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.252,
+            0.929,
+            0.286
+          ],
+          "content": "提示:如果既可以使用 if else if 语句，也可以使用 switch-语句，则当选项不少于 3 个时，应使用 switch 语句。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.093,
+            0.314,
+            0.502,
+            0.335
+          ],
+          "level": 2,
+          "content": "6.6 break 和 continue 语句"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.363,
+            0.926,
+            0.415
+          ],
+          "content": "break 和 continue 语句都使程序能够跳过部分代码。可以在 switch 语句或任何循环中使用 break 语句，使程序跳到 switch 或循环后面的语句处执行。continue 语句用于循环中，让程序跳过循环体中余下的代码，并开始新一轮循环（参见图 6.4）。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.237,
+            0.433,
+            0.789,
+            0.86
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  subgraph Loop\n  A[\"while (cin.get(ch))\"] --> B{\"continue\"}\n  B --> C[\"if (ch == '\\n')\"]\n  C --> D[\"continue\"]\n  D --> E[\"statement2;\"]\n  E --> F[\"}<br>  F --> G[&quot;statement3;\"]\n  end\n\n  subgraph BreakLoop\n  H[\"while (cin.get(ch))\"] --> I{\"break\"}\n  I --> J[\"if (ch == '\\n')\"]\n  J --> K[\"statement2;\"]\n  K --> L[\"}<br>  L --> M[&quot;statement3;\"]\n  end\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.376,
+                0.867,
+                0.645,
+                0.882
+              ],
+              "content": "图6.4 break和continue语句的结构"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0193-0224/images/page_202_image_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.888,
+            0.926,
+            0.925
+          ],
+          "content": "程序清单 6.12 演示了这两条语句是如何工作的。该程序让用户输入一行文本。循环将回显每个字符，如果该字符为句点，则使用 break 结束循环。这表明，可以在某种条件为 true 时，使用 break 来结束循环。"
+        }
+      ]
+    },
+    {
+      "page_idx": 203,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.09,
+            0.068,
+            0.121,
+            0.081
+          ],
+          "content": "186"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.37,
+            0.067,
+            0.64,
+            0.082
+          ],
+          "content": "C++ Primer Plus (第6版) 中文版"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.086,
+            0.101,
+            0.911,
+            0.118
+          ],
+          "content": "接下来，程序计算空格数，但不计算其他字符。当字符不为空格时，循环使用 continue 语句跳过计数部分。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.121,
+            0.154,
+            0.579,
+            0.539
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// jump.cpp -- using continue and break\n#include <iostream>\nconst int ArSize = 80;\nint main()\n{\n    using namespace std;\n    char \"line[ArSize\"];\n    int spaces = 0;\n\n    cout << \"Enter a line of text:\\n\";\n    cin.get(line, ArSize);\n    cout << \"Complete line:\\n\" << line << endl;\n    cout << \"Line through first period:\\n\";\n    for (int i = 0; line[i] != '\\0'; i++)\n    {\n        cout << line[i];      // display character\n        if (line[i] == '.') // quit if it's a period\n            break;\n        if (line[i] != ' ') // skip rest of loop\n            continue;\n        spaces++;\n    }\n    cout << \"\\n\" << spaces << \" spaces\\n\";\n    cout << \"Done.\\n\";\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.123,
+                0.131,
+                0.333,
+                0.148
+              ],
+              "content": "程序清单 6.12 jump.cpp"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.544,
+            0.333,
+            0.559
+          ],
+          "content": "下面是该程序的运行情况:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.123,
+            0.564,
+            0.421,
+            0.682
+          ],
+          "sub_type": "code",
+          "content": "```txt\nEnter a line of text:\nLet's do lunch today. You can pay!\nComplete line:\nLet's do lunch today. You can pay!\nLine through first period:\nLet's do lunch today.\n3 spaces\nDone.\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.124,
+            0.687,
+            0.202,
+            0.702
+          ],
+          "level": 2,
+          "content": "程序说明"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.085,
+            0.706,
+            0.923,
+            0.776
+          ],
+          "content": "虽然 continue 语句导致该程序跳过循环体的剩余部分，但不会跳过循环的更新表达式。在 for 循环中，continue 语句使程序直接跳到更新表达式处，然后跳到测试表达式处。然而，对于 while 循环来说，continue 将使程序直接跳到测试表达式处，因此 while 循环体中位于 continue 之后的更新表达式都将被跳过。在某些情况下，这可能是一个问题。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.78,
+            0.551,
+            0.795
+          ],
+          "content": "该程序可以不使用 continue 语句，而使用下面的代码:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.123,
+            0.8,
+            0.291,
+            0.829
+          ],
+          "sub_type": "code",
+          "content": "```txt\nif (line[i] == !=)\n    spaces++;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.087,
+            0.836,
+            0.921,
+            0.869
+          ],
+          "content": "然而，当 continue 之后有多条语句时，continue 语句可以提高程序的可读性。这样，就不必将所有这些语句放在 if 语句中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.121,
+            0.873,
+            0.779,
+            0.889
+          ],
+          "content": "和 C 语言一样，C++也有 goto 语句。下面的语句将跳到使用 paris:作为标签的位置:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.123,
+            0.892,
+            0.222,
+            0.905
+          ],
+          "sub_type": "code",
+          "content": "```txt\ngoto paris;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.911,
+            0.406,
+            0.927
+          ],
+          "content": "也就是说，可以有下面这样的代码:"
+        }
+      ]
+    },
+    {
+      "page_idx": 204,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.386,
+            0.065,
+            0.649,
+            0.08
+          ],
+          "content": "第6章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.901,
+            0.066,
+            0.933,
+            0.079
+          ],
+          "content": "187"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.103,
+            0.56,
+            0.206
+          ],
+          "sub_type": "code",
+          "content": "```txt\nchar_ch;\ncin >> ch;\nif (ch == 'P')\n    goto paris;\ncout << ...\n...\nparis: cout << \"You've just arrived at Paris.\\n\";\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.213,
+            0.93,
+            0.247
+          ],
+          "content": "在大多数情况下（有些人认为，在任何情况下），使用 goto 语句不好，而应使用结构化控制语句（如 if else、switch、continue 等）来控制程序的流程。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.095,
+            0.274,
+            0.4,
+            0.294
+          ],
+          "level": 2,
+          "content": "6.7 读取数字的循环"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.323,
+            0.931,
+            0.357
+          ],
+          "content": "假设要编写一个将一系列数字读入到数组中的程序，并允许用户在数组填满之前结束输入。一种方法是利用 cin。请看下面的代码:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.131,
+            0.363,
+            0.213,
+            0.39
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint n;\ncin >> n;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.085,
+            0.396,
+            0.931,
+            0.43
+          ],
+          "content": "如果用户输入一个单词，而不是一个数字，情况将如何呢？发生这种类型不匹配的情况时，将发生4种情况:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.134,
+            0.433,
+            0.629,
+            0.504
+          ],
+          "sub_type": "text",
+          "content": "- n 的值保持不变；\n- 不匹配的输入将被留在输入队列中；\n- cin 对象中的一个错误标记被设置；\n- 对 cin 方法的调用将返回 false（如果被转换为 bool 类型）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.507,
+            0.931,
+            0.577
+          ],
+          "content": "方法返回 false 意味着可以用非数字输入来结束读取数字的循环。非数字输入设置错误标记意味着必须重置该标记，程序才能继续读取输入。clear() 方法重置错误输入标记，同时也重置文件尾（EOF 条件，参见第 5 章）。输入错误和 EOF 都将导致 cin 返回 false，第 17 章将讨论如何区分这两种情况。下面来看两个演示这些技术的示例。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.58,
+            0.931,
+            0.633
+          ],
+          "content": "假设要编写一个程序，来计算平均每天捕获的鱼的重量。这里假设每天最多捕获5条鱼，因此一个包含5个元素的数组将足以存储所有的数据，但也可能没有捕获这么多鱼。在程序清单6.13中，如果数组被填满或者输入了非数字输入，循环将结束。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.131,
+            0.668,
+            0.613,
+            0.91
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// cinfish.cpp -- non-numeric input terminates loop=\n#include <iostream>\nconst int Max = 5;\nint main()\n{\n    using namespace std;\n// get data\n    double fish[Max];\n    cout << \"Please enter the weights of your_fish.\\n\";\n    cout << \"You may-enter up to \" << Max\n        <<_\" fish <q_to terminate>.\\n\";\n    cout << \"fish #1: \";\n    int E = 0;\n    while (i < Max && cin-> fish[i]) {\n        if (++i < Max)      -\n            cout << \"fish #\" << i+1-<< \": \";\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.131,
+                0.646,
+                0.353,
+                0.663
+              ],
+              "content": "程序清单 6.13 cinfish.cpp"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 205,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.082,
+            0.068,
+            0.111,
+            0.08
+          ],
+          "content": "188"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.362,
+            0.066,
+            0.632,
+            0.081
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.113,
+            0.097,
+            0.57,
+            0.308
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n}\n// calculate average\n    double total = 0.0;\n    for (int j = 0; j < i; j++)\n        total += fish[j];\n// report results\n    if (i == 0)\n        cout << \"No fish\\n\";\n    else\n        cout << total / i << \" = average weight of \"\n            << i << \" fish\\n\";\n    cout << \"Done.\\n\";\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.319,
+            0.904,
+            0.354
+          ],
+          "content": "注意:本书前面说过，在有些执行环境中，为让窗口打开以便能够看到输出，需要添加额外的代码。在这个示例中，由于输入‘q’结束输入，处理起来更复杂些:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.113,
+            0.361,
+            0.589,
+            0.452
+          ],
+          "sub_type": "code",
+          "content": "```txt\nif (!cin)  // input terminated by non-numeric response\n{\n    cin.clear();   // reset input\n    cin.get();     // read q\n}\ncin.get();           // read end of line after last input\ncin.get();            // wait for user to press <Enter>\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.461,
+            0.771,
+            0.476
+          ],
+          "content": "在程序清单 6.13 中，如果要让程序在结束循环后接收输入，也可使用类似的代码。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.479,
+            0.592,
+            0.495
+          ],
+          "content": "程序清单 6.14 更进了一步，它使用 cin 来返回值并重置 cin。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.504,
+            0.916,
+            0.557
+          ],
+          "content": "程序清单 6.13 中的表达式 cin>>fish [i]实际上一个是 cin 方法函数调用，该函数返回 cin。如果 cin 位于测试条件中，则将被转换为 bool 类型。如果输入成功，则转换后的值为 true，否则为 false。如果表达式的值为 false，则循环结束。下面是该程序的运行情况:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.114,
+            0.562,
+            0.501,
+            0.695
+          ],
+          "sub_type": "code",
+          "content": "```txt\nPlease enter the weights of your fish.\nYou may enter up to 5 fish <q to terminate>.\nfish #1: 30\nfish #2: -35\nfish #3: 25\nfish #4: 40\nfish #5: q\n32.5 = average weight of 4 fish-\nDone.\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.701,
+            0.29,
+            0.716
+          ],
+          "content": "请注意下面的代码行:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.114,
+            0.718,
+            0.424,
+            0.733
+          ],
+          "sub_type": "code",
+          "content": "```txt\nwhile (i < Max && cin >> fish[i]) {\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.739,
+            0.918,
+            0.791
+          ],
+          "content": "前面讲过，如果逻辑 AND 表达式的左侧为 false，则 C++ 将不会判断右侧的表达式。在这里，对右侧的表达式进行判定意味着用 cin 将输入放到数组中。如果 i 等于 Max，则循环将结束，而不会将一个值读入到数组后面的位置中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.795,
+            0.918,
+            0.864
+          ],
+          "content": "当用户输入的不是数字时，该程序将不再读取输入。下面来看一个继续读取的例子。假设程序要求用户提供5个高尔夫得分，以计算平均成绩。如果用户输入非数字输入，程序将拒绝，并要求用户继续输入数字。可以看到，可以使用cin输入表达式的值来检测输入是不是数字。程序发现用户输入了错误内容时，应采取3个步骤。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.114,
+            0.868,
+            0.35,
+            0.92
+          ],
+          "sub_type": "text",
+          "content": "1. 重置 cin 以接受新的输入。\n2. 删除错误输入。\n3. 提示用户再输入。"
+        }
+      ]
+    },
+    {
+      "page_idx": 206,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.383,
+            0.066,
+            0.64,
+            0.082
+          ],
+          "content": "第6章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.899,
+            0.068,
+            0.93,
+            0.081
+          ],
+          "content": "189"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.101,
+            0.897,
+            0.118
+          ],
+          "content": "请注意，程序必须先重置cin，然后才能删除错误输入。程序清单6.14演示了如何完成这些工作。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.151,
+            0.592,
+            0.597
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// cingolf.cpp -- non-numeric input skipped\n#include <iostream>\nconst int Max = 5;\nint main()\n{\n    using namespace std;\n// get data\n    int golf[Max];\n    cout << \"Please enter your golf scores.\\n\";\n    cout << \"You must enter \" << Max << \" rounds.\\n\";\n    int i;\n    for (i = 0; i < Max; i++)\n    {\n        cout << \"round #\" << i+1 << \": \";\n        while (!(cin >> golf[i])) {\n            cin.clear();      // reset input\n            while (cin.get() != '\\n')\n                continue;   // get rid of bad input\n            cout << \"Please enter a number: \";\n        }\n    }\n// calculate average\n    double total = 0.0;\n    for (i = 0; i < Max; i++)\n        total += golf[i];\n// report results\n    cout << total / Max << \" = average score \"\n        << Max << \" rounds\\n\";\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.129,
+                0.13,
+                0.351,
+                0.148
+              ],
+              "content": "程序清单 6.14 cingolf.cpp"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.602,
+            0.341,
+            0.618
+          ],
+          "content": "下面是该程序的运行情况:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.624,
+            0.391,
+            0.759
+          ],
+          "sub_type": "code",
+          "content": "```txt\nPlease enter your golf scores.\nYou must enter 5 rounds.\nround #1: 88\nround #2: 87\nround #3: must i?\nPlease enter a number: 103\nround #4: 94\nround #5: 86\n91.6 = average score 5 rounds\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.765,
+            0.207,
+            0.781
+          ],
+          "level": 2,
+          "content": "程序说明"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.784,
+            0.542,
+            0.801
+          ],
+          "content": "在程序清单 6.14 中，错误处理代码的关键部分如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.806,
+            0.489,
+            0.897
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nwhile (!(cin >> golf[i])) {\n    cin.clear();      // reset input\n    while (cin.get() != '\\n')\n        continue; // get rid of bad input\n    cout << \"Please enter a number: \";\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.905,
+            0.923,
+            0.924
+          ],
+          "content": "如果用户输入 88，则 cin 表达式将为 true，因此将一个值放到数组中；而表达式!(cin >> golf[i])为 false,"
+        }
+      ]
+    },
+    {
+      "page_idx": 207,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.086,
+            0.07,
+            0.116,
+            0.082
+          ],
+          "content": "190"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.364,
+            0.069,
+            0.633,
+            0.083
+          ],
+          "content": "C++Primer Plus(第-6版)中文版"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.102,
+            0.917,
+            0.193
+          ],
+          "continues_prev": true,
+          "content": "因此结束内部循环。然而，如果用户输入 must i?，则 cin 表达式将为 false，因此不会将任何值放到数组中；而表达式!(cin >> golf[i])将为 true，因此进入内部的 while 循环。该循环的第一条语句使用 clear()方法重置输入，如果省略这条语句，程序将拒绝继续读取输入。接下来，程序在 while 循环中使用 cin.get()来读取行尾之前的所有输入，从而删除这一行中的错误输入。另一种方法是读取到下一个空白字符，这样将每次删除一个单词，而不是一次删除整行。最后，程序告诉用户，应输入一个数字。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.085,
+            0.217,
+            0.432,
+            0.239
+          ],
+          "level": 2,
+          "content": "6.8 简单文件输入/输出"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.085,
+            0.264,
+            0.917,
+            0.318
+          ],
+          "content": "有时候，通过键盘输入并非最好的选择。例如5-假设您编写了一个股票分析程序，并下载了一个文件，其中包含1000种股票的价格。在这种情况下，让程序直接读取文件，而不是手工输入文件中所有的值，将方便得多。同样，让程序将输出写入到文件将更为方便，这样可得到有关结果的永久性记录。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.085,
+            0.319,
+            0.916,
+            0.355
+          ],
+          "content": "幸运的是，C++使得将读取键盘输入和在屏幕上显示输出（统称为控制台输入/输出）的技巧用于文件输入/输出（文件I/O）非常简单。第17章将更详细地讨论这些主题，这里只介绍简单的文本文件I/O。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.12,
+            0.365,
+            0.342,
+            0.382
+          ],
+          "level": 2,
+          "content": "6.8.1 文本I/O和文本文件"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.085,
+            0.393,
+            0.917,
+            0.446
+          ],
+          "content": "这里再介绍一下文本 I/O 的概念。使用 cin 进行输入时，程序将输入视为一系列的字节，其中每个字节都被解释为字符编码。不管目标数据类型是什么，输入一开始都是字符数据——文本数据。然后，cin 对象负责将文本转换为其他类型。为说明这是如何完成的，来看一些处理同一个输入行的代码。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.449,
+            0.311,
+            0.465
+          ],
+          "content": "假设有如下示例输入行:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.47,
+            0.202,
+            0.482
+          ],
+          "content": "38.5 19.2"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.086,
+            0.487,
+            0.916,
+            0.522
+          ],
+          "content": "来看一下使用不同数据类型的变量来存储时，cin 是如何处理该输入行的。首先，来看使用 char 数据类型的情况:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.119,
+            0.528,
+            0.208,
+            0.554
+          ],
+          "sub_type": "code",
+          "content": "```txt\nchar ch;\ncin >> ch;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.085,
+            0.56,
+            0.917,
+            0.614
+          ],
+          "content": "输入行中的第一个字符被赋给 ch。在这里，第一个字符是数字 3，其字符编码（二进制）被存储在变量 ch 中。输入和目标变量都是字符，因此不需要进行转换。注意，这里存储的数值 3，而是字符 3 的编码。执行上述输入语句后，输入队列中的下一个字符为字符 8，下一个输入操作将对其进行处理。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.617,
+            0.285,
+            0.633
+          ],
+          "content": "接下来看看 int 类型:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.119,
+            0.639,
+            0.2,
+            0.665
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint_n;\ncím >> n;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.086,
+            0.671,
+            0.917,
+            0.724
+          ],
+          "content": "在这种情况下，cin 将不断读取，直到遇到非数字字符。也就是说，它将读取 3 和 8，这样句点将成为输入队列中的下一个字符。cin 通过计算发现，这两个字符对应数值 38，因此将 38 的二进制编码复制到变量 n 中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.727,
+            0.316,
+            0.743
+          ],
+          "content": "接下来看看 double 类型:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.119,
+            0.748,
+            0.2,
+            0.775
+          ],
+          "sub_type": "code",
+          "content": "```txt\ndouble x;\ncin->> x;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.086,
+            0.781,
+            0.917,
+            0.835
+          ],
+          "content": "在这种情况下，cin 将不断读取，直到遇到第一个不属于浮点数的字符。也就是说，cin 读取 3、8、句点和 5，使得空格成为输入队列中的下一个字符。cin 通过计算发现，这四个字符对应于数值 38.5，因此将 38.5 的二进制编码（浮点格式）复制到变量 x 中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.838,
+            0.352,
+            0.853
+          ],
+          "content": "接下来看看 char 数组的情况:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.119,
+            0.858,
+            0.243,
+            0.886
+          ],
+          "sub_type": "code",
+          "content": "```txt\nchar word[50];\ncin >> word;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.086,
+            0.892,
+            0.917,
+            0.927
+          ],
+          "content": "在这种情况下，cin 将不断读取，直到遇到空白字符。也就是说，它读取 3、8、句点和 5，使得空格成为输入队列中的下一个字符。然后，cin 将这 4 个字符的字符编码存储到数组 word 中，并在末尾加上一个"
+        }
+      ]
+    },
+    {
+      "page_idx": 208,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.384,
+            0.064,
+            0.64,
+            0.079
+          ],
+          "content": "第6章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.899,
+            0.065,
+            0.929,
+            0.077
+          ],
+          "content": "191"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.099,
+            0.377,
+            0.114
+          ],
+          "content": "空字符。这里不需要进行任何转换。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.118,
+            0.578,
+            0.133
+          ],
+          "content": "最后，来看一下另一种使用 char 数组来存储输入的情况:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.139,
+            0.306,
+            0.167
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nchar word[50];\ncin.geline(word,50);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.173,
+            0.929,
+            0.226
+          ],
+          "content": "在这种情况下，cin 将不断读取，直到遇到换行符（示例输入行少于 50 个字符）。所有字符都将被存储到数组 word 中，并在末尾加上一个空字符。换行符被丢弃，输入队列中的下一个字符是下一行中的第一个字符。这里不需要进行任何转换。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.229,
+            0.928,
+            0.262
+          ],
+          "content": "对于输入，将执行相反的转换。即整数被转换为数字字符序列，浮点数被转换为数字字符和其他字符组成的字符序列（如284.53或-1.58E+06）。字符数据不需要做任何转换。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.265,
+            0.93,
+            0.336
+          ],
+          "content": "这里的要点是，输入一开始为文本。因此，控制台输入的文件版本是文本文件，即每个字节都存储了一个字符编码的文件。并非所有的文件都是文本文件，例如:数据库和电子表格以数值格式（即二进制整数或浮点格式）来存储数值数据。另外，字处理文件中可能包含文本信息，但也可能包含用于描述格式、字体、打印机等的非文本数据。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.339,
+            0.929,
+            0.41
+          ],
+          "content": "本章讨论的文件 I/O 相当于控制台 I/O，因此仅适用于文本文件。要创建文本文件，用于提供输入，可使用文本编译器，如 DOS 中的 EDIT、Windows 中的“记事本”和 UNIX/Linux 系统中的 vi 或 emacs。也可以使用字处理程序来创建，但必须将文件保存为文本格式。IDE 中的源代码编辑器生成的也是文本文件，事实上，源代码文件就属于文本文件。同样，可以使用文本编辑器来查看通过文本输出创建的文件。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.422,
+            0.34,
+            0.437
+          ],
+          "level": 2,
+          "content": "6.8.2 写入到文本文件中"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.449,
+            0.922,
+            0.483
+          ],
+          "content": "对于文件输入，C++使用类似于cout的东西。下面来复习一些有关将cout用于控制台输出的基本事实，为文件输出做准备。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.133,
+            0.486,
+            0.906,
+            0.575
+          ],
+          "sub_type": "text",
+          "content": "- 必须包含头文件iostream。\n- 头文件iostream定义了一个用处理输出的ostream类。\n- 头文件iostream声明了一个名为cout的ostream变量（对象）。\n- 必须指明名称空间 std；例如，为引用元素 cout 和 endl，必须使用编译指令 using 或前缀 std::。\n- 可以结合使用cout和运算符<<来显示各种类型的数据。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.577,
+            0.324,
+            0.592
+          ],
+          "content": "文件输出与此极其相似。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.133,
+            0.596,
+            0.603,
+            0.63
+          ],
+          "sub_type": "text",
+          "content": "- 必须包含头文件 fstream。\n- 头文件 fstream 定义了一个用于处理输出的 ofstream 类。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.633,
+            0.928,
+            0.666
+          ],
+          "content": "\\- 需要声明一个或多个 ofstream 变量（对象），并以自己喜欢的方式对其进行命名，条件是遵守常用的命名规则。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.67,
+            0.878,
+            0.686
+          ],
+          "content": "\\- 必须指明名称空间 std；例如，为引用元素 ofstream，必须使用编译指令 using 或前缀 std::。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.688,
+            0.757,
+            0.705
+          ],
+          "content": "\\- 需要将 ofstream 对象与文件关联起来。为此，方法之一是使用 open() 方法。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.707,
+            0.527,
+            0.722
+          ],
+          "content": "\\- 使用完文件后，应使用方法 close() 将其关闭。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.725,
+            0.65,
+            0.74
+          ],
+          "content": "\\- 可结合使用 ofstream 对象和运算符<<来输出各种类型的数据。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.743,
+            0.933,
+            0.777
+          ],
+          "content": "注意，虽然头文件iostream提供了一个预先定义好的名为cout的ostream对象，但您必须声明自己的ofstream对象，为其命名，并将其同文件关联起来。下面演示了如何声明这种对象:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.782,
+            0.628,
+            0.813
+          ],
+          "sub_type": "code",
+          "content": "```txt\nofstream outFile;          // outFile an ofstream object\nofstream fout;            // fout an ofstream object\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.819,
+            0.543,
+            0.834
+          ],
+          "content": "下面演示了如何将这种对象与特定的文件关联起来:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.839,
+            0.767,
+            0.899
+          ],
+          "sub_type": "code",
+          "content": "```rust\noutFile.open(\"fish.txt\"); // outFile used to write to the fish.txt file\nchar filename[50];\ncin >> filename; // user specifies a name\nfout.open(filename); // fout used to read specified file\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.906,
+            0.928,
+            0.922
+          ],
+          "content": "注意，方法 open() 接受一个 C-风格字符串作为参数，这可以是一个字面字符串，也可以是存储在数组"
+        }
+      ]
+    },
+    {
+      "page_idx": 209,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.083,
+            0.065,
+            0.113,
+            0.078
+          ],
+          "content": "192"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.362,
+            0.063,
+            0.633,
+            0.078
+          ],
+          "content": "C++ Primer Plus(第6版) 中文版"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.099,
+            0.184,
+            0.114
+          ],
+          "content": "中的字符串。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.117,
+            0.361,
+            0.133
+          ],
+          "content": "下面演示了如何使用这种对象:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.114,
+            0.138,
+            0.596,
+            0.196
+          ],
+          "sub_type": "code",
+          "content": "```txt\ndouble wt = 125.8;\noutFile << wt;          // write a number to fish.txt\nchar line[81] = \"Objects are closer than they appear.\";\nfout << line << endl;   // write a line of text\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.202,
+            0.915,
+            0.237
+          ],
+          "content": "重要的是，声明一个 ofstream 对象并将其同文件关联起来后，便可以像使用 cout 那样使用它。所有可用于 cout 的操作和方法（如<<、endl 和 setf()）都可用于 ofstream 对象（如前述示例中的 outFile 和 fout）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.24,
+            0.419,
+            0.255
+          ],
+          "content": "总之，使用文件输出的主要步骤如下。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.116,
+            0.258,
+            0.468,
+            0.329
+          ],
+          "sub_type": "text",
+          "content": "1. 包含头文件 fstream。\n2. 创建一个 ofstream 对象。\n3. 将该 ofstream 对象同一个文件关联起来。\n4. 就像使用 cout 那样使用该 ofstream 对象。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.331,
+            0.915,
+            0.366
+          ],
+          "content": "程序清单 6.15 中的程序演示了这种方法。它要求用户输入信息，然后将信息显示到屏幕上，再将这些信息写入到文件中。读者可以使用文本编辑器来查看该输出文件的内容。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.116,
+            0.401,
+            0.668,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// outfile.cpp -- writing to a file\n#include <iostream>\n#include <fstream>                          // for file I/O\n\nint main()\n{\n    using namespace std;\n\n    char automobile[50];\n    int year;\n    double a_price;\n    double d_price;\n\n    ofstream outFile;                 // create object for output\n    outFile.open(\"carinfo.txt\");     // associate with a file\n\n    cout << \"Enter the make and model of automobile: \";\n    cin.getline(automobile, 50);\n    cout << \"Enter the model year: \";\n    cin >> year;\n    cout << \"Enter the original asking price: \";\n    cin >> a_price;\n    d_price = 0-913-* a_price;\n\n// display-information on-screen with-cout\n\n    cout << fixed;\n    cout.precision(2)\\n    cout.setf(ios_base:=showpoint);\n    cout << \"Make and model: \" <<_automobile << endl;\n    cout << \"Year: \" << year << endl;\n    cout << \"Was asking $\" << a_price<< endl;\n    cout << \"Now asking $\" << d_price << endl;\n\n// now do exact same things using_outFile instead of cout\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.117,
+                0.379,
+                0.335,
+                0.395
+              ],
+              "content": "程序清单 6.15 outfile.cpp"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 210,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.385,
+            0.063,
+            0.64,
+            0.077
+          ],
+          "content": "第 6 章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.901,
+            0.064,
+            0.931,
+            0.076
+          ],
+          "content": "193"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.1,
+            0.619,
+            0.266
+          ],
+          "sub_type": "code",
+          "content": "```cpp\noutFile << fixed;\noutFile.precision{2};\noutFile.setf(ios_base::showpoint);\noutFile << \"Make and model: -\" << automobile-<< endl;\noutFile << \"Year: \" << year << endl;\noutFile << \"Was asking $\" << a_price << endl;\noutFile << \"Now asking $\" << d_price << endl;\n\noutFile.close(); // done-with file\nreturn 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.271,
+            0.917,
+            0.287
+          ],
+          "content": "该程序的最后一部分与cout部分相同，只是将cout替换为outFile而已。下面是该程序的运行情况:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.131,
+            0.292,
+            0.581,
+            0.395
+          ],
+          "sub_type": "code",
+          "content": "```txt\nEnter the make and model of automobile: Flitz Perky\nEnter the model year.-2009\nEnter the original-asking price: 13500-\nMake and-model: Flitz Perky\nYear: 2009\nWas asking \\$13500.00\nNow-asking \\$12325.50\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.402,
+            0.932,
+            0.455
+          ],
+          "content": "屏幕输出是使用 cout 的结果。如果您查看该程序的可执行文件所在的目录，将看到一个名为 carinfo.txt 的新文件（根据编译器的配置，该文件也可能位于其他文件夹），其中包含使用 outFile 生成的输出。如果使用文本编辑器打开该文件，将发现其内容如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.131,
+            0.46,
+            0.378,
+            0.518
+          ],
+          "sub_type": "code",
+          "content": "```txt\nMake and modeF: Flitz Perky-\nYear: 2009\nWas asking $13500.00\nNow asking $12325.50\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.527,
+            0.778,
+            0.543
+          ],
+          "content": "正如读者看到的，outFile 将 cout 显示到屏幕上的内容写入到了文件 carinfo.txt 中。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.134,
+            0.545,
+            0.213,
+            0.56
+          ],
+          "level": 2,
+          "content": "程序说明"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.564,
+            0.931,
+            0.597
+          ],
+          "content": "在程序清单 6.15 的程序中，声明一个 ofstream 对象后，便可以使用方法 open() 将该对象特定文件关联起来:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.131,
+            0.604,
+            0.648,
+            0.633
+          ],
+          "sub_type": "code",
+          "content": "```txt\nofstream outFile;          // create object for output\noutFile.open(\"carinfo.txt\");     // associate with-a file\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.639,
+            0.435,
+            0.654
+          ],
+          "content": "程序使用完该文件后，应该将其关闭:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.132,
+            0.659,
+            0.275,
+            0.671
+          ],
+          "sub_type": "code",
+          "content": "```javascript\noutFile.close();\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.678,
+            0.931,
+            0.712
+          ],
+          "content": "注意，方法 close() 不需要使用文件名作为参数，这是因为 outFile 已经同特定的文件关联起来。如果您忘记关闭文件，程序正常终止时将自动关闭它。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.715,
+            0.931,
+            0.75
+          ],
+          "content": "outFile 可使用 cout 可使用的任何方法。它不但能够使用运算符<<，还可以使用各种格式化方法，如 setf() 和 precision()。这些方法只影响调用它们的对象。例如，对于不同的对象，可以提供不同的值:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.131,
+            0.754,
+            0.692,
+            0.784
+          ],
+          "sub_type": "code",
+          "content": "```txt\ncout.precision(2);      // use a precision of 2 for the display\noutFile.precision(4);     // use a precision of 4 for file output\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.79,
+            0.892,
+            0.806
+          ],
+          "content": "读者需要记住的重点是，创建好 ofstream 对象（如 outFile）后，便可以像使用 cout 那样使用它。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.808,
+            0.274,
+            0.824
+          ],
+          "content": "回到 open() 方法:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.132,
+            0.827,
+            0.378,
+            0.841
+          ],
+          "sub_type": "code",
+          "content": "```javascript\noutFile.open(\"carinfo.txt\");\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.847,
+            0.934,
+            0.918
+          ],
+          "content": "在这里，该程序运行之前，文件 carinfo.txt 并不存在。在这种情况下，方法 open() 将新建一个名为 carinfo.txt 的文件。如果在此运行该程序，文件 carinfo.txt 将存在，此时情况将如何呢？默认情况下，open() 将首先截断该文件，即将其长度截短到零——丢其原有的内容，然后将新的输出加入到该文件中。第 17 章将介绍如何修改这种默认行为。"
+        }
+      ]
+    },
+    {
+      "page_idx": 211,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.082,
+            0.065,
+            0.112,
+            0.078
+          ],
+          "content": "194"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.361,
+            0.064,
+            0.631,
+            0.078
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.105,
+            0.854,
+            0.121
+          ],
+          "content": "警告:打开已有的文件，以接受输出时，默认将它其长度截短为零，因此原来的内容将丢失。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.131,
+            0.913,
+            0.166
+          ],
+          "content": "打开文件用于接受输入时可能失败。例如，指定的文件可能已经存在，但禁止对其进行访问。因此细心的程序员将检查打开文件的操作是否成功，这将在下一个例子中介绍。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.106,
+            0.177,
+            0.287,
+            0.193
+          ],
+          "level": 2,
+          "content": "6.8.3 读取文本文件"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.204,
+            0.913,
+            0.239
+          ],
+          "content": "接下来介绍文本文件输入，它是基于控制台输入的。控制台输入涉及多个方面，下面首先总结这些方面。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.117,
+            0.242,
+            0.913,
+            0.405
+          ],
+          "sub_type": "text",
+          "content": "- 必须包含头文件iostream。\n- 头文件iostream 定义了一个用处理输入的 istream 类。\n- 头文件iostream声明了一个名为cin的istream变量（对象）。\n- 必须指明名称空间 std；例如，为引用元素 cin，必须使用编译指令 using 或前缀 std::。\n- 可以结合使用cin和运算符>>来读取各种类型的数据。\n- 可以使用 cin 和 get() 方法来读取一个字符，使用 cin 和 getline() 来读取一行字符。\n- 可以结合使用 cin 和 eof()、fail() 方法来判断输入是否成功。\n- 对象 cin 本身被用作测试条件时，如果最后一个读取操作成功，它将被转换为布尔值 true，否则被转换为 false。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.408,
+            0.308,
+            0.423
+          ],
+          "content": "文件输出与此极其相似:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.078,
+            0.427,
+            0.913,
+            0.497
+          ],
+          "sub_type": "text",
+          "content": "- 必须包含买文件 fstream。\n- 头文件fstream定义了一个用于处理输入的ifstream类。\n- 需要声明一个或多个 ifstream变量（对象），并以自己喜欢的方式对其进行命名，条件是遵守常用的命名规则。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.501,
+            0.86,
+            0.516
+          ],
+          "content": "\\- 必须指明名称空间 std；例如，为引用元素 ifstream，必须使用编译指令 using 或前缀 std::。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.519,
+            0.738,
+            0.535
+          ],
+          "content": "\\- 需要将 ifstream 对象与文件关联起来。为此，方法之一是使用 open() 方法。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.538,
+            0.511,
+            0.553
+          ],
+          "content": "\\- 使用完文件后，应使用close()方法将其关闭。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.556,
+            0.631,
+            0.571
+          ],
+          "content": "\\- 可结合使用 ifstream 对象和运算符>>来读取各种类型的数据。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.078,
+            0.575,
+            0.913,
+            0.645
+          ],
+          "sub_type": "text",
+          "content": "- ● 可以使用 ifstream 对象和 get() 方法来读取一个字符，使用 ifstream 对象和 getline() 来读取一行字符。\n- 可以结合使用 ifstream 和 eof()、fail()等方法来判断输入是否成功。\n- ifstream对象本身被用作测试条件时，如果最后一个读取操作成功，它将被转换为布尔值true，否则被转换为false。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.649,
+            0.913,
+            0.683
+          ],
+          "content": "注意，虽然头文件 iostream 提供了一个预先定义好的名为 cin 的 istream 对象，但您必须声明自己的 ifstream 对象，为其命名，并将其同文件关联起来。下面演示了如何声明这种对象:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.113,
+            0.687,
+            0.611,
+            0.716
+          ],
+          "sub_type": "code",
+          "content": "```c\nifstream inFile;          // inFile an ifstream object\nifstream fin;            // fin an ifstream object\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.722,
+            0.524,
+            0.737
+          ],
+          "content": "下面演示了如何将这种对象与特定的文件关联起来:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.113,
+            0.741,
+            0.706,
+            0.801
+          ],
+          "sub_type": "code",
+          "content": "```cpp\ninFile.open(\"bowling.txt\"); // inFile used to read bowling.txt file\nchar filename[50];\ncfn-> filename;          // user specifies a name\nfin-open(filename);           // fin used to read specified file\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.806,
+            0.913,
+            0.84
+          ],
+          "content": "注意，方法 open() 接受一个 C-风格字符串作为参数，这可以是一个字面字符串，也可以是存储在数组中的字符串。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.843,
+            0.361,
+            0.859
+          ],
+          "content": "下面演示了如何使用这种对象:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.113,
+            0.864,
+            0.593,
+            0.923
+          ],
+          "sub_type": "code",
+          "content": "```txt\ndouble wt;\ninFile >> wt;          // read a number from bowling.txt\nchar.line[81];\nfim.getline(Line, -81); // read a line of text\n```",
+          "captions": [],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 212,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.386,
+            0.063,
+            0.643,
+            0.077
+          ],
+          "content": "第 6 章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.903,
+            0.063,
+            0.934,
+            0.076
+          ],
+          "content": "195"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.096,
+            0.931,
+            0.129
+          ],
+          "content": "重要的是，声明一个 ifstream 对象并将其同文件关联起来后，便可以像使用 cin 那样使用它。所有可用于 cin 的操作和方法都可用于 ifstream 对象（如前述示例中的 inFile 和 fin）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.131,
+            0.933,
+            0.183
+          ],
+          "content": "如果试图打开一个不存在的文件用于输入，情况将如何呢？这种错误将导致后面使用 ifstream 对象进行输入时失败。检查文件是否被成功打开的首先方法是使用方法 is\\_open()，为此，可以使用类似于下面的代码:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.131,
+            0.188,
+            0.37,
+            0.261
+          ],
+          "sub_type": "code",
+          "content": "```txt\ninFile.open(\"bowling.txt\");\nif (!inFile.is_open())\n{\n    exit(EXIT_FAILURE);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.266,
+            0.934,
+            0.317
+          ],
+          "content": "如果文件被成功地打开，方法 is\\_open() 将返回 true；因此如果文件没有被打开，表达式!inFile.isopen() 将为 true。函数 exit() 的原型是在头文件 cstdlib 中定义的，在该头文件中，还定义了一个用于同操作系统通信的参数值 EXIT\\_FAILURE。函数 exit() 终止程序。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.319,
+            0.934,
+            0.353
+          ],
+          "content": "方法 is\\_open() 是 C++ 中相对较新的内容。如果读者的编译器不支持它，可使用较老的方法 good() 来代替。正如第 17 章将讨论的，方法 good() 在检查可能存在的问题方面，没有 is\\_open() 那么广泛。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.354,
+            0.935,
+            0.406
+          ],
+          "content": "程序清单 6.16 中的程序打开用户指定的文件，读取其中的数字，然后指出文件中包含多少个值以及它们的和与平均值。正确地设计输入循环至关重要，详细请参阅后面的“程序说明”。注意，通过使用了 if 语句，该程序受益匪浅。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.133,
+            0.439,
+            0.681,
+            0.884
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// sumafile.cpp -- functions with an array argument\n#include <iostream>\n#include <fstream>          // file I/O support\n#include <cstdlib>          // support for exit()\nconst int SIZE = 60;\nint main()\n{\n    using namespace std;\n    char filename[SIZE];\n    ifstream inFile;      // object for handling file input\n    cout << \"Enter name of data file: \";\n    cin.getline(filename, SIZE);\n    inFile.open(filename);   // associate inFile with a file\n    if (!inFile.is_open())  // failed to open file\n    {\n        cout << \"Could not open the file \" << filename << endl;\n        cout << \"Program terminating.\\n\";\n        exit(EXIT_FAILURE);\n    }\n    double value;\n    double sum = 0.0;\n    int count = 0;           // number of items read\n\n    inFile >> value;         // get first value\n    while (inFile.good())  // while input good and not at EOF\n    {\n        ++count;            // one more item read\n        sum += value;       // calculate running total\n        inFile >> value;     // get next value\n    }\n    if (inFile.eof())\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.134,
+                0.418,
+                0.373,
+                0.435
+              ],
+              "content": "程序清单 6.16 sumafile.cpp"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 213,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.079,
+            0.063,
+            0.11,
+            0.075
+          ],
+          "content": "196"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.358,
+            0.061,
+            0.63,
+            0.076
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.11,
+            0.095,
+            0.606,
+            0.328
+          ],
+          "sub_type": "code",
+          "content": "```txt\ncout << \"End of file reached.\\n\";\nelse if (inFile.fail())\n    cout << \"Input terminated by data mismatch.\\n\";\nelse\n    cout << \"Input terminated for unknown reason.\\n\";\nif (count == 0)\n    cout << \"No data processed.\\n\";\nelse\n{\n    cout << \"Items read: \" << count << endl;\n    cout << \"Sum: \" << sum << endl;\n    cout << \"Average: \" << sum / count << endl;\n}\ninFile.close();          // finished with the file\nreturn 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.332,
+            0.911,
+            0.365
+          ],
+          "content": "要运行程序清单 6.16 中的程序，首先必须创建一个包含数字的文本文件。为此，可以使用文本编辑器（如用于编写源代码的文本编辑器）。假设该文件名为 scores.txt，包含的内容如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.111,
+            0.37,
+            0.301,
+            0.41
+          ],
+          "sub_type": "code",
+          "content": "```txt\n18 19 18.5 13.5 14\n16 19.5 20 18 12 18.5\n17.5\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.416,
+            0.912,
+            0.45
+          ],
+          "content": "程序还必须能够找到这个文件。通常，除非在输入的文件名中包含路径，否则程序将在可执行文件所属的文件夹中查找。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.458,
+            0.914,
+            0.526
+          ],
+          "content": "警告:Windows 文本文件的每行都以回车字符和换行符结尾；通常情况下，C++在读取文件时将这两个字符转换为换行符，并在写入文件时执行相反的转换。有些文本编辑器（如 Metrowerks CodeWarrior IDE 编辑器），不会自动在最后一行末尾加上换行符。因此，如果读者使用的是这种编辑器，请在输入最后的文本后按下回车键，然后再保存文件。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.536,
+            0.324,
+            0.551
+          ],
+          "content": "下面是该程序的运行情况:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.112,
+            0.556,
+            0.421,
+            0.627
+          ],
+          "sub_type": "code",
+          "content": "```txt\nEnter name of data file: scores.txt\nEnd of file reached.\nItems read: 12\nSum: 204.5\nAverage: 17.0417\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.114,
+            0.633,
+            0.192,
+            0.648
+          ],
+          "level": 2,
+          "content": "程序说明"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.651,
+            0.914,
+            0.684
+          ],
+          "content": "该程序没有使用硬编码文件名，而是将用户提供的文件名存储到字符数组 filename 中，然后将该数组用作 open() 的参数:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.113,
+            0.687,
+            0.306,
+            0.7
+          ],
+          "sub_type": "code",
+          "content": "```txt\ninFile.open(filename);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.706,
+            0.914,
+            0.775
+          ],
+          "content": "正如本章前面讨论的，检查文件是否被成功打开至关重要。下面是一些可能出问题的地方:指定的文件可能不存在；文件可能位于另一个目录（文件夹）中；访问可能被拒绝；用户可能输错了文件名或省略了文件扩展名。很多初学者花了大量的时间检查文件读取循环的哪里出了问题后，最终却发现问题在于程序没有打开文件。检查文件是否被成功打开可避免将这种将精力放在错误地方的情况发生。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.777,
+            0.915,
+            0.883
+          ],
+          "content": "读者需要特别注意的是文件读取循环的正确设计。读取文件时，有几点需要检查。首先，程序读取文件时不应超过 EOF。如果最后一次读取数据时遇到 EOF，方法 eof() 将返回 true。其次，程序可能遇到类型不匹配的情况。例如，程序清单 6.16 期望文件中只包含数字。如果最后一次读取操作中发生了类型不匹配的情况，方法 fail() 将返回 true（如果遇到了 EOF，该方法也将返回 true）。最后，可能出现意外的问题，如文件受损或硬件故障。如果最后一次读取文件时发生了这样的问题，方法 bad() 将返回 true。不要分别检查这些情况，一种更简单的方法是使用 good() 方法，该方法在没有发生任何错误时返回 true:"
+        }
+      ]
+    },
+    {
+      "page_idx": 214,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.382,
+            0.066,
+            0.639,
+            0.081
+          ],
+          "content": "第 6 章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.899,
+            0.066,
+            0.929,
+            0.079
+          ],
+          "content": "197"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.103,
+            0.636,
+            0.164
+          ],
+          "sub_type": "code",
+          "content": "```txt\nwhile (inFile.good())  // while input good and not at EOF\n{\n    ...\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.168,
+            0.646,
+            0.184
+          ],
+          "content": "然后，如果愿意，可以使用其他方法来确定循环终止的真正原因:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.188,
+            0.592,
+            0.277
+          ],
+          "sub_type": "code",
+          "content": "```perl\nif (inFile.eof())\n    cout << \"End of file reached.\\n\";\nelse if (inFile.fail())\n    cout << \"Input terminated by data mismatch.\\n\";\nelse\n    cout << \"Input terminated for unknown-reason.\\n\";\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.281,
+            0.929,
+            0.334
+          ],
+          "content": "这些代码紧跟在循环的后面，用于判断循环为何终止。由于cof()只能判断是否到达EOF，而fail()可用于检查EOF和类型不匹配，因此上述代码首先判断是否到达EOF。这样，如果执行到了else if测试，便可排除EOF，因此，如果fail()返回true，便可断定导致循环终止的原因是类型不匹配。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.336,
+            0.929,
+            0.389
+          ],
+          "content": "方法 good() 指出最后一次读取输入的操作是否成功，这一点至关重要。这意味着应该在执行读取输入的操作后，立刻应用这种测试。为此，一种标准方法是，在循环之前（首次执行循环测试前）放置一条输入语句，并在循环的末尾（下次执行循环测试之前）放置另一条输入语句:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.393,
+            0.637,
+            0.497
+          ],
+          "sub_type": "code",
+          "content": "```txt\n// standard file-reading loop design\ninFile >> value;          // get first value\nwhile (inFile.good())   // while input good and not at EOF\n{\n    // loop body goes-here\n    inFile >> value;     // get next value\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.503,
+            0.929,
+            0.537
+          ],
+          "content": "鉴于以下事实，可以对上述代码进行精简:表达式 inFile>> value 的结果为 inFile，而在需要一个 bool 值的情况下，inFile 的结果为 inFile.good()，即 true 或 false。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.539,
+            0.929,
+            0.573
+          ],
+          "content": "因此，可以将两条输入语句用一条用作循环测试的输入语句代替。也就是说，可以将上述循环结构替换为如下循环结构:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.578,
+            0.603,
+            0.682
+          ],
+          "sub_type": "code",
+          "content": "```txt\n// abbreviated file-reading loop design\n// omit pre-loop input\nwhile (inFile >> value)  // read and test for success\n{\n    // loop body goes here\n    // omit end-of-loop input\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.687,
+            0.929,
+            0.721
+          ],
+          "content": "这种设计仍然遵循了在测试之前进行读取的规则，因为要计算表达式 inFile >> value 的值，程序必须首先试图将一个数字读取到 value 中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.724,
+            0.447,
+            0.739
+          ],
+          "content": "至此，读者对文件 I/O 有了初步的认识。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.094,
+            0.767,
+            0.238,
+            0.787
+          ],
+          "level": 2,
+          "content": "6.9 总结"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.816,
+            0.931,
+            0.905
+          ],
+          "content": "使用引导程序选择不同操作的语句后，程序和编程将更有趣（这是否也能引起程序员们的兴趣，我没有做过研究）。C++提供了 if 语句、if else 语句和 switch 语句来管理选项。if 语句使程序有条件地执行语句或语句块，也就是说，如果满足特定的条件，程序将执行特定的语句或语句块。if else 语句程序选择执行两个语句或语句块之一。可以在这条语句后再加上 if else，以提供一系列的选项。switch 语句引导程序执行一系列选项之一。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.908,
+            0.931,
+            0.924
+          ],
+          "content": "C++还提供了帮助决策的运算符。第5章讨论了关系表达式，这种表达式对两个值进行比较。if和if else"
+        }
+      ]
+    },
+    {
+      "page_idx": 215,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.087,
+            0.067,
+            0.119,
+            0.08
+          ],
+          "content": "198"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.366,
+            0.066,
+            0.636,
+            0.082
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.101,
+            0.915,
+            0.135
+          ],
+          "continues_prev": true,
+          "content": "语句通常使用关系表达式作为测试条件。通过使用逻辑运算符（&&、||和！），可以组合或修改关系表达式，创建更细致的测试。条件运算符（?:）提供了一种选择两个值之一的简洁方式。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.118,
+            0.138,
+            0.744,
+            0.154
+          ],
+          "content": "cctype 字符函数库提供了一组方便的、功能强大的工具，可用于分析字符输入。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.156,
+            0.918,
+            0.191
+          ],
+          "content": "对于文件 I/O 来说，循环和选择语句是很有用的工具；文件 I/O 与控制台 I/O 极其相似。声明 ifstream 和 ofstream 对象，并将它们同文件关联起来后，便可以像使用 cin 和 cout 那样使用这些对象。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.193,
+            0.919,
+            0.227
+          ],
+          "content": "使用循环和决策语句，便可以编写有趣的、智能的、功能强大的程序。不过我们刚开始涉足 C++ 的强大功能，下一章将介绍函数。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.084,
+            0.252,
+            0.269,
+            0.273
+          ],
+          "level": 2,
+          "content": "6.10 复习题"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.299,
+            0.537,
+            0.316
+          ],
+          "content": "1. 请看下面两个计算空格和换行符数目的代码片段:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.119,
+            0.321,
+            0.449,
+            0.571
+          ],
+          "sub_type": "code",
+          "content": "```txt\n// Version 1-\nwhile (cin.get(ch) == // quit on eof\n{\n    if (ch == ' '')\n        spaces++;\n    if (ch == '\\n')\n        newlines++;\n}\n\n// Version 2\nwhile-(cin.get(ch)) // quit on eof\n{\n    if (ch == ' '')\n        spaces++;\n    else ff (ch== '\\n')\n        newlines++;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.576,
+            0.424,
+            0.592
+          ],
+          "content": "第二种格式比第一种格式好在哪里呢？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.119,
+            0.595,
+            0.606,
+            0.611
+          ],
+          "content": "2. 在程序清单6.2中，用ch+1替换++ch将发生什么情况呢？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.119,
+            0.614,
+            0.341,
+            0.629
+          ],
+          "content": "3. 请认真考虑下面的程序:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.119,
+            0.634,
+            0.609,
+            0.919
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <iostream>\nusing namespace std;\nint main()\n{\n    char ch;\n    int ct1, ct2;\n\n    ct1 = ct2 = 0;\n    while ((ch = cin.get()) != '\\$')\n    {\n        cout << ch;\n        ct1++;\n        if (ch = '\\$')\n            ct2++;\n        cout << ch;\n    }\n    cout <<\"ct1 = \" << ct1 << \", ct2 = \" << ct2 << \"\\n\";\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 216,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.388,
+            0.066,
+            0.643,
+            0.081
+          ],
+          "content": "第 6 章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.903,
+            0.067,
+            0.934,
+            0.08
+          ],
+          "content": "199"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.101,
+            0.461,
+            0.117
+          ],
+          "content": "假设输入如下（请在每行末尾按回车键）:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.133,
+            0.123,
+            0.31,
+            0.15
+          ],
+          "sub_type": "code",
+          "content": "```txt\nHi!\nSend $10 or $20 now!\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.156,
+            0.492,
+            0.172
+          ],
+          "content": "则输出将是什么（还记得吗，输入被缓冲）？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.175,
+            0.425,
+            0.19
+          ],
+          "content": "4. 创建表示下述条件的逻辑表达式:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.194,
+            0.451,
+            0.208
+          ],
+          "content": "a. weight 大于或等于 115，但小于 125。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.212,
+            0.267,
+            0.227
+          ],
+          "content": "b. ch 为 q 或 Q。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.231,
+            0.335,
+            0.245
+          ],
+          "content": "c. x 为偶数，但不是 26。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.249,
+            0.395,
+            0.263
+          ],
+          "content": "d. x 为偶数，但不是 26 的倍数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.268,
+            0.443,
+            0.282
+          ],
+          "content": "e. donation 为 1000-2000 或 guest 为 1。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.286,
+            0.93,
+            0.319
+          ],
+          "content": "f. ch 是小写字母或大写字母（假设小写字母是依次编码的，大写字母也是依次编码的，但在大小写字母间编码不是连续的）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.322,
+            0.93,
+            0.356
+          ],
+          "content": "5. 在英语中，“I will not not speak（我不会不说）”的意思与“I will speak（我要说）”相同。在 C++ 中，!!x 是否与 x 相同呢？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.359,
+            0.93,
+            0.393
+          ],
+          "content": "6. 创建一个条件表达式，其值为变量的绝对值。也是说，如果变量 x 为正，则表达式的值为 x；但如果 x 为负，则表达式的值为 -x——这是一个正值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.396,
+            0.408,
+            0.411
+          ],
+          "content": "7. 用 switch 改写下面的代码片段:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.133,
+            0.416,
+            0.301,
+            0.564
+          ],
+          "sub_type": "code",
+          "content": "```matlab\nif (ch == 'A')\n    a_grade++;\nelse if (ch == 'B')\n    b_grade++;\nelse if (ch == 'C')\n    c_grade++;\nelse if (ch == 'D')\n    d_grade++;\nelse\n    f_grade++;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.572,
+            0.922,
+            0.606
+          ],
+          "content": "8. 对于程序清单 6.10，与使用数字相比，使用字符（如 a 和 c）表示菜单选项和 case 标签有何优点呢？（提示:想想用户输入 q 和输入 5 的情况。）"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.609,
+            0.334,
+            0.624
+          ],
+          "content": "9. 请看下面的代码片段:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.133,
+            0.631,
+            0.309,
+            0.779
+          ],
+          "sub_type": "code",
+          "content": "```c\nint line = 0;\nchar ch;\nwhile (cin.get(ch))\n{\n    if (ch == 'Q')\n        break;\n    if (ch != '\\n')\n        continue;\n    line++;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.787,
+            0.553,
+            0.803
+          ],
+          "content": "请重写该代码片段，不要使用 break 和 continue 语句。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.096,
+            0.83,
+            0.307,
+            0.851
+          ],
+          "level": 2,
+          "content": "6.11 编程练习"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.88,
+            0.929,
+            0.915
+          ],
+          "content": "1. 编写一个程序，读取键盘输入，直到遇到@符号为止，并回显输入（数字除外），同时将大写字符转换为小写，将小写字符转换为大写（别忘了cctype函数系列）。"
+        }
+      ]
+    },
+    {
+      "page_idx": 217,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.086,
+            0.068,
+            0.117,
+            0.079
+          ],
+          "content": "200"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.368,
+            0.066,
+            0.639,
+            0.081
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.084,
+            0.1,
+            0.919,
+            0.208
+          ],
+          "sub_type": "text",
+          "content": "2. 编写一个程序，最多将 10 个 donation 值读入到一个 double 数组中（如果您愿意，也可使用模板类 array）。程序遇到非数字输入时将结束输入，并报告这些数字的平均值以及数组中有多少个数字大于平均值。\n3. 编写一个菜单驱动程序的雏形。该程序显示一个提供 4 个选项的菜单——每个选项用一个字母标记。如果用户使用有效选项之外的字母进行响应，程序将提示用户输入一个有效的字母，直到用户这样做为止。然后，该程序使用一条 switch 语句，根据用户的选择执行一个简单操作。该程序的运行情况如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.12,
+            0.214,
+            0.489,
+            0.318
+          ],
+          "sub_type": "code",
+          "content": "```txt\nPlease enter one of the following choices:\nc) carnivore          p) pianist\nt) tree                g) game\nf\nPlease enter a c, p, t, or g: q\nPlease enter a c, p, t, or g: t\nA maple is a tree.\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.326,
+            0.919,
+            0.379
+          ],
+          "content": "4. 加入 Benevolent Order of Programmer 后，在 BOP 大会上，人们便可以通过加入者的真实姓名、头衔或秘密 BOP 姓名来了解他（她）。请编写一个程序，可以使用真实姓名、头衔、秘密姓名或成员偏好来列出成员。编写该程序时，请使用下面的结构:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.12,
+            0.385,
+            0.705,
+            0.489
+          ],
+          "sub_type": "code",
+          "content": "```javascript\n// Benevolent Order of Programmers name structure\nstruct bop {\n    char fullname[strsize]; // real name\n    char title[strsize];    // job title\n    char bopname[strsize];  // secret BOP name\n    int preference;          // 0 = fullname, 1 = title, 2 = bopname\n};\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.497,
+            0.916,
+            0.532
+          ],
+          "content": "该程序创建一个由上述结构组成的小型数组，并将其初始化为适当的值。另外，该程序使用一个循环，让用户在下面的选项中进行选择:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.12,
+            0.538,
+            0.532,
+            0.582
+          ],
+          "sub_type": "code",
+          "content": "```txt\na. display by name    b. display by title\nc. display by bopname   d. display by preference\nq. quit\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.59,
+            0.91,
+            0.625
+          ],
+          "content": "注意，“display by preference”并不意味着显示成员的偏好，而是意味着根据成员的偏好来列出成员。例如，如果偏好号为1，则选择d将显示程序员的头衔。该程序的运行情况如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.12,
+            0.63,
+            0.534,
+            0.898
+          ],
+          "sub_type": "code",
+          "content": "```txt\nBenevolent Order of Programmers Report\na. display by name      b. display by title\nc. display by bopname  d. display by preference\nq. quit\nEnter your choice: a\nWimp Macho\nRaki Rhodes\nCelia Laiter\nHoppy Hipman\nPat Hand\nNext choice: d\nWimp Macho\nJunior Programmer\nMIPS\nAnalyst Trainee\nLOOPY\nNext choice: q\nBye!\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.906,
+            0.68,
+            0.923
+          ],
+          "content": "5. 在 Neutronia 王国，货币单位是 tvarp，收入所得税的计算方式如下:"
+        }
+      ]
+    },
+    {
+      "page_idx": 218,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.385,
+            0.065,
+            0.64,
+            0.08
+          ],
+          "content": "第 6 章 分支语句和逻辑运算符"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.899,
+            0.066,
+            0.929,
+            0.079
+          ],
+          "content": "201"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.101,
+            0.295,
+            0.117
+          ],
+          "content": "5000 tvarps: 不收税"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.12,
+            0.338,
+            0.134
+          ],
+          "content": "5001\\~15000 tvarps: 10%"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.138,
+            0.346,
+            0.153
+          ],
+          "content": "15001\\~35000 tvarps: 15%"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.156,
+            0.325,
+            0.171
+          ],
+          "content": "35000 tvarps 以上:20%"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.174,
+            0.929,
+            0.226
+          ],
+          "content": "例如，收入为 38000 tvarps 时，所得税为  $5000 \\times 0.00 + 10000 \\times 0.10 + 20000 \\times 0.15 + 3000 \\times 0.20$ ，即 4600 tvarps。请编写一个程序，使用循环来要求用户输入收入，并报告所得税。当用户输入负数或非数字时，循环将结束。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.095,
+            0.229,
+            0.931,
+            0.41
+          ],
+          "sub_type": "text",
+          "content": "6. 编写一个程序，记录捐助给“维护合法权利团体”的资金。该程序要求用户输入捐献者数目，然后要求用户输入每一个捐献者的姓名和款项。这些信息被储存在一个动态分配的结构数组中。每个结构有两个成员:用来储存姓名的字符数组（或 string 对象）和用来存储款项的 double 成员。读取所有的数据后，程序将显示所有捐款超过 10000 的捐款者的姓名及其捐款数额。该列表前应包含一个标题，指出下面的捐款者是重要捐款人（Grand Patrons）。然后，程序将列出其他的捐款者，该列表要以 Patrons 开头。如果某种类别没有捐款者，则程序将打印单词 “none”。该程序只显示这两种类别，而不进行排序。\n7. 编写一个程序，它每次读取一个单词，直到用户只输入 q。然后，该程序指出有多少个单词以元音打头，有多少个单词以辅音打头，还有多少个单词不属于这两类。为此，方法之一是，使用 isalpha() 来区分以字母和其他字符打头的单词，然后对于通过了 isalpha() 测试的单词，使用 if 或 switch 语句来确定哪些以元音打头。该程序的运行情况如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.416,
+            0.343,
+            0.429
+          ],
+          "content": "Enter words (q to quit):"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.432,
+            0.362,
+            0.443
+          ],
+          "content": "The 12 awesome oxen ambled"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.446,
+            0.441,
+            0.459
+          ],
+          "content": "quietly across 15 meters of lawn. q"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.133,
+            0.461,
+            0.422,
+            0.502
+          ],
+          "sub_type": "text",
+          "content": "5 words beginning with vowels\n4 words beginning with consonants\n2 others"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.096,
+            0.509,
+            0.93,
+            0.58
+          ],
+          "sub_type": "text",
+          "content": "8. 编写一个程序，它打开一个文件文件，逐个字符地读取该文件，直到到达文件末尾，然后指出该文件中包含多少个字符。\n9. 完成编程练习 6，但从文件中读取所需的信息。该文件的第一项应为捐款人数，余下的内容应为成对的行。在每一对中，第一行为捐款人姓名，第二行为捐款数额。即该文件类似于下面:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.586,
+            0.147,
+            0.596
+          ],
+          "content": "4"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.6,
+            0.216,
+            0.611
+          ],
+          "content": "Sam Stone"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.615,
+            0.173,
+            0.626
+          ],
+          "content": "2000"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.63,
+            0.241,
+            0.641
+          ],
+          "content": "Freida Flass"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.645,
+            0.19,
+            0.656
+          ],
+          "content": "100500"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.66,
+            0.233,
+            0.672
+          ],
+          "content": "Tammy Tubbs"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.675,
+            0.172,
+            0.686
+          ],
+          "content": "5000"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.69,
+            0.233,
+            0.702
+          ],
+          "content": "Rich Raptor"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.705,
+            0.181,
+            0.717
+          ],
+          "content": "55000"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "C++ Primer Plus  第6版  中文版",
+      "authors": [
+        "（美）普拉达著"
+      ],
+      "created_at": "2013-05-11T11:47:22+08:00",
+      "modified_at": "2013-05-11T11:47:22+08:00",
+      "creator_application": "Pdg2Pic",
+      "producer_application": "FreePic2Pdf_Lib - v3.02",
+      "page_count": 955,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "ocr"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 182,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 183,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 184,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 185,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 186,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 187,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 188,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 189,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 190,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 191,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 192,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 193,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 194,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 195,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 196,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 197,
+          "width_pt": 471.11810302734375,
+          "height_pt": 695.6428833007812
+        },
+        {
+          "page_idx": 198,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 199,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 200,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 201,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 202,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 203,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 204,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 205,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 206,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 207,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 208,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 209,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 210,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 211,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 212,
+          "width_pt": 471.11810302734375,
+          "height_pt": 695.6428833007812
+        },
+        {
+          "page_idx": 213,
+          "width_pt": 471.11810302734375,
+          "height_pt": 695.6428833007812
+        },
+        {
+          "page_idx": 214,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 215,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 216,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 217,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 218,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

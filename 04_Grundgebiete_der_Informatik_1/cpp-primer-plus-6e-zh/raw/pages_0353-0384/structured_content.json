@@ -1,0 +1,5040 @@
+{
+  "pages": [
+    {
+      "page_idx": 352,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.384,
+            0.067,
+            0.623,
+            0.082
+          ],
+          "content": "第9章 内存模型和名称空间"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.889,
+            0.068,
+            0.921,
+            0.082
+          ],
+          "content": "335"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.103,
+            0.395,
+            0.119
+          ],
+          "content": "using 编译指令并非什么大逆不道的事。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.121,
+            0.915,
+            0.156
+          ],
+          "content": "正如前面指出的，头文件名的变化反映了这些变化。老式头文件（如 iostream.h）没有使用名称空间，但新头文件 iostream 使用了 std 名称空间。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.085,
+            0.182,
+            0.226,
+            0.204
+          ],
+          "level": 2,
+          "content": "9.4 总结"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.231,
+            0.923,
+            0.303
+          ],
+          "content": "C⇌鼓励程序员在开发程序时使用多个文件。一种有效的组织策略是，使用头文件来定义用户类型，为操纵用户类型的函数提供函数原型；并将函数定义放在一个独立的源代码文件中。头文件和源代码文件一起定义和实现了用户定义的类型及其使用方式。最后，将main()和其他使用这些函数的函数放在第三个文件中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.305,
+            0.924,
+            0.395
+          ],
+          "content": "C++的存储方案决定了变量保留在内存中的时间（储存持续性）以及程序的哪一部分可以访问它（作用域和链接性）。自动变量是在代码块（如函数体或函数体中的代码块）中定义的变量，仅当程序执行到包含定义的代码块时，它们才存在，并且可见。自动变量可以通过使用存储类型说明符register或根本不使用说明符来声明，没有使用说明符时，变量将默认为自动的。register说明符提示编译器，该变量的使用频率很高，但C++11摒弃了这种用法。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.397,
+            0.925,
+            0.524
+          ],
+          "content": "静态变量在整个程序执行期间都存在。对于在函数外面定义的变量，其所属文件中位于该变量的定义后面的所有函数都可以使用它（文件作用域），并可在程序的其他文件中使用（外部链接性）。另一个文件要使用这种变量，必须使用 extern 关键字来声明它。对于文件间共享的变量，应在一个文件中包含其定义声明（无需使用 extern，但如果同时进行初始化，也可使用它），并在其他文件中包含引用声明（使用 extern 且不初始化）。在函数的外面使用关键字 static 定义的变量的作用域为整个文件，但是不能用于其他文件（内部链接性）。在代码块中使用关键字 static 定义的变量被限制在该代码块内（局部作用域、无链接性），但在整个程序执行期间，它都一直存在并且保持原值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.526,
+            0.923,
+            0.561
+          ],
+          "content": "在默认情况下，C++函数的链接性为外部，因此可在文件间共享；但使用关键字static限定的函数的链接性为内部的，被限制在定义它的文件中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.085,
+            0.563,
+            0.923,
+            0.598
+          ],
+          "content": "动态内存分配和释放是使用 new 和 delete 进行的，它使用自由存储区或堆来存储数据。调用 new 占用内存，而调用 delete 释放内存。程序使用指针来跟踪这些内存单元。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.085,
+            0.6,
+            0.923,
+            0.653
+          ],
+          "content": "名称空间允许定义一个可在其中声明标识符的命名区域。这样做的目的是减少名称冲突，尤其当程序非常大，并使用多个厂商的代码时。可以通过使用作用域解析运算符、using 声明或 using 编译指令，来使名称空间中的标识符可用。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.086,
+            0.679,
+            0.26,
+            0.7
+          ],
+          "level": 2,
+          "content": "9.5 复习题"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.121,
+            0.729,
+            0.755,
+            0.855
+          ],
+          "sub_type": "text",
+          "content": "1. 对于下面的情况，应使用哪种存储方案？\na. homer 是函数的形参。\nb. secret 变量由两个文件共享。\nc. topsecret 变量由一个文件中的所有函数共享，但对于其他文件来说是隐藏的。\nD. beencalled 记录包含它的函数被调用的次数。\n2. using 声明和 using 编译指令之间有何区别？\n3. 重新编写下面的代码，使其不使用 using 声明和 using 编译指令。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.121,
+            0.86,
+            0.3,
+            0.92
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <iostream>\nusing namespace std;\nint main()\n{\n```",
+          "captions": [],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 353,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.087,
+            0.072,
+            0.12,
+            0.085
+          ],
+          "content": "336"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.367,
+            0.07,
+            0.639,
+            0.086
+          ],
+          "content": "C++Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.121,
+            0.103,
+            0.585,
+            0.277
+          ],
+          "sub_type": "code",
+          "content": "```txt\ndouble x;\ncout << \"Enter value: \";\nwhile (! (cin >> x) )\n{\n    cout << \"Bad input. Please enter a number: \";\n    cin.clear();\n    while (cin.get() != '\\n')\n        continue;\n}\ncout << \"Value = \" << x << endl;\nreturn 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.283,
+            0.696,
+            0.3
+          ],
+          "content": "4. 重新编写下面的代码，使之使用 using 声明，而不是 using 编译指令。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.121,
+            0.304,
+            0.6,
+            0.543
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <iostream>\nusing namespace std;\nint main(){\n{\n    double x;\n    cout << \"Enter value: \";\n    while (! (cin >> x) =\n    {\n        cout << \"Bad input. Please enter a number: \";\n        cin.clear();\n        while (cin.get() != '\\n')\n            continue;\n    }\n    cout << \"Value== \" << x << endl;\n    return=0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.087,
+            0.548,
+            0.948,
+            0.601
+          ],
+          "sub_type": "text",
+          "content": "5. 在一个文件中调用 average(3, 6) 函数时，它返回两个 int 参数的 int 平均值，在同一个程序的另一个文件中调用时，它返回两个 int 参数的 double 平均值。应如何实现？\n6. 下面的程序由两个文件组成，该程序显示什么内容？"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.121,
+            0.605,
+            0.331,
+            0.929
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// file1-cpp\n#include <iostream>\nusing namespace std;\nvoid other();\nvoid another();\nint x = 10;\nint y;\n\nint main()\n{\n    cout << x << endl;\n    {\n        int x = 4;\n        cout << x << endl;\n        cout << y << endl;\n    }\n    other();\n    another();\n    return 0;\n}\n\nvoid-other()\n```",
+          "captions": [],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 354,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.391,
+            0.066,
+            0.628,
+            0.081
+          ],
+          "content": "第9章 内存模型和名称空间"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.897,
+            0.068,
+            0.927,
+            0.081
+          ],
+          "content": "337"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.149,
+            0.098,
+            0.572,
+            0.37
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n{\n    int y = 1;\n    cout << \"Other: \" << x << \"\", \" << y << endl;\n}\n// file 2.cpp\n#include <iostream>\nusing namespace std;\nextern int x;\nnamespace\n{\n    int y = -4;\n}\nvoid another()\n{\n    cout << \"another(): \" << x << \", \" << y << e\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.403,
+            0.825,
+            0.801
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <iostream>\nusing namespace std;\nvoid other();\nnamespace n1\n{\n    int x = I;\n}\nnamespace n2\n{\n    int x = 2;\n}\nint main()\n{\n    using namespace n;\n    cout << x << endl;\n    {\n        int x = 4;\n        cout << x << \"\", \" << n1: x << \"\", \" << n2: x << endl;\n    }\n    using n2: x;\n    cout << x << endl;\n    other();\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.127,
+                0.382,
+                0.386,
+                0.398
+              ],
+              "content": "7. 下面的代码将显示什么内容？"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.816,
+            0.999,
+            0.927
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nvoid other()\n{\n    using namespace-n2;\n    cout << x << endl;\n    {\n        int x = 4;\n        cout << x << \"\", \" << n1; x << \"\", \" << n2; x << endl;\n    }\n}\n```",
+          "captions": [],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 355,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.088,
+            0.075,
+            0.12,
+            0.088
+          ],
+          "content": "338"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.37,
+            0.074,
+            0.64,
+            0.088
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.123,
+            0.109,
+            0.316,
+            0.169
+          ],
+          "sub_type": "code",
+          "content": "```rust\n}\nusing n2::x;\ncout << x << endl;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.089,
+            0.193,
+            0.292,
+            0.214
+          ],
+          "level": 2,
+          "content": "9.6 编程练习"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.121,
+            0.262,
+            0.642,
+            0.628
+          ],
+          "sub_type": "code",
+          "content": "```c\n// golf.h -- for pe9-1.cpp\n\nconst int Len = 40;\nstruct golf\n{\n    char fullname[Len];\n    int handicap;\n};\n\n// non-interactive version:\n// function sets golf structure to provided name, handicap\n// using values passed as arguments to the function\nvoid setgolf(golf & g, const char * name, int hc);\n\n// interactive version:\n// function solicits name and handicap from user\n// and sets the members of g to the values entered\n// returns 1 if name is entered, 0 if name is empty string\nint setgolf(golf & g);\n// function resets handicap to new value\nvoid handicap(golf & g, int hc);\n\n// function displays contents of golf structure\nvoid showgolf(const golf & g);\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.125,
+                0.242,
+                0.307,
+                0.258
+              ],
+              "content": "1. 下面是一个头文件:"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.124,
+            0.633,
+            0.549,
+            0.649
+          ],
+          "content": "注意到 setgolf() 被重载，可以这样使用其第一个版本:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.124,
+            0.654,
+            0.413,
+            0.683
+          ],
+          "sub_type": "code",
+          "content": "```txt\ngolf ann;\nsetgolf(ann, \"Ann Birdfree\", 24);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.125,
+            0.689,
+            0.731,
+            0.706
+          ],
+          "content": "上述函数调用提供了存储在 ann 结构中的信息。可以这样使用其第二个版本:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.124,
+            0.71,
+            0.248,
+            0.739
+          ],
+          "sub_type": "code",
+          "content": "```c\ngolf andy;\nsetgolf(andy);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.089,
+            0.745,
+            0.923,
+            0.779
+          ],
+          "content": "上述函数将提示用户输入姓名和等级，并将它们存储在 andy 结构中。这个函数可以（但是不一定必须）在内部使用第一个版本。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.089,
+            0.782,
+            0.922,
+            0.871
+          ],
+          "content": "根据这个头文件，创建一个多文件程序。其中的一个文件名为 golf.cpp，它提供了与头文件中的原型匹配的函数定义；另一个文件应包含 main()，并演示原型化函数的所有特性。例如，包含一个让用户输入的循环，并使用输入的数据来填充一个由 golf 结构组成的数组，数组被填满或用户将高尔夫选手的姓名设置为空字符串时，循环将结束。main() 函数只使用头文件中原型化的函数来访问 golf 结构。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.089,
+            0.874,
+            0.922,
+            0.927
+          ],
+          "sub_type": "text",
+          "content": "2. 修改程序清单 9.9:用 string 对象代替字符数组。这样，该程序将不再需要检查输入的字符串是否过长，同时可以将输入字符串同字符串“”进行比较，以判断是否为空行。\n3. 下面是一个结构声明:"
+        }
+      ]
+    },
+    {
+      "page_idx": 356,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.391,
+            0.067,
+            0.628,
+            0.083
+          ],
+          "content": "第 9 章 内存模型和名称空间"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.897,
+            0.069,
+            0.927,
+            0.081
+          ],
+          "content": "339"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.105,
+            0.3,
+            0.179
+          ],
+          "sub_type": "code",
+          "content": "```c\nstruct chaff\n    {\n        char dross[20];\n        int slag;\n    };\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.091,
+            0.185,
+            0.93,
+            0.239
+          ],
+          "content": "编写一个程序，使用定位 new 运算符将一个包含两个这种结构的数组放在一个缓冲区中。然后，给结构的成员赋值（对于 char 数组，使用函数 strcpy()），并使用一个循环来显示内容。一种方法是像程序清单 9.10 那样将一个静态数组用作缓冲区；另一种方法是使用常规 new 运算符来分配缓冲区。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.241,
+            0.621,
+            0.257
+          ],
+          "content": "4. 请基于下面这个名称空间编写一个由3个文件组成的程序:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.261,
+            0.695,
+            0.59
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nnamespace SALES\n{\n    const int QUARTERS = 4;\n    struct Sales\n    {\n        double sales[QUARTERS];\n        double average;\n        double max;\n        double min;\n    };\n    // copies the lesser of 4 or n items from the array ar\n    // to the sales member of s-and computes and stores the\n    // average, maximum, and minimum values of the entered items;\n    // remaining eFements of sales, if any, set to 0\n    void setSales(Sales & s, const double ar[], int n);\n    // gathers sales for 4 quarters interactively, stores them\n    // in the sales member of s and computes and stores the\n    // average, maximum, and minimum values\n    void setSales(Sales & s);\n    // display all information in structure s\n    void showSales(const Sales & s);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.091,
+            0.596,
+            0.929,
+            0.669
+          ],
+          "content": "第一个文件是一个头文件，其中包含名称空间；第二个文件是一个源代码文件，它对这个名称空间进行扩展，以提供这三个函数的定义；第三个文件声明两个 Sales 对象，并使用 setSales() 的交互式版本为一个结构提供值，然后使用 setSales() 的非交互式版本为另一个结构提供值。另外它还使用 showSales() 来显示这两个结构的内容。"
+        }
+      ]
+    },
+    {
+      "page_idx": 357,
+      "blocks": [
+        {
+          "type": "doc_title",
+          "bbox": [
+            0.309,
+            0.131,
+            0.69,
+            0.164
+          ],
+          "level": 1,
+          "content": "第10章 对象和类"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.23,
+            0.289,
+            0.25
+          ],
+          "level": 2,
+          "content": "本章内容包括:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.153,
+            0.254,
+            0.473,
+            0.521
+          ],
+          "sub_type": "text",
+          "content": "- 过程性编程和面向对象编程。\n类概念。\n- 如何定义和实现类。\n公有类访问和私有类访问。\n类的数据成员。\n- 类方法（类函数成员）。\n- 创建和使用类对象。\n③ 类的构造函数和析构函数。\n- const 成员函数。\nthis 指针。\n- 创建对象数组。\n- 类作用域。\n- 抽象数据类型。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.559,
+            0.918,
+            0.593
+          ],
+          "content": "面向对象编程（OOP）是一种特殊的、设计程序的概念性方法，C++通过一些特性改进了C语言，使得应用这种方法更容易。下面是最重要的OOP特性:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.119,
+            0.594,
+            0.313,
+            0.686
+          ],
+          "sub_type": "text",
+          "content": "- 抽象；\n- 封装和数据隐藏；\n多态；\n继承:\n- 代码的可重用性。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.687,
+            0.918,
+            0.796
+          ],
+          "content": "为了实现这些特性并将它们组合在一起，C++所做的最重要的改进是提供了类。本章首先介绍类，将解释抽象、封装、数据隐藏，并演示类是如何实现这些特性的。本章还将讨论如何定义类、-如何为类提供公有部分和私有部分以及如何创建使用类数据的成员函数。另外，还将介绍构造函数和析构函数，它们是特殊的成员函数，用于创建和删除属于当前类的对象。最后介绍 this 指针，对于有些类编程而言，它是至关重要的。后面的章节还将把讨论扩展到运算符重载（另一种多态）和继承，它们是代码重用的基础。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.084,
+            0.823,
+            0.553,
+            0.843
+          ],
+          "level": 2,
+          "content": "10.1 过程性编程和面向对象编程"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.872,
+            0.918,
+            0.907
+          ],
+          "content": "虽然本书前面偶尔探讨过 OOP 在编程方面的前景，但讨论的更多的还是诸如 C、Pascal 和 BASIC 等语言的标准过程性方法。下面来看一个例子，它揭示了 OOP 的观点与过程性编程的差别。"
+        }
+      ]
+    },
+    {
+      "page_idx": 358,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.434,
+            0.068,
+            0.589,
+            0.082
+          ],
+          "content": "第 10 章 对象和类"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.898,
+            0.069,
+            0.927,
+            0.082
+          ],
+          "content": "341"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.103,
+            0.926,
+            0.137
+          ],
+          "content": "Genre Giants 垒球队的一名新成员被要求记录球队的统计数据。很自然，会求助于计算机来完成这项工作。如果是一位过程性程序员，可能会这样考虑:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.139,
+            0.927,
+            0.321
+          ],
+          "content": "我要输入每名选手的姓名、击球次数、击中次数、命中率（命中率指的是选手正式的击球次数除以击中次数；当选手在垒上或被罚出局时，击球停止，但某些情况不计作正式击球次数，如选手走步时）以及其他重要的基本统计数据。之所以使用计算机，是为了简化工作，因此让它来计算某些数据，如命中率。另外，我还希望程序能够显示这些结果。应如何组织呢？我想我能正确地完成这项工作，并使用了函数。是的，我让main()调用一个函数来获取输入，调用另一个函数来进行计算，然后再调用第三个函数来显示结果。那么，获得下场比赛的数据后，又该做什么呢？我不想再从头开始，可以添加一个函数来更新统计数据。可能需要在main()中提供一个菜单，选择是输入、计算、更新还是显示数据。则如何表示这些数据呢？可以用一个字符串数组来存储选手的姓名，用另一个数组存储每一位选手的击球数，再用一个数组存储击中数目等等。这种方法太不灵活了，可以设计一个结构来存储每位选手的所有信息，然后用这种结构组成的数组来表示整个球队。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.324,
+            0.926,
+            0.358
+          ],
+          "content": "总之，采用过程性编程方法时，首先考虑要遵循的步骤，然后考虑如何表示这些数据（并不需要程序一直运行，用户可能希望能够将数据存储在一个文件中，然后从这个文件中读取数据）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.361,
+            0.926,
+            0.395
+          ],
+          "content": "如果换成一位 OOP 程序员，又将如何呢？首先考虑数据——不仅要考虑如何表示数据，还要考虑如何使用数据:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.398,
+            0.927,
+            0.505
+          ],
+          "content": "我要跟踪的是什么？当然是选手。因此要有一个对象表示整个选手的各个方面（而不仅仅是命中率或击球次数）。是的，这将是基本数据单元——一个表示选手的姓名和统计数据的对象。我需要一些处理该对象的方法。首先需要一种将基本信息加入到该单元中的方法；其次，计算机应计算一些东西，如命中率，因此需要添加一些执行计算的方法。程序应自动完成这些计算，而无需用户干涉。另外，还需要一些更新和显示信息的方法。所以，用户与数据交互的方式有三种:初始化、更新和报告——这就是用户接口。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.508,
+            0.926,
+            0.56
+          ],
+          "content": "总之，采用 OOP 方法时，首先从用户的角度考虑对象——描述对象所需的数据以及描述用户与数据交互所需的操作。完成对接口的描述后，需要确定如何实现接口和数据存储。最后，使用新的设计方案创建出程序。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.096,
+            0.588,
+            0.311,
+            0.608
+          ],
+          "level": 2,
+          "content": "10.2 抽象和类"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.637,
+            0.927,
+            0.727
+          ],
+          "content": "生活中充满复杂性，处理复杂性的方法之一是简化和抽象。人的身体是由无数个原子组成的，而一些学者认为人的思想是由半自主的主体组成的。但将人自己看作一个实体将简单得多。在计算中，为了根据信息与用户之间的接口来表示它，抽象是至关重要的。也就是说，将问题的本质特征抽象出来，并根据特征来描述解决方案。在垒球统计数据示例中，接口描述了用户如何初始化、更新和显示数据。抽象是通往用户定义类型的捷径，在 $\\mathrm{C}++$ 中，用户定义类型指的是实现抽象接口的类设计。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.134,
+            0.738,
+            0.293,
+            0.755
+          ],
+          "level": 2,
+          "content": "10.2.1 类型是什么"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.766,
+            0.927,
+            0.892
+          ],
+          "content": "我们来看看是什么构成了类型。例如，讨厌鬼是什么？受流行的固定模式影响，可能会指出讨厌鬼的一些外表特点:胖、戴黑宽边眼镜、兜里插满钢笔等。稍加思索后，又可能觉得从行为上定义讨厌鬼可能更合适，如他（或她）是如何应对尴尬的社交场面的。如果将这种类比扩展到过程性语言（如 C 语言），我们得到类似的情形。首先，倾向于根据数据的外观（在内存中如何存储）来考虑数据类型。例如，char 占用 1 个字节的内存，而 double 通常占用 8 个字节的内存。但是稍加思索就会发现，也可以根据要对它执行的操作来定义数据类型。例如，int 类型可以使用所有的算术运算，可对整数执行加、减、乘、除运算，还可以对它们使用求模运算符（%）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.895,
+            0.926,
+            0.93
+          ],
+          "content": "而指针需要的内存数量很可能与 int 相同，甚至可能在内部被表示为整数。但不能对指针执行与整数相同的运算。例如，不能将两个指针相乘，这种运算没有意义的，因此 C++ 没有实现这种运算。因此，将"
+        }
+      ]
+    },
+    {
+      "page_idx": 359,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.082,
+            0.068,
+            0.113,
+            0.08
+          ],
+          "content": "342"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.362,
+            0.067,
+            0.632,
+            0.082
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.081,
+            0.101,
+            0.914,
+            0.135
+          ],
+          "continues_prev": true,
+          "content": "变量声明为 int 或 float 指针时，不仅仅是分配内存，还规定了可对变量执行的操作。总之，指定基本类型完成了三项工作:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.117,
+            0.139,
+            0.911,
+            0.209
+          ],
+          "sub_type": "text",
+          "content": "- 决定数据对象需要的内存数量；\n- 决定如何解释内存中的位（long 和 float 在内存中占用的位数相同，但将它们转换为数值的方法不同）；\n- 决定可使用数据对象执行的操作或方法。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.213,
+            0.914,
+            0.247
+          ],
+          "content": "对于内置类型来说，有关操作的信息被内置到编译器中。但在 C++ 中定义用户自定义的类型时，必须自己提供这些信息。付出这些劳动换来了根据实际需要定制新数据类型的强大功能和灵活性。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.118,
+            0.258,
+            0.279,
+            0.274
+          ],
+          "level": 2,
+          "content": "10.2.2 C++中的类"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.286,
+            0.914,
+            0.32
+          ],
+          "content": "类是一种将抽象转换为用户定义类型的 $\\mathrm{C}++$ 工具，它将数据表示和操纵数据的方法组合成一个整洁的包。下面来看一个表示股票的类。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.081,
+            0.323,
+            0.914,
+            0.412
+          ],
+          "content": "首先，必须考虑如何表示股票。可以将一股作为基本单元，定义一个表示一股股票的类。然而，这意味着需要100个对象才能表示100股，这不现实。相反，可以将某人当前持有的某种股票作为一个基本单元，数据表示中包含他持有的股票数量。一种比较现实的方法是，必须记录最初购买价格和购买日期（用于计算纳税）等内容。另外，还必须管理诸如如拆股等事件。首次定义类就考虑这么多因素有些困难，因此我们对其进行简化。具体地说，应该将可执行的操作限制为:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.117,
+            0.415,
+            0.362,
+            0.503
+          ],
+          "sub_type": "text",
+          "content": "获得股票；\n- 增持；\n- 卖出股票；\n- 更新股票价格；\n● 显示关于所持股票的信息。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.081,
+            0.507,
+            0.911,
+            0.577
+          ],
+          "content": "可以根据上述清单定义 stock 类的公有接口（如果您有兴趣，还可以添加其他特性）。为支持该接口，需要存储一些信息。我们再次进行简化。例如，不考虑标准的美式股票计价方式（八分之一美元的倍数。显然，纽约证券交易所一定看到过本书以前的版本中关于简化的论述，因为它已经决定将系统转换为书中采用的方式）。我们将存储下面的信息:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.117,
+            0.581,
+            0.288,
+            0.65
+          ],
+          "sub_type": "text",
+          "content": "- 公司名称；\n- 所持股票的数量；\n- 每股的价格；\n- 股票总值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.654,
+            0.523,
+            0.669
+          ],
+          "content": "接下来定义类。一般来说，类规范由两个部分组成。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.116,
+            0.673,
+            0.884,
+            0.706
+          ],
+          "sub_type": "text",
+          "content": "- 类声明:以数据成员的方式描述数据部分，以成员函数（被称为方法）的方式描述公有接口。\n- 类方法定义:描述如何实现类成员函数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.709,
+            0.614,
+            0.725
+          ],
+          "content": "简单地说，类声明提供了类的蓝图，而方法定义则提供了细节。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.448,
+            0.74,
+            0.543,
+            0.755
+          ],
+          "level": 2,
+          "content": "什么是接口"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.081,
+            0.761,
+            0.914,
+            0.851
+          ],
+          "content": "接口是一个共享框架，供两个系统（如在计算机和打印机之间或者用户或计算机程序之间）交互时使用；例如，用户可能是您，而程序可能是字处理器。使用字处理器时，您不能直接将脑子中想到的词传输到计算机内存中，而必须同程序提供的接口交互。您敲打键盘时，计算机将字符显示到屏幕上；您移动鼠标时，计算机移动屏幕上的光标；您无意间单击鼠标时，计算机对您输入的段落进行奇怪的处理。程序接口将您的意图转换为存储在计算机中的具体信息。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.081,
+            0.854,
+            0.914,
+            0.927
+          ],
+          "content": "对于类，我们说公共接口。在这里，公众（public）是使用类的程序，交互系统由类对象组成，而接口由编写类的人提供的方法组成。接口让程序员能够编写与类对象交互的代码，从而让程序能够使用类对象。例如，要计算string对象中包含多少个字符，您无需打开对象，而只需使用string类提供的size()方法。类设计禁止公共用户直接访问类，但公众可以使用方法size()。方法size()是用户和string类对象之间的公共"
+        }
+      ]
+    },
+    {
+      "page_idx": 360,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.432,
+            0.065,
+            0.588,
+            0.079
+          ],
+          "content": "第 10 章 对象和类"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.898,
+            0.066,
+            0.928,
+            0.078
+          ],
+          "content": "343"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.091,
+            0.099,
+            0.928,
+            0.133
+          ],
+          "continues_prev": true,
+          "content": "接口的组成部分。通常，方法 getline() 是 istream 类的公共接口的组成部分，使用 cin 的程序不是直接与 cin 对象内部交互来读取一行输入，而是使用 getline()。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.136,
+            0.928,
+            0.169
+          ],
+          "content": "如果希望更人性化，不要将使用类的程序视为公共用户，而将编写程序的人视为公共用户。然而，要使用某个类，必须了解其公共接口；要编写类，必须创建其公共接口。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.091,
+            0.173,
+            0.928,
+            0.244
+          ],
+          "content": "为开发一个类并编写一个使用它的程序，需要完成多个步骤。这里将开发过程分成多个阶段，而不是一次性完成。通常，C++程序员将接口（类定义）放在头文件中，并将实现（类方法的代码）放在源代码文件中。这里采用这种典型做法。程序清单10.1是第一个阶段的代码，它是Stock类的类声明。这个文件按第9章介绍的那样，使用了#ifndef等来访问多次包含同一个文件。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.091,
+            0.247,
+            0.928,
+            0.3
+          ],
+          "content": "为帮助识别类，本书遵循一种常见但不通用的约定——将类名首字母大写。您将发现，程序清单10.1看起来就像一个结构声明，只是还包括成员函数、公有部分和私有部分等内容。稍后将对该声明进行改进（所以不要将它用作模型），但先来看一看该定义的工作方式。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.336,
+            0.652,
+            0.695
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// stock00.h -- Stock class interface\n// version 00\n#ifndef STOCK00_H_\n#define STOCK00_H_\n\n#include <string>\n\nclass Stock  // class declaration\n{\nprivate:\n    std::string company;\n    long shares;\n    double share_val;\n    double total_val;\n    void set_tot() { total_val = shares * share_val; }\npublic:\n    void acquire(const std::string & co, long n, double pr);\n    void buy(long num, double price);\n    void sell(long num, double price);\n    void update(double price);\n    void show();\n};   // note semicolon at the end\n\n#endif\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.13,
+                0.313,
+                0.342,
+                0.328
+              ],
+              "content": "程序清单 10.1 stock00.h"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.701,
+            0.93,
+            0.79
+          ],
+          "content": "稍后将详细介绍类的细节，但先看一下更通用的特性。首先，C++关键字 class 指出这些代码定义了一个类设计（不同于在模板参数中，在这里，关键字 class 和 typename 不是同义词，不能使用 typename 代替 class）。这种语法指出，Stock 是这个新类的类型名。该声明让我们能够声明 Stock 类型的变量——称为对象或实例。每个对象都表示一支股票。例如，下面的声明创建两个 Stock 对象，它们分别名为 sally 和 solly:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.795,
+            0.237,
+            0.823
+          ],
+          "sub_type": "code",
+          "content": "```txt\nStock sally;\nStock solly;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.83,
+            0.535,
+            0.846
+          ],
+          "content": "例如，sally 对象可以表示 Sally 持有的某公司股票。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.849,
+            0.929,
+            0.921
+          ],
+          "content": "接下来，要存储的数据以类数据成员（如 company 和 shares）的形式出现。例如，sally 的 company 成员存储了公司名称，share 成员存储了 Sally 持有的股票数量，share\\_val 成员存储了每股的价格，total\\_val 成员存储了股票总价格。同样，要执行的操作以类函数成员（方法，如 sell() 和 update()）的形式出现。成员函数可以就地定义（如 set\\_tot()），也可以用原型表示（如其他成员函数）。其他成员"
+        }
+      ]
+    },
+    {
+      "page_idx": 361,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.086,
+            0.066,
+            0.116,
+            0.077
+          ],
+          "content": "344"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.366,
+            0.064,
+            0.636,
+            0.078
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.086,
+            0.097,
+            0.918,
+            0.151
+          ],
+          "continues_prev": true,
+          "content": "函数的完整定义稍后将介绍，它们包含在实现文件中；但对于描述函数接口而言，原型足够了。将数据和方法组合成一个单元是类最吸引人的特性。有了这种设计，创建 Stock 对象时，将自动制定使用对象的规则。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.086,
+            0.153,
+            0.918,
+            0.189
+          ],
+          "content": "istream 和 ostream 类有成员函数，如 get() 和 getline()，而 Stock 类声明中的函数原型说明了成员函数是如何建立的。例如，头文件 iostream 将 getline() 的原型放在 istream 类的声明中。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.124,
+            0.2,
+            0.225,
+            0.215
+          ],
+          "level": 2,
+          "content": "1. 访问控制"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.086,
+            0.221,
+            0.918,
+            0.312
+          ],
+          "content": "关键字 private 和 public 也是新的，它们描述了对类成员的访问控制。使用类对象的程序都可以直接访问公有部分，但只能通过公有成员函数（或友元函数，参见第11章）来访问对象的私有成员。例如，要修改 Stock 类的-shares 成员，只能通过 Stock 的成员函数。因此，公有成员函数是程序和对象的私有成员之间的桥梁，提供了对象和程序之间的接口。防止程序直接访问数据被称为数据隐藏（参见图-10.1）。C++ 还提供了第三个访问控制关键字 protected，第 13 章介绍类继承时将讨论该关键字。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.242,
+            0.328,
+            0.764,
+            0.648
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"关键字private标识\\n只能通过公共成员访问的类成员（数据隐藏）\"] --> B[\"关键字class\\n标识类定义\"]\n  B --> C[\"&quot;class Stock\\n{ private:\\n    char company[30\"];\\n    int shares;\\n    double share_val;\\n    double total_val;\\n    void set_tot() { total_val * shares * share_val; }\\n    public:\\n        void acquire(const char * co, int n, double prj;\\n        void buy(int num, double price);\\n        void sell(int num, double price);\\n        void update(double price);\\n        void show();\\n    }\"]\n  C --> D[\"类名称成为这个用户\\n定义的类型的名称\"]\n  D --> E[\"类成员可以是数据\\n类型，也可以是函数\"]\n  E --> F[\"关键字public标识组成类的\\n公共接口的类成员（抽象）\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.438,
+                0.657,
+                0.565,
+                0.671
+              ],
+              "content": "图10.1 Stock类"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_361_image_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.086,
+            0.682,
+            0.918,
+            0.754
+          ],
+          "content": "类设计尽可能将公有接口与实现细节分开。公有接口表示设计的抽象组件。将实现细节放在一起并将它们与抽象分开被称为封装。数据隐藏（将数据放在类的私有部分中）是一种封装，将实现的细节隐藏在私有部分中，就像 Stock 类对 set\\_tot() 所做的那样，也是一种封装。封装的另一个例子是，将类函数定义和类声明放在不同的文件中。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.446,
+            0.768,
+            0.556,
+            0.783
+          ],
+          "level": 2,
+          "content": "OOP和C++"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.086,
+            0.789,
+            0.918,
+            0.918
+          ],
+          "content": "OOP 是一种编程风格，从某种程度说，它用于任何一种语言中。当然，可以将 OOP 思想融合到常规的 C 语言程序中。例如，在第 9 章的一个示例（程序清单 9.1、程序清单 9.2、程序清单 9.3）中，头文件中包含结构原型和操纵该结构的函数的原型，便是这样的例子。因此，main() 函数只需定义这个结构类型的变量，并使用相关函数处理这些变量即可；main() 不直接访问结构成员。实际上，该示例定义了一种抽象类型，它将存储格式和函数原型置于头文件中，对 main() 隐藏了实际的数据表示。然而，C++ 中包括了许多专门用来实现 OOP 方法的特性，因此它使程序员更进一步。首先，将数据表示和函数原型放在一个类声明中（而不是放在一个文件中），通过将所有内容放在一个类声明中，来使描述成为一个整体。其次，让"
+        }
+      ]
+    },
+    {
+      "page_idx": 362,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.435,
+            0.065,
+            0.591,
+            0.08
+          ],
+          "content": "第 10 章 对象和类"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.899,
+            0.066,
+            0.931,
+            0.079
+          ],
+          "content": "345"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.099,
+            0.929,
+            0.152
+          ],
+          "continues_prev": true,
+          "content": "数据表示成为私有，使得数据只能被授权的函数访问。在 C 语言的例子中，如果 main() 直接访问了结构成员，则违反了 OOP 的精神，但没有违反 C 语言的规则。然而，试图直接访问 Stock 对象的 shares 成员便违反了 C++ 语言的规则，编译器将捕获这种错误。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.155,
+            0.93,
+            0.264
+          ],
+          "content": "数据隐藏不仅可以防止直接访问数据，还让开发者（类的用户）无需了解数据是如何被表示的。例如，show()成员将显示某支股票的总价格（还有其他内容），这个值可以存储在对象中（上述代码正是这样做的），也可以在需要时通过计算得到。从使用类的角度看，使用哪种方法没有什么区别。所需要知道的只是各种成员函数的功能；也就是说，需要知道成员函数接受什么样的参数以及返回什么类型的值。原则是将实现细节从接口设计中分离出来。如果以后找到了更好的、实现数据表示或成员函数细节的方法，可以对这些细节进行修改，而无需修改程序接口，这使程序维护起来更容易。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.132,
+            0.275,
+            0.434,
+            0.291
+          ],
+          "level": 2,
+          "content": "2. 控制对成员的访问:公有还是私有"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.296,
+            0.931,
+            0.386
+          ],
+          "content": "无论类成员是数据成员还是成员函数，都可以在类的公有部分或私有部分中声明它。但由于隐藏数据是 OOP 主要的目标之一，因此数据项通常放在私有部分，组成类接口的成员函数放在公有部分；否则，就无法从程序中调用这些函数。正如 Stock 声明所表明的，也可以把成员函数放在私有部分中。不能直接从程序中调用这种函数，但公有方法却可以使用它们。通常，程序员使用私有成员函数来处理不属于公有接口的实现细节。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.388,
+            0.685,
+            0.405
+          ],
+          "content": "不必在类声明中使用关键字 private，因为这是类对象的默认访问控制:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.409,
+            0.534,
+            0.528
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nclass World\n{\n    float mass;          // private by default\n    char name[20];       // private by default\npublic:\n    void tellall(void);\n    ...\n};\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.534,
+            0.595,
+            0.551
+          ],
+          "content": "然而，为强调数据隐藏的概念，本书显式地使用了 private。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.474,
+            0.564,
+            0.552,
+            0.581
+          ],
+          "level": 2,
+          "content": "类和结构"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.587,
+            0.929,
+            0.658
+          ],
+          "content": "类描述看上去很像是包含成员函数以及 public 和 private 可见性标签的结构声明。实际上，C++ 对结构进行了扩展，使之具有与类相同的特性。它们之间唯一的区别是，结构的默认访问类型是 public，而类为 private。C++ 程序员通常使用类来实现类描述，而把结构限制为只表示纯粹的数据对象（常被称为普通老式数据（POD，Plain Old Data）结构）。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.134,
+            0.67,
+            0.331,
+            0.687
+          ],
+          "level": 2,
+          "content": "10.2.3 实现类成员函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.698,
+            0.929,
+            0.75
+          ],
+          "content": "还需要创建类描述的第二部分:为那些由类声明中的原型表示的成员函数提供代码。成员函数定义与常规函数定义非常相似，它们有函数头和函数体，也可以有返回类型和参数。但是它们还有两个特殊的特征:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.132,
+            0.753,
+            0.712,
+            0.787
+          ],
+          "sub_type": "text",
+          "content": "- 定义成员函数时，使用作用域解析运算符（::）来标识函数所属的类；\n- 类方法可以访问类的 private 组件。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.79,
+            0.929,
+            0.824
+          ],
+          "content": "首先，成员函数的函数头使用作用域运算符解析=(:)来指出函数所属的类。例如，update()成员函数的函数头如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.131,
+            0.827,
+            0.41,
+            0.841
+          ],
+          "sub_type": "code",
+          "content": "```txt\nvoid Stock::update(double price)\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.847,
+            0.929,
+            0.899
+          ],
+          "content": "这种表示法意味着我们定义的 update() 函数是 Stock 类的成员。这不仅将 update() 标识为成员函数，还意味着我们可以将另一个类的成员函数也命名为 update()。例如，Buffoon() 类的 update() 函数的函数头如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.131,
+            0.903,
+            0.324,
+            0.917
+          ],
+          "sub_type": "code",
+          "content": "```rust\nvoid Buffoon::update()\n```",
+          "captions": [],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 363,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.08,
+            0.066,
+            0.112,
+            0.079
+          ],
+          "content": "346"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.362,
+            0.065,
+            0.633,
+            0.08
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.099,
+            0.915,
+            0.171
+          ],
+          "content": "因此，作用域解析运算符确定了方法定义对应的类的身份。我们说，标识符 update() 具有类作用域 (class scope)。Stock 类的其他成员函数不必使用作用域解析运算符，就可以使用 update() 方法，这是因为它们属于同一个类，因此 update() 是可见的。然而，在类声明和方法定义之外使用 update() 时，需要采取特殊的措施，稍后将作介绍。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.174,
+            0.915,
+            0.209
+          ],
+          "content": "类方法的完整名称中包括类名。我们说，Stock::update()是函数的限定名（qualified name）；而简单的update()是全名的缩写（非限定名，unqualified name），它只能在类作用域中使用。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.211,
+            0.851,
+            0.227
+          ],
+          "content": "方法的第二个特点是，方法可以访问类的私有成员。例如，show()方法可以使用这样的代码:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.114,
+            0.231,
+            0.577,
+            0.29
+          ],
+          "sub_type": "code",
+          "content": "```txt\nstd::cout << \"Company: \" << company\n    << \" Shares: \" << shares << endl\n    << \" Share Price: $\" << share_val\n    << \" Total Worth: $\" << total_val << endl;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.294,
+            0.913,
+            0.329
+          ],
+          "content": "其中，company、shares 等都是 Stock 类的私有数据成员。如果试图使用非成员函数访问这些数据成员，编译器禁止这样做（但第 11 章中将介绍的友元函数例外）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.331,
+            0.915,
+            0.385
+          ],
+          "content": "了解这两点后，就可以实现类方法了，如程序清单10.2所示。这里将它们放在了一个独立的实现文件中，因此需要包含头文件stock00.h，让编译器能够访问类定义。为让您获得更多有关名称空间的经验，在有些方法中使用了限定符std:；在其他方法中则使用了using声明。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.114,
+            0.419,
+            0.749,
+            0.927
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// stock00.cpp -- implementing the Stock class\n// version 00\n#include <iostream>\n#include \"stock00.h\"\n\nvoid Stock::acquire(const std::string & co, long n, double pr)\n{\n    company = co;\n    if (n <= 0)\n    {\n        std::cout << \"Number of shares can't be negative; \"\n            << company << \" shares set to 0.\\n\";\n        shares = .0;\n    }\n    else\n        shares = n;\n    share_val = pr;\n    set_tot();\n}\n\nvoid Stock::buy(long num, double price)\n{\n    if (num < 0)\n    {\n        std::cout << \"Number of shares purchased can't be negative. \"\n            << \"Transaction is aborted.\\n\";\n    }\n    else\n    {\n        shares += num;\n        share_val = price;\n        set_tot();\n    }\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.116,
+                0.397,
+                0.347,
+                0.414
+              ],
+              "content": "程序清单 10.2 stock00.cpp"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 364,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.442,
+            0.066,
+            0.597,
+            0.081
+          ],
+          "content": "第 10 章 对象和类"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.906,
+            0.067,
+            0.938,
+            0.08
+          ],
+          "content": "347"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.135,
+            0.104,
+            0.652,
+            0.615
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nvoid Stock::sell(long_num, double price)\n{\n    using std::cout;\n    if (num < 0)\n    {\n        cout << \"Number of shares sold can't be negative.\"\n            << \"Transaction is aborted.\\n\";\n    }\n    else if (num > shares)\n    {\n        cout << \"You can't sell more than you have! \"\n            << \"Transaction is aborted.\\n\";\n    }\n    else\n    {\n        shares -= num;\n        share_val = price;\n        set_tot();\n    }\n}\n\nvoid Stock::update(double price)\n{\n    share_val = price;\n    set_tot();\n}\n\nvoid Stock::show()\n{\n    std::cout << \"Company: \" << company\n        << \" Shares: \" << shares << '\\n'\n        << \" Share Price: $\" << share_val\n        << \" Total Worth: $\" << total_val << '\\n';\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.138,
+            0.629,
+            0.28,
+            0.645
+          ],
+          "level": 2,
+          "content": "1. 成员函数说明"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.651,
+            0.941,
+            0.722
+          ],
+          "content": "acquire()函数管理对某个公司股票的首次购买，而 buy()和 sell()管理增加或减少持有的股票。方法 buy()和 sell()确保买入或卖出的股数不为负。另外，如果用户试图卖出超过他持有的股票数量，则 sell()函数将结束这次交易。这种使数据私有并限于对公有函数访问的技术允许我们能够控制数据如何被使用；在这个例子中，它允许我们加入这些安全防护措施，避免不适当的交易。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.724,
+            0.941,
+            0.851
+          ],
+          "content": "4 个成员函数设置或重新设置了 total\\_val 成员值。这个类并非将计算代码编写 4 次，而是让每个函数都调用 set\\_tot() 函数。由于 set\\_tot() 只是实现代码的一种方式，而不是公有接口的组成部分，因此这个类将其声明为私有成员函数（即编写这个类的人可以使用它，但编写代码来使用这个类的人不能使用）。如果计算代码很长，则这种方法还可以省去许多输入代码的工作，并可节省空间。然而，这种方法的主要价值在于，通过使用函数调用，而不是每次重新输入计算代码，可以确保执行的计算完全相同。另外，如果必须修订计算代码（在这个例子中，这种可能性不大），则只需在一个地方进行修改即可。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.138,
+            0.862,
+            0.245,
+            0.878
+          ],
+          "level": 2,
+          "content": "2. 内联方法"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.101,
+            0.884,
+            0.939,
+            0.92
+          ],
+          "content": "其定义位于类声明中的函数都将自动成为内联函数，因此 Stock::set\\_tot() 是一个内联函数。类声明常将短小的成员函数作为内联函数，set\\_tot() 符合这样的要求。"
+        }
+      ]
+    },
+    {
+      "page_idx": 365,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.078,
+            0.066,
+            0.108,
+            0.078
+          ],
+          "content": "348"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.358,
+            0.064,
+            0.629,
+            0.078
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.098,
+            0.91,
+            0.133
+          ],
+          "content": "如果愿意，也可以在类声明之外定义成员函数，并使其成为内联函数。为此，只需在类实现部分中定义函数时使用inline限定符即可:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.109,
+            0.138,
+            0.613,
+            0.335
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nclass Stock\n{\nprivate:\n    ...\n    void set_tot();  // definition kept separate\npublic:\n    ...\n};\ninline void Stock::set_tot()  // use inline in definition\n{\n    total_val = shares * share_val;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.341,
+            0.912,
+            0.394
+          ],
+          "content": "内联函数的特殊规则要求在每个使用它们的文件中都对其进行定义。确保内联定义对多文件程序中的所有文件都可用的、最简便的方法是:将内联定义放在定义类的头文件中（有些开发系统包含智能链接程序，允许将内联定义放在一个独立的实现文件）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.397,
+            0.912,
+            0.449
+          ],
+          "content": "顺便说一句，根据改写规则（rewrite rule），在类声明中定义方法等同于用原型替换方法定义，然后在类声明的后面将定义改写为内联函数。也就是说，程序清单10.1中set\\_tot()的内联定义与上述代码（定义紧跟在类声明之后）是等价的。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.114,
+            0.46,
+            0.289,
+            0.475
+          ],
+          "level": 2,
+          "content": "3. 方法使用哪个对象"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.482,
+            0.91,
+            0.516
+          ],
+          "content": "下面介绍使用对象时最重要的一个方面:如何将类方法应用于对象。下面的代码使用了一个对象的 shares 成员:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.111,
+            0.52,
+            0.235,
+            0.533
+          ],
+          "sub_type": "code",
+          "content": "```txt\nshares += num;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.539,
+            0.91,
+            0.573
+          ],
+          "content": "是哪个对象呢？问得好！要回答这个问题，首先来看看如何创建对象。最简单的方式是声明类变量:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.111,
+            0.576,
+            0.254,
+            0.59
+          ],
+          "sub_type": "code",
+          "content": "```txt\nStock kate, joe;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.596,
+            0.561,
+            0.612
+          ],
+          "content": "这将创建两个 Stock 类对象，一个为 kate，另一个为 joe。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.615,
+            0.756,
+            0.631
+          ],
+          "content": "接下来，看看如何使用对象的成员函数。和使用结构成员一样，通过成员运算符:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.111,
+            0.636,
+            0.636,
+            0.666
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nkate.show();      // the kate.object calls the member function\njoe.show();       // the joe object calls the member function\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.672,
+            0.912,
+            0.725
+          ],
+          "content": "第 1 条语句调用 kate 对象的 show() 成员。这意味着 show() 方法将把 shares 解释为 kate.shares，将 share\\_vla 解释为 kate.share\\_val。同样，函数调用 joe.show() 使 show() 方法将 shares 和 share\\_val 分别解释为 joe.share 和 joe.share\\_val。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.733,
+            0.649,
+            0.75
+          ],
+          "content": "注意:调用成员函数时，它将使用被用来调用它的对象的数据成员。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.759,
+            0.912,
+            0.793
+          ],
+          "content": "同样，函数调用 kate.sell() 在调用 set\\_tot() 函数时，相当于调用 kate.set\\_tot()，这样该函数将使用 kate 对象的数据。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.796,
+            0.912,
+            0.903
+          ],
+          "content": "一所创建的每个新对象都有自己的存储空间，用于存储其内部变量和类成员；但同一个类的所有对象共享同一组类方法，即每种方法只有一个副本。例如，假设 kate 和 joe 都是 Stock 对象，则 kate.shares 将占据一个内存块，而 joe.shares 占用另一个内存块，但 kate.show() 和 joe.show() 都调用同一个方法，也就是说，它们将执行同一个代码块，只是将这些代码用于不同的数据。在 OOP 中，调用成员函数被称为发送消息，因此将同样的消息发送给两个不同的对象将调用同一个方法，但该方法被用于两个不同的对象（参见图 10.2）。"
+        }
+      ]
+    },
+    {
+      "page_idx": 366,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.436,
+            0.074,
+            0.592,
+            0.089
+          ],
+          "content": "第 10 章 对象和类"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.902,
+            0.075,
+            0.934,
+            0.088
+          ],
+          "content": "349"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.264,
+            0.109,
+            0.768,
+            0.399
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Stock kate(&quot;Woof, Inc.&quot;, 100, 63); Stock joe(&quot;Pryal Co.&quot;, 120, 30)\"] --> B{\"创建2个对象，它们各自有自己的数据，但是共享一组成员函数\"}\n  C[\"Kate\"] --> D[\"void Stock::show(void){ cout << 'Company:' << company...}\"]\n  E[\"joe\"] --> F[\"show()成员函数\"]\n  G[\"kate.show();\"] --> H[\"将show()成员函数用于kate的数据\"]\n  I[\"joe.show();\"] --> J[\"使用joe的数据执行show()成员函数\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.396,
+                0.404,
+                0.633,
+                0.419
+              ],
+              "content": "图 10.2 对象、数据和成员函数"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_366_image_2.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.134,
+            0.44,
+            0.263,
+            0.456
+          ],
+          "level": 2,
+          "content": "10.2.4 使用类"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.467,
+            0.935,
+            0.613
+          ],
+          "content": "知道如何定义类及其方法后，来创建一个程序，它创建并使用类对象。C++的目标是使得使用类与使用基本的内置类型（如 int 和 char）尽可能相同。要创建类对象，可以声明类变量，也可以使用 new 为类对象分配存储空间。可以将对象作为函数的参数和返回值，也可以将一个对象赋给另一个。C++提供了一些工具，可用于初始化对象、让 cin 和 cout 识别对象，甚至在相似的类对象之间进行自动类型转换。虽然要做到这些工作还需要一段时间，但可以先从比较简单的属性着手。实际上，您已经知道如何声明类对象和调用成员函数。程序清单 10.3 提供了一个使用上述接口和实现文件的程序，它创建了一个名为 fluffy the cat 的 Stock 对象。该程序非常简单，但确实测试了这个类的特性。要编译该程序，可使用用于多文件程序的方法，这在第 1 章和第 9 章介绍过。具体地说，将其与 stock00.cpp 一起编译，并确保 stock00.h 位于当前文件夹中。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.131,
+            0.648,
+            0.581,
+            0.931
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// usestack0.cpp -- the client program\n// compile with.stock00.cpp\n#include <iostream>\n#include \"stock00.h\"\nint main()\n{\n    Stock fluffy_the_cat;\n    fluffy_the_cat.acquire(\"NanoSmart\", 20, 12.50);\n    fluffy_the_cat.show();\n    fluffy_the_cat.buy(15, 18.125);\n    fluffy_the_cat.show();\n    fluffy_the_cat.setF(400, 20.00);\n    fluffy_the_cat.show();\n    fluffy_the_cat.buy(300000, 40.125);\n    fluffy_the_cat.show();\n    fluffy_the_cat.setF(300000, 0.125);\n    fluffy_the_cat.show();\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.134,
+                0.626,
+                0.383,
+                0.642
+              ],
+              "content": "程序清单 10.3 usestock0.cpp"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 367,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.078,
+            0.067,
+            0.109,
+            0.08
+          ],
+          "content": "350"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.359,
+            0.065,
+            0.63,
+            0.081
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.101,
+            0.287,
+            0.117
+          ],
+          "content": "下面是该程序的输出:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.111,
+            0.122,
+            0.616,
+            0.285
+          ],
+          "sub_type": "code",
+          "content": "```txt\nCompany: NanoSmart Shares: 20\nShare Price: $12.5 Total Worth: $250\nCompany: NanoSmart Shares: 35\nShare Price: $18.125 Total Worth: $634.375\nYou can't sell more than you have! Transaction is aborted.\nCompany: NanoSmart Shares: 35\nShare Price: $18.125 Total Worth: $634.375\nCompany: NanoSmart Shares: 300035\nShare Price: $40.125 Total Worth: $1.20389e+007\nCompany: NanoSmart Shares: 35\nShare Price: $0.125 Total Worth: $4.375\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.075,
+            0.292,
+            0.913,
+            0.346
+          ],
+          "content": "注意，main()只是用来测试 Stock 类的设计。当 Stock 类的运行情况与预期的相同后，便可以在其他程序中将 Stock 类作为用户定义的类型使用。要使用新类型，最关键的是要了解成员函数的功能，而不必考虑其实现细节。请参阅后面的旁注“客户/服务器模型”。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.425,
+            0.358,
+            0.564,
+            0.374
+          ],
+          "level": 2,
+          "content": "客户/服务器模型"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.074,
+            0.381,
+            0.914,
+            0.472
+          ],
+          "content": "OOP 程序员常依照客户/服务器模型来讨论程序设计。在这个概念中，客户是使用类的程序。类声明（包括类方法）构成了服务器，它是程序可以使用的资源。客户只能通过以公有方式定义的接口使用服务器，这意味着客户（客户程序员）唯一的责任是了解该接口。服务器（服务器设计人员）的责任是确保服务器根据该接口可靠并准确地执行。服务器设计人员只能修改类设计的实现细节，而不能修改接口。这样程序员独立地对客户和服务器进行改进，对服务器的修改不会客户的行为造成意外的影响。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.114,
+            0.482,
+            0.26,
+            0.498
+          ],
+          "level": 2,
+          "content": "10.2.5 修改实现"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.075,
+            0.51,
+            0.913,
+            0.562
+          ],
+          "content": "在前面的程序输出中，可能有一个方面让您恼火——数字的格式不一致。现在可以改进实现，但保持接口不变。ostream 类包含一些可用于控制格式的成员函数。这里不做太详细的探索，只需像在程序清单 8.8 那样使用方法 setf()，便可避免科学计数法:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.11,
+            0.564,
+            0.668,
+            0.58
+          ],
+          "sub_type": "code",
+          "content": "```rust\nstd::cout.setf(std::ios_base::fixed, std::ios_base::floatfield);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.075,
+            0.586,
+            0.913,
+            0.62
+          ],
+          "content": "这设置了 cout 对象的一个标记，命令 cout 使用定点表示法。同样，下面的语句导致 cout 在使用定点表示法时，显示三位小数:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.111,
+            0.623,
+            0.316,
+            0.637
+          ],
+          "sub_type": "code",
+          "content": "```rust\nstd::cout.precision(3);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.112,
+            0.643,
+            0.389,
+            0.658
+          ],
+          "content": "第 17 章将介绍这方面的更多细节。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.075,
+            0.662,
+            0.914,
+            0.733
+          ],
+          "content": "可在方法 show()中使用这些工具来控制格式，但还有一点需要考虑。修改方法的实现时，不应影响客户程序的其他部分。上述格式修改将一直有效，直到您再次修改，因此它们可能影响客户程序中的后续输出。因此，show()应重置格式信息，使其恢复到自己被调用前的状态。为此，可以像程序清单 8.8 那样，使用返回的值:-"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.111,
+            0.736,
+            0.711,
+            0.884
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nstd::streamsize prec=\n    std::cout.precision(3);  // save preceding value for precision\n...\nstd::cout.precision(prec);          // reset to old value\n\n// store original flags\nstd::ios_base::fmtflags orig = std::cout.setf(std::ios_base::fixed);\n...\n// reset to stored values\nstd::cout.setf(orig, std::ios_base::floatfield);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.89,
+            0.914,
+            0.925
+          ],
+          "content": "您可能还记得，fmtflags 是在 ios\\_base 类中定义的一种类型，而 ios\\_base 类又是在名称空间 std 中定义的，因此 orig 的类型名非常长。其次，orig 存储了所有的标记，而重置语句使用这些信息来重置 floatfield."
+        }
+      ]
+    },
+    {
+      "page_idx": 368,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.435,
+            0.063,
+            0.594,
+            0.077
+          ],
+          "content": "第 10 章 对象和类"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.902,
+            0.064,
+            0.931,
+            0.077
+          ],
+          "content": "351"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.097,
+            0.922,
+            0.131
+          ],
+          "content": "而 floatfield 包含定点表示法标记和科学表示法标记。第三，请不要过多考虑这里的细节。这里的要旨是，将修改限定在实现文件中，以免影响程序的其他方面。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.134,
+            0.704,
+            0.15
+          ],
+          "content": "根据上面的介绍，可在实现文件中将方法 show() 的定义修改成如下所示:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.133,
+            0.156,
+            0.631,
+            0.454
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nvoid Stock::show()\n{\n    using std::cout;\n    using stdr::ios_base;\n    // set format to #.###\n    ios_base::fmtflags orig =\n        cout.setf(ios_base::fixed, ios_base::floatfield);\n    std::streamsize prec = cout.precision(3);\n\n    cout << \"Company: \" << company\n        << \" Shares: \" <<-shares << '\\n';\n    cout << \" Share Price: $\" << share_val;\n    // set format to #.##\n    cout.precision(2);\n    cout << \" Total_Worth: $\" << total_val << '\\n';\n\n    // restore original format\n    cout.setf(orig, ios_base::floatfield);\n    cout.precision(prec);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.461,
+            0.928,
+            0.477
+          ],
+          "content": "完成上述修改后(保留头文件和客户文件不变),可重新编译该程序。该程序的输出将类似于下面这样:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.133,
+            0.482,
+            0.637,
+            0.646
+          ],
+          "sub_type": "code",
+          "content": "```yaml\nCompany: NanoSmart Shares: 20\nShare Price: $12.500 Total Worth: $250.00\nCompany: NanoSmart Shares: 35\nShare Price: $18.125 Total Worth: $634.38\nYou can't sell more than you have! Transaction is aborted.\nCompany: NanoSmart Shares: 35\nShare Price: $18.125 Total Worth: $634.38\nCompany: NanoSmart Shares: 300035\nShare Price: $40.125 Total Worth: $12038904.38\nCompany: NanoSmart Shares: 35\nShare Price: $0.125 Total Worth: $4.38\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.138,
+            0.654,
+            0.243,
+            0.669
+          ],
+          "level": 2,
+          "content": "10.2.6 小结"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.681,
+            0.934,
+            0.752
+          ],
+          "content": "指定类设计的第一步是提供类声明。类声明类似结构声明，可以包括数据成员和函数成员。声明有私有部分，在其中声明的成员只能通过成员函数进行访问；声明还具有公有部分，在其中声明的成员可被使用类对象的程序直接访问。通常，数据成员被放在私有部分中，成员函数被放在公有部分中，因此典型的类声明的格式如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.133,
+            0.757,
+            0.398,
+            0.861
+          ],
+          "sub_type": "code",
+          "content": "```txt\nclass className\n{\nprivate:\n    data member declarations\npublic:\n    member function prototypes\n};\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.868,
+            0.933,
+            0.902
+          ],
+          "content": "公有部分的内容构成了设计的抽象部分——公有接口。将数据封装到私有部分中可以保护数据的完整性，这被称为数据隐藏。因此，C++通过类使得实现抽象、数据隐藏和封装等OOP特性很容易。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.905,
+            0.933,
+            0.921
+          ],
+          "content": "指定类设计的第二步是实现类成员函数。可以在类声明中提供完整的函数定义，而不是函数原型，但"
+        }
+      ]
+    },
+    {
+      "page_idx": 369,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.082,
+            0.067,
+            0.113,
+            0.079
+          ],
+          "content": "352"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.362,
+            0.065,
+            0.632,
+            0.08
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.099,
+            0.916,
+            0.152
+          ],
+          "continues_prev": true,
+          "content": "是通常的做法是单独提供函数定义（除非函数很小）。在这种情况下，需要使用作用域解析运算符来指出成员函数属于哪个类。例如，假设 Bozo 有一个名为 Retort() 的成员函数，该函数返回 char 指针，则其函数头如下所示:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.115,
+            0.156,
+            0.3,
+            0.169
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nchar * Bozo::Retort()\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.175,
+            0.916,
+            0.228
+          ],
+          "content": "换句话说，Retort()不仅是一个 char \\*类型的函数，而是一个属于 Bozo 类的 char \\*函数。该函数的全名（或限定名）为 Bozo::Retort()。而名称 Retort()是限定名的缩写，只能在某些特定的环境中使用，如类方法的代码中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.23,
+            0.915,
+            0.265
+          ],
+          "content": "另一种描述这种情况的方式是，名称 Retort 的作用域为整个类，因此在类声明和类方法之外使用该名称时，需要使用作用域解析运算符进行限定。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.267,
+            0.551,
+            0.283
+          ],
+          "content": "要创建对象（类的实例），只需将类名视为类型名即可:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.115,
+            0.287,
+            0.231,
+            0.3
+          ],
+          "sub_type": "code",
+          "content": "```txt\nBozo bozetta;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.306,
+            0.471,
+            0.322
+          ],
+          "content": "这样做是可行的，因为类是用户定义的类型。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.324,
+            0.721,
+            0.34
+          ],
+          "content": "类成员函数（方法）可通过类对象来调用。为此，需要使用成员运算符句点:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.115,
+            0.345,
+            0.334,
+            0.358
+          ],
+          "sub_type": "code",
+          "content": "```typescript\ncout << Bozetta.Retort();\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.364,
+            0.915,
+            0.398
+          ],
+          "content": "这将调用 Retort() 成员函数，每当其中的代码引用某个数据成员时，该函数都将使用 bozetta 对象中相应成员的值。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.08,
+            0.427,
+            0.52,
+            0.447
+          ],
+          "level": 2,
+          "content": "10.3 类的构造函数和析构函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.477,
+            0.915,
+            0.512
+          ],
+          "content": "对于 Stock 类，还有其他一些工作要做。应为类提供被称为构造函数和析构函数的标准函数。下面来看一看为什么需要这些函数以及如何使用这些函数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.514,
+            0.915,
+            0.566
+          ],
+          "content": "C++的目标之一是让使用类对象就像使用标准类型一样，然而，到现在为止，本章提供的代码还不能让您像初始化 int 或结构那样来初始化 Stock 对象。也就是说，常规的初始化语法不适用于类型 Stock:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.114,
+            0.571,
+            0.763,
+            0.692
+          ],
+          "sub_type": "code",
+          "content": "```c\nint year = 2001;                                // valid initialization\nstruct thing\n{\n    char * pn;\n    int m;\n};\nthing amabob = {\"wodget\", -23};                    // valid initialization\nStock hot = {\"Sukie's Autos, Inc.\", 200, 50.25};   // NO! compile error\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.699,
+            0.915,
+            0.77
+          ],
+          "content": "不能像上面这样初始化 Stock 对象的原因在于，数据部分的访问状态是私有的，这意味着程序不能直接访问数据成员。您已经看到，程序只能通过成员函数来访问数据成员，因此需要设计合适的成员函数，才能成功地将对象初始化（如果使数据成员成为公有，而不是私有，就可以按刚才介绍的方法初始化类对象，但使数据成为公有的违背了类的一个主要初衷:数据隐藏）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.773,
+            0.704,
+            0.789
+          ],
+          "content": "一般来说，最好是在创建对象时对它进行初始化。例如，请看下面的代码:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.115,
+            0.794,
+            0.294,
+            0.822
+          ],
+          "sub_type": "code",
+          "content": "```txt\nStock gift;\ngift.buy(10, 24.75);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.828,
+            0.916,
+            0.919
+          ],
+          "content": "就 Stock 类当前的实现而言，gift 对象的 company 成员是没有值的。类设计假设用户在调用任何其他成员函数之前调用 acquire()，但无法强加这种假设。避开这种问题的方法之一是在创建对象时，自动对它进行初始化。为此，C++ 提供了一个特殊的成员函数——类构造函数，专门用于构造新对象、将值赋给它们的数据成员。更准确地说，C++ 为这些成员函数提供了名称和使用语法，而程序员需要提供方法定义。名称与类名相同。例如，Stock 类一个可能的构造函数是名为 Stock() 的成员函数。构造函数的"
+        }
+      ]
+    },
+    {
+      "page_idx": 370,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.438,
+            0.062,
+            0.596,
+            0.076
+          ],
+          "content": "第 10 章 对象和类"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.903,
+            0.063,
+            0.934,
+            0.075
+          ],
+          "content": "353"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.096,
+            0.932,
+            0.131
+          ],
+          "continues_prev": true,
+          "content": "原型和函数头有一个有趣的特征——虽然没有返回值，但没有被声明为 void 类型。实际上，构造函数没有声明类型。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.136,
+            0.142,
+            0.371,
+            0.158
+          ],
+          "level": 2,
+          "content": "10.3.1 声明和定义构造函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.17,
+            0.934,
+            0.241
+          ],
+          "content": "现在需要创建 Stock 的构造函数。由于需要为 Stock 对象提供 3 个值，因此应为构造函数提供 3 个参数。（第 4 个值，total\\_val 成员，是根据 shares 和 share\\_val 计算得到的，因此不必为构造函数提供这个值。）程序员可能只想设置 company 成员，而将其他值设置为 0；这可以使用默认参数来完成（参见第 8 章）。因此，原型如下所示:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.133,
+            0.247,
+            0.603,
+            0.276
+          ],
+          "sub_type": "code",
+          "content": "```txt\n// constructor prototype with some default arguments\nStock(const string & co, long n = 0, double pr = 0.0);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.098,
+            0.282,
+            0.934,
+            0.316
+          ],
+          "content": "第一个参数是指向字符串的指针，该字符串用于初始化成员 company。n 和 pr 参数为 shares 和 share\\_val 成员提供值。注意，没有返回类型。原型位于类声明的公有部分。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.319,
+            0.399,
+            0.334
+          ],
+          "content": "下面是构造函数的一种可能定义:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.133,
+            0.34,
+            0.648,
+            0.58
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// constructor definition\nStock::Stock(const string & co, long n, double pr)\n{\ncompany = co;\n\n    if (n < 0)\n    {\n        std::cerr << \"Number of shares can't be negative; \"\n            << company << \" shares set to 0.\\n\";\n        shares = 0;\n    }\n    else\n        shares = n;\n    share_val = pr;\n    set_tot();\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.586,
+            0.889,
+            0.602
+          ],
+          "content": "上述代码和本章前面的函数 acquire() 相同。区别在于，程序声明对象时，将自动调用构造函数。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.449,
+            0.617,
+            0.58,
+            0.632
+          ],
+          "level": 2,
+          "content": "成员名和参数名"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.639,
+            0.747,
+            0.654
+          ],
+          "content": "不熟悉构造函数的您会试图将类成员名称用作构造函数的参数名，如下所示:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.133,
+            0.66,
+            0.714,
+            0.727
+          ],
+          "sub_type": "code",
+          "content": "```txt\n// NO!\nStock::Stock(const string & company, long shares, double share_val)\n{\n...\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.734,
+            0.931,
+            0.767
+          ],
+          "content": "这是错误的。构造函数的参数表示的不是类成员，而是赋给类成员的值。因此，参数名不能与类成员相同，否则最终的代码将是这样的:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.133,
+            0.772,
+            0.275,
+            0.784
+          ],
+          "sub_type": "code",
+          "content": "```txt\nshares = shares;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.791,
+            0.664,
+            0.807
+          ],
+          "content": "为避免这种混乱，一种常见的做法是在数据成员名中使用 m\\_前缀:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.133,
+            0.812,
+            0.318,
+            0.899
+          ],
+          "sub_type": "code",
+          "content": "```txt\nclass Stock\n{\nprivate:\n    string m_company;\n    long m_shares;\n    ...\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.905,
+            0.501,
+            0.921
+          ],
+          "content": "另一种常见的做法是，在成员名中使用后缀:"
+        }
+      ]
+    },
+    {
+      "page_idx": 371,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.079,
+            0.075,
+            0.11,
+            0.087
+          ],
+          "content": "354"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.359,
+            0.073,
+            0.63,
+            0.088
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.111,
+            0.11,
+            0.291,
+            0.199
+          ],
+          "sub_type": "code",
+          "content": "```txt\nclass Stock\n{\nprivate:\n    string company_;\n    long shares_;\n    ...\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.203,
+            0.706,
+            0.219
+          ],
+          "content": "无论采用哪种做法，都可在公有接口中在参数名中包含 company 和 shares。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.114,
+            0.231,
+            0.296,
+            0.247
+          ],
+          "level": 2,
+          "content": "10.3.2 使用构造函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.111,
+            0.258,
+            0.807,
+            0.274
+          ],
+          "content": "C++提供了两种使用构造函数来初始化对象的方式。第一种方式是显式地调用构造函数:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.111,
+            0.277,
+            0.523,
+            0.291
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nStock food = Stock(\"World Cabbage\", 250, 1.25);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.111,
+            0.297,
+            0.909,
+            0.313
+          ],
+          "content": "这将 food 对象的 company 成员设置为字符串 “World Cabbage”，将 shares 成员设置为 250，依此类推。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.316,
+            0.397,
+            0.332
+          ],
+          "content": "另一种方式是隐式地调用构造函数:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.111,
+            0.335,
+            0.445,
+            0.348
+          ],
+          "sub_type": "code",
+          "content": "```txt\nStock garment(\"Furry Mason\", 50, 2.5);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.111,
+            0.355,
+            0.469,
+            0.371
+          ],
+          "content": "这种格式更紧凑，它与下面的显式调用等价:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.111,
+            0.374,
+            0.523,
+            0.388
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nStock garment = Stock(\"Furry Mason\", 50, 2.5));\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.394,
+            0.912,
+            0.427
+          ],
+          "content": "每次创建类对象（甚至使用 new 动态分配内存）时，C++ 都使用类构造函数。下面是将构造函数与 new 一起使用的方法:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.111,
+            0.431,
+            0.618,
+            0.445
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nStock *pstock = new Stock(\"Electroshock Games\", 18, 19.0);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.451,
+            0.912,
+            0.485
+          ],
+          "content": "这条语句创建一个 Stock 对象，将其初始化为参数提供的值，并将该对象的地址赋给 pstock 指针。在这种情况下，对象没有名称，但可以使用指针来管理该对象。我们将在第 11 章进一步讨论对象指针。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.111,
+            0.488,
+            0.703,
+            0.504
+          ],
+          "content": "构造函数的使用方式不同于其他类方法。一般来说，使用对象来调用方法:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.111,
+            0.506,
+            0.586,
+            0.52
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nstock1.show();  // stock1 object invokes show() method\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.527,
+            0.912,
+            0.561
+          ],
+          "content": "但无法使用对象来调用构造函数，因为在构造函数构造出对象之前，对象是不存在的。因此构造函数被用来创建对象，而不能通过对象来调用。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.115,
+            0.573,
+            0.296,
+            0.589
+          ],
+          "level": 2,
+          "content": "10.3.3 默认构造函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.6,
+            0.912,
+            0.634
+          ],
+          "content": "默认构造函数是在未提供显式初始值时，用来创建对象的构造函数。也就是说，它是用于下面这种声明的构造函数:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.111,
+            0.636,
+            0.585,
+            0.651
+          ],
+          "sub_type": "code",
+          "content": "```txt\nStock fluffy_the_cat;  // uses the default constructor\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.658,
+            0.912,
+            0.709
+          ],
+          "content": "程序清单 10.3 就是这样做的！这条语句管用的原因在于，如果没有提供任何构造函数，则 C++ 将自动提供默认构造函数。它是默认构造函数的隐式版本，不做任何工作。对于 Stock 类来说，默认构造函数可能如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.113,
+            0.712,
+            0.273,
+            0.727
+          ],
+          "sub_type": "code",
+          "content": "```autohotkey\nStock::Stock() { }\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.111,
+            0.733,
+            0.91,
+            0.763
+          ],
+          "content": "因此将创建 fluffy\\_the\\_cat 对象，但不初始化其成员，这和下面的语句创建 x，但没有提供值给它一样:\nint x;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.765,
+            0.488,
+            0.781
+          ],
+          "content": "默认构造函数没有参数，因为声明中不包含值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.784,
+            0.912,
+            0.836
+          ],
+          "content": "奇怪的是，当且仅当没有定义任何构造函数时，编译器才会提供默认构造函数。为类定义了构造函数后，程序员就必须为它提供默认构造函数。如果提供了非默认构造函数（如 Stock(const char \\* co, int n, double pr)），但没有提供默认构造函数，则下面的声明将出错:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.111,
+            0.839,
+            0.595,
+            0.853
+          ],
+          "sub_type": "code",
+          "content": "```txt\nStock stock1;  // not possible with current constructor\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.859,
+            0.912,
+            0.911
+          ],
+          "content": "这样做的原因可能是想禁止创建未初始化的对象。然而，如果要创建对象，而不显式地初始化，则必须定义一个不接受任何参数的默认构造函数。定义默认构造函数的方式有两种。一种是给已有构造函数的所有参数提供默认值:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.113,
+            0.915,
+            0.663,
+            0.929
+          ],
+          "sub_type": "code",
+          "content": "```txt\nStock(const string & co = \"Error\", int n = 0, double pr = 0.0);\n```",
+          "captions": [],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 372,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.432,
+            0.07,
+            0.588,
+            0.085
+          ],
+          "content": "第 10 章 对象和类"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.897,
+            0.071,
+            0.928,
+            0.084
+          ],
+          "content": "355"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.105,
+            0.772,
+            0.121
+          ],
+          "content": "另一种方式是通过函数重载来定义另一个构造函数——一个没有参数的构造函数:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.125,
+            0.2,
+            0.139
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nStock();\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.091,
+            0.144,
+            0.929,
+            0.198
+          ],
+          "content": "由于只能有一个默认构造函数，因此不要同时采用这两种方式。实际上，通常应初始化所有的对象，以确保所有成员一开始就有已知的合理值。因此，用户定义的默认构造函数通常给所有成员提供隐式初始值。例如，下面是为 Stock 类定义的一个默认构造函数:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.203,
+            0.516,
+            0.308
+          ],
+          "sub_type": "code",
+          "content": "```rust\nStock::Stock()          // default constructor\n{\n    company = \"no name\";\n    shares = 0;\n    share_val = 0.0;\n    total_val = 0.0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.32,
+            0.741,
+            0.336
+          ],
+          "content": "提示:在设计类时，通常应提供对所有类成员做隐式初始化的默认构造函数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.346,
+            0.926,
+            0.381
+          ],
+          "content": "使用上述任何一种方式（没有参数或所有参数都有默认值）创建了默认构造函数后，便可以声明对象变量，而不对它们进行显式初始化:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.386,
+            0.714,
+            0.431
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nStock first;                 // calls default constructor implicitly\nStock first = Stock();      // calls it explicitly\nStock *prelief ==new Stock; // calls it implicitly\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.437,
+            0.523,
+            0.452
+          ],
+          "content": "然而，不要被非默认构造函数的隐式形式所误导:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.458,
+            0.755,
+            0.502
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nStock first(\"Concrete Conglomerate\");      // calls constructor\nStock second();                  // declares a function\nStock third;                        // calls default constructor\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.508,
+            0.928,
+            0.543
+          ],
+          "content": "第一个声明调用非默认构造函数，即接受参数的构造函数；第二个声明指出，second()是一个返回Stock对象的函数。隐式地调用默认构造函数时，不要使用圆括号。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.554,
+            0.276,
+            0.57
+          ],
+          "level": 2,
+          "content": "10.3.4 析构函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.091,
+            0.581,
+            0.931,
+            0.69
+          ],
+          "content": "用构造函数创建对象后，程序负责跟踪该对象，直到其过期为止。对象过期时，程序将自动调用一个特殊的成员函数，该函数的名称令人生畏——析构函数。析构函数完成清理工作，因此实际上很有用。例如，如果构造函数使用 new 来分配内存，则析构函数将使用 delete 来释放这些内存。Stock 的构造函数没有使用 new，因此析构函数实际上没有需要完成的任务。在这种情况下，只需让编译器生成一个什么要不做的隐式析构函数即可，Stock 类第一版正是这样做的。然而，了解如何声明和定义析构函数是绝对必要的，下面为 Stock 类提供一个析构函数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.091,
+            0.693,
+            0.931,
+            0.746
+          ],
+          "content": "和构造函数一样，析构函数的名称也很特殊:在类名前加上\\~。因此，Stock 类的析构函数为\\~Stock()。另外，和构造函数一样，析构函数也可以没有返回值和声明类型。与构造函数不同的是，析构函数没有参数，因此 Stock 析构函数的原型必须是这样的:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.749,
+            0.209,
+            0.763
+          ],
+          "sub_type": "code",
+          "content": "```txt\n~Stock();\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.769,
+            0.856,
+            0.785
+          ],
+          "content": "由于 Stock 的析构函数不承担任何重要的工作，因此可以将它编写为不执行任何操作的函数:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.789,
+            0.609,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nStock::~Stock()\n{\n}\n然而，为让您能看出析构函数何时被调用，这样编写其代码：\nStock::~Stock()    // class destructor\n{\n    cout << \"Bye, \" << company << \"!\\n\";\n}\n```",
+          "captions": [],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 373,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.085,
+            0.064,
+            0.117,
+            0.077
+          ],
+          "content": "356"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.366,
+            0.063,
+            0.636,
+            0.077
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.097,
+            0.919,
+            0.206
+          ],
+          "content": "什么时候应调用析构函数呢？这由编译器决定，通常不应在代码中显式地调用析构函数（有关例外情形，请参阅第12章的“再谈定位new运算符”）。如果创建的是静态存储类对象，则其析构函数将在程序结束时自动被调用。如果创建的是自动存储类对象（就像前面的示例中那样），则其析构函数将在程序执行完代码块时（该对象是在其中定义的）自动被调用。如果对象是通过new创建的，则它将驻留在栈内存或自由存储区中，当使用delete来释放内存时，其析构函数将自动被调用。最后，程序可以创建临时对象来完成特定的操作，在这种情况下，程序将在结束对该对象的使用时自动调用其析构函数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.208,
+            0.918,
+            0.261
+          ],
+          "content": "由于在类对象过期时析构函数将自动被调用，因此必须有一个析构函数。如果程序员没有提供析构函数，编译器将隐式地声明一个默认析构函数，并在发现导致对象被删除的代码后，提供默认析构函数的定义。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.121,
+            0.273,
+            0.302,
+            0.289
+          ],
+          "level": 2,
+          "content": "10.3.5 改进 Stock 类"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.3,
+            0.918,
+            0.355
+          ],
+          "content": "下面将构造函数和析构函数加入到类和方法的定义中。鉴于添加构造函数的重大意义，这里将名称从stock00.h改为stock10.h。类方法放在文件stock10.cpp中。最后，将使用这些资源的程序放在第三个文件中，这个文件名为usestock2.cpp。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.121,
+            0.365,
+            0.206,
+            0.38
+          ],
+          "level": 2,
+          "content": "1. 头文件"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.386,
+            0.919,
+            0.439
+          ],
+          "content": "程序清单 10.4 列出了头文件。它将构造函数和析构函数的原型加入到原来的类声明中。另外，它还删除了 acquire() 函数——现在已经不再需要它了，因为有构造函数。该文件还使用第 9 章介绍的 #ifndef 技术来防止多重包含。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.117,
+            0.474,
+            0.836,
+            0.852
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// stock10.h -- Stock class declaration with constructors, destructor added\n#ifndef STOCK10_H\n#define STOCK01_H\n#include <string>\nclass Stock\n{\nprivate:\n    std::string company;\n    long shares;\n    double share_val;\n    double total_val;\n    void set_tot() { total_val = shares * share_val; }\npublic\n// two Constructors\n    Stock();          // default constructor\n    Stock(const std::string & co, long n = 0; double pr = 0.0);\n    -Stock();          // noisy destructor\n    void buy(long num, double price);\n    void sell(long num, double price);\n    void update(double price);\n    void show();\n};\n#endif\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.12,
+                0.451,
+                0.333,
+                0.467
+              ],
+              "content": "程序清单10.4 stock10.h"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.119,
+            0.862,
+            0.223,
+            0.877
+          ],
+          "level": 2,
+          "content": "2. 实现文件"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.885,
+            0.918,
+            0.921
+          ],
+          "content": "一程序清单10.5提供了方法的定义。它包含了文件stock10.h，以提供类声明（将文件名放在双引号而不是方括号中意味着编译器将源文件所在的目录中搜索它）。另外，程序清单10.5还包含了头文件iostream。"
+        }
+      ]
+    },
+    {
+      "page_idx": 374,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.43,
+            0.073,
+            0.587,
+            0.088
+          ],
+          "content": "第10章 对象和类"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.895,
+            0.074,
+            0.925,
+            0.087
+          ],
+          "content": "357"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.089,
+            0.107,
+            0.923,
+            0.179
+          ],
+          "content": "以提供 I/O 支持。该程序清单还使用 using 声明和限定名称（如 std::string）来访问头文件中的各种声明。该文件将构造函数和析构函数的方法定义添加到以前的方法定义中。为让您知道这些方法何时被调用，它们都显示一条消息。这并不是构造函数和析构函数的常规功能，但有助于您更好地了解类是如何使用它们的。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.214,
+            0.729,
+            0.933
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// stock10.cpp -- Stock class with constructors, destructor added\n#include <iostream>\n#include \"stock10.h\"\n\n// constructors (verbose versions)\nStock::Stock(_______ // default constructor\n{\n    std::cout << \"Default constructor called\\n\";\n    company = \"no name\";\n    shares== 0;\n    share_val== 0.0;\n    total_val = 0.0;\n}\n\nStock::Stock(const std::string & co, long n, double pr)\n{\n    std::cout << \"Constructor using \" << co << \" called\\n\";\n    company = co;\n\n    if (n < 0)\n    {\n        std::cout << \"Number of shares can't be negative; \"\n            << company << \" shares set to 0.\\n\";\n        shares = 0;\n    }\n    else\n        shares = n;\n    share_val = pr;\n    set_tot();\n}\n// class destructor\nStock::~Stock()      // verbose-class destructor\n{\n    std::cout << \"Bye, \" << company << \"!\\n\";\n}\n\n// other methods\nvoid Stock::buy(long num, double price)\n{\n    if (num < 0):\n    {\n        std::cout << \"Number of shares purchased can't be negative. \"\n            << \"Transaction is aborted.\\n\";\n    }\n    else\n    {\n        shares += num;\n        share_val = price;\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.127,
+                0.192,
+                0.357,
+                0.209
+              ],
+              "content": "程序清单-10.5 stock10.cpp"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 375,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.086,
+            0.068,
+            0.117,
+            0.079
+          ],
+          "content": "358"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.367,
+            0.065,
+            0.639,
+            0.08
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.12,
+            0.097,
+            0.639,
+            0.866
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nset_tot();\n}\n}\n\nvoid Stock::sell(long num, double price)\n{\n    using std::cout;\n    if (num < 0)\n    {\n        cout << \"Number of shares sold can't be negative. \"\n            << \"Transaction is aborted.\\n\";\n    }\n    else if (num > shares)\n    {\n        cout << \"You can't sell more than you have! \"\n            << \"Transaction is aborted.\\n\";\n    }\n    else\n    {\n        shares -= num;\n        share_val = price;\n        set_tot();\n    }\n}\n\nvoid Stock::update(double price)\n{\n    share_val = price;\n    set_tot();\n}\n\nvoid Stock::show()\n{\n    using std::cout;\n    using std::ios_base;\n    // set format to #.###\n    ios_base::fmtflags orig =\n        cout.setf(ios_base::fixed, ios_base::floatfield);\n    std::streamsize prec = cout.precision(3);\n\n    cout << \"Company: \" << company\n        << \" Shares: \" << shares << '\\n';\n    cout << \" Share Price: $\" << share_val;\n    // set format to #.###\n    cout.precision(2);\n    cout << \" Total Worth: $\" << total_val << '\\n';\n\n    // restore original format\n    cout.setf(orig, ios_base::floatfield);\n    cout.precision(prec);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.125,
+            0.877,
+            0.23,
+            0.893
+          ],
+          "level": 2,
+          "content": "3. 客户文件"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.124,
+            0.899,
+            0.926,
+            0.917
+          ],
+          "content": "程序清单 10.6 提供了一个测试这些新方法的小程序；由于它只是使用 Stock 类，因此是 Stock 类的客"
+        }
+      ]
+    },
+    {
+      "page_idx": 376,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.431,
+            0.067,
+            0.587,
+            0.082
+          ],
+          "content": "第 10 章 对象和类"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.895,
+            0.067,
+            0.927,
+            0.081
+          ],
+          "content": "359"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.089,
+            0.102,
+            0.926,
+            0.157
+          ],
+          "continues_prev": true,
+          "content": "户。和 stock10.cpp 一样，它也包含了文件 stock10.h 以提供类声明。该程序显示了构造函数和析构函数，它还使用了程序清单 10.3 调用的格式化命令。要编译整个程序，必须使用第 1 章和第 9 章介绍的多文件程序技术。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.191,
+            0.849,
+            0.629
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// usestok1.cpp -- using the Stock class\n// compile with stock10.cpp\n#include <iostream>\n#include \"stock10.h\"\n\nint main()\n{\n    {\n        using std::cout;\n        cout << \"Using constructors to create new objects\\n\";\n        Stock stock1(\"NanoSmart\", 12, 20.0);          // syntax 1\n        stock1.show();\n        Stock stock2 = Stock (\"Boffo Objects\", 2, 2.0); // syntax 2\n        stock2.show();\n\n        cout << \"Assigning stock1 to stock2:\\n\";\n        stock2 = stockI;\n        cout << \"Listing stock1 and stock2:\\n\";\n        stockI.show();\n        stock2.show();\n\n        cout << \"Using a constructor to reset an object\\n\";\n        stock1 = Stock(\"Nifty Foods\", 10, 50.0);   // temp object\n        cout << \"Revised stock1:\\n\";\n        stock1.show();\n        cout << \"Done\\n\";\n    }\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.127,
+                0.168,
+                0.379,
+                0.185
+              ],
+              "content": "程序清单 10.6 usestock2.cpp"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.633,
+            0.926,
+            0.668
+          ],
+          "content": "编译程序清单 10.4、程序清单 10.5 和程序清单 10.6 所示的程序，得到一个可执行程序。下面是使用某个编译器得到的可执行程序的输出:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.673,
+            0.51,
+            0.927
+          ],
+          "sub_type": "code",
+          "content": "```txt\nUsing constructors to create new objects\nConstructor using NanoSmart called\nCompany: NanoSmart Shares: 12\nShare Price: $20.00 Total Worth: $240.00\nConstructor using Boffo Objects calFed\nCompany: Boffo Objects Shares: 2\nShare Price: $2.00 Total Worth: $4.00\nAssigning stock1 to stock2:\nListing stock1 and stock2:\nCompany: NanoSmart Shares: 12\nShare Price: $20.00 Total Worth: $240.00\nCompany: NanoSmart Shares: 12\nShare Price: $20.00 Total Worth: $240.00\nUsing a constructor to reset an object\nConstructor using Nifty Foods called\nBye, Nifty Foods!\nRevised stock1:\n```",
+          "captions": [],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 377,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.083,
+            0.066,
+            0.114,
+            0.078
+          ],
+          "content": "360"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.364,
+            0.063,
+            0.636,
+            0.078
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.117,
+            0.097,
+            0.495,
+            0.171
+          ],
+          "sub_type": "code",
+          "content": "```txt\nCompany: Nifty Foods Shares: 10\nShare Price: $50.00 Total Worth: $500.00\nDone\nBye, NanoSmart!\nBye, Nifty Foods!\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.119,
+            0.177,
+            0.789,
+            0.194
+          ],
+          "content": "使用某些编译器编译该程序时，该程序输出的前半部分可能如下（比前面多了一行）:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.117,
+            0.199,
+            0.641,
+            0.318
+          ],
+          "sub_type": "code",
+          "content": "```txt\nUsing constructors to create new objects\nConstructor using NanoSmart called\nCompany: NanoSmart Shares: 12\nShare Price: $20.00 Total Worth: $240.00\nConstructor using Boffo Objects called\nBye, Boffo Objects! << additional line\nCompany: Boffo Objects Shares: 2\nShare Price: $2.00 Total Worth: $4.00\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.119,
+            0.337,
+            0.485,
+            0.354
+          ],
+          "content": "下一小节将解释输出行 “Bye, Boffo Objects!”。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.362,
+            0.921,
+            0.451
+          ],
+          "content": "提示: 您可能注意到了, 在程序清单 10.6 中, main() 的开头和末尾多了一个大括号。诸如 stock1 和 stock2 等自动变量将在程序退出其定义所属代码块时消失。如果没有这些大括号, 代码块将为整个 main(), 因此仅当 main() 执行完毕后, 才会调用析构函数。在窗口环境中, 这意味着将在两个析构函数调用前关闭, 导致您无法看到最后两条消息。但添加这些大括号后, 最后两个析构函数调用将在到达返回语句前执行, 从而显示相应的消息。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.119,
+            0.47,
+            0.227,
+            0.485
+          ],
+          "level": 2,
+          "content": "4. 程序说明"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.119,
+            0.492,
+            0.353,
+            0.507
+          ],
+          "content": "程序清单 10.6 中的下述语句:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.117,
+            0.511,
+            0.432,
+            0.524
+          ],
+          "sub_type": "code",
+          "content": "```txt\nStock stock1(\"NanoSmart\", 12, 20.0);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.531,
+            0.689,
+            0.546
+          ],
+          "content": "创建一个名为 stock1 的 Stock 对象，并将其数据成员初始化为指定的值:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.117,
+            0.552,
+            0.418,
+            0.58
+          ],
+          "sub_type": "code",
+          "content": "```txt\nConstructor using NanoSmart called\nCompany: NanoSmart Shares: 12\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.119,
+            0.587,
+            0.639,
+            0.602
+          ],
+          "content": "下面的语句使用另一种语法创建并初始化一个名为 stock2 的对象:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.117,
+            0.608,
+            0.528,
+            0.641
+          ],
+          "sub_type": "code",
+          "content": "```txt\nstock2: ...\nStock_stock2 = Stock (\"Baffo Objects\", 2, 2.0);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.646,
+            0.867,
+            0.662
+          ],
+          "content": "C++标准允许编译器使用两种方式来执行第二种语法。一种是使其行为和第一种语法完全相同:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.117,
+            0.666,
+            0.452,
+            0.694
+          ],
+          "sub_type": "code",
+          "content": "```txt\nConstructor using Boffo Objects called\nCompany: Boffo Objects Shares: 2\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.083,
+            0.7,
+            0.916,
+            0.734
+          ],
+          "content": "另一种方式是允许调用构造函数来创建一个临时对象，然后将该临时对象复制到stock2中，并丢弃它。如果编译器使用的是这种方式，则将为临时对象调用析构函数，因此生成下面的输出:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.117,
+            0.738,
+            0.455,
+            0.781
+          ],
+          "sub_type": "code",
+          "content": "```txt\nConstructor using Boffo Objects called Bye, Boffo Objects!\nCompany: Boffo Objects Shares: 2\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.787,
+            0.918,
+            0.821
+          ],
+          "content": "生成上述输出的编译器可能立刻删除临时对象，但也可能会等一段时间，在这种情况下，析构函数的消息将会过一段时间才显示。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.119,
+            0.824,
+            0.582,
+            0.839
+          ],
+          "content": "下面的语句表明可以将一个对象赋给同类型的另一个对象:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.117,
+            0.842,
+            0.478,
+            0.856
+          ],
+          "sub_type": "code",
+          "content": "```txt\nstock2 = stock1;      // object assignment\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.861,
+            0.918,
+            0.896
+          ],
+          "content": "与给结构赋值一样，在默认情况下，给类对象赋值时，将把一个对象的成员复制给另一个。在这个例子中，stock2原来的内容将被覆盖。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.118,
+            0.904,
+            0.918,
+            0.921
+          ],
+          "content": "注意:在默认情况下，将一个对象赋给同类型的另一个对象时，C++将源对象的每个数据成员的内容"
+        }
+      ]
+    },
+    {
+      "page_idx": 378,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.433,
+            0.072,
+            0.588,
+            0.087
+          ],
+          "content": "第 10 章 对象和类"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.898,
+            0.073,
+            0.927,
+            0.087
+          ],
+          "content": "361"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.107,
+            0.398,
+            0.123
+          ],
+          "content": "复制到目标对象中相应的数据成员中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.133,
+            0.775,
+            0.148
+          ],
+          "content": "构造函数不仅仅可用于初始化新对象。例如，该程序的 main() 中包含下面的语句:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.151,
+            0.478,
+            0.165
+          ],
+          "sub_type": "code",
+          "content": "```txt\nstock1 = Stock(\"Nifty Foods\", 10, 50.0);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.172,
+            0.927,
+            0.224
+          ],
+          "content": "stock1 对象已经存在，因此这条语句不是对 stock1 进行初始化，而是将新值赋给它。这是通过让构造程序创建一个新的、临时的对象，然后将其内容复制给 stock1 来实现的。随后程序调用析构函数，以删除该临时对象，如下面经过注释后的输出所示:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.23,
+            0.675,
+            0.318
+          ],
+          "sub_type": "code",
+          "content": "```txt\nUsing a constructor to reset an object\nConstructor using Nifty Foods called >> temporary object created\nBye, Nifty Foods!                      >> temporary object destroyed\nRevised stock1:\nCompany: Nifty Foods  Shares: 10      >> data now copied to stock1\nShare Price: $50.00  Total Worth: $500.00\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.324,
+            0.737,
+            0.339
+          ],
+          "content": "有些编译器可能要过一段时间才删除临时对象，因此析构函数的调用将延迟。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.342,
+            0.376,
+            0.357
+          ],
+          "content": "最后，程序显示了下面的内容:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.363,
+            0.281,
+            0.406
+          ],
+          "sub_type": "code",
+          "content": "```txt\nDone\nBye, NanoSmart!\nBye, Nifty Foods!\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.413,
+            0.927,
+            0.465
+          ],
+          "content": "函数 main() 结束时，其局部变量（stock1 和 stock2）将消失。由于这种自动变量被放在栈中，因此最后创建的对象将最先被删除，最先创建的对象将最后被删除（“NanoSmart”最初位于 stock1 中，但随后被传输到 stock2 中，然后 stock1 被重置为 “Nifty Food”）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.468,
+            0.467,
+            0.483
+          ],
+          "content": "输出表明，下面两条语句有根本性的差别:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.489,
+            0.651,
+            0.517
+          ],
+          "sub_type": "code",
+          "content": "```txt\nStock stock2 = Stock (\"Boffo Objects\", 2, 2.0);\nstock1 = Stock(\"Nifty Foods\", 10, 50.0); // temporary object\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.524,
+            0.927,
+            0.559
+          ],
+          "content": "第一条语句是初始化，它创建有指定值的对象，可能会创建临时对象（也可能不会）；第二条语句是赋值。像这样在赋值语句中使用构造函数总会导致在赋值前创建一个临时对象。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.567,
+            0.926,
+            0.601
+          ],
+          "content": "提示:如果既可以通过初始化，也可以通过赋值来设置对象的值，则应采用初始化方式。通常这种方式的效率更高。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.621,
+            0.309,
+            0.635
+          ],
+          "level": 2,
+          "content": "5. C++11 列表初始化"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.642,
+            0.924,
+            0.676
+          ],
+          "content": "在 C++11 中, 可将列表初始化语法用于类吗? 可以, 只要提供与某个构造函数的参数列表匹配的内容, 并用大括号将它们括起:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.682,
+            0.591,
+            0.727
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nStock hot_tip = {\"Derivatives Plus Plus\", 100, 45.0};\nStock jock {\"Sport Age Storage, Inc\"};\nStock temp {};\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.733,
+            0.628,
+            0.749
+          ],
+          "content": "在前两个声明中，用大括号括起的列表与下面的构造函数匹配:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.752,
+            0.701,
+            0.766
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nStock::Stock(const std::string & co, long n = 0, double pr = 0.0);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.773,
+            0.924,
+            0.807
+          ],
+          "content": "因此，将使用该构造函数来创建这两个对象。创建对象 jock 时，第二和第三个参数将为默认值 0 和 0.0。第三个声明与默认构造函数匹配，因此将使用该构造函数创建对象 temp。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.81,
+            0.926,
+            0.844
+          ],
+          "content": "另外，C++11 还提供了名为 std::initialize\\_list 的类，可将其用作函数参数或方法参数的类型。这个类可表示任意长度的列表，只要所有列表项的类型都相同或可转换为相同的类型，这将在第 16 章介绍。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.128,
+            0.855,
+            0.277,
+            0.87
+          ],
+          "level": 2,
+          "content": "6. const 成员函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.876,
+            0.304,
+            0.892
+          ],
+          "content": "请看下面的代码片段:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.898,
+            0.563,
+            0.926
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nconst Stock land = Stock(\"Kludgehorn Properties\");\nland.show();\n```",
+          "captions": [],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 379,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.086,
+            0.069,
+            0.117,
+            0.08
+          ],
+          "content": "362"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.366,
+            0.067,
+            0.636,
+            0.081
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.101,
+            0.919,
+            0.191
+          ],
+          "content": "对于当前的 C++ 来说，编译器将拒绝第二行。这是什么原因呢？因为 show() 的代码无法确保调用对象不被修改——调用对象和 const 一样，不应被修改。我们以前通过将函数参数声明为 const 引用或指向 const 的指针来解决这种问题。但这里存在语法问题:show() 方法没有任何参数。相反，它所使用的对象是由方法调用隐式地提供的。需要一种新的语法——保证函数不会修改调用对象。C++ 的解决方法是将 const 关键字放在函数的括号后面。也就是说，show() 声明应像这样:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.118,
+            0.193,
+            0.712,
+            0.208
+          ],
+          "sub_type": "code",
+          "content": "```txt\nvoid show() const;          // promises not to change invoking object\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.214,
+            0.384,
+            0.228
+          ],
+          "content": "同样，函数定义的开头应像这样:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.119,
+            0.232,
+            0.711,
+            0.246
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nvoid stock::show() const // promises not to change invoking object\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.253,
+            0.918,
+            0.287
+          ],
+          "content": "以这种方式声明和定义的类函数被称为 const 成员函数。就像应尽可能将 const 引用和指针用作函数形参一样，只要类方法不修改调用对象，就应将其声明为 const。从现在开始，我们将遵守这一规则。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.121,
+            0.298,
+            0.392,
+            0.314
+          ],
+          "level": 2,
+          "content": "10.3.6 构造函数和析构函数小结"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.326,
+            0.918,
+            0.361
+          ],
+          "content": "介绍一些构造函数和析构函数的例子后，您可能想停下来，整理一下学到的知识。为此，下面对这些方法进行总结。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.363,
+            0.919,
+            0.434
+          ],
+          "content": "构造函数是一种特殊的类成员函数，在创建类对象时被调用。构造函数的名称和类名相同，但通过函数重载，可以创建多个同名的构造函数，条件是每个函数的特征标（参数列表）都不同。另外，构造函数没有声明类型。通常，构造函数用于初始化类对象的成员，初始化应与构造函数的参数列表匹配。例如，假设 Bozo 类的构造函数的原型如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.119,
+            0.437,
+            0.747,
+            0.451
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nBozo(const char * fname, const char * lname);  // constructor prototype\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.457,
+            0.368,
+            0.472
+          ],
+          "content": "则可以使用它来初始化新对象:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.119,
+            0.478,
+            0.661,
+            0.523
+          ],
+          "sub_type": "code",
+          "content": "```txt\nBozo bozetta = bozo(\"Bozetta\", \"Biggens\");    // primary form\nBozo fufu(\"Fufu\", \"O'Dweeb\");            // short form\nBozo *pc = new Bozo(\"Popo\", \"Le Peu\");      // dynamic object\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.529,
+            0.494,
+            0.544
+          ],
+          "content": "如果编译器支持 C++11，则可使用列表初始化:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.119,
+            0.55,
+            0.591,
+            0.595
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nBozo bozetta = {\"Bozetta\", \"Biggens\"};          // C++11\nBozo fufu{\"Fufu\", \"O'Dweeb\"}                  // C++11;\nBozo *pc = new Bozo{\"Popo\", \"Le Peu\"};      // C++11\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.602,
+            0.918,
+            0.636
+          ],
+          "content": "如果构造函数只有一个参数，则将对象初始化为一个与参数的类型相同的值时，该构造函数将被调用。例如，假设有这样一个构造函数原型:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.12,
+            0.64,
+            0.236,
+            0.652
+          ],
+          "sub_type": "code",
+          "content": "```txt\ncout << trip;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.659,
+            0.494,
+            0.675
+          ],
+          "content": "则可以使用下面的任何一种形式来初始化对象:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.119,
+            0.68,
+            0.748,
+            0.725
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nBozo dribble = bozo(44);    // primary form\nBozo roon(66);            // secondary form\nBozo tubby = 32;          // special form for one-argument constructors\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.731,
+            0.918,
+            0.766
+          ],
+          "content": "实际上，第三个示例是新内容，不属于复习内容，但现在正是介绍它的好时机。第11章将介绍一种关闭这项特性的方式，因为它可能带来令人不愉快的意外。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.775,
+            0.714,
+            0.79
+          ],
+          "content": "警告:接受一个参数的构造函数允许使用赋值语法将对象初始化为一个值:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.12,
+            0.8,
+            0.34,
+            0.814
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nClassname object = value;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.821,
+            0.666,
+            0.836
+          ],
+          "content": "这种特性可能导致问题，但正如第11章将介绍的，可关闭这项特性。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.839,
+            0.919,
+            0.892
+          ],
+          "content": "默认构造函数没有参数，因此如果创建对象时没有进行显式地初始化，则将调用默认构造函数。如果程序中没有提供任何构造函数，则编译器会为程序定义一个默认构造函数；否则，必须自己提供默认构造函数。默认构造函数可以没有任何参数；如果有，则必须给所有参数都提供默认值:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.119,
+            0.898,
+            0.766,
+            0.927
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nBozo();                                // default constructor prototype\nBistro(const char * s = \"Chez Zero\");      // default for Bistro class\n```",
+          "captions": [],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 380,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.428,
+            0.067,
+            0.584,
+            0.082
+          ],
+          "content": "第 10 章 对象和类"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.893,
+            0.069,
+            0.924,
+            0.081
+          ],
+          "content": "363"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.102,
+            0.586,
+            0.118
+          ],
+          "content": "对于未被初始化的对象，程序将使用默认构造函数来创建:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.122,
+            0.124,
+            0.449,
+            0.152
+          ],
+          "sub_type": "code",
+          "content": "```txt\nBozo bubi;            // use default\nBozo *pb = new Bozo;   // use default\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.087,
+            0.159,
+            0.923,
+            0.211
+          ],
+          "content": "就像对象被创建时程序将调用构造函数一样，当对象被删除时，程序将调用析构函数。每个类都只能有一个析构函数。析构函数没有返回类型（连 void 都没有），也没有参数，其名称为类名称前加上\\~。例如，Bozo 类的析构函数的原型如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.121,
+            0.215,
+            0.397,
+            0.228
+          ],
+          "sub_type": "code",
+          "content": "```javascript\n~Bozo(); // class destructor\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.235,
+            0.621,
+            0.251
+          ],
+          "content": "如果构造函数使用了 new，则必须提供使用 delete 的析构函数。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.089,
+            0.279,
+            0.304,
+            0.299
+          ],
+          "level": 2,
+          "content": "10.4 this 指针"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.088,
+            0.327,
+            0.923,
+            0.361
+          ],
+          "content": "对于 Stock 类，还有很多工作要做。到目前为止，每个类成员函数都只涉及一个对象，即调用它的对象。但有时候方法可能涉及到两个对象，在这种情况下需要使用 C++ 的 this 指针。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.088,
+            0.364,
+            0.924,
+            0.417
+          ],
+          "content": "虽然 Stock 类声明可以显示数据，但它缺乏分析能力。例如，从 show() 的输出我们可以知道持有的哪一支股票价格最高，但由于程序无法直接访问 total\\_val，因此无法作出判断。要让程序知道存储的数据，最直接的方式是让方法返回一个值。为此，通常使用内联代码，如下例所示:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.123,
+            0.422,
+            0.526,
+            0.57
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nclass Stock\n{\nprivate:\n    ...\n    double total_val;\n    ...\npublic:\n    double total() const { return total_val; }\n    ...\n};\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.088,
+            0.577,
+            0.925,
+            0.63
+          ],
+          "content": "就直接程序访问而言，上述定义实际上是使 total\\_val 为只读的。也就是说，可以使用方法 total\\_val() 来获得 total\\_val 的值，但这个类没有提供专门用于重新设置 total\\_val 的值的方法（作为一种副产品，其他方法，如 buy()、sell() 和 update() 确实在重新设置成员 shares 和 share\\_val 的值的同时修改了 total\\_val 的值）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.087,
+            0.632,
+            0.924,
+            0.703
+          ],
+          "content": "通过将该函数添加到类声明中，可以让程序查看一系列股票，找到价格最高的那一支。然而，可以采用另一种方法——一种帮助您了解 this 指针的方法。这种方法是，定义一个成员函数，它查看两个 Stock 对象，并返回股价较高的那个对象的引用。实现这种方法时，将出现一些有趣的问题，下面就来讨论这些问题。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.087,
+            0.706,
+            0.924,
+            0.776
+          ],
+          "content": "首先，如何将两个要比较的对象提供给成员函数呢？例如，假设将该方法命名为 topval()，则函数调用 stock1.topval() 将访问 stock1 对象的数据，而 stock2.topval() 将访问 stock2 对象的数据。如果希望该方法对两个对象进行比较，则必须将第二个对象作为参数传递给它。出于效率方面的考虑，可以按引用来传递参数，也就是说，topval() 方法使用一个类型为 const Stock & 的参数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.088,
+            0.78,
+            0.923,
+            0.814
+          ],
+          "content": "其次，如何将方法的答案传回给调用程序呢？最直接的方法是让方法返回一个引用，该引用指向股价总值较高的对象。因此，用于比较的方法的原型如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.122,
+            0.817,
+            0.507,
+            0.83
+          ],
+          "sub_type": "code",
+          "content": "```txt\nconst Stock & topval(const Stock & s) const;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.088,
+            0.837,
+            0.924,
+            0.889
+          ],
+          "content": "该函数隐式地访问一个对象，而显式地访问另一个对象，并返回其中一个对象的引用。括号中的 const 表明，该函数不会修改被显式地访问的对象；而括号后的 const 表明，该函数不会修改被隐式地访问的对象。由于该函数返回了两个 const 对象之一的引用，因此返回类型也应为 const 引用。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.088,
+            0.892,
+            0.923,
+            0.926
+          ],
+          "content": "假设要对 Stock 对象 stock1 和 stock2 进行比较，并将其中股价总值较高的那一个赋给 top 对象，则可以使用下面两条语句之一:"
+        }
+      ]
+    },
+    {
+      "page_idx": 381,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.088,
+            0.068,
+            0.121,
+            0.081
+          ],
+          "content": "364"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.369,
+            0.066,
+            0.64,
+            0.081
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.121,
+            0.104,
+            0.375,
+            0.134
+          ],
+          "sub_type": "code",
+          "content": "```javascript\ntop = stock1.topval(stock2);\ntop = stock2.topval(stock1);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.085,
+            0.139,
+            0.923,
+            0.193
+          ],
+          "content": "第一种格式隐式地访问 stock1，而显式地访问 stock2；第二种格式显式地访问 stock1，而隐式地访问 stock2（参见图10.3）。无论使用哪一种方式，都将对这两个对象进行比较，并返回股价总值较高的那一个对象。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.22,
+            0.209,
+            0.797,
+            0.475
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Stock & Stock::topval(Stock & s)\\n{ if (s.total_val > total_val)\\n}\"] --> B[\"s.total_val 引用\\njinx.total_val\"]\n  B --> C[\"nero.topval(jinx);\"]\n  C --> D[\"因为这个对象调用类成员函数，所以隐式访问\"]\n  C --> E[\"因为这个对象作为函数参数传递，所以显式访问\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.37,
+                0.482,
+                0.637,
+                0.497
+              ],
+              "content": "图 10.3 使用成员函数访问两个对象"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_381_image_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.087,
+            0.508,
+            0.923,
+            0.543
+          ],
+          "content": "实际上，这种表示法有些混乱。如果可以使用关系运算符>来比较这两个对象，将更为清晰。可以使用运算符重载（参见第11章）完成这项工作。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.545,
+            0.871,
+            0.562
+          ],
+          "content": "同时，还要注意的是 topval() 的实现，它将引发一个小问题。下面的部分实现强调了这个问题:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.123,
+            0.565,
+            0.562,
+            0.674
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nconst Stock & Stock::topval(const Stock & s) const\n    if (s.total_val > total_val)\n        return s;          // argument object\n    else\n        return ?????;       // invoking object\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.086,
+            0.679,
+            0.924,
+            0.75
+          ],
+          "content": "其中，s.total\\_val 是作为参数传递的对象的总值，total\\_val 是用来调用该方法的对象的总值。如果 s.total\\_val 大于 toatl\\_val，则函数将返回指向 s 的引用；否则，将返回用来调用该方法的对象（在 OOP 中，是 topval 消息要发送给的对象）。问题在于，如何称呼这个对象？如果调用 stock1.topval(stock2)，则 s 是 stock2 的引用（即 stock2 的别名），但 stock1 没有别名。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.086,
+            0.753,
+            0.924,
+            0.861
+          ],
+          "content": "C++解决这种问题的方法是:使用被称为this的特殊指针。this指针指向用来调用成员函数的对象（this被作为隐藏参数传递给方法）。这样，函数调用stock1.topval（stock2）将this设置为stock1对象的地址，使得这个指针可用于topval()方法。同样，函数调用stock2.topval（stock1）将this设置为stock2对象的地址。一般来说，所有的类方法都将this指针设置为调用它的对象的地址。确实，topval()中的total\\_val只不过是this->total\\_val的简写（第4章使用->运算符，通过指针来访问结构成员。这也适用于类成员）（参见图10.4）。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.124,
+            0.87,
+            0.173,
+            0.884
+          ],
+          "level": 2,
+          "content": "注意:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.087,
+            0.888,
+            0.923,
+            0.923
+          ],
+          "content": "每个成员函数（包括构造函数和析构函数）都有一个 this 指针。this 指针指向调用对象。如果方法需要引用整个调用对象，则可以使用表达式 \\*this。在函数的括号后面使用 const 限定符将 this 限定为 const，"
+        }
+      ]
+    },
+    {
+      "page_idx": 382,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.43,
+            0.065,
+            0.587,
+            0.08
+          ],
+          "content": "第 10 章 对象和类"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.894,
+            0.066,
+            0.925,
+            0.079
+          ],
+          "content": "365"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.091,
+            0.1,
+            0.395,
+            0.115
+          ],
+          "content": "这样将不能使用 this 来修改对象的值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.091,
+            0.118,
+            0.923,
+            0.153
+          ],
+          "content": "然而，要返回的并不是 this，因为 this 是对象的地址，而是对象本身，即 \\*this（将解除引用运算符\\*用于指针，将得到指针指向的值）。现在，可以将 \\*this 作为调用对象的别名来完成前面的方法定义。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.256,
+            0.189,
+            0.77,
+            0.476
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Stock kate(&quot;Woof, Inc.&quot;, 100, 63); Stock joe(&quot;Pryal Co.&quot;, 120, 30);\"] --> B[\"创建2个对象\"]\n  C[\"Kate\"] --> D[\"const Stock & Stock::topval(const Stock & s) const\\n{ if (s.total_val > total_val)\\n return s;\\n else return *this;\\n}\"]\n  E[\"Pryal Co.\\n120\\n30\\n3600\"] --> F[\"joe\"]\n  G[\"joe.topval(kate);\"] --> H[\"this\"]\n  I[\"kate.topval(joe);\"] --> J[\"this\"]\n  K[\"topval() 成员函数\"] --> L[\"const Stock & Stock::topval(const Stock & s) const\\n{ if (s.total_val > total_val)\\n return s;\\n else return *this;\\n}\"]\n  M[\"joe.topval(kate);\"] --> N[\"this\"]\n  O[\"kate.topval(joe);\"] --> P[\"使用kate来调用topval(), 因此s是joe, this指向kate, *this是kate\"]\n  Q[\"joe.topval(kate);\"] --> R[\"使用joe来调用topval(), 因此s是kate, this指向joe, *this是joe\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_382_image_4.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.527,
+            0.564,
+            0.631
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nconst Stock & Stock::topval(const Stock & s) const\n{\n    if (s.total_val > total_val)\n        return s;          // argument object\n    else\n        return *this;      // invoking object\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.41,
+                0.498,
+                0.606,
+                0.512
+              ],
+              "content": "图 10.4 this 指向调用对象"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.126,
+            0.638,
+            0.903,
+            0.654
+          ],
+          "content": "返回类型为引用意味着返回的是调用对象本身，而不是其副本。程序清单 10.7 列出了新的头文件。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.689,
+            0.599,
+            0.915
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// stock20.h -- augmented version\n#ifndef STOCK20_H_\n#define STOCK20_H_\n#include <string>\n\nclass Stock\n{\nprivate:\n    std::string company;\n    int shares;\n    double share_val;\n    double total_val;\n    void set_tot() { total_val = shares * share_val; }\npublic:\n    Stock();          // default constructor\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.128,
+                0.667,
+                0.341,
+                0.682
+              ],
+              "content": "程序清单 10.7 stock20.h"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 383,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.088,
+            0.065,
+            0.119,
+            0.077
+          ],
+          "content": "366"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.369,
+            0.063,
+            0.64,
+            0.078
+          ],
+          "content": "C++ Primer Plus（第6版）中文版"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.121,
+            0.097,
+            0.672,
+            0.246
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nStock(const std::string & co, long n = 0, double pr = 0.0);\n~Stock();      // do-nothing destructor\nvoid buy(long num, double price);\nvoid sell(long num, double price);\nvoid update(double price);\nvoid show()const;\nconst Stock & topval(const Stock & s) const;\n};\n\n#endif\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.085,
+            0.252,
+            0.921,
+            0.286
+          ],
+          "content": "程序清单 10.8 列出了修订后的类方法文件，其中包括新的 topval() 方法。另外，现在您已经了解了构造函数和析构函数的工作原理，因此这里没有显示消息。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.119,
+            0.321,
+            0.725,
+            0.924
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// stock20.cpp -- augmented version\n#include <iostream>\n#include \"stock20.h\"\n\n// constructors\nStock::Stock()          // default constructor\n{\n    company = \"no name\";\n    shares = 0;\n    share_val = 0.0;\n    total_val = 0.0;\n}\n\nStock::Stock(const std::string & co, long n, double pr)\n{\n    company = co;\n\n    if (n < 0)\n    {\n        std::cout << \"Number of shares can't be negative; \"\n            << company << \" shares set to 0.\\n\";\n        shares = 0;\n    }\n    else\n        shares = n;\n    share_val = pr;\n    set_tot();\n}\n\n// class destructor\nStock::~Stock()         // quiet class destructor\n{\n}\n\n// other methods\nvoid Stock::buy(long num, double price)\n{\n    if (num < 0)\n    {\n        std::cout << \"Number of shares purchased can't be negative.\"\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.122,
+                0.299,
+                0.353,
+                0.316
+              ],
+              "content": "程序清单 10.8 stock20.cpp"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "C++ Primer Plus  第6版  中文版",
+      "authors": [
+        "（美）普拉达著"
+      ],
+      "created_at": "2013-05-11T11:47:22+08:00",
+      "modified_at": "2013-05-11T11:47:22+08:00",
+      "creator_application": "Pdg2Pic",
+      "producer_application": "FreePic2Pdf_Lib - v3.02",
+      "page_count": 955,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "ocr"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 352,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 353,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 354,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 355,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 356,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 357,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 358,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 359,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 360,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 361,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 362,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 363,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 364,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 365,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 366,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 367,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 368,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 369,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 370,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 371,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 372,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 373,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 374,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 375,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 376,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 377,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 378,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 379,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 380,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 381,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 382,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 383,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

@@ -1,0 +1,1768 @@
+{
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "C++ Primer Plus  第6版  中文版",
+      "authors": [
+        "（美）普拉达著"
+      ],
+      "created_at": "2013-05-11T11:47:22+08:00",
+      "modified_at": "2013-05-11T11:47:22+08:00",
+      "creator_application": "Pdg2Pic",
+      "producer_application": "FreePic2Pdf_Lib - v3.02",
+      "page_count": 955,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "ocr"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 928,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 929,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 930,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        },
+        {
+          "page_idx": 931,
+          "width_pt": 471.11810302734375,
+          "height_pt": 695.6428833007812
+        },
+        {
+          "page_idx": 932,
+          "width_pt": 471.11810302734375,
+          "height_pt": 671.6552124023438
+        }
+      ]
+    }
+  },
+  "pages": [
+    {
+      "page_idx": 928,
+      "blocks": [
+        {
+          "type": "doc_title",
+          "index": 0,
+          "bbox": [
+            0.246,
+            0.134,
+            0.817,
+            0.166
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "附录 I 转换为 ISO 标准 C++"
+            }
+          ],
+          "level": 1
+        },
+        {
+          "type": "text",
+          "index": 1,
+          "bbox": [
+            0.112,
+            0.227,
+            0.941,
+            0.262
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "您可能想将一些用 C 或老式 C++ 版本开发的程序转换为标准 C++, 本附录提供了这方面的一些指南。其中的一些内容是关于从 C 转换为 C++ 的，另一些是关于从老式 C++ 转换为标准 C++ 的。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 2,
+          "bbox": [
+            0.112,
+            0.289,
+            0.689,
+            0.31
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "1.1 使用一些预处理器编译指令的替代品"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.111,
+            0.338,
+            0.949,
+            0.41
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C/C++预处理器提供了一系列的编译指令。通常，C++惯例是使用这些编译指令来管理编译过程，而避免用编译指令替换代码。例如，#include 编译指令是管理程序文件的重要组件。其他编译指令（如#ifndef 和 #endif）使得能够控制是否对特定的代码块进行编译。#pragma 编译指令使得能够控制编译器特定的编译选项。这些都是非常有帮助（有时是必不可少）的工具。但使用#define 编译指令时应谨慎。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 4,
+          "bbox": [
+            0.148,
+            0.421,
+            0.504,
+            0.437
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "I.1.1 使用 const 而不是#define 来定义常量"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.113,
+            0.449,
+            0.948,
+            0.482
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "符号常量可提高代码的可读性和可维护性。常量名指出了其含义，如果要修改它的值，只需定义修改一次，然后重新编译即可。C 使用预处理器来创建常量的符号名称。"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 6,
+          "bbox": [
+            0.148,
+            0.485,
+            0.345,
+            0.499
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 6,
+              "bbox": [
+                0.148,
+                0.485,
+                0.345,
+                0.499
+              ],
+              "content": "#define MAX_LENGTH 100"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.147,
+            0.506,
+            0.884,
+            0.521
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "这样，预处理器将在编译之前对源代码执行文本置换，即用 100 替换所有的 MAX_LENGTH。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 8,
+          "bbox": [
+            0.148,
+            0.524,
+            0.458,
+            0.539
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "而 C++ 则在变量声明使用限定符 const:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 9,
+          "bbox": [
+            0.148,
+            0.549,
+            0.385,
+            0.562
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 9,
+              "bbox": [
+                0.148,
+                0.549,
+                0.385,
+                0.562
+              ],
+              "content": "const int MAX_LENGTH = 100;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "javascript"
+        },
+        {
+          "type": "text",
+          "index": 10,
+          "bbox": [
+            0.148,
+            0.57,
+            0.557,
+            0.586
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "这样 MAX_LENGTH 将被视为一个只读的 int 变量。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 11,
+          "bbox": [
+            0.112,
+            0.589,
+            0.949,
+            0.641
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "使用 const 的方法有很多优越性。首先，声明显式指明了类型。使用# define 时，必须在数字后加上各种后缀来指出除 char、int 或 double 之外的类型。例如，使用 100L 来表明 long 类型，使用 3.14F 来表明 float 类型。更重要的是，const 方法可以很方便地用于复合类型，如下例所示:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 12,
+          "bbox": [
+            0.147,
+            0.647,
+            0.643,
+            0.676
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 12,
+              "bbox": [
+                0.147,
+                0.647,
+                0.643,
+                0.676
+              ],
+              "content": "const int base_vals[5] = {1000, 2000, 3500, 6000, 10000};\nconst string ans[3] = {\"yes\", \"no\", \"maybe\"};"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 13,
+          "bbox": [
+            0.112,
+            0.684,
+            0.948,
+            0.734
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "最后，const标识符遵循变量的作用域规则，因此，可以创建作用域为全局、名称空间或数据块的常量。在特定函数中定义常量时，不必担心其定义会与程序的其他地方使用的全局常量冲突。例如，对于下面的代码:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 14,
+          "bbox": [
+            0.148,
+            0.741,
+            0.309,
+            0.875
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 14,
+              "bbox": [
+                0.148,
+                0.741,
+                0.309,
+                0.875
+              ],
+              "content": "#define n 5\nconst int dz = 12;\n...\nvoid fizzle()\n{\n    int n;\n    int dz;\n    ...\n}"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 15,
+          "bbox": [
+            0.15,
+            0.882,
+            0.269,
+            0.896
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "预处理器将把:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 16,
+          "bbox": [
+            0.149,
+            0.901,
+            0.203,
+            0.913
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 16,
+              "bbox": [
+                0.149,
+                0.901,
+                0.203,
+                0.913
+              ],
+              "content": "int n;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        }
+      ]
+    },
+    {
+      "page_idx": 929,
+      "blocks": [
+        {
+          "type": "page_number",
+          "index": 0,
+          "bbox": [
+            0.072,
+            0.067,
+            0.102,
+            0.079
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "912"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 1,
+          "bbox": [
+            0.352,
+            0.066,
+            0.623,
+            0.08
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C++ Primer Plus（第6版）中文版"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 2,
+          "bbox": [
+            0.106,
+            0.1,
+            0.172,
+            0.116
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "替换为:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.105,
+            0.12,
+            0.16,
+            0.133
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "int 5;"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.07,
+            0.139,
+            0.905,
+            0.173
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "从而导致编译错误。而 fizzle() 中定义的 dz 是本地变量。另外，必要时，fizzle() 可以使用作用域解析运算符 (::)，以 ::dz 的方式访问该常量。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.069,
+            0.176,
+            0.906,
+            0.284
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "虽然 C++ 借鉴了 C 语言中的关键字 const，但 C++ 版本更有用。例如，对于外部 const 值，C++ 版本有内部链接，而不是变量和 C 中 const 所使用的默认外部链接。这意味着使用 const 的程序中的每个文件都必须定义该 const。这好像增加了工作量，但实际上，它使工作更简单。使用内部链接时，可以将 const 定义放在工程中的各种文件使用的头文件中。对于外部链接，这将导致编译错误，但对于内部链接，情况并非如此。另外，由于 const 必须在使用它的文件中定义（在该文件使用的头文件中定义也满足这样的要求），因此可以将 const 值用作数组长度参数:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 6,
+          "bbox": [
+            0.104,
+            0.289,
+            0.42,
+            0.361
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 6,
+              "bbox": [
+                0.104,
+                0.289,
+                0.42,
+                0.361
+              ],
+              "content": "const int MAX_LENGTH = 100;\n...\ndouble loads[MAX_LENGTH];\nfor (int i = 0; i < MAX_LENGTH; i++)\n    loads[i] = 50;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.069,
+            0.367,
+            0.903,
+            0.42
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "这在 C 语言中是行不通的，因为定义 MAX_LENGTH 的声明可能位于一个独立的文件中，在编译时，该文件可能不可用。坦白地说，在 C 语言中，可以使用 static 限定符来创建内部链接常量。也就是说，C++ 通过默认使用 static，让您可以少记住一件事。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 8,
+          "bbox": [
+            0.07,
+            0.423,
+            0.904,
+            0.457
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "顺便说一句，修订后的 C 标准（C99）允许将 const 用作数组长度，但必须将数组作为一种新式数组——变量数组，而这不是 C++标准的一部分。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.105,
+            0.46,
+            0.595,
+            0.475
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "在控制何时编译头文件方面，# define 编译指令仍然很有帮助:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 10,
+          "bbox": [
+            0.105,
+            0.481,
+            0.277,
+            0.554
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 10,
+              "bbox": [
+                0.105,
+                0.481,
+                0.277,
+                0.554
+              ],
+              "content": "// blooper.h\n#ifndef _BLOOPER_H_\n#define _BLOOPER_H_\n// code goes here\n#endif"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        },
+        {
+          "type": "text",
+          "index": 11,
+          "bbox": [
+            0.07,
+            0.56,
+            0.904,
+            0.594
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "但对于符号常量，习惯上还是使用 const，而不是#define。另一个好方法——尤其是在有一组相关的整型常量时——是使用 enum:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 12,
+          "bbox": [
+            0.104,
+            0.597,
+            0.576,
+            0.611
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 12,
+              "bbox": [
+                0.104,
+                0.597,
+                0.576,
+                0.611
+              ],
+              "content": "enum {LEVEL1 = 1, LEVEL2 = 2, LEVEL3 = 4, LEVEL4 = 8};"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "javascript"
+        },
+        {
+          "type": "paragraph_title",
+          "index": 13,
+          "bbox": [
+            0.105,
+            0.62,
+            0.502,
+            0.636
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "I.1.2 使用 inline 而不是# define 来定义小型函数"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 14,
+          "bbox": [
+            0.104,
+            0.648,
+            0.738,
+            0.664
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "在创建类似于内联函数的东西时，传统的 C 语言方式是使用一个#define 宏定义:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 15,
+          "bbox": [
+            0.105,
+            0.667,
+            0.294,
+            0.68
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "#define Cube(X) X*X*X"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 16,
+          "bbox": [
+            0.105,
+            0.687,
+            0.595,
+            0.703
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "这将导致预处理器进行文本置换，将 X 替换为 Cube() 的参数:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 17,
+          "bbox": [
+            0.104,
+            0.708,
+            0.637,
+            0.737
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 17,
+              "bbox": [
+                0.104,
+                0.708,
+                0.637,
+                0.737
+              ],
+              "content": "y = Cube(x);      // replaced with y = x*x*x;\ny = Cube(x + z++);  // replaced with x + z++*x + z++*x + z++;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "javascript"
+        },
+        {
+          "type": "text",
+          "index": 18,
+          "bbox": [
+            0.07,
+            0.743,
+            0.901,
+            0.777
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "由于预处理器使用文本置换，而不是真正地传递参数，因此使用这种宏可能导致意外的、错误的结果。要避免这种错误，可以在宏中使用大量的圆括号来确保正确的运算顺序:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 19,
+          "bbox": [
+            0.105,
+            0.781,
+            0.359,
+            0.795
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 19,
+              "bbox": [
+                0.105,
+                0.781,
+                0.359,
+                0.795
+              ],
+              "content": "#define Cube(X) ((X)*(X)*(X))"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "lisp"
+        },
+        {
+          "type": "text",
+          "index": 20,
+          "bbox": [
+            0.105,
+            0.801,
+            0.534,
+            0.816
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "但即使这样做，也无法处理使用诸如  "
+            },
+            {
+              "type": "equation_inline",
+              "content": "Z++"
+            },
+            {
+              "type": "text",
+              "content": "  等值的情况。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 21,
+          "bbox": [
+            0.07,
+            0.819,
+            0.892,
+            0.854
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C++方法是使用关键字 inline 来标识内联函数，这种方法更可靠，因为它采用的是真正的参数传递。另外，C++内联函数可以是常规函数，也可以是类方法:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 22,
+          "bbox": [
+            0.104,
+            0.858,
+            0.246,
+            0.917
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 22,
+              "bbox": [
+                0.104,
+                0.858,
+                0.246,
+                0.917
+              ],
+              "content": "class dormant\n{\nprivate:\n    int period;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        }
+      ]
+    },
+    {
+      "page_idx": 930,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.413,
+            0.075,
+            0.65,
+            0.089
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "附录 I 转换为 ISO 标准 C++"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.917,
+            0.076,
+            0.949,
+            0.089
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "913"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 2,
+          "bbox": [
+            0.148,
+            0.106,
+            0.715,
+            0.176
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 2,
+              "bbox": [
+                0.148,
+                0.106,
+                0.715,
+                0.176
+              ],
+              "content": "...\npublic:\n    int Period() const { return period; } // automatically inline\n    ...\n};"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.113,
+            0.183,
+            0.946,
+            0.217
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "#define 宏的一个优点是，它是无类型的，因此将其用于任何类型，运算都是有意义的。在 C++ 中，可以创建内联模板来使函数独立于类型，同时传递参数。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.148,
+            0.22,
+            0.621,
+            0.236
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "总之，请使用 C++内联技术，而不是 C 语言中的#define 宏。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 5,
+          "bbox": [
+            0.112,
+            0.26,
+            0.376,
+            0.282
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "1.2 使用函数原型"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.112,
+            0.307,
+            0.941,
+            0.34
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "实际上，您没有选择的余地。虽然在 C 语言中，原型是可选的，但在 C++ 中，它确实是必不可少的。请注意，在使用之前定义的函数（如内联函数）是其原型。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.111,
+            0.344,
+            0.947,
+            0.397
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "应尽可能在函数原型和函数头中使用 const。具体地说，对于表示不可修改的数据的指针参数和引用参数，应使用 const。这不仅使编译器能够捕获修改数据的错误，也使函数更为通用。也就是说，接受 const 指针或引用的函数能够同时处理 const 数据和非 const 数据，而不使用 const 指针或引用的函数只能处理非 const 数据。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 8,
+          "bbox": [
+            0.112,
+            0.42,
+            0.373,
+            0.44
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "1.3 使用类型转换"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.111,
+            0.467,
+            0.936,
+            0.501
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "Stroustrup 对 C 语言的抱怨之一是其无规律可循的类型转换运算符。确实，类型转换通常是必需的，但标准类型转换太不严格。例如，对于下面的代码:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 10,
+          "bbox": [
+            0.146,
+            0.505,
+            0.544,
+            0.64
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 10,
+              "bbox": [
+                0.146,
+                0.505,
+                0.544,
+                0.64
+              ],
+              "content": "struct Doof\n{\n    double feeb;\n    double steeb;\n    char sgif[10];\n};\nDoof leam;\nshort * ps = (short *) & leam;  // old syntax\nint * pi = int * (&leam);          // new syntax"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "c"
+        },
+        {
+          "type": "text",
+          "index": 11,
+          "bbox": [
+            0.146,
+            0.646,
+            0.738,
+            0.662
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C 语言不能防止将一种类型的指针转换为另一种完全不相关的类型的指针。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 12,
+          "bbox": [
+            0.111,
+            0.665,
+            0.948,
+            0.737
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "从某种意义上看，这种情况与 goto 语句相似。goto 语句的问题太灵活了，导致代码混乱。解决方法是提供更严格的、结构化程度更高的 goto 版本，来处理需要使用 goto 语句的常见任务，诸如 for 循环、while 循环和 if else 语句等语言元素应运而生。对于类型转换不严格的问题，标准 C++ 提供了类似的解决方案，即用严格的类型转换来处理最常见的、需要进行类型转换的情况。下面是第 15 章介绍的类型转换运算符:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 13,
+          "bbox": [
+            0.15,
+            0.74,
+            0.352,
+            0.809
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 13,
+              "bbox": [
+                0.15,
+                0.74,
+                0.352,
+                0.809
+              ],
+              "content": "- dynamic_cast;\n- static_cast;\n- const_cast;\n- reinterpret_cast."
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 14,
+          "bbox": [
+            0.112,
+            0.812,
+            0.946,
+            0.846
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "因此，在执行涉及指针的类型转换时，应尽可能使用上述运算符之一。这样做不但可以指出类型转换的目的，并可以检查类型转换是否是按预期那样使用的。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 15,
+          "bbox": [
+            0.111,
+            0.87,
+            0.38,
+            0.89
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "1.4 熟悉 C++特性"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 16,
+          "bbox": [
+            0.146,
+            0.917,
+            0.934,
+            0.934
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "如果使用的是 malloc() 和 free()，请改用 new 和 delete；如果是使用 setjmp() 和 longjmp() 处理错误，"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 931,
+      "blocks": [
+        {
+          "type": "page_number",
+          "index": 0,
+          "bbox": [
+            0.073,
+            0.075,
+            0.104,
+            0.087
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "914"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 1,
+          "bbox": [
+            0.354,
+            0.074,
+            0.624,
+            0.088
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C++ Primer Plus（第6版）中文版"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 2,
+          "bbox": [
+            0.071,
+            0.108,
+            0.785,
+            0.123
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "则请改用 try、throw 和 catch。另外，对于表示 true 和 false 的值，应将其类型声明为 bool。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 3,
+          "bbox": [
+            0.071,
+            0.146,
+            0.363,
+            0.166
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "1.5 使用新的头文件"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.07,
+            0.189,
+            0.907,
+            0.277
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C++标准指定了头文件的新名称，请参见第2章。如果使用的是老式头文件，则应当改用新名称。这样做不仅仅是形式上的改变，因为新版本有时新增了特性。例如，头文件ostream提供了对宽字符输入和输出的支持，还提供了新的控制符，如boolalpha和fixed（请参见第17章）。对于众多格式化选项的设置来说，这些控制符提供的接口比使用setf()或iomanip函数更简单。如果确实使用的是setf()，则在指定常量时，请使用ios_base而不是ios，即使用ios_base::fixed而不是ios::fixed。另外，新的头文件包含名称空间。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 5,
+          "bbox": [
+            0.071,
+            0.298,
+            0.334,
+            0.318
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "1.6 使用名称空间"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.071,
+            0.343,
+            0.895,
+            0.375
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "名称空间有助于组织程序中使用的标识符，避免名称冲突。由于标准库是使用新的头文件组织实现的，它将名称放在 std 名称空间中，因此使用这些头文件需要处理名称空间。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.107,
+            0.378,
+            0.794,
+            0.394
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "出于简化的目的，本书的示例通常使用编译指令 using 来使 std 名称空间中的名称可用:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 8,
+          "bbox": [
+            0.107,
+            0.397,
+            0.6,
+            0.454
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 8,
+              "bbox": [
+                0.107,
+                0.397,
+                0.6,
+                0.454
+              ],
+              "content": "#include <iostream>\n#include <string>\n#include <vector>\nusing namespace std;            // a using-directive"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "cpp"
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.107,
+            0.458,
+            0.806,
+            0.473
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "然而，不管需要与否，都导出名称空间中的所有名称，是与名称空间的初衷背道而驰的。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 10,
+          "bbox": [
+            0.107,
+            0.476,
+            0.767,
+            0.492
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "稍微要好些的方法是，在函数中使用 using 编译指令，这将使名称在该函数中可用。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 11,
+          "bbox": [
+            0.073,
+            0.494,
+            0.903,
+            0.527
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "更好也是推荐的方法是，使用 using 声明或作用域解析运算符（::），只使程序需要的名称可用。例如，下面的代码使 cin、cout 和 end1 可用于文件的剩余部分:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 12,
+          "bbox": [
+            0.107,
+            0.531,
+            0.616,
+            0.587
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 12,
+              "bbox": [
+                0.107,
+                0.531,
+                0.616,
+                0.587
+              ],
+              "content": "#include <iostream>\nusing std::cin;                      // a using-declaration\nusing std::cout;\nusing std::endl;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "cpp"
+        },
+        {
+          "type": "text",
+          "index": 13,
+          "bbox": [
+            0.107,
+            0.592,
+            0.662,
+            0.607
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "但使用作用域解析运算符只能使名称在使用该运算符的表达式中可用:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 14,
+          "bbox": [
+            0.107,
+            0.61,
+            0.744,
+            0.624
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 14,
+              "bbox": [
+                0.107,
+                0.61,
+                0.744,
+                0.624
+              ],
+              "content": "cout << std::fixed << x << endl;    //using the scope resolution operator"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "cpp"
+        },
+        {
+          "type": "text",
+          "index": 15,
+          "bbox": [
+            0.107,
+            0.628,
+            0.638,
+            0.644
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "这样做可能很麻烦，但可以将通用的 using 声明放在一个头文件中:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 16,
+          "bbox": [
+            0.107,
+            0.648,
+            0.616,
+            0.704
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 16,
+              "bbox": [
+                0.107,
+                0.648,
+                0.616,
+                0.704
+              ],
+              "content": "// mynames - a header file\nusing std::cin;                      // a using-declaration\nusing std::cout;\nusing std::endl;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 17,
+          "bbox": [
+            0.107,
+            0.709,
+            0.493,
+            0.725
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "还可以将通用的 using 声明放在一个名称空间中:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 18,
+          "bbox": [
+            0.107,
+            0.729,
+            0.341,
+            0.902
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 18,
+              "bbox": [
+                0.107,
+                0.729,
+                0.341,
+                0.902
+              ],
+              "content": "// mynames - a header file\n#include <iostream>\n\nnamespace io\n{\n    using std::cin;\n    using std::cout;\n    using std::endl;\n}\n\nnamespace formats\n{"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "cpp"
+        }
+      ]
+    },
+    {
+      "page_idx": 932,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.421,
+            0.077,
+            0.655,
+            0.092
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "附录 I. 转换为 ISO 标准 C++"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.923,
+            0.077,
+            0.955,
+            0.091
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "915"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 2,
+          "bbox": [
+            0.186,
+            0.108,
+            0.382,
+            0.152
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 2,
+              "bbox": [
+                0.186,
+                0.108,
+                0.382,
+                0.152
+              ],
+              "content": "using std::fixed;\nusing std::scientific;\nusing std:boolalpha;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.156,
+            0.172,
+            0.584,
+            0.188
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "这样，程序可以包含该文件，并使用所需的名称空间:"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 4,
+          "bbox": [
+            0.156,
+            0.192,
+            0.324,
+            0.221
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 4,
+              "bbox": [
+                0.156,
+                0.192,
+                0.324,
+                0.221
+              ],
+              "content": "#include \"mynames\"\nusing namespace 10;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "cpp"
+        },
+        {
+          "type": "paragraph_title",
+          "index": 5,
+          "bbox": [
+            0.12,
+            0.243,
+            0.381,
+            0.264
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "1.7 使用智能指针"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.12,
+            0.288,
+            0.957,
+            0.342
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "每个 new 都应与 delete 配对使用。如果使用 new 的函数由于引发异常而提前结束，将导致问题。正如第 15 章介绍的，使用 autoptr 对象跟踪 new 创建的对象将自动完成 delete 操作。C++11 新增的 unique_ptr 和 shared_ptr 提供了更佳的替代方案。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 7,
+          "bbox": [
+            0.12,
+            0.366,
+            0.389,
+            0.39
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "1.8 使用 string 类"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 8,
+          "bbox": [
+            0.12,
+            0.412,
+            0.957,
+            0.483
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "传统的 C 风格字符串深受不是真正的类型之苦。可以将字符串存储在字符数组中，也可以将字符数组初始化为字符串。但不能使用赋值运算符将字符串赋给字符数组，而必须使用 strcpy() 或 strncpy()。不能使用关系运算符来比较 C 风格字符串，而必须使用 strcmp()（如果忘记了这一点，使用了>运算符，将不会出现语法错误；程序将比较字符串的地址，而不是字符串的内容）。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.121,
+            0.485,
+            0.957,
+            0.539
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "而 string 类（参见第 16 章和附录 F）使得能够使用对象来表示字符串，并定义了赋值运算符、关系运算符和加法运算符（用于拼接）。另外，string 类还提供了自动内存管理功能，因此通常不用担心字符串被保存前，有人可能会跨越数组边界或将字符串截短。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 10,
+          "bbox": [
+            0.121,
+            0.54,
+            0.957,
+            0.594
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "String 类提供了许多方便的方法。例如，可以将一个 string 对象追加到另一个对象的后面，也可以将 C 风格的字符串，甚至 char 值追加到 string 对象的后面。对于接受 C 风格字符串参数的函数，可以使用 c_str() 方法来返回一个适当的 char 指针。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 11,
+          "bbox": [
+            0.121,
+            0.596,
+            0.956,
+            0.632
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "string 类不仅提供了一组设计良好的方法来处理与字符串相关的工作（如查找子字符串），而且与 STL 兼容，因此，可以将 STL 算法用于 string 对象。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 12,
+          "bbox": [
+            0.121,
+            0.655,
+            0.329,
+            0.676
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "1.9 使用STL"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 13,
+          "bbox": [
+            0.121,
+            0.7,
+            0.957,
+            0.828
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "标准模板库（请参见第16章和附录G）为许多编程需要提供了现成的解决方案，应使用它。例如，与其声明一个double或string对象数组，不如创建vector<double>对象或vector<string>对象。这样做的好处与使用string对象（而不是C风格字符串）相似。赋值运算符已被定义，因此可以使用赋值运算符将一个vector对象赋给另一个vector对象。可以按引用传递vector对象，接收这种对象的函数可以使用size()方法来确定vector对象中元素数目。内置的内存管理功能使得当使用pushback()方法在vector对象中添加元素时，其大小将自动调整。当然，还可以根据实际需要来使用其他有用的类方法和通用算法。在C++11中，如果长度固定的数组是更好的解决方案，可使用array<double>或array<string>。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 14,
+          "bbox": [
+            0.121,
+            0.829,
+            0.957,
+            0.882
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "如果需要链表、双端队列（或队列）、栈、常规队列、集合或映射，应使用 STL，它提供了有用的容器模板。算法库使得可以将矢量的内容轻松地复制到链表中，或将集合的内容同矢量进行比较。这种设计使得 STL 成为一个工具箱，它提供了基本部件，可以根据自己的需要进行装配。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 15,
+          "bbox": [
+            0.121,
+            0.885,
+            0.957,
+            0.938
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "在设计内容广泛的算法库时，效率是一个主要的设计目标，因此只需要完成少量的编程工作，便可以得到最好的结果。另外，实现算法时使用了迭代器的概念，这意味着这些算法不仅可用于STL容器。具体地说，它们也可用于传统数组。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "is_full_document": false,
+  "schema": "docvortex.middle",
+  "schema_version": "2.0"
+}
