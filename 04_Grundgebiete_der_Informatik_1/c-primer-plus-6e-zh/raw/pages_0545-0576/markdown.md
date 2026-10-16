@@ -1,0 +1,692 @@
+符视为错误响应。为了让程序的界面更流畅，该函数应该跳过这些换行符。
+
+这类问题有多种解决方案。一种是用名为get\_first()的新函数替换getchar()函数，读取一行的第1个字符并丢弃剩余的字符。这种方法的优点是，把类似act这样的输入视为简单的a，而不是继续把act中的c作为选项c的一个有效的响应。我们重写输入函数如下:
+
+```c
+char get_choice(void)
+{
+int ch;
+printf("Enter the letter of your choice:\n");
+printf("a. advice b. bell\n");
+printf("c. count q. quit\n");
+ch = get_first();
+while ((ch < 'a' || ch > 'c') && ch != 'q')
+{
+printf("Please respond with a, b, c, or q.\n");
+ch = getfirst();
+}
+return ch;
+}
+char get_first(void)
+```
+
+```javascript
+{
+int ch;
+ch = getchar(); /* 读取下一个字符 */
+while (getchar() != '\n')
+continue; /* 跳过该行剩下的内容 */
+return ch;
+}
+```
+
+## 8.7.3 混合字符和数值输入
+
+前面分析过混合字符和数值输入会产生一些问题，创建菜单也有这样的问题。例如，假设count()函数（选择c）的代码如下:
+
+```c
+void count(void)
+{
+int n, i;
+printf("Count how far? Enter an integer:\n");
+scanf("%d", &n);
+for (i = 1; i <= n; i++)
+printf("%d\n", i);
+}
+```
+
+如果输入3作为响应，scanf()会读取3并把换行符留在输入队列中。下次调用 get\_choice()将导致get\_first()返回这个换行符，从而导致我们不希望出现的行为。
+
+重写 get\_first()，使其返回下一个非空白字符而不仅仅是下一个字符，即可修复这个问题。我们把这个任务留给读者作为练习。另一种方法是，在count()函数中清理换行符，如下所示:
+
+```c
+void count(void)
+{
+int n, i;
+printf("Count how far? Enter an integer:\n");
+n = get_int();
+for (i = 1; i <= n; i++)
+printf("%d\n", i);
+while (getchar() != '\n')
+continue;
+}
+```
+
+该函数借鉴了程序清单8.7中的get\_long()函数，将其改为get\_int()获取int类型的数据而不是long类型的数据。回忆一下，原来的get\_long()函数如何检查有效输入和让用户重新输入。程序清单8.8演示了菜单程序的最终版本。
+
+程序清单**8.8 menuette.c**程序
+
+/\* menuette.c -- 菜单程序 \*/
+
+#include &lt;stdio.h&gt;
+
+```c
+char get_choice(void);
+char get_first(void);
+int get_int(void);
+void count(void);
+int main(void)
+{
+int choice;
+void count(void);
+while ((choice = get_choice()) != 'q')
+{
+switch (choice)
+{
+case 'a': printf("Buy low, sell high.\n");
+break;
+case 'b': putchar('\a'); /* ANSI */
+break;
+case 'c': count();
+break;
+default: printf("Program error!\n");
+```
+
+```c
+break;
+}
+}
+printf("Bye.\n");
+return 0;
+}
+void count(void)
+{
+int n, i;
+printf("Count how far? Enter an integer:\n");
+n = get_int();
+for (i = 1; i <= n; i++)
+printf("%d\n", i);
+while (getchar() != '\n')
+continue;
+}
+char get_choice(void)
+{
+int ch;
+```
+
+```c
+printf("Enter the letter of your choice:\n");
+printf("a. advice b. bell\n");
+printf("c. count q. quit\n");
+ch = get_first();
+while ((ch < 'a' || ch > 'c') && ch != 'q')
+{
+printf("Please respond with a, b, c, or q.\n");
+ch = get_first();
+}
+return ch;
+}
+char get_first(void)
+{
+int ch;
+ch = getchar();
+while (getchar() != '\n')
+continue;
+return ch;
+}
+```
+
+```c
+int get_int(void)
+{
+int input;
+char ch;
+while (scanf("%d", &input) != 1)
+{
+while ((ch = getchar()) != '\n')
+putchar(ch); // 处理错误输出
+printf(" is not an integer.\nPlease enter an ");
+printf("integer value, such as 25, -178, or 3: ");
+}
+return input;
+}
+```
+
+下面是该程序的一个运行示例:
+
+Enter the letter of your choice:
+
+a. advice
+
+b. bell
+
+c. count
+
+q. quit
+
+a
+
+Buy low, sell high.
+
+Enter the letter of your choice:
+
+a. advice
+
+b. bell
+
+c. count
+
+q. quit
+
+## count
+
+Count how far? Enter an integer:
+
+## two
+
+two is not an integer.
+
+Please enter an integer value, such as 25, -178, or 3: 5
+
+1
+2
+3
+4
+5
+
+Enter the letter of your choice:
+
+a. advice
+
+b. bell
+
+c. count
+
+q. quit
+
+## d
+
+Please respond with a, b, c, or q.
+
+## q
+
+要写出一个自己十分满意的菜单界面并不容易。但是，在开发了一种可行的方案后，可以在其他情况下复用这个菜单界面。
+
+学完以上程序示例后，还要注意在处理较复杂的任务时，如何让函数把任务委派给另一个函数。这样让程序更模块化。
+
+## 8.8 关键概念
+
+C程序把输入作为传入的字节流。getchar()函数把每个字符解释成一个字符编码。scanf()函数以同样的方式看待输入，但是根据转换说明，它可以把字符输入转换成数值。许多操作系统都提供重定向，允许用文件代替键盘输入，用文件代替显示器输出。
+
+程序通常接受特殊形式的输入。可以在设计程序时考虑用户在输入时可能犯的错误，在输入验证部分处理这些错误情况，让程序更强健更友好。
+
+对于一个小型程序，输入验证可能是代码中最复杂的部分。处理这类问题有多种方案。例如，如果用户输入错误类型的信息，可以终止程序，也可以给用户提供有限次或无限次机会重新输入。
+
+## 8.9 本章小结
+
+许多程序使用 getchar()逐字符读取输入。通常，系统使用行缓冲输入，即当用户按下 Enter 键后输入才被传送给程序。按下Enter键也传送了一个换行符，编程时要注意处理这个换行符。ANSI C把缓冲输入作为标准。
+
+通过标准I/O包中的一系列函数，以统一的方式处理不同系统中的不同文件形式，是C语言的特性之一。getchar()和 scanf()函数也属于这一系列。当检测到文件结尾时，这两个函数都返回 EOF（被定义在stdio.h头文件中）。在不同系统中模拟文件结尾条件的方式稍有不同。在UNIX系统中，在一行开始处按下Ctrl+D可以模拟文件结尾条件；而在DOS系统中则使用Ctrl+Z。
+
+许多操作系统（包括UNIX和DOS）都有重定向的特性，因此可以用文件代替键盘和屏幕进行输入和输出。读到EOF即停止读取的程序可用于键盘输入和模拟文件结尾信号，或者用于重定向文件。
+
+混合使用 getchar()和 scanf()时，如果在调用 getchar()之前，scanf()在输入行留下一个换行符，会导致一些问题。不过，意识到这个问题就可以在程序中妥善处理。
+
+编写程序时，要认真设计用户界面。事先预料一些用户可能会犯的错误，然后设计程序妥善处理这些错误情况。
+
+## 8.10 复习题
+
+复习题的参考答案在附录A中。
+
+1.putchar(getchar())是一个有效表达式，它实现什么功能？getchar(putchar())是否也是有效表达式？
+
+2.下面的语句分别完成什么任务？
+
+a.putchar('H');
+b.putchar('\007');
+c.putchar('\n');
+d.putchar('\b');
+
+3.假设有一个名为 count 的可执行程序，用于统计输入的字符数。设计一个使用 count 程序统计essay文件中字符数的命令行，并把统计结果保存在essayct文件中。
+
+4.给定复习题3中的程序和文件，下面哪一条是有效的命令？
+
+a.essayct <essay
+b.count essay
+c.essay >count
+
+5.EOF是什么？
+
+6.对于给定的输出（ch是int类型，而且是缓冲输入），下面各程序段的输出分别是什么？
+
+a.输入如下:
+
+If you quit, I will.[enter]
+
+程序段如下:
+
+while ((ch = getchar()) != 'i')
+
+putchar(ch);
+
+b.输入如下:
+
+Harhar[enter]
+
+程序段如下:
+
+```txt
+while ((ch = getchar()) != '\n')
+{
+putchar(ch++);
+putchar(++ch);
+}
+```
+
+7.C如何处理不同计算机系统中的不同文件和换行约定？
+
+8.在使用缓冲输入的系统中，把数值和字符混合输入会遇到什么潜在的问题？
+
+## 8.11 编程练习
+
+下面的一些程序要求输入以EOF终止。如果你的操作系统很难或根本无法使用重定向，请使用一些其他的测试来终止输入，如读到&字符时停止。
+
+1.设计一个程序，统计在读到文件结尾之前读取的字符数。
+2.编写一个程序，在遇到 EOF 之前，把输入作为字符流读取。程序要打印每个输入的字符及其相应的ASCII十进制值。注意，在ASCII序列中，空格字符前面的字符都是非打印字符，要特殊处理这些字符。如果非打印字符是换行符或制表符，则分别打印\n或\t。否则，使用控制字符表示法。例如，ASCII的1是Ctrl+A，可显示为^A。注意，A的ASCII值是Ctrl+A的值加上64。其他非打印字符也有类似的关系。除每次遇到换行符打印新的一行之外，每行打印10对值。（注意:不同的操作系统其控制字符可能不同。）
+3.编写一个程序，在遇到 EOF 之前，把输入作为字符流读取。该程序要报告输入中的大写字母和小写字母的个数。假设大小写字母数值是连续的。或者使用ctype.h库中合适的分类函数更方便。
+4.编写一个程序，在遇到EOF之前，把输入作为字符流读取。该程序要报告平均每个单词的字母数。不要把空白统计为单词的字母。实际上，标点符号也不应该统计，但是现在暂时不同考虑这么多（如果你比较在意这点，考虑使用ctype.h系列中的ispunct()函数）。
+5.修改程序清单8.4的猜数字程序，使用更智能的猜测策略。例如，程序最初猜50，询问用户是猜大了、猜小了还是猜对了。如果猜小了，那么下一次猜测的值应是50和100中值，也就是75。如果这次猜大了，那么下一次猜测的值应是50和75的中值，等等。使用二分查找（binary search）策略，如果用户没有欺骗程序，那么程序很快就会猜到正确的答案。
+6.修改程序清单8.8中的get\_first()函数，让该函数返回读取的第1个非空白字符，并在一个简单的程序中测试。
+
+7.修改第7章的编程练习8，用字符代替数字标记菜单的选项。用q代替5作为结束输入的标记。
+8.编写一个程序，显示一个提供加法、减法、乘法、除法的菜单。获得用户选择的选项后，程序提示用户输入两个数字，然后执行用户刚才选择的操作。该程序只接受菜单提供的选项。程序使用float类型的变量储存用户输入的数字，如果用户输入失败，则允许再次输入。进行除法运算时，如果用户输入0作为第2个数（除数），程序应提示用户重新输入一个新值。该程序的一个运行示例如下:
+
+Enter the operation of your choice:
+
+a. add
+
+s. subtract
+
+m. multiply
+
+d. divide
+
+q. quit
+
+a
+
+Enter first number: 22 .4
+
+Enter second number: one
+
+one is not an number.
+
+Please enter a number, such as 2.5, -1.78E8, or 3: 1
+
+22.4 + 1 = 23.4
+
+Enter the operation of your choice:
+
+a. add
+
+s. subtract
+
+m. multiply
+
+d. divide
+
+q. quit
+
+## d
+
+Enter first number: 18.4
+
+Enter second number: 0
+
+Enter a number other than 0: 0.2
+
+18.4 / 0.2 = 92
+
+Enter the operation of your choice:
+
+a. add
+
+s. subtract
+
+m. multiply
+
+d. divide
+
+q. quit
+
+## q
+
+Bye.
+
+## 第9章函数
+
+本章介绍以下内容:
+
+关键字:return
+
+运算符:\*（一元）、&（一元）
+
+函数及其定义方式
+
+如何使用参数和返回值
+
+如何把指针变量用作函数参数
+
+函数类型
+
+ANSI C原型
+
+递归
+
+如何组织程序？C的设计思想是，把函数用作构件块。我们已经用过C标准库的函数，如printf()、scanf()、getchar()、putchar()和 strlen()。现在要进一步学习如何创建自己的函数。前面章节中已大致介绍了相关过程，本章将巩固以前学过的知识并做进一步的拓展。
+
+## 9.1 复习函数
+
+首先，什么是函数？函数（function）是完成特定任务的独立程序代码单元。语法规则定义了函数的结构和使用方式。虽然C中的函数和其他语言中的函数、子程序、过程作用相同，但是细节上略有不同。一些函数执行某些动作，如printf()把数据打印到屏幕上；一些函数找出一个值供程序使用，如strlen()把指定字符串的长度返回给程序。一般而言，函数可以同时具备以上两种功能。
+
+为什么要使用函数？首先，使用函数可以省去编写重复代码的苦差。如果程序要多次完成某项任务，那么只需编写一个合适的函数，就可以在需要时使用这个函数，或者在不同的程序中使用该函数，就像许多程序中使用putchar()一样。其次，即使程序只完成某项任务一次，也值得使用函数。因为函数让程序更加模块化，从而提高了程序代码的可读性，更方便后期修改、完善。例如，假设要编写一个程序完成以下任务:
+
+读入一系列数字；
+
+分类这些数字；
+
+找出这些数字的平均值；
+
+打印一份柱状图。
+
+可以使用下面的程序:
+
+```c
+#include <stdio.h>
+
+#define SIZE 50
+
+int main(void)
+
+{
+```
+
+```txt
+float  list[SIZE];
+
+readlist(list, SIZE);
+
+sort(list, SIZE);
+
+average(list, SIZE);
+
+bargraph(list, SIZE);
+
+return  0;
+
+}
+```
+
+当然，还要编写4个函数readlist()、sort()、average()和bargraph()的实现细节。描述性的函数名能清楚地表达函数的用途和组织结构。然后，单独设计和测试每个函数，直到函数都能正常完成任务。如果这些函数够通用，还可以用于其他程序。
+
+许多程序员喜欢把函数看作是根据传入信息（输入）及其生成的值或响应的动作（输出）来定义的“黑盒”。如果不是自己编写函数，根本不用关心黑盒的内部行为。例如，使用printf()时，只需知道给该函数传入格式字符串或一些参数以及 printf()生成的输出，无需了解 printf()的内部代码。以这种方式看待函数有助于把注意力集中在程序的整体设计，而不是函数的实现细节上。因此，在动手编写代码之前，仔细考虑一下函数应该完成什么任务，以及函数和程序整体的关系。
+
+如何了解函数？首先要知道如何正确地定义函数、如何调用函数和如何建立函数间的通信。我们从一个简单的程序示例开始，帮助读者理清这些内容，然后再详细讲解。
+
+## 9.1.1 创建并使用简单函数
+
+我们的第1个目标是创建一个在一行打印40个星号的函数，并在一个打印表头的程序中使用该函数。如程序清单9.1所示，该程序由main()和starbar()组成。
+
+程序清单9.1 lethead1.c程序
+
+```c
+/* lethead1.c */
+#include <stdio.h>
+#define NAME "GIGATHINK, INC."
+#define ADDRESS "101 Megabuck Plaza"
+#define PLACE "Megapolis, CA 94904"
+#define WIDTH 40
+void starbar(void); /* 函数原型 */
+int main(void)
+{
+    starbar();
+    printf("%s\n", NAME);
+    printf("%s\n", ADDRESS);
+    printf("%s\n", PLACE);
+    starbar();      /* 使用函数 */
+    return 0;
+}
+```
+
+```c
+void starbar(void)  /* 定义函数 */
+{
+int count;
+for (count = 1; count <= WIDTH; count++)
+putchar('*');
+putchar('\n');
+}
+```
+
+该程序的输出如下:
+
+```txt
+**********************************************************************
+```
+
+GIGATHINK, INC.
+
+101 Megabuck Plaza
+
+Megapolis, CA 94904
+
+```txt
+**********************************************************************
+```
+
+## 9.1.2 分析程序
+
+该程序要注意以下几点。
+
+程序在3处使用了starbar标识符:函数原型（function prototype）告诉编译器函数starbar()的类型；函数调用（function call）表明在此处执行函数；函数定义（function definition）明确地指定了函数要做什么。
+
+函数和变量一样，有多种类型。任何程序在使用函数之前都要声明该函数的类型。因此，在main()函数定义的前面出现了下面的ANSI C风格的函数原型:
+
+void starbar(void);
+
+圆括号表明starbar是一个函数名。第1个void是函数类型，void类型表明函数没有返回值。第2个void（在圆括号中）表明该函数不带参数。分号表明这是在声明函数，不是定义函数。也就是说，这行声明了程序将使用一个名为starbar()、没有返回值、没有参数的函数，并告诉编译器在别处查找该函数的定义。对于不识别ANSI C风格原型的编译器，只需声明函数的类型，如下所示:
+
+void starbar();
+
+注意，一些老版本的编译器甚至连void都识别不了。如果使用这种编译器，就要把没有返回值的函数声明为int类型。当然，最好还是换一个新的编译器。
+
+一般而言，函数原型指明了函数的返回值类型和函数接受的参数类型。这些信息称为该函数的签名（signature）。对于starbar()函数而言，其签名是该函数没有返回值，没有参数。
+
+程序把 starbar()原型置于 main()的前面。当然，也可以放在 main()里面的声明变量处。放在哪个位置都可以。
+
+在main()中，执行到下面的语句时调用了starbar()函数:
+
+starbar();
+
+这是调用void类型函数的一种形式。当计算机执行到starbar();语句时，会找到该函数的定义并执行其中的内容。执行完starbar()中的代码后，计算机返回主调函数（calling function）继续执行下一行（本例中，主调函数是main()），见图9.1（更确切地说，编译器把C程序翻译成执行以上操作的机器语言代码）。
+
+程序中strarbar()和main()的定义形式相同。首先函数头包括函数类型、函数名和圆括号，接着是左花括号、变量声明、函数表达式语句，最后以右花括号结束（见图9.2）。注意，函数头中的starbar()后面没有分号，告诉编译器这是定义starbar()，而不是调用函数或声明函数原型。
+
+程序把 starbar()和 main()放在一个文件中。当然，也可以把它们分别放在两个文件中。把函数都放在一个文件中的单文件形式比较容易编译，而使用多个文件方便在不同的程序中使用同一个函数。如果把函数放在一个单独的文件中，要把#define 和#include 指令也放入该文件。我们稍后会讨论使用多个文件的情况。现在，先把所有的函数都放在一个文件中。main()的右花括号告诉编译器该函数结束的位置，后面的starbar()函数头告诉编译器starbar()是一个函数。
+
+![](images/page_567_image_0.jpg)
+
+<details>
+<summary>flowchart</summary>
+
+```mermaid
+graph TD
+  A["main()"] --> B["starbar()"]
+  A --> C["printf()"]
+  A --> D["printf()"]
+  A --> E["printf()"]
+  A --> F["starbar()"]
+  B --> G["putchar()"]
+  C --> H["putchar()"]
+  D --> I["putchar()"]
+  E --> J["putchar()"]
+  F --> K["putchar()"]
+```
+</details>
+
+图9.1 lethead1.c（程序清单9.1）的程序流
+
+![](images/page_568_image_0.jpg)
+
+图9.2 简单函数的结构
+
+starbar()函数中的变量count是局部变量（local variable），意思是该变量只属于starbar()函数。可以在程序中的其他地方（包括main()中）使用count，这不会引起名称冲突，它们是同名的不同变量。
+
+如果把starbar()看作是一个黑盒，那么它的行为是打印一行星号。不用给该函数提供任何输入，因为调用它不需要其他信息。而且，它没有返回值，所以也不给 main()提供（或返回）任何信息。简而言之，starbar()不需要与主调函数通信。
+
+接下来介绍一个函数间需要通信的例子。
+
+## 9.1.3 函数参数
+
+在程序清单9.1的输出中，如果文字能居中，信头会更加美观。可以通过在打印文字之前打印一定数量的空格来实现，这和打印一定数量的星号（starbar()函数）类似，只不过现在要打印的是一定数量的空格。虽然这是两个任务，但是任务非常相似，与其分别为它们编写一个函数，不如写一个更通用的函数，可以在两种情况下使用。我们设计一个新的函数show\_n\_char()（显示一个字符n次）。唯一要改变的是使用内置的值来显示字符和重复的次数，show\_n\_char()将使用函数参数来传递这些值。
+
+我们来具体分析。假设可用的空间是40个字符宽。调用show\_n\_char('\*', 40)应该正好打印一行40个星号，就像starbar()之前做的那样。第2行GIGATHINK, INT.的空格怎么处理？GIGATHINK, INT.是15个字符宽，所以第1个版本中，文字后面有25个空格。为了让文字居中，文字的左侧应该有12个空格，右侧有13个空格。因此，可以调用show\_n\_char('\*', 12)。
+
+show\_n\_char()与starbar()很相似，但是show\_n\_char()带有参数。从功能上看，前者不会添加换行符，而后者会，因为show\_n\_char()要把空格和文本打印成一行。程序清单9.2是修改后的版本。为强调参数的工作原理，程序使用了不同的参数形式。
+
+程序清单9.2 lethead2.c程序
+
+```c
+/* lethead2.c */
+#include <stdio.h>
+#include <string.h>          /* 为strlen()提供原型 */
+#define NAME "GIGATHINK, INC."
+#define ADDRESS "101 Megabuck Plaza"
+#define PLACE "Megapolis, CA 94904"
+#define WIDTH 40
+#define SPACE ' '
+```
+
+```c
+void show_n_char(char ch, int num);
+
+int main(void)
+{
+int spaces;
+show_n_char(*', WIDTH);          /* 用符号常量作为参数 */
+putchar('\n');
+show_n_char(SPACE, 12);          /* 用符号常量作为参数 */
+printf("%s\n", NAME);
+spaces = (WIDTH - strlen(ADDRESS)) / 2; /* 计算要跳过多少个空格*/
+show_n_char(SPACE, spaces);          /* 用一个变量作为参数*/
+printf("%s\n", ADDRESS);
+show_n_char(SPACE, (WIDTH - strlen(PLACE)) / 2);
+printf("%s\n", PLACE);          /* 用一个表达式作为参数
+*/
+show_n_char(*', WIDTH);
+putchar('\n');
+return 0;
+}
+/* show_n_char()函数的定义 */
+```
+
+```c
+void show_n_char(char ch, int num)
+{
+int count;
+for (count = 1; count <= num; count++)
+putchar(ch);
+}
+```
+
+该函数的运行结果如下:
+
+```txt
+**********************************************************************
+```
+
+GIGATHINK, INC.
+
+101 Megabuck Plaza
+
+Megapolis, CA 94904
+
+```txt
+**********************************************************************
+```
+
+下面我们回顾一下如何编写一个带参数的函数，然后介绍这种函数的用法。
+
+## 9.1.4 定义带形式参数的函数
+
+函数定义从下面的ANSI C风格的函数头开始:
+
+void show\_n\_char(char ch, int num)
+
+该行告知编译器show\_n\_char()使用两个参数ch和num，ch是char类型，num是int类型。这两个变量被称为形式参数（formal argument，但是最近的标准推荐使用formal parameter），简称形参。和定义在函数中变量一样，形式参数也是局部变量，属该函数私有。这意味着在其他函数中使用同名变量不会引起名称冲突。每次调用函数，就会给这些变量赋值。
+
+注意，ANSI C要求在每个变量前都声明其类型。也就是说，不能像普通变量声明那样使用同一类型的变量列表:
+
+void dibs(int x, y, z) /\* 无效的函数头 \*/
+
+void dubs(int x, int y, int z) /\* 有效的函数头 \*/
+
+ANSI C也接受ANSI C之前的形式，但是将其视为废弃不用的形式:
+
+void show\_n\_char(ch, num)
+
+char ch;
+
+int num;
+
+这里，圆括号中只有参数名列表，而参数的类型在后面声明。注意，普通的局部变量在左花括号之后声明，而上面的变量在函数左花括号之前声明。如果变量是同一类型，这种形式可以用逗号分隔变量名列表，如下所示:
+
+void dibs(x, y, z)
+
+当前的标准正逐渐淘汰 ANSI 之前的形式。读者应对此有所了解，以便能看懂以前编写的程序，但是自己编写程序时应使用现在的标准形式（C99和C11标准继续警告这些过时的用法即将被淘汰）。
+
+虽然show\_n\_char()接受来自main()的值，但是它没有返回值。因此，show\_n\_char()的类型是void。
+
+下面，我们来学习如何使用函数。
+
+## 9.1.5 声明带形式参数函数的原型
+
+在使用函数之前，要用ANSI C形式声明函数原型:
+
+void show\_n\_char(char ch, int num);
+
+当函数接受参数时，函数原型用逗号分隔的列表指明参数的数量和类型。根据个人喜好，你也可以省略变量名:
+
+void show\_n\_char(char, int);
+
+在原型中使用变量名并没有实际创建变量，char仅代表了一个char类型的变量，以此类推。再次提醒读者注意，ANSI C也接受过去的声明函数形式，即圆括号内没有参数列表:
+
+void show\_n\_char();
+
+这种形式最终会从标准中剔除。即使没有被剔除，现在函数原型的设计也更有优势（稍后会介绍）。了解这种形式的写法是为了以后读得懂以前写的代码。
+
+## 9.1.6 调用带实际参数的函数
+
+在函数调用中，实际参数（actual argument，简称实参）提供了ch和num的值。考虑程序清单9.2中第1次调用show\_n\_char():
+
+show\_n\_char(SPACE, 12);
+
+实际参数是空格字符和12。这两个值被赋给show\_n\_char()中相应的形式参数:变量ch和num。简而言之，形式参数是被调函数（called function）中的变量，实际参数是主调函数（calling function）赋给被调函数的具体值。如上例所示，实际参数可以是常量、变量，或甚至是更复杂的表达式。无论实际参数是何种形式都要被求值，然后该值被拷贝给被调函数相应的形式参数。以程序清单 9.2 中最后一次调用show\_n\_char()为例:
+
+show\_n\_char(SPACE, (WIDTH - strlen(PLACE)) / 2);
+
+构成该函数第2个实际参数的是一个很长的表达式，对该表达式求值为10。然后，10被赋给变量num。被调函数不知道也不关心传入的数值是来自常量、变量还是一般表达式。再次强调，实际参数是具体的值，该值要被赋给作为形式参数的变量（见图 9.3）。因为被调函数使用的值是从主调函数中拷贝而来，所以无论被调函数对拷贝数据进行什么操作，都不会影响主调函数中的原始数据。
+
+## 注意实际参数和形式参数
+
+实际参数是出现在函数调用圆括号中的表达式。形式参数是函数定义的函数头中声明的变量。调用函数时，创建了声明为形式参数的变量并初始化为实际参数的求值结果。程序清单 9.2 中，'\*'和WIDTH都是第1次调用show\_n\_char()时的实际参数，而SPACE和11是第2次调用show\_n\_char()时的实际参数。在函数定义中，ch和num都是该函数的形式参数。
+
+![](images/page_575_image_0.jpg)
+
+图9.3 形式参数和实际参数
+
+## 9.1.7 黑盒视角
+
+从黑盒的视角看 show\_n\_char()，待显示的字符和显示的次数是输入。执行后的结果是打印指定数量的字符。输入以参数的形式被传递给函数。这些信息清楚地表明了如何在 main()中使用该函数。而且，这也可以作为编写该函数的设计说明。
+
+黑盒方法的核心部分是:ch、num和count都是show\_n\_char()私有的局部变量。如果在main()中使用同名变量，那么它们相互独立，互不影响。也就是说，如果main()有一个count变量，那么改变它的值不会改变show\_n\_char()中的count，反之亦然。黑盒里发生了什么对主调函数是不可见的。

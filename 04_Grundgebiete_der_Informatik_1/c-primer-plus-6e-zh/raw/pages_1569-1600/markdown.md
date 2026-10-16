@@ -1,0 +1,851 @@
+| 宏 | 描述 |
+| --- | --- |
+| SIGABRT | 异常终止,例如 abort() 调用发出的信号 |
+| SIGFPE | 错误的算术运算 |
+| SIGILL | 检测到无效功能(例如,非法指令) |
+| SIGINT | 接收到交互注意信号(如,DOS 中断) |
+| SIGSEGV | 非法访问内存 |
+| SIGTERM | 向程序发送终止请求 |
+
+signal()函数的第2个参数接受一个指向void函数的指针，该函数有一个int类型的参数，也返回相同类型的指针。为响应一个信号而被调用的函数称为信号处理器（signal handler）。标准定义了3个满足下面原型的宏:
+
+void (\*funct)(int);
+
+表B.5.19列出了这3种宏。
+
+表B.5.19 void (\*f)(int)宏
+
+| 宏 | 描述 |
+| --- | --- |
+| SIG_DFL | 当该宏与一个信号值一起作为 signal() 的参数时,表示默认处理信号 |
+| SIG_ERR | 如果 signal() 不能返回它的第 2 个参数,就用该宏作为它的返回值 |
+| SIG_IGN | 当该宏与一个信号值一起作为 signal() 的参数时,表示忽略信号 |
+
+如果产生了信号sig，而且 func指向一个函数（参见表B.5.20中signal()原型），那么大多数情况下先调用 signal(sig, SIG\_DFL)把信号重置为默认设置，然后调用(\*func)(sig)。可以执行返回语句或调用abort()、exit()或longjmp()来结束func指向的信号处理函数。
+
+表B.5.20 信号函数
+
+| 宏 | 描述 |
+| --- | --- |
+| void (*signal(int sig, void (*func)(int)) (int); | 如果产生信号 sig,则执行 func 指向的函数;如果能执行则返回 func,否则返回 SIG_ERR |
+| int raise(int sig); | 向执行程序发送信号 sig;如果成功发送则返回 0,否则返回非 0 |
+
+## B.5.13 对齐:stdalign.h（C11）
+
+stdalign.h头文件定义了4个宏，用于确定和指定数据对象的对齐属性。
+
+表B.5.21中列出了这些宏，其中前两个创建的别名与C++的用法兼容。
+
+表B.5.21 void (\*f)(int)宏
+
+| 宏 | 描述 |
+| --- | --- |
+| alignas | 展开为关键字_Alignas |
+| alignof | 展开为关键字_Alignof |
+| __alignas_is_defined | 展开为整型常量1,适用于#if |
+| __alignof_is_defined | 展开为整型常量1,适用于#if |
+
+## B.5.14 可变参数:stdarg.h
+
+stdarg.h 头文件提供一种方法定义参数数量可变的函数。这种函数的原型有一个形参列表，列表中至少有一个形参后面跟有省略号:
+
+int f2(int n, float x, int k, ...);/\* 有效 \*/
+
+double f3(...); /\* 无效 \*/
+
+在下面的表中，parmN是省略号前面的最后一个形参的标识符。在上面的例子中，第1种情况的parmN为n，第2种情况的parmN为k。
+
+头文件中声明了va\_lis类型表示储存形参列表中省略号部分的形参数据对象。表B.5.22中列出了3个带可变参数列表的函数中用到的宏。在使用这些宏之前要声明一个va\_list类型的对象。
+
+表B.5.22 可变参数列表宏
+
+| 宏 | 描述 |
+| --- | --- |
+| void va_start(va_list ap, parmN); | 该宏在 va_arg()和 va_end()使用 ap 之前初始化 ap, parN 是形参列表中最后一个形参名的标识符 |
+| void va_copy(va_list dest, va_list src); | 该宏把 dest 初始化为 src 当前状态的备份(C99) |
+| type va_arg(va_list ap, type); | 该宏展开为一个表达式,其值和类型都与 ap 表示的形参列表的下一项相同,type 是该项的类型。每次调用该宏都前进到 ap 中的下一项 |
+| void va_end(va_list ap); | 该宏关闭以上过程,可能导致 ap 在再次调用 va_start()之前不可用 |
+| void va_copy(va_list dest, va_list src); | 该宏把 dest 初始化为 srt 当前状态的备份(C99) |
+
+## B.5.15 原子支持:stdatomic.h（C11）
+
+stdatomic.h和threads.h头文件支持并发编程。并发编程的内容超过了本书讨论的范围，简单地说，stdatomic.h 头文件提供了创建原子操作的宏。编程社区使用原子这个术语是为了强调不可分割的特性。一个操作（如，把一个结构赋给另一个结构）从编程层面上看是原子操作，但是从机器语言层面上看是由多个步骤组成。如果程序被分成多个线程，那么其中的线程可能读或修改另一个线程正在使用的数据。例如，可以想象给一个结构的多个成员赋值，不同线程给不同成员赋值。有了stdatomic.h头文件，就能创建这些可以看作是不可分割的操作，这样就能保证线程之间互不干扰。
+
+## B.5.16 布尔支持:stdbool.h（C99）
+
+stdbool.h头文件定义了4个宏，如表B.5.23所列。
+
+表B.5.23 stdbool.h宏
+
+| 宏 | 描述 |
+| --- | --- |
+| bool | 展开为_Bool |
+| false | 展开为整型常量0 |
+| true | 展开为整型常量1 |
+| __bool_true_false_are_defined | 展开为整型常量1 |
+
+## B.5.17 通用定义:stddef.h
+
+该头文件定义了一些类型和宏，如表B.5.24和表B.5.25所列。
+
+表B.5.24 stddef.h类型
+
+| 类型 | 描述 |
+| --- | --- |
+| ptrdiff_t | 有符号整数类型,表示两个指针之差 |
+| size_t | 无符号整数类型,表示 sizeof 运算符的结果 |
+| wchar_t | 整数类型,表示支持的本地化所指定的最大扩展字符集 |
+| NULL | 实现定义的常量,表示空指针 |
+| offsetof(type, member-designator) | 展开为 size_t 类型的值,表示 type 类型结构的指定成员在该结构中的偏移量,以字节为单位。如果成员是一个位字段,该宏的行为是未定义的 |
+
+表B.5.25 stddef.h宏
+
+示例
+
+```c
+#include <stddef.h>
+
+struct car
+
+{
+char brand[30];
+
+char model[30];
+
+double hp;
+
+double price;
+
+};
+
+int main(void)
+
+{
+
+size_t into = offsetof(struct car, hp); /* hp成员的偏移量 */
+...
+```
+
+## B.5.18 整数类型:stdint.h
+
+stdint.h头文件中使用typedef工具创建整数类型名，指定整数的属性。stdint.h头文件包含在inttypes.h中，后者提供输入/输出函数调用的宏。参考资料VI的“扩展的整数类型”中介绍了这些类型的用法。
+
+## 1.精确宽度类型
+
+stdint.h头文件中用一组typedef标识精确宽度的类型。表B.5.26列出了它们的类型名和大小。然而，注意，并不是所有的系统都支持其中的所有类型。
+
+表B.5.26 确切宽度类型
+
+| typedef 名 | 属性 |
+| --- | --- |
+| int8_t | 8 位,有符号 |
+| int16_t | 16 位,有符号 |
+| int32_t | 32 位,有符号 |
+| int64_t | 64 位,有符号 |
+| uint8_t | 8 位,无符号 |
+| uint16_t | 16 位,无符号 |
+| uint32_t | 32 位,无符号 |
+| uint64_t | 64 位,无符号 |
+
+## 2.最小宽度类型
+
+最小宽度类型保证其类型的大小至少是某数量位。表B.5.27列出了最小宽度类型，系统中一定会有这些类型。
+
+表B.5.27 最小宽度类型
+
+| typedef 名 | 属性 |
+| --- | --- |
+| int_least8_t | 至少 8 位,有符号 |
+| int_least16_t | 至少 16 位,有符号 |
+| int_least32_t | 至少 32 位,有符号 |
+| int_least64_t | 至少 64 位,有符号 |
+| uint_least8_t | 至少 8 位,无符号 |
+| uint_least16_t | 至少 16 位,无符号 |
+| uint_least32_t | 至少 32 位,无符号 |
+| uint_least64_t | 至少 64 位,无符号 |
+
+## 3.最快最小宽度类型
+
+在特定系统中，使用某些整数类型比其他整数类型更快。为此，stdint.h
+
+也定义了最快最小宽度类型，如表B.5.28所列，系统中一定会有这些类型。
+
+表B.5.28 最快最小宽度类型
+
+| typedef 名 | 属性 |
+| --- | --- |
+| int_fast8_t | 至少 8 位有符号 |
+| int_fast16_t | 至少 16 位有符号 |
+| int_fast32_t | 至少 32 位有符号 |
+| int_fast64_t | 至少 64 位有符号 |
+| uint_fast8_t | 至少 8 位无符号 |
+| uint_fast16_t | 至少 16 位无符号 |
+| uint_fast32_t | 至少 32 位无符号 |
+| uint_fast64_t | 至少 64 位无符号 |
+
+## 4.最大宽度类型
+
+stdint.h 头文件还定义了最大宽度类型。这种类型的变量可以储存系统中的任意整数值，还要考虑符号。表B.5.29列出了这些类型。
+
+表B.5.29 最大宽度类型
+
+| typedef 名 | 描述 |
+| --- | --- |
+| intmax_t | 最大宽度的有符号类型 |
+| uintmax_t | 最大宽度的无符号类型 |
+
+## 5.可储存指针值的整数类型
+
+stdint.h头文件中还包括表B.5.30中所列的两种整数类型，它们可以精确地储存指针值。也就是说，如果把一个void \*类型的值赋给这种类型的变量，然后再把该类型的值赋回给指针，不会丢失任何信息。系统可能不支持这类型。
+
+表B.5.30 可储存指针值的整数类型
+
+| typedef 名 | 描述 |
+| --- | --- |
+| intptr_t | 可储存指针值的有符号类型 |
+| uintptr_t | 可储存指针值的无符号类型 |
+
+## 6.已定义的常量
+
+stdint.h头文件定义了一些常量，用于表示该头文件中所定义类型的限定值。常量都根据类型命名，即用\_MIN或\_MAX代替类型名中的\_t，然后把所有字母大写即得到表示该类型最小值或最大值的常量名。例如，int32\_t类型的最小值是INT32\_MIN、unit\_fast16\_t的最大值是UNIT\_FAST16\_MAX。表B.5.31总结了这些常量以及与之相关的intptr\_t、unitptr\_t、intmax\_t和uintmax\_t类型，其中的N表示位数。这些常量的值应等于或大于（除非指明了一定要等于）所列的值。
+
+表B.5.31 整型常量
+
+| 常量标识符 | 最小值 |
+| --- | --- |
+| INTN_MIN | 等于$- (2^{N-1}-1)$ |
+| INTN_MAX | 等于$2^{N-1}-1$ |
+| UINTN_MAX | 等于$2^{N-1}-1$ |
+| INT_LEASTN_MIN | $- (2^{N-1}-1)$ |
+| INT_LEASTN_MAX | $2^{N-1}-1$ |
+| UINT_LEASTN_MAX | $2^{N}-1$ |
+| INT_FASTN_MIN | $- (2^{N-1}-1)$ |
+| INT_FASTN_MAX | $2^{N-1}-1$ |
+| UINT_FASN_MAX | $2^{N}-1$ |
+| INTPTR_MIN | $- (2^{15}-1)$ |
+| INTPTR_MAX | $2^{15}-1$ |
+| UINTPTR_MAX | $2^{16}-1$ |
+| INTMAX_MIN | $- (2^{15}-1)$ |
+| INTMAX_MAX | $2^{63}-1$ |
+| UINTMAX_MAX | $2^{64}-1$ |
+
+该头文件还定义了一些别处定义的类型使用的常量，如表B.5.32所示。
+
+表B.5.32 其他整型常量
+
+| 常量标识符 | 含义 |
+| --- | --- |
+| PTRDIFF_MIN | ptrdiff_t 类型的最小值 |
+| PTRDIFF_MAX | ptrdiff_t 类型的最大值 |
+| SIG_ATOMIC_MIN | sig_atomic_t 类型的最小值 |
+| SIG_ATOMIC_MAX | sig_atomic_t 类型的最大值 |
+| WCHAR_MIN | wchar_t 类型的最小值 |
+| WCHAR_MAX | wchar_t 类型的最大值 |
+| WINT_MIN | wint_t 类型的最小值 |
+| WINT_MAX | wint_t 类型的最大值 |
+| SIZE_MAX | size_t 类型的最大值 |
+
+## 7.扩展的整型常量
+
+stdin.h头文件定义了一些宏用于指定各种扩展整数类型。从本质上看，这种宏是底层类型（即在特定实现中表示扩展类型的基本类型）的强制转换。
+
+把类型名后面的\_t 替换成\_C，然后大写所有的字母就构成了一个宏名。例如，使用表达式UNIT\_LEAST64\_C(1000)后，1000就是unit\_least64\_t类型的常量。
+
+## B.5.19 标准I/O库:stdio.h
+
+ANSI C标准库包含一些与流相关联的标准I/O函数和stdio.h头文件。表B.5.33列出了ANSI中这些函数的原型和简介（第13章详细介绍过其中的一些函数）。stdio.h头文件定义了FILE类型、EOF和NULL的值、标准I/O流（stdin、stdout和stderr）以及标准I/O库函数要用到的一些常量。
+
+表B.5.33 C标准I/O函数
+
+| 原型 | 描述 |
+| --- | --- |
+| void clearerr(FILE *); | 清除文件结尾和错误指示符 |
+| int fclose(FILE *); | 关闭指定的文件 |
+| int feof(FILE *); | 测试文件结尾 |
+| int ferror(FILE *); | 测试错误指示符 |
+| int fflush(FILE *); | 刷新指定的文件 |
+| int fgetc(FILE *); | 获得指定输入流的下一个字符 |
+| int fgetpos(FILE *restrict, restrict); | 储存文件位置指示符的fpos_t *当前值 |
+| char * fgets(char *restrict, restrict); | 从指定流中获取下一行(或int、FILE *指定的字符数) |
+| FILE * fopen(const char*restrict, const char*restrict); | 打开指定的文件 |
+| int fprintf(FILE *restrict, const char *restrict, ...); | 把格式化输出写入指定流 |
+| int fputc(int, FILE *); | 把指定字符写入指定流 |
+| int fputs(const char* restrict, FILE * restrict); | 把第1个参数指向的字符串写入指定流 |
+| size_t fread(void *restrict, size_t, size_t, FILE * restrict); | 读取指定流中的二进制数据 |
+| FILE * freopen(const char * restrict, const char * restrict, FILE *restrict); | 打开指定文件,并将其与指定流相关联 |
+| int fscanf(FILE *restrict, const char * restrict, ...); | 读取指定流中的格式化输入 |
+| int fsetpos(FILE *,const fpos_t *); | 设置文件位置指针指向指定的值 |
+| int fseek(FILE *, long,int); | 设置文件位置指针指向指定的值 |
+| long ftell(FILE *); | 获取当前文件位置 |
+| size_t fwrite(const void* restrict, size_t,size_t, FILE * restrict); | 把二进制数据写入指定流 |
+| int getc(FILE *); | 读取指定输入的下一个字符 |
+| int getchar(); | 读取标准输入的下一个字符 |
+| char * gets(char *); | 获取标准输入的下一行(C11库已删除) |
+| void perror(const char*); | 把系统错误信息写入标准错误中 |
+| int printf(const char *restrict, ...); | 把格式化输出写入标准输出中 |
+
+续表
+
+| 原型 | 描述 |
+| --- | --- |
+| int putc(int, FILE *); | 把指定字符写入指定输出中 |
+| int putchar(int); | 把指定字符写入指定输出中 |
+| int puts(const char *); | 把字符串写入标准输出中 |
+| int remove(const char *); | 移除已命名文件 |
+| int rename(const char *,constchar *); | 重命名文件 |
+| void rewind(FILE *); | 设置文件位置指针指向文件开始处 |
+| int scanf(const char *restrict, ...); | 读取标准输入中的格式化输入 |
+| void setbuf(FILE *restrict, char *restrict); | 设置缓冲区大小和位置 |
+| int setvbuf(FILE *restrict, char *restrict,int, size_t); | 设置缓冲区大小、位置和模式 |
+| int snprintf(char *restrict, size_t n, const char * restrict, ...); | 把格式化输出中的前n个字符写入指定字符串中 |
+| int sprintf(char *restrict, const char *restrict, ...); | 把格式化输出写入指定字符串中 |
+| int sscanf(const char*restrict, const char *restrict, ...); | 把格式化输入写入指定字符串中 |
+| FILE * tmpfile(void); | 创建一个临时文件 |
+| char * tmpnam(char *); | 为临时文件生成一个唯一的文件名 |
+| int ungetc(int, FILE *); | 把指定字符放回输入流中 |
+| int vfprintf(FILE *restrict, const char *restrict, va_list); | 与fprintf()类似,但该函数用一个va_list类型形参列表(由va_start初始化)代替变量参数列表 |
+| int vprintf(const char *restrict, va_list); | 与printf()类似,但该函数用一个va_list类型形参列表(由va_start初始化)代替变量参数列表 |
+| int vsprintf(char *restrict, size_t n); const char * restrict,va_list); | 与snprintf()类似,但该函数用一个va_list类型形参列表(由va_start初始化)代替变量参数列表 |
+| int vsprintf(char *restrict, const char *restrict, va_list); | 与sprintf()类似,但该函数用一个va_list类型形参列表(由va_start初始化)代替变量参数列表 |
+| int vscanf(const char *restrict, va list); | 与scanf()类似,但该函数用一个va_list类型形参列表(由va_start初始化)代替变量参数列表 |
+| int vsscanf(const char* restrict,* restrict,va_list); | 与sscanf()类似,但该函数用一个va_list类型形参列表(由va_start初始化)代替变量参数列表 |
+
+## B.5.20 通用工具:stdlib.h
+
+ANSI C标准库在stdlib.h头文件中定义了一些实用函数。该头文件定义了一些类型，如表B.5.34所示。
+
+表B.5.34 stdlib.h中声明的类型
+
+| 类型 | 描述 |
+| --- | --- |
+| size_t | sizeof 运算符返回的整数类型 |
+| wchar_t | 用于表示宽字符的整数类型 |
+| div_t | div()返回的结构类型,该类型中的quot和rem成员都是int类型 |
+| ldiv_t | ldiv()返回的结构类型,该类型中的quot和rem成员都是long类型 |
+| lldiv_t | lldiv()返回的结构类型,该类型中的quot和rem成员都是long long类型(C99) |
+
+stdlib.h头文件定义的常量列于表B.5.35中。
+
+表B.5.35 stdlib.h中定义的常量
+
+| 类型 | 描述 |
+| --- | --- |
+| NULL | 空指针(相当于0) |
+| EXIT_FAILURE | 可用作exit()的参数,表示执行程序失败 |
+| EXIT_SUCCESS | 可用作exit()的参数,表示成功执行程序 |
+| RAND_MAX | rand()返回的最大值(一个整数) |
+| MB_CUR_MAX | 当前本地化的扩展字符集中多字节字符的最大字节数 |
+
+表B.5.36列出了stdlib.h中的函数原型。
+
+表B.5.36 通用工具
+
+| 原型 | 描述 |
+| --- | --- |
+| double atof(const char * nptr); | 返回把字符串 nptr 开始部分的数字(和符号)字符转换为 double 类型的值,跳过开始的空白,遇到第 1 个非数字字符时结束转换;如果未发现数字则返回 0 |
+| int atoi(const char* nptr); | 返回把字符串 nptr 开始部分的数字(和符号)字符转换为 int 类型的值,跳过开始的空白,遇到第 1 个非数字字符时结束转换;如果未发现数字则返回 0 |
+| int atol(const char* nptr); | 返回把字符串 nptr 开始部分的数字(和符号)字符转换为 long 类型的值,跳过开始的空白,遇到第 1 个非数字字符时结束转换;如果未发现数字则返回 0 |
+| double strtod(const char* restrict npt,char ** restrictept); | 返回把字符串 npt 开始部分的数字(和符号)字符转换为 double 类型的值,跳过开始的空白,遇到第 1 个非数字字符时结束转换;如果未发现数字则返回 0;如果转换成功,则把数字后第 1 个字符的地址赋给 ept 指向的位置;如果转换失败,则把 npt 赋给 ept 指向的位置 |
+| float strtof(const char * restrictnpt,char ** restrict ept); | 与 strtod() 类似,但是该函数把 npt 指向的字符串转换为 float 类型的值(C99) |
+| long double strtols(const char * restrictnpt,char **restrict ept); | 与 strtod() 类似,但是该函数把 npt 指向的字符串转换成 long double 类型的值(C99) |
+| long strtol(const char * restrict npt char ** restrict ept,int base); | 返回把字符串 npt 开始部分的数字(和符号)字符转换成 long 类型的值,跳过开始的空白,遇到第 1 个非数字字符时结束转换;如果未发现数字则返回 0;如果转换成功,则把数字后第 1 个字符的地址赋给 ept 指向的位置;如果转换失败,则把 npt 赋给 ept 指向的位置;假定字符串中的数字以 base 指定的数为基数 |
+| long long strtoll(const char *restrict npt,char** restrict ept,int base); | 与 strtol() 类似,但是该函数把 npt 指向的字符串转换为 long long 类型的值(C99) |
+| unsigned long strtoul(const char * restrict npt,char** restrict ept,int base); | 返回把字符串 npt 开始部分的数字(和符号)字符转换为 unsigned long 类型的值,跳过开始的空白,遇到第 1 个非数字字符时结束转换;如果未发现数字则返回 0;如果转换成功,则把数字后第 1 个字符的地址赋给 ept 指向的位置;如果转换失败,则把 npt 赋给 ept 指向的位置;假定字符串中的数字以 base 指定的数为基数 |
+
+续表
+
+| 原型 | 描述 |
+| --- | --- |
+| unsigned long long strtoull(const char* restrict npt,char ** restrict ept, int base); | 与strtoul()类似,但是该函数把npt指向的字符串转换为unsigned long long类型的值(C99) |
+| int rand(void); | 返回0~RAND_MAX范围内的一个伪随机整数 |
+| void srand(unsigned int seed); | 把随机数生成器种子设置为seed,如果在调用rand()之前调用srand(),则种子为1 |
+| void *aligned_alloc(size_t algn,size_t size); | 为对齐对象algn分配size字节的空间,应支持algn对齐值,size应该是algn的倍数(C11) |
+| void *calloc(size_t nmem,size_t size); | 为内含nmem个成员的数组分配空间,每个元素占size字节大;空间中的所有位都初始化为0;如果操作成功,该函数返回数组的地址,否则返回NULL |
+| void free(void*ptr); | 释放ptr指向的空间,ptr应该是之前调用calloc()、malloc()或realloc()返回的值,或者ptr也可以是空指针,出现这种情况时什么也不做。如果ptr是其他值,其行为是未定义的 |
+| void *malloc(size_t size); | 分配size字节的未初始化内存块;如果成功分配,该函数返回数组的地址,否则返回NULL |
+| void *realloc(void*ptr,size_t size); | 把ptr指向的内存块大小改为size字节,size字节内的内存块内容不变。该函数返回块的位置,它可能被移动。如果不能重新分配空间,函数返回NULL,原始块不变;如果ptr为NULL,其行为与调用带size参数的malloc()相同;如果size是0,且ptr不是NULL,其行为与调用带ptr参数的free()相同 |
+| void abort(void); | 除非捕获信号SIGABRT,且相应的信号处理器没有返回,否则该函数将导致程序异常结束。是否关闭I/O流和临时文件,因实现而异。该函数执行raise(SIGABRT) |
+| int atexit(void(*func)(void)); | 注册func指向的函数,使其在程序正常结束时被调用。实现应支持注册至少32个函数,并根据它们注册顺序的逆序调用。如果注册成功,函数返回0;否则返回非0 |
+| int at_quick_exit(void(*func)(void)); | 注册func指向的函数,如果调用quick_exit()则调用被注册的函数。实现应支持注册至少32个函数,并根据它们注册顺序的逆序调用。如果注册成功,函数返回0;否则返回非0(C11) |
+| void exit(int status); | 该函数将正常结束程序。首先调用由atexit()注册的函数,然后刷新所有打开的输出流、关闭所有的I/O流、关闭tmpfile()创建的所有文件,并把控制权返回主机环境中;如果status是0或EXIT_SUCCESS,则返回一个实现定义的值,表明未成功结束程序 |
+| void _Exit(int status); | 与exit()类似,但是该函数不调用atexit()注册的函数和signal()注册的信号处理器,其处理打开流的方式依实现而异 |
+| char *getenv(const char *name); | 返回一个指向字符串的指针,该字符串表示name指向的环境变量的值。如果无法匹配指定的name,则返回NULL |
+| _Noreturn void quick_exit(int status); | 该函数将正常结束程序。不调用atexit()注册的函数和signal()注册的信号处理器。根据at_quick_exit()注册函数的顺序,逆序调用这些函数。如果程序多次调用quick_exit()或者同时调用quick_exit()和exit(),其行为是未定义的。通过调用_Exit(status)将控制权返回主机环境(C11) |
+
+续 表
+
+| 原型 | 描述 |
+| --- | --- |
+| int system(const char *str); | 把 str 指向的字符串传递给命令处理器(如 DOS 或 UNIX)执行的主机环境。如果 str 是 NULL 指针,且命令处理器可用,则该函数返回非 0,否则返回;如果 str 不是 NULL,返回值依实现而异 |
+| void *bsearch(const void *key, const void *base, size_t nmem, size_t size, int (*comp)(const void *, const void *)); | 查找 base 指向的一个数组(有 nmem 个元素,每个元素的大小为 size)中是否有元素匹配 key 指向的对象。通过 comp 指向的函数比较各项,如果 key 指向的对象小于数组元素,那么比较函数将返回小于 0 的值;如果两者相等,则返回 0;如果 key 指向的对象大于数组元素,则返回大于 0 的值。该函数返回指向匹配元素的指针或 NULL(如果无匹配元素)。如果有多个元素匹配,未定义返回哪一个元素 |
+| void qsort(void*base, size_t nmem, size_t size, int(*comp)(const void *, const void *)); | 根据 comp 指向的函数所提供的顺排列 base 指向的数组。该数组有 nmem 个元素,每个元素的大小是 size。如果第 1 个参数指向的对象小于数组元素,那么比较函数将返回小于 0 的值;如果两者相等,则返回 0;如果第 1 个参数指向的对象大于数组元素,则返回大于 0 的值 |
+| int abs(int n); | 返回 n 的绝对值。如果 n 是负数但没有与之对应的正数,那么返回值是未定义的(当 n 是以二进制补码表示的 INT_MIN 时,会出现这种情况) |
+| div_t div(int numer, int denom); | 计算 number 除以 denom 的商和余,把商和余数分别储存在 div_t 结构的 quot 成员和 rem 成员中。对于无法整除的除法,商要趋零截断(即直接截去小数部分) |
+| long labs(int n); | 返回 n 的绝对值,如果 n 是负数但没有与之对应的正数,那么返回值是未定义的(当 n 是以二进制补码表示的 LONG_MIN 时,会出现这种情况) |
+| ldiv_t ldiv(long numer, long denom); | 计算 number 除以 denom 的商和余,把商和余数分别储存在 ldiv_t 结构的 quot 成员和 rem 成员中。对于无法整除的除法,商要趋零截断(即直接截去小数部分) |
+| long long llabs(int n); | 返回 n 的绝对值,如果 n 是负数但没有与之对应的正数,那么返回值是未定义的(当 n 是以二进制补码表示的 LONG_LONG_MIN 时,会出现这种情况) |
+| lldiv_t lldiv(long numer, long denom); | 计算 number 除以 denom 的商和余,把商和余数分别储存在 lldiv_t 结构的 quot 成员和 rem 成员中。对于无法整除的除法,商要趋零截断(即直接截去小数部分)(C99) |
+| int mblen(const char *s, size_t n); | 返回组成 s 指向的多字节字符的字节数(最大为 n)。媒s 指向空字符,该函数则返回 0;如果 s 未指向多字节字符,则返回 -1;如果 s 是 NULL,且多字节根据状态进行编码,该函数则返回非 0,否则返回 0 |
+| int mbtowc(wchar_t*pw, const char *s, size_t n); | 如果 s 不是 NULL,该函数确定了组成 s 指向的多字节字符的字节数(最大为 n),并确定字符的 wchar_t 类型编码。如果 pw 不是 NULL,则把类型编码赋给 pw 指向的位置。返回值与 mblen(s,n)相同 |
+| int wctomb(char *s,wchar_t wc); | 把 wc 中的字符代码转换成相应的多字节字符表示,并将其储存在 s 指向的数组中,除非 s 是 NULL。如果 s 不是 NULL,且如果 wc 无法转换成相应的有效多字节字符,该函数返回 -1;如果 wc 有效,该函数返回组成多字节的字节数;如果 s 是 NULL,且如果多字节字符根据状态进行编码,该函数则返回非 0,否则返回 0 |
+
+续 表
+
+| 原型 | 描述 |
+| --- | --- |
+| size_t mbstowcs(wchar_t *restrict pwcs,const char *srestrict ,size_t n); | 把s指向的多字节字符数组转换成储存在pwcs开始位置的宽字符编码数组中,转换pwcs数组中的n个字符或转换到s数组的空字节停止。如果遇到无效的多字节字符,该函数返回(size_t)(-1);,否则返回已填充的数组元素个数(如果有空字符,不包含空字符) |
+| size_t wcstombs(char *restricts,const wchart_t* restrict pwcs,size_t n); | 把储存在pwcs指向数组中的宽字符编码序列转换成一个多字节字符序列,并把它拷贝到s指向的位置上,储存n个字节或遇到空字符时停止转换。如果遇到无效的宽字符编码,该函数返回(size_t)(-1),否则返回已填充数组的字节数(如果有空字符,不包含空字符) |
+
+## B.5.21 \_Noreturn:stdnoreturn.h
+
+stdnoreturn.h定义了noreturn宏，该宏展开为\_Noreturn。
+
+## B.5.22 处理字符串:string.h
+
+string.h库定义了size\_t类型和空指针要使用的NULL宏。string.h头文件提供了一些分析和操控字符串的函数，其中一些函数以更通用的方式处理内存。表B.5.37列出了这些函数。
+
+表B.5.37 字符串函数
+
+| 原型 | 描述 |
+| --- | --- |
+| void *memchr(const void *s, int c,size_t n); | 在s指向对象的前n个字符中查找是否有c。如果找到,则返回首次出现c处的指针,如果未找到则返回NULL |
+| int memcmp(const void*s1, const void*s2,size_t n); | 比较s1指向对象中的前n个字符和s2指向对象的前n个字符,每个值都解释为unsigned char类型。如果n个字符都匹配,则两个对象完全相同;否则,比较两个对象中首次不匹配的字符对。如果两个对象相同,函数返回0;如果在数值上第1个对象小于第2个对象,函数返回小于0的值;如果在数值上第1个对象大于第2个对象,函数返回大于0的值 |
+| void *memcpy(void *restrict s1, const void * restrict s2,size_t n); | 把s2所指向位置上的n字节拷贝到s1指向的位置上,函数返回s1的值。如果两个位置出现重叠,其行为是未定义的 |
+| void *memmove(void*s1, const void*s2,size_t n); | 把s2所指向位置上的n字节拷贝到s1指向的位置上,其行为与拷贝类似,返回s1的值。但是,如果出现局部重叠情况,该函数会先把重叠的内容拷贝至临时位置 |
+| void *memset(void *s,int v, size_t n); | 把v的值(转换为unsigned char)拷贝至s指向的前n字节中,函数返回s |
+| char *strcat(char *restrict s1, const char * restrict s2); | 把s2指向的字符串拷贝到s1指向字符串后面,s2字符串的第1个字符覆盖s1字符串的空字符。该函数返回s1 |
+| char *strncat(char *restrict s1,const char * restrict s2,size_t n); | 把s2指向字符串的n个字符拷贝到s1指向的字符串后面(或拷贝到s2的空字符为止)。s2字符串的第1个字符覆盖s1字符串的空字符。函数返回s1 |
+| char *strcpy(char *restrict s1, const char * restrict s2); | 把s2指向的字符串拷贝到s1指向的位置。函数返回s1 |
+
+续表
+
+| 原型 | 描述 |
+| --- | --- |
+| char *strncpy(char *restrict s1,const char * restrict s2,size_t n); | 把s2指向字符串的n个字符拷贝到s1指向的位置(或拷贝到s2的空字符为止)。如果在拷贝n个字符之前遇到空字符,则在拷贝字符后面添加若干个空字符,使其长度为n;如果拷贝n个字符没有遇到空字符,则不添加空字符。函数返回s1 |
+| int strcmp(const char*s1,const char*s2); | 比较s1和s2指向的两个字符串。如果完全匹配,则两字符串相同,否则比较首次出现不匹配的字符对。通过字符编码值比较字符。如果两个字符串相同,函数返回0;如果第1个字符串小于第2个字符串,函数返回小于0的值;如果第1个字符串大于第2个字符串,函数返回大于0的值 |
+| int strcoll(const char *s1,const char*s2); | 与strcmp()类似,但是该函数使用当前本地化的LC_COLLATE类别(由setlocale()函数设置)所指定的排序方式进行比较 |
+| int strncmp(const char *s1,const char*s2,size_t n); | 比较s1和s2指向数组中的前n个字符,或比较到第1个空字符位置。如果所有的字符对都匹配,则两个数组相同否则比较两个数组中首次不匹配的字符对。通过字符编码值比较字符。如果两个数组相同,函数返回0;如果第1个数组小于第2个数组,函数返回小于0的值;如果第1个数组大于第2个数组,函数返回大于0的值 |
+| size_t strxfrm(char* restrict s1,const char * restrict s2,size_t n); | 转换s2中的字符串,并把转换后的前n个字符(包括空字符)拷贝到s1指向的数组中。用strcmp()比较转换后的两个字符串的结果和用strcoll()比较两个未转换字符串的结果相同。函数返回转换后的字符串长度(不包括末尾的空字符) |
+| char *strchr(const char *s,int c); | 查找s指向的字符串中首次出现c的位置。空字符是字符串的一部分。函数返回一个指针,指向首次出现c的位置。如果没有找到指定的c则返回NULL |
+| size_t strcspn(const char *s1,const char*s2); | 返回s1中未出现s2中任何字符的最大起始段长度 |
+| char *strpbrk(const char *s1,const char*s2); | 返回一个指针,指向s1中与s2任意字符匹配的第1个字符的位置。如果未发现任何匹配的字符,函数返回NULL |
+| char *strrchr(const char *s,int c); | 在s指向的字符串中查找末次出现c的位置(即从s2右侧开始查找字符c首次出现的位置)。空字符是字符串的一部分。如果找到,函数返回指向该位置的指针;如果未找到,则返回NULL |
+| size_t strspn(const char *s1,const char*s2); | 返回s1中包含s2所有字符的最大起始段长度 |
+| char *strstr(const char *s1,const char*s2); | 返回一个指针,指向s1中首次出现s2中字符序列(不包括结束的空字符)的位置。如果未找到,函数返回NULL |
+| char *strtok(char *restrict s1,const char * restrict s2); | 该函数把s1字符串分解为单独的记号。s2字符串包含了作为记号分隔符的字符。按顺序调用该函数。第1次调用时,s1应指向待分解的字符串。函数定位到非分隔符后的第1个记号分隔符,并用空字符替换它。函数返回一个指针,指向储存第1个记号的字符串。如果未找到记号,函数返回NULL。在此次调用strtok()查找字符串中的更多记号。每次调用都返回指向下一个记号的指针,如果未找到则返回NULL(请参看表后面的示例) |
+| char *strerror(int errnum); | 返回一个指针,指向与储存在errnum中的错误号相对应的错误信息字符串(依实现而异) |
+| int strlen(const char* s); | 返回字符串s中的字符数(末尾的空字除外) |
+
+strtok()函数的用法有点不寻常，下面演示一个简短的示例。
+
+```c
+#include <stdio.h>
+
+#include <string.h>
+
+int main(void)
+{
+char data[] = " C is\t too#much\nfun!";
+
+const char tokseps[] = " \t\n#";/* 分隔符 */
+char * pt;
+
+puts(data);
+
+pt = strtok(data,tokseps);      /* 首次调用 */
+while (pt)                          /* 如果pt是NULL, 则退出 */
+{
+puts (pt);                      /* 显示记号 */
+pt = strtok(NULL, tokseps);/* 下一个记号 */
+}
+return 0;
+}
+
+下面是该示例的输出:
+C is too#much
+fun!
+```
+
+is
+
+too
+
+much
+
+fun!
+
+## B.5.23 通用类型数学:tgmath.h（C99）
+
+math.h和complex.h库中有许多类型不同但功能相似的函数。例如,下面6个都是计算正弦的函数:
+
+double sin(double);
+
+float sinf(float);
+
+long double sinl(long double);
+
+double complex csin(double complex);
+
+float csinf(float complex);
+
+long double csinl(long double complex);
+
+tgmath.h 头文件定义了展开为通用调用的宏，即根据指定的参数类型调用合适的函数。下面的代码演示了使用sin()宏时，展开为正弦函数的不同形式:
+
+#include &lt;tgmath.h&gt;
+
+...
+
+double dx, dy;
+
+float fx, fy;
+
+long double complex clx, cly;
+
+tgmath.h头文件为3类函数定义了通用宏。第1类由math.h和complex.h中定义的6个函数的变式组成，用l和f后缀和c前缀，如前面的sin()函数所示。在这种情况下，通用宏名与该函数double类型版本的函数名相同。
+
+第2类由math.h头文件中定义的3个函数变式组成，使用l和f后缀，没有对应的复数函数（如，erf()）。在这种情况下，宏名与没有后缀的函数名相同，如erf()。使用带复数参数的这种宏的效果是未定义的。
+
+第3类由complex.h头文件中定义的3个函数变式组成，使用l和f后缀，没有对应的实数函数，如cimag()。使用带实数参数的这种宏的效果是未定义的。
+
+表B.5.38列出了一些通用宏函数。
+
+表B.5.38 通用数学函数
+
+| acos | asin | atanb | acosh | asinh | atanh |
+| --- | --- | --- | --- | --- | --- |
+| cos | sin | tan | cosh | sinh | tanh |
+| exp | log | pow | sqrt | fabs | atan2 |
+| cbrt | ceil | copysign | erf | erfc | exp2 |
+| expml | fdim | floor | fma | fmax | fmin |
+| fmod | frexp | hypot | ilogb | ldexp | lgamma |
+| llrint | llround | log10 | log1p | log2 | logb |
+| lrint | lround | nearbyint | nextafter | nexttoward | remainder |
+| remquo | rint | round | scalbn | scalbln | tgamma |
+| trunc | carg | cimag | conj | cproj | creal |
+
+在C11以前，编写实现必须依赖扩展标准才能实现通用宏。但是使用
+
+C11新增的\_Generic表达式可以直接实现。
+
+## B.5.24 线程:threads.h（C11）
+
+threads.h和stdatomic.h头文件支持并发编程。这方面的内容超出了本书讨论的范围，简而言之，该头文件支持程序执行多线程，原则上可以把多个线程分配给多个处理器处理。
+
+## B.5.25 日期和时间:time.h
+
+time.h定义了3个宏。第1个宏是表示空指针的NULL，许多其他头文件中也定义了这个宏。第2个宏是CLOCKS\_PER\_SEC，该宏除以clock()的返回值得以秒为单位的时间值。第3个宏（C11）是TIME\_UTC，这是一个正整型常量，用于指定协调世界时 [1]（即UTC）。该宏是timespec\_get()函数的一个可选参数。
+
+UTC是目前主要世界时间标准，作为互联网和万维网的普通标准，广泛应用于航空、天气预报、同步计算机时钟等各领域。
+
+time.h头文件中定义的类型列在表B.5.39中。
+
+表B.5.39 time.h中定义的类型
+
+| 类型 | 描述 |
+| --- | --- |
+| size_t | sizeof 运算符返回的整数类型 |
+| clock_t | 适用于表示时间的算术类型 |
+| time_t | 适用于表示时间的算术类型 |
+| struct timespec | 以秒和纳秒为单位储存指定时间间隔的结构(C11) |
+| struct tm | 储存日历时间的各部分 |
+
+timespec结构中至少有两个成员，如表B.5.40所列。
+
+表B.5.40 timespec结构中的成员
+
+| 成员 | 描述 |
+| --- | --- |
+| time_t tv_sec | 秒(>=0) |
+| long tv_nsec | 纳秒([0,999999999]) |
+
+日历类型的各组成部分被称为分解时间（broken-down time）。表B.5.41列出了struct tm结构中所需的成员。
+
+表B.5.41 struct tm结构中的成员
+
+| 成员 | 描述 |
+| --- | --- |
+| int tm_sec | 分后的秒(0-61) |
+| int tm_min | 小时后的分(0-59) |
+| int tm_hour | 小时(0-23) |
+| int tm_mday | 一个月的天数(0-31) |
+| int tm_mon | 一月后的月数(0-11) |
+| int tm_year | 1900年后的年数 |
+| int tm_wday | 星期日开始的天数(0-6) |
+| int tm_yday | 从1月1日开始的天数(0-365) |
+| int tm_isdst | 夏令时标志(大于0说明夏令时有效,等于0说明无效,小于0说明信息不可用) |
+
+日历时间（calendar time）表示当前的日期和时间，例如，可以是从1900年的第1秒开始经过的秒数。本地时间（local time）指的是本地时区的日历时间。表B.5.42列出了一些时间函数。
+
+表B.5.42 时间 函数
+
+| 成员 | 描述 |
+| --- | --- |
+| clock_t clock(void); | 该函数返回实现从开始执行程序到调用该函数时,处理器经过的最接近的时间。该函数的返回值除以 CLOCK_PER_SEC 得到以秒为单位的时间。如果时间不可用或无法表示,函数返回(clock_t)(-1) |
+| double difftime(time_t t1,time_t t0); | 返回两个日历时间(t1 - t0)的差值。该函数返回计算结果,单位是秒 |
+| time_t mktime(struct tm *tmptr); | 把 tmptr 指向的结构中的分解时间转换为日历时间。其编码与 time() 函数相同,但是结构改变了,以便对结构中超出范围的值进行调整(例如,2分100秒会调整为4分40秒),而且把 tm_wday 和 tm_yday 设置为其他成员指定的值。如果无法表示日历时间,该函数返回(time_t)(-1);否则以 time_t 格式返回日历时间 |
+| time_t time(time_t *ptm) | 返回当前日历时间,并将其储存在 ptm 指向的位置,假设 ptm 不是空指针。如果日期时间不可用,该函数返回(time_t)(-1) |
+| int timespec_get(struct timespec * ts, int base) | 根据指定的时基,把 ts 指向的结构设置为当前日历时间。如果成功,返回 base(非0值),否则返回0(C11) |
+| char *asctime(const struct tm *tmpt); | 把 tmpt 指向的结构中的分解时间转换成 Thu Feb 26 13:14:33 1998\\n\\0 格式的字符串,并返回指向该字符串的指针 |
+
+续表
+
+| 成员 | 描述 |
+| --- | --- |
+| char *ctime(const time_t*ptm); | 把 ptm 指向的结构中的分解时间转换成 Wed Aug 11 10:48:24 1999\\n\\0 格式的字符串,并返回指向该字符串的指针 |
+| struct tm *gmtime(const time_t *ptm); | 把 ptm 指向的日历时间转换成协调世界时(UTC)表示的分解时间,返回一个指向结构的指针,该结构中储时间信息。如果 UTC 不可用,则返回 NULL |
+| struct tm*localtime(const time_t *ptm); | 把 ptm 指向的日历时间转换成本地时间表示的分解时间,储存 tm 结构并返回指向该结构的指针 |
+| size_t strftime(char *restrict s, size_t max const char * restrict fmt, const struct tm *restrict tmpt); | 把字符串 fmt 拷贝到字符串 s 中,用 tmp 指向的分解时间结构中的合适数据替换 fmt 中的转换说明(见表 B.5.43)。最多在 s 中放入 max 个字符。该函数返回放入 s 中的字符数(不包括空格);如果字符串中的字符数大于 max,函数返回 0,且 s 中的内容不确定 |
+
+表B.5.43列出了strftime()函数中使用的转换说明。其中许多替换的值（如，月份名）都取决于当前的本地化设置。
+
+表B.5.43 strftime()函数中使用的转换说明
+
+| 转换说明 | 被替换为 |
+| --- | --- |
+| %a | 本地化的星期名称缩写 |
+| %A | 本地化的星期名称全名 |
+| %b | 本地化的月份名称缩写 |
+| %B | 本地化的月份名称全名 |
+| %c | 本地化指定的日期和时间 |
+| %C | 年份的后两位数字(年份除以100,取小数部分的数)(00-99) |
+| %d | 十进制数表示的月份中的某天(01-31) |
+| %D | 月/日/年,等价于“%m/%d/%y” |
+| %e | 十进制数表示的月份中的某天,在仅一位的数字前有一个空格(1-31) |
+| %F | 年-月-日,等价于“%Y-%m-%d” |
+| %g | 基于周的年份的最后两位数字(00-99) |
+| %G | 十进制数表示的基于周的年份 |
+| %h | 等价于“%b” |
+| %H | 十进制数(00-23)表示的小时(24小时制) |
+| %I | 十进制数(01-12)表示的小时(12小时制) |
+| %j | 十进制数表示的一年中的某天(001-366) |
+| %m | 十进制数表示的月份(01-12) |
+| %n | 换行符 |
+| %M | 十进制数表示的分钟(00-59) |
+| %p | 等价于本地12小时制中的am/pm |
+| %r | 本地的12小时制 |
+
+续表
+
+| 转换说明 | 被替换为 |
+| --- | --- |
+| %R | 小时:分钟,等价于“%H:%M” |
+| %S | 十进制数表示的秒(00-61) |
+| %t | 水平制表符 |
+| %T | 小时:分钟:秒,等价于“%H:%M:%S” |
+| %u | ISO 8601的星期数(1~7),星期一为1 |
+| %U | 一年中的周数(00~53),把星期天作为一周的第1天 |
+| %V | ISO 8601的一年周数(00~53),把星期天作为一周的第1天 |
+| %w | 十进制表示的星期数(0~6),从星期天开始 |
+| %W | 一年的周数(00~53),把星期一作为一周的第1天 |
+| %x | 本地化日期表示 |
+| %X | 本地化时间表示 |
+| %y | 不带世纪的十进制年份(00~99) |
+| %Y | 带世纪的十进制年份 |
+| %z | 按照ISO 8601格式的相对UTC偏移(“-800”表示格林威治时间后的8小时,即是向西8小时),如果无可用信息则无替换字符 |
+| %Z | 时区名,如果无可用信息则无替换字符 |
+| %% | %(即百分号) |
+
+## B.5.26 统一码工具:uchar.h（C11）
+
+C99 的 wchar.h 头文件提供两种途径支持大型字符集。C11 专门针对统一码（Unicode）新增了适用于UTF-16和UTF-32编码的类型（见表B.5.44）。
+
+表B.5.44 uchar.h中声明的类型
+
+| 类型 | 描述 |
+| --- | --- |
+| char16_t | 使用16位字符的无符号整数类型(与stdint.h中的unit_least16_t相同) |
+| char32_t | 使用32位字符的无符号整数类型(与stdint.h中的unit_least32_t相同) |
+| size_t | sizeof运算符(stddef.h)返回的整数类型 |
+| mbstate_t | 非数组类型,可储存多字节字符序列和宽字符相互转换的转换状态信息 |
+
+该头文件中还声明了一些多字节字符串与char16\_t、char32\_t格式相互转换的函数（见表B.5.45）。
+
+表B.5.45 宽字符与多字节转换函数
+
+| 类型 | 描述 |
+| --- | --- |
+| size_t mbrto16(char16_t* restrict pwc, const char * restrict s, size_t n, mbstate_t* restrict ps); | 与mbrtowc()函数相同(wchar.h),但该函数是把字符转换为char_16类型,而不是wchar_t类型 |
+| size_t mbrto32(char32_t* restrict pwc, const char * restrict s, size_t n, mbstate_t* restrict ps); | 与mbrto16()函数相同,但该函数是把字符转换为char32_t类型 |
+
+续表
+
+| 类型 | 描述 |
+| --- | --- |
+| size_t c16rtomb(char * restrict s, wchar_t wc, mbstate_t * restrict ps); | 与 wcrtobm() 函数相同 (wchar.h), 但该函数转换的是 char16_t 类型字符, 而不是 wchar_t 类型 |
+| size_t c32rtomb(char * restrict s, wchar_t wc, mbstate_t * restrict ps); | 与 wcrtobm() 函数相同 (wchar.h), 但该函数转换的是 char32_t 类型字符, 而不是 wchar_t 类型 |
+
+## B.5.27 扩展的多字节字符和宽字符工具:wchar.h（C99）
+
+每种实现都有一个基本字符集，要求C的char类型足够宽，以便能处理这个字符集。实现还要支持扩展的字符集，这些字符集中的字符可能需要多字节来表示。可以把多字节字符与单字节字符一起储存在普通的 char 类型数组，用特定的字节值指定多字节字符本身及其大小。如何解释多字节字符取决于移位状态（shift state）。在最初的移位状态中，单字节字符保留其通常的解释。特殊的多字节字符可以改变移位状态。除非显式改变特定的移位状态，否则移位状态一直保持有效。
+
+wchar\_t类型提供另一种表示扩展字符的方法，该类型足够宽，可以表示扩展字符集中任何成员的编码。用这种宽字符类型来表示字符时，可以把单字符储存在wchar\_t类型的变量中，把宽字符的字符串储存在wchar\_t类型的数组中。字符的宽字符表示和多字节字符表示不必相同，因为后者可能使用前者并不使用的移位状态。
+
+wchar.h 头文件提供了一些工具用于处理扩展字符的两种表示法。该头文件中定义的类型列在表B.5.46中（其中有些类型也定义在其他的头文件中）。
+
+表B.5.46 wchar.h中定义的类型
+
+| 类型 | 描述 |
+| --- | --- |
+| wchar_t | 整数类型,可表示本地化支持的最大扩展字符集 |
+| wint_t | 整数类型,可储存扩展字符集的任意值和至少一个不是扩展字符集成员的值 |
+| size_t | sizeof 运算符返回的整数类型 |
+| mbstate_t | 非数组类型,可储存多字节字符序列和宽字符之间转换所需的转换状态信息 |
+| struct tm | 结构类型,用于储存日历时间的组成部分 |
+
+wchar.h头文件中还定义了一些宏，如表B.5.47所列。
+
+表B.5.47 wchar.h中定义的宏
+
+| 宏 | 描述 |
+| --- | --- |
+| NULL | 空指针 |
+| WCHAR_MAX | wchar_t 类型可储存的最大值 |
+| WCHAR_MIN | wchar_t 类型可储存的最小值 |
+| WEOF | wint_t 类型的常量表达式,不与扩展字符集的任何成员对;相当于 EOF 的宽字符表示,用于指定宽字符输入的文件结尾 |
+
+该库提供的输入/输出函数类似于stdio.h中的标准输入/输出函数。在标准I/O函数返回EOF的情况中，对应的宽字符函数返回WEOF。表B.5.48中列出了这些函数。
+
+表B.5.48 宽字符I/O函数
+
+```c
+函数原型
+int fwprintf(FILE * restrict stream, const wchar_t * restrict format, ...);
+int fwscanf(FILE * restrict stream, const wchar_t * restrict format, ...);
+int swprintf(wchar_t * restrict s, size_t n, const wchar_t * restrict format, ...);
+int swscanf(const wchar_t * restrict s, const wchar_t * restrict format,...);
+int vfwprintf(FILE * restrict stream, const wchar_t * restrict format,va_list arg);
+int vfwscanf(FILE * restrict stream, const wchar_t * restrict format,va_list arg);
+int vswprintf(wchar_t * restrict s, size_t n, const wchar_t * restrict format, va_list arg);
+int vswscanf(const wchar_t * restrict s, const wchar_t * restrict format,va_list arg);
+int vwprintf(const wchar_t * restrict format, va_list arg);
+int vwscanf(const wchar_t * restrict format, va_list arg);
+int wprintf(const wchar_t * restrict format, ...);
+int wscanf(const wchar_t * restrict format, ...);
+wint_t fgetwc(FILE *stream);
+wchar_t *fgetws(wchar_t * restrict s, int n, FILE * restrict stream);
+wint_t fputwc(wchar_t c, FILE *stream);
+int fputws(const wchar_t * restrict s, FILE * restrict stream);
+int fwide(FILE *stream, int mode);
+wint_t getwc(FILE *stream);
+wint_t getwchar(void);
+wint_t putwc(wchar_t c, FILE *stream);
+wint_t putwchar(wchar_t c);
+wint t ungetwc(wint_t c, FILE *stream);
+```
+
+有一个宽字符I/O函数没有对应的标准I/O函数:
+
+int fwide(FILE \*stream, int mode)[2];
+
+如果mode为正，函数先尝试把形参表示的流指定为宽字符定向（widecharaacter oriented）；如果 mode为负，函数先尝试把流指定为字节定向（byte oriented）；如果 mode为0，函数则不改变流的定向。该函数只有在流最初无定向时才改变其定向。在以上所有的情况中，如果流是宽字符定向，函数返回正值；如果流是字节定向，函数返回负值；如果流没有定向，函数则返回0。
+
+wchar.h 头文件参照 string.h，也提供了一些转换和控制字符串的函数。一般而言，用 wcs 代替sting.h中的str标识符，这样wcstod()就是strtod()函数的宽字符版本。表B.5.49列出了这些函数。
+
+表B.5.49 宽字符字符串工具
+
+| 函数原型 |
+| --- |
+| double wcstod(const wchar_t * restrict nptr, wchar_t ** restrict endptr); |
+| float wcstof(const wchar_t * restrict nptr, wchar_t ** restrict endptr); |
+| long double wcstold(const wchar_t * restrict nptr, wchar_t ** restrict endptr); |
+
+续表
+
+函数原型
+
+```c
+long int wcstol(const wchar_t * restrict nptr, wchar_t ** restrict endptr,int base);
+long long int wcstoll(const wchar_t * restrict nptr, wchar_t ** restrict endptr, int base);
+unsigned long int wcstoul(const wchar_t * restrict nptr, wchar_t ** restrict endptr, int base);
+unsigned long long int wcstoull( const wchar_t * restrict nptr, wchar_t **restrict endptr,
+int base);
+wchar_t *wcscpy(wchar_t * restrict s1, const wchar_t * restrict s2);
+wchar_t *wcsncpy(wchar_t * restrict s1, const wchar_t * restrict s2, size_tn);
+wchar_t *wcscat(wchar_t * restrict s1, const wchar_t * restrict s2);
+wchar_t *wcsncat(wchar_t * restrict s1, const wchar_t * restrict s2, size_tn);
+int wcscmp(const wchar_t *s1, const wchar_t *s2);
+int wcscoll(const wchar_t *s1, const wchar_t *s2);
+int wcsncmp(const wchar_t *s1, const wchar_t *s2, size_t n);
+size_t wcsxfrm(wchar_t * restrict s1, const wchar_t * restrict s2, size_tn);
+wchar_t *wcschr(const wchar_t *s, wchar_t c);
+size_t wcscspn(const wchar_t *s1, const wchar_t *s2);
+size_t wcslen(const wchar_t *s);
+wchar_t *wcspbrk(const wchar_t *s1, const wchar_t *s2);
+wchar_t *wcsrchr(const wchar_t *s, wchar_t c);
+size_t wcsspn(const wchar_t *s1, const wchar_t *s2);
+wchar_t *wcsstr(const wchar_t *s1, const wchar_t *s2);
+wchar_t *wcstok(wchar_t * restrict s1, const wchar_t * restrict s2, wchar_t** restrict ptr);
+wchar_t *wmemchr(const wchar_t *s, wchar_t c, size_t n);
+int wmemcmp(wchar_t * restrict s1, const wchar_t * restrict s2, size_t n);
+wchar_t *wmemcpy(wchar_t * restrict s1,const wchar_t * restrict s2,size_t n);
+wchar_t *wmemmove(wchar_t *s1, const wchar_t *s2,size_t n);
+wchar_t *wmemset(wchar_t *s, wchar_t c,size_t n);
+```
+
+该头文件还参照time.h头文件中的strtime()函数，声明了一个时间函数:
+
+size\_t wcsftime(wchar\_t \* restrict s, size\_t maxsize,const wchar\_t \* restrict format,
+
+const struct tm \* restrict timeptr);
+
+除此之外，该头文件还声明了一些用于宽字符字符串和多字节字符相互转换的函数，如表B.5.50所列。
+
+表B.5.50 宽字节和多字节字符转换函数
+
+| 函数原型 | 描述 |
+| --- | --- |
+| wint_t btowc(int c); | 如果在初始移位状态中c(unsigned char)是有效的单字节字符,那么该函数返回宽字节表示;否则,返回WEOF |
+| int wctob(wint_t c); | 如果c是一个扩展字符集的成员,它在初始移位状态中的多字节字符表示的是单字节,该函数就返回一个转换为int类型的unsigned char的单字节表示;否则,函数返回EOF |
+| int mbsinit(const mbstate_t *ps); | 如果ps是空指针或指向一个指定为初始转换状态的数据对象,函数就返回非零值;否则,函数返回0 |
+
+续表
+
+| 函数原型 | 描述 |
+| --- | --- |
+| size_t mbrlen(const char * restrict s, size_t n, mbstate_t * restrict ps); | mbrlen()函数相当于调用mbrtowc(NULL, s, n, ps != NULL ? ps : &amp;internal),其中internal是mbrlen()函数的mbstate_t对象,除非ps指定的表达式只计算一次 |
+| size_t mbrtowc(wchar_t * restrict pwc, const char * restrict s, size_t n, mbstate_t * restrict ps); | 如果s是空指针,调用该函数相当于把pwc设置为空指针、把n设置为1。如果s不是空指针,该函数最多检查n字节以确定下一个完整的多字节字符所需的字节数(包括所有的移位序列)。如果该函数确定了下一个多字节字符的结束处且合法,它就确定了对应宽字符的值。然后,如果pwc不为空,则把值储存在pwc指向的对象中。如果对应的宽字符是空的宽字符,描述的最终状态就是初始转换状态。如果检测到空的宽字符,函数返回0;如果检测到另一个有效宽字符,函数返回完整字符所需的字节数。如果n字节不足以表示一个有效的宽字符,但是能表示其中的一部分,函数返回-2。如果出现编码错误,函数返回-1,并把EILSEQ储存在errno中,且不储存任何值 |
+| size_t wcrtomb(char * restrict s, wchar_t wc, mbstate_t * restrict ps); | 如果s是空指针,那么调用该函数相当于把wc设置为空的宽字符,并为第1个参数使用内部缓冲区。如果s不是空指针,wcrtomb()函数则确定表示wc指定宽字符对应的多字节字符表示所需的字节数(包括所有移位序列),并把多字节字符表示储存在一个数组中(s指向该数组的第1个元素),最多储存MB_CUR_MAX字节。如果wc是空的宽字符,就在初始移位状态所需的移位序列后储存一个空字节。描述的结果状态就是初始转换状态。如果wc是有效的宽字符,该函数返回储存多字节字符所需的字节数(包括指定移位状态的字节)。如果wc无效,函数则把EILSEQ储存在errno中,并返回-1 |
+| size_t mbsrtowcs(wchar_t * restrict dst, const char ** restrict src, size_t len, mbstate_t * restrict ps); | mbstrtows()函数把src间接指向的数组中的多字节字符序列转换成对应的宽字符序列,从ps指向的对象所描述的转换状态开始,一直转换到结尾的空字符(包括该字符并储存)或转换了len个宽字符。如果dst不是空指针,则待转换的字符将储存在dst指向的数组中。出现这两种情况时停止转换:如果字节序列无法构成一个有效的多字节字符,或者(如果dst不是空指针)len个宽字符已储存在dst指向的数组中。每转换一次都相当于调用一次mbrtowc()函数。如果dst不是空指针,就把空指针(如果因到达结尾的空字符而停止转换)或最后一个待转换多字节字符的地址赋给src指向的指针对象。如果由于到达结尾的空字符而停止转换,且dst不是空指针,那么描述的结果状态就是初始转状态。如果执行成功,函数返回成功转换的多字节字符数(不包括空字符);否则函数返回-1 |
+| size_t wcsrtombs(char * restrict dst,const wchar_t ** restrict src,size_t len,mbstate_t * restrict ps); | wcsrtombs()函数把src间接指向的数组中的宽字符序列转换成对应的多字节字符序列(从ps指向的对象描述的转换状态开始)。如果dst不是空指针,待转换的字符将被储存在dst指向的数组中。一直转换到结尾的空字符(包括该字符并储存)或换了len个多字节字符。出现这两种情况时停止转换:如果宽字符没有对应的有效多字节字符,或者(如果dst不是空指针)下一个多字节字超过了储存在dst指向的数组中的总字节数len的限制。每转换一次都相当于调用一次wcrtomb()函数。如果dst不是空指针,就把空指针(如果因到达结尾的空字符而停止转换)或最后一个待转换多字节字符的地址赋给src指向的指针对象。如果由于到达结尾的空字符而停止转换,描述的结果状态就是初始转状态。如果执行成功,函数返回成功转换的多字节字符数(不包括空字符);否则函数返回-1 |
+
+## B.5.28 宽字符分类和映射工具:wctype.h（C99）
+
+wctype.h 库提供了一些与 ctype.h 中的字符函数类似的宽字符函数，以及其他函数。wctype.h还定义了表B.5.51中列出的3种类型和宏。
+
+表B.5.51 wctpe.h中定义的类型和宏
+
+| 类型/宏 | 描述 |
+| --- | --- |
+| wint_t | 整数类型,用于储存扩展字符集中的任意值,还可以储存至少一个不是扩展字符成员的值 |
+| wctrans_t | 标量类型,可以表示本地化指定的字符映射 |
+| wctype_t | 标量类型,可以表示本地化指定的字符分类 |
+| WEOF | wint_t 类型的常量表达式,不对应扩展字符集中的任何成员,相当于宽字符中的 EOF,用于表示宽字符输入的文件结尾 |
+
+在该库中，如果宽字符参数满足字符分类函数的条件时，函数返回真（非0）。一般而言，因为单字节字符对应宽字符，所以如果 ctype.h 中对应的函数返回真，宽字符函数也返回真。表 B.5.52 列出了这些函数。
+
+表B.5.52 宽字节分类函数
+
+| 函数原型 | 描述 |
+| --- | --- |
+| int iswalnum(wint_t wc); | 如果wc表示一个字母数字字符(字母或数字),函数返回真 |
+| int iswalpha(wint_t wc); | 如果wc表示一个字母字符,函数返回真 |
+| int iswblank(wint_t wc); | 如果wc表示一个空格,函数返回真 |
+| int iswcntrl(wint_t wc); | 如果wc表示一个控制字符,函数返回真 |
+| int iswdigit(wint_t wc); | 如果wc表示一个数字,函数返回真 |
+| int iswgraph(wint_t wc); | 如果iswprint(wc)为真,且iswspace(wc)为假,函数返回真 |
+| int iswlower(wint_t wc); | 如果wc表示一个小写字符,函数返回真 |
+| int iswprint(wint_t wc); | 如果wc表示一个可打印字符,函数返回真 |
+| int iswpunct(wint_t wc); | 如果wc表示一个标点字符,函数返回真 |
+| int iswspace(wint_t wc); | 如果wc表示一个制表符、空格或换行符,函数返回真 |
+| int iswupper(wint_t wc); | 如果wc表示一个大写字符,函数返回真 |
+| int iswxdigit(wint_t wc); | 如果wc表示一个十六进制数字,函数返回真 |
+
+该库还包含两个可扩展的分类函数，因为它们使用当前本地化的LC\_CTYPE值进行分类。表B.5.53列出了这些函数。
+
+表B.5.53 可扩展的宽字符分类函数
+
+| 原型 | 描述 |
+| --- | --- |
+| int iswctype(wint_t wc,wctype_t desc); | 如果wc具有desc描述的属性,函数返回真 |
+| wctype_t wctype(const char *property); | wctype()函数构建了一个wctpe_t类型的值,它描述了由字符串参数property指定的宽字符分类。如果根据当前本地化的LC_CTYPE类别,property识别宽字符分类有效,wctype()函数则返回非零值(可作为iswctype()函数的第2个参数);否则,函数返回0 |

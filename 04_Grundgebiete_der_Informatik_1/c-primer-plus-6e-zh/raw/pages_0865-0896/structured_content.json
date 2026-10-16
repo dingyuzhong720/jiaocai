@@ -1,0 +1,3248 @@
+{
+  "pages": [
+    {
+      "page_idx": 864,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.919,
+            0.198
+          ],
+          "content": "块作用域的变量通常都具有自动存储期。当程序进入定义这些变量的块时，为这些变量分配内存；当退出这个块时，释放刚才为变量分配的内存。这种做法相当于把自动变量占用的内存视为一个可重复使用的工作区或暂存区。例如，一个函数调用结束后，其变量占用的内存可用于储存下一个被调用函数的变量。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.221,
+            0.918,
+            0.272
+          ],
+          "content": "变长数组稍有不同，它们的存储期从声明处到块的末尾，而不是从块的开始处到块的末尾。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.296,
+            0.906,
+            0.374
+          ],
+          "content": "我们到目前为止使用的局部变量都是自动类别。例如，在下面的代码中，变量number和index在每次调用bore()函数时被创建，在离开函数时被销毁:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.399,
+            0.819,
+            0.702
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid bore(int number)\n{\nint index;\nfor (index = 0; index < number; index++)\nputs(\"They don't make them the way they used to.\\n\");\nreturn 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.723,
+            0.918,
+            0.774
+          ],
+          "content": "然而，块作用域变量也能具有静态存储期。为了创建这样的变量，要把变量声明在块中，且在声明前面加上关键字static:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.799,
+            0.399,
+            0.913
+          ],
+          "sub_type": "code",
+          "content": "```txt\nvoid more(int number)\n{\nint index;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "865"
+        }
+      ]
+    },
+    {
+      "page_idx": 865,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.062,
+            0.368,
+            0.222
+          ],
+          "sub_type": "code",
+          "content": "```txt\nstatic int ct = 0;\n\n...\nreturn 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.247,
+            0.911,
+            0.353
+          ],
+          "content": "这里，变量ct储存在静态内存中，它从程序被载入到程序结束期间都存在。但是，它的作用域定义在more()函数块中。只有在执行该函数时，程序才能使用ct访问它所指定的对象（但是，该函数可以给其他函数提供该存储区的地址以便间接访问该对象，例如通过指针形参或返回值）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.378,
+            0.915,
+            0.513
+          ],
+          "content": "C 使用作用域、链接和存储期为变量定义了多种存储方案。本书不涉及并发程序设计，所以不再赘述这方面的内容。已分配存储期在本章后面介绍。因此，剩下5种存储类别:自动、寄存器、静态块作用域、静态外部链接、静态内部链接，如表12.1所列。现在，我们已经介绍了作用域、链接和存储期，接下来将详细讨论这些存储类别。"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.092,
+            0.569,
+            0.911,
+            0.709
+          ],
+          "content": "| 存储类别 | 存储期 | 作用域 | 链接 | 声明方式 |\n| --- | --- | --- | --- | --- |\n| 自动 | 自动 | 块 | 无 | 块内 |\n| 寄存器 | 自动 | 块 | 无 | 块内,使用关键字register |\n| 静态外部链接 | 静态 | 文件 | 外部 | 所有函数外 |\n| 静态内部链接 | 静态 | 文件 | 内部 | 所有函数外,使用关键字static |\n| 静态无链接 | 静态 | 块 | 无 | 块内,使用关键字static |",
+          "captions": [
+            {
+              "bbox": [
+                0.416,
+                0.536,
+                0.58,
+                0.553
+              ],
+              "content": "表12.1 5种存储类别"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_865_table_4.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.393,
+            0.732,
+            0.603,
+            0.755
+          ],
+          "level": 2,
+          "content": "12.1.4 自动变量"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.779,
+            0.917,
+            0.887
+          ],
+          "content": "属于自动存储类别的变量具有自动存储期、块作用域且无链接。默认情况下，声明在块或函数头中的任何变量都属于自动存储类别。为了更清楚地表达你的意图（例如，为了表明有意覆盖一个外部变量定义，或者强调不要把该变量改为其他存储类别），可以显式使用关键字auto，如下所示:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.913,
+            0.279,
+            0.933
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint main(void)\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "866"
+        }
+      ]
+    },
+    {
+      "page_idx": 866,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.063,
+            0.305,
+            0.13
+          ],
+          "sub_type": "code",
+          "content": "```sql\n{\nauto   int  plox;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.154,
+            0.918,
+            0.231
+          ],
+          "content": "关键字auto是存储类别说明符（storage-class specifier）。auto关键字在C++中的用法完全不同，如果编写C/C++兼容的程序，最好不要使用auto作为存储类别说明符。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.257,
+            0.919,
+            0.363
+          ],
+          "content": "块作用域和无链接意味着只有在变量定义所在的块中才能通过变量名访问该变量（当然，参数用于传递变量的值和地址给另一个函数，但是这是间接的方法）。另一个函数可以使用同名变量，但是该变量是储存在不同内存位置上的另一个变量。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.389,
+            0.918,
+            0.466
+          ],
+          "content": "变量具有自动存储期意味着，程序在进入该变量声明所在的块时变量存在，程序在退出该块时变量消失。原来该变量占用的内存位置现在可做他用。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.492,
+            0.918,
+            0.542
+          ],
+          "content": "接下来分析一下嵌套块的情况。块中声明的变量仅限于该块及其包含的块使用。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.567,
+            0.572,
+            0.914
+          ],
+          "sub_type": "code",
+          "content": "```lisp\nint loop(int n)\n{\nint m; // m 的作用域\nscanf(\"%d\", &m);\n{\nint i; // m 和 i 的作用域\nfor (i = m; i < n; i++)\nputs(\"i is local to a sub-block\\n\");\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "867"
+        }
+      ]
+    },
+    {
+      "page_idx": 867,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.062,
+            0.518,
+            0.177
+          ],
+          "sub_type": "code",
+          "content": "```txt\n}\nreturn m; // m 的作用域，i 已经消失\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.199,
+            0.919,
+            0.364
+          ],
+          "content": "在上面的代码中，i仅在内层块中可见。如果在内层块的前面或后面使用i，编译器会报错。通常，在设计程序时用不到这个特性。然而，如果这个变量仅供该块使用，那么在块中就近定义该变量也很方便。这样，可以在靠近使用变量的地方记录其含义。另外，这样的变量只有在使用时才占用内存。变量n和 m 分别定义在函数头和外层块中，它们的作用域是整个函数，而且在调用函数到函数结束期间都一直存在。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.388,
+            0.918,
+            0.468
+          ],
+          "content": "如果内层块中声明的变量与外层块中的变量同名会怎样？内层块会隐藏外层块的定义。但是离开内层块后，外层块变量的作用域又回到了原来的作用域。程序清单12.1演示了这一过程。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.538,
+            0.741,
+            0.934
+          ],
+          "sub_type": "code",
+          "content": "```c\n// hiding.c -- 块中的变量\n#include <stdio.h>\nint main()\n{\nint x = 30;          // 原始的 x\nprintf(\"x in outer block: %d at %p\\n\", x, &x);\n{\nint x = 77;          // 新的 x，隐藏了原始的 x\nprintf(\"x in inner block: %d at %p\\n\", x, &x);\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.128,
+                0.492,
+                0.424,
+                0.515
+              ],
+              "content": "程序清单12.1 hiding.c程序"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.96,
+            0.52,
+            0.976
+          ],
+          "content": "868"
+        }
+      ]
+    },
+    {
+      "page_idx": 868,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.062,
+            0.741,
+            0.549
+          ],
+          "sub_type": "code",
+          "content": "```c\n}\nprintf(\"x in outer block: %d at %p\\n\", x, &x);\nwhile (x++ < 33)          // 原始的 x\n{\nint x = 100;            // 新的 x，隐藏了原始的 x\nx++;\nprintf(\"x in while loop: %d at %p\\n\", x, &x);\n}\nprintf(\"x in outer block: %d at %p\\n\", x, &x);\nreturn 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.57,
+            0.373,
+            0.592
+          ],
+          "content": "下面是该程序的输出:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.616,
+            0.625,
+            0.917
+          ],
+          "sub_type": "code",
+          "content": "```txt\nx in outer block: 30 at 0x7fff5fbff8c8\nx in inner block: 77 at 0x7fff5fbff8c4\nx in outer block: 30 at 0x7fff5fbff8c8\nx in while loop: 101 at 0x7fff5fbff8c0\nx in while loop: 101 at 0x7fff5fbff8c0\nx in while loop: 101 at 0x7fff5fbff8c0\nx in outer block: 34 at 0x7fff5fbff8c8\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "869"
+        }
+      ]
+    },
+    {
+      "page_idx": 869,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.912,
+            0.169
+          ],
+          "content": "首先，程序创建了变量x并初始化为30，如第1条printf()语句所示。然后，定义了一个新的变量x，并设置为77，如第2条printf()语句所示。根据显示的地址可知，新变量隐藏了原始的x。第3条printf()语句位于第1个内层块后面，显示的是原始的x的值，这说明原始的x既没有消失也不曾改变。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.193,
+            0.905,
+            0.242
+          ],
+          "content": "也许该程序最难懂的是while循环。while循环的测试条件中使用的是原始的x:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.27,
+            0.302,
+            0.29
+          ],
+          "content": "\\text {while} (\\mathrm{x} + + <   3 3)",
+          "image_source": "images/page_869_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.314,
+            0.915,
+            0.478
+          ],
+          "content": "在该循环中，程序创建了第3个x变量，该变量只定义在while循环中。所以，当执行到循环体中的x++时，递增为101的是新的x，然后printf()语句显示了该值。每轮迭代结束，新的x变量就消失。然后循环的测试条件使用并递增原始的x，再次进入循环体，再次创建新的x。在该例中，这个x被创建和销毁了3次。注意，该循环必须在测试条件中递增x，因为如果在循环体中递增x，那么递增的是循环体中创建的x，而非测试条件中使用的原始x。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.503,
+            0.894,
+            0.553
+          ],
+          "content": "我们使用的编译器在创建while循环体中的x时，并未复用内层块中x占用的内存，但是有些编译器会这样做。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.578,
+            0.915,
+            0.655
+          ],
+          "content": "该程序示例的用意不是鼓励读者要编写类似的代码（根据C的命名规则，要想出别的变量名并不难），而是为了解释在内层块中定义变量的具体情况。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.681,
+            0.338,
+            0.702
+          ],
+          "level": 2,
+          "content": "1.没有花括号的块"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.727,
+            0.915,
+            0.863
+          ],
+          "content": "前面提到一个C99特性:作为循环或if语句的一部分，即使不使用花括号（{}），也是一个块。更完整地说，整个循环是它所在块的子块（subblock），循环体是整个循环块的子块。与此类似，if 语句是一个块，与其相关联的子语句是if语句的子块。这些规则会影响到声明的变量和这些变量的作用域。程序清单12.2演示了for循环中该特性的用法。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.888,
+            0.428,
+            0.908
+          ],
+          "content": "程序清单**12.2 forc99.c**程序"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "870"
+        }
+      ]
+    },
+    {
+      "page_idx": 870,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.109,
+            0.789,
+            0.919
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n\nint main()\n{\nint n = 8;\nprintf(\" Initially, n = %d at %p\\n\", n, &n);\nfor (int n = 1; n < 3; n++)\nprintf(\" loop 1: n = %d at %p\\n\", n, &n);\nprintf(\"After loop 1, n = %d at %p\\n\", n, &n);\nfor (int n = 1; n < 3; n++)\n{\nprintf(\" loop 2 index n = %d at %p\\n\", n, &n);\nint n = 6;\nprintf(\" loop 2: n = %d at %p\\n\", n, &n);\nn++;\n}\nprintf(\"After loop 2, n = %d at %p\\n\", n, &n);\nreturn 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.129,
+                0.061,
+                0.451,
+                0.081
+              ],
+              "content": "// forc99.c -- 新的 C99 块规则"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.518,
+            0.976
+          ],
+          "content": "871"
+        }
+      ]
+    },
+    {
+      "page_idx": 871,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.061,
+            0.768,
+            0.083
+          ],
+          "content": "假设编译器支持C语言的这个新特性，该程序的输出如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.109,
+            0.452,
+            0.13
+          ],
+          "sub_type": "code",
+          "content": "```txt\nInitially, n = 8 at 0x7fff5fbff8c8\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.155,
+            0.44,
+            0.176
+          ],
+          "sub_type": "code",
+          "content": "```txt\nloop 1: n = 1 at 0x7fff5fbff8c4\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.201,
+            0.44,
+            0.222
+          ],
+          "sub_type": "code",
+          "content": "```txt\nloop 1: n = 2 at 0x7fff5fbff8c4\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.248,
+            0.495,
+            0.269
+          ],
+          "sub_type": "code",
+          "content": "```txt\nAfter loop 1, n = 8 at 0x7fff5fbff8c8\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.294,
+            0.492,
+            0.314
+          ],
+          "sub_type": "code",
+          "content": "```txt\nloop 2 index n = 1 at 0x7fff5fbff8c0\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.34,
+            0.439,
+            0.361
+          ],
+          "sub_type": "code",
+          "content": "```txt\nloop 2: n = 6 at 0x7fff5fbff8bc\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.386,
+            0.492,
+            0.407
+          ],
+          "sub_type": "code",
+          "content": "```txt\nloop 2 index n = 2 at 0x7fff5fbff8c0\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.433,
+            0.439,
+            0.454
+          ],
+          "sub_type": "code",
+          "content": "```txt\nloop 2: n = 6 at 0x7fff5fbff8bc\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.479,
+            0.495,
+            0.5
+          ],
+          "sub_type": "code",
+          "content": "```txt\nAfter loop 2, n = 8 at 0x7fff5fbff8c8\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.524,
+            0.895,
+            0.574
+          ],
+          "content": "第1个for循环头中声明的n，其作用域作用至循环末尾，而且隐藏了原始的n。但是，离开循环后，原始的n又起作用了。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.599,
+            0.918,
+            0.734
+          ],
+          "content": "第2个for循环头中声明的n作为循环的索引，隐藏了原始的n。然后，在循环体中又声明了一个n，隐藏了索引n。结束一轮迭代后，声明在循环体中的n消失，循环头使用索引n进行测试。当整个循环结束时，原始的 n 又起作用了。再次提醒读者注意，没必要在程序中使用相同的变量名。如果用了，各变量的情况如上所述。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.76,
+            0.359,
+            0.78
+          ],
+          "level": 2,
+          "content": "注意支持C99和C11"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.806,
+            0.919,
+            0.915
+          ],
+          "content": "有些编译器并不支持C99/C11的这些作用域规则（Microsoft Visual Studio 2012就是其中之一）。有些编译会提供激活这些规则的选项。例如，撰写本书时，gcc默认支持了C99的许多特性，但是要用 $- s t d = c 9 9$ 选项激活程序清单12.2中使用的特性:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "872"
+        }
+      ]
+    },
+    {
+      "page_idx": 872,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.063,
+            0.359,
+            0.083
+          ],
+          "sub_type": "code",
+          "content": "```txt\ngcc -std=c99 forc99.c\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.107,
+            0.919,
+            0.16
+          ],
+          "content": "与此类似，gcc或clang都要使用 $-s t d = c \\bot x 或 -s t d = c \\bot \\bot$ 选项，才支持C11特性。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.185,
+            0.367,
+            0.206
+          ],
+          "level": 2,
+          "content": "2.自动变量的初始化"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.231,
+            0.8,
+            0.253
+          ],
+          "content": "自动变量不会初始化，除非显式初始化它。考虑下面的声明:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.277,
+            0.316,
+            0.438
+          ],
+          "sub_type": "code",
+          "content": "```c\nint main(void)\n{\nintrepid;\nint tents = 5;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.463,
+            0.918,
+            0.569
+          ],
+          "content": "tents变量被初始化为5，但是repid变量的值是之前占用分配给repid的空间中的任意值（如果有的话），别指望这个值是0。可以用非常量表达式（non-constant expression）初始化自动变量，前提是所用的变量已在前面定义过:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.596,
+            0.309,
+            0.71
+          ],
+          "sub_type": "code",
+          "content": "```c\nint main(void)\n{\nint ruth = 1;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.734,
+            0.603,
+            0.755
+          ],
+          "content": "int rance = 5 \\* ruth; // 使用之前定义的变量"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.378,
+            0.782,
+            0.618,
+            0.805
+          ],
+          "level": 2,
+          "content": "12.1.5 寄存器变量"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.829,
+            0.919,
+            0.937
+          ],
+          "content": "变量通常储存在计算机内存中。如果幸运的话，寄存器变量储存在CPU的寄存器中，或者概括地说，储存在最快的可用内存中。与普通变量相比，访问和处理这些变量的速度更快。由于寄存器变量储存在寄存器而非内存中，所以无法获取寄存器变量的地址。绝大多数方面，寄存器变量和自动变"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.519,
+            0.976
+          ],
+          "content": "873"
+        }
+      ]
+    },
+    {
+      "page_idx": 873,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.919,
+            0.112
+          ],
+          "continues_prev": true,
+          "content": "量都一样。也就是说，它们都是块作用域、无链接和自动存储期。使用存储类别说明符register便可声明寄存器变量:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.137,
+            0.349,
+            0.253
+          ],
+          "sub_type": "code",
+          "content": "```c\nint main(void)\n{\nregister int quick;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.275,
+            0.919,
+            0.41
+          ],
+          "content": "我们刚才说“如果幸运的话”，是因为声明变量为register类别与直接命令相比更像是一种请求。编译器必须根据寄存器或最快可用内存的数量衡量你的请求，或者直接忽略你的请求，所以可能不会如你所愿。在这种情况下，寄存器变量就变成普通的自动变量。即使是这样，仍然不能对该变量使用地址运算符。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.435,
+            0.8,
+            0.456
+          ],
+          "content": "在函数头中使用关键字register，便可请求形参是寄存器变量:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.483,
+            0.395,
+            0.503
+          ],
+          "content": "void macho(register int n)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.528,
+            0.918,
+            0.577
+          ],
+          "content": "可声明为register的数据类型有限。例如，处理器中的寄存器可能没有足够大的空间来储存double类型的值。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.316,
+            0.605,
+            0.68,
+            0.627
+          ],
+          "level": 2,
+          "content": "12.1.6 块作用域的静态变量"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.652,
+            0.92,
+            0.903
+          ],
+          "content": "静态变量（static variable）听起来自相矛盾，像是一个不可变的变量。实际上，静态的意思是该变量在内存中原地不动，并不是说它的值不变。具有文件作用域的变量自动具有（也必须是）静态存储期。前面提到过，可以创建具有静态存储期、块作用域的局部变量。这些变量和自动变量一样，具有相同的作用域，但是程序离开它们所在的函数后，这些变量不会消失。也就是说，这种变量具有块作用域、无链接，但是具有静态存储期。计算机在多次函数调用之间会记录它们的值。在块中（提供块作用域和无链接）以存储类别说明符static（提供静态存储期）声明这种变量。程序清单12.3演示了一个这样的例子。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "874"
+        }
+      ]
+    },
+    {
+      "page_idx": 874,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.106,
+            0.823,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* loc_stat.c -- 使用局部静态变量 */\n#include <stdio.h>\n\nvoid trystat(void);\n\nint main(void)\n{\nint count;\nfor (count = 1; count <= 3; count++)\n{\nprintf(\"Here comes iteration %d:\\n\", count);\ntrystat();\n}\nreturn 0;\n}\nvoid trystat(void)\n{\nint fade = 1;\nstatic int stay = 1;\nprintf(\"fade = %d and stay = %d\\n\", fade++, stay++);\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.13,
+                0.061,
+                0.445,
+                0.083
+              ],
+              "content": "程序清单12.3 loc\\_stat.c程序"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "875"
+        }
+      ]
+    },
+    {
+      "page_idx": 875,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.063,
+            0.148,
+            0.083
+          ],
+          "content": "}"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.107,
+            0.831,
+            0.129
+          ],
+          "content": "注意，trystat()函数先打印再递增变量的值。该程序的输出如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.155,
+            0.46,
+            0.409
+          ],
+          "sub_type": "code",
+          "content": "```python\nHere comes iteration 1:\nfade = 1 and stay = 1\nHere comes iteration 2:\nfade = 1 and stay = 2\nHere comes iteration 3:\nfade = 1 and stay = 3\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.431,
+            0.9,
+            0.538
+          ],
+          "content": "静态变量stay保存了它被递增1后的值，但是fade变量每次都是1。这表明了初始化的不同:每次调用trystat()都会初始化fade，但是stay只在编译strstat()时被初始化一次。如果未显式初始化静态变量，它们会被初始化为0。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.563,
+            0.372,
+            0.584
+          ],
+          "content": "下面两个声明很相似:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.611,
+            0.259,
+            0.631
+          ],
+          "content": "int fade = 1;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.658,
+            0.313,
+            0.679
+          ],
+          "content": "static int stay = 1;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.702,
+            0.918,
+            0.866
+          ],
+          "content": "第1条声明确实是trystat()函数的一部分，每次调用该函数时都会执行这条声明。这是运行时行为。第2条声明实际上并不是trystat()函数的一部分。如果逐步调试该程序会发现，程序似乎跳过了这条声明。这是因为静态变量和外部变量在程序被载入内存时已执行完毕。把这条声明放在trystat()函数中是为了告诉编译器只有trystat()函数才能看到该变量。这条声明并未在运行时执行。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.891,
+            0.476,
+            0.913
+          ],
+          "content": "不能在函数的形参中使用static:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "876"
+        }
+      ]
+    },
+    {
+      "page_idx": 876,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.062,
+            0.513,
+            0.083
+          ],
+          "content": "int wontwork(static int flu); // 不允许"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.107,
+            0.919,
+            0.187
+          ],
+          "content": "“局部静态变量”是描述具有块作用域的静态变量的另一个术语。阅读一些老的 C文献时会发现，这种存储类别被称为内部静态存储类别（internal static storage class）。这里的内部指的是函数内部，而非内部链接。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.316,
+            0.213,
+            0.68,
+            0.236
+          ],
+          "level": 2,
+          "content": "12.1.7 外部链接的静态变量"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.26,
+            0.92,
+            0.453
+          ],
+          "content": "外部链接的静态变量具有文件作用域、外部链接和静态存储期。该类别有时称为外部存储类别（external storage class），属于该类别的变量称为外部变量（external variable）。把变量的定义性声明（defining declaration）放在在所有函数的外面便创建了外部变量。当然，为了指出该函数使用了外部变量，可以在函数中用关键字extern再次声明。如果一个源代码文件使用的外部变量定义在另一个源代码文件中，则必须用extern在该文件中声明该变量。如下所示:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.477,
+            0.837,
+            0.917
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint Errupt;                      /* 外部定义的变量 */\ndouble Up[100];              /* 外部定义的数组 */\nextern char Coal;             /* 如果Coal被定义在另一个文件， */\n/*则必须这样声明*/\nvoid next(void);\nint main(void)\n{\nextern int Errupt;      /* 可选的声明*/\nextern double Up[];     /* 可选的声明*/\n...\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "877"
+        }
+      ]
+    },
+    {
+      "page_idx": 877,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.062,
+            0.312,
+            0.27
+          ],
+          "sub_type": "code",
+          "content": "```txt\n}\nvoid next(void)\n{\n...\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.292,
+            0.919,
+            0.428
+          ],
+          "content": "注意，在main()中声明Up数组时（这是可选的声明）不用指明数组大小，因为第1次声明已经提供了数组大小信息。main()中的两条 extern 声明完全可以省略，因为外部变量具有文件作用域，所以Errupt和Up从声明处到文件结尾都可见。它们出现在那里，仅为了说明main()函数要使用这两个变量。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.453,
+            0.905,
+            0.503
+          ],
+          "content": "如果省略掉函数中的extern关键字，相当于创建了一个自动变量。去掉下面声明中的extern:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.53,
+            0.304,
+            0.55
+          ],
+          "content": "extern int Errupt;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.574,
+            0.221,
+            0.594
+          ],
+          "content": "便成为:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.622,
+            0.238,
+            0.642
+          ],
+          "content": "int Errupt;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.667,
+            0.918,
+            0.831
+          ],
+          "content": "这使得编译器在 main()中创建了一个名为 Errupt 的自动变量。它是一个独立的局部变量，与原来的外部变量Errupt不同。该局部变量仅main()中可见，但是外部变量Errupt对于该文件的其他函数（如 next()）也可见。简而言之，在执行块中的语句时，块作用域中的变量将“隐藏”文件作用域中的同名变量。如果不得已要使用与外部变量同名的局部变量，可以在局部变量的声明中使用 auto 存储类别说明符明确表达这种意图。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.855,
+            0.916,
+            0.906
+          ],
+          "content": "外部变量具有静态存储期。因此，无论程序执行到main()、next()还是其他函数，数组Up及其值都一直存在。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "878"
+        }
+      ]
+    },
+    {
+      "page_idx": 878,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.919,
+            0.113
+          ],
+          "content": "下面 3 个示例演示了外部和自动变量的一些使用情况。示例 1 中有一个外部变量 Hocus。该变量对main()和magic()均可见。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.136,
+            0.675,
+            0.715
+          ],
+          "sub_type": "code",
+          "content": "```txt\n/* 示例1 */\nint Hocus;\nint magic();\nint main(void)\n{\nextern int Hocus; // Hocus 之前已声明为外部变量\n...\n}\nint magic()\n{\nextern int Hocus; // 与上面的Hocus 是同一个变量\n...\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.738,
+            0.918,
+            0.79
+          ],
+          "content": "示例2中有一个外部变量Hocus，对两个函数均可见。这次，在默认情况下对magic()可见。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.813,
+            0.264,
+            0.833
+          ],
+          "content": "/\\*示例2 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.86,
+            0.256,
+            0.88
+          ],
+          "content": "int Hocus;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.907,
+            0.269,
+            0.928
+          ],
+          "content": "int magic();"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "879"
+        }
+      ]
+    },
+    {
+      "page_idx": 879,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.06,
+            0.692,
+            0.501
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint main(void)\n{\nextern int Hocus; // Hocus之前已声明为外部变量\n...\n}\nint magic()\n{\n//并未在该函数中声明Hocus，但是仍可使用该变量\n...\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.524,
+            0.915,
+            0.66
+          ],
+          "content": "在示例3中，创建了4个独立的变量。main()中的Hocus变量默认是自动变量，属于main()私有。magic()中的Hocus变量被显式声明为自动，只有magic()可用。外部变量Houcus对main()和magic()均不可见，但是对该文件中未创建局部Hocus变量的其他函数可见。最后，Pocus是外部变量，magic()可见，但是main()不可见，因为Pocus被声明在main()后面。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.684,
+            0.259,
+            0.706
+          ],
+          "content": "/\\* 示例 3 \\*/"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.732,
+            0.299,
+            0.894
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint Hocus;\n\nint magic();\n\nint  main(void)\n\n{\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "880"
+        }
+      ]
+    },
+    {
+      "page_idx": 880,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.06,
+            0.725,
+            0.455
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint Hocus; // 声明Hocus，默认是自动变量\n...\n}\nint Pocus;\nint magic()\n{\nauto int Hocus; //把局部变量Hocus显式声明为自动变量\n...\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.477,
+            0.918,
+            0.557
+          ],
+          "content": "这 3 个示例演示了外部变量的作用域是:从声明处到文件结尾。除此之外，还说明了外部变量的生命期。外部变量Hocus和Pocus在程序运行中一直存在，因为它们不受限于任何函数，不会在某个函数返回后就消失。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.581,
+            0.341,
+            0.602
+          ],
+          "level": 2,
+          "content": "1.初始化外部变量"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.627,
+            0.919,
+            0.734
+          ],
+          "content": "外部变量和自动变量类似，也可以被显式初始化。与自动变量不同的是，如果未初始化外部变量，它们会被自动初始化为 0。这一原则也适用于外部定义的数组元素。与自动变量的情况不同，只能使用常量表达式初始化文件作用域变量:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.759,
+            0.695,
+            0.78
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint x = 10; // 没问题，10是常量\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.806,
+            0.877,
+            0.827
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint y = 3 + 20; // 没问题，用于初始化的是常量表达式\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.852,
+            0.821,
+            0.873
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nsize_t z = sizeof(int); //没问题，用于初始化的是常量表达式\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.898,
+            0.607,
+            0.919
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint x2 = 2 * x; // 不行，x 是变量\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.518,
+            0.976
+          ],
+          "content": "881"
+        }
+      ]
+    },
+    {
+      "page_idx": 881,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.061,
+            0.787,
+            0.083
+          ],
+          "content": "（只要不是变长数组，sizeof表达式可被视为常量表达式。）"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.108,
+            0.313,
+            0.129
+          ],
+          "level": 2,
+          "content": "2.使用外部变量"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.154,
+            0.912,
+            0.26
+          ],
+          "content": "下面来看一个使用外部变量的示例。假设有两个函数main()和critic()，它们都要访问变量units。可以把units声明在这两个函数的上面，如程序清单12.4所示（注意:该例的目的是演示外部变量的工作原理，并非它的典型用法）。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.332,
+            0.775,
+            0.911
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* global.c  -- 使用外部变量 */\n#include <stdio.h>\nint units = 0;      /* 外部变量 */\nvoid critic(void);\nint main(void)\n{\nextern int units;  /* 可选的重复声明 */\nprintf(\"How many pounds to a firkin of butter?\\n\");\nscanf(\"%d\", &units);\nwhile (units != 56)\ncritic();\nprintf(\"You must have looked it up!\\n\");\nreturn 0;\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.129,
+                0.286,
+                0.424,
+                0.308
+              ],
+              "content": "程序清单12.4 global.c程序"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "882"
+        }
+      ]
+    },
+    {
+      "page_idx": 882,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.062,
+            0.659,
+            0.363
+          ],
+          "sub_type": "code",
+          "content": "```c\n}\nvoid critic(void)\n{\n/* 删除了可选的重复声明 */\nprintf(\"No luck, my friend. Try again.\\n\");\nscanf(\"%d\", &units);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.385,
+            0.423,
+            0.406
+          ],
+          "content": "下面是该程序的输出示例:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.433,
+            0.659,
+            0.455
+          ],
+          "sub_type": "code",
+          "content": "```txt\nHow many pounds to a firkin of butter?\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.48,
+            0.163,
+            0.497
+          ],
+          "content": "**14**"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.525,
+            0.529,
+            0.547
+          ],
+          "sub_type": "code",
+          "content": "```txt\nNo luck, my friend. Try again.\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.572,
+            0.163,
+            0.59
+          ],
+          "content": "**56**"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.618,
+            0.508,
+            0.639
+          ],
+          "sub_type": "code",
+          "content": "```txt\nYou must have looked it up!\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.663,
+            0.918,
+            0.77
+          ],
+          "content": "注意，critic()是如何读取 units的第2 个值的。当while循环结束时，main()也知道units的新值。所以main()函数和critic()都可以通过标识符units访问相同的变量。用C的术语来描述是， units具有文件作用域、外部链接和静态存储期。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.795,
+            0.902,
+            0.845
+          ],
+          "content": "把units定义在所有函数定义外面（即外部），units便是一个外部变量，对units定义下面的所有函数均可见。因此，critics()可以直接使用units变量。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.87,
+            0.879,
+            0.892
+          ],
+          "content": "类似地，main()也可直接访问units。但是，main()中确实有如下声明:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.519,
+            0.976
+          ],
+          "content": "883"
+        }
+      ]
+    },
+    {
+      "page_idx": 883,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.064,
+            0.289,
+            0.083
+          ],
+          "content": "extern int units;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.107,
+            0.919,
+            0.214
+          ],
+          "content": "本例中，以上声明主要是为了指出该函数要使用这个外部变量。存储类别说明符extern告诉编译器，该函数中任何使用units的地方都引用同一个定义在函数外部的变量。再次强调，main()和critic()使用的都是外部定义的units。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.24,
+            0.262,
+            0.26
+          ],
+          "level": 2,
+          "content": "3.外部名称"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.286,
+            0.918,
+            0.421
+          ],
+          "content": "C99和C11标准都要求编译器识别局部标识符的前63个字符和外部标识符的前31个字符。这修订了以前的标准，即编译器识别局部标识符前31个字符和外部标识符前6个字符。你所用的编译器可能还执行以前的规则。外部变量名比局部变量名的规则严格，是因为外部变量名还要遵循局部环境规则，所受的限制更多。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.446,
+            0.287,
+            0.466
+          ],
+          "level": 2,
+          "content": "4.定义和声明"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.492,
+            0.827,
+            0.513
+          ],
+          "content": "下面进一步介绍定义变量和声明变量的区别。考虑下面的例子:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.539,
+            0.424,
+            0.561
+          ],
+          "content": "int tern = 1; /\\* tern被定义 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.587,
+            0.203,
+            0.653
+          ],
+          "content": "main() {"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.678,
+            0.579,
+            0.699
+          ],
+          "content": "extern int tern; /\\* 使用在别处定义的tern \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.724,
+            0.918,
+            0.86
+          ],
+          "content": "这里，tern被声明了两次。第1次声明为变量预留了存储空间，该声明构成了变量的定义。第2次声明只告诉编译器使用之前已创建的tern变量，所以这不是定义。第1次声明被称为定义式声明（defining declaration），第2次声明被称为引用式声明（referencing declaration）。关键字extern表明该声明不是定义，因为它指示编译器去别处查询其定义。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.884,
+            0.27,
+            0.905
+          ],
+          "content": "假设这样写:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "884"
+        }
+      ]
+    },
+    {
+      "page_idx": 884,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.063,
+            0.316,
+            0.176
+          ],
+          "sub_type": "code",
+          "content": "```c\nextern int tern;\n\nint main(void)\n{\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.2,
+            0.919,
+            0.279
+          ],
+          "content": "编译器会假设 tern 实际的定义在该程序的别处，也许在别的文件中。该声明并不会引起分配存储空间。因此，不要用关键字extern创建外部定义，只用它来引用现有的外部定义。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.303,
+            0.918,
+            0.354
+          ],
+          "content": "外部变量只能初始化一次，且必须在定义该变量时进行。假设有下面的代码:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.379,
+            0.49,
+            0.589
+          ],
+          "sub_type": "code",
+          "content": "```c\n// file_one.c\n\nchar permis = 'N';\n\n...\n\n// file_two.c\n\nextern char permis = 'Y'; /* 错误 */\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.61,
+            0.9,
+            0.66
+          ],
+          "content": "file\\_two中的声明是错误的，因为file\\_one.c中的定义式声明已经创建并初始化了permis。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.316,
+            0.687,
+            0.68,
+            0.71
+          ],
+          "level": 2,
+          "content": "12.1.8 内部链接的静态变量"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.734,
+            0.918,
+            0.812
+          ],
+          "content": "该存储类别的变量具有静态存储期、文件作用域和内部链接。在所有函数外部（这点与外部变量相同），用存储类别说明符static定义的变量具有这种存储类别:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.839,
+            0.591,
+            0.907
+          ],
+          "sub_type": "code",
+          "content": "```txt\nstatic int svil = 1; // 静态变量，内部链接\nint main(void)\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "885"
+        }
+      ]
+    },
+    {
+      "page_idx": 885,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.133,
+            0.063,
+            0.15,
+            0.083
+          ],
+          "sub_type": "code",
+          "content": "```txt\n{\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.108,
+            0.92,
+            0.3
+          ],
+          "content": "这种变量过去称为外部静态变量（external static variable），但是这个术语有点自相矛盾（这些变量具有内部链接）。但是，没有合适的新简称，所以只能用内部链接的静态变量（static variable with internal linkage）。普通的外部变量可用于同一程序中任意文件中的函数，但是内部链接的静态变量只能用于同一个文件中的函数。可以使用存储类别说明符 extern，在函数中重复声明任何具有文件作用域的变量。这样的声明并不会改变其链接属性。考虑下面的代码:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.325,
+            0.567,
+            0.347
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nint traveler = 1; // 外部链接\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.372,
+            0.518,
+            0.393
+          ],
+          "sub_type": "code",
+          "content": "```txt\nstatic int stayhome = 1; // 内部链接\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.419,
+            0.253,
+            0.487
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint   main()\n{\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.51,
+            0.658,
+            0.532
+          ],
+          "sub_type": "code",
+          "content": "```txt\nextern int traveler; // 使用定义在别处的 traveler\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.557,
+            0.686,
+            0.579
+          ],
+          "sub_type": "code",
+          "content": "```txt\nextern int stayhome; // 使用定义在别处的 stayhome\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.613,
+            0.155,
+            0.623
+          ],
+          "sub_type": "code",
+          "content": "```txt\n...\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.649,
+            0.905,
+            0.756
+          ],
+          "content": "对于该程序所在的翻译单元，trveler和stayhome都具有文件作用域，但是只有traveler可用于其他翻译单元（因为它具有外部链接）。这两个声明都使用了extern关键字，指明了main()中使用的这两个变量的定义都在别处，但是这并未改变stayhome的内部链接属性。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.407,
+            0.783,
+            0.589,
+            0.806
+          ],
+          "level": 2,
+          "content": "12.1.9 多文件"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.831,
+            0.917,
+            0.88
+          ],
+          "content": "只有当程序由多个翻译单元组成时，才体现区别内部链接和外部链接的重要性。接下来简要介绍一下。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.906,
+            0.909,
+            0.927
+          ],
+          "content": "复杂的C程序通常由多个单独的源代码文件组成。有时，这些文件可能"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.96,
+            0.521,
+            0.976
+          ],
+          "content": "886"
+        }
+      ]
+    },
+    {
+      "page_idx": 886,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.919,
+            0.142
+          ],
+          "continues_prev": true,
+          "content": "要共享一个外部变量。C通过在一个文件中进行定义式声明，然后在其他文件中进行引用式声明来实现共享。也就是说，除了一个定义式声明外，其他声明都要使用extern关键字。而且，只有定义式声明才能初始化变量。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.165,
+            0.919,
+            0.272
+          ],
+          "content": "注意，如果外部变量定义在一个文件中，那么其他文件在使用该变量之前必须先声明它（用 extern关键字）。也就是说，在某文件中对外部变量进行定义式声明只是单方面允许其他文件使用该变量，其他文件在用extern声明之前不能直接使用它。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.296,
+            0.918,
+            0.376
+          ],
+          "content": "过去，不同的编译器遵循不同的规则。例如，许多 UNIX系统允许在多个文件中不使用 extern 关键字声明变量，前提是只有一个带初始化的声明。编译器会把文件中一个带初始化的声明视为该变量的定义。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.34,
+            0.402,
+            0.658,
+            0.426
+          ],
+          "level": 2,
+          "content": "12.1.10 存储类别说明符"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.449,
+            0.918,
+            0.615
+          ],
+          "content": "读者可能已经注意到了，关键字static和extern的含义取决于上下文。C语言有6个关键字作为存储类别说明符:auto、register、static、extern、\\_Thread\\_local和typedef。typedef关键字与任何内存存储无关，把它归于此类有一些语法上的原因。尤其是，在绝大多数情况下，不能在声明中使用多个存储类别说明符，所以这意味着不能使用多个存储类别说明符作为typedef的一部分。唯一例外的是\\_Thread\\_local，它可以和static或extern一起使用。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.638,
+            0.91,
+            0.716
+          ],
+          "content": "auto说明符表明变量是自动存储期，只能用于块作用域的变量声明中。由于在块中声明的变量本身就具有自动存储期，所以使用auto主要是为了明确表达要使用与外部变量同名的局部变量的意图。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.742,
+            0.918,
+            0.792
+          ],
+          "content": "register 说明符也只用于块作用域的变量，它把变量归为寄存器存储类别，请求最快速度访问该变量。同时，还保护了该变量的地址不被获取。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.816,
+            0.919,
+            0.925
+          ],
+          "content": "用 static 说明符创建的对象具有静态存储期，载入程序时创建对象，当程序结束时对象消失。如果static 用于文件作用域声明，作用域受限于该文件。如果 static 用于块作用域声明，作用域则受限于该块。因此，只要程序在运行对象就存在并保留其值，但是只有在执行块内的代码时，才能通过标"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.96,
+            0.521,
+            0.976
+          ],
+          "content": "887"
+        }
+      ]
+    },
+    {
+      "page_idx": 887,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.921,
+            0.112
+          ],
+          "continues_prev": true,
+          "content": "识符访问。块作用域的静态变量无链接。文件作用域的静态变量具有内部链接。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.136,
+            0.92,
+            0.243
+          ],
+          "content": "extern 说明符表明声明的变量定义在别处。如果包含 extern 的声明具有文件作用域，则引用的变量必须具有外部链接。如果包含 extern 的声明具有块作用域，则引用的变量可能具有外部链接或内部链接，这接取决于该变量的定义式声明。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.268,
+            0.321,
+            0.289
+          ],
+          "content": "小结:存储类别"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.314,
+            0.919,
+            0.42
+          ],
+          "content": "自动变量具有块作用域、无链接、自动存储期。它们是局部变量，属于其定义所在块（通常指函数）私有。寄存器变量的属性和自动变量相同，但是编译器会使用更快的内存或寄存器储存它们。不能获取寄存器变量的地址。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.446,
+            0.92,
+            0.583
+          ],
+          "content": "具有静态存储期的变量可以具有外部链接、内部链接或无链接。在同一个文件所有函数的外部声明的变量是外部变量，具有文件作用域、外部链接和静态存储期。如果在这种声明前面加上关键字static，那么其声明的变量具有文件作用域、内部链接和静态存储期。如果在函数中用 static 声明一个变量，则该变量具有块作用域、无链接、静态存储期。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.606,
+            0.92,
+            0.714
+          ],
+          "content": "具有自动存储期的变量，程序在进入该变量的声明所在块时才为其分配内存，在退出该块时释放之前分配的内存。如果未初始化，自动变量中是垃圾值。程序在编译时为具有静态存储期的变量分配内存，并在程序的运行过程中一直保留这块内存。如果未初始化，这样的变量会被设置为0。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.738,
+            0.919,
+            0.845
+          ],
+          "content": "具有块作用域的变量是局部的，属于包含该声明的块私有。具有文件作用域的变量对文件（或翻译单元）中位于其声明后面的所有函数可见。具有外部链接的文件作用域变量，可用于该程序的其他翻译单元。具有内部链接的文件作用域变量，只能用于其声明所在的文件内。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.87,
+            0.919,
+            0.921
+          ],
+          "content": "下面用一个简短的程序使用了5种存储类别。该程序包含两个文件（程序清单12.5和程序清单12.6），所以必须使用多文件编译（参见第9章或参看"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.96,
+            0.521,
+            0.976
+          ],
+          "content": "888"
+        }
+      ]
+    },
+    {
+      "page_idx": 888,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.908,
+            0.112
+          ],
+          "continues_prev": true,
+          "content": "编译器的指导手册）。该示例仅为了让读者熟悉5种存储类别的用法，并不是提供设计模型，好的设计可以不需要使用文件作用域变量。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.182,
+            0.779,
+            0.902
+          ],
+          "sub_type": "code",
+          "content": "```c\n// parta.c --- 不同的存储类别\n// 与 partb.c 一起编译\n#include <stdio.h>\nvoid report_count();\nvoid accumulate(int k);\nint count = 0;          // 文件作用域，外部链接\nint main(void)\n{\nint value;           // 自动变量\nregister int i;   // 寄存器变量\nprintf(\"Enter a positive integer (0 to quit): \");\nwhile (scanf(\"%d\", &value) == 1 && value > 0)\n{\n++count;      // 使用文件作用域变量\nfor (i = value; i >= 0; i--)\naccumulate(i);\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.128,
+                0.136,
+                0.419,
+                0.159
+              ],
+              "content": "程序清单12.5 parta.c程序"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "889"
+        }
+      ]
+    },
+    {
+      "page_idx": 889,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.059,
+            0.72,
+            0.457
+          ],
+          "sub_type": "code",
+          "content": "```c\nprintf(\"Enter a positive integer (0 to quit): \");\n}\nreport_count();\nreturn 0;\n}\nvoid report_count()\n{\nprintf(\"Loop executed %d times\\n\", count);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.477,
+            0.418,
+            0.5
+          ],
+          "content": "程序清单**12.6 partb.c**程序"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.523,
+            0.432,
+            0.546
+          ],
+          "content": "// partb.c -- 程序的其余部分"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.57,
+            0.363,
+            0.592
+          ],
+          "content": "// 与 parta.c 一起编译"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.618,
+            0.341,
+            0.637
+          ],
+          "content": "#include &lt;stdio.h&gt;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.663,
+            0.717,
+            0.684
+          ],
+          "content": "extern int count; // 引用式声明，外部链接"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.71,
+            0.645,
+            0.73
+          ],
+          "content": "static int total = 0; // 静态定义，内部链接"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.756,
+            0.543,
+            0.777
+          ],
+          "content": "void accumulate(int k); // 函数原型"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.802,
+            0.649,
+            0.823
+          ],
+          "content": "void accumulate(int k)// k 具有块作用域，无链接"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.895,
+            0.573,
+            0.916
+          ],
+          "content": "static int subtotal = 0; // 静态，无链接"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "890"
+        }
+      ]
+    },
+    {
+      "page_idx": 890,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.059,
+            0.729,
+            0.598
+          ],
+          "sub_type": "code",
+          "content": "```txt\nif (k <= 0)\n{\nprintf(\"loop cycle: %d\\n\", count);\nprintf(\"subtotal: %d; total: %d\\n\", subtotal, total);\nsubtotal = 0;\n}\nelse\n{\nsubtotal += k;\ntotal += k;\n}\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.616,
+            0.923,
+            0.87
+          ],
+          "content": "在该程序中，块作用域的静态变量subtotal统计每次while循环传入accumulate()函数的总数，具有文件作用域、内部链接的变量 total 统计所有传入 accumulate()函数的总数。当传入负值时， accumulate()函数报告total和subtotal的值，并在报告后重置subtotal为0。由于parta.c调用了 accumulate()函数，所以必须包含 accumulate()函数的原型。而 partb.c 只包含了accumulate()函数的定义，并未在文件中调用该函数，所以其原型为可选（即省略原型也不影响使用）。该函数使用了外部变量count 统计main()中的while循环迭代的次数（顺带一提，对于该程序，没必要使用外部变量把 parta.c 和 partb.c的代码弄得这么复杂）。在 parta.c 中，main()和report\\_count()共享count。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.891,
+            0.399,
+            0.913
+          ],
+          "content": "下面是程序的运行示例:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.518,
+            0.976
+          ],
+          "content": "891"
+        }
+      ]
+    },
+    {
+      "page_idx": 891,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.061,
+            0.636,
+            0.084
+          ],
+          "content": "Enter a positive integer (0 to quit): 5"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.109,
+            0.304,
+            0.13
+          ],
+          "content": "loop cycle: 1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.155,
+            0.406,
+            0.175
+          ],
+          "content": "subtotal: 15; total: 15"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.201,
+            0.647,
+            0.223
+          ],
+          "content": "Enter a positive integer (0 to quit): 10"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.248,
+            0.306,
+            0.269
+          ],
+          "content": "loop cycle: 2"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.294,
+            0.406,
+            0.314
+          ],
+          "content": "subtotal: 55; total: 70"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.34,
+            0.634,
+            0.362
+          ],
+          "content": "Enter a positive integer (0 to quit): 2"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.387,
+            0.304,
+            0.407
+          ],
+          "content": "loop cycle: 3"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.433,
+            0.393,
+            0.453
+          ],
+          "content": "subtotal: 3; total: 73"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.479,
+            0.634,
+            0.501
+          ],
+          "content": "Enter a positive integer (0 to quit): 0"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.525,
+            0.416,
+            0.546
+          ],
+          "content": "Loop executed 3 times"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.34,
+            0.572,
+            0.657,
+            0.596
+          ],
+          "level": 2,
+          "content": "12.1.11 存储类别和函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.62,
+            0.918,
+            0.727
+          ],
+          "content": "函数也有存储类别，可以是外部函数（默认）或静态函数。C99 新增了第 3 种类别——内联函数，将在第16章中介绍。外部函数可以被其他文件的函数访问，但是静态函数只能用于其定义所在的文件。假设一个文件中包含了以下函数原型:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.753,
+            0.752,
+            0.774
+          ],
+          "content": "double gamma(double); /\\* 该函数默认为外部函数 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.8,
+            0.456,
+            0.821
+          ],
+          "content": "static double beta(int, int);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.846,
+            0.514,
+            0.867
+          ],
+          "content": "extern double delta(double, int);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.891,
+            0.895,
+            0.914
+          ],
+          "content": "在同一个程序中，其他文件中的函数可以调用gamma()和delta()，但是"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "892"
+        }
+      ]
+    },
+    {
+      "page_idx": 892,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.9,
+            0.139
+          ],
+          "continues_prev": true,
+          "content": "不能调用beta()，因为以static存储类别说明符创建的函数属于特定模块私有。这样做避免了名称冲突的问题，由于beta()受限于它所在的文件，所以在其他文件中可以使用与之同名的函数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.165,
+            0.917,
+            0.243
+          ],
+          "content": "通常的做法是:用 extern 关键字声明定义在其他文件中的函数。这样做是为了表明当前文件中使用的函数被定义在别处。除非使用static关键字，否则一般函数声明都默认为extern。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.339,
+            0.27,
+            0.657,
+            0.293
+          ],
+          "level": 2,
+          "content": "12.1.12 存储类别的选择"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.317,
+            0.919,
+            0.482
+          ],
+          "content": "对于“使用哪种存储类别”的回答绝大多数是“自动存储类别”，要知道默认类别就是自动存储类别。初学者会认为外部存储类别很不错，为何不把所有的变量都设置成外部变量，这样就不必使用参数和指针在函数间传递信息了。然而，这背后隐藏着一个陷阱。如果这样做，A()函数可能违背你的意图，私下修改B()函数使用的变量。多年来，无数程序员的经验表明，随意使用外部存储类别的变量导致的后果远远超过了它所带来的便利。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.506,
+            0.892,
+            0.556
+          ],
+          "content": "唯一例外的是const数据。因为它们在初始化后就不会被修改，所以不用担心它们被意外篡改:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.127,
+            0.583,
+            0.337,
+            0.603
+          ],
+          "content": "\\text {const int DAYS} = 7;",
+          "image_source": "images/page_892_equation_5.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.127,
+            0.629,
+            0.627,
+            0.65
+          ],
+          "content": "\\text {const char} * \\text {MSGS[3]} = \\{\\text {\"Yes\", \"No\", Maybe\"} \\};",
+          "image_source": "images/page_892_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.673,
+            0.918,
+            0.753
+          ],
+          "content": "保护性程序设计的黄金法则是:“按需知道”原则。尽量在函数内部解决该函数的任务，只共享那些需要共享的变量。除自动存储类别外，其他存储类别也很有用。不过，在使用某类别之前先要考虑一下是否有必要这样做。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.518,
+            0.976
+          ],
+          "content": "893"
+        }
+      ]
+    },
+    {
+      "page_idx": 893,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.277,
+            0.065,
+            0.723,
+            0.091
+          ],
+          "level": 2,
+          "content": "12.2 随机数函数和静态变量"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.122,
+            0.92,
+            0.288
+          ],
+          "content": "学习了不同存储类别的概念后，我们来看几个相关的程序。首先，来看一个使用内部链接的静态变量的函数:随机数函数。ANSI C库提供了rand()函数生成随机数。生成随机数有多种算法，ANSI C允许C实现针对特定机器使用最佳算法。然而，ANSI C标准还提供了一个可移植的标准算法，在不同系统中生成相同的随机数。实际上，rand()是“伪随机数生成器”，意思是可预测生成数字的实际序列。但是，数字在其取值范围内均匀分布。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.312,
+            0.919,
+            0.476
+          ],
+          "content": "为了看清楚程序内部的情况，我们使用可移植的ANSI版本，而不是编译器内置的rand()函数。可移植版本的方案开始于一个“种子”数字。该函数使用该种子生成新的数，这个新数又成为新的种子。然后，新种子可用于生成更新的种子，以此类推。该方案要行之有效，随机数函数必须记录它上一次被调用时所使用的种子。这里需要一个静态变量。程序清单12.7演示了版本0（稍后给出版本1）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.5,
+            0.476,
+            0.522
+          ],
+          "content": "程序清单**12.7 rand0.c**函数文件"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.546,
+            0.725,
+            0.895
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* rand0.c --生成随机数*/\n/* 使用 ANSI C 可移植算法 */\nstatic unsigned long int next = 1;  /* 种子  */\nunsigned   int   rand0(void)\n{\n/* 生成伪随机数的魔术公式 */\nnext = next * 1103515245 + 12345;\nreturn (unsigned   int) (next / 65536) % 32768;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "894"
+        }
+      ]
+    },
+    {
+      "page_idx": 894,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.132,
+            0.063,
+            0.147,
+            0.083
+          ],
+          "sub_type": "code",
+          "content": "```txt\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.107,
+            0.919,
+            0.214
+          ],
+          "content": "在程序清单12.7中，静态变量next的初始值是1，其值在每次调用rand0()函数时都会被修改（通过魔术公式）。该函数是用于返回一个0～32767之间的值。注意，next是具有内部链接的静态变量（并非无链接）。这是为了方便稍后扩展本例，供同一个文件中的其他函数共享。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.239,
+            0.744,
+            0.262
+          ],
+          "content": "程序清单12.8是测试rand0()函数的一个简单的驱动程序。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.285,
+            0.504,
+            0.309
+          ],
+          "content": "程序清单**12.8 r\\_drive0.c**驱动程序"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.332,
+            0.504,
+            0.354
+          ],
+          "content": "/\\* r\\_drive0.c -- 测试 rand0()函数 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.378,
+            0.393,
+            0.399
+          ],
+          "content": "/\\* 与 rand0.c 一起编译\\*/"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.426,
+            0.613,
+            0.819
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n\nextern unsigned int rand0(void);\n\nint main(void)\n\n{\n\nint count;\n\nfor (count = 0; count < 5; count++)\n\nprintf(\"%d\\n\", rand0());\n\nreturn 0;\n\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.841,
+            0.918,
+            0.919
+          ],
+          "content": "该程序也需要多文件编译。程序清单 12.7 和程序清单 12.8 分别使用一个文件。程序清单 12.8 中的extern关键字提醒读者rand0()被定义在其他文件中，在这个文件中不要求写出该函数原型。输出如下:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "895"
+        }
+      ]
+    },
+    {
+      "page_idx": 895,
+      "blocks": [
+        {
+          "type": "aside_text",
+          "bbox": [
+            0.129,
+            0.061,
+            0.201,
+            0.267
+          ],
+          "content": "16838\n5758\n10113\n17515\n31051"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.292,
+            0.826,
+            0.314
+          ],
+          "content": "程序输出的数字看上去是随机的，再次运行程序后，输出如下:"
+        },
+        {
+          "type": "aside_text",
+          "bbox": [
+            0.13,
+            0.34,
+            0.201,
+            0.544
+          ],
+          "content": "16838\n5758\n10113\n17515\n31051"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.57,
+            0.915,
+            0.707
+          ],
+          "content": "看来，这两次的输出完全相同，这体现了“伪随机”的一个方面。每次主程序运行，都开始于相同的种子1。可以引入另一个函数srand1()重置种子来解决这个问题。关键是要让next成为只供rand1()和srand1()访问的内部链接静态变量（srand1()相当于C库中的srand()函数）。把srand1()加入rand1()所在的文件中。程序清单12.9给出了修改后的文件。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.731,
+            0.496,
+            0.755
+          ],
+          "content": "程序清单**12.9 s\\_and\\_r.c**文件程序"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.777,
+            0.674,
+            0.8
+          ],
+          "content": "/\\* s\\_and\\_r.c -- 包含 rand1() 和 srand1() 的文件 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.823,
+            0.658,
+            0.844
+          ],
+          "content": "/\\* 使用 ANSI C 可移植算法 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.87,
+            0.582,
+            0.892
+          ],
+          "content": "static unsigned long int next = 1; /\\* 种子 \\*/"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "896"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "C Primer Plus 第6版 中文版",
+      "authors": [
+        "[美]史蒂芬·普拉达（Stephen Prata）"
+      ],
+      "languages": [
+        "zh"
+      ],
+      "publisher": "人民邮电出版社",
+      "created_at": "2017-02-18T06:13:34+00:00",
+      "modified_at": "2018-09-06T19:39:18+08:00",
+      "creator_application": "calibre 2.79.1 [https://calibre-ebook.com]",
+      "producer_application": "calibre 2.79.1 [https://calibre-ebook.com]",
+      "page_count": 1635,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 864,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 865,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 866,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 867,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 868,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 869,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 870,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 871,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 872,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 873,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 874,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 875,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 876,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 877,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 878,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 879,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 880,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 881,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 882,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 883,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 884,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 885,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 886,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 887,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 888,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 889,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 890,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 891,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 892,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 893,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 894,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 895,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

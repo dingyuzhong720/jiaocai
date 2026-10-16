@@ -1,0 +1,7637 @@
+{
+  "pages": [
+    {
+      "page_idx": 560,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.374,
+            0.07,
+            0.624,
+            0.108
+          ],
+          "level": 2,
+          "content": "第9章函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.149,
+            0.357,
+            0.17
+          ],
+          "content": "本章介绍以下内容:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.197,
+            0.296,
+            0.216
+          ],
+          "content": "关键字:return"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.243,
+            0.482,
+            0.262
+          ],
+          "content": "运算符:\\*（一元）、&（一元）"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.289,
+            0.338,
+            0.308
+          ],
+          "content": "函数及其定义方式"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.335,
+            0.387,
+            0.355
+          ],
+          "content": "如何使用参数和返回值"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.381,
+            0.463,
+            0.401
+          ],
+          "content": "如何把指针变量用作函数参数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.427,
+            0.236,
+            0.447
+          ],
+          "content": "函数类型"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.474,
+            0.265,
+            0.494
+          ],
+          "content": "ANSI C原型"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.52,
+            0.186,
+            0.54
+          ],
+          "content": "递归"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.566,
+            0.918,
+            0.673
+          ],
+          "content": "如何组织程序？C的设计思想是，把函数用作构件块。我们已经用过C标准库的函数，如printf()、scanf()、getchar()、putchar()和 strlen()。现在要进一步学习如何创建自己的函数。前面章节中已大致介绍了相关过程，本章将巩固以前学过的知识并做进一步的拓展。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.517,
+            0.976
+          ],
+          "content": "561"
+        }
+      ]
+    },
+    {
+      "page_idx": 561,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.394,
+            0.065,
+            0.602,
+            0.091
+          ],
+          "level": 2,
+          "content": "9.1 复习函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.122,
+            0.919,
+            0.286
+          ],
+          "content": "首先，什么是函数？函数（function）是完成特定任务的独立程序代码单元。语法规则定义了函数的结构和使用方式。虽然C中的函数和其他语言中的函数、子程序、过程作用相同，但是细节上略有不同。一些函数执行某些动作，如printf()把数据打印到屏幕上；一些函数找出一个值供程序使用，如strlen()把指定字符串的长度返回给程序。一般而言，函数可以同时具备以上两种功能。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.312,
+            0.919,
+            0.476
+          ],
+          "content": "为什么要使用函数？首先，使用函数可以省去编写重复代码的苦差。如果程序要多次完成某项任务，那么只需编写一个合适的函数，就可以在需要时使用这个函数，或者在不同的程序中使用该函数，就像许多程序中使用putchar()一样。其次，即使程序只完成某项任务一次，也值得使用函数。因为函数让程序更加模块化，从而提高了程序代码的可读性，更方便后期修改、完善。例如，假设要编写一个程序完成以下任务:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.5,
+            0.321,
+            0.522
+          ],
+          "content": "读入一系列数字；"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.546,
+            0.295,
+            0.567
+          ],
+          "content": "分类这些数字；"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.593,
+            0.396,
+            0.613
+          ],
+          "content": "找出这些数字的平均值；"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.639,
+            0.321,
+            0.66
+          ],
+          "content": "打印一份柱状图。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.685,
+            0.37,
+            0.706
+          ],
+          "content": "可以使用下面的程序:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.733,
+            0.341,
+            0.894
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n\n#define SIZE 50\n\nint main(void)\n\n{\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "562"
+        }
+      ]
+    },
+    {
+      "page_idx": 562,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.365,
+            0.361
+          ],
+          "sub_type": "code",
+          "content": "```txt\nfloat  list[SIZE];\n\nreadlist(list, SIZE);\n\nsort(list, SIZE);\n\naverage(list, SIZE);\n\nbargraph(list, SIZE);\n\nreturn  0;\n\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.385,
+            0.919,
+            0.492
+          ],
+          "content": "当然，还要编写4个函数readlist()、sort()、average()和bargraph()的实现细节。描述性的函数名能清楚地表达函数的用途和组织结构。然后，单独设计和测试每个函数，直到函数都能正常完成任务。如果这些函数够通用，还可以用于其他程序。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.517,
+            0.918,
+            0.709
+          ],
+          "content": "许多程序员喜欢把函数看作是根据传入信息（输入）及其生成的值或响应的动作（输出）来定义的“黑盒”。如果不是自己编写函数，根本不用关心黑盒的内部行为。例如，使用printf()时，只需知道给该函数传入格式字符串或一些参数以及 printf()生成的输出，无需了解 printf()的内部代码。以这种方式看待函数有助于把注意力集中在程序的整体设计，而不是函数的实现细节上。因此，在动手编写代码之前，仔细考虑一下函数应该完成什么任务，以及函数和程序整体的关系。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.734,
+            0.918,
+            0.812
+          ],
+          "content": "如何了解函数？首先要知道如何正确地定义函数、如何调用函数和如何建立函数间的通信。我们从一个简单的程序示例开始，帮助读者理清这些内容，然后再详细讲解。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.322,
+            0.839,
+            0.673,
+            0.862
+          ],
+          "level": 2,
+          "content": "9.1.1 创建并使用简单函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.887,
+            0.905,
+            0.909
+          ],
+          "content": "我们的第1个目标是创建一个在一行打印40个星号的函数，并在一个打"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.519,
+            0.976
+          ],
+          "content": "563"
+        }
+      ]
+    },
+    {
+      "page_idx": 563,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.839,
+            0.112
+          ],
+          "continues_prev": true,
+          "content": "印表头的程序中使用该函数。如程序清单9.1所示，该程序由main()和starbar()组成。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.182,
+            0.642,
+            0.901
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* lethead1.c */\n#include <stdio.h>\n#define NAME \"GIGATHINK, INC.\"\n#define ADDRESS \"101 Megabuck Plaza\"\n#define PLACE \"Megapolis, CA 94904\"\n#define WIDTH 40\nvoid starbar(void); /* 函数原型 */\nint main(void)\n{\n    starbar();\n    printf(\"%s\\n\", NAME);\n    printf(\"%s\\n\", ADDRESS);\n    printf(\"%s\\n\", PLACE);\n    starbar();      /* 使用函数 */\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.129,
+                0.136,
+                0.44,
+                0.157
+              ],
+              "content": "程序清单9.1 lethead1.c程序"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.977
+          ],
+          "content": "564"
+        }
+      ]
+    },
+    {
+      "page_idx": 564,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.06,
+            0.695,
+            0.363
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid starbar(void)  /* 定义函数 */\n{\nint count;\nfor (count = 1; count <= WIDTH; count++)\nputchar('*');\nputchar('\\n');\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.385,
+            0.346,
+            0.406
+          ],
+          "content": "该程序的输出如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.433,
+            0.591,
+            0.447
+          ],
+          "sub_type": "code",
+          "content": "```txt\n**********************************************************************\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.479,
+            0.348,
+            0.499
+          ],
+          "content": "GIGATHINK, INC."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.525,
+            0.38,
+            0.546
+          ],
+          "content": "101 Megabuck Plaza"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.572,
+            0.395,
+            0.593
+          ],
+          "content": "Megapolis, CA 94904"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.618,
+            0.591,
+            0.631
+          ],
+          "sub_type": "code",
+          "content": "```txt\n**********************************************************************\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.399,
+            0.665,
+            0.596,
+            0.688
+          ],
+          "level": 2,
+          "content": "9.1.2 分析程序"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.713,
+            0.398,
+            0.734
+          ],
+          "content": "该程序要注意以下几点。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.759,
+            0.918,
+            0.839
+          ],
+          "content": "程序在3处使用了starbar标识符:函数原型（function prototype）告诉编译器函数starbar()的类型；函数调用（function call）表明在此处执行函数；函数定义（function definition）明确地指定了函数要做什么。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.863,
+            0.919,
+            0.914
+          ],
+          "content": "函数和变量一样，有多种类型。任何程序在使用函数之前都要声明该函数的类型。因此，在main()函数定义的前面出现了下面的ANSI C风格的函数"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.977
+          ],
+          "content": "565"
+        }
+      ]
+    },
+    {
+      "page_idx": 565,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.061,
+            0.143,
+            0.081
+          ],
+          "continues_prev": true,
+          "content": "原型:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.109,
+            0.327,
+            0.13
+          ],
+          "content": "void starbar(void);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.153,
+            0.919,
+            0.318
+          ],
+          "content": "圆括号表明starbar是一个函数名。第1个void是函数类型，void类型表明函数没有返回值。第2个void（在圆括号中）表明该函数不带参数。分号表明这是在声明函数，不是定义函数。也就是说，这行声明了程序将使用一个名为starbar()、没有返回值、没有参数的函数，并告诉编译器在别处查找该函数的定义。对于不识别ANSI C风格原型的编译器，只需声明函数的类型，如下所示:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.344,
+            0.283,
+            0.365
+          ],
+          "content": "void starbar();"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.389,
+            0.918,
+            0.466
+          ],
+          "content": "注意，一些老版本的编译器甚至连void都识别不了。如果使用这种编译器，就要把没有返回值的函数声明为int类型。当然，最好还是换一个新的编译器。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.492,
+            0.918,
+            0.572
+          ],
+          "content": "一般而言，函数原型指明了函数的返回值类型和函数接受的参数类型。这些信息称为该函数的签名（signature）。对于starbar()函数而言，其签名是该函数没有返回值，没有参数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.596,
+            0.918,
+            0.644
+          ],
+          "content": "程序把 starbar()原型置于 main()的前面。当然，也可以放在 main()里面的声明变量处。放在哪个位置都可以。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.671,
+            0.725,
+            0.693
+          ],
+          "content": "在main()中，执行到下面的语句时调用了starbar()函数:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.719,
+            0.23,
+            0.739
+          ],
+          "content": "starbar();"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.763,
+            0.918,
+            0.898
+          ],
+          "content": "这是调用void类型函数的一种形式。当计算机执行到starbar();语句时，会找到该函数的定义并执行其中的内容。执行完starbar()中的代码后，计算机返回主调函数（calling function）继续执行下一行（本例中，主调函数是main()），见图9.1（更确切地说，编译器把C程序翻译成执行以上操作的机器语言代码）。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "566"
+        }
+      ]
+    },
+    {
+      "page_idx": 566,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.919,
+            0.169
+          ],
+          "content": "程序中strarbar()和main()的定义形式相同。首先函数头包括函数类型、函数名和圆括号，接着是左花括号、变量声明、函数表达式语句，最后以右花括号结束（见图9.2）。注意，函数头中的starbar()后面没有分号，告诉编译器这是定义starbar()，而不是调用函数或声明函数原型。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.193,
+            0.92,
+            0.386
+          ],
+          "content": "程序把 starbar()和 main()放在一个文件中。当然，也可以把它们分别放在两个文件中。把函数都放在一个文件中的单文件形式比较容易编译，而使用多个文件方便在不同的程序中使用同一个函数。如果把函数放在一个单独的文件中，要把#define 和#include 指令也放入该文件。我们稍后会讨论使用多个文件的情况。现在，先把所有的函数都放在一个文件中。main()的右花括号告诉编译器该函数结束的位置，后面的starbar()函数头告诉编译器starbar()是一个函数。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.48,
+            0.959,
+            0.521,
+            0.977
+          ],
+          "content": "567"
+        }
+      ]
+    },
+    {
+      "page_idx": 567,
+      "blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            0.09,
+            0.062,
+            0.805,
+            0.771
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"main()\"] --> B[\"starbar()\"]\n  A --> C[\"printf()\"]\n  A --> D[\"printf()\"]\n  A --> E[\"printf()\"]\n  A --> F[\"starbar()\"]\n  B --> G[\"putchar()\"]\n  C --> H[\"putchar()\"]\n  D --> I[\"putchar()\"]\n  E --> J[\"putchar()\"]\n  F --> K[\"putchar()\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.328,
+                0.789,
+                0.67,
+                0.807
+              ],
+              "content": "图9.1 lethead1.c（程序清单9.1）的程序流"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0545-0576/images/page_567_image_0.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.48,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "568"
+        }
+      ]
+    },
+    {
+      "page_idx": 568,
+      "blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            0.141,
+            0.061,
+            0.856,
+            0.525
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.405,
+                0.543,
+                0.591,
+                0.56
+              ],
+              "content": "图9.2 简单函数的结构"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0545-0576/images/page_568_image_0.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.583,
+            0.919,
+            0.66
+          ],
+          "content": "starbar()函数中的变量count是局部变量（local variable），意思是该变量只属于starbar()函数。可以在程序中的其他地方（包括main()中）使用count，这不会引起名称冲突，它们是同名的不同变量。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.686,
+            0.918,
+            0.793
+          ],
+          "content": "如果把starbar()看作是一个黑盒，那么它的行为是打印一行星号。不用给该函数提供任何输入，因为调用它不需要其他信息。而且，它没有返回值，所以也不给 main()提供（或返回）任何信息。简而言之，starbar()不需要与主调函数通信。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.818,
+            0.576,
+            0.839
+          ],
+          "content": "接下来介绍一个函数间需要通信的例子。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.399,
+            0.866,
+            0.599,
+            0.889
+          ],
+          "level": 2,
+          "content": "9.1.3 函数参数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.914,
+            0.899,
+            0.936
+          ],
+          "content": "在程序清单9.1的输出中，如果文字能居中，信头会更加美观。可以通"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "569"
+        }
+      ]
+    },
+    {
+      "page_idx": 569,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.919,
+            0.228
+          ],
+          "continues_prev": true,
+          "content": "过在打印文字之前打印一定数量的空格来实现，这和打印一定数量的星号（starbar()函数）类似，只不过现在要打印的是一定数量的空格。虽然这是两个任务，但是任务非常相似，与其分别为它们编写一个函数，不如写一个更通用的函数，可以在两种情况下使用。我们设计一个新的函数show\\_n\\_char()（显示一个字符n次）。唯一要改变的是使用内置的值来显示字符和重复的次数，show\\_n\\_char()将使用函数参数来传递这些值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.25,
+            0.919,
+            0.388
+          ],
+          "content": "我们来具体分析。假设可用的空间是40个字符宽。调用show\\_n\\_char('\\*', 40)应该正好打印一行40个星号，就像starbar()之前做的那样。第2行GIGATHINK, INT.的空格怎么处理？GIGATHINK, INT.是15个字符宽，所以第1个版本中，文字后面有25个空格。为了让文字居中，文字的左侧应该有12个空格，右侧有13个空格。因此，可以调用show\\_n\\_char('\\*', 12)。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.411,
+            0.918,
+            0.517
+          ],
+          "content": "show\\_n\\_char()与starbar()很相似，但是show\\_n\\_char()带有参数。从功能上看，前者不会添加换行符，而后者会，因为show\\_n\\_char()要把空格和文本打印成一行。程序清单9.2是修改后的版本。为强调参数的工作原理，程序使用了不同的参数形式。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.588,
+            0.709,
+            0.934
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* lethead2.c */\n#include <stdio.h>\n#include <string.h>          /* 为strlen()提供原型 */\n#define NAME \"GIGATHINK, INC.\"\n#define ADDRESS \"101 Megabuck Plaza\"\n#define PLACE \"Megapolis, CA 94904\"\n#define WIDTH 40\n#define SPACE ' '\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.128,
+                0.543,
+                0.44,
+                0.563
+              ],
+              "content": "程序清单9.2 lethead2.c程序"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "570"
+        }
+      ]
+    },
+    {
+      "page_idx": 570,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.078,
+            0.059,
+            0.902,
+            0.906
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid show_n_char(char ch, int num);\n\nint main(void)\n{\nint spaces;\nshow_n_char(*', WIDTH);          /* 用符号常量作为参数 */\nputchar('\\n');\nshow_n_char(SPACE, 12);          /* 用符号常量作为参数 */\nprintf(\"%s\\n\", NAME);\nspaces = (WIDTH - strlen(ADDRESS)) / 2; /* 计算要跳过多少个空格*/\nshow_n_char(SPACE, spaces);          /* 用一个变量作为参数*/\nprintf(\"%s\\n\", ADDRESS);\nshow_n_char(SPACE, (WIDTH - strlen(PLACE)) / 2);\nprintf(\"%s\\n\", PLACE);          /* 用一个表达式作为参数\n*/\nshow_n_char(*', WIDTH);\nputchar('\\n');\nreturn 0;\n}\n/* show_n_char()函数的定义 */\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.519,
+            0.977
+          ],
+          "content": "571"
+        }
+      ]
+    },
+    {
+      "page_idx": 571,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.655,
+            0.318
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid show_n_char(char ch, int num)\n{\nint count;\nfor (count = 1; count <= num; count++)\nputchar(ch);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.339,
+            0.395,
+            0.36
+          ],
+          "content": "该函数的运行结果如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.386,
+            0.591,
+            0.399
+          ],
+          "sub_type": "code",
+          "content": "```txt\n**********************************************************************\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.433,
+            0.348,
+            0.452
+          ],
+          "content": "GIGATHINK, INC."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.479,
+            0.381,
+            0.5
+          ],
+          "content": "101 Megabuck Plaza"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.525,
+            0.395,
+            0.546
+          ],
+          "content": "Megapolis, CA 94904"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.572,
+            0.591,
+            0.585
+          ],
+          "sub_type": "code",
+          "content": "```txt\n**********************************************************************\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.617,
+            0.915,
+            0.665
+          ],
+          "content": "下面我们回顾一下如何编写一个带参数的函数，然后介绍这种函数的用法。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.308,
+            0.693,
+            0.688,
+            0.716
+          ],
+          "level": 2,
+          "content": "9.1.4 定义带形式参数的函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.742,
+            0.627,
+            0.763
+          ],
+          "content": "函数定义从下面的ANSI C风格的函数头开始:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.789,
+            0.494,
+            0.811
+          ],
+          "content": "void show\\_n\\_char(char ch, int num)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.834,
+            0.919,
+            0.913
+          ],
+          "content": "该行告知编译器show\\_n\\_char()使用两个参数ch和num，ch是char类型，num是int类型。这两个变量被称为形式参数（formal argument，但是最近的标准推荐使用formal parameter），简称形参。和定义在函数中变量一样，形式"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "572"
+        }
+      ]
+    },
+    {
+      "page_idx": 572,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.919,
+            0.112
+          ],
+          "continues_prev": true,
+          "content": "参数也是局部变量，属该函数私有。这意味着在其他函数中使用同名变量不会引起名称冲突。每次调用函数，就会给这些变量赋值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.136,
+            0.918,
+            0.187
+          ],
+          "content": "注意，ANSI C要求在每个变量前都声明其类型。也就是说，不能像普通变量声明那样使用同一类型的变量列表:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.211,
+            0.648,
+            0.233
+          ],
+          "content": "void dibs(int x, y, z) /\\* 无效的函数头 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.258,
+            0.613,
+            0.279
+          ],
+          "content": "void dubs(int x, int y, int z) /\\* 有效的函数头 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.304,
+            0.859,
+            0.325
+          ],
+          "content": "ANSI C也接受ANSI C之前的形式，但是将其视为废弃不用的形式:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.352,
+            0.452,
+            0.372
+          ],
+          "content": "void show\\_n\\_char(ch, num)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.398,
+            0.234,
+            0.417
+          ],
+          "content": "char ch;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.445,
+            0.234,
+            0.464
+          ],
+          "content": "int num;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.489,
+            0.918,
+            0.594
+          ],
+          "content": "这里，圆括号中只有参数名列表，而参数的类型在后面声明。注意，普通的局部变量在左花括号之后声明，而上面的变量在函数左花括号之前声明。如果变量是同一类型，这种形式可以用逗号分隔变量名列表，如下所示:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.622,
+            0.363,
+            0.642
+          ],
+          "content": "void dibs(x, y, z)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.713,
+            0.918,
+            0.791
+          ],
+          "content": "当前的标准正逐渐淘汰 ANSI 之前的形式。读者应对此有所了解，以便能看懂以前编写的程序，但是自己编写程序时应使用现在的标准形式（C99和C11标准继续警告这些过时的用法即将被淘汰）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.817,
+            0.867,
+            0.868
+          ],
+          "content": "虽然show\\_n\\_char()接受来自main()的值，但是它没有返回值。因此，show\\_n\\_char()的类型是void。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.891,
+            0.5,
+            0.912
+          ],
+          "content": "下面，我们来学习如何使用函数。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "573"
+        }
+      ]
+    },
+    {
+      "page_idx": 573,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.278,
+            0.06,
+            0.717,
+            0.083
+          ],
+          "level": 2,
+          "content": "9.1.5 声明带形式参数函数的原型"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.11,
+            0.678,
+            0.13
+          ],
+          "content": "在使用函数之前，要用ANSI C形式声明函数原型:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.157,
+            0.502,
+            0.179
+          ],
+          "content": "void show\\_n\\_char(char ch, int num);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.202,
+            0.895,
+            0.252
+          ],
+          "content": "当函数接受参数时，函数原型用逗号分隔的列表指明参数的数量和类型。根据个人喜好，你也可以省略变量名:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.278,
+            0.424,
+            0.3
+          ],
+          "content": "void show\\_n\\_char(char, int);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.323,
+            0.918,
+            0.402
+          ],
+          "content": "在原型中使用变量名并没有实际创建变量，char仅代表了一个char类型的变量，以此类推。再次提醒读者注意，ANSI C也接受过去的声明函数形式，即圆括号内没有参数列表:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.428,
+            0.346,
+            0.45
+          ],
+          "content": "void show\\_n\\_char();"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.473,
+            0.918,
+            0.552
+          ],
+          "content": "这种形式最终会从标准中剔除。即使没有被剔除，现在函数原型的设计也更有优势（稍后会介绍）。了解这种形式的写法是为了以后读得懂以前写的代码。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.308,
+            0.576,
+            0.688,
+            0.6
+          ],
+          "level": 2,
+          "content": "9.1.6 调用带实际参数的函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.626,
+            0.92,
+            0.678
+          ],
+          "content": "在函数调用中，实际参数（actual argument，简称实参）提供了ch和num的值。考虑程序清单9.2中第1次调用show\\_n\\_char():"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.702,
+            0.406,
+            0.723
+          ],
+          "content": "show\\_n\\_char(SPACE, 12);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.747,
+            0.919,
+            0.913
+          ],
+          "content": "实际参数是空格字符和12。这两个值被赋给show\\_n\\_char()中相应的形式参数:变量ch和num。简而言之，形式参数是被调函数（called function）中的变量，实际参数是主调函数（calling function）赋给被调函数的具体值。如上例所示，实际参数可以是常量、变量，或甚至是更复杂的表达式。无论实际参数是何种形式都要被求值，然后该值被拷贝给被调函数相应的形式参数。以程序清单 9.2 中最后一次调用show\\_n\\_char()为例:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "574"
+        }
+      ]
+    },
+    {
+      "page_idx": 574,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.062,
+            0.683,
+            0.084
+          ],
+          "content": "show\\_n\\_char(SPACE, (WIDTH - strlen(PLACE)) / 2);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.107,
+            0.92,
+            0.273
+          ],
+          "content": "构成该函数第2个实际参数的是一个很长的表达式，对该表达式求值为10。然后，10被赋给变量num。被调函数不知道也不关心传入的数值是来自常量、变量还是一般表达式。再次强调，实际参数是具体的值，该值要被赋给作为形式参数的变量（见图 9.3）。因为被调函数使用的值是从主调函数中拷贝而来，所以无论被调函数对拷贝数据进行什么操作，都不会影响主调函数中的原始数据。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.296,
+            0.433,
+            0.318
+          ],
+          "level": 2,
+          "content": "注意实际参数和形式参数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.342,
+            0.919,
+            0.48
+          ],
+          "content": "实际参数是出现在函数调用圆括号中的表达式。形式参数是函数定义的函数头中声明的变量。调用函数时，创建了声明为形式参数的变量并初始化为实际参数的求值结果。程序清单 9.2 中，'\\*'和WIDTH都是第1次调用show\\_n\\_char()时的实际参数，而SPACE和11是第2次调用show\\_n\\_char()时的实际参数。在函数定义中，ch和num都是该函数的形式参数。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.977
+          ],
+          "content": "575"
+        }
+      ]
+    },
+    {
+      "page_idx": 575,
+      "blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            0.083,
+            0.059,
+            0.918,
+            0.552
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.387,
+                0.568,
+                0.61,
+                0.585
+              ],
+              "content": "图9.3 形式参数和实际参数"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0545-0576/images/page_575_image_0.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.399,
+            0.609,
+            0.596,
+            0.631
+          ],
+          "level": 2,
+          "content": "9.1.7 黑盒视角"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.657,
+            0.918,
+            0.763
+          ],
+          "content": "从黑盒的视角看 show\\_n\\_char()，待显示的字符和显示的次数是输入。执行后的结果是打印指定数量的字符。输入以参数的形式被传递给函数。这些信息清楚地表明了如何在 main()中使用该函数。而且，这也可以作为编写该函数的设计说明。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.789,
+            0.91,
+            0.896
+          ],
+          "content": "黑盒方法的核心部分是:ch、num和count都是show\\_n\\_char()私有的局部变量。如果在main()中使用同名变量，那么它们相互独立，互不影响。也就是说，如果main()有一个count变量，那么改变它的值不会改变show\\_n\\_char()中的count，反之亦然。黑盒里发生了什么对主调函数是不可见的。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "576"
+        }
+      ]
+    },
+    {
+      "page_idx": 576,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.283,
+            0.06,
+            0.713,
+            0.083
+          ],
+          "level": 2,
+          "content": "9.1.8 使用return从函数中返回值"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.109,
+            0.92,
+            0.33
+          ],
+          "content": "前面介绍了如何把信息从主调函数传递给被调函数。反过来，函数的返回值可以把信息从被调函数传回主调函数。为进一步说明，我们将创建一个返回两个参数中较小值的函数。由于函数被设计用来处理int类型的值，所以被命名为imin()。另外，还要创建一个简单的main()，用于检查imin()是否正常工作。这种被设计用于测试函数的程序有时被称为驱动程序（driver），该驱动程序调用一个函数。如果函数成功通过了测试，就可以安装在一个更重要的程序中使用。程序清单9.3演示了这个驱动程序和返回最小值的函数。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.399,
+            0.732,
+            0.936
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* lesser.c -- 找出两个整数中较小的一个 */\n#include <stdio.h>\n\nint imin(int, int);\n\nint main(void)\n\n{\n\nint evil1, evil2;\n\nprintf(\"Enter a pair of integers (q to quit):\\n\");\nwhile (scanf(\"%d %d\", &evil1, &evil2) == 2)\n{\n\nprintf(\"The lesser of %d and %d is %d.\\n\",\nevil1, evil2, imin(evil1, evil2));\n\nprintf(\"Enter a pair of integers (q to quit):\\n\");\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.129,
+                0.355,
+                0.409,
+                0.376
+              ],
+              "content": "程序清单9.3 lesser.c程序"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.96,
+            0.52,
+            0.976
+          ],
+          "content": "577"
+        }
+      ]
+    },
+    {
+      "page_idx": 577,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.411,
+            0.641
+          ],
+          "sub_type": "code",
+          "content": "```txt\n}\nprintf(\"Bye.\\n\");\nreturn 0;\n}\nint imin(int n, int m)\n{\nint min;\nif (n < m)\nmin = n;\nelse\nmin = m;\nreturn min;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.663,
+            0.912,
+            0.713
+          ],
+          "content": "回忆一下，scanf()返回成功读数据的个数，所以如果输入不是两个整数会导致循环终止。下面是一个运行示例:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.739,
+            0.611,
+            0.761
+          ],
+          "content": "Enter a pair of integers (q to quit):"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.786,
+            0.239,
+            0.804
+          ],
+          "content": "**509 333**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.832,
+            0.603,
+            0.851
+          ],
+          "content": "The lesser of 509 and 333 is 333."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.878,
+            0.61,
+            0.9
+          ],
+          "content": "Enter a pair of integers (q to quit):"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "578"
+        }
+      ]
+    },
+    {
+      "page_idx": 578,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.063,
+            0.236,
+            0.081
+          ],
+          "content": "**-9393 6**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.109,
+            0.619,
+            0.128
+          ],
+          "content": "The lesser of -9393 and 6 is -9393."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.155,
+            0.609,
+            0.177
+          ],
+          "content": "Enter a pair of integers (q to quit):"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.206,
+            0.151,
+            0.222
+          ],
+          "content": "q"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.248,
+            0.18,
+            0.268
+          ],
+          "content": "Bye."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.292,
+            0.9,
+            0.37
+          ],
+          "content": "关键字return后面的表达式的值就是函数的返回值。在该例中，该函数返回的值就是变量min的值。因为min是int类型的变量，所以imin()函数的类型也是int。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.396,
+            0.88,
+            0.446
+          ],
+          "content": "变量min属于imin()函数私有，但是return语句把min的值传回了主调函数。下面这条语句的作用是把min的值赋给lesser:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.472,
+            0.324,
+            0.493
+          ],
+          "content": "lesser = imin(n,m);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.517,
+            0.396,
+            0.539
+          ],
+          "content": "是否能像写成下面这样:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.565,
+            0.24,
+            0.586
+          ],
+          "content": "imin(n,m);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.611,
+            0.264,
+            0.631
+          ],
+          "content": "lesser = min;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.656,
+            0.915,
+            0.734
+          ],
+          "content": "不能。因为主调函数甚至不知道min的存在。记住，imin()中的变量是imin()的局部变量。函数调用imin(evil1, evil2)只是把两个变量的值拷贝了一份。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.759,
+            0.915,
+            0.809
+          ],
+          "content": "返回值不仅可以赋给变量，也可以被用作表达式的一部分。例如，可以这样:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.835,
+            0.46,
+            0.856
+          ],
+          "content": "answer = 2 \\* imin(z, zstar) + 25;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.881,
+            0.569,
+            0.903
+          ],
+          "content": "printf(\"%d\\n\", imin(-32 + answer, LIMIT));"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "579"
+        }
+      ]
+    },
+    {
+      "page_idx": 579,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.061,
+            0.919,
+            0.112
+          ],
+          "content": "返回值不一定是变量的值，也可以是任意表达式的值。例如，可以用以下的代码简化程序示例:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.136,
+            0.531,
+            0.158
+          ],
+          "content": "/\\* 返回最小值的函数，第2个版本 \\*/"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.183,
+            0.49,
+            0.344
+          ],
+          "sub_type": "code",
+          "content": "```autohotkey\nimin(int n,int m)\n\n{\n\nreturn (n < m) ? n : m;\n\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.368,
+            0.918,
+            0.447
+          ],
+          "content": "条件表达式的值是n和m中的较小者，该值要被返回给主调函数。虽然这里不要求用圆括号把返回值括起来，但是如果想让程序条理更清楚或统一风格，可以把返回值放在圆括号内。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.47,
+            0.757,
+            0.492
+          ],
+          "content": "如果函数返回值的类型与函数声明的类型不匹配会怎样？"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.517,
+            0.55,
+            0.726
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint what_if(int n)\n{\ndouble z = 100.0 / (double) n;\nreturn z; // 会发生什么?\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.749,
+            0.918,
+            0.828
+          ],
+          "content": "实际得到的返回值相当于把函数中指定的返回值赋给与函数类型相同的变量所得到的值。因此在本例中，相当于把z的值赋给int类型的变量，然后返回int类型变量的值。例如，假设有下面的函数调用:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.853,
+            0.344,
+            0.876
+          ],
+          "sub_type": "code",
+          "content": "```txt\nresult = what_if(64);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.898,
+            0.9,
+            0.921
+          ],
+          "content": "虽然在what\\_if()函数中赋给z的值是1.5625，但是return语句返回确实int"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.977
+          ],
+          "content": "580"
+        }
+      ]
+    },
+    {
+      "page_idx": 580,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.061,
+            0.209,
+            0.081
+          ],
+          "content": "类型的值1。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.107,
+            0.919,
+            0.158
+          ],
+          "content": "使用 return 语句的另一个作用是，终止函数并把控制返回给主调函数的下一条语句。因此，可以这样编写imin():"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.182,
+            0.517,
+            0.205
+          ],
+          "content": "/\\*返回最小值的函数，第3个版本\\*/"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.229,
+            0.336,
+            0.53
+          ],
+          "sub_type": "code",
+          "content": "```lisp\nimin(int n,int m)\n{\nif (n < m)\nreturn n;\nelse\nreturn m;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.552,
+            0.918,
+            0.688
+          ],
+          "content": "许多C程序员都认为只在函数末尾使用一次return语句比较好，因为这样做更方便浏览程序的人理解函数的控制流。但是，在函数中使用多个return语句也没有错。无论如何，对用户而言，这3个版本的函数用起来都一样，因为所有的输入和输出都完全相同，不同的是函数内部的实现细节。下面的版本也没问题:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.713,
+            0.517,
+            0.734
+          ],
+          "content": "/\\*返回最小值的函数，第4个版本\\*/"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.761,
+            0.36,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```txt\nimin(int n, int m)\n{\nif (n < m)\nreturn n;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.518,
+            0.976
+          ],
+          "content": "581"
+        }
+      ]
+    },
+    {
+      "page_idx": 581,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.063,
+            0.831,
+            0.222
+          ],
+          "sub_type": "code",
+          "content": "```solidity\nelse\n\nreturn m;\n\nprintf(\"Professor Fleppard is like totally a fopdoodle.\\n\");\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.247,
+            0.915,
+            0.324
+          ],
+          "content": "return语句导致printf()语句永远不会被执行。如果Fleppard教授在自己的程序中使用这个版本的函数，可能永远不知道编写这个函数的学生对他的看法。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.35,
+            0.453,
+            0.371
+          ],
+          "content": "另外，还可以这样使用return:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.399,
+            0.2,
+            0.417
+          ],
+          "content": "return;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.443,
+            0.918,
+            0.493
+          ],
+          "content": "这条语句会导致终止函数，并把控制返回给主调函数。因为 return 后面没有任何表达式，所以没有返回值，只有在void函数中才会用到这种形式。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.399,
+            0.519,
+            0.596,
+            0.541
+          ],
+          "level": 2,
+          "content": "9.1.9 函数类型"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.567,
+            0.915,
+            0.703
+          ],
+          "content": "声明函数时必须声明函数的类型。带返回值的函数类型应该与其返回值类型相同，而没有返回值的函数应声明为void类型。如果没有声明函数的类型，旧版本的C编译器会假定函数的类型是int。这一惯例源于C的早期，那时的函数绝大多数都是int类型。然而，C99标准不再支持int类型函数的这种假定设置。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.727,
+            0.915,
+            0.806
+          ],
+          "content": "类型声明是函数定义的一部分。要记住，函数类型指的是返回值的类型，不是函数参数的类型。例如，下面的函数头定义了一个带两个int类型参数的函数，但是其返回值是double类型。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.832,
+            0.375,
+            0.853
+          ],
+          "content": "double klink(int a, int b)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.877,
+            0.905,
+            0.927
+          ],
+          "content": "要正确地使用函数，程序在第 1 次使用函数之前必须知道函数的类型。方法之一是，把完整的函数定义放在第1次调用函数的前面。然而，这种方"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.96,
+            0.519,
+            0.976
+          ],
+          "content": "582"
+        }
+      ]
+    },
+    {
+      "page_idx": 582,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.919,
+            0.14
+          ],
+          "continues_prev": true,
+          "content": "法增加了程序的阅读难度。而且，要使用的函数可能在C库或其他文件中。因此，通常的做法是提前声明函数，把函数的信息告知编译器。例如，程序清单 9.3 中的main()函数包含以下几行代码:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.165,
+            0.42,
+            0.372
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n\nint imin(int, int);\n\nint main(void)\n\n{\n\nint evil1, evil2, lesser;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.396,
+            0.9,
+            0.447
+          ],
+          "content": "第2行代码说明imin是一个函数名，有两个int类型的形参，且返回int类型的值。现在，编译器在程序中调用imin()函数时就知道应该如何处理。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.47,
+            0.886,
+            0.549
+          ],
+          "content": "在程序清单9.3中，我们把函数的前置声明放在主调函数外面。当然，也可以放在主调函数里面。例如，重写lesser.c（程序清单9.3）的开头部分:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.575,
+            0.592,
+            0.783
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n\nint main(void)\n\n{\n\nint imin(int, int); /* 声明imin()函数的原型*/\n\nint evil1, evil2, lesser;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.806,
+            0.75,
+            0.827
+          ],
+          "content": "注意在这两种情况中，函数原型都声明在使用函数之前。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.852,
+            0.923,
+            0.933
+          ],
+          "content": "ANSI C标准库中，函数被分成多个系列，每一系列都有各自的头文件。这些头文件中除了其他内容，还包含了本系列所有函数的声明。例如，stdio.h 头文件包含了标准 I/O 库函数（如，printf()和scanf()）的声明。math.h"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.96,
+            0.519,
+            0.976
+          ],
+          "content": "583"
+        }
+      ]
+    },
+    {
+      "page_idx": 583,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.061,
+            0.702,
+            0.083
+          ],
+          "continues_prev": true,
+          "content": "头文件包含了各种数学函数的声明。例如，下面的声明:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.109,
+            0.343,
+            0.13
+          ],
+          "content": "double sqrt(double);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.154,
+            0.92,
+            0.263
+          ],
+          "content": "告知编译器sqrt()函数有一个double类型的形参，而且返回double类型的值。不要混淆函数的声明和定义。函数声明告知编译器函数的类型，而函数定义则提供实际的代码。在程序中包含 math.h 头文件告知编译器:sqrt()返回double类型，但是sqrt()函数的代码在另一个库函数的文件中。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.48,
+            0.959,
+            0.521,
+            0.977
+          ],
+          "content": "584"
+        }
+      ]
+    },
+    {
+      "page_idx": 584,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.336,
+            0.065,
+            0.66,
+            0.091
+          ],
+          "level": 2,
+          "content": "9.2 ANSI C函数原型"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.123,
+            0.919,
+            0.201
+          ],
+          "content": "在ANSI C标准之前，声明函数的方案有缺陷，因为只需要声明函数的类型，不用声明任何参数。下面我们看一下使用旧式的函数声明会导致什么问题。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.226,
+            0.843,
+            0.248
+          ],
+          "content": "下面是ANSI之前的函数声明，告知编译器imin()返回int类型的值:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.274,
+            0.236,
+            0.294
+          ],
+          "content": "int imin();"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.318,
+            0.905,
+            0.396
+          ],
+          "content": "然而，以上函数声明并未给出imin()函数的参数个数和类型。因此，如果调用imin()时使用的参数个数不对或类型不匹配，编译器根本不会察觉出来。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.399,
+            0.423,
+            0.596,
+            0.446
+          ],
+          "level": 2,
+          "content": "9.2.1 问题所在"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.472,
+            0.889,
+            0.551
+          ],
+          "content": "我们看看与imax()函数相关的一些示例，该函数与imin()函数关系密切。程序清单9.4演示了一个程序，用过去声明函数的方式声明了imax()函数，然后错误地使用该函数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.575,
+            0.421,
+            0.596
+          ],
+          "content": "程序清单**9.4 misuse.c**程序"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.621,
+            0.918,
+            0.924
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* misuse.c -- 错误地使用函数 */\n\n#include <stdio.h>\n\nint imax();      /* 旧式函数声明 */\n\nint main(void)\n\n{\n\nprintf(\"The maximum of %d and %d is %d.\\n\",3, 5, imax(3));\n\nprintf(\"The maximum of %d and %d is %d.\\n\",3, 5,\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.96,
+            0.52,
+            0.976
+          ],
+          "content": "585"
+        }
+      ]
+    },
+    {
+      "page_idx": 585,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.079,
+            0.061,
+            0.489,
+            0.409
+          ],
+          "sub_type": "code",
+          "content": "```txt\nimax(3.0, 5.0));\n\n    return 0;\n\n}\n\nint imax(n, m)\n\nint n, m;\n\n{\n\nreturn (n > m ? n : m);\n\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.431,
+            0.9,
+            0.482
+          ],
+          "content": "第1次调用printf()时省略了imax()的一个参数，第2次调用printf()时用两个浮点参数而不是整数参数。尽管有些问题，但程序可以编译和运行。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.507,
+            0.555,
+            0.528
+          ],
+          "content": "下面是使用Xcode 4.6运行的输出示例:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.554,
+            0.675,
+            0.621
+          ],
+          "sub_type": "code",
+          "content": "```txt\nThe maximum of 3 and 5 is 1606416656.\nThe maximum of 3 and 5 is 3886.\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.645,
+            0.918,
+            0.724
+          ],
+          "content": "使用gcc运行该程序，输出的值是1359379472和1359377160。这两个编译器都运行正常，之所以输出错误的结果，是因为它们运行的程序没有使用函数原型。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.748,
+            0.92,
+            0.913
+          ],
+          "content": "到底是哪里出了问题？由于不同系统的内部机制不同，所以出现问题的具体情况也不同。下面介绍的是使用P C和VA X的情况。主调函数把它的参数储存在被称为栈（stack）的临时存储区，被调函数从栈中读取这些参数。对于该例，这两个过程并未相互协调。主调函数根据函数调用中的实际参数决定传递的类型，而被调函数根据它的形式参数读取值。因此，函数调用imax(3)把一个整数放在栈中。当imax()函数开始执行时，它从栈中读取两个"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.977
+          ],
+          "content": "586"
+        }
+      ]
+    },
+    {
+      "page_idx": 586,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.915,
+            0.112
+          ],
+          "continues_prev": true,
+          "content": "整数。而实际上栈中只存放了一个待读取的整数，所以读取的第 2 个值是当时恰好在栈中的其他值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.136,
+            0.919,
+            0.3
+          ],
+          "content": "第2次使用imax()函数时，它传递的是float类型的值。这次把两个double类型的值放在栈中（回忆一下，当float类型被作为参数传递时会被升级为double类型）。在我们的系统中，两个double类型的值就是两个64位的值，所以128位的数据被放在栈中。当imax()从栈中读取两个int类型的值时，它从栈中读取前64位。在我们的系统中，每个int类型的变量占用32位。这些数据对应两个整数，其中较大的是3886。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.349,
+            0.327,
+            0.646,
+            0.35
+          ],
+          "level": 2,
+          "content": "9.2.2 ANSI的解决方案"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.374,
+            0.918,
+            0.482
+          ],
+          "content": "针对参数不匹配的问题，ANSI C标准要求在函数声明时还要声明变量的类型，即使用函数原型（function prototype）来声明函数的返回类型、参数的数量和每个参数的类型。未标明 imax()函数有两个 int 类型的参数，可以使用下面两种函数原型来声明:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.508,
+            0.304,
+            0.529
+          ],
+          "content": "int imax(int, int);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.554,
+            0.339,
+            0.575
+          ],
+          "content": "int imax(int a, int b);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.599,
+            0.918,
+            0.649
+          ],
+          "content": "第1种形式使用以逗号分隔的类型列表，第2种形式在类型后面添加了变量名。注意，这里的变量名是假名，不必与函数定义的形式参数名一致。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.673,
+            0.919,
+            0.809
+          ],
+          "content": "有了这些信息，编译器可以检查函数调用是否与函数原型匹配。参数的数量是否正确？参数的类型是否匹配？以 imax()为例，如果两个参数都是数字，但是类型不匹配，编译器会把实际参数的类型转换成形式参数的类型。例如，imax(3.0, 5.0)会被转换成imax(3, 5)。我们用函数原型替换程序清单9.4中的函数声明，如程序清单9.5所示。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.834,
+            0.405,
+            0.856
+          ],
+          "content": "程序清单**9.5 proto.c**程序"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.88,
+            0.438,
+            0.902
+          ],
+          "content": "/\\* proto.c -- 使用函数原型 \\*/"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.519,
+            0.976
+          ],
+          "content": "587"
+        }
+      ]
+    },
+    {
+      "page_idx": 587,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.739,
+            0.689
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n\nint imax(int, int);      /* 函数原型 */\n\nint main(void)\n\n{\n\nprintf(\"The maximum of %d and %d is %d.\\n\",\n3, 5, imax(3));\n\nprintf(\"The maximum of %d and %d is %d.\\n\",\n3, 5, imax(3.0, 5.0));\n\nreturn 0;\n\n}\n\nint imax(int n, int m)\n\n{\n\nreturn (n > m ? n : m);\n\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.709,
+            0.915,
+            0.759
+          ],
+          "content": "编译程序清单9.5时，我们的编译器给出调用的imax()函数参数太少的错误消息。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.784,
+            0.919,
+            0.863
+          ],
+          "content": "如果是类型不匹配会怎样？为探索这个问题，我们用imax(3, 5)替换imax(3)，然后再次编译该程序。这次编译器没有给出任何错误信息，程序的输出如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.889,
+            0.429,
+            0.909
+          ],
+          "content": "The maximum of 3 and 5 is 5."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "588"
+        }
+      ]
+    },
+    {
+      "page_idx": 588,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.063,
+            0.429,
+            0.081
+          ],
+          "content": "The maximum of 3 and 5 is 5."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.108,
+            0.919,
+            0.157
+          ],
+          "content": "如上文所述，第2次调用中的3.0和5.0被转换成3和5，以便函数能正确地处理输入。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.182,
+            0.912,
+            0.232
+          ],
+          "content": "虽然没有错误消息，但是我们的编译器还是给出了警告:double转换成int可能会导致丢失数据。例如，下面的函数调用:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.259,
+            0.279,
+            0.279
+          ],
+          "content": "imax(3.9, 5.4)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.304,
+            0.218,
+            0.325
+          ],
+          "content": "相当于:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.351,
+            0.24,
+            0.372
+          ],
+          "content": "imax(3, 5)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.396,
+            0.918,
+            0.502
+          ],
+          "content": "错误和警告的区别是:错误导致无法编译，而警告仍然允许编译。一些编译器在进行类似的类型转换时不会通知用户，因为C标准中对此未作要求。不过，许多编译器都允许用户选择警告级别来控制编译器在描述警告时的详细程度。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.323,
+            0.53,
+            0.673,
+            0.553
+          ],
+          "level": 2,
+          "content": "9.2.3 无参数和未指定参数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.578,
+            0.398,
+            0.599
+          ],
+          "content": "假设有下面的函数原型:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.626,
+            0.324,
+            0.647
+          ],
+          "content": "void print\\_name();"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.671,
+            0.918,
+            0.749
+          ],
+          "content": "一个支持ANSI C的编译器会假定用户没有用函数原型来声明函数，它将不会检查参数。为了表明函数确实没有参数，应该在圆括号中使用void关键字:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.775,
+            0.37,
+            0.798
+          ],
+          "content": "void print\\_name(void);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.82,
+            0.918,
+            0.87
+          ],
+          "content": "支持ANSI C的编译器解释为print\\_name()不接受任何参数。然后在调用该函数时，编译器会检查以确保没有使用参数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.895,
+            0.914,
+            0.918
+          ],
+          "content": "一些函数接受（如，printf()和scanf()）许多参数。例如对于printf()，第1"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.977
+          ],
+          "content": "589"
+        }
+      ]
+    },
+    {
+      "page_idx": 589,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.876,
+            0.112
+          ],
+          "continues_prev": true,
+          "content": "个参数是字符串，但是其余参数的类型和数量都不固定。对于这种情况，ANSI C允许使用部分原型。例如，对于printf()可以使用下面的原型:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.138,
+            0.395,
+            0.159
+          ],
+          "content": "int printf(const char \\*, ...);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.182,
+            0.905,
+            0.232
+          ],
+          "content": "这种原型表明，第1个参数是一个字符串（第11章中将详细介绍），可能还有其他未指定的参数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.257,
+            0.912,
+            0.307
+          ],
+          "content": "C库通过stdarg.h头文件提供了一个定义这类（形参数量不固定的）函数的标准方法。第16章中详细介绍相关内容。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.353,
+            0.334,
+            0.64,
+            0.357
+          ],
+          "level": 2,
+          "content": "9.2.4 函数原型的优点"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.381,
+            0.918,
+            0.489
+          ],
+          "content": "函数原型是C语言的一个强有力的工具，它让编译器捕获在使用函数时可能出现的许多错误或疏漏。如果编译器没有发现这些问题，就很难觉察出来。是否必须使用函数原型？不一定。你也可以使用旧式的函数声明（即不用声明任何形参），但是这样做的弊大于利。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.513,
+            0.915,
+            0.648
+          ],
+          "content": "有一种方法可以省略函数原型却保留函数原型的优点。首先要明白，之所以使用函数原型，是为了让编译器在第1次执行到该函数之前就知道如何使用它。因此，把整个函数定义放在第1次调用该函数之前，也有相同的效果。此时，函数定义也相当于函数原型。对于较小的函数，这种用法很普遍:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.674,
+            0.637,
+            0.695
+          ],
+          "content": "// 下面这行代码既是函数定义，也是函数原型"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.72,
+            0.831,
+            0.927
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint imax(int a, int b) { return a > b ? a : b; }\nint main()\n{\nint x, z;\n...\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "590"
+        }
+      ]
+    },
+    {
+      "page_idx": 590,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.062,
+            0.352,
+            0.177
+          ],
+          "sub_type": "code",
+          "content": "```txt\nz = imax(x, 50);\n\n...\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.518,
+            0.976
+          ],
+          "content": "591"
+        }
+      ]
+    },
+    {
+      "page_idx": 591,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.43,
+            0.065,
+            0.564,
+            0.091
+          ],
+          "level": 2,
+          "content": "9.3 递归"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.123,
+            0.919,
+            0.201
+          ],
+          "content": "C允许函数调用它自己，这种调用过程称为递归（recursion）。递归有时难以捉摸，有时却很方便实用。结束递归是使用递归的难点，因为如果递归代码中没有终止递归的条件测试部分，一个调用自己的函数会无限递归。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.226,
+            0.892,
+            0.275
+          ],
+          "content": "可以使用循环的地方通常都可以使用递归。有时用循环解决问题比较好，但有时用递归更好。递归方案更简洁，但效率却没有循环高。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.399,
+            0.302,
+            0.596,
+            0.325
+          ],
+          "level": 2,
+          "content": "9.3.1 演示递归"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.35,
+            0.919,
+            0.543
+          ],
+          "content": "我们通过一个程序示例，来学习什么是递归。程序清单 9.6 中的 main()函数调用 up\\_and\\_down()函数，这次调用称为“第1级递归”。然后up\\_and\\_down()调用自己，这次调用称为“第2级递归”。接着第2级递归调用第3级递归，以此类推。该程序示例共有4级递归。为了进一步深入研究递归时发生了什么，程序不仅显示了变量n的值，还显示了储存n的内存地址&n（。本章稍后会详细讨论&运算符，printf()函数使用%p转换说明打印地址，如果你的系统不支持这种格式，请使用%u或%lu代替%p）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.568,
+            0.404,
+            0.589
+          ],
+          "content": "程序清单**9.6 recur.c**程序"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.614,
+            0.391,
+            0.914
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* recur.c -- 递归演示 */\n#include <stdio.h>\nvoid up_and_down(int);\nint main(void)\n{\nup_and_down(1);\nreturn 0;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "592"
+        }
+      ]
+    },
+    {
+      "page_idx": 592,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.792,
+            0.409
+          ],
+          "sub_type": "code",
+          "content": "```txt\n}\nvoid up_and_down(int n)\n{\nprintf(\"Level %d: n location %p\\n\", n, &n); // #1\nif (n < 4)\nup_and_down(n + 1);\nprintf(\"LEVEL %d: n location %p\\n\", n, &n); // #2\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.431,
+            0.447,
+            0.453
+          ],
+          "content": "下面是在我们系统中的输出:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.478,
+            0.542,
+            0.824
+          ],
+          "sub_type": "code",
+          "content": "```asm\nLevel 1: n location 0x0012ff48\nLevel 2: n location 0x0012ff3c\nLevel 3: n location 0x0012ff30\nLevel 4: n location 0x0012ff24\nLEVEL 4: n location 0x0012ff24\nLEVEL 3: n location 0x0012ff30\nLEVEL 2: n location 0x0012ff3c\nLEVEL 1: n location 0x0012ff48\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.848,
+            0.917,
+            0.929
+          ],
+          "content": "我们来仔细分析程序中的递归是如何工作的。首先，main()调用了带参数1的up\\_and\\_down()函数，执行结果是up\\_and\\_down()中的形式参数n的值是1，所以打印语句#1打印Level 1。然后，由于n小于4，up\\_and\\_down()（第1"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.519,
+            0.976
+          ],
+          "content": "593"
+        }
+      ]
+    },
+    {
+      "page_idx": 593,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.919,
+            0.139
+          ],
+          "continues_prev": true,
+          "content": "级）调用实际参数为n + 1（或2）的up\\_and\\_down()（第2级）。于是第2级调用中的n的值是2，打印语句#1打印Level 2。与此类似，下面两次调用打印的分别是Level 3和Level 4。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.165,
+            0.92,
+            0.357
+          ],
+          "content": "当执行到第4级时，n的值是4，所以if测试条件为假。up\\_and\\_down()函数不再调用自己。第4级调用接着执行打印语句#2，即打印LEVEL 4，因为n的值是4。此时，第4级调用结束，控制被传回它的主调函数（即第3级调用）。在第3级调用中，执行的最后一条语句是调用if语句中的第4级调用。被调函数（第4级调用）把控制返回在这个位置，因此，第3级调用继续执行后面的代码，打印语句#2打印LEVEL 3。然后第3级调用结束，控制被传回第2级调用，接着打印LEVEL2，以此类推。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.382,
+            0.918,
+            0.462
+          ],
+          "content": "注意，每级递归的变量 n 都属于本级递归私有。这从程序输出的地址值可以看出（当然，不同的系统表示的地址格式不同，这里关键要注意，Level 1和LEVEL1的地址相同，Level 2和LEVEL2的地址相同，等等）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.485,
+            0.919,
+            0.621
+          ],
+          "content": "如果觉得不好理解，可以假设有一条函数调用链——fun1()调用fun2()、fun2()调用 fun3()、fun3()调用fun4()。当 fun4()结束时，控制传回fun3()；当fun3()结束时，控制传回 fun2()；当fun2()结束时，控制传回fun1()。递归的情况与此类似，只不过fun1()、fun2()、fun3()和fun4()都是相同的函数。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.353,
+            0.647,
+            0.642,
+            0.671
+          ],
+          "level": 2,
+          "content": "9.3.2 递归的基本原理"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.695,
+            0.918,
+            0.746
+          ],
+          "content": "初次接触递归会觉得较难理解。为了帮助读者理解递归过程，下面以程序清单9.6为例讲解几个要点。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.77,
+            0.918,
+            0.877
+          ],
+          "content": "第1，每级函数调用都有自己的变量。也就是说，第1级的n和第2级的n不同，所以程序创建了4个单独的变量，每个变量名都是n，但是它们的值各不相同。当程序最终返回 up\\_and\\_down()的第1 级调用时，最初的n仍然是它的初值1（见图9.4）。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "594"
+        }
+      ]
+    },
+    {
+      "page_idx": 594,
+      "blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            0.124,
+            0.067,
+            0.878,
+            0.404
+          ],
+          "sub_type": "text_image",
+          "content": "变量\n第1级调用后\n第2级调用后\n第3级调用后\n第4级调用后\n从第4级调用返回后\n从第3级调用返回后\n从第2级调用返回后\n从第1级调用返回后\nn n n n\n1 2 3 4\n1 2 3\n1 2\n1\n(全部结束)",
+          "captions": [
+            {
+              "bbox": [
+                0.415,
+                0.426,
+                0.583,
+                0.444
+              ],
+              "content": "图9.4 递归中的变量"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0577-0608/images/page_594_image_0.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.078,
+            0.465,
+            0.919,
+            0.912
+          ],
+          "sub_type": "text",
+          "content": "第2，每次函数调用都会返回一次。当函数执行完毕后，控制权将被传回上一级递归。程序必须按顺序逐级返回递归，从某级up\\_and\\_down()返回上一级的up\\_and\\_down()，不能跳级回到main()中的第1级调用。\n第3，递归函数中位于递归调用之前的语句，均按被调函数的顺序执行。例如，程序清单9.6中的打印语句#1位于递归调用之前，它按照递归的顺序:第1级、第2级、第3级和第4级，被执行了4次。\n第4，递归函数中位于递归调用之后的语句，均按被调函数相反的顺序执行。例如，打印语句#2位于递归调用之后，其执行的顺序是第4级、第3级、第2级、第1级。递归调用的这种特性在解决涉及相反顺序的编程问题时很有用。稍后将介绍一个这样的例子。\n第5，虽然每级递归都有自己的变量，但是并没有拷贝函数的代码。程序按顺序执行函数中的代码，而递归调用就相当于又从头开始执行函数的代码。除了为每次递归调用创建变量外，递归调用非常类似于一个循环语句。实际上，递归有时可用循环来代替，循环有时也能用递归来代替。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "595"
+        }
+      ]
+    },
+    {
+      "page_idx": 595,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.919,
+            0.198
+          ],
+          "content": "最后，递归函数必须包含能让递归调用停止的语句。通常，递归函数都使用if或其他等价的测试条件在函数形参等于某特定值时终止递归。为此，每次递归调用的形参都要使用不同的值。例如，程序清单9.6中的up\\_and\\_down(n)调用up\\_and\\_down(n+1)。最终，实际参数等于4时，if的测试条件(n < 4)为假。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.414,
+            0.224,
+            0.581,
+            0.246
+          ],
+          "level": 2,
+          "content": "9.3.3 尾递归"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.272,
+            0.918,
+            0.351
+          ],
+          "content": "最简单的递归形式是把递归调用置于函数的末尾，即正好在 return 语句之前。这种形式的递归被称为尾递归（tail recursion），因为递归调用在函数的末尾。尾递归是最简单的递归形式，因为它相当于循环。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.374,
+            0.919,
+            0.482
+          ],
+          "content": "下面要介绍的程序示例中，分别用循环和尾递归计算阶乘。一个正整数的阶乘（factorial）是从1到该整数的所有整数的乘积。例如，3的阶乘（写作3！）是1×2×3。另外，0！等于1，负数没有阶乘。程序清单9.7中，第1个函数使用for循环计算阶乘，第2个函数使用递归计算阶乘。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.507,
+            0.41,
+            0.528
+          ],
+          "content": "程序清单**9.7 factor.c**程序"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.553,
+            0.657,
+            0.901
+          ],
+          "sub_type": "code",
+          "content": "```c\n// factor.c -- 使用循环和递归计算阶乘\n#include <stdio.h>\nlong fact(int n);\nlong rfact(int n);\nint main(void)\n{\nint num;\nprintf(\"This program calculates factorials.\\n\");\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "596"
+        }
+      ]
+    },
+    {
+      "page_idx": 596,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.059,
+            0.849,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```c\nprintf(\"Enter a value in the range 0-12 (q to quit):\\n\");\nwhile (scanf(\"%d\", &num) == 1)\n{\nif (num < 0)\nprintf(\"No negative numbers, please.\\n\");\nelse if (num > 12)\nprintf(\"Keep input under 13.\\n\");\nelse\n{\nprintf(\"loop: %d factorial = %ld\\n\",\nnum, fact(num));\nprintf(\"recursion: %d factorial = %ld\\n\",\nnum, rfact(num));\n}\nprintf(\"Enter a value in the range 0-12 (q to quit):\\n\");\n}\nprintf(\"Bye.\\n\");\nreturn 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.977
+          ],
+          "content": "597"
+        }
+      ]
+    },
+    {
+      "page_idx": 597,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.059,
+            0.542,
+            0.78
+          ],
+          "sub_type": "code",
+          "content": "```c\nlong fact(int n)      // 使用循环的函数\n{\nlong  ans;\nfor (ans = 1; n > 1; n--)\nans *= n;\nreturn  ans;\n}\nlong rfact(int n)      // 使用递归的函数\n{\nlong  ans;\nif (n > 0)\nans = n * rfact(n - 1);\nelse\nans = 1;\nreturn  ans;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.802,
+            0.912,
+            0.882
+          ],
+          "content": "测试驱动程序把输入限制在0\\~12。因为12!已快接近5亿，而13!比62亿还大，已超过我们系统中long类型能表示的范围。要计算超过12的阶乘，必须使用能表示更大范围的类型，如double或long long。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.905,
+            0.423,
+            0.927
+          ],
+          "content": "下面是该程序的运行示例:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "598"
+        }
+      ]
+    },
+    {
+      "page_idx": 598,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.062,
+            0.54,
+            0.083
+          ],
+          "content": "This program calculates factorials."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.109,
+            0.723,
+            0.13
+          ],
+          "content": "Enter a value in the range 0-12 (q to quit):"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.155,
+            0.15,
+            0.173
+          ],
+          "content": "5"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.201,
+            0.44,
+            0.222
+          ],
+          "content": "loop: 5 factorial = 120"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.248,
+            0.487,
+            0.267
+          ],
+          "content": "recursion: 5 factorial = 120"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.294,
+            0.723,
+            0.316
+          ],
+          "content": "Enter a value in the range 0-12 (q to quit):"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.341,
+            0.163,
+            0.358
+          ],
+          "content": "**10**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.386,
+            0.502,
+            0.407
+          ],
+          "content": "loop: 10 factorial = 3628800"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.433,
+            0.55,
+            0.452
+          ],
+          "content": "recursion: 10 factorial = 3628800"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.479,
+            0.723,
+            0.501
+          ],
+          "content": "Enter a value in the range 0-12 (q to quit):"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.53,
+            0.151,
+            0.547
+          ],
+          "content": "q"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.572,
+            0.18,
+            0.592
+          ],
+          "content": "Bye."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.617,
+            0.909,
+            0.667
+          ],
+          "content": "使用循环的函数把ans初始化为1，然后把ans与从n\\~2的所有递减整数相乘。根据阶乘的公式，还应该乘以1，但是这并不会改变结果。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.692,
+            0.918,
+            0.828
+          ],
+          "content": "现在考虑使用递归的函数。该函数的关键是n! = n×(n-1)!。可以这样做是因为(n-1)!是n-1\\~1的所有正整数的乘积。因此，n乘以n-1就得到n的阶乘。阶乘的这一特性很适合使用递归。如果调用函数rfact()，rfact(n)是 n\\*rfact(n-1)。因此，通过调用 rfact(n-1)来计算rfact(n)，如程序清单9.7中所示。当然，必须要在满足某条件时结束递归，可以在n等于0时把返回值设为1。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.852,
+            0.919,
+            0.93
+          ],
+          "content": "程序清单9.7中使用递归的输出和使用循环的输出相同。注意，虽然rfact()的递归调用不是函数的最后一行，但是当n>0时，它是该函数执行的最后一条语句，因此它也是尾递归。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "599"
+        }
+      ]
+    },
+    {
+      "page_idx": 599,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.92,
+            0.254
+          ],
+          "content": "既然用递归和循环来计算都没问题，那么到底应该使用哪一个？一般而言，选择循环比较好。首先，每次递归都会创建一组变量，所以递归使用的内存更多，而且每次递归调用都会把创建的一组新变量放在栈中。递归调用的数量受限于内存空间。其次，由于每次函数调用要花费一定的时间，所以递归的执行速度较慢。那么，演示这个程序示例的目的是什么？因为尾递归是递归中最简单的形式，比较容易理解。在某些情况下，不能用简单的循环代替递归，因此读者还是要好好理解递归。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.354,
+            0.28,
+            0.642,
+            0.304
+          ],
+          "level": 2,
+          "content": "9.3.4 递归和倒序计算"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.328,
+            0.919,
+            0.468
+          ],
+          "content": "递归在处理倒序时非常方便（在解决这类问题中，递归比循环简单）。我们要解决的问题是:编写一个函数，打印一个整数的二进制数。二进制表示法根据 2 的幂来表示数字。例如，十进制数 234 实际上是$2 \\times 10^{2} + 3 \\times 10^{1} + 4 \\times 10^{0}$ ，所以二进制数101实际上是 $1 { \\times } 2 ^ { 2 } { + } 0 { \\times } 2 ^ { 1 } { + } 1 { \\times } 2 ^ { 0 }$ 。二进制数由0和1表示。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.493,
+            0.92,
+            0.688
+          ],
+          "content": "我们要设计一个以二进制形式表示整数的方法或算法（algorithm）。例如，如何用二进制表示十进制数5？在二进制中，奇数的末尾一定是1，偶数的末尾一定是0，所以通过5 % 2即可确定5的二进制数的最后一位是1还是0。一般而言，对于数字n，其二进制的最后一位是n % 2。因此，计算的第一位数字实际上是待输出二进制数的最后一位。这一规律提示我们，在递归函数的递归调用之前计算n % 2，在递归调用之后打印计算结果。这样，计算的第1个值正好是最后一个打印的值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.71,
+            0.92,
+            0.933
+          ],
+          "content": "要获得下一位数字，必须把原数除以 2。这种计算方法相当于在十进制下把小数点左移一位，如果计算结果是偶数，那么二进制的下一位数就是0；如果是奇数，就是1。例如，5/2得2（整数除法），2是偶数（2%2 得0），所以下一位二进制数是 0。到目前为止，我们已经获得 01。继续重复这个过程。2/2得1，1%2得1，所以下一位二进制数是1。因此，我们得到5的等价二进制数是101。那么，程序应该何时停止计算？当与2相除的结果小于2时停止计算，因为只要结果大于或等于2，就说明还有二进制位。每次除以 2 就相当于去掉一位二进制，直到计算出最后一位为止（如果不好理解，"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "600"
+        }
+      ]
+    },
+    {
+      "page_idx": 600,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.909,
+            0.139
+          ],
+          "content": "可以拿十进制数来做类比:628%10得8，因此8就是该数最后一位；而628/10得62，而62%10得2，所以该数的下一位是2，以此类推）。程序清单9.8演示了上述算法。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.208,
+            0.62,
+            0.929
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* binary.c -- 以二进制形式打印制整数 */\n#include <stdio.h>\nvoid to_binary(unsigned long n);\nint main(void)\n{\nunsigned long number;\nprintf(\"Enter an integer (q to quit):\\n\");\nwhile (scanf(\"%lu\", &number) == 1)\n{\nprintf(\"Binary equivalent: \");\nto_binary(number);\nputchar('\\n');\nprintf(\"Enter an integer (q to quit):\\n\");\n}\nprintf(\"Done.\\n\");\nreturn 0;\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.129,
+                0.165,
+                0.414,
+                0.187
+              ],
+              "content": "程序清单9.8 binary.c程序"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.518,
+            0.976
+          ],
+          "content": "601"
+        }
+      ]
+    },
+    {
+      "page_idx": 601,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.634,
+            0.501
+          ],
+          "sub_type": "code",
+          "content": "```c\n}\nvoid to_binary(unsigned long n)  /* 递归函数 */\n{\nint r;\nr = n % 2;\nif (n >= 2)\nto_binary(n / 2);\nputchar(r == 0 ? '0' : '1');\nreturn;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.524,
+            0.918,
+            0.603
+          ],
+          "content": "在该程序中，如果r的值是0，to\\_binary()函数就显示字符'0'；如果r的值是1，to\\_binary()函数则显示字符'1'。条件表达式r == 0 ? '0' : '1'用于把数值转换成字符。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.627,
+            0.423,
+            0.648
+          ],
+          "content": "下面是该程序的运行示例:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.675,
+            0.5,
+            0.698
+          ],
+          "content": "Enter an integer (q to quit):"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.722,
+            0.15,
+            0.739
+          ],
+          "content": "9"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.768,
+            0.413,
+            0.789
+          ],
+          "content": "Binary equivalent: 1001"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.814,
+            0.5,
+            0.836
+          ],
+          "content": "Enter an integer (q to quit):"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.861,
+            0.174,
+            0.879
+          ],
+          "content": "**255**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.906,
+            0.454,
+            0.928
+          ],
+          "content": "Binary equivalent: 11111111"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "602"
+        }
+      ]
+    },
+    {
+      "page_idx": 602,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.063,
+            0.5,
+            0.084
+          ],
+          "content": "Enter an integer (q to quit):"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.109,
+            0.188,
+            0.127
+          ],
+          "content": "**1024**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.155,
+            0.504,
+            0.175
+          ],
+          "content": "Binary equivalent: 10000000000"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.202,
+            0.499,
+            0.222
+          ],
+          "content": "Enter an integer (q to quit):"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.252,
+            0.151,
+            0.269
+          ],
+          "content": "q"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.295,
+            0.188,
+            0.312
+          ],
+          "content": "done."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.339,
+            0.919,
+            0.445
+          ],
+          "content": "不用递归，是否能实现这种用二进制形式表示整数的算法？当然可以。但是由于这种算法要首先计算最后一位二进制数，所以在显示结果之前必须把所有的位数都储存在别处（例如，数组）。第 15 章中会介绍一个不用递归实现该算法的例子。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.369,
+            0.473,
+            0.627,
+            0.496
+          ],
+          "level": 2,
+          "content": "9.3.5 递归的优缺点"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.521,
+            0.918,
+            0.6
+          ],
+          "content": "递归既有优点也有缺点。优点是递归为某些编程问题提供了最简单的解决方案。缺点是一些递归算法会快速消耗计算机的内存资源。另外，递归不方便阅读和维护。我们用一个例子来说明递归的优缺点。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.624,
+            0.918,
+            0.759
+          ],
+          "content": "斐波那契数列的定义如下:第1 个和第2 个数字都是1，而后续的每个数字都是其前两个数字之和。例如，该数列的前几个数是:1、1、2、3、5、8、13。斐波那契数列在数学界深受喜爱，甚至有专门研究它的刊物。不过，这不在本书的讨论范围之内。下面，我们要创建一个函数，接受正整数n，返回相应的斐波那契数值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.784,
+            0.918,
+            0.864
+          ],
+          "content": "首先，来看递归。递归提供一个简单的定义。如果把函数命名为Fibonacci()，那么如果n是1或2， Fibonacci(n)应返回1；对于其他数值，则应返回Fibonacci(n-1)+Fibonacci(n-2):"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.889,
+            0.559,
+            0.91
+          ],
+          "content": "unsigned long Fibonacci(unsigned n)"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.519,
+            0.976
+          ],
+          "content": "603"
+        }
+      ]
+    },
+    {
+      "page_idx": 603,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.062,
+            0.592,
+            0.316
+          ],
+          "sub_type": "code",
+          "content": "```txt\n{\nif (n > 2)\nreturn Fibonacci(n-1) + Fibonacci(n-2);\nelse\nreturn 1;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.339,
+            0.919,
+            0.417
+          ],
+          "content": "这个递归函数只是重述了数学定义的递归。该函数使用了双递归（double recursion），即函数每一级递归都要调用本身两次。这暴露了一个问题。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.442,
+            0.92,
+            0.663
+          ],
+          "content": "为了说明这个问题，假设调用 Fibonacci(40)。这是第1 级递归调用，将创建一个变量 n。然后在该函数中要调用Fibonacci()两次，在第2级递归中要分别创建两个变量n。这两次调用中的每次调用又会进行两次调用，因而在第3级递归中要创建4个名为n的变量。此时总共创建了7个变量。由于每级递归创建的变量都是上一级递归的两倍，所以变量的数量呈指数增长！在第 5章中介绍过一个计算小麦粒数的例子，按指数增长很快就会产生非常大的值。在本例中，指数增长的变量数量很快就消耗掉计算机的大量内存，很可能导致程序崩溃。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.688,
+            0.894,
+            0.738
+          ],
+          "content": "虽然这是个极端的例子，但是该例说明:在程序中使用递归要特别注意，尤其是效率优先的程序。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.763,
+            0.365,
+            0.785
+          ],
+          "content": "所有的C函数皆平等"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.809,
+            0.918,
+            0.915
+          ],
+          "content": "程序中的每个C函数与其他函数都是平等的。每个函数都可以调用其他函数，或被其他函数调用。这点与Pascal和Modula-2中的过程不同，虽然过程可以嵌套在另一个过程中，但是嵌套在不同过程中的过程之间不能相互调用。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "604"
+        }
+      ]
+    },
+    {
+      "page_idx": 604,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.909,
+            0.169
+          ],
+          "content": "main()函数是否与其他函数不同？是的，main()的确有点特殊。当main()与程序中的其他函数放在一起时，最开始执行的是main()函数中的第1条语句，但是这也是局限之处。main()也可以被自己或其他函数递归调用尽管很少这样做。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "605"
+        }
+      ]
+    },
+    {
+      "page_idx": 605,
+      "blocks": [
+        {
+          "type": "doc_title",
+          "bbox": [
+            0.266,
+            0.065,
+            0.731,
+            0.091
+          ],
+          "level": 1,
+          "content": "9.4 编译多源代码文件的程序"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.123,
+            0.919,
+            0.201
+          ],
+          "content": "使用多个函数最简单的方法是把它们都放在同一个文件中，然后像编译只有一个函数的文件那样编译该文件即可。其他方法因操作系统而异，下面将举例说明。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.423,
+            0.228,
+            0.576,
+            0.25
+          ],
+          "level": 2,
+          "content": "9.4.1 UNIX"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.276,
+            0.918,
+            0.382
+          ],
+          "content": "假定在UNIX系统中安装了UNIX C编译器cc（最初的cc已经停用，但是许多UNIX系统都给cc命令起了一个别名用作其他编译器命令，典型的是gcc或clang）。假设file1.c和file2.c是两个内含C函数的文件，下面的命令将编译两个文件并生成一个名为a.out的可执行文件:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.41,
+            0.302,
+            0.428
+          ],
+          "content": "cc file1.c file2.c"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.454,
+            0.894,
+            0.532
+          ],
+          "content": "另外，还生成两个名为file1.o和file2.o的目标文件。如果后来改动了file1.c，而file2.c不变，可以使用以下命令编译第1个文件，并与第2个文件的目标代码合并:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.559,
+            0.304,
+            0.577
+          ],
+          "content": "cc file1.c file2.o"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.604,
+            0.905,
+            0.652
+          ],
+          "content": "UNIX系统的make命令可自动管理多文件程序，但是这超出了本书的讨论范围。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.679,
+            0.918,
+            0.729
+          ],
+          "content": "注意，OS X的Terminal工具可以打开UNIX命令行环境，但是必须先下载命令行编译器（GCC和Clang）。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.424,
+            0.756,
+            0.573,
+            0.777
+          ],
+          "level": 2,
+          "content": "9.4.2 Linux"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.803,
+            0.916,
+            0.88
+          ],
+          "content": "假定Linux系统安装了GNU C编译器GCC。假设file1.c和file2.c是两个内含C函数的文件，下面的命令将编译两个文件并生成名为a.out的可执行文件:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.908,
+            0.313,
+            0.929
+          ],
+          "content": "gcc file1.c file2.c"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "606"
+        }
+      ]
+    },
+    {
+      "page_idx": 606,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.892,
+            0.139
+          ],
+          "content": "另外，还生成两个名为file1.o和file2.o的目标文件。如果后来改动了file1.c，而file2.c不变，可以使用以下命令编译第1个文件，并与第2个文件的目标代码合并:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.166,
+            0.313,
+            0.186
+          ],
+          "content": "gcc file1.c file2.o"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.339,
+            0.213,
+            0.656,
+            0.236
+          ],
+          "level": 2,
+          "content": "9.4.3 DOS命令行编译器"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.261,
+            0.911,
+            0.368
+          ],
+          "content": "绝大多数DOS命令行编译器的工作原理和UNIX的cc命令类似，只不过使用不同的名称而已。其中一个区别是，对象文件的扩展名是.obj，而不是.o。一些编译器生成的不是目标代码文件，而是汇编语言或其他特殊代码的中间文件。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.27,
+            0.394,
+            0.724,
+            0.418
+          ],
+          "level": 2,
+          "content": "9.4.4 Windows和苹果的IDE编译器"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.443,
+            0.918,
+            0.662
+          ],
+          "content": "Windows和Macintosh系统使用的集成开发环境中的编译器是面向项目的。项目（project）描述的是特定程序使用的资源。资源包括源代码文件。这种IDE中的编译器要创建项目来运行单文件程序。对于多文件程序，要使用相应的菜单命令，把源代码文件加入一个项目中。要确保所有的源代码文件都在项目列表中列出。许多IDE都不用在项目列表中列出头文件（即扩展名为.h的文件），因为项目只管理使用的源代码文件，源代码文件中的#include指令管理该文件中使用的头文件。但是，Xcode要在项目中添加头文件。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.383,
+            0.69,
+            0.611,
+            0.713
+          ],
+          "level": 2,
+          "content": "9.4.5 使用头文件"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.738,
+            0.915,
+            0.873
+          ],
+          "content": "如果把main()放在第1个文件中，把函数定义放在第2个文件中，那么第1个文件仍然要使用函数原型。把函数原型放在头文件中，就不用在每次使用函数文件时都写出函数的原型。C 标准库就是这样做的，例如，把I/O函数原型放在stdio.h中，把数学函数原型放在math.h中。你也可以这样用自定义的函数文件。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.898,
+            0.909,
+            0.92
+          ],
+          "content": "另外，程序中经常用C预处理器定义符号常量。这种定义只储存了那些"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "607"
+        }
+      ]
+    },
+    {
+      "page_idx": 607,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.92,
+            0.224
+          ],
+          "continues_prev": true,
+          "content": "包含#define指令的文件。如果把程序的一个函数放进一个独立的文件中，你也可以使用#define指令访问每个文件。最直接的方法是在每个文件中再次输入指令，但是这个方法既耗时又容易出错。另外，还会有维护的问题:如果修改了#define 定义的值，就必须在每个文件中修改。更好的做法是，把#define 指令放进头文件，然后在每个源文件中使用#include指令包含该文件即可。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.25,
+            0.919,
+            0.442
+          ],
+          "content": "总之，把函数原型和已定义的字符常量放在头文件中是一个良好的编程习惯。我们考虑一个例子:假设要管理 4 家酒店的客房服务，每家酒店的房价不同，但是每家酒店所有房间的房价相同。对于预订住宿多天的客户，第2天的房费是第1天的95%，第3天是第2天的95%，以此类推（暂不考虑这种策略的经济效益）。设计一个程序让用户指定酒店和入住天数，然后计算并显示总费用。同时，程序要实现一份菜单，允许用户反复输入数据，除非用户选择退出。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.467,
+            0.919,
+            0.66
+          ],
+          "content": "程序清单9.9、程序清单9.10和程序清单9.11演示了如何编写这样的程序。第1个程序清单包含main()函数，提供整个程序的组织结构。第 2 个程序清单包含支持的函数，我们假设这些函数在独立的文件中。最后，程序清单9.11列出了一个头文件，包含了该程序所有源文件中使用的自定义符号常量和函数原型。前面介绍过，在UNIX和DOS环境中，#include \"hotels.h\"指令中的双引号表明被包含的文件位于当前目录中（通常是包含源代码的目录）。如果使用IDE，需要知道如何把头文件合并成一个项目。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.685,
+            0.49,
+            0.706
+          ],
+          "content": "程序清单**9.9 usehotel.c**控制模块"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.732,
+            0.47,
+            0.752
+          ],
+          "content": "/\\* usehotel.c -- 房间费率程序 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.778,
+            0.509,
+            0.798
+          ],
+          "content": "/\\* 与程序清单9.10一起编译 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.826,
+            0.341,
+            0.844
+          ],
+          "content": "#include &lt;stdio.h&gt;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.87,
+            0.65,
+            0.89
+          ],
+          "content": "#include \"hotel.h\" /\\* 定义符号常量，声明函数 \\*/"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "608"
+        }
+      ]
+    },
+    {
+      "page_idx": 608,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.061,
+            0.568,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```c\nint main(void)\n{\nint nights;\ndouble hotel_rate;\nint code;\nwhile ((code = menu()) != QUIT)\n{\nswitch (code)\n{\ncase 1: hotel_rate = HOTEL1;\nbreak;\ncase 2: hotel_rate = HOTEL2;\nbreak;\ncase 3: hotel_rate = HOTEL3;\nbreak;\ncase 4: hotel_rate = HOTEL4;\nbreak;\ndefault: hotel_rate = 0.0;\nprintf(\"Oops!\\n\");\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.48,
+            0.959,
+            0.52,
+            0.977
+          ],
+          "content": "609"
+        }
+      ]
+    },
+    {
+      "page_idx": 609,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.061,
+            0.866,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```c\nbreak;\n}\nnights = getnights();\nshowprice(hotel_rate, nights);\n}\nprintf(\"Thank you and goodbye.\\n\");\nreturn 0;\n}\n程序清单9.10 hotel.c函数支持模块\n/* hotel.c -- 酒店管理函数 */\n#include <stdio.h>\n#include \"hotel.h\"\nint menu(void)\n{\nint code, status;\nprintf(\"\\n%s%s\\n\", STARS, STARS);\nprintf(\"Enter the number of the desired hotel:\\n\");\nprintf(\"1) Fairfield Arms          2) Hotel Olympic\\n\");\nprintf(\"3) Chertworthy Plaza      4) The Stockton\\n\");\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "610"
+        }
+      ]
+    },
+    {
+      "page_idx": 610,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.745,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```c\nprintf(\"5) quit\\n\");\nprintf(\"%s%s\\n\", STARS, STARS);\nwhile ((status = scanf(\"%d\", &code)) != 1 ||\n(code < 1 || code > 5))\n{\nif (status != 1)\nscanf(\"%*s\"); // 处理非整数输入\nprintf(\"Enter an integer from 1 to 5, please.\\n\");\n}\nreturn code;\n}\nint getnights(void)\n{\nint nights;\nprintf(\"How many nights are needed? \");\nwhile (scanf(\"%d\", &nights) != 1)\n{\nscanf(\"%*s\"); // 处理非整数输入\nprintf(\"Please enter an integer, such as 2.\\n\");\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.518,
+            0.977
+          ],
+          "content": "611"
+        }
+      ]
+    },
+    {
+      "page_idx": 611,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.725,
+            0.598
+          ],
+          "sub_type": "code",
+          "content": "```c\n}\nreturn nights;\n}\nvoid showprice(double rate, int nights)\n{\nint n;\ndouble total = 0.0;\ndouble factor = 1.0;\nfor (n = 1; n <= nights; n++, factor *= DISCOUNT)\ntotal += rate * factor;\nprintf(\"The total cost will be $%0.2f\\n\", total);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.617,
+            0.441,
+            0.639
+          ],
+          "content": "程序清单**9.11 hotel.h**头文件"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.663,
+            0.692,
+            0.684
+          ],
+          "content": "/\\* hotel.h -- 符号常量和 hotel.c 中所有函数的原型 \\*/"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.71,
+            0.45,
+            0.916
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define QUIT 5\n#define HOTEL1 180.00\n#define HOTEL2 225.00\n#define HOTEL3 255.00\n#define HOTEL4 355.00\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "612"
+        }
+      ]
+    },
+    {
+      "page_idx": 612,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.062,
+            0.435,
+            0.081
+          ],
+          "content": "#define DISCOUNT 0.95"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.109,
+            0.704,
+            0.127
+          ],
+          "content": "#define STARS \"\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\""
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.154,
+            0.308,
+            0.174
+          ],
+          "content": "// 显示选择列表"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.202,
+            0.308,
+            0.222
+          ],
+          "content": "int menu(void);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.247,
+            0.308,
+            0.267
+          ],
+          "content": "// 返回预订天数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.295,
+            0.343,
+            0.316
+          ],
+          "content": "int getnights(void);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.339,
+            0.484,
+            0.36
+          ],
+          "content": "// 根据费率、入住天数计算费用"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.385,
+            0.282,
+            0.406
+          ],
+          "content": "// 并显示结果"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.433,
+            0.606,
+            0.455
+          ],
+          "content": "void showprice(double rate, int nights);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.478,
+            0.524,
+            0.499
+          ],
+          "content": "下面是这个多文件程序的运行示例:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.526,
+            0.909,
+            0.539
+          ],
+          "content": "\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.572,
+            0.622,
+            0.591
+          ],
+          "content": "Enter the number of the desired hotel:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.618,
+            0.353,
+            0.639
+          ],
+          "content": "1) Fairfield Arms"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.527,
+            0.618,
+            0.748,
+            0.64
+          ],
+          "content": "2) Hotel Olympic"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.664,
+            0.387,
+            0.686
+          ],
+          "content": "3) Chertworthy Plaza"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.513,
+            0.664,
+            0.715,
+            0.685
+          ],
+          "content": "4) The Stockton"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.711,
+            0.222,
+            0.732
+          ],
+          "content": "5) quit"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.757,
+            0.909,
+            0.77
+          ],
+          "content": "\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.804,
+            0.148,
+            0.821
+          ],
+          "level": 2,
+          "content": "3"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.85,
+            0.545,
+            0.87
+          ],
+          "content": "How many nights are needed? 1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.896,
+            0.538,
+            0.915
+          ],
+          "content": "The total cost will be \\$255.00."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "613"
+        }
+      ]
+    },
+    {
+      "page_idx": 613,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.13,
+            0.062,
+            0.909,
+            0.075
+          ],
+          "content": "\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.109,
+            0.623,
+            0.128
+          ],
+          "content": "Enter the number of the desired hotel:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.129,
+            0.154,
+            0.748,
+            0.27
+          ],
+          "sub_type": "text",
+          "content": "1) Fairfield Arms\n2) Hotel Olympic\n3) Chertworthy Plaza\n4) The Stockton\n5) quit"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.294,
+            0.909,
+            0.307
+          ],
+          "content": "\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.341,
+            0.15,
+            0.357
+          ],
+          "level": 2,
+          "content": "4"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.386,
+            0.547,
+            0.407
+          ],
+          "content": "How many nights are needed? 3"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.433,
+            0.55,
+            0.452
+          ],
+          "content": "The total cost will be \\$1012.64."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.479,
+            0.909,
+            0.492
+          ],
+          "content": "\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.525,
+            0.623,
+            0.545
+          ],
+          "content": "Enter the number of the desired hotel:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.129,
+            0.571,
+            0.748,
+            0.687
+          ],
+          "sub_type": "text",
+          "content": "1) Fairfield Arms\n2) Hotel Olympic\n3) Chertworthy Plaza\n4) The Stockton\n5) quit"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.711,
+            0.909,
+            0.724
+          ],
+          "content": "\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.757,
+            0.15,
+            0.775
+          ],
+          "level": 2,
+          "content": "5"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.804,
+            0.433,
+            0.824
+          ],
+          "content": "Thank you and goodbye."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.848,
+            0.918,
+            0.928
+          ],
+          "content": "顺带一提，该程序中有几处编写得很巧妙。尤其是，menu()和getnights()函数通过测试scanf()的返回值来跳过非数值数据，而且调用 scanf(\"%\\*s\")跳至下一个空白字符。注意，menu()函数中是如何检查非数值输入和超出范围"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "614"
+        }
+      ]
+    },
+    {
+      "page_idx": 614,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.061,
+            0.17,
+            0.081
+          ],
+          "content": "的数据:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.109,
+            0.795,
+            0.132
+          ],
+          "content": "\\text {while} \\left(\\left(\\text {status} = \\operatorname{scanf} \\left(\\% \\mathrm{d} ^ {\\prime \\prime}, \\& \\text {code}\\right)\\right)! = 1 \\| (\\text {code} <   1 \\| \\text {code} > 5)\\right)",
+          "image_source": "../../raw/pages_0609-0640/images/page_614_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.153,
+            0.912,
+            0.232
+          ],
+          "content": "以上代码段利用了C语言的两个规则:从左往右对逻辑表达式求值；一旦求值结果为假，立即停止求值。在该例中，只有在scanf()成功读入一个整数值后，才会检查code的值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.257,
+            0.918,
+            0.336
+          ],
+          "content": "用不同的函数处理不同的任务时应检查数据的有效性。当然，首次编写menu()或getnights()函数时可以暂不添加这一功能，只写一个简单的scanf()即可。待基本版本运行正常后，再逐步改善各模块。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.977
+          ],
+          "content": "615"
+        }
+      ]
+    },
+    {
+      "page_idx": 615,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.306,
+            0.065,
+            0.69,
+            0.091
+          ],
+          "level": 2,
+          "content": "9.5 查找地址:&运算符"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.123,
+            0.919,
+            0.259
+          ],
+          "content": "指针（pointer）是 C 语言最重要的（有时也是最复杂的）概念之一，用于储存变量的地址。前面使用的scanf()函数中就使用地址作为参数。概括地说，如果主调函数不使用return返回的值，则必须通过地址才能修改主调函数中的值。接下来，我们将介绍带地址参数的函数。首先介绍一元&运算符的用法。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.283,
+            0.905,
+            0.334
+          ],
+          "content": "一元&运算符给出变量的存储地址。如果pooh是变量名，那么&pooh是变量的地址。可以把地址看作是变量在内存中的位置。假设有下面的语句:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.359,
+            0.243,
+            0.381
+          ],
+          "sub_type": "code",
+          "content": "```txt\npooh = 24;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.404,
+            0.9,
+            0.454
+          ],
+          "content": "假设pooh的存储地址是0B76（PC地址通常用十六进制形式表示）。那么，下面的语句:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.48,
+            0.47,
+            0.502
+          ],
+          "sub_type": "code",
+          "content": "```txt\nprintf(\"%d %p\\n\", pooh, &pooh);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.525,
+            0.658,
+            0.547
+          ],
+          "content": "将输出如下内容（%p是输出地址的转换说明）:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.573,
+            0.222,
+            0.591
+          ],
+          "sub_type": "code",
+          "content": "```txt\n24 0B76\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.618,
+            0.912,
+            0.668
+          ],
+          "content": "程序清单9.12中使用了这个运算符查看不同函数中的同名变量分别储存在什么位置。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.693,
+            0.453,
+            0.713
+          ],
+          "content": "程序清单**9.12 loccheck.c**程序"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.739,
+            0.613,
+            0.76
+          ],
+          "content": "/\\* loccheck.c -- 查看变量被储存在何处 \\*/"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.787,
+            0.341,
+            0.806
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.832,
+            0.638,
+            0.853
+          ],
+          "content": "void mikado(int); /\\* 函数原型 \\*/"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.879,
+            0.297,
+            0.899
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint main(void)\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "616"
+        }
+      ]
+    },
+    {
+      "page_idx": 616,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.063,
+            0.148,
+            0.083
+          ],
+          "content": "{"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.108,
+            0.599,
+            0.13
+          ],
+          "content": "int pooh = 2, bah = 5; /\\* main()的局部变量 \\*/"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.078,
+            0.154,
+            0.921,
+            0.725
+          ],
+          "sub_type": "code",
+          "content": "```c\nprintf(\"In main(), pooh = %d and &pooh = %p\\n\", pooh,\n&pooh);\n\n    printf(\"In main(), bah = %d and &bah = %p\\n\", bah, &bah);\n\n    mikado(pooh);\n\n    return 0;\n\n}\n\nvoid mikado(int bah)          /* 定义函数 */\n\n{\n\n    int pooh = 10;              /* mikado()的局部变量 */\n\n    printf(\"In mikado(), pooh = %d and &pooh = %p\\n\", pooh,\n&pooh);\n\n    printf(\"In mikado(), bah = %d and &bah = %p\\n\",     bah,\n&bah);\n\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.748,
+            0.918,
+            0.799
+          ],
+          "content": "程序清单9.12中使用ANSI C的%p格式打印地址。我们的系统输出如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.824,
+            0.765,
+            0.846
+          ],
+          "content": "In main(), pooh = 2 and &pooh = 0x7fff5fbff8e8"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.87,
+            0.737,
+            0.891
+          ],
+          "content": "In main(), bah = 5 and &bah = 0x7fff5fbff8e4"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "617"
+        }
+      ]
+    },
+    {
+      "page_idx": 617,
+      "blocks": [
+        {
+          "type": "equation",
+          "bbox": [
+            0.127,
+            0.062,
+            0.804,
+            0.084
+          ],
+          "content": "\\text {In mikado(), pooh} = 1 0 \\text {and} \\& \\text {pooh} = 0 x 7 f f f 5 f b f f 8 b 8",
+          "image_source": "../../raw/pages_0609-0640/images/page_617_equation_0.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.127,
+            0.109,
+            0.763,
+            0.13
+          ],
+          "content": "\\text {In} \\quad \\text {mikado(),} \\quad \\text {bah} = 2 \\quad \\text {and} \\quad \\& \\text {bah} = 0 \\mathrm{x7fff5fbff8bc}",
+          "image_source": "../../raw/pages_0609-0640/images/page_617_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.154,
+            0.905,
+            0.231
+          ],
+          "content": "实现不同，%p表示地址的方式也不同。然而，许多实现都如本例所示，以十六进制显示地址。顺带一提，每个十六进制数对应4位，该例显示12个十六进制数，对应48位地址。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.257,
+            0.918,
+            0.394
+          ],
+          "content": "该例的输出说明了什么？首先，两个pooh的地址不同，两个bah的地址也不同。因此，和前面介绍的一样，计算机把它们看成4个独立的变量。其次，函数调用mikado(pooh)把实际参数（main()中的pooh）的值（2）传递给形式参数（mikado()中的bah）。注意，这种传递只传递了值。涉及的两个变量（main()中的pooh和mikado()中的bah）并未改变。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.417,
+            0.919,
+            0.553
+          ],
+          "content": "我们强调第2 点，是因为这并不是在所有语言中都成立。例如，在FORTRAN中，子例程会影响主调例程的原始变量。子例程的变量名可能与原始变量不同，但是它们的地址相同。但是，在 C语言中不是这样。每个C函数都有自己的变量。这样做更可取，因为这样做可以防止原始变量被被调函数中的副作用意外修改。然而，正如下节所述，这也带来了一些麻烦。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "618"
+        }
+      ]
+    },
+    {
+      "page_idx": 618,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.284,
+            0.065,
+            0.713,
+            0.091
+          ],
+          "level": 2,
+          "content": "9.6 更改主调函数中的变量"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.123,
+            0.917,
+            0.174
+          ],
+          "content": "有时需要在一个函数中更改其他函数的变量。例如，普通的排序任务中交换两个变量的值。假设要交换两个变量x和y的值。简单的思路是:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.201,
+            0.231,
+            0.266
+          ],
+          "sub_type": "code",
+          "content": "```matlab\nx = y;\ny = x;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.29,
+            0.905,
+            0.34
+          ],
+          "content": "这完全不起作用，因为执行到第2行时，x的原始值已经被y的原始值替换了。因此，要多写一行代码，储存x的原始值:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.368,
+            0.268,
+            0.48
+          ],
+          "sub_type": "code",
+          "content": "```txt\ntemp = x;\nx = y;\ny = temp;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.503,
+            0.918,
+            0.584
+          ],
+          "content": "上面这 3 行代码便可实现交换值的功能，可以编写成一个函数并构造一个驱动程序来测试。在程序清单9.13中，为清楚地表明变量属于哪个函数，在main()中使用变量x和y，在intercharge()中使用u和v。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.607,
+            0.427,
+            0.63
+          ],
+          "content": "程序清单**9.13 swap1.c**程序"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.653,
+            0.583,
+            0.909
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* swap1.c -- 第1个版本的交换函数 */\n#include <stdio.h>\nvoid interchange(int u, int v); /* 声明函数 */\nint main(void)\n{\nint x = 5, y = 10;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "619"
+        }
+      ]
+    },
+    {
+      "page_idx": 619,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.059,
+            0.781,
+            0.598
+          ],
+          "sub_type": "code",
+          "content": "```txt\nprintf(\"Originally x = %d and y = %d.\\n\", x, y);\ninterchange(x, y);\nprintf(\"Now x = %d and y = %d.\\n\", x, y);\nreturn 0;\n}\nvoid interchange(int u, int v) /* 定义函数 */\n{\nint temp;\ntemp = u;\nu = v;\nv = temp;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.617,
+            0.424,
+            0.637
+          ],
+          "content": "运行该程序后，输出如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.664,
+            0.544,
+            0.733
+          ],
+          "sub_type": "algorithm",
+          "content": "Originally $x = 5$ and $y = 10$.\nNow $x = 5$ and $y = 10$.",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.756,
+            0.899,
+            0.806
+          ],
+          "content": "两个变量的值并未交换！我们在interchange()中添加一些打印语句来检查错误（见程序清单9.14）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.831,
+            0.427,
+            0.853
+          ],
+          "content": "程序清单**9.14 swap2.c**程序"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.877,
+            0.51,
+            0.898
+          ],
+          "content": "/\\* swap2.c -- 查找swap1.c的问题 \\*/"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "620"
+        }
+      ]
+    },
+    {
+      "page_idx": 620,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.061,
+            0.781,
+            0.919
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n\nvoid interchange(int u, int v);\n\nint main(void)\n{\nint x = 5, y = 10;\nprintf(\"Originally x = %d and y = %d.\\n\", x, y);\ninterchange(x, y);\nprintf(\"Now x = %d and y = %d.\\n\", x, y);\nreturn 0;\n}\nvoid interchange(int u, int v)\n{\nint temp;\nprintf(\"Originally u = %d and v = %d.\\n\", u, v);\ntemp = u;\nu = v;\nv = temp;\nprintf(\"Now u = %d and v = %d.\\n\", u, v);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.519,
+            0.977
+          ],
+          "content": "621"
+        }
+      ]
+    },
+    {
+      "page_idx": 621,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.061,
+            0.373,
+            0.083
+          ],
+          "content": "下面是该程序的输出:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.109,
+            0.548,
+            0.131
+          ],
+          "content": "\\text {Originally} \\quad \\mathrm{x} = 5 \\quad \\text {and} \\quad \\mathrm{y} = 1 0.",
+          "image_source": "../../raw/pages_0609-0640/images/page_621_equation_1.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.155,
+            0.548,
+            0.176
+          ],
+          "content": "\\text {Originally} \\quad \\mathrm{u} = 5 \\quad \\text {and} \\quad \\mathrm{v} = 1 0.",
+          "image_source": "../../raw/pages_0609-0640/images/page_621_equation_2.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.201,
+            0.495,
+            0.222
+          ],
+          "content": "\\text {Now} \\quad \\mathrm{u} = 1 0 \\quad \\text {and} \\quad \\mathrm{v} = 5.",
+          "image_source": "../../raw/pages_0609-0640/images/page_621_equation_3.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.248,
+            0.493,
+            0.269
+          ],
+          "content": "\\text {Now} \\quad \\mathrm{x} = 5 \\quad \\text {and} \\quad \\mathrm{y} = 1 0.",
+          "image_source": "../../raw/pages_0609-0640/images/page_621_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.293,
+            0.919,
+            0.402
+          ],
+          "content": "看来，interchange()没有问题，它交换了 u 和 v 的值。问题出在把结果传回 main()时。interchange()使用的变量并不是main()中的变量。因此，交换u和v的值对x和y的值没有影响！是否能用return语句把值传回main()？当然可以，在interchange()的末尾加上下面一行语句:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.427,
+            0.232,
+            0.448
+          ],
+          "content": "\\text {return} (\\mathrm{u});",
+          "image_source": "../../raw/pages_0609-0640/images/page_621_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.471,
+            0.413,
+            0.493
+          ],
+          "content": "然后修改main()中的调用:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.519,
+            0.343,
+            0.541
+          ],
+          "content": "\\mathrm{x} = \\text { interchange } (\\mathrm{x}, \\mathrm{y});",
+          "image_source": "../../raw/pages_0609-0640/images/page_621_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.563,
+            0.918,
+            0.643
+          ],
+          "content": "这只能改变x的值，而y的值依旧没变。用return语句只能把被调函数中的一个值传回主调函数，但是现在要传回两个值。这没问题！不过，要使用指针。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.977
+          ],
+          "content": "622"
+        }
+      ]
+    },
+    {
+      "page_idx": 622,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.394,
+            0.065,
+            0.6,
+            0.091
+          ],
+          "level": 2,
+          "content": "9.7 指针简介"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.122,
+            0.912,
+            0.23
+          ],
+          "content": "指针？什么是指针？从根本上看，指针（pointer）是一个值为内存地址的变量（或数据对象）。正如char类型变量的值是字符，int类型变量的值是整数，指针变量的值是地址。在C语言中，指针有许多用法。本章将介绍如何把指针作为函数参数使用，以及为何要这样用。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.254,
+            0.651,
+            0.276
+          ],
+          "content": "假设一个指针变量名是ptr，可以编写如下语句:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.301,
+            0.522,
+            0.324
+          ],
+          "content": "ptr = &pooh; // 把pooh的地址赋给ptr"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.347,
+            0.908,
+            0.424
+          ],
+          "content": "对于这条语句，我们说ptr“指向”pooh。ptr和&pooh的区别是ptr是变量，而&pooh是常量。或者，ptr是可修改的左值，而&pooh是右值。还可以把ptr指向别处:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.497,
+            0.41,
+            0.518
+          ],
+          "content": "现在ptr的值是bah的地址。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.543,
+            0.895,
+            0.592
+          ],
+          "content": "要创建指针变量，先要声明指针变量的类型。假设想把ptr声明为储存int类型变量地址的指针，就要使用下面介绍的新运算符。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.36,
+            0.619,
+            0.634,
+            0.642
+          ],
+          "level": 2,
+          "content": "9.7.1 间接运算符:\\*"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.668,
+            0.485,
+            0.689
+          ],
+          "content": "假设已知ptr指向bah，如下所示:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.716,
+            0.251,
+            0.736
+          ],
+          "content": "\\mathrm{ptr} = \\& \\text {bah};",
+          "image_source": "../../raw/pages_0609-0640/images/page_622_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.76,
+            0.918,
+            0.866
+          ],
+          "content": "然后使用间接运算符\\*（indirection operator）找出储存在bah中的值，该运算符有时也称为解引用运算符（dereferencing operator）。不要把间接运算符和二元乘法运算符（\\*）混淆，虽然它们使用的符号相同，但语法功能不同。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.518,
+            0.976
+          ],
+          "content": "623"
+        }
+      ]
+    },
+    {
+      "page_idx": 623,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.061,
+            0.74,
+            0.083
+          ],
+          "content": "语句ptr = &bah;和val = \\*ptr;放在一起相当于下面的语句:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.129,
+            0.109,
+            0.236,
+            0.129
+          ],
+          "content": "\\mathrm{val} = \\text {bah};",
+          "image_source": "../../raw/pages_0609-0640/images/page_623_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.154,
+            0.9,
+            0.203
+          ],
+          "content": "由此可见，使用地址和间接运算符可以间接完成上面这条语句的功能，这也是“间接运算符”名称的由来。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.229,
+            0.452,
+            0.249
+          ],
+          "content": "小结:与指针相关的运算符"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.275,
+            0.316,
+            0.295
+          ],
+          "content": "地址运算符:&"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.321,
+            0.25,
+            0.341
+          ],
+          "content": "一般注解:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.368,
+            0.592,
+            0.388
+          ],
+          "content": "后跟一个变量名时，&给出该变量的地址。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.414,
+            0.197,
+            0.433
+          ],
+          "content": "示例:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.46,
+            0.446,
+            0.48
+          ],
+          "content": "&nurse表示变量nurse的地址。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.506,
+            0.307,
+            0.527
+          ],
+          "content": "地址运算符:\\*"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.553,
+            0.25,
+            0.573
+          ],
+          "content": "一般注解:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.599,
+            0.811,
+            0.619
+          ],
+          "content": "后跟一个指针名或地址时，\\*给出储存在指针指向地址上的值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.646,
+            0.197,
+            0.666
+          ],
+          "content": "示例:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.693,
+            0.285,
+            0.713
+          ],
+          "content": "\\text {nurse} = 2 2;",
+          "image_source": "../../raw/pages_0609-0640/images/page_623_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.738,
+            0.474,
+            0.76
+          ],
+          "content": "ptr = &nurse; // 指向nurse的指针"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.785,
+            0.628,
+            0.806
+          ],
+          "content": "val = \\*ptr; // 把ptr指向的地址上的值赋给val"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.831,
+            0.618,
+            0.851
+          ],
+          "content": "执行以上3条语句的最终结果是把22赋给val。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.399,
+            0.878,
+            0.596,
+            0.902
+          ],
+          "level": 2,
+          "content": "9.7.2 声明指针"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "624"
+        }
+      ]
+    },
+    {
+      "page_idx": 624,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.919,
+            0.112
+          ],
+          "content": "相信读者已经很熟悉如何声明int类型和其他基本类型的变量，那么如何声明指针变量？你也许认为是这样声明:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.136,
+            0.478,
+            0.159
+          ],
+          "content": "pointer ptr; // 不能这样声明指针"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.182,
+            0.919,
+            0.318
+          ],
+          "content": "为什么不能这样声明？因为声明指针变量时必须指定指针所指向变量的类型，因为不同的变量类型占用不同的存储空间，一些指针操作要求知道操作对象的大小。另外，程序必须知道储存在指定地址上的数据类型。long和float可能占用相同的存储空间，但是它们储存数字却大相径庭。下面是一些指针的声明示例:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.342,
+            0.586,
+            0.365
+          ],
+          "content": "int \\* pi; // pi是指向int类型变量的指针"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.481,
+            0.918,
+            0.56
+          ],
+          "content": "类型说明符表明了指针所指向对象的类型，星号（\\*）表明声明的变量是一个指针。int pi;声明的意思是pi是一个指针，\\*pi是int类型（见图9.5）。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.089,
+            0.588,
+            0.91,
+            0.923
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"地址运算符\"] --> B[\"&feet\"]\n  A --> C[\"&sunmass\"]\n  B --> D[\"52000 5200152002 52003 52004 52005 ...\"]\n  C --> E[\"52009 52010\"]\n  D --> F[\"G\"]\n  E --> F\n  F --> G[\"7776\"]\n  G --> H[\"1942\"]\n  H --> I[\"2.015x10^30\"]\n  I --> J[\"q\"]\n  J --> K[\"内存中的值\"]\n  L[\"ch\"] --> M[\"feet date\\nint *pfeet;\\npfeet = &feet;\\n*pfeet\"]\n  M --> N[\"surnmass quit\"]\n  N --> O[\"变量名\\nfloat *psun;\\npsun = &sunmass;\\n*psun\"]\n  O --> P[\"声明指针\\n把地址赋给指针\"]\n  P --> Q[\"获得储存在该地址的值\"]\n  R[\"间接运算符\"] --> S[\"pfeet\"]\n  S --> T[\"直接运算符\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0609-0640/images/page_624_image_5.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "625"
+        }
+      ]
+    },
+    {
+      "page_idx": 625,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.406,
+            0.059,
+            0.591,
+            0.075
+          ],
+          "content": "图9.5 声明并使用指针"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.098,
+            0.905,
+            0.147
+          ],
+          "content": "\\*和指针名之间的空格可有可无。通常，程序员在声明时使用空格，在解引用变量时省略空格。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.173,
+            0.919,
+            0.337
+          ],
+          "content": "pc指向的值（\\*pc）是char类型。pc本身是什么类型？我们描述它的类型是“指向char类型的指针”。pc 的值是一个地址，在大部分系统内部，该地址由一个无符号整数表示。但是，不要把指针认为是整数类型。一些处理整数的操作不能用来处理指针，反之亦然。例如，可以把两个整数相乘，但是不能把两个指针相乘。所以，指针实际上是一个新类型，不是整数类型。因此，如前所述，ANSI C专门为指针提供了%p格式的转换说明。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.307,
+            0.363,
+            0.686,
+            0.386
+          ],
+          "level": 2,
+          "content": "9.7.3 使用指针在函数间通信"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.411,
+            0.918,
+            0.492
+          ],
+          "content": "我们才刚刚接触指针，指针的世界丰富多彩。本节着重介绍如何使用指针解决函数间的通信问题。请看程序清单9.15，该程序在interchange()函数中使用了指针参数。稍后我们将对该程序做详细分析。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.56,
+            0.781,
+            0.909
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* swap3.c -- 使用指针解决交换函数的问题 */\n#include <stdio.h>\n\nvoid interchange(int * u, int * v);\n\nint main(void)\n{\nint x = 5, y = 10;\n\nprintf(\"Originally x = %d and y = %d.\\n\", x, y);\ninterchange(&x, &y); // 把地址发送给函数\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.128,
+                0.514,
+                0.427,
+                0.538
+              ],
+              "content": "程序清单9.15 swap3.c程序"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "626"
+        }
+      ]
+    },
+    {
+      "page_idx": 626,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.06,
+            0.725,
+            0.501
+          ],
+          "sub_type": "code",
+          "content": "```txt\nprintf(\"Now x = %d and y = %d.\\n\", x, y);\nreturn 0;\n}\nvoid interchange(int * u, int * v)\n{\nint temp;\ntemp = *u;      // temp获得 u 所指向对象的值\n*u = *v;\n*v = temp;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.524,
+            0.624,
+            0.545
+          ],
+          "content": "该程序是否能正常运行？下面是程序的输出:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.572,
+            0.543,
+            0.593
+          ],
+          "sub_type": "code",
+          "content": "```txt\nOriginally x = 5 and y = 10.\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.618,
+            0.491,
+            0.639
+          ],
+          "sub_type": "code",
+          "content": "```txt\nNow x = 10 and y = 5.\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.663,
+            0.91,
+            0.713
+          ],
+          "content": "没问题，一切正常。接下来，我们分析程序清单9.15的运行情况。首先看函数调用:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.739,
+            0.348,
+            0.76
+          ],
+          "sub_type": "code",
+          "content": "```javascript\ninterchange(&x, &y);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.784,
+            0.912,
+            0.891
+          ],
+          "content": "该函数传递的不是x和y的值，而是它们的地址。这意味着出现在interchange()原型和定义中的形式参数u和v将把地址作为它们的值。因此，应把它们声明为指针。由于x和y是整数，所以u和v是指向整数的指针，其声明如下:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "627"
+        }
+      ]
+    },
+    {
+      "page_idx": 627,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.108,
+            0.775,
+            0.129
+          ],
+          "content": "接下来，在函数体中声明了一个交换值时必需的临时变量:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.156,
+            0.222,
+            0.176
+          ],
+          "content": "int temp;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.2,
+            0.556,
+            0.222
+          ],
+          "content": "通过下面的语句把x的值储存在temp中:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.293,
+            0.915,
+            0.341
+          ],
+          "content": "记住，u的值是&x，所以u指向x。这意味着用\\*u即可表示x的值，这正是我们需要的。不要写成这样:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.414,
+            0.91,
+            0.464
+          ],
+          "content": "因为这条语句赋给temp的是x的地址（u的值就是x的地址），而不是x的值。函数要交换的是x和y的值，而不是它们的地址。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.489,
+            0.646,
+            0.51
+          ],
+          "content": "与此类似，把y的值赋给x，要使用下面的语句:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.582,
+            0.321,
+            0.602
+          ],
+          "content": "这条语句相当于:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.674,
+            0.9,
+            0.752
+          ],
+          "content": "我们总结一下该程序示例做了什么。我们需要一个函数交换x和y的值。把x和y的地址传递给函数，我们让interchange()访问这两个函数。使用指针和\\*运算符，该函数可以访问储存在这些位置的值并改变它们。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.777,
+            0.753,
+            0.798
+          ],
+          "content": "可以省略ANSI C风格的函数原型中的形参名，如下所示:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.825,
+            0.424,
+            0.845
+          ],
+          "content": "void interchange(int \\*, int \\*);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.87,
+            0.917,
+            0.919
+          ],
+          "content": "一般而言，可以把变量相关的两类信息传递给函数。如果这种形式的函数调用，那么传递的是x的值:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.96,
+            0.521,
+            0.976
+          ],
+          "content": "628"
+        }
+      ]
+    },
+    {
+      "page_idx": 628,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.063,
+            0.263,
+            0.083
+          ],
+          "content": "function1(x);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.108,
+            0.685,
+            0.129
+          ],
+          "content": "如果下面形式的函数调用，那么传递的是x的地址:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.155,
+            0.283,
+            0.176
+          ],
+          "content": "function2(&x);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.2,
+            0.892,
+            0.249
+          ],
+          "content": "第1种形式要求函数定义中的形式参数必须是一个与x的类型相同的变量:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.276,
+            0.348,
+            0.296
+          ],
+          "content": "int function1(int num)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.321,
+            0.88,
+            0.37
+          ],
+          "content": "第2种形式要求函数定义中的形式参数必须是一个指向正确类型的指针:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.397,
+            0.353,
+            0.418
+          ],
+          "content": "int function2(int \\* ptr)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.442,
+            0.918,
+            0.577
+          ],
+          "content": "如果要计算或处理值，那么使用第 1 种形式的函数调用；如果要在被调函数中改变主调函数的变量，则使用第2种形式的函数调用。我们用过的scanf()函数就是这样。当程序要把一个值读入变量时（如本例中的num），调用的是scanf(\"%d\", &num)。scanf()读取一个值，然后把该值储存到指定的地址上。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.603,
+            0.912,
+            0.652
+          ],
+          "content": "对本例而言，指针让interchange()函数通过自己的局部变量改变main()中变量的值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.678,
+            0.918,
+            0.841
+          ],
+          "content": "熟悉Pascal和Modula-2的读者应该看出第1种形式和Pascal的值参数相同，第2种形式和Pascal的变量参数类似。C++程序员可能认为，既然C和C++都使用指针变量，那么C应该也有引用变量。让他们失望了，C没有引用变量。对BASIC程序员而言，可能很难理解整个程序。如果觉得本节的内容晦涩难懂，请多做一些相关的编程练习，你会发现指针非常简单实用（见图9.6）。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "629"
+        }
+      ]
+    },
+    {
+      "page_idx": 629,
+      "blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            0.092,
+            0.065,
+            0.837,
+            0.321
+          ],
+          "sub_type": "text_image",
+          "content": "52000 5200152002 52003 52004 52005 ...\n52009 52010\n机器地址\n1字节1字节1字节1字节1字节1字节1字节1字节\nG\t7776\t1942\t2.015x10³⁰\tq\nch\tfeet\tdate\tsunmass\tquit\t内存中的值\n\t\t\t变量名\n\t\t\tfloat类型变量占用4字节\n\t\t&ch = 52000\n\t\t&feet = 52001\n\t\t&date = 52003\n\t\t&sunmass = 52005\n\t\t&quit = 52009\n└─ 地址运算符",
+          "captions": [
+            {
+              "bbox": [
+                0.26,
+                0.339,
+                0.735,
+                0.357
+              ],
+              "content": "图9.6 按字节寻址系统（如PC）中变量的名称、地址和值"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0609-0640/images/page_629_image_0.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.378,
+            0.399,
+            0.4
+          ],
+          "content": "变量:名称、地址和值"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.424,
+            0.918,
+            0.474
+          ],
+          "content": "通过前面的讨论发现，变量的名称、地址和变量的值之间关系密切。我们来进一步分析。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.499,
+            0.919,
+            0.577
+          ],
+          "content": "编写程序时，可以认为变量有两个属性:名称和值（还有其他性质，如类型，暂不讨论）。计算机编译和加载程序后，认为变量也有两个属性:地址和值。地址就是变量在计算机内部的名称。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.602,
+            0.915,
+            0.738
+          ],
+          "content": "在许多语言中，地址都归计算机管，对程序员隐藏。然而在 C 中，可以通过&运算符访问地址，通过\\*运算符获得地址上的值。例如，&barn表示变量barn的地址，使用函数名即可获得变量的数值。例如，printf(\"%d\\n\", barn)打印barn的值，使用\\*运算符即可获得储存在地址上的值。如果pbarn= &barn;，那么\\*pbarn表示的是储存在&barn地址上的值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.763,
+            0.91,
+            0.84
+          ],
+          "content": "简而言之，普通变量把值作为基本量，把地址作为通过&运算符获得的派生量，而指针变量把地址作为基本量，把值作为通过\\*运算符获得的派生量。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.866,
+            0.905,
+            0.917
+          ],
+          "content": "虽然打印地址可以满足读者好奇心，但是这并不是&运算符的主要用途。更重要的是使用&、\\*和指针可以操纵地址和地址上的内容，如swap3.c"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "630"
+        }
+      ]
+    },
+    {
+      "page_idx": 630,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.392,
+            0.081
+          ],
+          "content": "程序（程序清单9.15）所示。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.108,
+            0.269,
+            0.128
+          ],
+          "content": "小结:函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.154,
+            0.198,
+            0.174
+          ],
+          "content": "形式:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.2,
+            0.502,
+            0.22
+          ],
+          "content": "典型的ANSI C函数的定义形式为:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.247,
+            0.482,
+            0.267
+          ],
+          "content": "返回类型名称（形参声明列表）"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.293,
+            0.212,
+            0.314
+          ],
+          "content": "函数体"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.339,
+            0.916,
+            0.388
+          ],
+          "content": "形参声明列表是用逗号分隔的一系列变量声明。除形参变量外，函数的其他变量均在函数体的花括号之内声明。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.414,
+            0.198,
+            0.434
+          ],
+          "content": "示例:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.461,
+            0.56,
+            0.482
+          ],
+          "content": "int diff(int x, int y) // ANSI C"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.507,
+            0.304,
+            0.528
+          ],
+          "content": "{ // 函数体开始"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.553,
+            0.463,
+            0.574
+          ],
+          "content": "int z; // 声明局部变量"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.603,
+            0.3,
+            0.621
+          ],
+          "content": "z = x - y;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.646,
+            0.37,
+            0.667
+          ],
+          "content": "return z; // 返回一个值"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.692,
+            0.301,
+            0.713
+          ],
+          "content": "} // 函数体结束"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.738,
+            0.223,
+            0.758
+          ],
+          "content": "传递值:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.784,
+            0.905,
+            0.833
+          ],
+          "content": "实参用于把值从主调函数传递给被调函数。如果变量a和b的值分别是5和2，那么调用:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.86,
+            0.264,
+            0.881
+          ],
+          "content": "c = diff(a,b);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.905,
+            0.916,
+            0.927
+          ],
+          "content": "把5和2分别传递给变量x和y。5和2称为实际参数（简称实参），diff()函"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.518,
+            0.976
+          ],
+          "content": "631"
+        }
+      ]
+    },
+    {
+      "page_idx": 631,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.919,
+            0.168
+          ],
+          "continues_prev": true,
+          "content": "数定义中的变量x和y称为形式参数（简称形参）。使用关键字return把被调函数中的一个值传回主调函数。本例中， c接受z的值3。被调函数一般不会改变主调函数中的变量，如果要改变，应使用指针作为参数。如果希望把更多的值传回主调函数，必须这么做。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.193,
+            0.333,
+            0.215
+          ],
+          "content": "函数的返回类型:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.239,
+            0.918,
+            0.289
+          ],
+          "content": "函数的返回类型指的是函数返回值的类型。如果返回值的类型与声明的返回类型不匹配，返回值将被转换成函数声明的返回类型。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.314,
+            0.251,
+            0.334
+          ],
+          "content": "函数签名:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.36,
+            0.918,
+            0.41
+          ],
+          "content": "函数的返回类型和形参列表构成了函数签名。因此，函数签名指定了传入函数的值的类型和函数返回值的类型。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.435,
+            0.198,
+            0.455
+          ],
+          "content": "示例:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.481,
+            0.577,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```txt\ndouble duff(double, int); // 函数原型\nint main(void)\n{\ndouble q, x;\nint n;\n...\nq = duff(x,n);          //函数调用\n...\n}\ndouble duff(double u, int k)      //函数定义\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "632"
+        }
+      ]
+    },
+    {
+      "page_idx": 632,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.062,
+            0.5,
+            0.27
+          ],
+          "sub_type": "code",
+          "content": "```txt\n{\ndouble tor;\n\n...\nreturn tor; //返回double类型的值\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.48,
+            0.959,
+            0.518,
+            0.976
+          ],
+          "content": "633"
+        }
+      ]
+    },
+    {
+      "page_idx": 633,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.395,
+            0.065,
+            0.6,
+            0.091
+          ],
+          "level": 2,
+          "content": "9.8 关键概念"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.122,
+            0.92,
+            0.344
+          ],
+          "content": "如果想用C编出高效灵活的程序，必须理解函数。把大型程序组织成若干函数非常有用，甚至很关键。如果让一个函数处理一个任务，程序会更好理解，更方便调试。要理解函数是如何把信息从一个函数传递到另一函数，也就是说，要理解函数参数和返回值的工作原理。另外，要明白函数形参和其他局部变量都属于函数私有，因此，声明在不同函数中的同名变量是完全不同的变量。而且，函数无法直接访问其他函数中的变量。这种限制访问保护了数据的完整性。但是，当确实需要在函数中访问另一个函数的数据时，可以把指针作为函数的参数。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "634"
+        }
+      ]
+    },
+    {
+      "page_idx": 634,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.395,
+            0.065,
+            0.6,
+            0.091
+          ],
+          "level": 2,
+          "content": "9.9 本章小结"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.123,
+            0.919,
+            0.257
+          ],
+          "content": "函数可以作为组成大型程序的构件块。每个函数都应该有一个单独且定义好的功能。使用参数把值传给函数，使用关键字return把值返回函数。如果函数返回的值不是int类型，则必须在函数定义和函数原型中指定函数的类型。如果需要在被调函数中修改主调函数的变量，使用地址或指针作为参数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.283,
+            0.918,
+            0.334
+          ],
+          "content": "ANSI C提供了一个强大的工具——函数原型，允许编译器验证函数调用中使用的参数个数和类型是否正确。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.358,
+            0.918,
+            0.408
+          ],
+          "content": "C 函数可以调用本身，这种调用方式被称为递归。一些编程问题要用递归来解决，但是递归不仅消耗内存多，效率不高，而且费时。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.519,
+            0.976
+          ],
+          "content": "635"
+        }
+      ]
+    },
+    {
+      "page_idx": 635,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.403,
+            0.065,
+            0.592,
+            0.091
+          ],
+          "level": 2,
+          "content": "9.10 复习题"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.123,
+            0.467,
+            0.143
+          ],
+          "content": "复习题的参考答案在附录A中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.169,
+            0.549,
+            0.19
+          ],
+          "content": "1.实际参数和形式参数的区别是什么？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.216,
+            0.918,
+            0.264
+          ],
+          "content": "2.根据下面各函数的描述，分别编写它们的ANSI C函数头。注意，只需写出函数头，不用写函数体。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.29,
+            0.847,
+            0.312
+          ],
+          "content": "a.donut()接受一个int类型的参数，打印若干（参数指定数目）个0"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.336,
+            0.668,
+            0.358
+          ],
+          "content": "b.gear()接受两个int类型的参数，返回int类型的值"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.383,
+            0.604,
+            0.405
+          ],
+          "content": "c.guess()不接受参数，返回一个int类型的值"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.429,
+            0.893,
+            0.478
+          ],
+          "content": "d.stuff\\_it()接受一个double类型的值和double类型变量的地址，把第1个值储存在指定位置"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.504,
+            0.916,
+            0.553
+          ],
+          "content": "3.根据下面各函数的描述，分别编写它们的ANSI C函数头。注意，只需写出函数头，不用写函数体。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.579,
+            0.791,
+            0.601
+          ],
+          "content": "a.n\\_to\\_char()接受一个int类型的参数，返回一个char类型的值"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.625,
+            0.916,
+            0.674
+          ],
+          "content": "b.digit()接受一个double类型的参数和一个int类型的参数，返回一个int类型的值"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.7,
+            0.896,
+            0.749
+          ],
+          "content": "c.which()接受两个可储存double类型变量的地址，返回一个double类型的地址"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.775,
+            0.625,
+            0.796
+          ],
+          "content": "d.random()不接受参数，返回一个int类型的值"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.821,
+            0.518,
+            0.842
+          ],
+          "content": "4.设计一个函数，返回两整数之和。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.867,
+            0.903,
+            0.888
+          ],
+          "content": "5.如果把复习题4改成返回两个double类型的值之和，应如何修改函数？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.914,
+            0.894,
+            0.935
+          ],
+          "content": "6.设计一个名为alter()的函数，接受两个int类型的变量x和y，把它们的"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "636"
+        }
+      ]
+    },
+    {
+      "page_idx": 636,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.061,
+            0.549,
+            0.083
+          ],
+          "content": "值分别改成两个变量之和以及两变量之差。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.108,
+            0.446,
+            0.129
+          ],
+          "content": "7.下面的函数定义是否正确？"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.154,
+            0.642,
+            0.409
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid salami(num)\n{\nint num, count;\nfor (count = 1; count <= num; num++)\nprintf(\" O salami mio!\\n\");\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.128,
+            0.432,
+            0.657,
+            0.498
+          ],
+          "sub_type": "text",
+          "content": "8.编写一个函数，返回3个整数参数中的最大值。\n9.给定下面的输出:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.526,
+            0.585,
+            0.546
+          ],
+          "content": "Please choose one of the following:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.129,
+            0.572,
+            0.678,
+            0.639
+          ],
+          "sub_type": "text",
+          "content": "1) copy files\n2) move files\n3) remove files\n4) quit"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.665,
+            0.553,
+            0.685
+          ],
+          "content": "Enter the number of your choice:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.078,
+            0.71,
+            0.918,
+            0.919
+          ],
+          "sub_type": "text",
+          "content": "a.编写一个函数，显示一份有4个选项的菜单，提示用户进行选择（输出如上所示）。\nb.编写一个函数，接受两个int类型的参数分别表示上限和下限。该函数从用户的输入中读取整数。如果整数超出规定上下限，函数再次打印菜单（使用a部分的函数）提示用户输入，然后获取一个新值。如果用户输入的整数在规定范围内，该函数则把该整数返回主调函数。如果用户输入一个非整数字符，该函数应返回4。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "637"
+        }
+      ]
+    },
+    {
+      "page_idx": 637,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.061,
+            0.919,
+            0.139
+          ],
+          "content": "c.使用本题a和b部分的函数编写一个最小型的程序。最小型的意思是，该程序不需要实现菜单中各选项的功能，只需显示这些选项并获取有效的响应即可。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.48,
+            0.96,
+            0.521,
+            0.976
+          ],
+          "content": "638"
+        }
+      ]
+    },
+    {
+      "page_idx": 638,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.386,
+            0.065,
+            0.609,
+            0.091
+          ],
+          "level": 2,
+          "content": "9.11 编程练习"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.078,
+            0.123,
+            0.919,
+            0.895
+          ],
+          "sub_type": "text",
+          "content": "1.设计一个函数min(x, y)，返回两个double类型值的较小值。在一个简单的驱动程序中测试该函数。\n2.设计一个函数chline(ch, i, j)，打印指定的字符j行i列。在一个简单的驱动程序中测试该函数。\n3.编写一个函数，接受3个参数:一个字符和两个整数。字符参数是待打印的字符，第1个整数指定一行中打印字符的次数，第2个整数指定打印指定字符的行数。编写一个调用该函数的程序。\n4.两数的调和平均数这样计算:先得到两数的倒数，然后计算两个倒数的平均值，最后取计算结果的倒数。编写一个函数，接受两个double类型的参数，返回这两个参数的调和平均数。\n5.编写并测试一个函数larger\\_of()，该函数把两个double类型变量的值替换为较大的值。例如， larger\\_of(x, y)会把x和y中较大的值重新赋给两个变量。\n6.编写并测试一个函数，该函数以3个double变量的地址作为参数，把最小值放入第1个函数，中间值放入第2个变量，最大值放入第3个变量。\n7.编写一个函数，从标准输入中读取字符，直到遇到文件结尾。程序要报告每个字符是否是字母。如果是，还要报告该字母在字母表中的数值位置。例如，c和C在字母表中的位置都是3。合并一个函数，以一个字符作为参数，如果该字符是一个字母则返回一个数值位置，否则返回-1。\n8.第6章的程序清单6.20中，power()函数返回一个double类型数的正整数次幂。改进该函数，使其能正确计算负幂。另外，函数要处理0的任何次幂都为0，任何数的0次幂都为1（函数应报告0的0次幂未定义，因此把该值处理为1）。要使用一个循环，并在程序中测试该函数。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "639"
+        }
+      ]
+    },
+    {
+      "page_idx": 639,
+      "blocks": [
+        {
+          "type": "list",
+          "bbox": [
+            0.079,
+            0.061,
+            0.919,
+            0.288
+          ],
+          "sub_type": "text",
+          "content": "9.使用递归函数重写编程练习8。\n10.为了让程序清单9.8中的to\\_binary()函数更通用，编写一个to\\_base\\_n()函数接受两个在2～10范围内的参数，然后以第2个参数中指定的进制打印第1个参数的数值。例如，to\\_base\\_n(129， 8)显示的结果为201，也就是129的八进制数。在一个完整的程序中测试该函数。\n11.编写并测试Fibonacci()函数，该函数用循环代替递归计算斐波那契数。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "640"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "C Primer Plus 第6版 中文版",
+      "authors": [
+        "[美]史蒂芬·普拉达（Stephen Prata）"
+      ],
+      "languages": [
+        "zh"
+      ],
+      "publisher": "人民邮电出版社",
+      "created_at": "2017-02-18T06:13:34+00:00",
+      "modified_at": "2018-09-06T19:39:18+08:00",
+      "creator_application": "calibre 2.79.1 [https://calibre-ebook.com]",
+      "producer_application": "calibre 2.79.1 [https://calibre-ebook.com]",
+      "page_count": 1635,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 560,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 561,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 562,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 563,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 564,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 565,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 566,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 567,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 568,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 569,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 570,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 571,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 572,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 573,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 574,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 575,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 576,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 577,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 578,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 579,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 580,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 581,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 582,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 583,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 584,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 585,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 586,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 587,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 588,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 589,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 590,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 591,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 592,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 593,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 594,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 595,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 596,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 597,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 598,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 599,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 600,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 601,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 602,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 603,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 604,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 605,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 606,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 607,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 608,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 609,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 610,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 611,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 612,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 613,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 614,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 615,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 616,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 617,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 618,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 619,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 620,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 621,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 622,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 623,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 624,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 625,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 626,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 627,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 628,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 629,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 630,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 631,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 632,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 633,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 634,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 635,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 636,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 637,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 638,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 639,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

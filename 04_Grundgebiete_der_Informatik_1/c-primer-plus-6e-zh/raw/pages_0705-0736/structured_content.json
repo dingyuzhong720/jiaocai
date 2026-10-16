@@ -1,0 +1,3245 @@
+{
+  "pages": [
+    {
+      "page_idx": 704,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.062,
+            0.372,
+            0.084
+          ],
+          "content": "const int y = 23;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.109,
+            0.275,
+            0.13
+          ],
+          "content": "int \\* p1 = &x;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.155,
+            0.331,
+            0.177
+          ],
+          "content": "const int \\* p2 = &y;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.202,
+            0.299,
+            0.223
+          ],
+          "content": "const int \\*\\* pp2;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.246,
+            0.732,
+            0.269
+          ],
+          "content": "p1 = p2; // 不安全 -- 把const指针赋给非const指针"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.293,
+            0.708,
+            0.316
+          ],
+          "content": "p2 = p1; // 有效 -- 把非const指针赋给const指针"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.339,
+            0.635,
+            0.362
+          ],
+          "content": "pp2 = &p1; // 不安全 –- 嵌套指针类型赋值"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.385,
+            0.893,
+            0.492
+          ],
+          "content": "前面提到过，把const指针赋给非const指针不安全，因为这样可以使用新的指针改变const指针指向的数据。编译器在编译代码时，可能会给出警告，执行这样的代码是未定义的。但是把非const指针赋给const指针没问题，前提是只进行一级解引用:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.517,
+            0.633,
+            0.541
+          ],
+          "content": "p2 = p1; // 有效 -- 把非const指针赋给const指针"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.563,
+            0.893,
+            0.613
+          ],
+          "content": "但是进行两级解引用时，这样的赋值也不安全，例如，考虑下面的代码:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.639,
+            0.292,
+            0.661
+          ],
+          "content": "const int \\*\\*pp2;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.686,
+            0.211,
+            0.707
+          ],
+          "content": "int \\*p1;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.732,
+            0.37,
+            0.753
+          ],
+          "content": "const int n = 13;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.777,
+            0.9,
+            0.828
+          ],
+          "content": "pp2 = &p1; // 允许，但是这导致const限定符失效（根据第1行代码，不能通过\\*pp2修改它所指向的内容）"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.852,
+            0.916,
+            0.903
+          ],
+          "content": "\\*pp2 = &n; // 有效，两者都声明为const，但是这将导致p1指向n（\\*pp2已被修改）"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "705"
+        }
+      ]
+    },
+    {
+      "page_idx": 705,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.92,
+            0.112
+          ],
+          "content": "\\*p1 = 10;//有效，但是这将改变n的值（但是根据第3行代码，不能修改n的值）"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.136,
+            0.919,
+            0.3
+          ],
+          "content": "发生了什么？如前所示，标准规定了通过非const指针更改const数据是未定义的。例如，在Terminal中（OS X对底层UNIX系统的访问）使用gcc编译包含以上代码的小程序，导致n最终的值是13，但是在相同系统下使用clang来编译，n最终的值是10。两个编译器都给出指针类型不兼容的警告。当然，可以忽略这些警告，但是最好不要相信该程序运行的结果，这些结果都是未定义的。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.326,
+            0.351,
+            0.346
+          ],
+          "level": 2,
+          "content": "C const和C++ const"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.371,
+            0.862,
+            0.45
+          ],
+          "content": "C和C++中const的用法很相似，但是并不完全相同。区别之一是，C++允许在声明数组大小时使用const整数，而C却不允许。区别之二是，C++的指针赋值检查更严格:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.477,
+            0.244,
+            0.496
+          ],
+          "content": "const int y;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.522,
+            0.331,
+            0.544
+          ],
+          "content": "const int \\* p2 = &y;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.569,
+            0.216,
+            0.589
+          ],
+          "content": "int \\* p1;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.613,
+            0.735,
+            0.636
+          ],
+          "content": "p1 = p2; // C++中不允许这样做，但是C可能只给出警告"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.66,
+            0.905,
+            0.711
+          ],
+          "content": "C++不允许把const指针赋给非const指针。而C则允许这样做，但是如果通过p1更改y，其行为是未定义的。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.348,
+            0.736,
+            0.649,
+            0.759
+          ],
+          "level": 2,
+          "content": "10.7.3 函数和多维数组"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.784,
+            0.918,
+            0.834
+          ],
+          "content": "如果要编写处理二维数组的函数，首先要能正确地理解指针才能写出声明函数的形参。在函数体中，通常使用数组表示法进行相关操作。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.859,
+            0.895,
+            0.909
+          ],
+          "content": "下面，我们编写一个处理二维数组的函数。一种方法是，利用for循环把处理一维数组的函数应用到二维数组的每一行。如下所示:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "706"
+        }
+      ]
+    },
+    {
+      "page_idx": 706,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.808,
+            0.086
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nint junk[3][4] = { {2,4,5,8}, {3,5,6,9}, {12,10,8,6}};\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.109,
+            0.241,
+            0.13
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint i, j;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.155,
+            0.316,
+            0.175
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nint total = 0;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.201,
+            0.501,
+            0.222
+          ],
+          "sub_type": "code",
+          "content": "```txt\nfor (i = 0; i < 3 ; i++)\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.247,
+            0.595,
+            0.269
+          ],
+          "content": "total += sum(junk[i], 4); // junk[i]是一维数组"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.292,
+            0.918,
+            0.37
+          ],
+          "content": "记住，如果 junk 是二维数组，junk[i]就是一维数组，可将其视为二维数组的一行。这里，sum()函数计算二维数组的每行的总和，然后for循环再把每行的总和加起来。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.396,
+            0.919,
+            0.588
+          ],
+          "content": "然而，这种方法无法记录行和列的信息。用这种方法计算总和，行和列的信息并不重要。但如果每行代表一年，每列代表一个月，就还需要一个函数计算某列的总和。该函数要知道行和列的信息，可以通过声明正确类型的形参变量来完成，以便函数能正确地传递数组。在这种情况下，数组 junk是一个内含 3个数组元素的数组，每个元素是内含4个int类型值的数组（即junk是一个3行4列的二维数组）。通过前面的讨论可知，这表明junk是一个指向数组（内含4个int类型值）的指针。可以这样声明函数的形参:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.614,
+            0.472,
+            0.636
+          ],
+          "content": "void somefunction( int (\\* pt)[4] );"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.659,
+            0.843,
+            0.681
+          ],
+          "content": "另外，如果当且仅当pt是一个函数的形式参数时，可以这样声明:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.707,
+            0.454,
+            0.729
+          ],
+          "content": "void somefunction( int pt[][4] );"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.752,
+            0.908,
+            0.83
+          ],
+          "content": "注意，第1个方括号是空的。空的方括号表明pt是一个指针。这样的变量稍后可以用作相同方法作为junk。下面的程序示例中就是这样做的，如程序清单10.17所示。注意该程序清单演示了3种等价的原型语法。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.855,
+            0.456,
+            0.876
+          ],
+          "content": "程序清单**10.17 array2d.c**程序"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.902,
+            0.508,
+            0.922
+          ],
+          "content": "// array2d.c -- 处理二维数组的函数"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.519,
+            0.976
+          ],
+          "content": "707"
+        }
+      ]
+    },
+    {
+      "page_idx": 707,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.866,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n\n#define ROWS 3\n\n#define COLS 4\n\nvoid sum_rows(int ar[][COLS], int rows);\n\nvoid sum_cols(int[][COLS], int);          // 省略形参名，没问题\nint sum2d(int(*ar)[COLS], int rows);    // 另一种语法\n\nint main(void)\n\n{\n\nint junk[ROWS][COLS] = {\n\n{ 2, 4, 6, 8 },\n{ 3, 5, 7, 9 },\n{ 12, 10, 8, 6 }\n\n};\n\nsum_rows(junk, ROWS);\n\nsum_cols(junk, ROWS);\n\nprintf(\"Sum of all elements = %d\\n\", sum2d(junk, ROWS));\n\nreturn 0;\n\n}\n\nvoid sum_rows(int ar[][COLS], int rows)\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.48,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "708"
+        }
+      ]
+    },
+    {
+      "page_idx": 708,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.061,
+            0.627,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```c\n{\nint r;\nint c;\nint tot;\nfor (r = 0; r < rows; r++)\n{\ntot = 0;\nfor (c = 0; c < COLS; c++)\ntot += ar[r][c];\nprintf(\"row %d: sum = %d\\n\", r, tot);\n}\n}\nvoid sum_cols(int ar[][COLS], int rows)\n{\nint r;\nint c;\nint tot;\nfor (c = 0; c < COLS; c++)\n{\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.48,
+            0.959,
+            0.52,
+            0.977
+          ],
+          "content": "709"
+        }
+      ]
+    },
+    {
+      "page_idx": 709,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.061,
+            0.62,
+            0.781
+          ],
+          "sub_type": "code",
+          "content": "```c\ntot = 0;\n\nfor (r = 0; r < rows; r++)\n\ntot += ar[r][c];\n\nprintf(\"col %d: sum = %d\\n\", c, tot);\n\n}\n\n}\n\nint sum2d(int ar[][COLS], int rows)\n{\n\nint r;\n\nint c;\n\nint tot = 0;\n\nfor (r = 0; r < rows; r++)\n\nfor (c = 0; c < COLS; c++)\n\ntot += ar[r][c];\n\nreturn tot;\n\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.802,
+            0.349,
+            0.823
+          ],
+          "content": "该程序的输出如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.849,
+            0.301,
+            0.916
+          ],
+          "sub_type": "code",
+          "content": "```python\nrow 0: sum = 20\nrow 1: sum = 24\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "710"
+        }
+      ]
+    },
+    {
+      "page_idx": 710,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.063,
+            0.302,
+            0.081
+          ],
+          "content": "row 2: sum = 36"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.109,
+            0.292,
+            0.127
+          ],
+          "content": "col 0: sum = 17"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.155,
+            0.292,
+            0.174
+          ],
+          "content": "col 1: sum = 19"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.201,
+            0.289,
+            0.22
+          ],
+          "content": "col 2: sum = 21"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.248,
+            0.29,
+            0.266
+          ],
+          "content": "col 3: sum = 23"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.294,
+            0.383,
+            0.312
+          ],
+          "content": "Sum of all elements = 80"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.339,
+            0.918,
+            0.503
+          ],
+          "content": "程序清单10.17中的程序把数组名junk（即，指向数组首元素的指针，首元素是子数组）和符号常量ROWS（代表行数3）作为参数传递给函数。每个函数都把ar视为内含数组元素（每个元素是内含4个int类型值的数组）的数组。列数内置在函数体中，但是行数靠函数传递得到。如果传入函数的行数是12，那么函数要处理的是12×4的数组。因为rows是元素的个数，然而，因为每个元素都是数组，或者视为一行，rows也可以看成是行数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.528,
+            0.88,
+            0.577
+          ],
+          "content": "注意，ar和main()中的junk都使用数组表示法。因为ar和junk的类型相同，它们都是指向内含4个int类型值的数组的指针。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.603,
+            0.423,
+            0.623
+          ],
+          "content": "注意，下面的声明不正确:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.65,
+            0.579,
+            0.671
+          ],
+          "content": "int sum2(int ar[][], int rows); // 错误的声明"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.695,
+            0.918,
+            0.773
+          ],
+          "content": "前面介绍过，编译器会把数组表示法转换成指针表示法。例如，编译器会把 ar[1]转换成 ar+1。编译器对ar+1求值，要知道ar所指向的对象大小。下面的声明:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.799,
+            0.611,
+            0.82
+          ],
+          "content": "int sum2(int ar[][4], int rows); // 有效声明"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.845,
+            0.9,
+            0.923
+          ],
+          "content": "表示ar指向一个内含4个int类型值的数组（在我们的系统中，ar指向的对象占16字节），所以ar+1的意思是“该地址加上16字节”。如果第2对方括号是空的，编译器就不知道该怎样处理。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.517,
+            0.976
+          ],
+          "content": "711"
+        }
+      ]
+    },
+    {
+      "page_idx": 711,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.885,
+            0.112
+          ],
+          "content": "也可以在第1对方括号中写上大小，如下所示，但是编译器会忽略该值:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.136,
+            0.77,
+            0.159
+          ],
+          "content": "int sum2(int ar[3][4], int rows); // 有效声明，但是3将被忽略"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.182,
+            0.862,
+            0.205
+          ],
+          "content": "与使用typedef（第5章和第14章中讨论）相比，这种形式方便得多:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.229,
+            0.893,
+            0.252
+          ],
+          "content": "typedef int arr4[4]; // arr4是一个内含 4 个int的数组"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.275,
+            0.918,
+            0.325
+          ],
+          "content": "typedef arr4 arr3x4[3]; // arr3x4 是一个内含3个 arr4的数组"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.35,
+            0.728,
+            0.372
+          ],
+          "content": "int sum2(arr3x4 ar, int rows); // 与下面的声明相同"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.396,
+            0.705,
+            0.418
+          ],
+          "content": "int sum2(int ar[3][4], int rows); // 与下面的声明相同"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.443,
+            0.611,
+            0.465
+          ],
+          "content": "int sum2(int ar[][4], int rows); // 标准形式"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.488,
+            0.91,
+            0.539
+          ],
+          "content": "一般而言，声明一个指向N维数组的指针时，只能省略最左边方括号中的值:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.565,
+            0.55,
+            0.587
+          ],
+          "content": "int sum4d(int ar[][12][20][30], int rows);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.609,
+            0.905,
+            0.66
+          ],
+          "content": "因为第1对方括号只用于表明这是一个指针，而其他的方括号则用于描述指针所指向数据对象的类型。下面的声明与该声明等价:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.685,
+            0.734,
+            0.708
+          ],
+          "content": "int sum4d(int (\\*ar)[12][20][30], int rows); // ar是一个指针"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.731,
+            0.547,
+            0.752
+          ],
+          "content": "这里，ar指向一个12×20×30的int数组。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "712"
+        }
+      ]
+    },
+    {
+      "page_idx": 712,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.313,
+            0.065,
+            0.685,
+            0.091
+          ],
+          "level": 2,
+          "content": "10.8 变长数组（VLA）"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.122,
+            0.919,
+            0.174
+          ],
+          "content": "读者在学习处理二维数组的函数中可能不太理解，为何只把数组的行数作为函数的形参，而列数却内置在函数体内。例如，函数定义如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.197,
+            0.572,
+            0.685
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define COLS 4\n\nint sum2d(int ar[][COLS], int rows)\n{\nint r;\nint c;\nint tot = 0;\nfor (r = 0; r < rows; r++)\nfor (c = 0; c < COLS; c++)\ntot += ar[r][c];\nreturn tot;\n\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.706,
+            0.372,
+            0.727
+          ],
+          "content": "假设声明了下列数组:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.754,
+            0.345,
+            0.869
+          ],
+          "sub_type": "code",
+          "content": "```c\nint array1[5][4];\nint array2[100][4];\nint array3[2][4];\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.892,
+            0.68,
+            0.914
+          ],
+          "content": "可以用sum2d()函数分别计算这些数组的元素之和:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "713"
+        }
+      ]
+    },
+    {
+      "page_idx": 713,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.061,
+            0.66,
+            0.083
+          ],
+          "content": "tot = sum2d(array1, 5); // 5×4 数组的元素之和"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.108,
+            0.677,
+            0.13
+          ],
+          "content": "tot = sum2d(array2, 100); // 100×4数组的元素之和"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.2,
+            0.919,
+            0.309
+          ],
+          "content": "sum2d()函数之所以能处理这些数组，是因为这些数组的列数固定为4，而行数被传递给形参rows， rows是一个变量。但是如果要计算6×5的数组（即6行5列），就不能使用这个函数，必须重新创建一个CLOS为5的函数。因为C规定，数组的维数必须是常量，不能用变量来代替COLS。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.332,
+            0.92,
+            0.496
+          ],
+          "content": "要创建一个能处理任意大小二维数组的函数，比较繁琐（必须把数组作为一维数组传递，然后让函数计算每行的开始处）。而且，这种方法不好处理FORTRAN的子例程，这些子例程都允许在函数调用中指定两个维度。虽然 FORTRAN 是比较老的编程语言，但是在过去的几十年里，数值计算领域的专家已经用FORTRAN开发出许多有用的计算库。C正逐渐替代FORTRAN，如果能直接转换现有的FORTRAN库就好了。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.521,
+            0.918,
+            0.572
+          ],
+          "content": "鉴于此，C99新增了变长数组（variable-length array，VLA），允许使用变量表示数组的维度。如下所示:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.597,
+            0.353,
+            0.618
+          ],
+          "content": "int quarters = 4;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.643,
+            0.344,
+            0.664
+          ],
+          "content": "int regions = 5;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.689,
+            0.767,
+            0.712
+          ],
+          "content": "double sales[regions][quarters]; // 一个变长数组（VLA）"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.734,
+            0.918,
+            0.843
+          ],
+          "content": "前面提到过，变长数组有一些限制。变长数组必须是自动存储类别，这意味着无论在函数中声明还是作为函数形参声明，都不能使用static或extern存储类别说明符（第12章介绍）。而且，不能在声明中初始化它们。最终，C11把变长数组作为一个可选特性，而不是必须强制实现的特性。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.866,
+            0.462,
+            0.887
+          ],
+          "content": "注意变长数组不能改变大小"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.912,
+            0.914,
+            0.934
+          ],
+          "content": "变长数组中的“变”不是指可以修改已创建数组的大小。一旦创建了变长"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "714"
+        }
+      ]
+    },
+    {
+      "page_idx": 714,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.915,
+            0.112
+          ],
+          "continues_prev": true,
+          "content": "数组，它的大小则保持不变。这里的“变”指的是:在创建数组时，可以使用变量指定数组的维度。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.136,
+            0.919,
+            0.214
+          ],
+          "content": "由于变长数组是C语言的新特性，目前完全支持这一特性的编译器不多。下面我们来看一个简单的例子:如何编写一个函数，计算int的二维数组所有元素之和。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.239,
+            0.776,
+            0.261
+          ],
+          "content": "首先，要声明一个带二维变长数组参数的函数，如下所示:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.09,
+            0.286,
+            0.918,
+            0.334
+          ],
+          "content": "int sum2d(int rows, int cols, int ar[rows][cols]); // ar是一个变长数组（VLA）"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.36,
+            0.905,
+            0.438
+          ],
+          "content": "注意前两个形参（rows和cols）用作第3个形参二维数组ar的两个维度。因为ar的声明要使用rows和cols，所以在形参列表中必须在声明ar之前先声明这两个形参。因此，下面的原型是错误的:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.464,
+            0.77,
+            0.487
+          ],
+          "content": "int sum2d(int ar[rows][cols], int rows, int cols); // 无效的顺序"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.51,
+            0.909,
+            0.56
+          ],
+          "content": "C99/C11标准规定，可以省略原型中的形参名，但是在这种情况下，必须用星号来代替省略的维度:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.585,
+            0.918,
+            0.634
+          ],
+          "content": "int sum2d(int, int, int ar[\\*][\\*]); // ar是一个变长数组（VLA），省略了维度形参名"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.66,
+            0.424,
+            0.681
+          ],
+          "content": "其次，该函数的定义如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.706,
+            0.724,
+            0.913
+          ],
+          "sub_type": "code",
+          "content": "```c\nint sum2d(int rows, int cols, int ar[rows][cols])\n{\nint r;\nint c;\nint tot = 0;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "715"
+        }
+      ]
+    },
+    {
+      "page_idx": 715,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.518,
+            0.27
+          ],
+          "sub_type": "code",
+          "content": "```c\nfor (r = 0; r < rows; r++)\nfor (c = 0; c < cols; c++)\ntot += ar[r][c];\nreturn tot;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.292,
+            0.915,
+            0.457
+          ],
+          "content": "该函数除函数头与传统的C函数（程序清单10.17）不同外，还把符号常量COLS替换成变量cols。这是因为在函数头中使用了变长数组。由于用变量代表行数和列数，所以新的sum2d()现在可以处理任意大小的二维int数组，如程序清单10.18所示。但是，该程序要求编译器支持变长数组特性。另外，该程序还演示了以变长数组作为形参的函数既可处理传统C数组，也可处理变长数组。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.481,
+            0.469,
+            0.503
+          ],
+          "content": "程序清单**10.18 vararr2d.c**程序"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.528,
+            0.731,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```c\n//vararr2d.c -- 使用变长数组的函数\n#include <stdio.h>\n#define ROWS 3\n#define COLS 4\nint sum2d(int rows, int cols, int ar[rows][cols]);\nint main(void)\n{\nint i, j;\nint rs = 3;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "716"
+        }
+      ]
+    },
+    {
+      "page_idx": 716,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.866,
+            0.93
+          ],
+          "sub_type": "code",
+          "content": "```c\nint cs = 10;\nint junk[ROWS][COLS] = {\n{ 2, 4, 6, 8 },\n{ 3, 5, 7, 9 },\n{ 12, 10, 8, 6 }\n};\nint morejunk[ROWS - 1][COLS + 2] = {\n{ 20, 30, 40, 50, 60, 70 },\n{ 5, 6, 7, 8, 9, 10 }\n};\nint varr[rs][cs]; // 变长数组 (VLA)\nfor (i = 0; i < rs; i++)\nfor (j = 0; j < cs; j++)\nvarr[i][j] = i * j + j;\nprintf(\"3x5 array\\n\");\nprintf(\"Sum of all elements = %d\\n\", sum2d(ROWS, COLS,\n));\nprintf(\"2x6 array\\n\");\nprintf(\"Sum of all elements = %d\\n\", sum2d(ROWS - 1,\nS + 2, morejunk));\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "717"
+        }
+      ]
+    },
+    {
+      "page_idx": 717,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.866,
+            0.224
+          ],
+          "sub_type": "code",
+          "content": "```c\nprintf(\"3x10  VLA\\n\");\n\nprintf(\"Sum of all elements = %d\\n\", sum2d(rs, cs, varr));\n\nreturn 0;\n\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.129,
+                0.246,
+                0.411,
+                0.267
+              ],
+              "content": "// 带变长数组形参的函数"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.292,
+            0.724,
+            0.735
+          ],
+          "sub_type": "code",
+          "content": "```c\nint sum2d(int rows, int cols, int ar[rows][cols])\n{\nint r;\nint c;\nint tot = 0;\nfor (r = 0; r < rows; r++)\nfor (c = 0; c < cols; c++)\ntot += ar[r][c];\nreturn tot;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.755,
+            0.373,
+            0.777
+          ],
+          "content": "下面是该程序的输出:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.803,
+            0.478,
+            0.918
+          ],
+          "sub_type": "code",
+          "content": "```txt\n3x5 array\nSum of all elements = 80\n2x6 array\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "718"
+        }
+      ]
+    },
+    {
+      "page_idx": 718,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.061,
+            0.49,
+            0.175
+          ],
+          "sub_type": "code",
+          "content": "```txt\nSum of all elements = 315\n3x10 VLA\nSum of all elements = 270\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.199,
+            0.919,
+            0.308
+          ],
+          "content": "需要注意的是，在函数定义的形参列表中声明的变长数组并未实际创建数组。和传统的语法类似，变长数组名实际上是一个指针。这说明带变长数组形参的函数实际上是在原始数组中处理数组，因此可以修改传入的数组。下面的代码段指出指针和实际数组是何时声明的:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.332,
+            0.327,
+            0.493
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint thing[10][6];\n\ntwoset(10,6,thing);\n\n...\n\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.517,
+            0.918,
+            0.566
+          ],
+          "content": "void twoset (int n, int m, int ar[n][m]) // ar是一个指向数组（内含m个int类型的值）的指针"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.593,
+            0.625,
+            0.802
+          ],
+          "sub_type": "code",
+          "content": "```txt\n{\nint temp[n][m];      // temp是一个n×m的int数组\ntemp[0][0] = 2;       // 设置temp的一个元素为2\nar[0][0] = 2;          // 设置thing[0][0]为2\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.823,
+            0.905,
+            0.903
+          ],
+          "content": "如上代码所示调用twoset()时，ar成为指向thing[0]的指针，temp被创建为10×6的数组。因为ar和thing都是指向thing[0]的指针，ar[0][0]与thing[0][0]访问的数据位置相同。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "719"
+        }
+      ]
+    },
+    {
+      "page_idx": 719,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.062,
+            0.321,
+            0.081
+          ],
+          "content": "**const**和数组大小"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.108,
+            0.553,
+            0.128
+          ],
+          "content": "是否可以在声明数组时使用const变量？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.155,
+            0.388,
+            0.175
+          ],
+          "content": "const int SZ = 80;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.247,
+            0.423,
+            0.268
+          ],
+          "content": "double ar[SZ]; // 是否允许？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.293,
+            0.911,
+            0.4
+          ],
+          "content": "C90标准不允许（也可能允许）。数组的大小必须是给定的整型常量表达式，可以是整型常量组合，如20、sizeof表达式或其他不是const的内容。由于C实现可以扩大整型常量表达式的范围，所以可能会允许使用const，但是这种代码可能无法移植。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.425,
+            0.915,
+            0.474
+          ],
+          "content": "C99/C11 标准允许在声明变长数组时使用 const 变量。所以该数组的定义必须是声明在块中的自动存储类别数组。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.499,
+            0.918,
+            0.605
+          ],
+          "content": "变长数组还允许动态内存分配，这说明可以在程序运行时指定数组的大小。普通 C数组都是静态内存分配，即在编译时确定数组的大小。由于数组大小是常量，所以编译器在编译时就知道了。第12章将详细介绍动态内存分配。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "720"
+        }
+      ]
+    },
+    {
+      "page_idx": 720,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.368,
+            0.065,
+            0.631,
+            0.091
+          ],
+          "level": 2,
+          "content": "10.9 复合字面量"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.122,
+            0.92,
+            0.317
+          ],
+          "content": "假设给带int类型形参的函数传递一个值，要传递int类型的变量，但是也可以传递int类型常量，如5。在C99 标准以前，对于带数组形参的函数，情况不同，可以传递数组，但是没有等价的数组常量。C99新增了复合字面量（compound literal）。字面量是除符号常量外的常量。例如，5是int类型字面量， 81.3是double类型的字面量，'Y'是char类型的字面量，\"elephant\"是字符串字面量。发布C99标准的委员会认为，如果有代表数组和结构内容的复合字面量，在编程时会更方便。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.34,
+            0.919,
+            0.391
+          ],
+          "content": "对于数组，复合字面量类似数组初始化列表，前面是用括号括起来的类型名。例如，下面是一个普通的数组声明:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.416,
+            0.367,
+            0.438
+          ],
+          "content": "\\text {int diva[2] = \\{10, 20\\};}",
+          "image_source": "images/page_720_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.461,
+            0.912,
+            0.51
+          ],
+          "content": "下面的复合字面量创建了一个和diva数组相同的匿名数组，也有两个int类型的值:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.127,
+            0.536,
+            0.529,
+            0.559
+          ],
+          "content": "(\\text {int} [ 2 ]) \\{1 0, 2 0 \\} \\quad / / \\text {复合字面量}",
+          "image_source": "images/page_720_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.582,
+            0.891,
+            0.604
+          ],
+          "content": "注意，去掉声明中的数组名，留下的int [2]即是复合字面量的类型名。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.628,
+            0.918,
+            0.679
+          ],
+          "content": "初始化有数组名的数组时可以省略数组大小，复合字面量也可以省略大小，编译器会自动计算数组当前的元素个数:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.127,
+            0.703,
+            0.648,
+            0.726
+          ],
+          "content": "(\\text {int} [ ]) \\{5 0, 2 0, 9 0 \\} / / \\text {内含3个元素的复合字面量}",
+          "image_source": "images/page_720_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.75,
+            0.918,
+            0.8
+          ],
+          "content": "因为复合字面量是匿名的，所以不能先创建然后再使用它，必须在创建的同时使用它。使用指针记录地址就是一种用法。也就是说，可以这样用:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.826,
+            0.225,
+            0.847
+          ],
+          "content": "\\text {int} ^ {*} \\text {pt1};",
+          "image_source": "images/page_720_equation_10.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.872,
+            0.377,
+            0.895
+          ],
+          "content": "\\mathrm{pt1} = (\\text {int [2]}) \\{1 0, 2 0 \\};",
+          "image_source": "images/page_720_equation_11.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.518,
+            0.976
+          ],
+          "content": "721"
+        }
+      ]
+    },
+    {
+      "page_idx": 721,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.919,
+            0.169
+          ],
+          "content": "注意，该复合字面量的字面常量与上面创建的 diva 数组的字面常量完全相同。与有数组名的数组类似，复合字面量的类型名也代表首元素的地址，所以可以把它赋给指向int的指针。然后便可使用这个指针。例如，本例中\\*pt1是10，pt1[1]是20。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.193,
+            0.877,
+            0.215
+          ],
+          "content": "还可以把复合字面量作为实际参数传递给带有匹配形式参数的函数:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.241,
+            0.51,
+            0.264
+          ],
+          "content": "int sum(const int ar[], int n);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.296,
+            0.154,
+            0.306
+          ],
+          "content": "..."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.334,
+            0.231,
+            0.354
+          ],
+          "content": "int total3;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.38,
+            0.507,
+            0.402
+          ],
+          "content": "total3 = sum((int []){4,4,4,5,5,5}, 6);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.424,
+            0.918,
+            0.502
+          ],
+          "content": "这里，第1个实参是内含6个int类型值的数组，和数组名类似，这同时也是该数组首元素的地址。这种用法的好处是，把信息传入函数前不必先创建数组，这是复合字面量的典型用法。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.528,
+            0.915,
+            0.577
+          ],
+          "content": "可以把这种用法应用于二维数组或多维数组。例如，下面的代码演示了如何创建二维int数组并储存其地址:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.603,
+            0.918,
+            0.652
+          ],
+          "content": "int (\\*pt2)[4]; // 声明一个指向二维数组的指针，该数组内含2个数组元素，"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.678,
+            0.549,
+            0.698
+          ],
+          "content": "// 每个元素是内含4个int类型值的数组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.127,
+            0.725,
+            0.709,
+            0.747
+          ],
+          "content": "\\mathrm{pt2} = (\\text {int} [ 2 ] [ 4 ]) \\quad \\{\\quad \\{1, 2, 3, - 9 \\}, \\quad \\{4, 5, 6, - 8 \\} \\};",
+          "image_source": "images/page_721_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.77,
+            0.856,
+            0.792
+          ],
+          "content": "如上所示，该复合字面量的类型是int [2][4]，即一个2×4的int数组。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.817,
+            0.682,
+            0.838
+          ],
+          "content": "程序清单10.19把上述例子放进一个完整的程序中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.863,
+            0.4,
+            0.884
+          ],
+          "content": "程序清单**10.19 flc.c**程序"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.909,
+            0.357,
+            0.93
+          ],
+          "content": "// flc.c -- 有趣的常量"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "722"
+        }
+      ]
+    },
+    {
+      "page_idx": 722,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.078,
+            0.061,
+            0.761,
+            0.901
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n\n#define COLS 4\n\nint sum2d(const int ar[][COLS], int rows);\n\nint sum(const int ar[], int n);\n\nint main(void)\n{\nint total1, total2, total3;\n\nint * pt1;\n\nint(*pt2)[COLS];\n\npt1 = (int[2]) { 10, 20 };\n\npt2 = (int[2][COLS]) { {1, 2, 3, -9}, { 4, 5, 6, -8 } };\n\ntotal1 = sum(pt1, 2);\n\ntotal2 = sum2d(pt2, 2);\n\ntotal3 = sum((int []) { 4, 4, 4, 5, 5, 5 }, 6);\n\nprintf(\"total1 = %d\\n\", total1);\n\nprintf(\"total2 = %d\\n\", total2);\n\nprintf(\"total3 = %d\\n\", total3);\n\nreturn 0;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.48,
+            0.959,
+            0.519,
+            0.976
+          ],
+          "content": "723"
+        }
+      ]
+    },
+    {
+      "page_idx": 723,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.061,
+            0.679,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```c\n}\nint sum(const int ar [], int n)\n{\nint i;\nint total = 0;\nfor (i = 0; i < n; i++)\ntotal += ar[i];\nreturn total;\n}\nint sum2d(const int ar工业园区[COLS], int rows)\n{\nint r;\nint c;\nint tot = 0;\nfor (r = 0; r < rows; r++)\nfor (c = 0; c < COLS; c++)\ntot += ar[r][c];\nreturn tot;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.48,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "724"
+        }
+      ]
+    },
+    {
+      "page_idx": 724,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.061,
+            0.912,
+            0.112
+          ],
+          "content": "要支持C99的编译器才能正常运行该程序示例（目前并不是所有的编译器都支持），其输出如下:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.127,
+            0.137,
+            0.289,
+            0.251
+          ],
+          "content": "\\begin{array}{l} \\text {total1} = 3 0 \\\\ \\text {total2} = 4 \\\\ \\text {total3} = 2 7 \\\\ \\end{array}",
+          "image_source": "images/page_724_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.275,
+            0.92,
+            0.382
+          ],
+          "content": "记住，复合字面量是提供只临时需要的值的一种手段。复合字面量具有块作用域（第12章将介绍相关内容），这意味着一旦离开定义复合字面量的块，程序将无法保证该字面量是否存在。也就是说，复合字面量的定义在最内层的花括号中。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "725"
+        }
+      ]
+    },
+    {
+      "page_idx": 725,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.378,
+            0.065,
+            0.619,
+            0.093
+          ],
+          "level": 2,
+          "content": "10.10 关键概念"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.122,
+            0.92,
+            0.259
+          ],
+          "content": "数组用于储存相同类型的数据。C 把数组看作是派生类型，因为数组是建立在其他类型的基础上。也就是说，无法简单地声明一个数组。在声明数组时必须说明其元素的类型，如int类型的数组、float类型的数组，或其他类型的数组。所谓的其他类型也可以是数组类型，这种情况下，创建的是数组的数组（或称为二维数组）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.283,
+            0.919,
+            0.448
+          ],
+          "content": "通常编写一个函数来处理数组，这样在特定的函数中解决特定的问题，有助于实现程序的模块化。在把数组名作为实际参数时，传递给函数的不是整个数组，而是数组的地址（因此，函数对应的形式参数是指针）。为了处理数组，函数必须知道从何处开始读取数据和要处理多少个数组元素。数组地址提供了“地址”，“元素个数”可以内置在函数中或作为单独的参数传递。第 2 种方法更普遍，因为这样做可以让同一个函数处理不同大小的数组。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.471,
+            0.918,
+            0.552
+          ],
+          "content": "数组和指针的关系密切，同一个操作可以用数组表示法或指针表示法。它们之间的关系允许你在处理数组的函数中使用数组表示法，即使函数的形式参数是一个指针，而不是数组。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.575,
+            0.918,
+            0.653
+          ],
+          "content": "对于传统的 C 数组，必须用常量表达式指明数组的大小，所以数组大小在编译时就已确定。C99/C11新增了变长数组，可以用变量表示数组大小。这意味着变长数组的大小延迟到程序运行时才确定。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.48,
+            0.959,
+            0.521,
+            0.977
+          ],
+          "content": "726"
+        }
+      ]
+    },
+    {
+      "page_idx": 726,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.379,
+            0.065,
+            0.619,
+            0.093
+          ],
+          "level": 2,
+          "content": "10.11 本章小结"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.123,
+            0.92,
+            0.257
+          ],
+          "content": "数组是一组数据类型相同的元素。数组元素按顺序储存在内存中，通过整数下标（或索引）可以访问各元素。在C中，数组首元素的下标是0，所以对于内含n个元素的数组，其最后一个元素的下标是n-1。作为程序员，要确保使用有效的数组下标，因为编译器和运行的程序都不会检查下标的有效性。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.283,
+            0.525,
+            0.305
+          ],
+          "content": "声明一个简单的一维数组形式如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.331,
+            0.321,
+            0.353
+          ],
+          "content": "type name [ size ];"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.376,
+            0.911,
+            0.456
+          ],
+          "content": "这里，type是数组中每个元素的数据类型，name是数组名，size是数组元素的个数。对于传统的C数组，要求size是整型常量表达式。但是C99/C11允许使用整型非常量表达式。这种情况下的数组被称为变长数组。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.479,
+            0.912,
+            0.558
+          ],
+          "content": "C把数组名解释为该数组首元素的地址。换言之，数组名与指向该数组首元素的指针等价。概括地说，数组和指针的关系十分密切。如果ar是一个数组，那么表达式ar[i]和\\*(ar+i)等价。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.582,
+            0.919,
+            0.718
+          ],
+          "content": "对于 C 语言而言，不能把整个数组作为参数传递给函数，但是可以传递数组的地址。然后函数可以使用传入的地址操控原始数组。如果函数没有修改原始数组的意图，应在声明函数的形式参数时使用关键字const。在被调函数中可以使用数组表示法或指针表示法，无论用哪种表示法，实际上使用的都是指针变量。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.743,
+            0.918,
+            0.821
+          ],
+          "content": "指针加上一个整数或递增指针，指针的值以所指向对象的大小为单位改变。也就是说，如果pd指向一个数组的8字节double类型值，那么pd加1意味着其值加8，以便它指向该数组的下一个元素。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.846,
+            0.802,
+            0.866
+          ],
+          "content": "二维数组即是数组的数组。例如，下面声明了一个二维数组:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.894,
+            0.343,
+            0.915
+          ],
+          "content": "double sales[5][12];"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "727"
+        }
+      ]
+    },
+    {
+      "page_idx": 727,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.909,
+            0.198
+          ],
+          "content": "该数组名为sales，有5个元素（一维数组），每个元素都是一个内含12个double类型值的数组。第1个一维数组是sales[0]，第2个一维数组是sales[1]，以此类推，每个元素都是内含12个double类型值的数组。使用第2个下标可以访问这些一维数组中的特定元素。例如，sales[2][5]是slaes[2]的第6个元素，而sales[2]是sales的第3个元素。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.221,
+            0.918,
+            0.328
+          ],
+          "content": "C 语言传递多维数组的传统方法是把数组名（即数组的地址）传递给类型匹配的指针形参。声明这样的指针形参要指定所有的数组维度，除了第1个维度。传递的第1个维度通常作为第2个参数。例如，为了处理前面声明的sales数组，函数原型和函数调用如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.354,
+            0.611,
+            0.377
+          ],
+          "content": "void display(double ar[][12], int rows);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.41,
+            0.154,
+            0.42
+          ],
+          "content": "..."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.447,
+            0.309,
+            0.469
+          ],
+          "content": "display(sales, 5);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.492,
+            0.892,
+            0.542
+          ],
+          "content": "变长数组提供第2种语法，把数组维度作为参数传递。在这种情况下，对应函数原型和函数调用如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.568,
+            0.801,
+            0.59
+          ],
+          "content": "void display(int rows, int cols, double ar[rows][cols]);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.624,
+            0.154,
+            0.634
+          ],
+          "content": "..."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.661,
+            0.348,
+            0.683
+          ],
+          "content": "display(5, 12, sales);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.705,
+            0.918,
+            0.813
+          ],
+          "content": "虽然上述讨论中使用的是int类型的数组和double类型的数组，其他类型的数组也是如此。然而，字符串有一些特殊的规则，这是由于其末尾的空字符所致。有了这个空字符，不用传递数组的大小，函数通过检测字符串的末尾也知道在何处停止。我们将在第11章中详细介绍。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "728"
+        }
+      ]
+    },
+    {
+      "page_idx": 728,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.397,
+            0.065,
+            0.6,
+            0.09
+          ],
+          "level": 2,
+          "content": "10.12 复习题"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.123,
+            0.467,
+            0.143
+          ],
+          "content": "复习题的参考答案在附录A中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.168,
+            0.472,
+            0.19
+          ],
+          "content": "1.下面的程序将打印什么内容？"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.215,
+            0.856,
+            0.655
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n\nint main(void)\n{\nint ref[] = { 8, 4, 0, 2 };\nint *ptr;\n\nint index;\n\nfor (index = 0, ptr = ref; index < 4; index++, ptr++)\nprintf(\"%d %d\\n\", ref[index], *ptr);\n\nreturn 0;\n\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.678,
+            0.512,
+            0.699
+          ],
+          "content": "2.在复习题1中，ref有多少个元素？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.724,
+            0.918,
+            0.772
+          ],
+          "content": "3.在复习题1中，ref的地址是什么？ref + 1是什么意思？++ref指向什么？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.799,
+            0.706,
+            0.822
+          ],
+          "content": "4.在下面的代码中，\\*ptr和\\*(ptr + 2)的值分别是什么？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.851,
+            0.152,
+            0.866
+          ],
+          "content": "a."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.894,
+            0.212,
+            0.914
+          ],
+          "content": "int \\*ptr;"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "729"
+        }
+      ]
+    },
+    {
+      "page_idx": 729,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.061,
+            0.518,
+            0.084
+          ],
+          "content": "int torf[2][2] = {12, 14, 16};"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.109,
+            0.3,
+            0.13
+          ],
+          "content": "ptr = torf[0];"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.155,
+            0.153,
+            0.173
+          ],
+          "content": "b."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.202,
+            0.22,
+            0.222
+          ],
+          "content": "int \\* ptr;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.247,
+            0.593,
+            0.269
+          ],
+          "content": "int fort[2][2] = { {12}, {14,16} };"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.294,
+            0.3,
+            0.316
+          ],
+          "content": "ptr = fort[0];"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.338,
+            0.729,
+            0.362
+          ],
+          "content": "5.在下面的代码中，\\*\\*ptr和\\*\\*(ptr + 1)的值分别是什么？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.39,
+            0.153,
+            0.405
+          ],
+          "content": "a."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.433,
+            0.28,
+            0.455
+          ],
+          "content": "int (\\*ptr)[2];"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.478,
+            0.517,
+            0.5
+          ],
+          "content": "int torf[2][2] = {12, 14, 16};"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.526,
+            0.27,
+            0.546
+          ],
+          "content": "ptr = torf;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.572,
+            0.153,
+            0.59
+          ],
+          "content": "b."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.618,
+            0.28,
+            0.639
+          ],
+          "content": "int (\\*ptr)[2];"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.664,
+            0.593,
+            0.686
+          ],
+          "content": "int fort[2][2] = { {12}, {14,16} };"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.712,
+            0.27,
+            0.732
+          ],
+          "content": "ptr = fort;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.756,
+            0.365,
+            0.777
+          ],
+          "content": "6.假设有下面的声明:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.803,
+            0.312,
+            0.825
+          ],
+          "content": "int grid[30][100];"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.848,
+            0.443,
+            0.871
+          ],
+          "content": "a.用1种写法表示grid[22][56]"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.895,
+            0.431,
+            0.918
+          ],
+          "content": "b.用2种写法表示grid[22][0]"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "730"
+        }
+      ]
+    },
+    {
+      "page_idx": 730,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.061,
+            0.417,
+            0.084
+          ],
+          "content": "c.用3种写法表示grid[0][0]"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.108,
+            0.392,
+            0.129
+          ],
+          "content": "7.正确声明以下各变量:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.128,
+            0.154,
+            0.87,
+            0.405
+          ],
+          "sub_type": "text",
+          "content": "a.digits是一个内含10个int类型值的数组\nb.rates是一个内含6个float类型值的数组\nc.mat是一个内含3个元素的数组，每个元素都是内含5个整数的数组\nd.psa是一个内含20个元素的数组，每个元素都是指向int的指针\ne.pstr是一个指向数组的指针，该数组内含20个char类型的值\n8."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.432,
+            0.884,
+            0.48
+          ],
+          "content": "a.声明一个内含6个int类型值的数组，并初始化各元素为1、2、4、8、16、32"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.506,
+            0.758,
+            0.527
+          ],
+          "content": "b.用数组表示法表示a声明的数组的第3个元素（其值为4）"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.553,
+            0.894,
+            0.602
+          ],
+          "content": "c.假设编译器支持C99/C11标准，声明一个内含100个int类型值的数组，并初始化最后一个元素为-1，其他元素不考虑"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.627,
+            0.895,
+            0.677
+          ],
+          "content": "d.假设编译器支持C99/C11标准，声明一个内含100个int类型值的数组，并初始化下标为5、10、11、12、3的元素为101，其他元素不考虑"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.702,
+            0.572,
+            0.723
+          ],
+          "content": "9.内含10个元素的数组下标范围是什么？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.748,
+            0.378,
+            0.769
+          ],
+          "content": "10.假设有下面的声明:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.796,
+            0.634,
+            0.818
+          ],
+          "content": "float rootbeer[10], things[10][5], \\*pf, value = 2.2;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.843,
+            0.221,
+            0.862
+          ],
+          "content": "int i = 3;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.887,
+            0.396,
+            0.908
+          ],
+          "content": "判断以下各项是否有效:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.518,
+            0.976
+          ],
+          "content": "731"
+        }
+      ]
+    },
+    {
+      "page_idx": 731,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.062,
+            0.42,
+            0.409
+          ],
+          "sub_type": "code",
+          "content": "```matlab\na.rootbeer[2] = value;\nb.scanf(\"%f\", &rootbeer );\nc.rootbeer = value;\nd.printf(\"%f\", rootbeer);\ne.things[4][4] = rootbeer[3];\nf.things[5] = rootbeer;\ng.pf = value;\nh.pf = rootbeer;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.432,
+            0.518,
+            0.452
+          ],
+          "content": "11.声明一个800×600的int类型数组。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.478,
+            0.39,
+            0.498
+          ],
+          "content": "12.下面声明了3个数组:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.526,
+            0.304,
+            0.546
+          ],
+          "content": "double trots[20];"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.572,
+            0.337,
+            0.593
+          ],
+          "content": "short clops[10][30];"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.618,
+            0.357,
+            0.639
+          ],
+          "content": "long shots[5][10][15];"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.08,
+            0.663,
+            0.909,
+            0.861
+          ],
+          "sub_type": "text",
+          "content": "a.分别以传统方式和以变长数组为参数的方式编写处理trots数组的void函数原型和函数调用\nb.分别以传统方式和以变长数组为参数的方式编写处理clops数组的void函数原型和函数调用\nc.分别以传统方式和以变长数组为参数的方式编写处理shots数组的void函数原型和函数调用"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.888,
+            0.402,
+            0.908
+          ],
+          "content": "13.下面有两个函数原型:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "732"
+        }
+      ]
+    },
+    {
+      "page_idx": 732,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.061,
+            0.851,
+            0.084
+          ],
+          "content": "void show(const double ar[], int n); // n是数组元素的个数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.108,
+            0.83,
+            0.13
+          ],
+          "content": "void show2(const double ar2[][3], int n); // n是二维数组的行数"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.078,
+            0.153,
+            0.862,
+            0.28
+          ],
+          "sub_type": "text",
+          "content": "a.编写一个函数调用，把一个内含8、3、9和2的复合字面量传递给show()函数。\nb.编写一个函数调用，把一个2行3列的复合字面量（8、3、9作为第1行，5、4、1作为第2行）传递给show2()函数。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "733"
+        }
+      ]
+    },
+    {
+      "page_idx": 733,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.378,
+            0.065,
+            0.619,
+            0.091
+          ],
+          "level": 2,
+          "content": "10.13 编程练习"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.077,
+            0.122,
+            0.919,
+            0.361
+          ],
+          "sub_type": "text",
+          "content": "1.修改程序清单10.7的rain.c程序，用指针进行计算（仍然要声明并初始化数组）。\n2.编写一个程序，初始化一个double类型的数组，然后把该数组的内容拷贝至3个其他数组中（在main()中声明这4个数组）。使用带数组表示法的函数进行第1份拷贝。使用带指针表示法和指针递增的函数进行第2份拷贝。把目标数组名、源数组名和待拷贝的元素个数作为前两个函数的参数。第3个函数以目标数组名、源数组名和指向源数组最后一个元素后面的元素的指针。也就是说，给定以下声明，则函数调用如下所示:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.387,
+            0.705,
+            0.41
+          ],
+          "sub_type": "code",
+          "content": "```javascript\ndouble source[5] = {1.1, 2.2, 3.3, 4.4, 5.5};\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.434,
+            0.335,
+            0.455
+          ],
+          "sub_type": "code",
+          "content": "```txt\ndouble target1[5];\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.48,
+            0.334,
+            0.501
+          ],
+          "sub_type": "code",
+          "content": "```txt\ndouble target2[5];\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.526,
+            0.334,
+            0.547
+          ],
+          "sub_type": "code",
+          "content": "```txt\ndouble target3[5];\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.574,
+            0.46,
+            0.594
+          ],
+          "sub_type": "code",
+          "content": "```txt\ncopy_arr(target1, source, 5);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.62,
+            0.457,
+            0.64
+          ],
+          "sub_type": "code",
+          "content": "```txt\ncopy_ptr(target2, source, 5);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.666,
+            0.521,
+            0.687
+          ],
+          "sub_type": "code",
+          "content": "```javascript\ncopy_ptrs(target3, source, source + 5);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.078,
+            0.71,
+            0.91,
+            0.909
+          ],
+          "sub_type": "text",
+          "content": "3.编写一个函数，返回储存在int类型数组中的最大值，并在一个简单的程序中测试该函数。\n4.编写一个函数，返回储存在double类型数组中最大值的下标，并在一个简单的程序中测试该函数。\n5.编写一个函数，返回储存在double类型数组中最大值和最小值的差值，并在一个简单的程序中测试该函数。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "734"
+        }
+      ]
+    },
+    {
+      "page_idx": 734,
+      "blocks": [
+        {
+          "type": "list",
+          "bbox": [
+            0.078,
+            0.061,
+            0.919,
+            0.919
+          ],
+          "sub_type": "text",
+          "content": "6.编写一个函数，把double类型数组中的数据倒序排列，并在一个简单的程序中测试该函数。\n7.编写一个程序，初始化一个double类型的二维数组，使用编程练习2中的一个拷贝函数把该数组中的数据拷贝至另一个二维数组中（因为二维数组是数组的数组，所以可以使用处理一维数组的拷贝函数来处理数组中的每个子数组）。\n8.使用编程练习2中的拷贝函数，把一个内含7个元素的数组中第3～第5个元素拷贝至内含3个元素的数组中。该函数本身不需要修改，只需要选择合适的实际参数（实际参数不需要是数组名和数组大小，只需要是数组元素的地址和待处理元素的个数）。\n9.编写一个程序，初始化一个double类型的3×5二维数组，使用一个处理变长数组的函数将其拷贝至另一个二维数组中。还要编写一个以变长数组为形参的函数以显示两个数组的内容。这两个函数应该能处理任意N×M数组（如果编译器不支持变长数组，就使用传统C函数处理N×5的数组）。\n10.编写一个函数，把两个数组中相对应的元素相加，然后把结果储存到第 3 个数组中。也就是说，如果数组1中包含的值是2、4、5、8，数组2中包含的值是1、0、4、6，那么该函数把3、4、9、14赋给第3个数组。函数接受3个数组名和一个数组大小。在一个简单的程序中测试该函数。\n11.编写一个程序，声明一个int类型的3×5二维数组，并用合适的值初始化它。该程序打印数组中的值，然后各值翻倍（即是原值的2倍），并显示出各元素的新值。编写一个函数显示数组的内容，再编写一个函数把各元素的值翻倍。这两个函数都以函数名和行数作为参数。\n12.重写程序清单10.7的rain.c程序，把main()中的主要任务都改成用函数来完成。\n13.编写一个程序，提示用户输入3组数，每组数包含5个double类型的数（假设用户都正确地响应，不会输入非数值数据）。该程序应完成下列任"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "735"
+        }
+      ]
+    },
+    {
+      "page_idx": 735,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.062,
+            0.122,
+            0.081
+          ],
+          "content": "务。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.128,
+            0.108,
+            0.571,
+            0.314
+          ],
+          "sub_type": "text",
+          "content": "a.把用户输入的数据储存在3×5的数组中\nb.计算每组（5个）数据的平均值\nc.计算所有数据的平均值\nd.找出这15个数据中的最大值\ne.打印结果"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.339,
+            0.918,
+            0.445
+          ],
+          "content": "每个任务都要用单独的函数来完成（使用传统C处理数组的方式）。完成任务b，要编写一个计算并返回一维数组平均值的函数，利用循环调用该函数3次。对于处理其他任务的函数，应该把整个数组作为参数，完成任务c和d的函数应把结果返回主调函数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.47,
+            0.658,
+            0.492
+          ],
+          "content": "14.以变长数组作为函数形参，完成编程练习13。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.533,
+            0.914,
+            0.576
+          ],
+          "content": "[1].在最后一次while循环中执行完start++;后，start的值就是end的值。——译者注"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "736"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "C Primer Plus 第6版 中文版",
+      "authors": [
+        "[美]史蒂芬·普拉达（Stephen Prata）"
+      ],
+      "languages": [
+        "zh"
+      ],
+      "publisher": "人民邮电出版社",
+      "created_at": "2017-02-18T06:13:34+00:00",
+      "modified_at": "2018-09-06T19:39:18+08:00",
+      "creator_application": "calibre 2.79.1 [https://calibre-ebook.com]",
+      "producer_application": "calibre 2.79.1 [https://calibre-ebook.com]",
+      "page_count": 1635,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 704,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 705,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 706,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 707,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 708,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 709,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 710,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 711,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 712,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 713,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 714,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 715,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 716,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 717,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 718,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 719,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 720,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 721,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 722,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 723,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 724,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 725,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 726,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 727,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 728,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 729,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 730,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 731,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 732,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 733,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 734,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 735,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

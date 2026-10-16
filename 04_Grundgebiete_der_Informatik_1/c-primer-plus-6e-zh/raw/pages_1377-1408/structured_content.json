@@ -1,0 +1,3037 @@
+{
+  "pages": [
+    {
+      "page_idx": 1376,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.702,
+            0.598
+          ],
+          "sub_type": "code",
+          "content": "```c\n}\nif (wait_time <= 0 && !QueueIsEmpty(&line))\n{\nDeQueue(&temp, &line);\nwait_time = temp.processtime;\nline_wait += cycle - temp.arrive;\nserved++;\n}\nif (wait_time > 0)\nwait_time—;\nsum_line += QueueItemCount(&line);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.617,
+            0.904,
+            0.667
+          ],
+          "content": "注意，时间的表示比较粗糙（1分钟），所以一小时最多60位顾客。下面是一些变量和函数的含义。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.692,
+            0.577,
+            0.715
+          ],
+          "content": "min\\_per\\_cus是顾客到达的平均间隔时间。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.738,
+            0.877,
+            0.76
+          ],
+          "content": "newcustomer()使用C的rand()函数确定在特定时间内是否有顾客到来。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.785,
+            0.474,
+            0.806
+          ],
+          "content": "turnaways是被拒绝的顾客数量。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.831,
+            0.498,
+            0.851
+          ],
+          "content": "customers是加入队列的顾客数量。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.877,
+            0.513,
+            0.898
+          ],
+          "content": "temp是表示新顾客的Item类型变量。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.526,
+            0.976
+          ],
+          "content": "1377"
+        }
+      ]
+    },
+    {
+      "page_idx": 1377,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.061,
+            0.751,
+            0.083
+          ],
+          "content": "customertime()设置temp结构中的arrive和processtime成员。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.108,
+            0.735,
+            0.13
+          ],
+          "content": "wait\\_time是Sigmund完成当前顾客的咨询还需多长时间。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.154,
+            0.721,
+            0.177
+          ],
+          "content": "line\\_wait是到目前为止队列中所有顾客的等待总时间。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.2,
+            0.526,
+            0.222
+          ],
+          "content": "served是咨询过Sigmund的顾客数量。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.247,
+            0.563,
+            0.269
+          ],
+          "content": "sum\\_line是到目前为止统计的队列长度。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.293,
+            0.909,
+            0.343
+          ],
+          "content": "如果到处都是malloc()、free()和指向节点的指针，整个程序代码会非常混乱和晦涩。队列包让你把注意力集中在模拟问题上，而不是编程细节上。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.367,
+            0.918,
+            0.473
+          ],
+          "content": "程序清单 17.9 演示了模拟商业街咨询摊位队列的完整代码。根据第 12章介绍的方法，使用标准函数rand()、srand()和 time()来产生随机数。另外要特别注意，必须用下面的代码更新 queue.h 中的Item，该程序才能正常工作:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.501,
+            0.627,
+            0.707
+          ],
+          "sub_type": "code",
+          "content": "```c\ntypedef struct item\n{\nlong arrive;      //一位顾客加入队列的时间\nint processtime;  //该顾客咨询时花费的时间\n} Item;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.731,
+            0.56,
+            0.753
+          ],
+          "content": "记住，还要把mall.c和queue.c一起链接。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.777,
+            0.405,
+            0.798
+          ],
+          "content": "程序清单**17.9 mall.c**程序"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.824,
+            0.424,
+            0.845
+          ],
+          "content": "// mall.c -- 使用 Queue 接口"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.87,
+            0.37,
+            0.891
+          ],
+          "content": "// 和 queue.c 一起编译"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.526,
+            0.976
+          ],
+          "content": "1378"
+        }
+      ]
+    },
+    {
+      "page_idx": 1378,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.061,
+            0.892,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n#include <stdlib.h>          // 提供 rand() 和 srand() 的原型\n#include <time.h>            // 提供 time() 的原型\n#include \"queue.h\"           // 更改 Item 的 typedef\n#define MIN_PER_HR 60.0\nbool newcustomer(double x);    // 是否有新顾客到来?\nItem customertime(long when);   // 设置顾客参数\nint main(void)\n{\nQueue line;\nItem temp;                    // 新的顾客数据\nint hours;                    // 模拟的小时数\nint perhour;                    // 每小时平均多少位顾客\nlong cycle, cyclelimit;    // 循环计数器、计数器的上限\nlong turnaways = 0;         // 因队列已满被拒的顾客数量\nlong customers = 0;         // 加入队列的顾客数量\nlong served = 0;             // 在模拟期间咨询过Sigmund的顾客数量\nlong sum_line = 0;         // 累计的队列总长\nint wait_time = 0;         // 从当前到Sigmund空闲所需的时间\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.526,
+            0.976
+          ],
+          "content": "1379"
+        }
+      ]
+    },
+    {
+      "page_idx": 1379,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.06,
+            0.702,
+            0.084
+          ],
+          "content": "double min\\_per\\_cust; // 顾客到来的平均时间"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.107,
+            0.702,
+            0.131
+          ],
+          "content": "long line\\_wait = 0; // 队列累计的等待时间"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.155,
+            0.37,
+            0.177
+          ],
+          "content": "InitializeQueue(&line);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.2,
+            0.654,
+            0.224
+          ],
+          "content": "srand((unsigned int) time(0)); // rand() 随机初始化"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.247,
+            0.763,
+            0.271
+          ],
+          "content": "puts(\"Case Study: Sigmund Lander's Advice Booth\");"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.294,
+            0.689,
+            0.317
+          ],
+          "content": "puts(\"Enter the number of simulation hours:\");"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.34,
+            0.373,
+            0.362
+          ],
+          "content": "scanf(\"%d\", &hours);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.386,
+            0.498,
+            0.409
+          ],
+          "content": "cyclelimit = MIN\\_PER\\_HR \\* hours;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.433,
+            0.836,
+            0.456
+          ],
+          "content": "puts(\"Enter the average number of customers per hour:\");"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.479,
+            0.394,
+            0.501
+          ],
+          "content": "scanf(\"%d\", &perhour);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.525,
+            0.628,
+            0.548
+          ],
+          "content": "min\\_per\\_cust = MIN\\_PER\\_HR / perhour;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.571,
+            0.698,
+            0.594
+          ],
+          "content": "for (cycle = 0; cycle < cyclelimit; cycle++)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.664,
+            0.476,
+            0.687
+          ],
+          "content": "if (newcustomer(min\\_per\\_cust))"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.712,
+            0.148,
+            0.732
+          ],
+          "content": "{"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.756,
+            0.389,
+            0.779
+          ],
+          "content": "if (QueueIsFull(&line))"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.805,
+            0.271,
+            0.825
+          ],
+          "content": "turnaways++;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.851,
+            0.177,
+            0.869
+          ],
+          "content": "else"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.897,
+            0.148,
+            0.916
+          ],
+          "content": "{"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.527,
+            0.977
+          ],
+          "content": "1380"
+        }
+      ]
+    },
+    {
+      "page_idx": 1380,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.062,
+            0.702,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```c\ncustomers++;\ntemp = customertime(cycle);\n\nEnQueue(temp, &line);\n}\n}\nif (wait_time <= 0 && !QueueIsEmpty(&line))\n{\nDeQueue(&temp, &line);\nwait_time = temp.processtime;\nline_wait += cycle - temp.arrive;\nserved++;\n}\nif (wait_time > 0)\nwait_time--;\nsum_line += QueueItemCount(&line);\n}\nif (customers > 0)\n{\nprintf(\"customers accepted: %ld\\n\", customers);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.525,
+            0.977
+          ],
+          "content": "1381"
+        }
+      ]
+    },
+    {
+      "page_idx": 1381,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.679,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```c\nprintf(\" customers served: %ld\\n\", served);\nprintf(\" turnaways: %ld\\n\", turnaways);\nprintf(\"average queue size: %.2f\\n\",\n(double) sum_line / cyclelimit);\nprintf(\" average wait time: %.2f minutes\\n\",\n(double) line_wait / served);\n}\nelse\nputs(\"No customers!\");\nEmptyTheQueue(&line);\nputs(\"Bye!\");\nreturn 0;\n}\n// x是顾客到来的平均时间（单位：分钟）\n// 如果1分钟内有顾客到来，则返回true\nbool newcustomer(double x)\n{\nif (rand() * x / RAND_MAX < 1)\nreturn true;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.527,
+            0.977
+          ],
+          "content": "1382"
+        }
+      ]
+    },
+    {
+      "page_idx": 1382,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.062,
+            0.792,
+            0.641
+          ],
+          "sub_type": "code",
+          "content": "```txt\nelse\nreturn false;\n}\n// when是顾客到来的时间\n// 该函数返回一个Item结构，该顾客到达的时间设置为when，\n// 咨询时间设置为1~3的随机值\nItem customertime(long when)\n{\nItem cust;\ncust.processtime = rand() % 3 + 1;\ncust.arrive = when;\nreturn cust;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.663,
+            0.92,
+            0.856
+          ],
+          "content": "该程序允许用户指定模拟运行的小时数和每小时平均有多少位顾客。模拟时间较长得出的值较为平均，模拟时间较短得出的值随时间的变化而随机变化。下面的运行示例解释了这一点（先保持每小时的顾客平均数量不变）。注意，在模拟80小时和800小时的情况下，平均队伍长度和等待时间基本相同。但是，在模拟 1 小时的情况下这两个量差别很大，而且与长时间模拟的情况差别也很大。这是因为小数量的统计样本往往更容易受相对变化的影响。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.881,
+            0.68,
+            0.903
+          ],
+          "content": "Case Study: Sigmund Lander's Advice Booth"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.526,
+            0.976
+          ],
+          "content": "1383"
+        }
+      ]
+    },
+    {
+      "page_idx": 1383,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.063,
+            0.603,
+            0.083
+          ],
+          "content": "Enter the number of simulation hours:"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.109,
+            0.163,
+            0.127
+          ],
+          "level": 2,
+          "content": "80"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.155,
+            0.75,
+            0.177
+          ],
+          "content": "Enter the average number of customers per hour:"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.202,
+            0.163,
+            0.22
+          ],
+          "level": 2,
+          "content": "20"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.248,
+            0.432,
+            0.269
+          ],
+          "content": "customers accepted: 1633"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.295,
+            0.411,
+            0.313
+          ],
+          "content": "customers served: 1633"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.341,
+            0.283,
+            0.361
+          ],
+          "content": "turnaways: 0"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.387,
+            0.44,
+            0.408
+          ],
+          "content": "average queue size: 0.46"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.434,
+            0.53,
+            0.454
+          ],
+          "content": "average wait time: 1.35 minutes"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.479,
+            0.678,
+            0.5
+          ],
+          "content": "Case Study: Sigmund Lander's Advice Booth"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.526,
+            0.601,
+            0.544
+          ],
+          "content": "Enter the number of simulation hours:"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.572,
+            0.174,
+            0.59
+          ],
+          "level": 2,
+          "content": "800"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.618,
+            0.75,
+            0.64
+          ],
+          "content": "Enter the average number of customers per hour:"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.665,
+            0.163,
+            0.683
+          ],
+          "level": 2,
+          "content": "20"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.711,
+            0.444,
+            0.732
+          ],
+          "content": "customers accepted: 16020"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.757,
+            0.424,
+            0.777
+          ],
+          "content": "customers served: 16019"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.804,
+            0.283,
+            0.824
+          ],
+          "content": "turnaways: 0"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.85,
+            0.439,
+            0.87
+          ],
+          "content": "average queue size: 0.44"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.896,
+            0.529,
+            0.916
+          ],
+          "content": "average wait time: 1.32 minutes"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.527,
+            0.976
+          ],
+          "content": "1384"
+        }
+      ]
+    },
+    {
+      "page_idx": 1384,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.062,
+            0.681,
+            0.084
+          ],
+          "content": "Case Study: Sigmund Lander's Advice Booth"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.109,
+            0.603,
+            0.129
+          ],
+          "content": "Enter the number of simulation hours:"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.132,
+            0.156,
+            0.148,
+            0.173
+          ],
+          "level": 2,
+          "content": "1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.201,
+            0.75,
+            0.224
+          ],
+          "content": "Enter the average number of customers per hour:"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.131,
+            0.248,
+            0.163,
+            0.267
+          ],
+          "level": 2,
+          "content": "20"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.294,
+            0.408,
+            0.316
+          ],
+          "content": "customers accepted: 20"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.34,
+            0.386,
+            0.36
+          ],
+          "content": "customers served: 20"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.387,
+            0.283,
+            0.408
+          ],
+          "content": "turnaways: 0"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.433,
+            0.438,
+            0.455
+          ],
+          "content": "average queue size: 0.23"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.479,
+            0.53,
+            0.5
+          ],
+          "content": "average wait time: 0.70 minutes"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.525,
+            0.678,
+            0.546
+          ],
+          "content": "Case Study: Sigmund Lander's Advice Booth"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.572,
+            0.601,
+            0.592
+          ],
+          "content": "Enter the number of simulation hours:"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.132,
+            0.619,
+            0.148,
+            0.636
+          ],
+          "level": 2,
+          "content": "1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.664,
+            0.749,
+            0.687
+          ],
+          "content": "Enter the average number of customers per hour:"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.131,
+            0.711,
+            0.162,
+            0.729
+          ],
+          "level": 2,
+          "content": "20"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.757,
+            0.408,
+            0.779
+          ],
+          "content": "customers accepted: 22"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.804,
+            0.385,
+            0.822
+          ],
+          "content": "customers served: 22"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.85,
+            0.283,
+            0.87
+          ],
+          "content": "turnaways: 0"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.896,
+            0.438,
+            0.917
+          ],
+          "content": "average queue size: 0.75"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.526,
+            0.977
+          ],
+          "content": "1385"
+        }
+      ]
+    },
+    {
+      "page_idx": 1385,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.063,
+            0.531,
+            0.083
+          ],
+          "content": "average wait time: 2.05 minutes"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.107,
+            0.75,
+            0.129
+          ],
+          "content": "然后保持模拟的时间不变，改变每小时的顾客平均数量:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.155,
+            0.678,
+            0.175
+          ],
+          "content": "Case Study: Sigmund Lander's Advice Booth"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.202,
+            0.601,
+            0.221
+          ],
+          "content": "Enter the number of simulation hours:"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.248,
+            0.163,
+            0.266
+          ],
+          "level": 2,
+          "content": "80"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.294,
+            0.749,
+            0.316
+          ],
+          "content": "Enter the average number of customers per hour:"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.34,
+            0.162,
+            0.358
+          ],
+          "level": 2,
+          "content": "25"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.387,
+            0.432,
+            0.407
+          ],
+          "content": "customers accepted: 1960"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.433,
+            0.411,
+            0.452
+          ],
+          "content": "customers served: 1959"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.48,
+            0.281,
+            0.5
+          ],
+          "content": "turnaways: 3"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.526,
+            0.437,
+            0.546
+          ],
+          "content": "average queue size: 1.43"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.572,
+            0.529,
+            0.593
+          ],
+          "content": "average wait time: 3.50 minutes"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.618,
+            0.678,
+            0.639
+          ],
+          "content": "Case Study: Sigmund Lander's Advice Booth"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.665,
+            0.601,
+            0.684
+          ],
+          "content": "Enter the number of simulation hours:"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.711,
+            0.162,
+            0.729
+          ],
+          "level": 2,
+          "content": "80"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.757,
+            0.749,
+            0.779
+          ],
+          "content": "Enter the average number of customers per hour:"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.804,
+            0.162,
+            0.821
+          ],
+          "level": 2,
+          "content": "30"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.85,
+            0.432,
+            0.87
+          ],
+          "content": "customers accepted: 2376"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.896,
+            0.411,
+            0.915
+          ],
+          "content": "customers served: 2373"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.527,
+            0.976
+          ],
+          "content": "1386"
+        }
+      ]
+    },
+    {
+      "page_idx": 1386,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.064,
+            0.295,
+            0.082
+          ],
+          "content": "turnaways: 94"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.11,
+            0.438,
+            0.13
+          ],
+          "content": "average queue size: 5.85"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.156,
+            0.54,
+            0.175
+          ],
+          "content": "average wait time: 11.83 minutes"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.2,
+            0.919,
+            0.364
+          ],
+          "content": "注意，随着每小时顾客平均数量的增加，顾客的平均等待时间迅速增加。在每小时20位顾客（80小时模拟时间）的情况下，每位顾客的平均等待时间是1.35分钟；在每小时25位顾客的情况下，平均等待时间增加至3.50分钟；在每小时30位顾客的情况下，该数值攀升至11.83分钟。而且，这3种情况下被拒顾客分别从0位增加至3位最后陡增至94位。Sigmund可以根据程序模拟的结果决定是否要增加一个摊位。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.526,
+            0.976
+          ],
+          "content": "1387"
+        }
+      ]
+    },
+    {
+      "page_idx": 1387,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.37,
+            0.065,
+            0.628,
+            0.091
+          ],
+          "level": 2,
+          "content": "17.6 链表和数组"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.122,
+            0.919,
+            0.201
+          ],
+          "content": "许多编程问题，如创建一个简单链表或队列，都可以用链表（指的是动态分配结构的序列链）或数组来处理。每种形式都有其优缺点，所以要根据具体问题的要求来决定选择哪一种形式。表17.1总结了链表和数组的性质。"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.085,
+            0.256,
+            0.911,
+            0.365
+          ],
+          "content": "| 数据形式 | 优点 | 缺点 |\n| --- | --- | --- |\n| 数组 | C直接支持提供随机访问 | 在编译时确定大小插入和删除元素很费时 |\n| 链表 | 运行时确定大小快速插入和删除元素 | 不能随机访问用户必须提供编程支持 |",
+          "captions": [
+            {
+              "bbox": [
+                0.402,
+                0.223,
+                0.597,
+                0.241
+              ],
+              "content": "表17.1 比较数组和链表"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_1387_table_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.387,
+            0.919,
+            0.552
+          ],
+          "content": "接下来，详细分析插入和删除元素的过程。在数组中插入元素，必须移动其他元素腾出空位插入新元素，如图17.9所示。新插入的元素离数组开头越近，要被移动的元素越多。然而，在链表中插入节点，只需给两个指针赋值，如图17.10所示。类似地，从数组中删除一个元素，也要移动许多相关的元素。但是从链表中删除节点，只需重新设置一个指针并释放被删除节点占用的内存即可。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.526,
+            0.976
+          ],
+          "content": "1388"
+        }
+      ]
+    },
+    {
+      "page_idx": 1388,
+      "blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            0.102,
+            0.064,
+            0.896,
+            0.177
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"apples\"] --> B[\"bread\"]\n  B --> C[\"dill\"]\n  C --> D[\"rice\"]\n  D --> E[\"yogurt\"]\n  F[\"\"] --> G[\"\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_1388_image_0.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.185,
+            0.478,
+            0.209
+          ],
+          "content": "移动元素，为新元素腾出空间"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.102,
+            0.242,
+            0.896,
+            0.301
+          ],
+          "content": "| apples | bread |  | dill | rice | yogurt |\n| --- | --- | --- | --- | --- | --- |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_1388_table_2.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.102,
+            0.345,
+            0.896,
+            0.47
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"apples\"] --> B[\"corn\"]\n  B --> C[\"dill\"]\n  C --> D[\"rice\"]\n  D --> E[\"yogurt\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.373,
+                0.487,
+                0.625,
+                0.506
+              ],
+              "content": "图17.9 在数组中插入一个元素"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_1388_image_3.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.527,
+            0.977
+          ],
+          "content": "1389"
+        }
+      ]
+    },
+    {
+      "page_idx": 1389,
+      "blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            0.167,
+            0.059,
+            0.918,
+            0.5
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.368,
+                0.541,
+                0.63,
+                0.558
+              ],
+              "content": "图17.10 在链表中插入一个元素"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_1389_image_0.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.579,
+            0.92,
+            0.744
+          ],
+          "content": "接下来，考虑如何访问元素。对数组而言，可以使用数组下标直接访问该数组中的任意元素，这叫做随机访问（random access）。对链表而言，必须从链表首节点开始，逐个节点移动到要访问的节点，这叫做顺序访问（sequential access）。当然，也可以顺序访问数组。只需按顺序递增数组下标即可。在某些情况下，顺序访问足够了。例如，显示链表中的每一项，顺序访问就不错。其他情况用随机访问更合适。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.768,
+            0.919,
+            0.904
+          ],
+          "content": "假设要查找链表中的特定项。一种算法是从列表的开头开始按顺序查找，这叫做顺序查找（sequential search）。如果项并未按某种顺序排列，则只能顺序查找。如果待查找的项不在链表里，必须查找完所有的项才知道该项不在链表中（在这种情况下可以使用并发编程，同时查找列表中的不同部分）。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.528,
+            0.976
+          ],
+          "content": "1390"
+        }
+      ]
+    },
+    {
+      "page_idx": 1390,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.919,
+            0.198
+          ],
+          "content": "我们可以先排序列表，以改进顺序查找。这样，就不必查找排在待查找项后面的项。例如，假设在一个按字母排序的列表中查找Susan。从开头开始查找每一项，直到Sylvia都没有查找到Susan。这时就可以退出查找，因为如果Susan在列表中，应该排在Sylvia前面。平均下来，这种方法查找不在列表中的项的时间减半。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.221,
+            0.921,
+            0.647
+          ],
+          "content": "对于一个排序的列表，用二分查找（binary search）比顺序查找好得多。下面分析二分查找的原理。首先，把待查找的项称为目标项，而且假设列表中的各项按字母排序。然后，比较列表的中间项和目标项。如果两者相等，查找结束；假设目标项在列表中，如果中间项排在目标项前面，则目标项一定在后半部分项中；如果中间项在目标项后面，则目标项一定在前半部分项中。无论哪种情况，两项比较的结果都确定了下次查找的范围只有列表的一半。接着，继续使用这种方法，把需要查找的剩下一半的中间项与目标项比较。同样，这种方法会确定下一次查找的范围是当前查找范围的一半。以此类推，直到找到目标项或最终发现列表中没有目标项（见图17.11）。这种方法非常有效率。假如有127个项，顺序查找平均要进行64次比较才能找到目标项或发现不在其中。但是二分查找最多只用进行7次比较。第1次比较剩下63项进行比较，第2次比较剩下31项进行比较，以此类推，第6次剩下最后1项进行比较，第7次比较确定剩下的这个项是否是目标项。一般而言，n 次比较能处理有 2<sup>n</sup>-1 个元素的数组。所以项数越多，越能体现二分查找的优势。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.524,
+            0.977
+          ],
+          "content": "1391"
+        }
+      ]
+    },
+    {
+      "page_idx": 1391,
+      "blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            0.087,
+            0.061,
+            0.918,
+            0.944
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_1391_image_0.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.529,
+            0.977
+          ],
+          "content": "1392"
+        }
+      ]
+    },
+    {
+      "page_idx": 1392,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.366,
+            0.072,
+            0.632,
+            0.089
+          ],
+          "content": "图17.11 用二分查找法查找Susan"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.111,
+            0.924,
+            0.391
+          ],
+          "content": "用数组实现二分查找很简单，因为可以使用数组下标确定数组中任意部分的中点。只要把数组的首元素和尾元素的索引相加，得到的和再除以2 即可。例如，内含100 个元素的数组，首元素下标是0，尾元素下标是99，那么用于首次比较的中间项的下标应为(0+99)/2，得49（整数除法）。如果比较的结果是下标为49的元素在目标项的后面，那么目标项的下标应在0～48的范围内。所以，第2次比较的中间项的下标应为(0+48)/2，得24。如果中间项与目标项的比较结果是，中间项在目标项前面，那么第3次比较的中间项下标应为(25+48)/2，得 36。这体现了随机访问的特性，可以从一个位置跳至另一个位置，不用一次访问两位置之间的项。但是，链表只支持顺序访问，不提供跳至中间节点的方法。所以在链表中不能使用二分查找。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.414,
+            0.918,
+            0.493
+          ],
+          "content": "如前所述，选择何种数据类型取决于具体的问题。如果因频繁地插入和删除项导致经常调整大小，而且不需要经常查找，选择链表会更好。如果只是偶尔插入或删除项，但是经常进行查找，使用数组会更好。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.517,
+            0.918,
+            0.568
+          ],
+          "content": "如果需要一种既支持频繁插入和删除项又支持频繁查找的数据形式，数组和链表都无法胜任，怎么办？这种情况下应该选择二叉查找树。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.526,
+            0.976
+          ],
+          "content": "1393"
+        }
+      ]
+    },
+    {
+      "page_idx": 1393,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.368,
+            0.065,
+            0.631,
+            0.093
+          ],
+          "level": 2,
+          "content": "17.7 二叉查找树"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.122,
+            0.923,
+            0.431
+          ],
+          "content": "二叉查找树是一种结合了二分查找策略的链接结构。二叉树的每个节点都包含一个项和两个指向其他节点（称为子节点）的指针。图17.12演示了二叉查找树中的节点是如何链接的。二叉树中的每个节点都包含两个子节点左节点和右节点，其顺序按照如下规定确定:左节点的项在父节点的项前面，右节点的项在父节点的项后面。这种关系存在于每个有子节点的节点中。进一步而言，所有可以追溯其祖先回到一个父节点的左节点的项，都在该父节点项的前面；所有以一个父节点的右节点为祖先的项，都在该父节点项的后面。图17.12中的树以这种方式储存单词。有趣的是，与植物学的树相反，该树的顶部被称为根（root）。树具有分层组织，所以以这种方式储存的数据也以等级或层次组织。一般而言，每级都有上一级和下一级。如果二叉树是满的，那么每一级的节点数都是上一级节点数的两倍。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.085,
+            0.454,
+            0.918,
+            0.794
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  Root[\"根\"] --> Melon[\"melon\"]\n  LeftSub[\"左子树\"] --> fate[\"fate\"]\n  RightSub[\"右子树\"] --> style[\"style\"]\n  Melon --> fate\n  Melon --> style\n  style --> style\n  style --> style\n  style --> style\n  fate --> carpet[\"carpet\"]\n  fate --> llama[\"llama\"]\n  style --> plenum[\"plenum\"]\n  style --> voyage[\"voyage\"]\n  carpet --> NULL1[\"NULL NULL\"]\n  llama --> NULL2[\"NULL NULL\"]\n  plenum --> NULL3[\"NULL NULL\"]\n  voyage --> NULL4[\"NULL NULL\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.358,
+                0.842,
+                0.642,
+                0.86
+              ],
+              "content": "图17.12 一个从存储单词的二叉树"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_1393_image_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.881,
+            0.92,
+            0.933
+          ],
+          "content": "二叉查找树中的每个节点是其后代节点的根，该节点与其后代节点构成称了一个子树（subtree）。如图 17.12 所示，包含单词fate、carpet和llama的"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.528,
+            0.976
+          ],
+          "content": "1394"
+        }
+      ]
+    },
+    {
+      "page_idx": 1394,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.915,
+            0.112
+          ],
+          "continues_prev": true,
+          "content": "节点构成了整个二叉树的左子树，而单词 voyage是style-plenum-voyage子树的右子树。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.136,
+            0.919,
+            0.299
+          ],
+          "content": "假设要在二叉树中查找一个项（即目标项）。如果目标项在根节点项的前面，则只需查找左子树；如果目标项在根节点项的后面，则只需查找右子树。因此，每次比较就排除半个树。假设查找左子树，这意味着目标项与左子节点项比较。如果目标项在左子节点项的前面，则只需查找其后代节点的左半部分，以此类推。与二分查找类似，每次比较都能排除一半的可能匹配项。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.325,
+            0.912,
+            0.462
+          ],
+          "content": "我们用这种方法来查找puppy是否在图17.12的二叉树中。比较puppy和melon（根节点项），如果puppy在该树中，一定在右子树中。因此，在右子树中比较puppy和style，发现puppy在style前面，所以必须链接到其左节点。然后发现该节点是plenum，在puppy前面。现在要向下链接到该节点的右子节点，但是没有右子节点了。所以经过3次比较后发现puppy不在该树中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.485,
+            0.918,
+            0.562
+          ],
+          "content": "二叉查找树在链式结构中结合了二分查找的效率。但是，这样编程的代价是构建一个二叉树比创建一个链表更复杂。下面我们在下一个ADT项目中创建一个二叉树。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.378,
+            0.591,
+            0.621,
+            0.613
+          ],
+          "level": 2,
+          "content": "17.7.1 二叉树ADT"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.638,
+            0.918,
+            0.716
+          ],
+          "content": "和前面一样，先从概括地定义二叉树开始。该定义假设树不包含相同的项。许多操作与链表相同，区别在于数据层次的安排。下面建立一个非正式的树定义:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.742,
+            0.463,
+            0.763
+          ],
+          "content": "类型名: 二叉查找树"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.788,
+            0.918,
+            0.837
+          ],
+          "content": "类型属性: 二叉树要么是空节点的集合（空树），要么是有一个根节点的节点集合"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.863,
+            0.64,
+            0.884
+          ],
+          "content": "每个节点都有两个子树，叫做左子树和右子树"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.909,
+            0.665,
+            0.93
+          ],
+          "content": "每个子树本身也是一个二叉树，也有可能是空树"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.526,
+            0.976
+          ],
+          "content": "1395"
+        }
+      ]
+    },
+    {
+      "page_idx": 1395,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.061,
+            0.75,
+            0.083
+          ],
+          "content": "二叉查找树是一个有序的二叉树，每个节点包含一个项，"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.107,
+            0.919,
+            0.157
+          ],
+          "content": "左子树的所有项都在根节点项的前面，右子树的所有项都在根节点项的后面"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.182,
+            0.496,
+            0.205
+          ],
+          "content": "类型操作: 初始化树为空"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.229,
+            0.312,
+            0.251
+          ],
+          "content": "确定树是否为空"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.275,
+            0.312,
+            0.295
+          ],
+          "content": "确定树是否已满"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.321,
+            0.312,
+            0.342
+          ],
+          "content": "确定树中的项数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.368,
+            0.337,
+            0.389
+          ],
+          "content": "在树中添加一个项"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.414,
+            0.337,
+            0.435
+          ],
+          "content": "在树中删除一个项"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.46,
+            0.337,
+            0.481
+          ],
+          "content": "在树中查找一个项"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.506,
+            0.337,
+            0.527
+          ],
+          "content": "在树中访问一个项"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.553,
+            0.211,
+            0.574
+          ],
+          "content": "清空树"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.348,
+            0.601,
+            0.649,
+            0.624
+          ],
+          "level": 2,
+          "content": "17.7.2 二叉查找树接口"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.648,
+            0.918,
+            0.727
+          ],
+          "content": "原则上，可以用多种方法实现二叉查找树，甚至可以通过操控数组下标用数组来实现。但是，实现二叉查找树最直接的方法是通过指针动态分配链式节点。因此我们这样定义:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.753,
+            0.454,
+            0.913
+          ],
+          "sub_type": "code",
+          "content": "```c\ntypedef SOMETHING Item;\n\ntypedef struct trnode\n\n{\n\nItem item;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.527,
+            0.976
+          ],
+          "content": "1396"
+        }
+      ]
+    },
+    {
+      "page_idx": 1396,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.062,
+            0.355,
+            0.409
+          ],
+          "sub_type": "code",
+          "content": "```c\nstruct trnode * left;\n\nstruct trnode * right;\n\n} Trn;\n\ntypedef struct tree\n\n{\n\nTrnode * root;\n\nint size;\n\n} Tree;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.431,
+            0.919,
+            0.538
+          ],
+          "content": "每个节点包含一个项、一个指向左子节点的指针和一个指向右子节点的指针。可以把 Tree 定义为指向 Trnode 的指针类型，因为只需要知道根节点的位置就可访问整个树。然而，使用有成员大小的结构能很方便地记录树的大小。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.563,
+            0.92,
+            0.673
+          ],
+          "content": "我们要开发一个维护 Nerfville 宠物俱乐部的花名册，每一项都包含宠物名和宠物的种类。程序清单17.10就是该花名册的接口。我们把树的大小限制为10，较小的树便于在树已满时测试程序的行为是否正确。当然，你也可以把MAXITEMS设置为更大的值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.695,
+            0.5,
+            0.716
+          ],
+          "content": "程序清单**17.10 tree.h**接口头文件"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.742,
+            0.52,
+            0.763
+          ],
+          "content": "/\\* tree.h -- 二叉查找数 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.788,
+            0.585,
+            0.809
+          ],
+          "content": "/\\* 树种不允许有重复的项 \\*/"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.835,
+            0.35,
+            0.904
+          ],
+          "sub_type": "code",
+          "content": "```c\n#ifndef _TREE_H_\n#define _TREE_H_\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.527,
+            0.976
+          ],
+          "content": "1397"
+        }
+      ]
+    },
+    {
+      "page_idx": 1397,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.061,
+            0.659,
+            0.918
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdbool.h>\n\n/* 根据具体情况重新定义 Item */\n\n#define SLEN 20\n\ntypedef struct item\n\n{\n\nchar petname[SLEN];\n\nchar petkind[SLEN];\n\n} Item;\n\n#define MAXITEMS 10\n\ntypedef struct trnode\n\n{\n\nItem item;\n\nstruct trnode * left;      /* 指向左分支的指针 */\nstruct trnode * right; /* 指向右分支的指针 */\n} Trnode;\n\ntypedef struct tree\n\n{\n\nTrnode * root;/* 指向根节点的指针 */\nint size;     /* 树的项数               */\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.526,
+            0.976
+          ],
+          "content": "1398"
+        }
+      ]
+    },
+    {
+      "page_idx": 1398,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.062,
+            0.228,
+            0.083
+          ],
+          "content": "} Tree;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.107,
+            0.289,
+            0.128
+          ],
+          "content": "/\\* 函数原型 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.153,
+            0.51,
+            0.174
+          ],
+          "content": "/\\* 操作: 把树初始化为空\\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.2,
+            0.573,
+            0.222
+          ],
+          "content": "/\\* 前提条件: ptree指向一个树 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.246,
+            0.547,
+            0.267
+          ],
+          "content": "/\\* 后置条件: 树被初始化为空 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.294,
+            0.467,
+            0.315
+          ],
+          "content": "void InitializeTree(Tree \\* ptree);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.339,
+            0.793,
+            0.359
+          ],
+          "content": "/\\* 操作: 确定树是否为空 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.385,
+            0.774,
+            0.406
+          ],
+          "content": "/\\* 前提条件: ptree指向一个树 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.432,
+            0.804,
+            0.452
+          ],
+          "content": "/\\* 后置条件: 如果树为空，该函数返回true \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.478,
+            0.758,
+            0.498
+          ],
+          "content": "/\\* 否则，返回false \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.525,
+            0.515,
+            0.546
+          ],
+          "content": "bool TreeIsEmpty(const Tree \\* ptree);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.571,
+            0.793,
+            0.591
+          ],
+          "content": "/\\* 操作: 确定树是否已满 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.617,
+            0.774,
+            0.637
+          ],
+          "content": "/\\* 前提条件: ptree指向一个树 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.663,
+            0.804,
+            0.683
+          ],
+          "content": "/\\* 后置条件: 如果树已满，该函数返回true \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.71,
+            0.758,
+            0.729
+          ],
+          "content": "/\\* 否则，返回false \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.757,
+            0.493,
+            0.778
+          ],
+          "content": "bool TreeIsFull(const Tree \\* ptree);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.802,
+            0.793,
+            0.822
+          ],
+          "content": "/\\* 操作: 确定树的项数 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.848,
+            0.774,
+            0.869
+          ],
+          "content": "/\\* 前提条件: ptree指向一个树 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.895,
+            0.798,
+            0.914
+          ],
+          "content": "/\\* 后置条件: 返回树的项数 \\*/"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.526,
+            0.976
+          ],
+          "content": "1399"
+        }
+      ]
+    },
+    {
+      "page_idx": 1399,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.062,
+            0.517,
+            0.084
+          ],
+          "content": "int TreeItemCount(const Tree \\* ptree);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.107,
+            0.795,
+            0.129
+          ],
+          "content": "/\\* 操作: 在树中添加一个项 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.153,
+            0.794,
+            0.175
+          ],
+          "content": "/\\* 前提条件: pi是待添加项的地址 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.2,
+            0.782,
+            0.222
+          ],
+          "content": "/\\* ptree指向一个已初始化的树 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.246,
+            0.851,
+            0.269
+          ],
+          "content": "/\\* 后置条件: 如果可以添加，该函数将在树中添加一个项 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.293,
+            0.766,
+            0.314
+          ],
+          "content": "/\\* 并返回true；否则，返回false \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.34,
+            0.578,
+            0.362
+          ],
+          "content": "bool AddItem(const Item \\* pi, Tree \\* ptree);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.385,
+            0.794,
+            0.406
+          ],
+          "content": "/\\* 操作: 在树中查找一个项 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.432,
+            0.789,
+            0.453
+          ],
+          "content": "/\\* 前提条件: pi指向一个项 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.478,
+            0.781,
+            0.5
+          ],
+          "content": "/\\* ptree指向一个已初始化的树 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.524,
+            0.831,
+            0.545
+          ],
+          "content": "/\\* 后置条件: 如果在树中添加一个项，该函数返回true \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.571,
+            0.761,
+            0.591
+          ],
+          "content": "/\\* 否则，返回false \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.618,
+            0.613,
+            0.639
+          ],
+          "content": "bool InTree(const Item \\* pi, const Tree \\* ptree);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.663,
+            0.794,
+            0.684
+          ],
+          "content": "/\\* 操作: 从树中删除一个项 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.71,
+            0.794,
+            0.731
+          ],
+          "content": "/\\* 前提条件: pi是删除项的地址 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.756,
+            0.781,
+            0.777
+          ],
+          "content": "/\\* ptree指向一个已初始化的树 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.802,
+            0.831,
+            0.823
+          ],
+          "content": "/\\* 后置条件: 如果从树中成功删除一个项，该函数返回true\\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.849,
+            0.761,
+            0.869
+          ],
+          "content": "/\\* 否则，返回false \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.896,
+            0.6,
+            0.917
+          ],
+          "content": "bool DeleteItem(const Item \\* pi, Tree \\* ptree);"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.528,
+            0.976
+          ],
+          "content": "1400"
+        }
+      ]
+    },
+    {
+      "page_idx": 1400,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.06,
+            0.874,
+            0.545
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* 操作: 把函数应用于树中的每一项 */\n/* 前提条件: ptree指向一个树 */\n/* pfun指向一个函数, */\n/* 该函数接受一个Item类型的参数, 并无返回值*/\n/* 后置条件: pfun指向的这个函数为树中的每一项执行一次*/\nvoid Traverse(const Tree * ptree, void(*pfun)(Item item));\n/* 操作: 删除树中的所有内容 */\n/* 前提条件: ptree指向一个已初始化的树 */\n/* 后置条件: 树为空 */\nvoid DeleteAll(Tree * ptree);\n#endif\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.363,
+            0.572,
+            0.635,
+            0.596
+          ],
+          "level": 2,
+          "content": "17.7.3 二叉树的实现"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.621,
+            0.912,
+            0.699
+          ],
+          "content": "接下来，我们要实现tree.h中的每个函数。InitializeTree()、EmptyTree()、FullTree()和TreeItems()函数都很简单，与链表ADT、队列ADT类似，所以下面着重讲解其他函数。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.724,
+            0.233,
+            0.745
+          ],
+          "level": 2,
+          "content": "1.添加项"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.77,
+            0.92,
+            0.935
+          ],
+          "content": "在树中添加一个项，首先要检查该树是否有空间放得下一个项。由于我们定义二叉树时规定其中的项不能重复，所以接下来要检查树中是否有该项。通过这两步检查后，便可创建一个新节点，把待添加项拷贝到该节点中，并设置节点的左指针和右指针都为NULL。这表明该节点没有子节点。然后，更新Tree结构的 size 成员，统计新增了一项。接下来，必须找出应该把这个新节点放在树中的哪个位置。如果树为空，则应设置根节点指针指向"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.526,
+            0.976
+          ],
+          "content": "1401"
+        }
+      ]
+    },
+    {
+      "page_idx": 1401,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.897,
+            0.141
+          ],
+          "continues_prev": true,
+          "content": "该新节点。否则，遍历树找到合适的位置放置该节点。AddItem()函数就根据这个思路来实现，并把一些工作交给几个尚未定义的函数:SeekItem()、MakeNode()和AddNode()。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.165,
+            0.745,
+            0.93
+          ],
+          "sub_type": "code",
+          "content": "```c\nbool AddItem(const Item * pi, Tree * ptree)\n{\nTrnode * new_node;\nif (TreeIsFull(ptree))\n{\nfprintf(stderr, \"Tree is full\\n\");\nreturn false;          /* 提前返回 */\n}\nif (SeekItem(pi, ptree).child != NULL)\n{\nfprintf(stderr, \"Attempted to add duplicate item\\n\");\nreturn false;          /* 提前返回 */\n}\nnew_node = MakeNode(pi);  /* 指向新节点 */\nif (new_node == NULL)\n{\nfprintf(stderr, \"Couldn't create node\\n\");\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.527,
+            0.976
+          ],
+          "content": "1402"
+        }
+      ]
+    },
+    {
+      "page_idx": 1402,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.06,
+            0.874,
+            0.501
+          ],
+          "sub_type": "code",
+          "content": "```c\nreturn false;          /* 提前返回     */\n\n}\n\n/* 成功创建了一个新节点 */\n\nptree->size++;\n\nif (ptree->root == NULL)           /* 情况1: 树为空       */\nptree->root = new_node;         /* 新节点是根节点      */\nelse                          /* 情况2: 树不为空       */\nAddNode(new_node, ptree->root);/* 在树中添加一个节点*/\nreturn true;  /* 成功返回 */\n\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.524,
+            0.918,
+            0.604
+          ],
+          "content": "SeekItem()、MakeNode()和 AddNode()函数不是 Tree 类型公共接口的一部分。它们是隐藏在tree.c文件中的静态函数，处理实现的细节（如节点、指针和结构），不属于公共接口。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.627,
+            0.919,
+            0.736
+          ],
+          "content": "MakeNode()函数相当简单，它处理动态内存分配和初始化节点。该函数的参数是指向新项的指针，其返回值是指向新节点的指针。如果 malloc()无法分配所需的内存，则返回空指针。只有成功分配了内存，MakeNode()函数才会初始化新节点。下面是MakeNode()的代码:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.759,
+            0.62,
+            0.923
+          ],
+          "sub_type": "code",
+          "content": "```c\nstatic Trnode * MakeNode(const Item * pi)\n{\nTrnode * new_node;\nnew_node = (Trnode *) malloc(sizeof(Trnode));\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.526,
+            0.976
+          ],
+          "content": "1403"
+        }
+      ]
+    },
+    {
+      "page_idx": 1403,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.06,
+            0.442,
+            0.409
+          ],
+          "sub_type": "code",
+          "content": "```c\nif (new_node != NULL)\n{\nnew_node->item = *pi;\nnew_node->left = NULL;\nnew_node->right = NULL;\n}\nreturn new_node;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.431,
+            0.923,
+            0.882
+          ],
+          "content": "AddNode()函数是二叉查找树包中最麻烦的第2个函数。它必须确定新节点的位置，然后添加新节点。具体来说，该函数要比较新项和根项，以确定应该把新项放在左子树还是右子树中。如果新项是一个数字，则使用<和>进行比较；如果新项是一个字符串，则使用strcmp()函数来比较。但是，该项是内含两个字符串的结构，所以，必须自定义用于比较的函数。如果新项应放在左子树中，ToLeft()函数（稍后定义）返回true；如果新项应放在右子树中，ToRight()函数（稍后定义）返回true。这两个函数分别相当于<和>。假设把新项放在左子树中。如果左子树为空，AddNode()函数只需让左子节点指针指向新项即可。如果左子树不为空怎么办？此时，AddNode()函数应该把新项和左子节点中的项做比较，以确定新项应该放在该子节点的左子树还是右子树。这个过程一直持续到函数发现一个空子树为止，并在此此处添加新节点。递归是一种实现这种查找过程的方法，即把AddNode()函数应用于子节点，而不是根节点。当左子树或右子树为空时，即当root->left或root->right为NULL时，函数的递归调用序列结束。记住，root是指向当前子树顶部的指针，所以每次递归调用它都指向一个新的下一级子树（递归详见第9章）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.907,
+            0.705,
+            0.929
+          ],
+          "content": "static void AddNode(Trnode \\* new\\_node, Trnode \\* root)"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.527,
+            0.976
+          ],
+          "content": "1404"
+        }
+      ]
+    },
+    {
+      "page_idx": 1404,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.061,
+            0.885,
+            0.919
+          ],
+          "sub_type": "code",
+          "content": "```c\n{\nif (ToLeft(&new_node->item, &root->item))\n{\nif(root->left == NULL)          /* 空子树 */\nroot->left = new_node;         /* 所以，在此处添加节点 */\nelse\nAddNode(new_node, root->left);  /* 否则，处理该子树*/\n}\nelse if (ToRight(&new_node->item, &root->item))\n{\nif (root->right == NULL)\nroot->right = new_node;\nelse\nAddNode(new_node, root->right);\n}\nelse                          /* 不应含有重复的项 */\n{\nfprintf(stderr, \"location error in AddNode()\\n\");\nexit(1);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.526,
+            0.976
+          ],
+          "content": "1405"
+        }
+      ]
+    },
+    {
+      "page_idx": 1405,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.062,
+            0.148,
+            0.13
+          ],
+          "sub_type": "code",
+          "content": "```txt\n}\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.153,
+            0.921,
+            0.431
+          ],
+          "content": "ToLeft()和ToRight()函数依赖于Item类型的性质。Nerfville宠物俱乐部的成员名按字母排序。如果两个宠物名相同，按其种类排序。如果种类也相同，这两项属于重复项，根据该二叉树的定义，这是不允许的。回忆一下，如果标准C库函数strcmp()中的第1个参数表示的字符串在第2个参数表示的字符串前面，该函数则返回负数；如果两个字符串相同，该函数则返回0；如果第1个字符串在第2个字符串后面，该函数则返回正数。ToRight()函数的实现代码与该函数类似。通过这两个函数完成比较，而不是直接在AddNode()函数中直接比较，这样的代码更容易适应新的要求。当需要比较不同的数据形式时，就不必重写整个AddNode()函数，只需重写Toleft()和ToRight()即可。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.457,
+            0.786,
+            0.895
+          ],
+          "sub_type": "code",
+          "content": "```c\nstatic bool ToLeft(const Item * i1, const Item * i2)\n{\nint compl;\nif ((comp1 = strcmp(i1->petname, i2->petname)) < 0)\nreturn true;\nelse if (comp1 == 0 &&\nstrcmp(i1->petkind, i2->petkind) < 0)\nreturn true;\nelse\nreturn false;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.527,
+            0.976
+          ],
+          "content": "1406"
+        }
+      ]
+    },
+    {
+      "page_idx": 1406,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.063,
+            0.148,
+            0.083
+          ],
+          "content": "}"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.108,
+            0.231,
+            0.128
+          ],
+          "level": 2,
+          "content": "2.查找项"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.154,
+            0.918,
+            0.346
+          ],
+          "content": "3个接口函数都要在树中查找特定项:AddItem()、InItem()和DeleteItem()。这些函数的实现中使用SeekItem()函数进行查找。DeleteItem()函数有一个额外的要求:该函数要知道待删除项的父节点，以便在删除子节点后更新父节点指向子节点的指针。因此，我们设计SeekItem()函数返回的结构包含两个指针:一个指针指向包含项的节点（如果未找到指定项则为NULL）；一个指针指向父节点（如果该节点为根节点，即没有父节点，则为NULL）。这个结构类型的定义如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.372,
+            0.391,
+            0.534
+          ],
+          "sub_type": "code",
+          "content": "```c\ntypedef struct pair {\nTrnode * parent;\nTrnode * child;\n} Pair;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.556,
+            0.918,
+            0.779
+          ],
+          "content": "SeekItem()函数可以用递归的方式实现。但是，为了给读者介绍更多编程技巧，我们这次使用while循环处理树中从上到下的查找。和AddNode()一样，SeekItem()也使用ToLeft()和ToRight()在树中导航。开始时，SeekItem()设置look.child指针指向该树的根节点，然后沿着目标项应在的路径重置look.child指向后续的子树。同时，设置look.parent指向后续的父节点。如果没有找到匹配的项， look.child则被设置为NULL。如果在根节点找到匹配的项，则设置look.parent为NULL，因为根节点没有父节点。下面是SeekItem()函数的实现代码:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.803,
+            0.688,
+            0.917
+          ],
+          "sub_type": "code",
+          "content": "```c\nstatic Pair SeekItem(const Item * pi, const Tree * ptree)\n{\nPair look;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.526,
+            0.976
+          ],
+          "content": "1407"
+        }
+      ]
+    },
+    {
+      "page_idx": 1407,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.885,
+            0.919
+          ],
+          "sub_type": "code",
+          "content": "```txt\nlook.parent = NULL;\n\nlook.child = ptree->root;\n\nif (look.child == NULL)\n\nreturn look; /* 提前退出 */\n\nwhile (look.child != NULL)\n{\nif (ToLeft(pi, &(look.child->item)))\n{\nlook.parent = look.child;\nlook.child = look.child->left;\n}\nelse if (ToRight(pi, &(look.child->item)))\n{\nlook.parent = look.child;\nlook.child = look.child->right;\n}\nelse /* 如果前两种情况都不满足，则必定是相等的情况 */\nbreak; /* look.child 目标项的节点 */\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.474,
+            0.959,
+            0.526,
+            0.976
+          ],
+          "content": "1408"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "C Primer Plus 第6版 中文版",
+      "authors": [
+        "[美]史蒂芬·普拉达（Stephen Prata）"
+      ],
+      "languages": [
+        "zh"
+      ],
+      "publisher": "人民邮电出版社",
+      "created_at": "2017-02-18T06:13:34+00:00",
+      "modified_at": "2018-09-06T19:39:18+08:00",
+      "creator_application": "calibre 2.79.1 [https://calibre-ebook.com]",
+      "producer_application": "calibre 2.79.1 [https://calibre-ebook.com]",
+      "page_count": 1635,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 1376,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1377,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1378,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1379,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1380,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1381,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1382,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1383,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1384,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1385,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1386,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1387,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1388,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1389,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1390,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1391,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1392,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1393,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1394,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1395,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1396,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1397,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1398,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1399,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1400,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1401,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1402,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1403,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1404,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1405,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1406,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1407,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

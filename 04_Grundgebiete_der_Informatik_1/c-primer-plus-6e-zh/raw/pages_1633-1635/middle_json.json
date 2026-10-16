@@ -1,0 +1,734 @@
+{
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "C Primer Plus 第6版 中文版",
+      "authors": [
+        "[美]史蒂芬·普拉达（Stephen Prata）"
+      ],
+      "languages": [
+        "zh"
+      ],
+      "publisher": "人民邮电出版社",
+      "created_at": "2017-02-18T06:13:34+00:00",
+      "modified_at": "2018-09-06T19:39:18+08:00",
+      "creator_application": "calibre 2.79.1 [https://calibre-ebook.com]",
+      "producer_application": "calibre 2.79.1 [https://calibre-ebook.com]",
+      "page_count": 1635,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 1632,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1633,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 1634,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        }
+      ]
+    }
+  },
+  "pages": [
+    {
+      "page_idx": 1632,
+      "blocks": [
+        {
+          "type": "text",
+          "index": 0,
+          "bbox": [
+            0.128,
+            0.061,
+            0.633,
+            0.083
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "season = (enum sample) 3; /* C和C++都可以*/"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 1,
+          "bbox": [
+            0.128,
+            0.108,
+            0.753,
+            0.129
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "season++; /* C可以，在C++中是一个错误 */"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 2,
+          "bbox": [
+            0.129,
+            0.154,
+            0.77,
+            0.174
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "另外，在C++中，不使用关键字enum也可以声明枚举变量:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.128,
+            0.202,
+            0.547,
+            0.223
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "enum sample {sage, thyme, salt, pepper};"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.128,
+            0.247,
+            0.65,
+            0.268
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "sample season; /* C++可以，在C中不可以 */"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.078,
+            0.292,
+            0.892,
+            0.341
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "与结构和联合的情况类似，如果一个变量和enum类型的同名会导致名称冲突。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 6,
+          "bbox": [
+            0.129,
+            0.368,
+            0.372,
+            0.388
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "B.9.6 指向void的指针"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.077,
+            0.414,
+            0.912,
+            0.492
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C++可以把任意类型的指针赋给指向void的指针，这点与C相同。但是不同的是，只有使用显式强制类型转换才能把指向void的指针赋给其他类型的指针。下面的代码说明了这一点:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 8,
+          "bbox": [
+            0.128,
+            0.518,
+            0.385,
+            0.54
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "int ar[5] = {4, 5, 6,7, 8};"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.128,
+            0.565,
+            0.212,
+            0.586
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "int * pi;"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 10,
+          "bbox": [
+            0.128,
+            0.611,
+            0.238,
+            0.632
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "void * pv;"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 11,
+          "bbox": [
+            0.127,
+            0.656,
+            0.534,
+            0.678
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "pv = ar; /* C和C++都可以 */"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 12,
+          "bbox": [
+            0.127,
+            0.703,
+            0.585,
+            0.725
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "pi = pv; /* C可以，C++不可以 */"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 13,
+          "bbox": [
+            0.127,
+            0.749,
+            0.507,
+            0.772
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "pi = (int * ) pv; /* C和C++都可以 */"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 14,
+          "bbox": [
+            0.077,
+            0.795,
+            0.87,
+            0.844
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C++与C的另一个区别是，C++可以把派生类对象的地址赋给基类指针，但是在C中没有这里涉及的特性。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 15,
+          "bbox": [
+            0.129,
+            0.87,
+            0.301,
+            0.89
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "B.9.7 布尔类型"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "page_number",
+          "index": 16,
+          "bbox": [
+            0.474,
+            0.959,
+            0.526,
+            0.976
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "1633"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 1633,
+      "blocks": [
+        {
+          "type": "text",
+          "index": 0,
+          "bbox": [
+            0.078,
+            0.061,
+            0.909,
+            0.112
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "在C++中，布尔类型是bool，而且ture和false都是关键字。在C中，布尔类型是_Bool，但是要包含stdbool.h头文件才可以使用bool、true和false。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 1,
+          "bbox": [
+            0.129,
+            0.136,
+            0.3,
+            0.156
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "B.9.8 可选拼写"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 2,
+          "bbox": [
+            0.078,
+            0.182,
+            0.915,
+            0.26
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "在C++中，可以用or来代替||，还有一些其他的可选拼写，它们都是关键字。在C99和C11中，这些可选拼写都被定义为宏，要包含iso646.h才能使用它们。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 3,
+          "bbox": [
+            0.129,
+            0.286,
+            0.327,
+            0.306
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "B.9.9 宽字符支持"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.078,
+            0.332,
+            0.911,
+            0.438
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "在C++中，wchar_t是内置类型，而且wchar_t是关键字。在C99和C11中，wchar_t类型被定义在多个头文件中（stddef.h、stdlib.h、wchar.h、wctype.h）。与此类似，char16_t和char32_t都是C++11的关键字，但是在C11中它们都定义在uchar.h头文件中。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.077,
+            0.464,
+            0.846,
+            0.515
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C++通过iostream头文件提供宽字符I/O支持（wchar_t、char16_t和char32_t），而 C99通过wchar.h头文件提供一种完全不同的I/O支持包。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 6,
+          "bbox": [
+            0.129,
+            0.539,
+            0.315,
+            0.559
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "B.9.10 复数类型"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.078,
+            0.585,
+            0.912,
+            0.662
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C++在complex头文件中提供一个复数类来支持复数类型。C有内置的复数类型，并通过complex.h头文件来支持。这两种方法区别很大，不兼容。C更关心数值计算社区提出的需求。"
+            }
+          ]
+        },
+        {
+          "type": "paragraph_title",
+          "index": 8,
+          "bbox": [
+            0.129,
+            0.689,
+            0.313,
+            0.709
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "B.9.11 内联函数"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.077,
+            0.734,
+            0.917,
+            0.927
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "C99支持了C++的内联函数特性。但是，C99的实现更加灵活。在C++中，内联函数默认是内部链接。在 C++中，如果一个内联函数多次出现在多个文件中，该函数的定义必须相同，而且要使用相同的语言记号。例如，不允许在一个文件的定义中使用int类型形参，而在另一个文件的定义中使用int32_t类型形参。即使用typedef把int32_t定义为int也不能这样做。但是在C中可以这样做。另外，在第15章中介绍过，C允许混合使用内联定义和外部定义，而C++不允许。"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 10,
+          "bbox": [
+            0.474,
+            0.959,
+            0.527,
+            0.976
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "1634"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page_idx": 1634,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "index": 0,
+          "bbox": [
+            0.129,
+            0.061,
+            0.531,
+            0.083
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "B.9.12 C++11中没有的C99/C11特性"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "text",
+          "index": 1,
+          "bbox": [
+            0.079,
+            0.107,
+            0.896,
+            0.158
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "虽然在过去C或多或少可以看作是C++的子集，但是C99标准增加了一些C++没有的新特性。下面列出了一些只有C99/C11中才有的特性:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 2,
+          "bbox": [
+            0.129,
+            0.182,
+            0.295,
+            0.205
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "指定初始化器；"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 3,
+          "bbox": [
+            0.129,
+            0.229,
+            0.56,
+            0.252
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "复合初始化器（Compound initializer）；"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 4,
+          "bbox": [
+            0.128,
+            0.275,
+            0.692,
+            0.298
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "受限指针（Restricted pointer）（即，restric指针）；"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 5,
+          "bbox": [
+            0.129,
+            0.321,
+            0.246,
+            0.342
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "变长数组；"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 6,
+          "bbox": [
+            0.129,
+            0.368,
+            0.322,
+            0.389
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "伸缩型数组成员；"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 7,
+          "bbox": [
+            0.129,
+            0.414,
+            0.372,
+            0.436
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "带可变数量参数的宏。"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 8,
+          "bbox": [
+            0.129,
+            0.46,
+            0.188,
+            0.481
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "注意"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "index": 9,
+          "bbox": [
+            0.078,
+            0.506,
+            0.918,
+            0.584
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "以上所列只是在特定时期内的情况，随着时间的推移和 C、C++的不断发展，列表中的项会有所增减。例如，C++14新增的一个特性就与C99的变长数组类似。"
+            }
+          ]
+        },
+        {
+          "type": "page_footnote",
+          "index": 11,
+          "bbox": [
+            0.078,
+            0.626,
+            0.913,
+            0.689
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "[1].也称为世界标准时间，简称UTC，从英文“Coordinated Universal Time”/法文“Temps Universel Cordonné”而来。中国内地的时间与UTC的时差为+8，也就是UTC+8。——译者注"
+            }
+          ]
+        },
+        {
+          "type": "page_footnote",
+          "index": 12,
+          "bbox": [
+            0.078,
+            0.705,
+            0.893,
+            0.747
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "[2].fwide()函数用于设置流的定向，根据mode的不同值来执行不同的工作。译者注"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 13,
+          "bbox": [
+            0.474,
+            0.959,
+            0.526,
+            0.977
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "1635"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "is_full_document": false,
+  "schema": "docvortex.middle",
+  "schema_version": "2.0"
+}

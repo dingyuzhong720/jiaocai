@@ -1,0 +1,2929 @@
+{
+  "pages": [
+    {
+      "page_idx": 960,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.259,
+            0.065,
+            0.743,
+            0.093
+          ],
+          "level": 2,
+          "content": "13.3 一个简单的文件压缩程序"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.122,
+            0.923,
+            0.346
+          ],
+          "content": "下面的程序示例把一个文件中选定的数据拷贝到另一个文件中。该程序同时打开了两个文件，以\"r\"模式打开一个，以\"w\"模式打开另一个。该程序（程序清单13.2）以保留每3个字符中的第1个字符的方式压缩第1个文件的内容。最后，把压缩后的文本存入第2个文件。第2个文件的名称是第1个文件名加上.red后缀（此处的red代表reduced）。使用命令行参数，同时打开多个文件，以及在原文件名后面加上后缀，都是相当有用的技巧。这种压缩方式有限，但是也有它的用途（很容易把该程序改成用标准 I/O 而不是命令行参数提供文件名）。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.415,
+            0.711,
+            0.902
+          ],
+          "sub_type": "code",
+          "content": "```c\n// reducto.c -把文件压缩成原来的1/3!\n#include <stdio.h>\n#include <stdlib.h>      // 提供 exit()的原型\n#include <string.h>      // 提供 strcpy()、strcat()的原型\n#define LEN 40\nint main(int argc, char *argv [])\n{\nFILE *in, *out;   // 声明两个指向 FILE 的指针\nint ch;\nchar name[LEN];   // 储存输出文件名\nint count = 0;\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.129,
+                0.369,
+                0.443,
+                0.39
+              ],
+              "content": "程序清单13.2 reducto.c程序"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.519,
+            0.977
+          ],
+          "content": "961"
+        }
+      ]
+    },
+    {
+      "page_idx": 961,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.059,
+            0.761,
+            0.919
+          ],
+          "sub_type": "code",
+          "content": "```c\n// 检查命令行参数\nif (argc < 2)\n{\nfprintf(stderr, \"Usage: %s filename\\n\", argv[0]);\nexit(EXIT_FAILURE);\n}\n// 设置输入\nif ((in = fopen(argv[1], \"r\")) == NULL)\n{\nfprintf(stderr, \"I couldn't open the file \\\"%s\\\"\\n\",\nargv[1]);\nexit(EXIT_FAILURE);\n}\n// 设置输出\nstrncpy(name, argv[1], LEN - 5);      // 拷贝文件名\nname[LEN - 5] = '\\0';\nstrcat(name, \".red\");                  // 在文件名后添加.red\nif ((out = fopen(name, \"w\")) == NULL)\n{                       // 以写模式打开文件\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "962"
+        }
+      ]
+    },
+    {
+      "page_idx": 962,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.562,
+            0.177
+          ],
+          "sub_type": "code",
+          "content": "```txt\nfprintf(stderr, \"Can't create output file.\\n\");\nexit(3);\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.129,
+                0.199,
+                0.259,
+                0.221
+              ],
+              "content": "// 拷贝数据"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.247,
+            0.441,
+            0.316
+          ],
+          "sub_type": "code",
+          "content": "```txt\nwhile ((ch = getc(in)) != EOF)\nif (count++ % 3 == 0)\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.128,
+                0.339,
+                0.592,
+                0.362
+              ],
+              "content": "putc(ch, out);// 打印3个字符中的第1个字符"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.432,
+            0.495,
+            0.455
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nif (fclose(in) != 0 || fclose(out) != 0)\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.129,
+                0.385,
+                0.259,
+                0.406
+              ],
+              "content": "// 收尾工作"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.479,
+            0.538,
+            0.594
+          ],
+          "sub_type": "code",
+          "content": "```txt\nfprintf(stderr, \"Error in closing files\\n\");\nreturn 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.617,
+            0.912,
+            0.667
+          ],
+          "content": "假设可执行文件名是reducto，待读取的文件名为eddy，该文件中包含下面一行内容:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.693,
+            0.452,
+            0.714
+          ],
+          "content": "So even Eddy came oven ready."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.738,
+            0.245,
+            0.758
+          ],
+          "content": "命令如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.786,
+            0.267,
+            0.807
+          ],
+          "content": "reducto eddy"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.831,
+            0.912,
+            0.881
+          ],
+          "content": "待写入的文件名为eddy.red。该程序把输出显示在eddy.red中，而不是屏幕上。打开eddy.red，内容如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.907,
+            0.259,
+            0.928
+          ],
+          "content": "Send money"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "963"
+        }
+      ]
+    },
+    {
+      "page_idx": 963,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.061,
+            0.752,
+            0.083
+          ],
+          "content": "该程序示例演示了几个编程技巧。我们来仔细研究一下。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.107,
+            0.919,
+            0.185
+          ],
+          "content": "fprintf()和 printf()类似，但是 fprintf()的第 1 个参数必须是一个文件指针。程序中使用stderr指针把错误消息发送至标准错误，C标准通常都这么做。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.21,
+            0.915,
+            0.489
+          ],
+          "content": "为了构造新的输出文件名，该程序使用strncpy()把名称eddy拷贝到数组name中。参数LEN-5为.red后缀和末尾的空字符预留了空间。如果argv[2]字符串比LEN-5长，就拷贝不了空字符。出现这种情况时，程序会添加空字符。调用strncpy()后，name中的第1个空字符在调用strcat()函数时，被.red的.覆盖，生成了eddy.red。程序中还检查了是否成功打开名为eddy.red的文件。这个步骤在一些环境中相当重要，因为像strange.c.red这样的文件名可能是无效的。例如，在传统的DOS环境中，不能在后缀名后面添加后缀名（MS-DOS使用的方法是用.red替换现有后缀名，所以strange.c将变成strange.red。例如，可以用strchr()函数定位（如果有的话），然后只拷贝点前面的部分即可）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.513,
+            0.918,
+            0.622
+          ],
+          "content": "该程序同时打开了两个文件，所以我们要声明两个 FIFL 指针。注意，程序都是单独打开和关闭每个文件。同时打开的文件数量是有限的，这个限制取决于系统和实现，范围一般是10～20。相同的文件指针可以处理不同的文件，前提是这些文件不需要同时打开。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "964"
+        }
+      ]
+    },
+    {
+      "page_idx": 964,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.111,
+            0.066,
+            0.887,
+            0.095
+          ],
+          "level": 2,
+          "content": "13.4 文件I/O:fprintf()、fscanf()、fgets()和fputs()"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.122,
+            0.919,
+            0.23
+          ],
+          "content": "前面章节介绍的I/O函数都类似于文件I/O函数。它们的主要区别是，文件I/O函数要用FILE指针指定待处理的文件。与 getc()、putc()类似，这些函数都要求用指向 FILE 的指针（如，stdout）指定一个文件，或者使用fopen()的返回值。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.308,
+            0.256,
+            0.692,
+            0.28
+          ],
+          "level": 2,
+          "content": "13.4.1 fprintf()和fscanf()函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.304,
+            0.88,
+            0.384
+          ],
+          "content": "文件I/O函数fprintf()和fscanf()函数的工作方式与printf()和scanf()类似，区别在于前者需要用第1个参数指定待处理的文件。我们在前面用过fprintf()。程序清单13.3演示了这两个文件I/O函数和rewind()函数的用法。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.454,
+            0.701,
+            0.895
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* addaword.c -- 使用 fprintf()、fscanf() 和 rewind() */\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#define MAX 41\nint main(void)\n{\nFILE *fp;\nchar words[MAX];\nif ((fp = fopen(\"wordy\", \"a+\")) == NULL)\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.129,
+                0.408,
+                0.465,
+                0.429
+              ],
+              "content": "程序清单13.3 addaword.c程序"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "965"
+        }
+      ]
+    },
+    {
+      "page_idx": 965,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.061,
+            0.801,
+            0.825
+          ],
+          "sub_type": "code",
+          "content": "```c\n{\nfprintf(stdout, \"Can't open \\\"wordy\\\" file.\\n\");\nexit(EXIT_FAILURE);\n}\nputs(\"Enter words to add to the file; press the #\");\nputs(\"key at the beginning of a line to terminate.\");\nwhile ((fscanf(stdin, \"%40s\", words) == 1) && (words[0] != '#'))\nfprintf(fp, \"%s\\n\", words);\nputs(\"File contents:\");\nrewind(fp);          /* 返回到文件开始处 */\nwhile (fscanf(fp, \"%s\", words) == 1)\nputs(words);\nputs(\"Done!\");\nif (fclose(fp) != 0)\nfprintf(stderr, \"Error closing file\\n\");\nreturn 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.848,
+            0.912,
+            0.928
+          ],
+          "content": "该程序可以在文件中添加单词。使用\"a+\"模式，程序可以对文件进行读写操作。首次使用该程序，它将创建wordy文件，以便把单词存入其中。随后再使用该程序，可以在wordy文件后面添加单词。虽然\"a+\"模式只允许在"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "966"
+        }
+      ]
+    },
+    {
+      "page_idx": 966,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.909,
+            0.139
+          ],
+          "continues_prev": true,
+          "content": "文件末尾添加内容，但是该模式下可以读整个文件。rewind()函数让程序回到文件开始处，方便while循环打印整个文件的内容。注意，rewind()接受一个文件指针作为参数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.165,
+            0.9,
+            0.214
+          ],
+          "content": "下面是该程序在UNIX环境中的一个运行示例（可执行程序已重命名为addword）:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.241,
+            0.259,
+            0.26
+          ],
+          "content": "\\$ addaword"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.287,
+            0.586,
+            0.308
+          ],
+          "content": "Enter words to add to the file; press the Enter"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.334,
+            0.547,
+            0.354
+          ],
+          "content": "key at the beginning of a line to terminate."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.38,
+            0.412,
+            0.401
+          ],
+          "level": 2,
+          "content": "The fabulous programmer"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.427,
+            0.151,
+            0.443
+          ],
+          "content": "#"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.473,
+            0.269,
+            0.491
+          ],
+          "content": "File contents:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.519,
+            0.174,
+            0.536
+          ],
+          "content": "The"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.565,
+            0.22,
+            0.583
+          ],
+          "content": "fabulous"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.614,
+            0.256,
+            0.632
+          ],
+          "content": "programmer"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.658,
+            0.197,
+            0.676
+          ],
+          "content": "Done!"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.704,
+            0.256,
+            0.722
+          ],
+          "content": "\\$ addaword"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.75,
+            0.586,
+            0.77
+          ],
+          "content": "Enter words to add to the file; press the Enter"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.797,
+            0.548,
+            0.817
+          ],
+          "content": "key at the beginning of a line to terminate."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.844,
+            0.283,
+            0.862
+          ],
+          "level": 2,
+          "content": "enchanted the"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.89,
+            0.189,
+            0.91
+          ],
+          "content": "**large**"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "967"
+        }
+      ]
+    },
+    {
+      "page_idx": 967,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.063,
+            0.151,
+            0.08
+          ],
+          "content": "#"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.109,
+            0.27,
+            0.128
+          ],
+          "content": "File contents:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.155,
+            0.174,
+            0.173
+          ],
+          "content": "The"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.201,
+            0.221,
+            0.22
+          ],
+          "content": "fabulous"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.25,
+            0.257,
+            0.269
+          ],
+          "content": "programmer"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.295,
+            0.234,
+            0.313
+          ],
+          "content": "enchanted"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.341,
+            0.166,
+            0.358
+          ],
+          "content": "the"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.387,
+            0.186,
+            0.407
+          ],
+          "content": "large"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.433,
+            0.196,
+            0.452
+          ],
+          "content": "Done!"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.478,
+            0.919,
+            0.557
+          ],
+          "content": "如你所见，fprintf()和 fscanf()的工作方式与 printf()和 scanf()类似。但是，与 putc()不同的是，fprintf()和fscanf()函数都把FILE指针作为第1个参数，而不是最后一个参数。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.325,
+            0.583,
+            0.673,
+            0.608
+          ],
+          "level": 2,
+          "content": "13.4.2 fgets()和fputs()函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.631,
+            0.918,
+            0.738
+          ],
+          "content": "第11章时介绍过fgets()函数。它的第1个参数和gets()函数一样，也是表示储存输入位置的地址（char \\* 类型）；第2个参数是一个整数，表示待输入字符串的大小 [1]；最后一个参数是文件指针，指定待读取的文件。下面是一个调用该函数的例子:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.764,
+            0.36,
+            0.786
+          ],
+          "content": "fgets(buf, STLEN, fp);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.809,
+            0.886,
+            0.859
+          ],
+          "content": "这里，buf是char类型数组的名称，STLEN是字符串的大小，fp是指向FILE的指针。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.884,
+            0.918,
+            0.935
+          ],
+          "content": "fgets()函数读取输入直到第 1 个换行符的后面，或读到文件结尾，或者读取STLEN-1 个字符（以上面的 fgets()为例）。然后，fgets()在末尾添加一"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "968"
+        }
+      ]
+    },
+    {
+      "page_idx": 968,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.912,
+            0.166
+          ],
+          "continues_prev": true,
+          "content": "个空字符使之成为一个字符串。字符串的大小是其字符数加上一个空字符。如果fgets()在读到字符上限之前已读完一整行，它会把表示行结尾的换行符放在空字符前面。fgets()函数在遇到EOF时将返回NULL值，可以利用这一机制检查是否到达文件结尾；如果未遇到EOF则之前返回传给它的地址。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.193,
+            0.908,
+            0.3
+          ],
+          "content": "fputs()函数接受两个参数:第1个是字符串的地址；第2个是文件指针。该函数根据传入地址找到的字符串写入指定的文件中。和 puts()函数不同，fputs()在打印字符串时不会在其末尾添加换行符。下面是一个调用该函数的例子:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.326,
+            0.272,
+            0.347
+          ],
+          "content": "fputs(buf, fp);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.371,
+            0.678,
+            0.393
+          ],
+          "content": "这里，buf是字符串的地址，fp用于指定目标文件。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.417,
+            0.909,
+            0.496
+          ],
+          "content": "由于fgets()保留了换行符，fputs()就不会再添加换行符，它们配合得非常好。如第11章的程序清单11.8所示，即使输入行比STLEN长，这两个函数依然处理得很好。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "969"
+        }
+      ]
+    },
+    {
+      "page_idx": 969,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.261,
+            0.065,
+            0.737,
+            0.094
+          ],
+          "level": 2,
+          "content": "13.5 随机访问:fseek()和ftell()"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.122,
+            0.919,
+            0.23
+          ],
+          "content": "有了 fseek()函数，便可把文件看作是数组，在 fopen()打开的文件中直接移动到任意字节处。我们创建一个程序（程序清单13.4）演示fseek()和ftell()的用法。注意，fseek()有3个参数，返回int类型的值；ftell()函数返回一个long类型的值，表示文件中的当前位置。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.297,
+            0.831,
+            0.929
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* reverse.c -- 倒序显示文件的内容 */\n#include <stdio.h>\n#include <stdlib.h>\n#define CNTL_Z '\\032'      /* DOS文本文件中的文件结尾标记 */\n#define SLEN 81\nint main(void)\n{\nchar file[SLEN];\nchar ch;\nFILE *fp;\nlong count, last;\nputs(\"Enter the name of the file to be processed:\");\nscanf(\"%80s\", file);\nif ((fp = fopen(file, \"rb\")) == NULL)\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.129,
+                0.254,
+                0.443,
+                0.276
+              ],
+              "content": "程序清单13.4 reverse.c程序"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "970"
+        }
+      ]
+    },
+    {
+      "page_idx": 970,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.06,
+            0.816,
+            0.919
+          ],
+          "sub_type": "code",
+          "content": "```c\n{\n/* 只读模式 */\nprintf(\"reverse can't open %s\\n\", file);\nexit(EXIT_FAILURE);\n}\nfseek(fp, 0L, SEEK_END); /* 定位到文件末尾 */\nlast = ftell(fp);\nfor (count = 1L; count <= last; count++)\n{\nfseek(fp, -count, SEEK_END); /* 回退 */\nch = getc(fp);\nif (ch != CNTL_Z && ch != '\\r') /* MS-DOS 文件 */\nputchar(ch);\n}\nputchar('\\n');\nfclose(fp);\nreturn 0;\n}\n下面是对一个文件的输出:\nEnter the name of the file to be processed:\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.519,
+            0.976
+          ],
+          "content": "971"
+        }
+      ]
+    },
+    {
+      "page_idx": 971,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.063,
+            0.186,
+            0.081
+          ],
+          "level": 2,
+          "content": "Cluv"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.11,
+            0.506,
+            0.13
+          ],
+          "content": ".C ni eno naht ylevol erom margorp a"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.156,
+            0.41,
+            0.174
+          ],
+          "content": "ees reven llahs I taht kniht I"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.2,
+            0.878,
+            0.251
+          ],
+          "content": "该程序使用二进制模式，以便处理MS-DOS文本和UNIX文件。但是，在使用其他格式文本文件的环境中可能无法正常工作。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.275,
+            0.187,
+            0.295
+          ],
+          "content": "注意"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.321,
+            0.918,
+            0.429
+          ],
+          "content": "如果通过命令行环境运行该程序，待处理文件要和可执行文件在同一个目录（或文件夹）中。如果在IDE中运行该程序，具体查找方案序因实现而异。例如，默认情况下，Microsoft Visual Studio 2012在源代码所在的目录中查找，而Xcode 4.6则在可执行文件所在的目录中查找。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.453,
+            0.909,
+            0.503
+          ],
+          "content": "接下来，我们要讨论3个问题:fseek()和ftell()函数的工作原理、如何使用二进制流、如何让程序可移植。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.286,
+            0.53,
+            0.71,
+            0.555
+          ],
+          "level": 2,
+          "content": "13.5.1 fseek()和ftell()的工作原理"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.578,
+            0.898,
+            0.628
+          ],
+          "content": "fseek()的第1个参数是FILE指针，指向待查找的文件，fopen()应该已打开该文件。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.653,
+            0.905,
+            0.731
+          ],
+          "content": "fseek()的第2个参数是偏移量（offset）。该参数表示从起始点开始要移动的距离（参见表13.3列出的起始点模式）。该参数必须是一个long类型的值，可以为正（前移）、负（后移）或0（保持不动）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.756,
+            0.918,
+            0.834
+          ],
+          "content": "fseek()的第3个参数是模式，该参数确定起始点。根据ANSI标准，在stdio.h头文件中规定了几个表示模式的明示常量（manifest constant），如表13.3所示。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.392,
+            0.856,
+            0.606,
+            0.874
+          ],
+          "level": 2,
+          "content": "表13.3 文件的起始点模式"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "972"
+        }
+      ]
+    },
+    {
+      "page_idx": 972,
+      "blocks": [
+        {
+          "type": "table",
+          "bbox": [
+            0.087,
+            0.059,
+            0.903,
+            0.153
+          ],
+          "content": "| 模式 | 偏移量的起始点 |\n| --- | --- |\n| SEEK_SET | 文件开始处 |\n| SEEK_CUR | 当前位置 |\n| SEEK_END | 文件末尾 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_972_table_0.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.18,
+            0.909,
+            0.26
+          ],
+          "content": "旧的实现可能缺少这些定义，可以使用数值0L、1L、2L分别表示这3种模式。L后缀表明其值是long类型。或者，实现可能把这些明示常量定义在别的头文件中。如果不确定，请查阅实现的使用手册或在线帮助。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.284,
+            0.738,
+            0.305
+          ],
+          "content": "下面是调用fseek()函数的一些示例，fp是一个文件指针:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.33,
+            0.635,
+            0.353
+          ],
+          "content": "fseek(fp, 0L, SEEK\\_SET); // 定位至文件开始处"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.377,
+            0.744,
+            0.399
+          ],
+          "content": "fseek(fp, 10L, SEEK\\_SET); // 定位至文件中的第10个字节"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.423,
+            0.748,
+            0.445
+          ],
+          "content": "fseek(fp, 2L, SEEK\\_CUR); // 从文件当前位置前移2个字节"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.469,
+            0.613,
+            0.492
+          ],
+          "content": "fseek(fp, 0L, SEEK\\_END); // 定位至文件结尾"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.516,
+            0.759,
+            0.538
+          ],
+          "content": "fseek(fp, -10L, SEEK\\_END); // 从文件结尾处回退10个字节"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.562,
+            0.65,
+            0.582
+          ],
+          "content": "对于这些调用还有一些限制，我们稍后再讨论。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.608,
+            0.9,
+            0.658
+          ],
+          "content": "如果一切正常，fseek()的返回值为0；如果出现错误（如试图移动的距离超出文件的范围），其返回值为-1。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.683,
+            0.918,
+            0.819
+          ],
+          "content": "ftell()函数的返回类型是long，它返回的是当前的位置。ANSI C把它定义在stdio.h中。在最初实现的UNIX中，ftell()通过返回距文件开始处的字节数来确定文件的位置。文件的第1个字节到文件开始处的距离是0，以此类推。ANSI C规定，该定义适用于以二进制模式打开的文件，以文件模式打开文件的情况不同。这也是程序清单13.4以二进制模式打开文件的原因。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.843,
+            0.869,
+            0.865
+          ],
+          "content": "下面，我们来分析程序清单13.4中的基本要素。首先，下面的语句:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.891,
+            0.409,
+            0.913
+          ],
+          "content": "fseek(fp, 0L, SEEK\\_END);"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "973"
+        }
+      ]
+    },
+    {
+      "page_idx": 973,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.919,
+            0.112
+          ],
+          "content": "把当前位置设置为距文件末尾 0 字节偏移量。也就是说，该语句把当前位置设置在文件结尾。下一条语句:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.137,
+            0.283,
+            0.159
+          ],
+          "sub_type": "code",
+          "content": "```javascript\nlast = ftell(fp);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.182,
+            0.637,
+            0.205
+          ],
+          "content": "把从文件开始处到文件结尾的字节数赋给last。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.229,
+            0.351,
+            0.251
+          ],
+          "content": "然后是一个for循环:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.276,
+            0.631,
+            0.484
+          ],
+          "sub_type": "code",
+          "content": "```c\nfor (count = 1L; count <= last; count++)\n\n{\nfseek(fp, -count, SEEK_END); /* go backward */\nch = getc(fp);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.506,
+            0.918,
+            0.586
+          ],
+          "content": "第1轮迭代，把程序定位到文件结尾的第1个字符（即，文件的最后一个字符）。然后，程序打印该字符。下一轮迭代把程序定位到前一个字符，并打印该字符。重复这一过程直至到达文件的第1个字符，并打印。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.301,
+            0.611,
+            0.696,
+            0.636
+          ],
+          "level": 2,
+          "content": "13.5.2 二进制模式和文本模式"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.66,
+            0.919,
+            0.882
+          ],
+          "content": "我们设计的程序清单13.4在UNIX和MS-DOS环境下都可以运行。UNIX只有一种文件格式，所以不需要进行特殊的转换。然而MS-DOS要格外注意。许多MS-DOS编辑器都用Ctrl+Z标记文本文件的结尾。以文本模式打开这样的文件时，C 能识别这个作为文件结尾标记的字符。但是，以二进制模式打开相同的文件时，Ctrl+Z字符被看作是文件中的一个字符，而实际的文件结尾符在该字符的后面。文件结尾符可能紧跟在Ctrl+Z字符后面，或者文件中可能用空字符填充，使该文件的大小是256的倍数。在DOS环境下不会打印空字符，程序清单13.4中就包含了防止打印Ctrl+Z字符的代码。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.905,
+            0.918,
+            0.927
+          ],
+          "content": "二进制模式和文本模式的另一个不同之处是:MS-DOS用\\r\\n组合表示文"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "974"
+        }
+      ]
+    },
+    {
+      "page_idx": 974,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.911,
+            0.166
+          ],
+          "continues_prev": true,
+          "content": "本文件换行。以文本模式打开相同的文件时，C程序把\\r\\n“看成”\\n。但是，以二进制模式打开该文件时，程序能看见这两个字符。因此，程序清单13.4中还包含了不打印\\r的代码。通常，UNIX文本文件既没有Ctrl+Z，也没有\\r，所以这部分代码不会影响大部分UNIX文本文件。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.193,
+            0.915,
+            0.328
+          ],
+          "content": "ftell()函数在文本模式和二进制模式中的工作方式不同。许多系统的文本文件格式与UNIX的模型有很大不同，导致从文件开始处统计的字节数成为一个毫无意义的值。ANSI C规定，对于文本模式，ftell()返回的值可以作为fseek()的第2个参数。对于MS-DOS，ftell()返回的值把\\r\\n当作一个字节计数。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.393,
+            0.355,
+            0.603,
+            0.379
+          ],
+          "level": 2,
+          "content": "13.5.3 可移植性"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.403,
+            0.909,
+            0.482
+          ],
+          "content": "理论上，fseek()和ftell()应该符合UNIX模型。但是，不同系统存在着差异，有时确实无法做到与UNIX模型一致。因此，ANSI对这些函数降低了要求。下面是一些限制。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.506,
+            0.918,
+            0.613
+          ],
+          "content": "在二进制模式中，实现不必支持SEEK\\_END模式。因此无法保证程序清单13.4的可移植性。移植性更高的方法是逐字节读取整个文件直到文件末尾。C 预处理器的条件编译指令（第 16 章介绍）提供了一种系统方法来处理这种情况。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.638,
+            0.7,
+            0.659
+          ],
+          "content": "在文本模式中，只有以下调用能保证其相应的行为。"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.093,
+            0.687,
+            0.911,
+            0.821
+          ],
+          "content": "| 函数调用 | 效果 |\n| --- | --- |\n| fseek(file, 0L, SEEK_SET) | 定位至文件开始处 |\n| fseek(file, 0L, SEEK_CUR) | 保持当前位置不动 |\n| fseek(file, 0L, SEEK_END) | 定位至文件结尾 |\n| fseek(file, ftell-pos, SEEK_SET) | 到距文件开始处 ftell-pos 的位置,ftell-pos 是 ftell() 的返回值 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_974_table_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.842,
+            0.6,
+            0.863
+          ],
+          "content": "不过，许多常见的环境都支持更多的行为。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.298,
+            0.891,
+            0.699,
+            0.915
+          ],
+          "level": 2,
+          "content": "13.5.4 fgetpos()和fsetpos()函数"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "975"
+        }
+      ]
+    },
+    {
+      "page_idx": 975,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.922,
+            0.311
+          ],
+          "content": "fseek()和 ftell()潜在的问题是，它们都把文件大小限制在 long 类型能表示的范围内。也许 20亿字节看起来相当大，但是随着存储设备的容量迅猛增长，文件也越来越大。鉴于此，ANSI C新增了两个处理较大文件的新定位函数:fgetpos()和 fsetpos()。这两个函数不使用 long 类型的值表示位置，它们使用一种新类型:fpos\\_t（代表file position type，文件定位类型）。fpos\\_t类型不是基本类型，它根据其他类型来定义。fpos\\_t 类型的变量或数据对象可以在文件中指定一个位置，它不能是数组类型，除此之外，没有其他限制。实现可以提供一个满足特殊平台要求的类型，例如，fpos\\_t可以实现为结构。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.336,
+            0.804,
+            0.359
+          ],
+          "content": "ANSI C定义了如何使用fpos\\_t类型。fgetpos()函数的原型如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.383,
+            0.692,
+            0.406
+          ],
+          "content": "int fgetpos(FILE \\* restrict stream, fpos\\_t \\* restrict pos);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.428,
+            0.912,
+            0.481
+          ],
+          "content": "调用该函数时，它把fpos\\_t类型的值放在pos指向的位置上，该值描述了文件中的一个位置。如果成功，fgetpos()函数返回0；如果失败，返回非0。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.503,
+            0.41,
+            0.525
+          ],
+          "content": "fsetpos()函数的原型如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.551,
+            0.582,
+            0.573
+          ],
+          "content": "int fsetpos(FILE \\*stream, const fpos\\_t \\*pos);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.595,
+            0.912,
+            0.676
+          ],
+          "content": "调用该函数时，使用pos指向位置上的fpos\\_t类型值来设置文件指针指向该值指定的位置。如果成功，fsetpos()函数返回0；如果失败，则返回非0。fpos\\_t类型的值应通过之前调用fgetpos()获得。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "976"
+        }
+      ]
+    },
+    {
+      "page_idx": 976,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.344,
+            0.065,
+            0.654,
+            0.091
+          ],
+          "level": 2,
+          "content": "13.6 标准I/O的机理"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.123,
+            0.887,
+            0.172
+          ],
+          "content": "我们在前面学习了标准I/O包的特性，本节研究一个典型的概念模型，分析标准I/O的工作原理。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.197,
+            0.919,
+            0.39
+          ],
+          "content": "通常，使用标准I/O的第1步是调用fopen()打开文件（前面介绍过，C程序会自动打开3种标准文件）。fopen()函数不仅打开一个文件，还创建了一个缓冲区（在读写模式下会创建两个缓冲区）以及一个包含文件和缓冲区数据的结构。另外，fopen()返回一个指向该结构的指针，以便其他函数知道如何找到该结构。假设把该指针赋给一个指针变量fp，我们说fopen()函数“打开一个流”。如果以文本模式打开该文件，就获得一个文本流；如果以二进制模式打开该文件，就获得一个二进制流。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.414,
+            0.918,
+            0.493
+          ],
+          "content": "这个结构通常包含一个指定流中当前位置的文件位置指示器。除此之外，它还包含错误和文件结尾的指示器、一个指向缓冲区开始处的指针、一个文件标识符和一个计数（统计实际拷贝进缓冲区的字节数）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.518,
+            0.918,
+            0.71
+          ],
+          "content": "我们主要考虑文件输入。通常，使用标准I/O的第2步是调用一个定义在stdio.h中的输入函数，如fscanf()、getc()或 fgets()。一调用这些函数，文件中的数据块就被拷贝到缓冲区中。缓冲区的大小因实现而异，一般是512字节或是它的倍数，如4096或16384（随着计算机硬盘容量越来越大，缓冲区的大小也越来越大）。最初调用函数，除了填充缓冲区外，还要设置fp所指向的结构中的值。尤其要设置流中的当前位置和拷贝进缓冲区的字节数。通常，当前位置从字节0开始。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.735,
+            0.918,
+            0.843
+          ],
+          "content": "在初始化结构和缓冲区后，输入函数按要求从缓冲区中读取数据。在它读取数据时，文件位置指示器被设置为指向刚读取字符的下一个字符。由于stdio.h系列的所有输入函数都使用相同的缓冲区，所以调用任何一个函数都将从上一次函数停止调用的位置开始。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.867,
+            0.919,
+            0.917
+          ],
+          "content": "当输入函数发现已读完缓冲区中的所有字符时，会请求把下一个缓冲大小的数据块从文件拷贝到该缓冲区中。以这种方式，输入函数可以读取文件"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "977"
+        }
+      ]
+    },
+    {
+      "page_idx": 977,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.919,
+            0.112
+          ],
+          "continues_prev": true,
+          "content": "中的所有内容，直到文件结尾。函数在读取缓冲区中的最后一个字符后，把结尾指示器设置为真。于是，下一次被调用的输入函数将返回EOF。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.136,
+            0.918,
+            0.186
+          ],
+          "content": "输出函数以类似的方式把数据写入缓冲区。当缓冲区被填满时，数据将被拷贝至文件中。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "978"
+        }
+      ]
+    },
+    {
+      "page_idx": 978,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.325,
+            0.065,
+            0.673,
+            0.091
+          ],
+          "level": 2,
+          "content": "13.7 其他标准I/O函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.123,
+            0.919,
+            0.259
+          ],
+          "content": "ANSI标准库的标准I/O系列有几十个函数。虽然在这里无法一一列举，但是我们会简要地介绍一些，让读者对它们有一个大概的了解。这里列出函数的原型，表明函数的参数和返回类型。我们要讨论的这些函数，除了setvbuf()，其他函数均可在ANSI之前的实现中使用。参考资料V的“新增C99和C11的标准ANSI C库”中列出了全部的ANSI C标准I/O包。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.256,
+            0.284,
+            0.741,
+            0.309
+          ],
+          "level": 2,
+          "content": "13.7.1 int ungetc(int c, FILE \\*fp)函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.333,
+            0.919,
+            0.499
+          ],
+          "content": "int ungetc()函数把c指定的字符放回输入流中。如果把一个字符放回输入流，下次调用标准输入函数时将读取该字符（见图13.2）。例如，假设要读取下一个冒号之前的所有字符，但是不包括冒号本身，可以使用 getchar()或getc()函数读取字符到冒号，然后使用 ungetc()函数把冒号放回输入流中。ANSI C标准保证每次只会放回一个字符。如果实现允许把一行中的多个字符放回输入流，那么下一次输入函数读入的字符顺序与放回时的顺序相反。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.09,
+            0.522,
+            0.907,
+            0.828
+          ],
+          "sub_type": "text_image",
+          "content": "(初始状态)\n输入序列\nw h a l e s o n g s\n▲\nch = getchar();\nh a l e s o n g s\n▲\nungetc(ch, stdin);\nw h a l e s o n g s\n▲",
+          "captions": [
+            {
+              "bbox": [
+                0.418,
+                0.845,
+                0.579,
+                0.863
+              ],
+              "content": "图13.2 ungets()函数"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_978_image_4.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.357,
+            0.885,
+            0.639,
+            0.909
+          ],
+          "level": 2,
+          "content": "13.7.2 int fflush()函数"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "979"
+        }
+      ]
+    },
+    {
+      "page_idx": 979,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.061,
+            0.395,
+            0.083
+          ],
+          "content": "fflush()函数的原型如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.109,
+            0.337,
+            0.13
+          ],
+          "content": "int fflush(FILE \\*fp);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.154,
+            0.919,
+            0.262
+          ],
+          "content": "调用fflush()函数引起输出缓冲区中所有的未写入数据被发送到fp指定的输出文件。这个过程称为刷新缓冲区。如果 fp是空指针，所有输出缓冲区都被刷新。在输入流中使用fflush()函数的效果是未定义的。只要最近一次操作不是输入操作，就可以用该函数来更新流（任何读写模式）。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.347,
+            0.288,
+            0.651,
+            0.312
+          ],
+          "level": 2,
+          "content": "13.7.3 int setvbuf()函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.336,
+            0.387,
+            0.357
+          ],
+          "content": "setvbuf()函数的原型是:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.383,
+            0.839,
+            0.406
+          ],
+          "content": "int setvbuf(FILE \\* restrict fp, char \\* restrict buf, int mode, size\\_t size);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.428,
+            0.92,
+            0.679
+          ],
+          "content": "setvbuf()函数创建了一个供标准I/O函数替换使用的缓冲区。在打开文件后且未对流进行其他操作之前，调用该函数。指针fp识别待处理的流，buf指向待使用的存储区。如果buf的值不是NULL，则必须创建一个缓冲区。例如，声明一个内含1024个字符的数组，并传递该数组的地址。然而，如果把NULL作为buf的值，该函数会为自己分配一个缓冲区。变量size告诉setvbuf()数组的大小（size\\_t是一种派生的整数类型，第5章介绍过）。mode的选择如下:\\_IOFBF表示完全缓冲（在缓冲区满时刷新）；\\_IOLBF表示行缓冲（在缓冲区满时或写入一个换行符时）；\\_IONBF表示无缓冲。如果操作成功，函数返回0，否则返回一个非零值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.702,
+            0.905,
+            0.753
+          ],
+          "content": "假设一个程序要储存一种数据对象，每个数据对象的大小是3000字节。可以使用setvbuf()函数创建一个缓冲区，其大小是该数据对象大小的倍数。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.265,
+            0.78,
+            0.733,
+            0.803
+          ],
+          "level": 2,
+          "content": "13.7.4 二进制I/O:fread()和fwrite()"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.827,
+            0.915,
+            0.933
+          ],
+          "content": "介绍fread()和fwrite()函数之前，先要了解一些背景知识。之前用到的标准I/O函数都是面向文本的，用于处理字符和字符串。如何要在文件中保存数值数据？用 fprintf()函数和%f转换说明只是把数值保存为字符串。例如，下面的代码:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "980"
+        }
+      ]
+    },
+    {
+      "page_idx": 980,
+      "blocks": [
+        {
+          "type": "equation",
+          "bbox": [
+            0.129,
+            0.063,
+            0.33,
+            0.083
+          ],
+          "content": "\\text {double num} = 1. / 3.;",
+          "image_source": "images/page_980_equation_0.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.129,
+            0.109,
+            0.351,
+            0.13
+          ],
+          "content": "\\text {fprintf} (\\mathrm{fp},\" \\% \\mathrm{f}\", \\mathrm{num});",
+          "image_source": "images/page_980_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.154,
+            0.919,
+            0.292
+          ],
+          "content": "把num储存为8个字符:0.333333。使用%.2f转换说明将其储存为4个字符:0.33，用%.12f转换说明则将其储存为 14 个字符:0.333333333333。改变转换说明将改变储存该值所需的空间数量，也会导致储存不同的值。把num 储存为 0.33 后，读取文件时就无法将其恢复为更高的精度。一般而言， fprintf()把数值转换为字符数据，这种转换可能会改变值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.314,
+            0.919,
+            0.45
+          ],
+          "content": "为保证数值在储存前后一致，最精确的做法是使用与计算机相同的位组合来储存。因此，double 类型的值应该储存在一个 double 大小的单元中。如果以程序所用的表示法把数据储存在文件中，则称以二进制形式储存数据。不存在从数值形式到字符串的转换过程。对于标准 I/O，fread()和 fwrite函数用于以二进制形式处理数据（见图13.3）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.474,
+            0.92,
+            0.61
+          ],
+          "content": "实际上，所有的数据都是以二进制形式储存的，甚至连字符都以字符码的二进制表示来储存。如果文件中的所有数据都被解释成字符码，则称该文件包含文本数据。如果部分或所有的数据都被解释成二进制形式的数值数据，则称该文件包含二进制数据（另外，用数据表示机器语言指令的文件都是二进制文件）。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.517,
+            0.976
+          ],
+          "content": "981"
+        }
+      ]
+    },
+    {
+      "page_idx": 981,
+      "blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            0.09,
+            0.065,
+            0.918,
+            0.801
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"int num = 12345\"] --> B[\"以二进制数把1234储存在num中\"]\n  B --> C[\"00110000\"]\n  C --> D[\"00111001\"]\n  D --> E[\"fprintf(fp,&quot;%d&quot;, num);\"]\n  E --> F[\"把 '1'、'2'、'3'、'4'、'5' 的二进制码写入文件\"]\n  F --> G[\"00110001\"]\n  G --> H[\"0011010\"]\n  H --> I[\"00110011\"]\n  I --> J[\"00110100\"]\n  J --> K[\"00110101\"]\n  K --> L[\"fwrite(&num, sizeof (int), 1, fp);\"]\n  L --> M[\"把值12345的二进制码写入文件\"]\n  M --> N[\"00110000\"]\n  N --> O[\"00111001\"]\n  O --> P[\"(该图假设整数的大小为16位)\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.372,
+                0.847,
+                0.626,
+                0.865
+              ],
+              "content": "图13.3 二进制输出和文本输出"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_981_image_0.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.885,
+            0.919,
+            0.937
+          ],
+          "content": "二进制和文本的用法很容易混淆。ANSI C和许多操作系统都识别两种文件格式:二进制和文本。能以二进制数据或文本数据形式存储或读取信"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "982"
+        }
+      ]
+    },
+    {
+      "page_idx": 982,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.919,
+            0.198
+          ],
+          "content": "息。可以用二进制模式打开文本格式的文件，可以把文本储存在二进制形式的文件中。可以调用 getc()拷贝包含二进制数据的文件。然而，一般而言，用二进制模式在二进制格式文件中储存二进制数据。类似地，最常用的还是以文本格式打开文本文件中的文本数据（通常文字处理器生成的文件都是二进制文件，因为这些文件中包含了大量非文本信息，如字体和格式等）。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.338,
+            0.224,
+            0.66,
+            0.248
+          ],
+          "level": 2,
+          "content": "13.7.5 size\\_t fwrite()函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.272,
+            0.4,
+            0.293
+          ],
+          "content": "fwrite()函数的原型如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.319,
+            0.92,
+            0.37
+          ],
+          "content": "size\\_t fwrite(const void \\* restrict ptr, size\\_t size, size\\_t nmemb,FILE \\* restrict fp);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.392,
+            0.918,
+            0.557
+          ],
+          "content": "fwrite()函数把二进制数据写入文件。size\\_t是根据标准C类型定义的类型，它是sizeof运算符返回的类型，通常是unsigned int，但是实现可以选择使用其他类型。指针ptr是待写入数据块的地址。size表示待写入数据块的大小（以字节为单位），nmemb表示待写入数据块的数量。和其他函数一样，fp指定待写入的文件。例如，要保存一个大小为256字节的数据对象（如数组），可以这样做:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.583,
+            0.307,
+            0.604
+          ],
+          "content": "char buffer[256];"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.629,
+            0.388,
+            0.65
+          ],
+          "content": "fwrite(buffer, 256, 1, fp);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.673,
+            0.912,
+            0.724
+          ],
+          "content": "以上调用把一块256字节的数据从buffer写入文件。另举一例，要保存一个内含10个double类型值的数组，可以这样做:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.75,
+            0.344,
+            0.772
+          ],
+          "content": "double earnings[10];"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.796,
+            0.532,
+            0.818
+          ],
+          "content": "fwrite(earnings, sizeof(double), 10, fp);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.841,
+            0.9,
+            0.891
+          ],
+          "content": "以上调用把earnings数组中的数据写入文件，数据被分成10块，每块都是double的大小。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.519,
+            0.976
+          ],
+          "content": "983"
+        }
+      ]
+    },
+    {
+      "page_idx": 983,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.92,
+            0.226
+          ],
+          "content": "注意fwrite()原型中的const void \\* restrict ptr声明。fwrite()的一个问题是，它的第1个参数不是固定的类型。例如，第1个例子中使用buffer，其类型是指向char的指针；而第2个例子中使用earnings，其类型是指向double的指针。在ANSI C函数原型中，这些实际参数都被转换成指向void的指针类型，这种指针可作为一种通用类型指针（在ANSI C之前，这些参数使用char \\*类型，需要把实参强制转换成char \\*类型）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.25,
+            0.845,
+            0.3
+          ],
+          "content": "fwrite()函数返回成功写入项的数量。正常情况下，该返回值就是nmemb，但如果出现写入错误，返回值会比nmemb小。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.34,
+            0.327,
+            0.657,
+            0.352
+          ],
+          "level": 2,
+          "content": "13.7.6 size\\_t fread()函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.375,
+            0.457,
+            0.396
+          ],
+          "content": "size\\_t fread()函数的原型如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.422,
+            0.892,
+            0.446
+          ],
+          "content": "size\\_t fread(void \\* restrict ptr, size\\_t size, size\\_t nmemb,FILE \\* restrict fp);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.467,
+            0.912,
+            0.573
+          ],
+          "content": "fread()函数接受的参数和fwrite()函数相同。在fread()函数中，ptr是待读取文件数据在内存中的地址，fp指定待读取的文件。该函数用于读取被fwrite()写入文件的数据。例如，要恢复上例中保存的内含10个double类型值的数组，可以这样做:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.601,
+            0.344,
+            0.622
+          ],
+          "content": "double earnings[10];"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.647,
+            0.531,
+            0.668
+          ],
+          "content": "fread(earnings, sizeof (double), 10, fp);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.692,
+            0.703,
+            0.714
+          ],
+          "content": "该调用把10个double大小的值拷贝进earnings数组中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.738,
+            0.894,
+            0.788
+          ],
+          "content": "fread()函数返回成功读取项的数量。正常情况下，该返回值就是nmemb，但如果出现读取错误或读到文件结尾，该返回值就会比nmemb小。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.166,
+            0.815,
+            0.83,
+            0.84
+          ],
+          "level": 2,
+          "content": "13.7.7 int feof(FILE \\*fp)和int ferror(FILE \\*fp)函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.863,
+            0.918,
+            0.914
+          ],
+          "content": "如果标准输入函数返回 EOF，则通常表明函数已到达文件结尾。然而，出现读取错误时，函数也会返回EOF。feof()和ferror()函数用于区分这"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "984"
+        }
+      ]
+    },
+    {
+      "page_idx": 984,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.908,
+            0.138
+          ],
+          "content": "两种情况。当上一次输入调用检测到文件结尾时，feof()函数返回一个非零值，否则返回0。当读或写出现错误，ferror()函数返回一个非零值，否则返回0。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.363,
+            0.166,
+            0.637,
+            0.19
+          ],
+          "level": 2,
+          "content": "13.7.8 一个程序示例"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.214,
+            0.92,
+            0.322
+          ],
+          "content": "接下来，我们用一个程序示例说明这些函数的用法。该程序把一系列文件中的内容附加在另一个文件的末尾。该程序存在一个问题:如何给文件传递信息。可以通过交互或使用命令行参数来完成，我们先采用交互式的方法。下面列出了程序的设计方案。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.346,
+            0.474,
+            0.367
+          ],
+          "content": "询问目标文件的名称并打开它。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.392,
+            0.424,
+            0.413
+          ],
+          "content": "使用一个循环询问源文件。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.438,
+            0.827,
+            0.46
+          ],
+          "content": "以读模式依次打开每个源文件，并将其添加到目标文件的末尾。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.485,
+            0.908,
+            0.534
+          ],
+          "content": "为演示setvbuf()函数的用法，该程序将使用它指定一个不同的缓冲区大小。下一步是细化程序打开目标文件的步骤:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.129,
+            0.56,
+            0.569,
+            0.72
+          ],
+          "sub_type": "text",
+          "content": "1.以附加模式打开目标文件；\n2.如果打开失败，则退出程序；\n3.为该文件创建一个4096字节的缓冲区；\n4.如果创建失败，则退出程序。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.745,
+            0.625,
+            0.766
+          ],
+          "content": "与此类似，通过以下具体步骤细化拷贝部分:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.129,
+            0.791,
+            0.692,
+            0.905
+          ],
+          "sub_type": "text",
+          "content": "1.如果该文件与目标文件相同，则跳至下一个文件；\n2.如果以读模式无法打开文件，则跳至下一个文件；\n3.把文件内容添加至目标文件末尾。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "985"
+        }
+      ]
+    },
+    {
+      "page_idx": 985,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.061,
+            0.826,
+            0.083
+          ],
+          "content": "最后，程序回到目标文件的开始处，显示当前整个文件的内容。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.107,
+            0.909,
+            0.157
+          ],
+          "content": "作为练习，我们使用fread()和fwrite()函数进行拷贝。程序清单13.5给出了这个程序。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.228,
+            0.692,
+            0.901
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* append.c -- 把文件附加到另一个文件末尾 */\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#define BUFSIZE 4096\n#define SLEN 81\nvoid append(FILE *source, FILE *dest);\nchar *s_gets(char *st, int n);\nint main(void)\n{\nFILE *fa, *fs;      // fa 指向目标文件，fs 指向源文件\nint files = 0;          // 附加的文件数量\nchar file_app[SLEN];   // 目标文件名\nchar file_src[SLEN];   // 源文件名\nint ch;\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.129,
+                0.182,
+                0.439,
+                0.205
+              ],
+              "content": "程序清单13.5 append.c程序"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "986"
+        }
+      ]
+    },
+    {
+      "page_idx": 986,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.061,
+            0.725,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```c\nputs(\"Enter name of destination file:\");\ns_gets(file_app, SLEN);\nif ((fa = fopen(file_app, \"a+\")) == NULL)\n{\nfprintf(stderr, \"Can't open %s\\n\", file_app);\nexit(EXIT_FAILURE);\n}\nif (setvbuf(fa, NULL, _IOFBF, BUFSIZE) != 0)\n{\nfputs(\"Can't create output buffer\\n\", stderr);\nexit(EXIT_FAILURE);\n}\nputs(\"Enter name of first source file (empty line to quit):\");\nwhile (s_gets(file_src, SLEN) && file_src[0] != '\\0')\n{\nif (strcmp(file_src, file_app) == 0)\nfputs(\"Can't append file to itself\\n\", stderr);\nelse if ((fs = fopen(file_src, \"r\")) == NULL)\nfprintf(stderr, \"Can't open %s\\n\", file_src);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "987"
+        }
+      ]
+    },
+    {
+      "page_idx": 987,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.062,
+            0.606,
+            0.919
+          ],
+          "sub_type": "code",
+          "content": "```c\nelse\n{\nif (setvbuf(fs, NULL, _IOFBF, BUFSIZE) != 0)\n{\nfputs(\"Can't create input buffer\\n\", stderr);\ncontinue;\n}\nappend(fs, fa);\nif (ferror(fs) != 0)\nfprintf(stderr, \"Error in reading file %s.\\n\",\nfile_src);\nif (ferror(fa) != 0)\nfprintf(stderr, \"Error in writing file %s.\\n\",\nfile_app);\nfclose(fs);\nfiles++;\nprintf(\"File %s appended.\\n\", file_src);\nputs(\"Next file (empty line to quit):\");\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "988"
+        }
+      ]
+    },
+    {
+      "page_idx": 988,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.062,
+            0.791,
+            0.919
+          ],
+          "sub_type": "code",
+          "content": "```c\n}\nprintf(\"Done appending.%d files appended.\\n\", files);\nrewind(fa);\nprintf(\"%s contents:\\n\", file_app);\nwhile ((ch = getc(fa)) != EOF)\nputchar(ch);\nputs(\"Done displaying.\");\nfclose(fa);\nreturn 0;\n}\nvoid append(FILE *source, FILE *dest)\n{\nsize_t bytes;\nstatic char temp[BUFSIZE]; // 只分配一次\nwhile ((bytes = fread(temp, sizeof(char), BUFSIZE, source)) > 0)\nfwrite(temp, sizeof(char), bytes, dest);\n}\nchar * s_gets(char * st, int n)\n{\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "989"
+        }
+      ]
+    },
+    {
+      "page_idx": 989,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.692,
+            0.689
+          ],
+          "sub_type": "code",
+          "content": "```c\nchar * ret_val;\n\nchar * find;\n\nret_val = fgets(st, n, stdin);\n\nif (ret_val)\n\n{\n\nfind = strchr(st, '\\n');  // 查找换行符\n\nif (find)                      // 如果地址不是NULL,\n\n*find = '\\0';          // 在此处放置一个空字符\n\nelse\n\nwhile (getchar() != '\\n')\n\ncontinue;\n\n}\n\nreturn ret_val;\n\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.709,
+            0.909,
+            0.79
+          ],
+          "content": "如果setvbuf()无法创建缓冲区，则返回一个非零值，然后终止程序。可以用类似的代码为正在拷贝的文件创建一块4096字节的缓冲区。把NULL作为setvbuf()的第2个参数，便可让函数分配缓冲区的存储空间。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.812,
+            0.919,
+            0.892
+          ],
+          "content": "该程序获取文件名所用的函数是 s\\_gets()，而不是 scanf()，因为 scanf()会跳过空白，因此无法检测到空行。该程序还用s\\_gets()代替fgets()，因为后者在字符串中保留换行符。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.977
+          ],
+          "content": "990"
+        }
+      ]
+    },
+    {
+      "page_idx": 990,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.061,
+            0.599,
+            0.083
+          ],
+          "content": "以下代码防止程序把文件附加在自身末尾:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.109,
+            0.562,
+            0.177
+          ],
+          "sub_type": "code",
+          "content": "```txt\nif (strcmp(file_src, file_app) == 0)\n\nfputs(\"Can't append file to itself\\n\",stderr);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.2,
+            0.812,
+            0.222
+          ],
+          "content": "参数file\\_app表示目标文件名，file\\_src表示正在处理的文件名。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.247,
+            0.905,
+            0.296
+          ],
+          "content": "append()函数完成拷贝任务。该函数使用fread()和fwrite()一次拷贝4096字节，而不是一次拷贝1字节:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.322,
+            0.791,
+            0.622
+          ],
+          "sub_type": "code",
+          "content": "```txt\nvoid append(FILE *source, FILE *dest)\n{\nsize_t bytes;\nstatic char temp[BUFSIZE]; // 只分配一次\nwhile ((bytes = fread(temp, sizeof(char), BUFSIZE, source)) > 0)\nfwrite(temp, sizeof(char), bytes, dest);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.645,
+            0.918,
+            0.753
+          ],
+          "content": "因为是以附加模式打开由 dest 指定的文件，所以所有的源文件都被依次添加至目标文件的末尾。注意，temp数组具有静态存储期（意思是在编译时分配该数组，不是在每次调用append()函数时分配）和块作用域（意思是该数组属于它所在的函数私有）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.777,
+            0.916,
+            0.827
+          ],
+          "content": "该程序示例使用文本模式的文件。使用\"ab+\"和\"rb\"模式可以处理二进制文件。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.281,
+            0.854,
+            0.715,
+            0.877
+          ],
+          "level": 2,
+          "content": "13.7.9 用二进制I/O进行随机访问"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.901,
+            0.9,
+            0.923
+          ],
+          "content": "随机访问是用二进制I/O写入二进制文件最常用的方式，我们来看一个"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.518,
+            0.976
+          ],
+          "content": "991"
+        }
+      ]
+    },
+    {
+      "page_idx": 991,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.884,
+            0.112
+          ],
+          "continues_prev": true,
+          "content": "简短的例子。程序清单13.6中的程序创建了一个储存double类型数字的文件，然后让用户访问这些内容。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.182,
+            0.6,
+            0.715
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* randbin.c -- 用二进制I/O进行随机访问 */\n#include <stdio.h>\n#include <stdlib.h>\n#define ARSIZE 1000\nint main()\n{\ndouble numbers[ARSIZE];\ndouble value;\nconst char * file = \"numbers.dat\";\nint i;\nlong pos;\nFILE *iofile;\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.129,
+                0.136,
+                0.441,
+                0.158
+              ],
+              "content": "程序清单13.6 randbin.c程序"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.738,
+            0.434,
+            0.759
+          ],
+          "content": "// 创建一组 double类型的值"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.785,
+            0.51,
+            0.854
+          ],
+          "sub_type": "code",
+          "content": "```c\nfor (i = 0; i < ARSIZE; i++)\nnumbers[i] = 100.0 * i + 1.0 / (i + 1);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.877,
+            0.309,
+            0.898
+          ],
+          "content": "// 尝试打开文件"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.977
+          ],
+          "content": "992"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "C Primer Plus 第6版 中文版",
+      "authors": [
+        "[美]史蒂芬·普拉达（Stephen Prata）"
+      ],
+      "languages": [
+        "zh"
+      ],
+      "publisher": "人民邮电出版社",
+      "created_at": "2017-02-18T06:13:34+00:00",
+      "modified_at": "2018-09-06T19:39:18+08:00",
+      "creator_application": "calibre 2.79.1 [https://calibre-ebook.com]",
+      "producer_application": "calibre 2.79.1 [https://calibre-ebook.com]",
+      "page_count": 1635,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 960,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 961,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 962,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 963,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 964,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 965,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 966,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 967,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 968,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 969,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 970,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 971,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 972,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 973,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 974,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 975,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 976,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 977,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 978,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 979,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 980,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 981,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 982,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 983,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 984,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 985,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 986,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 987,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 988,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 989,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 990,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 991,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

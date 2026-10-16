@@ -1,0 +1,3385 @@
+{
+  "pages": [
+    {
+      "page_idx": 96,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.078,
+            0.061,
+            0.868,
+            0.113
+          ],
+          "sub_type": "code",
+          "content": "```txt\nprintf(\"n = %d, n squared = %d, n cubed = %d\\n\", n, n2, n3);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.137,
+            0.241,
+            0.205
+          ],
+          "sub_type": "code",
+          "content": "```scss\nreturn 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.228,
+            0.346,
+            0.249
+          ],
+          "content": "该程序的输出如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.276,
+            0.5,
+            0.297
+          ],
+          "sub_type": "code",
+          "content": "```txt\nn = 5, n squared = 25, n cubed = 625\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.321,
+            0.919,
+            0.429
+          ],
+          "content": "如果对简单的立方比较熟悉，就会注意到 625 不对。下一步是跟踪程序的执行步骤，找出程序如何得出这个答案。对于本例，通过查看代码就会发现其中的错误，但是，还应该学习更系统的方法。方法之一是，把自己想象成计算机，跟着程序的步骤一步一步地执行。下面，我们来试试这种方法。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.453,
+            0.918,
+            0.646
+          ],
+          "content": "main()函数体一开始就声明了3个变量:n、n2、n3。你可以画出3个盒子并把变量名写在盒子上来模拟这种情况（见图2.6）。接下来，程序把5赋给变量n。你可以在标签为n的盒子里写上5。接着，程序把n和n相乘，并把乘积赋给n2。因此，查看标签为n的盒子，其值是5，5乘以5得25，于是把25放进标签为 n2 的盒子里。为了模拟下一条语句 $(n3 = n2 * n2)$ ），查看 n2 盒子，发现其值是 25。25乘以25得625，把625放进标签为n3的盒子。原来如此！程序中计算的是n2的平方，不是用n2乘以n得到n的3次方。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.67,
+            0.918,
+            0.721
+          ],
+          "content": "对于上面的程序示例，检查程序的过程可能过于繁琐。但是，用这种方法一步一步查看程序的执行情况，通常是发现程序问题所在的良方。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.484,
+            0.959,
+            0.514,
+            0.976
+          ],
+          "content": "97"
+        }
+      ]
+    },
+    {
+      "page_idx": 97,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.092,
+            0.079,
+            0.337,
+            0.1
+          ],
+          "content": "执行main()中的每一行"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.09,
+            0.125,
+            0.355,
+            0.328
+          ],
+          "sub_type": "text_image",
+          "content": "int n, n2, n3;\nn = 5;\nn2 = n*n;\nn3 = n2*n2;",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_97_image_1.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.372,
+            0.079,
+            0.918,
+            0.397
+          ],
+          "sub_type": "text_image",
+          "content": "变量的状态\n声明变量 ▶ ? n  n2  ? n3\n把变量n设置为5 ▶ 5 n  ? n2  ?\n把变量n2设置为n的平方 ▶ 5 n  25 n2  ?\n把变量n3设置为n2的平方，但本应设置为n*n2 ▶ 5 n  25 n2  625 n3",
+          "captions": [
+            {
+              "bbox": [
+                0.387,
+                0.416,
+                0.612,
+                0.434
+              ],
+              "content": "图2.6 跟踪程序的执行步骤"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_97_image_2.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.4,
+            0.457,
+            0.598,
+            0.481
+          ],
+          "level": 2,
+          "content": "2.7.3 程序状态"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.505,
+            0.92,
+            0.586
+          ],
+          "content": "通过逐步跟踪程序的执行步骤，并记录每个变量，便可监视程序的状态。程序状态（program state）是在程序的执行过程中，某给定点上所有变量值的集合。它是计算机当前状态的一个快照。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.608,
+            0.92,
+            0.746
+          ],
+          "content": "我们刚刚讨论了一种跟踪程序状态的方法:自己模拟计算机逐步执行程序。但是，如果程序中有10000次循环，这种方法恐怕行不通。不过，你可以跟踪一小部分循环，看看程序是否按照预期的方式执行。另外，还要考虑一种情况:你很可能按照自己所想去执行程序，而不是根据实际写出来的代码去执行。因此，要尽量忠实代码来模拟。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.769,
+            0.919,
+            0.85
+          ],
+          "content": "定位语义错误的另一种方法是:在程序中的关键点插入额外的 printf()语句，以监视制定变量值的变化。通过查看值的变化可以了解程序的执行情况。对程序的执行满意后，便可删除额外的 printf()语句，然后重新编译。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.872,
+            0.919,
+            0.924
+          ],
+          "content": "检测程序状态的第3种方法是使用调试器。调试器（debugger）是一种程序，让你一步一步运行另一个程序，并检查该程序变量的值。调试器有不"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.485,
+            0.96,
+            0.514,
+            0.976
+          ],
+          "content": "98"
+        }
+      ]
+    },
+    {
+      "page_idx": 98,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.06,
+            0.919,
+            0.169
+          ],
+          "continues_prev": true,
+          "content": "同的使用难度和复杂度。较高级的调试器会显示正在执行的源代码行号。这在检查有多条执行路径的程序时很方便，因为很容易知道正在执行哪条路径。如果你的编译器自带调试器，现在可以花点时间学会怎么使用它。例如，试着调试一下程序清单2.4。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.485,
+            0.959,
+            0.515,
+            0.976
+          ],
+          "content": "99"
+        }
+      ]
+    },
+    {
+      "page_idx": 99,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.304,
+            0.065,
+            0.693,
+            0.091
+          ],
+          "level": 2,
+          "content": "2.8 关键字和保留标识符"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.123,
+            0.919,
+            0.259
+          ],
+          "content": "关键字是C语言的词汇。它们对C而言比较特殊，不能用它们作为标识符（如，变量名）。许多关键字用于指定不同的类型，如 int。还有一些关键字（如，if）用于控制程序中语句的执行顺序。在表 2.2 中所列的C语言关键字中，粗体表示的是C90标准新增的关键字，斜体表示的C99标准新增的关键字，粗斜体表示的是C11标准新增的关键字。"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.094,
+            0.313,
+            0.898,
+            0.396
+          ],
+          "content": "| auto | extern | short | while |\n| --- | --- | --- | --- |\n| break | float | signed | _Alignas |\n| case | for | sizeof | _Alignof |\n| char | goto | static | _Atomic |",
+          "captions": [
+            {
+              "bbox": [
+                0.42,
+                0.28,
+                0.579,
+                0.298
+              ],
+              "content": "表2.2 ISO C关键字"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_99_table_3.jpg"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.089,
+            0.447,
+            0.903,
+            0.595
+          ],
+          "content": "| const | if | struct | _Bool |\n| --- | --- | --- | --- |\n| continue | inline | switch | _Complex |\n| default | int | typedef | _Generic |\n| do | long | union | _Imaginary |\n| double | register | unsigned | _Noreturn |\n| else | restrict | void | _Static_assert |\n| enum | return | volatile | _Thread_local |",
+          "captions": [
+            {
+              "bbox": [
+                0.875,
+                0.415,
+                0.918,
+                0.43
+              ],
+              "content": "续表"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_99_table_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.618,
+            0.92,
+            0.783
+          ],
+          "content": "如果使用关键字不当（如，用关键字作为变量名），编译器会将其视为语法错误。还有一些保留标识符（reserved identifier），C语言已经指定了它们的用途或保留它们的使用权，如果你使用这些标识符来表示其他意思会导致一些问题。因此，尽管它们也是有效的名称，不会引起语法错误，也不能随便使用。保留标识符包括那些以下划线字符开头的标识符和标准库函数名，如printf()。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "100"
+        }
+      ]
+    },
+    {
+      "page_idx": 100,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.395,
+            0.065,
+            0.6,
+            0.091
+          ],
+          "level": 2,
+          "content": "2.9 关键概念"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.122,
+            0.919,
+            0.257
+          ],
+          "content": "编程是一件富有挑战性的事情。程序员要具备抽象和逻辑的思维，并谨慎地处理细节问题（编译器会强迫你注意细节问题）。平时和朋友交流时，可能用错几个单词，犯一两个语法错误，或者说几句不完整的句子，但是对方能明白你想说什么。而编译器不允许这样，对它而言，几乎正确仍然是错误。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.283,
+            0.918,
+            0.334
+          ],
+          "content": "编译器不会在下面讲到的概念性问题上帮助你。因此，本书在这一章中介绍一些关键概念帮助读者弥补这部分的内容。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.358,
+            0.918,
+            0.577
+          ],
+          "content": "在本章中，读者的目标应该是理解什么是C程序。可以把程序看作是你希望计算机如何完成任务的描述。编译器负责处理一些细节工作，例如把你要计算机完成的任务转换成底层的机器语言（如果从量化方面来解释编译器所做的工作，它可以把1KB的源文件创建成60KB的可执行文件；即使是一个很简单的C程序也要用大量的机器语言来表示）。由于编译器不具有真正的智能，所以你必须用编译器能理解的术语表达你的意图，这些术语就是C语言标准规定的形式规则（尽管有些约束，但总比直接用机器语言方便得多）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.603,
+            0.918,
+            0.682
+          ],
+          "content": "编译器希望接收到特定格式的指令，我们在本章已经介绍过。作为程序员的任务是，在符合 C标准的编译器框架中，表达你希望程序应该如何完成任务的想法。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.518,
+            0.976
+          ],
+          "content": "101"
+        }
+      ]
+    },
+    {
+      "page_idx": 101,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.386,
+            0.065,
+            0.61,
+            0.091
+          ],
+          "level": 2,
+          "content": "2.10 本章小结"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.123,
+            0.896,
+            0.201
+          ],
+          "content": "C程序由一个或多个C函数组成。每个C程序必须包含一个main()函数，这是C程序要调用的第1个函数。简单的函数由函数头和后面的一对花括号组成，花括号中是由声明、语句组成的函数体。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.226,
+            0.919,
+            0.36
+          ],
+          "content": "在C语言中，大部分语句都以分号结尾。声明为变量创建变量名和标识该变量中储存的数据类型。变量名是一种标识符。赋值表达式语句把值赋给变量，或者更一般地说，把值赋给存储空间。函数表达式语句用于调用指定的已命名函数。调用函数执行完毕后，程序会返回到函数调用后面的语句继续执行。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.387,
+            0.673,
+            0.408
+          ],
+          "content": "printf()函数用于输出想要表达的内容和变量的值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.433,
+            0.918,
+            0.54
+          ],
+          "content": "一门语言的语法是一套规则，用于管理语言中各有效语句组合在一起的方式。语句的语义是语句要表达的意思。编译器可以检测出语法错误，但是程序里的语义错误只有在编译完之后才能从程序的行为中表现出来。检查程序是否有语义错误要跟踪程序的状态，即程序每执行一步后所有变量的值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.564,
+            0.467,
+            0.586
+          ],
+          "content": "最后，关键字是C语言的词汇。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "102"
+        }
+      ]
+    },
+    {
+      "page_idx": 102,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.405,
+            0.065,
+            0.592,
+            0.091
+          ],
+          "level": 2,
+          "content": "2.11 复习题"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.123,
+            0.467,
+            0.143
+          ],
+          "content": "复习题的参考答案在附录A中。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.128,
+            0.168,
+            0.877,
+            0.33
+          ],
+          "sub_type": "text",
+          "content": "1.C语言的基本模块是什么？\n2.什么是语法错误？写出一个英语例子和C语言例子。\n3.什么是语义错误？写出一个英语例子和C语言例子。\n4.Indiana Sloth编写了下面的程序，并征求你的意见。请帮助他评定。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.356,
+            0.622,
+            0.424
+          ],
+          "sub_type": "code",
+          "content": "```txt\ninclude studio.h\n\nint main{void} /* 该程序打印一年有多少周 /*\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.448,
+            0.199,
+            0.513
+          ],
+          "sub_type": "code",
+          "content": "```txt\n(\nint s\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.541,
+            0.25,
+            0.561
+          ],
+          "sub_type": "code",
+          "content": "```txt\ns := 56;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.128,
+            0.587,
+            0.601,
+            0.654
+          ],
+          "sub_type": "code",
+          "content": "```txt\nprint(There are s weeks in a year.);\nreturn 0;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.678,
+            0.873,
+            0.727
+          ],
+          "content": "5.假设下面的4个例子都是完整程序中的一部分，它们都输出什么结果？"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.128,
+            0.754,
+            0.638,
+            0.915
+          ],
+          "sub_type": "text",
+          "content": "a. printf(\"Baa Baa Black Sheep.\");\nprintf(\"Have you any wool?\\n\");\nb. printf(\"Begone!\\nO creature of lard!\\n\");\nc.printf(\"What?\\nNo/nfish?\\n\");"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.519,
+            0.976
+          ],
+          "content": "103"
+        }
+      ]
+    },
+    {
+      "page_idx": 103,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.063,
+            0.254,
+            0.083
+          ],
+          "content": "d.int num;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.109,
+            0.261,
+            0.129
+          ],
+          "content": "num = 2;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.155,
+            0.785,
+            0.177
+          ],
+          "content": "printf(\"%d + %d = %d\", num, num, num + num);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.2,
+            0.797,
+            0.222
+          ],
+          "content": "6.在main、int、function、char、=中，哪些是C语言的关键字？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.246,
+            0.909,
+            0.296
+          ],
+          "content": "7.如何以下面的格式输出变量words和lines的值（这里，3020和350代表两个变量的值）？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.322,
+            0.522,
+            0.342
+          ],
+          "content": "There were 3020 words and 350 lines."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.368,
+            0.34,
+            0.389
+          ],
+          "content": "8.考虑下面的程序:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.415,
+            0.343,
+            0.435
+          ],
+          "content": "#include &lt;stdio.h&gt;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.461,
+            0.297,
+            0.482
+          ],
+          "content": "int main(void)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.508,
+            0.148,
+            0.529
+          ],
+          "content": "{"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.554,
+            0.248,
+            0.574
+          ],
+          "content": "int a, b;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.601,
+            0.231,
+            0.62
+          ],
+          "content": "a = 5;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.646,
+            0.314,
+            0.666
+          ],
+          "content": "b = 2; /\\* 第7行 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.692,
+            0.312,
+            0.712
+          ],
+          "content": "b = a; /\\* 第8行 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.738,
+            0.312,
+            0.759
+          ],
+          "content": "a = b; /\\* 第9行 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.785,
+            0.432,
+            0.806
+          ],
+          "content": "printf(\"%d %d\\n\", b, a);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.833,
+            0.238,
+            0.852
+          ],
+          "content": "return 0;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.879,
+            0.147,
+            0.898
+          ],
+          "content": "}"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "104"
+        }
+      ]
+    },
+    {
+      "page_idx": 104,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.061,
+            0.817,
+            0.083
+          ],
+          "content": "请问，在执行完第7、第8、第9行后，程序的状态分别是什么？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.108,
+            0.341,
+            0.129
+          ],
+          "content": "9.考虑下面的程序:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.155,
+            0.341,
+            0.174
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.202,
+            0.296,
+            0.222
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint main(void)\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.132,
+            0.248,
+            0.149,
+            0.269
+          ],
+          "sub_type": "code",
+          "content": "```txt\n{\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.295,
+            0.247,
+            0.316
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint x, y;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.34,
+            0.243,
+            0.36
+          ],
+          "sub_type": "code",
+          "content": "```txt\nx = 10;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.385,
+            0.363,
+            0.407
+          ],
+          "sub_type": "code",
+          "content": "```txt\ny=5; /*第7行*/\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.432,
+            0.337,
+            0.454
+          ],
+          "sub_type": "algorithm",
+          "content": "$y=x+y;/*第8行*/$",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.478,
+            0.347,
+            0.5
+          ],
+          "sub_type": "code",
+          "content": "```txt\nx = x*y; /*第9行*/\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.525,
+            0.431,
+            0.547
+          ],
+          "sub_type": "code",
+          "content": "```txt\nprintf(\"%d %d\\n\", x, y);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.13,
+            0.572,
+            0.238,
+            0.592
+          ],
+          "sub_type": "code",
+          "content": "```txt\nreturn 0;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.132,
+            0.619,
+            0.147,
+            0.639
+          ],
+          "sub_type": "code",
+          "content": "```txt\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.663,
+            0.817,
+            0.684
+          ],
+          "content": "请问，在执行完第7、第8、第9行后，程序的状态分别是什么？"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "105"
+        }
+      ]
+    },
+    {
+      "page_idx": 105,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.385,
+            0.065,
+            0.61,
+            0.091
+          ],
+          "level": 2,
+          "content": "2.12 编程练习"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.122,
+            0.92,
+            0.229
+          ],
+          "content": "纸上得来终觉浅，绝知此事要躬行。读者应该试着编写一两个简单的程序，体会一下编写程序是否和阅读本章介绍的这样轻松。题目中会给出一些建议，但是应该尽量自己思考这些问题。一些编程答案练习的答案可在出版商网站获取。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.254,
+            0.918,
+            0.36
+          ],
+          "content": "1.编写一个程序，调用一次 printf()函数，把你的姓名打印在一行。再调用一次 printf()函数，把你的姓名分别打印在两行。然后，再调用两次printf()函数，把你的姓名打印在一行。输出应如下所示（当然要把示例的内容换成你的姓名）:"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.149,
+            0.391,
+            0.858,
+            0.513
+          ],
+          "content": "| Gustav Mahler | ←第1次打印的内容 |\n| --- | --- |\n| Gustav | ←第2次打印的内容 |\n| Mahler | ←仍是第2次打印的内容 |\n| Gustav Mahler | ←第3次和第4次打印的内容 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_105_table_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.538,
+            0.57,
+            0.558
+          ],
+          "content": "2.编写一个程序，打印你的姓名和地址。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.584,
+            0.91,
+            0.632
+          ],
+          "content": "3.编写一个程序把你的年龄转换成天数，并显示这两个值。这里不用考虑闰年的问题。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.659,
+            0.492,
+            0.68
+          ],
+          "content": "4.编写一个程序，生成以下输出:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.706,
+            0.517,
+            0.727
+          ],
+          "content": "For he's a jolly good fellow!"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.752,
+            0.517,
+            0.773
+          ],
+          "content": "For he's a jolly good fellow!"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.799,
+            0.517,
+            0.82
+          ],
+          "content": "For he's a jolly good fellow!"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.845,
+            0.439,
+            0.866
+          ],
+          "content": "Which nobody can deny!"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.89,
+            0.917,
+            0.912
+          ],
+          "content": "除了 main()函数以外，该程序还要调用两个自定义函数:一个名为"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "106"
+        }
+      ]
+    },
+    {
+      "page_idx": 106,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.919,
+            0.112
+          ],
+          "continues_prev": true,
+          "content": "jolly()，用于打印前 3 条消息，调用一次打印一条；另一个函数名为deny()，打印最后一条消息。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.136,
+            0.492,
+            0.158
+          ],
+          "content": "5.编写一个程序，生成以下输出:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.184,
+            0.468,
+            0.204
+          ],
+          "content": "Brazil, Russia, India, China"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.23,
+            0.283,
+            0.25
+          ],
+          "content": "India, China,"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.276,
+            0.296,
+            0.295
+          ],
+          "content": "Brazil, Russia"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.321,
+            0.918,
+            0.4
+          ],
+          "content": "除了main()以外，该程序还要调用两个自定义函数:一个名为br()，调用一次打印一次“Brazil, Russia”；另一个名为ic()，调用一次打印一次“India, China”。其他内容在main()函数中完成。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.078,
+            0.424,
+            0.915,
+            0.576
+          ],
+          "sub_type": "text",
+          "content": "6.编写一个程序，创建一个整型变量toes，并将toes设置为10。程序中还要计算toes的两倍和toes的平方。该程序应打印3个值，并分别描述以示区分。\n7.许多研究表明，微笑益处多多。编写一个程序，生成以下格式的输出:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.604,
+            0.333,
+            0.623
+          ],
+          "content": "Smile!Smile!Smile!"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.651,
+            0.267,
+            0.669
+          ],
+          "content": "Smile!Smile!"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.696,
+            0.202,
+            0.715
+          ],
+          "content": "Smile!"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.742,
+            0.905,
+            0.791
+          ],
+          "content": "该程序要定义一个函数，该函数被调用一次打印一次“Smile!”，根据程序的需要使用该函数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.816,
+            0.918,
+            0.925
+          ],
+          "content": "8.在C语言中，函数可以调用另一个函数。编写一个程序，调用一个名为one\\_three()的函数。该函数在一行打印单词“one”，再调用第2个函数two()，然后在另一行打印单词“three”。two()函数在一行显示单词“two”。main()函数在调用 one\\_three()函数前要打印短语“starting now:”，并在调用完"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "107"
+        }
+      ]
+    },
+    {
+      "page_idx": 107,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.061,
+            0.702,
+            0.083
+          ],
+          "continues_prev": true,
+          "content": "毕后显示短语“done!”。因此，该程序的输出应如下所示:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.109,
+            0.286,
+            0.314
+          ],
+          "sub_type": "code",
+          "content": "```txt\nstarting now:\none\ntwo\nthree\ndone!\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.078,
+            0.355,
+            0.918,
+            0.793
+          ],
+          "sub_type": "text",
+          "content": "[1].原书图中叙述有误。根据C11标准，C语言有6种语句，已在图中更正。译者注\n[2].C语言是通过赋值运算符而不是赋值语句完成赋值操作。根据C标准，C语言并没有所谓的“赋值语句”，本书及一些其他书籍中提到的“赋值语句”实际上是表达式语句（C语言的6种基本语句之一）。本书把“赋值语句”均译为“赋值表达式语句”，以提醒初学者注意。——译者注\n[3].在C语言中，return语句是一种跳转语句。——译者注\n[4].市面上许多书籍（包括本书）都把这种语句叫作“函数调用语句”，但是历年的C标准中从来没有函数调用语句！值得一提的是，函数调用本身是一个表达式，圆括号是运算符，圆括号左边的函数名是运算对象。在C11标准中，这样的表达式是一种后缀表达式。在表达式末尾加上分号，就成了表达式语句。请初学者注意，这样的“函数调用语句”实质是表达式语句。本书的错误之处已在翻译过程中更正。——译者注\n[5].音寻，也称为寻。航海用的深度单位，1英寻=6英尺=1.8米，通常用在海图上测量水深。——译者注\n[6].要理解该句子存在语法错误，需要具备基本的英文语法知识。——译者注"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "108"
+        }
+      ]
+    },
+    {
+      "page_idx": 108,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.329,
+            0.07,
+            0.67,
+            0.108
+          ],
+          "level": 2,
+          "content": "第3章数据和C"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.149,
+            0.357,
+            0.17
+          ],
+          "content": "本章介绍以下内容:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.197,
+            0.905,
+            0.248
+          ],
+          "content": "关键字:int 、short、long、unsigned、char、float、double、\\_Bool、Complex、\\_Imaginary"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.271,
+            0.315,
+            0.293
+          ],
+          "content": "运算符:sizeof()"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.317,
+            0.282,
+            0.338
+          ],
+          "content": "函数:scanf()"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.363,
+            0.463,
+            0.384
+          ],
+          "content": "整数类型和浮点数类型的区别"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.41,
+            0.741,
+            0.43
+          ],
+          "content": "如何书写整型和浮点型常数，如何声明这些类型的变量"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.456,
+            0.655,
+            0.479
+          ],
+          "content": "如何使用printf()和scanf()函数读写不同类型的值"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.502,
+            0.918,
+            0.582
+          ],
+          "content": "程序离不开数据。把数字、字母和文字输入计算机，就是希望它利用这些数据完成某些任务。例如，需要计算一份利息或显示一份葡萄酒商的排序列表。本章除了介绍如何读取数据外，还将教会读者如何操控数据。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.605,
+            0.919,
+            0.713
+          ],
+          "content": "C 语言提供两大系列的多种数据类型。本章详细介绍两大数据类型:整数类型和浮点数类型，讲解这些数据类型是什么、如何声明它们、如何以及何时使用它们。除此之外，还将介绍常量和变量的区别。读者很快就能看到第1个交互式程序。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "109"
+        }
+      ]
+    },
+    {
+      "page_idx": 109,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.394,
+            0.065,
+            0.602,
+            0.091
+          ],
+          "level": 2,
+          "content": "3.1 示例程序"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.122,
+            0.919,
+            0.201
+          ],
+          "content": "本章仍从一个简单的程序开始。如果发现有不熟悉的内容，别担心，我们稍后会详细解释。该程序的意图比较明了，请试着编译并运行程序清单3.1中的源代码。为了节省时间，在输入源代码时可省略注释。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.27,
+            0.766,
+            0.9
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* platinum.c -- your weight in platinum */\n#include <stdio.h>\n\nint main(void)\n{\nfloat weight; /* 你的体重 */\nfloat value; /* 相等重量的白金价值 */\nprintf(\"Are you worth your weight in platinum?\\n\");\nprintf(\"Let's check it out.\\n\");\nprintf(\"Please enter your weight in pounds: \");\n/* 获取用户的输入 */\nscanf(\"%f\", &weight);\n/* 假设白金的价格是每盎司$1700 */\n/* 14.5833用于把英镑常衡盎司转换为金衡盎司[1]*/\nvalue = 1700.0 * weight * 14.5833;\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.128,
+                0.226,
+                0.441,
+                0.249
+              ],
+              "content": "程序清单3.1 platinum.c程序"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "110"
+        }
+      ]
+    },
+    {
+      "page_idx": 110,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.904,
+            0.271
+          ],
+          "sub_type": "code",
+          "content": "```perl\nprintf(\"Your weight in platinum is worth \\$%.2f.\\n\", value);\nprintf(\"You are easily worth that! If platinum prices drop,\\n\");\nprintf(\"eat more to maintain your value.\\n\");\nreturn 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.292,
+            0.327,
+            0.314
+          ],
+          "content": "提示错误与警告"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.339,
+            0.919,
+            0.503
+          ],
+          "content": "如果输入程序时打错（如，漏了一个分号），编译器会报告语法错误消息。然而，即使输入正确无误，编译器也可能给出一些警告，如“警告:从double类型转换成float类型可能会丢失数据”。错误消息表明程序中有错，不能进行编译。而警告则表明，尽管编写的代码有效，但可能不是程序员想要的。警告并不终止编译。特殊的警告与C如何处理1700.0这样的值有关。本例不必理会这个问题，本章稍后会进一步说明。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.528,
+            0.912,
+            0.606
+          ],
+          "content": "输入该程序时，可以把1700.0改成贵金属白金当前的市价，但是不要改动14.5833，该数是1英镑的金衡盎司数（金衡盎司用于衡量贵金属，而英镑常衡盎司用于衡量人的体重）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.631,
+            0.918,
+            0.794
+          ],
+          "content": "注意，“enter your weight”的意思是输入你的体重，然后按下Enter或Return键（不要键入体重后就一直等着）。按下Enter键是告知计算机，你已完成输入数据。该程序需要你输入一个数字（如，155），而不是单词（如，too much）。如果输入字母而不是数字，会导致程序出问题。这个问题要用if语句来解决（详见第7章），因此请先输入数字。下面是程序的输出示例:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.822,
+            0.648,
+            0.843
+          ],
+          "content": "Are you worth your weight in platinum?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.868,
+            0.367,
+            0.887
+          ],
+          "content": "Let's check it out."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.914,
+            0.648,
+            0.934
+          ],
+          "content": "Please enter your weight in pounds: 156"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.517,
+            0.976
+          ],
+          "content": "111"
+        }
+      ]
+    },
+    {
+      "page_idx": 111,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.062,
+            0.72,
+            0.083
+          ],
+          "content": "Your weight in platinum is worth \\$3867491.25."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.109,
+            0.785,
+            0.13
+          ],
+          "content": "You are easily worth that! If platinum prices drop,"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.156,
+            0.549,
+            0.176
+          ],
+          "content": "eat more to maintain your value."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.2,
+            0.241,
+            0.22
+          ],
+          "content": "程序调整"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.246,
+            0.738,
+            0.268
+          ],
+          "content": "即使用第2章介绍的方法，在程序中添加下面一行代码:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.295,
+            0.232,
+            0.316
+          ],
+          "content": "getchar();"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.339,
+            0.906,
+            0.388
+          ],
+          "content": "程序的输出是否依旧在屏幕上一闪而过？本例，需要调用两次getchar()函数:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.416,
+            0.232,
+            0.436
+          ],
+          "content": "getchar();"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.462,
+            0.232,
+            0.482
+          ],
+          "content": "getchar();"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.507,
+            0.918,
+            0.613
+          ],
+          "content": "getchar()函数读取下一个输入字符，因此程序会等待用户输入。在这种情况下，键入 156 并按下Enter（或Return）键（发送一个换行符），然后scanf()读取键入的数字，第1个getchar()读取换行符，第2个getchar()让程序暂停，等待输入。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.128,
+            0.638,
+            0.376,
+            0.659
+          ],
+          "level": 2,
+          "content": "3.1.1 程序中的新元素"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.685,
+            0.573,
+            0.706
+          ],
+          "content": "程序清单3.1中包含C语言的一些新元素。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.731,
+            0.918,
+            0.81
+          ],
+          "content": "注意，代码中使用了一种新的变量声明。前面的例子中只使用了整数类型的变量（int），但是本例使用了浮点数类型（float）的变量，以便处理更大范围的数据。float 类型可以储存带小数的数字。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.834,
+            0.852,
+            0.855
+          ],
+          "content": "程序中演示了常量的几种新写法。现在可以使用带小数点的数了。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.88,
+            0.91,
+            0.93
+          ],
+          "content": "为了打印新类型的变量，在printf()中使用%f来处理浮点值。%.2f中的.2用于精确控制输出，指定输出的浮点数只显示小数点后面两位。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "112"
+        }
+      ]
+    },
+    {
+      "page_idx": 112,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.919,
+            0.169
+          ],
+          "content": "scanf()函数用于读取键盘的输入。%f说明scanf()要读取用户从键盘输入的浮点数，&weight告诉 scanf()把输入的值赋给名为 weight 的变量。scanf()函数使用&符号表明找到 weight变量的地点。下一章将详细讨论&。就目前而言，请按照这样写。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.193,
+            0.919,
+            0.414
+          ],
+          "content": "也许本程序最突出的新特点是它的交互性。计算机向用户询问信息，然后用户输入数字。与非交互式程序相比，交互式程序用起来更有趣。更重要的是，交互式使得程序更加灵活。例如，示例程序可以使用任何合理的体重，而不只是 156磅。不必重写程序，就可以根据不同体重进行计算。scanf()和printf()函数用于实现这种交互。scanf()函数读取用户从键盘输入的数据，并把数据传递给程序；printf()函数读取程序中的数据，并把数据显示在屏幕上。把两个函数结合起来，就可以建立人机双向通信（见图 3.1），这让使用计算机更加饶有趣味。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.152,
+            0.438,
+            0.871,
+            0.804
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  subgraph ProgramBody[\"程序体\"]\n    A[\"/*platinum.c* / int main(void) { scanf(&quot;-----) printf(&quot;Are you--) printf(-----) return 0; }\"]\n  end\n  \n  subgraph Output[\"显示程序输出\"]\n    B[\"Are you ---\"]\n  end\n  \n  A -->|\"获取程序输入\"| B\n  B -->|\"显示程序输出\"| A\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.353,
+                0.845,
+                0.645,
+                0.863
+              ],
+              "content": "图3.1 程序中的scanf()和printf()函数"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_112_image_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.884,
+            0.918,
+            0.933
+          ],
+          "content": "本章着重解释上述新特性中的前两项:各种数据类型的变量和常量。第4章将介绍后3项。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.519,
+            0.976
+          ],
+          "content": "113"
+        }
+      ]
+    },
+    {
+      "page_idx": 113,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.34,
+            0.065,
+            0.658,
+            0.091
+          ],
+          "level": 2,
+          "content": "3.2 变量与常量数据"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.122,
+            0.924,
+            0.374
+          ],
+          "content": "在程序的指导下，计算机可以做许多事情，如数值计算、名字排序、执行语言或视频命令、计算彗星轨道、准备邮件列表、拨电话号码、画画、做决策或其他你能想到的事情。要完成这些任务，程序需要使用数据，即承载信息的数字和字符。有些数据类型在程序使用之前已经预先设定好了，在整个程序的运行过程中没有变化，这些称为常量（constant）。其他数据类型在程序运行期间可能会改变或被赋值，这些称为变量（variable）。在示例程序中，weight 是一个变量，14.5833 是一个常量。那么，1700.0 是常量还是变量？在现实生活中，白金的价格不会是常量，但是在程序中，像1700.0这样的价格被视为常量。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "114"
+        }
+      ]
+    },
+    {
+      "page_idx": 114,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.285,
+            0.065,
+            0.713,
+            0.091
+          ],
+          "level": 2,
+          "content": "3.3 数据:数据类型关键字"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.123,
+            0.919,
+            0.344
+          ],
+          "content": "不仅变量和常量不同，不同的数据类型之间也有差异。一些数据类型表示数字，一些数据类型表示字母（更普遍地说是字符）。C通过识别一些基本的数据类型来区分和使用这些不同的数据类型。如果数据是常量，编译器一般通过用户书写的形式来识别类型（如，42是整数，42.100是浮点数）。但是，对变量而言，要在声明时指定其类型。稍后会详细介绍如何声明变量。现在，我们先来了解一下 C语言的基本类型关键字。K&C给出了7个与类型相关的关键字。C90标准添加了2个关键字，C99标准又添加了3个关键字（见表3.1）。"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.097,
+            0.4,
+            0.912,
+            0.568
+          ],
+          "content": "| 最初 K&amp;R 给出的关键字 | C90 标准添加的关键字 | C99 标准添加的关键字 |\n| --- | --- | --- |\n| int | signed | _Bool |\n| long | void | _Complex |\n| short |  | _Imaginary |\n| unsigned |  |  |\n| char |  |  |\n| float |  |  |\n| double |  |  |",
+          "captions": [
+            {
+              "bbox": [
+                0.371,
+                0.366,
+                0.625,
+                0.383
+              ],
+              "content": "表3.1 C语言的数据类型关键字"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_114_table_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.59,
+            0.905,
+            0.756
+          ],
+          "content": "在C语言中，用int关键字来表示基本的整数类型。后3个关键字（long、short和unsigned）和C90新增的signed用于提供基本整数类型的变式，例如unsigned short int和long long int。char关键字用于指定字母和其他字符（如，#、\\$、%和\\*）。另外，char类型也可以表示较小的整数。float、double和long double表示带小数点的数。\\_Bool类型表示布尔值（true或false），\\_complex和\\_Imaginary分别表示复数和虚数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.779,
+            0.894,
+            0.829
+          ],
+          "content": "通过这些关键字创建的类型，按计算机的储存方式可分为两大基本类型:整数类型和浮点数类型。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.854,
+            0.293,
+            0.874
+          ],
+          "level": 2,
+          "content": "位、字节和字"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.899,
+            0.918,
+            0.922
+          ],
+          "content": "位、字节和字是描述计算机数据单元或存储单元的术语。这里主要指存"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.519,
+            0.976
+          ],
+          "content": "115"
+        }
+      ]
+    },
+    {
+      "page_idx": 115,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.062,
+            0.172,
+            0.081
+          ],
+          "content": "储单元。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.108,
+            0.9,
+            0.187
+          ],
+          "content": "最小的存储单元是位（bit），可以储存0或1（或者说，位用于设置“开”或“关”）。虽然1位储存的信息有限，但是计算机中位的数量十分庞大。位是计算机内存的基本构建块。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.211,
+            0.919,
+            0.378
+          ],
+          "content": "字节（byte）是常用的计算机存储单位。对于几乎所有的机器，1字节均为8位。这是字节的标准定义，至少在衡量存储单位时是这样（但是，C语言对此有不同的定义，请参阅本章3.4.3节）。既然1位可以表示0或1，那么8位字节就有256（2的8次方）种可能的0、1的组合。通过二进制编码（仅用0和1便可表示数字），便可表示0～255的整数或一组字符（第15章将详细讨论二进制编码，如果感兴趣可以现在浏览一下该章的内容）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.4,
+            0.918,
+            0.507
+          ],
+          "content": "字（word）是设计计算机时给定的自然存储单位。对于8位的微型计算机（如，最初的苹果机）， 1个字长只有8位。从那以后，个人计算机字长增至16位、32位，直到目前的64位。计算机的字长越大，其数据转移越快，允许的内存访问也更多。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.369,
+            0.533,
+            0.628,
+            0.557
+          ],
+          "level": 2,
+          "content": "3.3.1 整数和浮点数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.581,
+            0.919,
+            0.716
+          ],
+          "content": "整数类型？浮点数类型？如果觉得这些术语非常陌生，别担心，下面先简述它们的含义。如果不熟悉位、字节和字的概念，请阅读上面方框中的内容。刚开始学习时，不必了解所有的细节，就像学习开车之前不必详细了解汽车内部引擎的原理一样。但是，了解一些计算机或汽车引擎内部的原理会对你有所帮助。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.742,
+            0.918,
+            0.791
+          ],
+          "content": "对我们而言，整数和浮点数的区别是它们的书写方式不同。对计算机而言，它们的区别是储存方式不同。下面详细介绍整数和浮点数。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.429,
+            0.818,
+            0.567,
+            0.842
+          ],
+          "level": 2,
+          "content": "3.3.2 整数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.866,
+            0.912,
+            0.917
+          ],
+          "content": "和数学的概念一样，在C语言中，整数是没有小数部分的数。例如，2、−23和2456都是整数。而3.14、0.22和2.000都不是整数。计算机以二进制"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.96,
+            0.521,
+            0.976
+          ],
+          "content": "116"
+        }
+      ]
+    },
+    {
+      "page_idx": 116,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.904,
+            0.112
+          ],
+          "continues_prev": true,
+          "content": "数字储存整数，例如，整数7以二进制写是111。因此，要在8位字节中储存该数字，需要把前5位都设置成0，后3位设置成1（如图3.2所示）。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.139,
+            0.136,
+            0.862,
+            0.353
+          ],
+          "sub_type": "text_image",
+          "content": "0 0 0 0 0 1 1 1\n—— 字长8位\n|\n|\n|\n2² 2¹ 2⁰\n|\n|\n|\n4 + 2 + 1 = 7 —— 整数7",
+          "captions": [
+            {
+              "bbox": [
+                0.363,
+                0.366,
+                0.637,
+                0.384
+              ],
+              "content": "图3.2 使用二进制编码储存整数7"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_116_image_1.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.414,
+            0.408,
+            0.583,
+            0.431
+          ],
+          "level": 2,
+          "content": "3.3.3 浮点数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.456,
+            0.92,
+            0.602
+          ],
+          "content": "浮点数与数学中实数的概念差不多。2.75、3.16E7、7.00 和 2e-8 都是浮点数。注意，在一个值后面加上一个小数点，该值就成为一个浮点值。所以，7是整数，7.00是浮点数。显然，书写浮点数有多种形式。稍后将详细介绍e记数法，这里先做简要介绍:3.16E7 表示 $3 . 1 6   \\times   1 0 ^ { 7 }$ （3.16 乘以10 的7次方）。其中， $10^{7}=10000000$ ，7被称为10的指数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.625,
+            0.918,
+            0.79
+          ],
+          "content": "这里关键要理解浮点数和整数的储存方案不同。计算机把浮点数分成小数部分和指数部分来表示，而且分开储存这两部分。因此，虽然7.00和7在数值上相同，但是它们的储存方式不同。在十进制下，可以把7.0写成0.7E1。这里，0.7是小数部分，1是指数部分。图3.3演示了一个储存浮点数的例子。当然，计算机在内部使用二进制和2的幂进行储存，而不是10的幂。第15章将详述相关内容。现在，我们着重讲解这两种类型的实际区别。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.814,
+            0.576,
+            0.835
+          ],
+          "content": "整数没有小数部分，浮点数有小数部分。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.86,
+            0.733,
+            0.881
+          ],
+          "content": "浮点数可以表示的范围比整数大。参见本章末的表3.3。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.906,
+            0.892,
+            0.929
+          ],
+          "content": "对于一些算术运算（如，两个很大的数相减），浮点数损失的精度更"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "117"
+        }
+      ]
+    },
+    {
+      "page_idx": 117,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.061,
+            0.123,
+            0.081
+          ],
+          "content": "多。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.139,
+            0.109,
+            0.868,
+            0.301
+          ],
+          "sub_type": "text_image",
+          "content": "+\n.314159\n1\n|\n符号\n|\n小数\n|\n|\n+\n.314159\n|\n|\nx 10¹ ------------------- 3.14159",
+          "captions": [
+            {
+              "bbox": [
+                0.333,
+                0.318,
+                0.666,
+                0.335
+              ],
+              "content": "图3.3 以浮点格式（十进制）储存π的值"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_117_image_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.358,
+            0.918,
+            0.463
+          ],
+          "content": "因为在任何区间内（如，1.0 到 2.0 之间）都存在无穷多个实数，所以计算机的浮点数不能表示区间内所有的值。浮点数通常只是实际值的近似值。例如，7.0可能被储存为浮点值6.99999。稍后会讨论更多精度方面的内容。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.489,
+            0.892,
+            0.54
+          ],
+          "content": "过去，浮点运算比整数运算慢。不过，现在许多CPU都包含浮点处理器，缩小了速度上的差距。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "118"
+        }
+      ]
+    },
+    {
+      "page_idx": 118,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.309,
+            0.065,
+            0.689,
+            0.091
+          ],
+          "level": 2,
+          "content": "3.4 C语言基本数据类型"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.123,
+            0.919,
+            0.229
+          ],
+          "content": "本节将详细节介绍C语言的基本数据类型，包括如何声明变量、如何表示字面值常量（如，5或2.78），以及典型的用法。一些老式的C语言编译器无法支持这里提到的所有类型，请查阅你使用的编译器文档，了解可以使用哪些类型。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.413,
+            0.256,
+            0.583,
+            0.278
+          ],
+          "level": 2,
+          "content": "3.4.1 int类型"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.304,
+            0.918,
+            0.412
+          ],
+          "content": "C语言提供了许多整数类型，为什么一种类型不够用？因为 C语言让程序员针对不同情况选择不同的类型。特别是，C语言中的整数类型可表示不同的取值范围和正负值。一般情况使用int类型即可，但是为满足特定任务和机器的要求，还可以选择其他类型。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.436,
+            0.919,
+            0.658
+          ],
+          "content": "int类型是有符号整型，即int类型的值必须是整数，可以是正整数、负整数或零。其取值范围依计算机系统而异。一般而言，储存一个int要占用一个机器字长。因此，早期的16位IBM PC兼容机使用16位来储存一个int值，其取值范围（即int值的取值范围）是-32768～32767。目前的个人计算机一般是32位，因此用32位储存一个int值。现在，个人计算机产业正逐步向着64位处理器发展，自然能储存更大的整数。ISO C规定int的取值范围最小为-32768～32767。一般而言，系统用一个特殊位的值表示有符号整数的正负号。第15章将介绍常用的方法。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.682,
+            0.287,
+            0.703
+          ],
+          "level": 2,
+          "content": "1.声明int变量"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.728,
+            0.918,
+            0.807
+          ],
+          "content": "第2章中已经用int声明过基本整型变量。先写上int，然后写变量名，最后加上一个分号。要声明多个变量，可以单独声明每个变量，也可在int后面列出多个变量名，变量名之间用逗号分隔。下面都是有效的声明:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.834,
+            0.217,
+            0.853
+          ],
+          "content": "int erns;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.88,
+            0.35,
+            0.9
+          ],
+          "content": "int hogs, cows, goats;"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "119"
+        }
+      ]
+    },
+    {
+      "page_idx": 119,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.905,
+            0.112
+          ],
+          "content": "可以分别在4条声明中声明各变量，也可以在一条声明中声明4个变量。两种方法的效果相同，都为4个int大小的变量赋予名称并分配内存空间。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.136,
+            0.918,
+            0.187
+          ],
+          "content": "以上声明创建了变量，但是并没有给它们提供值。变量如何获得值？前面介绍过在程序中获取值的两种途径。第1种途径是赋值:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.127,
+            0.213,
+            0.263,
+            0.233
+          ],
+          "content": "\\text {cows} = 1 1 2;",
+          "image_source": "images/page_119_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.257,
+            0.9,
+            0.307
+          ],
+          "content": "第2种途径是，通过函数（如，scanf()）获得值。接下来，我们着重介绍第3种途径。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.332,
+            0.287,
+            0.353
+          ],
+          "level": 2,
+          "content": "2.初始化变量"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.378,
+            0.909,
+            0.457
+          ],
+          "content": "初始化（initialize）变量就是为变量赋一个初始值。在C语言中，初始化可以直接在声明中完成。只需在变量名后面加上赋值运算符（=）和待赋给变量的值即可。如下所示:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.127,
+            0.483,
+            0.272,
+            0.503
+          ],
+          "content": "\\text {int hogs} = 2 1;",
+          "image_source": "images/page_119_equation_6.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.127,
+            0.53,
+            0.395,
+            0.55
+          ],
+          "content": "\\text {int cows} = 3 2, \\text {goats} = 1 4;",
+          "image_source": "images/page_119_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.574,
+            0.685,
+            0.596
+          ],
+          "content": "int dogs, cats = 94; /\\* 有效，但是这种格式很糟糕 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.62,
+            0.914,
+            0.7
+          ],
+          "content": "以上示例的最后一行，只初始化了cats，并未初始化dogs。这种写法很容易让人误认为dogs也被初始化为94，所以最好不要把初始化的变量和未初始化的变量放在同一条声明中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.724,
+            0.918,
+            0.773
+          ],
+          "content": "简而言之，声明为变量创建和标记存储空间，并为其指定初始值（如图3.4所示）。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "120"
+        }
+      ]
+    },
+    {
+      "page_idx": 120,
+      "blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            0.085,
+            0.061,
+            0.918,
+            0.325
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  subgraph int_sows[\"\\\"int sows\\\"\"]\n  A[\"\"] --> B[\"\"]\n  end\n  \n  subgraph int_boars_2[\"\\\"int boars=2;\\\"]\"]\n  C[\"\"] --> D[\"\"]\n  end\n  \n  B -->|\"创建内存空间\"| E[\"\"]\n  D -->|\"创建内存空间并为其赋值\"| F[\"Boars\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.396,
+                0.34,
+                0.6,
+                0.357
+              ],
+              "content": "图3.4 定义并初始化变量"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_120_image_0.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.379,
+            0.287,
+            0.4
+          ],
+          "level": 2,
+          "content": "3.int类型常量"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.425,
+            0.919,
+            0.56
+          ],
+          "content": "上面示例中出现的整数（21、32、14和94）都是整型常量或整型字面量。C语言把不含小数点和指数的数作为整数。因此，22和-44都是整型常量，但是22.0和2.2E1则不是。C语言把大多数整型常量视为int类型，但是非常大的整数除外。详见后面“long常量和long long常量”小节对long int类型的讨论。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.586,
+            0.262,
+            0.607
+          ],
+          "level": 2,
+          "content": "4.打印int值"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.632,
+            0.92,
+            0.854
+          ],
+          "content": "可以使用printf()函数打印int类型的值。第2章中介绍过，%d指明了在一行中打印整数的位置。%d称为转换说明，它指定了printf()应使用什么格式来显示一个值。格式化字符串中的每个%d都与待打印变量列表中相应的int值匹配。这个值可以是int类型的变量、int类型的常量或其他任何值为int类型的表达式。作为程序员，要确保转换说明的数量与待打印值的数量相同，编译器不会捕获这类型的错误。程序清单3.2演示了一个简单的程序，程序中初始化了一个变量，并打印该变量的值、一个常量值和一个简单表达式的值。另外，程序还演示了如果粗心犯错会导致什么结果。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.878,
+            0.413,
+            0.9
+          ],
+          "level": 2,
+          "content": "程序清单3.2 print1.c程序"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.518,
+            0.976
+          ],
+          "content": "121"
+        }
+      ]
+    },
+    {
+      "page_idx": 121,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.059,
+            0.801,
+            0.598
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* print1.c - 演示printf()的一些特性 */\n\n#include <stdio.h>\n\nint main(void)\n{\nint ten = 10;\nint two = 2;\n\nprintf(\"Doing it right: \");\nprintf(\"%d minus %d is %d\\n\", ten, 2, ten - two);\nprintf(\"Doing it wrong: \");\nprintf(\"%d minus %d is %d\\n\", ten); // 遗漏2个参数\nreturn 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.616,
+            0.474,
+            0.639
+          ],
+          "content": "编译并运行该程序，输出如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.664,
+            0.435,
+            0.686
+          ],
+          "content": "Doing it right: 10 minus 2 is 8"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.71,
+            0.577,
+            0.732
+          ],
+          "content": "Doing it wrong: 10 minus 16 is 1650287143"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.755,
+            0.923,
+            0.92
+          ],
+          "content": "在第一行输出中，第1个%d对应int类型变量ten；第2个%d对应int类型常量2；第3个%d对应int类型表达式ten - two的值。在第二行输出中，第1个%d对应ten的值，但是由于没有给后两个%d提供任何值，所以打印出的值是内存中的任意值（读者在运行该程序时显示的这两个数值会与输出示例中的数值不同，因为内存中储存的数据不同，而且编译器管理内存的位置也不同）。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "122"
+        }
+      ]
+    },
+    {
+      "page_idx": 122,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.919,
+            0.198
+          ],
+          "content": "你可能会抱怨编译器为何不能捕获这种明显的错误，但实际上问题出在printf()不寻常的设计。大部分函数都需要指定数目的参数，编译器会检查参数的数目是否正确。但是，printf()函数的参数数目不定，可以有1个、2个、3个或更多，编译器也爱莫能助。记住，使用printf()函数时，要确保转换说明的数量与待打印值的数量相等。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.222,
+            0.363,
+            0.243
+          ],
+          "level": 2,
+          "content": "5.八进制和十六进制"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.268,
+            0.92,
+            0.604
+          ],
+          "content": "通常，C语言都假定整型常量是十进制数。然而，许多程序员很喜欢使用八进制和十六进制数。因为8和16都是2的幂，而10却不是。显然，八进制和十六进制记数系统在表达与计算机相关的值时很方便。例如，十进制数65536经常出现在16位机中，用十六进制表示正好是10000。另外，十六进制数的每一位的数恰好由4位二进制数表示。例如，十六进制数3是0011，十六进制数5是0101。因此，十六进制数35的位组合（bit pattern）是00110101，十六进制数53的位组合是01010011。这种对应关系使得十六进制和二进制的转换非常方便。但是，计算机如何知道10000是十进制、十六进制还是二进制？在C语言中，用特定的前缀表示使用哪种进制。0x或0X前缀表示十六进制值，所以十进制数16表示成十六进制是0x10或0X10。与此类似，0前缀表示八进制。例如，十进制数16表示成八进制是020。第15章将更全面地介绍进制相关的内容。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.627,
+            0.918,
+            0.706
+          ],
+          "content": "要清楚，使用不同的进制数是为了方便，不会影响数被储存的方式。也就是说，无论把数字写成16、020或0x10，储存该数的方式都相同，因为计算机内部都以二进制进行编码。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.128,
+            0.731,
+            0.418,
+            0.752
+          ],
+          "level": 2,
+          "content": "6.显示八进制和十六进制"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.777,
+            0.91,
+            0.913
+          ],
+          "content": "在C程序中，既可以使用和显示不同进制的数。不同的进制要使用不同的转换说明。以十进制显示数字，使用%d；以八进制显示数字，使用%o；以十六进制显示数字，使用%x。另外，要显示各进制数的前缀0、0x和0X，必须分别使用%#o、%#x、%#X。程序清单3.3演示了一个小程序。回忆一下，在某些集成开发环境（IDE）下编写的代码中插入getchar();语句，程序"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.519,
+            0.976
+          ],
+          "content": "123"
+        }
+      ]
+    },
+    {
+      "page_idx": 123,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.502,
+            0.083
+          ],
+          "continues_prev": true,
+          "content": "在执行完毕后不会立即关闭执行窗口。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.153,
+            0.885,
+            0.549
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* bases.c--以十进制、八进制、十六进制打印十进制数100 */\n#include <stdio.h>\n\nint main(void)\n{\nint x = 100;\nprintf(\"dec = %d; octal = %o; hex = %x\\n\", x, x, x);\nprintf(\"dec = %d; octal = %#o; hex = %#x\\n\", x, x, x);\nreturn 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.128,
+                0.108,
+                0.409,
+                0.129
+              ],
+              "content": "程序清单3.3 bases.c程序"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.571,
+            0.474,
+            0.592
+          ],
+          "content": "编译并运行该程序，输出如下:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.127,
+            0.618,
+            0.462,
+            0.639
+          ],
+          "content": "\\mathrm{dec} = 1 0 0; \\text { octal } = 1 4 4; \\mathrm{hex} = 6 4",
+          "image_source": "images/page_123_equation_4.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.127,
+            0.664,
+            0.498,
+            0.684
+          ],
+          "content": "\\mathrm{dec} = 1 0 0; \\text {octal} = 0 1 4 4; \\mathrm{hex} = 0 \\mathrm{x} 6 4",
+          "image_source": "images/page_123_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.71,
+            0.908,
+            0.788
+          ],
+          "content": "该程序以3种不同记数系统显示同一个值。printf()函数做了相应的转换。注意，如果要在八进制和十六进制值前显示0和0x前缀，要分别在转换说明中加入#。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.369,
+            0.814,
+            0.629,
+            0.838
+          ],
+          "level": 2,
+          "content": "3.4.2 其他整数类型"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.863,
+            0.92,
+            0.914
+          ],
+          "content": "初学C语言时，int类型应该能满足大多数程序的整数类型需求。尽管如此，还应了解一下整型的其他形式。当然，也可以略过本节跳至3.4.3节阅读"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.521,
+            0.977
+          ],
+          "content": "124"
+        }
+      ]
+    },
+    {
+      "page_idx": 124,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.618,
+            0.082
+          ],
+          "continues_prev": true,
+          "content": "char类型的相关内容，以后有需要时再阅读本节。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.108,
+            0.885,
+            0.158
+          ],
+          "content": "C语言提供3个附属关键字修饰基本整数类型:short、long和unsigned。应记住以下几点。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.182,
+            0.918,
+            0.232
+          ],
+          "content": "short int类型（或者简写为short）占用的存储空间可能比int类型少，常用于较小数值的场合以节省空间。与int类似，short是有符号类型。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.257,
+            0.918,
+            0.308
+          ],
+          "content": "long int或long占用的存储空间可能比int多，适用于较大数值的场合。与int类似，long是有符号类型。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.332,
+            0.918,
+            0.41
+          ],
+          "content": "long long int或long long（C99标准加入）占用的储存空间可能比long多，适用于更大数值的场合。该类型至少占64位。与int类似，long long是有符号类型。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.435,
+            0.919,
+            0.543
+          ],
+          "content": "unsigned int或unsigned只用于非负值的场合。这种类型与有符号类型表示的范围不同。例如，16位unsigned int允许的取值范围是0～65535，而不是-32768～32767。用于表示正负号的位现在用于表示另一个二进制位，所以无符号整型可以表示更大的数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.567,
+            0.92,
+            0.646
+          ],
+          "content": "在C90标准中，添加了unsigned long int或unsigned long和unsigned int或unsigned short类型。C99标准又添加了unsigned long long int或unsigned long long。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.67,
+            0.908,
+            0.722
+          ],
+          "content": "在任何有符号类型前面添加关键字signed，可强调使用有符号类型的意图。例如，short、short int、signed short、signed short int都表示同一种类型。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.745,
+            0.367,
+            0.766
+          ],
+          "level": 2,
+          "content": "1.声明其他整数类型"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.791,
+            0.918,
+            0.869
+          ],
+          "content": "其他整数类型的声明方式与int类型相同，下面列出了一些例子。不是所有的C编译器都能识别最后3条声明，最后一个例子所有的类型是C99标准新增的。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.897,
+            0.32,
+            0.917
+          ],
+          "content": "long int estine;"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "125"
+        }
+      ]
+    },
+    {
+      "page_idx": 125,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.062,
+            0.424,
+            0.409
+          ],
+          "sub_type": "code",
+          "content": "```txt\nlong johns;\n\nshort int erns;\n\nshort ribs;\n\nunsigned int s_count;\n\nunsigned players;\n\nunsigned long headcount;\n\nunsigned short yesvotes;\n\nlong long ago;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.129,
+            0.432,
+            0.443,
+            0.453
+          ],
+          "level": 2,
+          "content": "2.使用多种整数类型的原因"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.478,
+            0.918,
+            0.673
+          ],
+          "content": "为什么说short类型“可能”比int类型占用的空间少，long类型“可能”比int类型占用的空间多？因为C语言只规定了short占用的存储空间不能多于int，long占用的存储空间不能少于int。这样规定是为了适应不同的机器。例如，过去的一台运行Windows 3的机器上，int类型和short类型都占16位，long类型占32位。后来，Windows和苹果系统都使用16位储存short类型，32位储存int类型和long类型（使用32位可以表示的整数数值超过20亿）。现在，计算机普遍使用64位处理器，为了储存64位的整数，才引入了long long类型。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.695,
+            0.905,
+            0.802
+          ],
+          "content": "现在，个人计算机上最常见的设置是，long long占64位，long占32位，short占16位，int占16位或32位（依计算机的自然字长而定）。原则上，这4种类型代表4种不同的大小，但是在实际使用中，有些类型之间通常有重叠。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.827,
+            0.92,
+            0.936
+          ],
+          "content": "C 标准对基本数据类型只规定了允许的最小大小。对于 16 位机，short和 int 的最小取值范围是[−32767,32767]；对于32位机，long的最小取值范围是[−2147483647,2147483647]。对于unsigned short和unsigned int，最小取值范围是[0,65535]；对于unsigned long，最小取值范围是[0,4294967295]。long"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "126"
+        }
+      ]
+    },
+    {
+      "page_idx": 126,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.636,
+            0.083
+          ],
+          "continues_prev": true,
+          "content": "long类型是为了支持64位的需求，最小取值范围是"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.09,
+            0.919,
+            0.198
+          ],
+          "content": "[−9223372036854775807,9223372036854775807]；unsigned long long的最小取值范围是[0,18446744073709551615]。如果要开支票，这个数是一千八百亿亿（兆）六千七百四十四万亿零七百三十七亿零九百五十五万一千六百一十五。但是，谁会去数？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.221,
+            0.905,
+            0.299
+          ],
+          "content": "int类型那么多，应该如何选择？首先，考虑unsigned类型。这种类型的数常用于计数，因为计数不用负数。而且，unsigned类型可以表示更大的正数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.324,
+            0.918,
+            0.518
+          ],
+          "content": "如果一个数超出了int类型的取值范围，且在long类型的取值范围内时，使用long类型。然而，对于那些long占用的空间比int大的系统，使用long类型会减慢运算速度。因此，如非必要，请不要使用long类型。另外要注意一点:如果在long类型和int类型占用空间相同的机器上编写代码，当确实需要32位的整数时，应使用long类型而不是int类型，以便把程序移植到16位机后仍然可以正常工作。类似地，如果确实需要64位的整数，应使用long long类型。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.542,
+            0.918,
+            0.65
+          ],
+          "content": "如果在int设置为32位的系统中要使用16位的值，应使用short类型以节省存储空间。通常，只有当程序使用相对于系统可用内存较大的整型数组时，才需要重点考虑节省空间的问题。使用short类型的另一个原因是，计算机中某些组件使用的硬件寄存器是16位。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.128,
+            0.674,
+            0.427,
+            0.698
+          ],
+          "level": 2,
+          "content": "3.long常量和long long常量"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.72,
+            0.919,
+            0.858
+          ],
+          "content": "通常，程序代码中使用的数字（如，2345）都被储存为int类型。如果使用1000000这样的大数字，超出了int类型能表示的范围，编译器会将其视为long int类型（假设这种类型可以表示该数字）。如果数字超出long可表示的最大值，编译器则将其视为unsigned long类型。如果还不够大，编译器则将其视为long long或unsigned long long类型（前提是编译器能识别这些类型）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.88,
+            0.92,
+            0.933
+          ],
+          "content": "八进制和十六进制常量被视为int类型。如果值太大，编译器会尝试使用unsigned int。如果还不够大，编译器会依次使用long、unsigned long、long"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "127"
+        }
+      ]
+    },
+    {
+      "page_idx": 127,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.4,
+            0.083
+          ],
+          "continues_prev": true,
+          "content": "long和unsigned long long类型。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.107,
+            0.919,
+            0.273
+          ],
+          "content": "有些情况下，需要编译器以long类型储存一个小数字。例如，编程时要显式使用IBM PC上的内存地址时。另外，一些C标准函数也要求使用long类型的值。要把一个较小的常量作为long类型对待，可以在值的末尾加上l（小写的L）或L后缀。使用L后缀更好，因为l看上去和数字1很像。因此，在int为16位、long为32位的系统中，会把7作为16位储存，把7L作为32位储存。l或L后缀也可用于八进制和十六进制整数，如020L和0x10L。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.296,
+            0.918,
+            0.374
+          ],
+          "content": "类似地，在支持long long类型的系统中，也可以使用ll或LL后缀来表示long long类型的值，如3LL。另外，u或U后缀表示unsigned long long，如5ull、10LLU、6LLU或9Ull。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.399,
+            0.24,
+            0.421
+          ],
+          "content": "整数溢出"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.445,
+            0.918,
+            0.526
+          ],
+          "content": "如果整数超出了相应类型的取值范围会怎样？下面分别将有符号类型和无符号类型的整数设置为比最大值略大，看看会发生什么（printf()函数使用%u说明显示unsigned int类型的值）。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.548,
+            0.579,
+            0.898
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* toobig.c-- 超出系统允许的最大int值*/\n#include <stdio.h>\n\nint main(void)\n{\nint i = 2147483647;\nunsigned int j = 4294967295;\nprintf(\"%d %d %d\\n\", i, i+1, i+2);\nprintf(\"%u %u %u\\n\", j, j+1, j+2);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.481,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "128"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "C Primer Plus 第6版 中文版",
+      "authors": [
+        "[美]史蒂芬·普拉达（Stephen Prata）"
+      ],
+      "languages": [
+        "zh"
+      ],
+      "publisher": "人民邮电出版社",
+      "created_at": "2017-02-18T06:13:34+00:00",
+      "modified_at": "2018-09-06T19:39:18+08:00",
+      "creator_application": "calibre 2.79.1 [https://calibre-ebook.com]",
+      "producer_application": "calibre 2.79.1 [https://calibre-ebook.com]",
+      "page_count": 1635,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 96,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 97,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 98,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 99,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 100,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 101,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 102,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 103,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 104,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 105,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 106,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 107,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 108,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 109,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 110,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 111,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 112,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 113,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 114,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 115,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 116,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 117,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 118,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 119,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 120,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 121,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 122,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 123,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 124,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 125,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 126,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 127,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

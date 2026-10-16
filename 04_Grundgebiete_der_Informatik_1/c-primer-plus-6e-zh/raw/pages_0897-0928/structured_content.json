@@ -1,0 +1,3316 @@
+{
+  "pages": [
+    {
+      "page_idx": 896,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.725,
+            0.501
+          ],
+          "sub_type": "code",
+          "content": "```c\nint rand1(void)\n{\n/*生成伪随机数的魔术公式*/\nnext = next * 1103515245 + 12345;\nreturn (unsigned int) (next / 65536) % 32768;\n}\nvoid srand1(unsigned int seed)\n{\nnext = seed;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.524,
+            0.907,
+            0.604
+          ],
+          "content": "注意，next是具有内部链接的文件作用域静态变量。这意味着rand1()和srand1()都可以使用它，但是其他文件中的函数无法访问它。使用程序清单12.10的驱动程序测试这两个函数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.627,
+            0.517,
+            0.65
+          ],
+          "content": "程序清单**12.10 r\\_drive1.c**驱动程序"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.674,
+            0.577,
+            0.698
+          ],
+          "content": "/\\* r\\_drive1.c -- 测试 rand1() 和 srand1() \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.72,
+            0.421,
+            0.743
+          ],
+          "content": "/\\* 与 s\\_and\\_r.c 一起编译 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.768,
+            0.343,
+            0.787
+          ],
+          "content": "#include &lt;stdio.h&gt;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.814,
+            0.35,
+            0.833
+          ],
+          "content": "#include &lt;stdlib.h&gt;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.86,
+            0.557,
+            0.881
+          ],
+          "content": "extern void srand1(unsigned int x);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.907,
+            0.398,
+            0.927
+          ],
+          "content": "extern int rand1(void);"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "897"
+        }
+      ]
+    },
+    {
+      "page_idx": 897,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.061,
+            0.702,
+            0.735
+          ],
+          "sub_type": "code",
+          "content": "```c\nint main(void)\n{\nint count;\nunsigned seed;\nprintf(\"Please enter your choice for seed.\\n\");\nwhile (scanf(\"%u\", &seed) == 1)\n{\nsrand1(seed); /* 重置种子 */\nfor (count = 0; count < 5; count++)\nprintf(\"%d\\n\", rand1());\nprintf(\"Please enter next seed (q to quit):\\n\");\n}\nprintf(\"Done\\n\");\nreturn 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.755,
+            0.625,
+            0.777
+          ],
+          "content": "编译两个文件，运行该程序后，其输出如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.132,
+            0.804,
+            0.199,
+            0.914
+          ],
+          "sub_type": "code",
+          "content": "```csv\n1\n16838\n5758\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "898"
+        }
+      ]
+    },
+    {
+      "page_idx": 898,
+      "blocks": [
+        {
+          "type": "list",
+          "bbox": [
+            0.129,
+            0.061,
+            0.201,
+            0.641
+          ],
+          "sub_type": "text",
+          "content": "10113\n17515\n31051\n**513**\n20067\n23475\n8955\n20841\n15324\nq\nDone"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.201,
+            0.584,
+            0.224
+          ],
+          "content": "Please enter next seed (q to quit):"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.525,
+            0.584,
+            0.547
+          ],
+          "content": "Please enter next seed (q to quit):"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.663,
+            0.898,
+            0.714
+          ],
+          "content": "设置seed的值为1，输出的结果与前面程序相同。但是设置seed的值为513后就得到了新的结果。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.738,
+            0.355,
+            0.759
+          ],
+          "content": "注意 自动重置种子"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.784,
+            0.92,
+            0.921
+          ],
+          "content": "如果 C 实现允许访问一些可变的量（如，时钟系统），可以用这些值（可能会被截断）初始化种子值。例如，ANSI C有一个time()函数返回系统时间。虽然时间单元因系统而异，但是重点是该返回值是一个可进行运算的类型，而且其值随着时间变化而变化。time()返回值的类型名是time\\_t，具体类型与系统有关。这没关系，我们可以使用强制类型转换:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.977
+          ],
+          "content": "899"
+        }
+      ]
+    },
+    {
+      "page_idx": 899,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.061,
+            0.611,
+            0.083
+          ],
+          "content": "#include &lt;time.h&gt; /\\* 提供time()的ANSI原型\\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.108,
+            0.627,
+            0.13
+          ],
+          "content": "srand1((unsigned int) time(0)); /\\* 初始化种子 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.154,
+            0.918,
+            0.232
+          ],
+          "content": "一般而言，time()接受的参数是一个 time\\_t 类型对象的地址，而时间值就储存在传入的地址上。当然，也可以传入空指针（0）作为参数，这种情况下，只能通过返回值机制来提供值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.257,
+            0.915,
+            0.364
+          ],
+          "content": "可以把这个技巧应用于标准的ANSI C函数srand()和rand()中。如果使用这些函数，要在文件中包含stdlib.c头文件。实际上，既然已经明白了srand1()和rand1()如何使用内部链接的静态变量，你也可以使用编译器提供的版本。我们将在下一个示例中这样做。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "900"
+        }
+      ]
+    },
+    {
+      "page_idx": 900,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.405,
+            0.065,
+            0.594,
+            0.091
+          ],
+          "level": 2,
+          "content": "12.3 掷骰子"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.122,
+            0.923,
+            0.287
+          ],
+          "content": "我们将要模拟一个非常流行的游戏——掷骰子。骰子的形式多种多样，最普遍的是使用两个6面骰子。在一些冒险游戏中，会使用5种骰子:4面、6面、8面、12面和20面。聪明的古希腊人证明了只有5种正多面体，它们的所有面都具有相同的形状和大小。各种不同类型的骰子就是根据这些正多面体发展而来。也可以做成其他面数的，但是其所有的面不会都相等，因此各个面朝上的几率就不同。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.312,
+            0.905,
+            0.361
+          ],
+          "content": "计算机计算不用考虑几何的限制，所以可以设计任意面数的电子骰子。我们先从6面开始。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.386,
+            0.794,
+            0.466
+          ],
+          "content": "我们想获得1～6的随机数。然而，rand()生成的随机数在0～ RAND\\_MAX之间。RAND\\_MAX被定义在stdlib.h中，其值通常是INT\\_MAX。因此，需要进行一些调整，方法如下。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.125,
+            0.486,
+            0.749,
+            0.606
+          ],
+          "sub_type": "text",
+          "content": "1.把随机数求模6，获得的整数在0～5之间。\n2.结果加1，新值在1～6之间。\n3.为方便以后扩展，把第1步中的数字6替换成骰子面数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.628,
+            0.461,
+            0.65
+          ],
+          "content": "下面的代码实现了这3个步骤:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.674,
+            0.577,
+            0.698
+          ],
+          "content": "#include &lt;stdlib.h&gt; /\\* 提供rand()的原型 \\*/"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.722,
+            0.507,
+            0.929
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint rollem(int sides)\n{\nint roll;\nroll = rand() % sides + 1;\nreturn roll;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.518,
+            0.976
+          ],
+          "content": "901"
+        }
+      ]
+    },
+    {
+      "page_idx": 901,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.132,
+            0.063,
+            0.147,
+            0.083
+          ],
+          "sub_type": "code",
+          "content": "```txt\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.107,
+            0.905,
+            0.157
+          ],
+          "content": "我们还想用一个函数提示用户选择任意面数的骰子，并返回点数总和。如程序清单12.11所示。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.228,
+            0.805,
+            0.901
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* diceroll.c -- 掷骰子模拟程序 */\n\n/* 与 mandydice.c 一起编译 */\n\n#include \"diceroll.h\"\n\n#include <stdio.h>\n\n#include <stdlib.h>          /* 提供库函数 rand()的原型 */\nint roll_count = 0;           /* 外部链接 */\n\nstatic int rollem(int sides)   /* 该函数属于该文件私有 */\n\n{\n\nint  roll;\n\nroll = rand() % sides + 1;\n\n++roll_count;                 /* 计算函数调用次数 */\n\nreturn  roll;\n\n}\n\nint  roll_n_dice(int dice, int sides)\n\n{\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.129,
+                0.182,
+                0.452,
+                0.204
+              ],
+              "content": "程序清单12.11 diceroll.c程序"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "902"
+        }
+      ]
+    },
+    {
+      "page_idx": 902,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.059,
+            0.549,
+            0.781
+          ],
+          "sub_type": "code",
+          "content": "```c\nint d;\n\nint total = 0;\n\nif (sides < 2)\n\n{\nprintf(\"Need at least 2 sides.\\n\");\nreturn -2;\n}\n\nif (dice < 1)\n{\nprintf(\"Need at least 1 die.\\n\");\nreturn -1;\n}\n\nfor (d = 0; d < dice; d++)\ntotal += rollem(sides);\nreturn total;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.802,
+            0.907,
+            0.912
+          ],
+          "content": "该文件加入了新元素。第一，rollem()函数属于该文件私有，它是roll\\_n\\_dice()的辅助函数。第二，为了演示外部链接的特性，该文件声明了一个外部变量roll\\_count。该变量统计调用rollem()函数的次数。这样设计有点蹩脚，仅为了演示外部变量的特性。第三，该文件包含以下预处理指令:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.52,
+            0.977
+          ],
+          "content": "903"
+        }
+      ]
+    },
+    {
+      "page_idx": 903,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.062,
+            0.346,
+            0.081
+          ],
+          "content": "#include \"diceroll.h\""
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.108,
+            0.919,
+            0.328
+          ],
+          "content": "如果使用标准库函数，如 rand()，要在当前文件中包含标准头文件（对rand()而言要包含stdlib.h），而不是声明该函数。因为头文件中已经包含了正确的函数原型。我们效仿这一做法，把roll\\_n\\_dice()函数的原型放在diceroll.h头文件中。把文件名放在双引号中而不是尖括号中，指示编译器在本地查找文件，而不是到编译器存放标准头文件的位置去查找文件。“本地查找”的含义取决于具体的实现。一些常见的实现把头文件与源代码文件或工程文件（如果编译器使用它们的话）放在相同的目录或文件夹中。程序清单12.12是头文件中的内容。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.354,
+            0.453,
+            0.374
+          ],
+          "content": "程序清单**12.12 diceroll.h**文件"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.401,
+            0.251,
+            0.42
+          ],
+          "content": "//diceroll.h"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.448,
+            0.344,
+            0.469
+          ],
+          "content": "extern int roll\\_count;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.493,
+            0.478,
+            0.515
+          ],
+          "content": "int roll\\_n\\_dice(int dice, int sides);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.539,
+            0.918,
+            0.588
+          ],
+          "content": "该头文件中包含一个函数原型和一个 extern 声明。由于 direroll.c 文件包含了该文件， direroll.c实际上包含了roll\\_count的两个声明:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.614,
+            0.78,
+            0.636
+          ],
+          "content": "extern int roll\\_count; // 头文件中的声明（引用式声明）"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.66,
+            0.834,
+            0.681
+          ],
+          "content": "int roll\\_count = 0; // 源代码文件中的声明（定义式声明）"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.706,
+            0.918,
+            0.755
+          ],
+          "content": "这样做没问题。一个变量只能有一个定义式声明，但是带 extern 的声明是引用式声明，可以有多个引用式声明。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.781,
+            0.918,
+            0.859
+          ],
+          "content": "使用 roll\\_n\\_dice()函数的程序都要包含 diceroll.c 头文件。包含该头文件后，程序便可使用roll\\_n\\_dice()函数和roll\\_count变量。如程序清单12.13所示。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.884,
+            0.473,
+            0.906
+          ],
+          "content": "程序清单**12.13 manydice.c**文件"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "904"
+        }
+      ]
+    },
+    {
+      "page_idx": 904,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.061,
+            0.585,
+            0.083
+          ],
+          "content": "/\\* manydice.c -- 多次掷骰子的模拟程序 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.108,
+            0.418,
+            0.129
+          ],
+          "content": "/\\* 与 diceroll.c 一起编译\\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.155,
+            0.344,
+            0.175
+          ],
+          "content": "#include &lt;stdio.h&gt;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.2,
+            0.789,
+            0.222
+          ],
+          "content": "#include &lt;stdlib.h&gt; /\\* 为库函数 srand() 提供原型 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.247,
+            0.839,
+            0.269
+          ],
+          "content": "#include &lt;time.h&gt; /\\* 为 time() 提供原型 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.293,
+            0.918,
+            0.341
+          ],
+          "content": "#include \"diceroll.h\" /\\* 为roll\\_n\\_dice()提供原型，为roll\\_count变量提供声明 \\*/"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.368,
+            0.301,
+            0.575
+          ],
+          "sub_type": "code",
+          "content": "```c\nint main(void)\n{\nint dice, roll;\nint sides;\nint status;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.599,
+            0.589,
+            0.621
+          ],
+          "content": "srand((unsigned int) time(0)); /\\* 随机种子 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.646,
+            0.856,
+            0.669
+          ],
+          "content": "printf(\"Enter the number of sides per die, 0 to stop.\\n\");"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.692,
+            0.769,
+            0.715
+          ],
+          "content": "while (scanf(\"%d\", &sides) == 1 && sides > 0)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.786,
+            0.459,
+            0.807
+          ],
+          "content": "printf(\"How many dice?\\n\");"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.831,
+            0.632,
+            0.854
+          ],
+          "content": "if ((status = scanf(\"%d\", &dice)) != 1)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.879,
+            0.149,
+            0.898
+          ],
+          "content": "{"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "905"
+        }
+      ]
+    },
+    {
+      "page_idx": 905,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.06,
+            0.87,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```c\nif (status == EOF)\nbreak;          /* 退出循环 */\nelse\n{\nprintf(\"You should have entered an integer.\");\nprintf(\" Let's begin again.\\n\");\nwhile (getchar() != '\\n')\ncontinue;      /* 处理错误的输入 */\nprintf(\"How many sides? Enter 0 to stop.\\n\");\ncontinue;            /* 进入循环的下一轮迭代 */\n}\n}\nroll = roll_n_dice(dice, sides);\nprintf(\"You have rolled a %d using %d %d-sided dice.\\n\",\nroll, dice, sides);\nprintf(\"How many sides? Enter 0 to stop.\\n\");\n}\nprintf(\"The rollem() function was called %d times.\\n\",\nroll_count);       /* 使用外部变量 */\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "906"
+        }
+      ]
+    },
+    {
+      "page_idx": 906,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.06,
+            0.604,
+            0.178
+          ],
+          "sub_type": "code",
+          "content": "```c\nprintf(\"GOOD FORTUNE TO YOU!\\n\");\nreturn 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.2,
+            0.912,
+            0.278
+          ],
+          "content": "要与包含程序清单12.11的文件一起编译该文件。可以把程序清单12.11、12.12和12.13都放在同一文件夹或目录中。运行该程序，下面是一个输出示例:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.304,
+            0.741,
+            0.326
+          ],
+          "content": "Enter the number of sides per die, 0 to stop."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.351,
+            0.151,
+            0.37
+          ],
+          "content": "6"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.397,
+            0.341,
+            0.418
+          ],
+          "content": "How many dice?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.444,
+            0.15,
+            0.461
+          ],
+          "content": "2"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.489,
+            0.709,
+            0.511
+          ],
+          "content": "You have rolled a 12 using 2 6-sided dice."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.536,
+            0.583,
+            0.558
+          ],
+          "content": "How many sides? Enter 0 to stop."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.583,
+            0.15,
+            0.601
+          ],
+          "content": "6"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.628,
+            0.341,
+            0.649
+          ],
+          "content": "How many dice?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.676,
+            0.149,
+            0.693
+          ],
+          "content": "2"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.721,
+            0.696,
+            0.742
+          ],
+          "content": "You have rolled a 4 using 2 6-sided dice."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.768,
+            0.583,
+            0.789
+          ],
+          "content": "How many sides? Enter 0 to stop."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.815,
+            0.149,
+            0.832
+          ],
+          "content": "6"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.86,
+            0.341,
+            0.881
+          ],
+          "content": "How many dice?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.907,
+            0.149,
+            0.924
+          ],
+          "content": "2"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "907"
+        }
+      ]
+    },
+    {
+      "page_idx": 907,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.062,
+            0.696,
+            0.083
+          ],
+          "content": "You have rolled a 5 using 2 6-sided dice."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.109,
+            0.585,
+            0.13
+          ],
+          "content": "How many sides? Enter 0 to stop."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.156,
+            0.151,
+            0.173
+          ],
+          "content": "0"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.201,
+            0.661,
+            0.222
+          ],
+          "content": "The rollem() function was called 6 times."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.248,
+            0.489,
+            0.267
+          ],
+          "content": "GOOD FORTUNE TO YOU!"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.292,
+            0.912,
+            0.373
+          ],
+          "content": "因为该程序使用了srand()随机生成随机数种子，所以大多数情况下，即使输入相同也很难得到相同的输出。注意，manydice.c中的main()访问了定义在diceroll.c中的roll\\_count变量。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.396,
+            0.894,
+            0.503
+          ],
+          "content": "有3种情况可以导致外层while循环结束:side小于1、输入类型不匹配（此时scanf()返回0）、遇到文件结尾（返回值是EOF）。为了读取骰子的点数，该程序处理文件结尾的方式（退出while循环）与处理类型不匹配（进入循环的下一轮迭代）的情况不同。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.528,
+            0.918,
+            0.662
+          ],
+          "content": "可以通过多种方式使用roll\\_n\\_dice()。sides等于2时，程序模仿掷硬币，“正面朝上”为2，“反面朝上”为1（或者反过来表示也行）。很容易修改该程序单独显示点数的结果，或者构建一个骰子模拟器。如果要掷多次骰子（如在一些角色扮演类游戏中），可以很容易地修改程序以输出类似的结果:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.69,
+            0.685,
+            0.712
+          ],
+          "content": "Enter the number of sets; enter q to stop."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.736,
+            0.163,
+            0.754
+          ],
+          "content": "**18**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.782,
+            0.625,
+            0.803
+          ],
+          "content": "How many sides and how many dice?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.829,
+            0.188,
+            0.847
+          ],
+          "content": "**6 3**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.875,
+            0.639,
+            0.894
+          ],
+          "content": "Here are 18 sets of 3 6-sided throws."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "908"
+        }
+      ]
+    },
+    {
+      "page_idx": 908,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.061,
+            0.792,
+            0.083
+          ],
+          "content": "12 10 6 9 8 14 8 15 9 14 12 17 11 7 10"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.109,
+            0.251,
+            0.127
+          ],
+          "content": "13 8 14"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.156,
+            0.571,
+            0.177
+          ],
+          "content": "How many sets? Enter q to stop."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.205,
+            0.151,
+            0.222
+          ],
+          "content": "q"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.247,
+            0.918,
+            0.296
+          ],
+          "content": "rand1()或 rand()（不是 rollem()）还可以用来创建一个猜数字程序，让计算机选定一个数字，你来猜。读者感兴趣的话可以自己编写这个程序。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "909"
+        }
+      ]
+    },
+    {
+      "page_idx": 909,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.25,
+            0.065,
+            0.748,
+            0.093
+          ],
+          "level": 2,
+          "content": "12.4 分配内存:malloc()和free()"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.123,
+            0.919,
+            0.201
+          ],
+          "content": "我们前面讨论的存储类别有一个共同之处:在确定用哪种存储类别后，根据已制定好的内存管理规则，将自动选择其作用域和存储期。然而，还有更灵活地选择，即用库函数分配和管理内存。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.226,
+            0.918,
+            0.275
+          ],
+          "content": "首先，回顾一下内存分配。所有程序都必须预留足够的内存来储存程序使用的数据。这些内存中有些是自动分配的。例如，以下声明:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.303,
+            0.206,
+            0.322
+          ],
+          "content": "float x;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.348,
+            0.517,
+            0.37
+          ],
+          "content": "char place[] = \"Dancing Oxen Creek\";"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.393,
+            0.912,
+            0.443
+          ],
+          "content": "为一个float类型的值和一个字符串预留了足够的内存，或者可以显式指定分配一定数量的内存:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.469,
+            0.29,
+            0.492
+          ],
+          "content": "int plates[100];"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.514,
+            0.918,
+            0.621
+          ],
+          "content": "该声明预留了100个内存位置，每个位置都用于储存int类型的值。声明还为内存提供了一个标识符。因此，可以使用x或place识别数据。回忆一下，静态数据在程序载入内存时分配，而自动数据在程序执行块时分配，并在程序离开该块时销毁。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.646,
+            0.922,
+            0.925
+          ],
+          "content": "C 能做的不止这些。可以在程序运行时分配更多的内存。主要的工具是malloc()函数，该函数接受一个参数:所需的内存字节数。malloc()函数会找到合适的空闲内存块，这样的内存是匿名的。也就是说， malloc()分配内存，但是不会为其赋名。然而，它确实返回动态分配内存块的首字节地址。因此，可以把该地址赋给一个指针变量，并使用指针访问这块内存。因为char表示1字节，malloc()的返回类型通常被定义为指向char的指针。然而，从ANSI C标准开始，C使用一个新的类型:指向void的指针。该类型相当于一个“通用指针”。malloc()函数可用于返回指向数组的指针、指向结构的指针等，所以通常该函数的返回值会被强制转换为匹配的类型。在ANSI C中，应该坚持使用强制类型转换，提高代码的可读性。然而，把指向 void"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "910"
+        }
+      ]
+    },
+    {
+      "page_idx": 910,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.915,
+            0.112
+          ],
+          "continues_prev": true,
+          "content": "的指针赋给任意类型的指针完全不用考虑类型匹配的问题。如果 malloc()分配内存失败，将返回空指针。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.136,
+            0.918,
+            0.187
+          ],
+          "content": "我们试着用 malloc()创建一个数组。除了用 malloc()在程序运行时请求一块内存，还需要一个指针记录这块内存的位置。例如，考虑下面的代码:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.127,
+            0.212,
+            0.269,
+            0.234
+          ],
+          "content": "\\text {double} * \\text {ptd};",
+          "image_source": "images/page_910_equation_2.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.127,
+            0.258,
+            0.592,
+            0.281
+          ],
+          "content": "\\mathrm{ptd} = (\\text {double} *) \\text {malloc} (3 0 * \\text {sizeof} (\\text {double}));",
+          "image_source": "images/page_910_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.303,
+            0.919,
+            0.468
+          ],
+          "content": "以上代码为30个double类型的值请求内存空间，并设置ptd指向该位置。注意，指针ptd被声明为指向一个double类型，而不是指向内含30个double类型值的块。回忆一下，数组名是该数组首元素的地址。因此，如果让ptd指向这个块的首元素，便可像使用数组名一样使用它。也就是说，可以使用表达式ptd[0]访问该块的首元素，ptd[1]访问第2个元素，以此类推。根据前面所学的知识，可以使用数组名来表示指针，也可以用指针来表示数组。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.492,
+            0.512,
+            0.513
+          ],
+          "content": "现在，我们有3种创建数组的方法。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.538,
+            0.892,
+            0.588
+          ],
+          "content": "声明数组时，用常量表达式表示数组的维度，用数组名访问数组的元素。可以用静态内存或自动内存创建这种数组。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.613,
+            0.892,
+            0.664
+          ],
+          "content": "声明变长数组（C99新增的特性）时，用变量表达式表示数组的维度，用数组名访问数组的元素。具有这种特性的数组只能在自动内存中创建。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.688,
+            0.905,
+            0.738
+          ],
+          "content": "声明一个指针，调用malloc()，将其返回值赋给指针，使用指针访问数组的元素。该指针可以是静态的或自动的。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.763,
+            0.918,
+            0.842
+          ],
+          "content": "使用第2种和第3种方法可以创建动态数组（dynamic array）。这种数组和普通数组不同，可以在程序运行时选择数组的大小和分配内存。例如，假设n是一个整型变量。在C99之前，不能这样做:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.866,
+            0.627,
+            0.888
+          ],
+          "content": "double item[n]; /\\* C99之前:n不允许是变量 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.912,
+            0.346,
+            0.933
+          ],
+          "content": "但是，可以这样做:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.517,
+            0.976
+          ],
+          "content": "911"
+        }
+      ]
+    },
+    {
+      "page_idx": 911,
+      "blocks": [
+        {
+          "type": "equation",
+          "bbox": [
+            0.127,
+            0.062,
+            0.685,
+            0.084
+          ],
+          "content": "\\mathrm{ptd} = (\\text {double} *) \\text {malloc} (\\mathrm{n} * \\text {sizeof} (\\text {double})); / * \\text {可以} * /",
+          "image_source": "images/page_911_equation_0.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.108,
+            0.5,
+            0.129
+          ],
+          "content": "如你所见，这比变长数组更灵活。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.154,
+            0.919,
+            0.375
+          ],
+          "content": "通常，malloc()要与free()配套使用。free()函数的参数是之前malloc()返回的地址，该函数释放之前malloc()分配的内存。因此，动态分配内存的存储期从调用malloc()分配内存到调用free()释放内存为止。设想malloc()和free()管理着一个内存池。每次调用malloc()分配内存给程序使用，每次调用free()把内存归还内存池中，这样便可重复使用这些内存。free()的参数应该是一个指针，指向由 malloc()分配的一块内存。不能用 free()释放通过其他方式（如，声明一个数组）分配的内存。malloc()和free()的原型都在stdlib.h头文件中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.399,
+            0.92,
+            0.621
+          ],
+          "content": "使用malloc()，程序可以在运行时才确定数组大小。如程序清单12.14所示，它把内存块的地址赋给指针 ptd，然后便可以使用数组名的方式使用ptd。另外，如果内存分配失败，可以调用 exit()函数结束程序，其原型在stdlib.h中。EXIT\\_FAILURE的值也被定义在stdlib.h中。标准提供了两个返回值以保证在所有操作系统中都能正常工作:EXIT\\_SUCCESS（或者，相当于0）表示普通的程序结束， EXIT\\_FAILURE 表示程序异常中止。一些操作系统（包括 UNIX、Linux 和 Windows）还接受一些表示其他运行错误的整数值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.646,
+            0.455,
+            0.668
+          ],
+          "content": "程序清单**12.14 dyn\\_arr.c**程序"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.692,
+            0.691,
+            0.9
+          ],
+          "sub_type": "code",
+          "content": "```c\n/* dyn_arr.c -- 动态分配数组 */\n\n#include <stdio.h>\n\n#include <stdlib.h> /* 为 malloc()、free()提供原型 */\nint main(void)\n\n{\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "912"
+        }
+      ]
+    },
+    {
+      "page_idx": 912,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.061,
+            0.902,
+            0.921
+          ],
+          "sub_type": "code",
+          "content": "```c\ndouble * ptd;\n\nint max;\n\nint number;\n\nint i = 0;\n\nputs(\"What is the maximum number of type double entries?\");\nif (scanf(\"%d\", &max) != 1)\n\n{\n\nputs(\"Number not correctly entered -- bye-.\");\n\nexit(EXIT_FAILURE);\n\n}\n\nptd = (double *) malloc(max * sizeof(double));\n\nif (ptd == NULL)\n\n{\n\nputs(\"Memory allocation failed. Goodbye-.\");\n\nexit(EXIT_FAILURE);\n\n}\n\n/* ptd 现在指向有max个元素的数组 */\n\nputs(\"Enter the values (q to quit):\");\n\nwhile (i < max && scanf(\"%lf\", &ptd[i]) == 1)\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.52,
+            0.977
+          ],
+          "content": "913"
+        }
+      ]
+    },
+    {
+      "page_idx": 913,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.061,
+            0.766,
+            0.689
+          ],
+          "sub_type": "code",
+          "content": "```txt\n++i;\n\nprintf(\"Here are your %d entries:\\n\", number = i);\n\nfor (i = 0; i < number; i++)\n\n{\nprintf(\"%7.2f \", ptd[i]);\n\nif (i % 7 == 6)\n\nputchar('\\n');\n\n}\n\nif (i % 7 != 0)\n\nputchar('\\n');\n\nputs(\"Done.\");\n\nfree(ptd);\n\nreturn 0;\n\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.709,
+            0.919,
+            0.788
+          ],
+          "content": "下面是该程序的运行示例。程序通过交互的方式让用户先确定数组的大小，我们设置数组大小为 5。虽然我们后来输入了6个数，但程序也只处理前5个数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.814,
+            0.653,
+            0.835
+          ],
+          "content": "What is the maximum number of entries?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.861,
+            0.151,
+            0.879
+          ],
+          "content": "5"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.907,
+            0.503,
+            0.929
+          ],
+          "content": "Enter the values (q to quit):"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "914"
+        }
+      ]
+    },
+    {
+      "page_idx": 914,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.061,
+            0.42,
+            0.081
+          ],
+          "content": "**20 30 35 25 40 80**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.109,
+            0.449,
+            0.13
+          ],
+          "content": "Here are your 5 entries:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.155,
+            0.521,
+            0.174
+          ],
+          "content": "20.00 30.00 35.00 25.00 40.00"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.202,
+            0.195,
+            0.22
+          ],
+          "content": "Done."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.246,
+            0.549,
+            0.268
+          ],
+          "content": "该程序通过以下代码获取数组的大小:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.293,
+            0.681,
+            0.501
+          ],
+          "sub_type": "code",
+          "content": "```c\nif (scanf(\"%d\", &max) != 1)\n{\nputs(\"Number not correctly entered -- bye.\");\nexit(EXIT_FAILURE);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.524,
+            0.918,
+            0.575
+          ],
+          "content": "接下来，分配足够的内存空间以储存用户要存入的所有数，然后把动态分配的内存地址赋给指针ptd:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.6,
+            0.611,
+            0.622
+          ],
+          "sub_type": "code",
+          "content": "```txt\nptd = (double *) malloc(max * sizeof(double));\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.645,
+            0.918,
+            0.695
+          ],
+          "content": "在C中，不一定要使用强制类型转换(double \\*)，但是在C++中必须使用。所以，使用强制类型转换更容易把C程序转换为C++程序。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.72,
+            0.878,
+            0.769
+          ],
+          "content": "malloc()可能分配不到所需的内存。在这种情况下，该函数返回空指针，程序结束:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.795,
+            0.642,
+            0.911
+          ],
+          "sub_type": "code",
+          "content": "```txt\nif (ptd == NULL)\n{\nputs(\"Memory allocation failed. Goodbye.\");\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "915"
+        }
+      ]
+    },
+    {
+      "page_idx": 915,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.061,
+            0.365,
+            0.13
+          ],
+          "sub_type": "code",
+          "content": "```lisp\nexit(EXIT_FAILURE);\n\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.153,
+            0.873,
+            0.177
+          ],
+          "content": "如果程序成功分配内存，便可把ptd视为一个有max个元素的数组名。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.2,
+            0.9,
+            0.308
+          ],
+          "content": "注意，free()函数位于程序的末尾，它释放了malloc()函数分配的内存。free()函数只释放其参数指向的内存块。一些操作系统在程序结束时会自动释放动态分配的内存，但是有些系统不会。为保险起见，请使用free()，不要依赖操作系统来清理。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.331,
+            0.919,
+            0.496
+          ],
+          "content": "使用动态数组有什么好处？从本例来看，使用动态数组给程序带来了更多灵活性。假设你已经知道，在大多数情况下程序所用的数组都不会超过100个元素，但是有时程序确实需要10000个元素。要是按照平时的做法，你不得不为这种情况声明一个内含 10000 个元素的数组。基本上这样做是在浪费内存。如果需要10001个元素，该程序就会出错。这种情况下，可以使用一个动态数组调整程序以适应不同的情况。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.357,
+            0.522,
+            0.639,
+            0.546
+          ],
+          "level": 2,
+          "content": "12.4.1 free()的重要性"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.57,
+            0.918,
+            0.678
+          ],
+          "content": "静态内存的数量在编译时是固定的，在程序运行期间也不会改变。自动变量使用的内存数量在程序执行期间自动增加或减少。但是动态分配的内存数量只会增加，除非用 free()进行释放。例如，假设有一个创建数组临时副本的函数，其代码框架如下:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.711,
+            0.348,
+            0.91
+          ],
+          "sub_type": "code",
+          "content": "```txt\n...\n\nint main()\n{\ndouble glad[2000];\nint i;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "916"
+        }
+      ]
+    },
+    {
+      "page_idx": 916,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.071,
+            0.692,
+            0.501
+          ],
+          "sub_type": "code",
+          "content": "```c\n...\nfor (i = 0; i < 1000; i++)\ngobble(glad, 2000);\n\n...\n}\nvoid gobble(double ar[], int n)\n{\ndouble * temp = (double *) malloc( n * sizeof(double));\n.../* free(temp); // 假设忘记使用free() */\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.524,
+            0.912,
+            0.66
+          ],
+          "content": "第1次调用gobble()时，它创建了指针temp，并调用malloc()分配了16000字节的内存（假设double为8 字节）。假设如代码注释所示，遗漏了free()。当函数结束时，作为自动变量的指针temp也会消失。但是它所指向的16000字节的内存却仍然存在。由于temp指针已被销毁，所以无法访问这块内存，它也不能被重复使用，因为代码中没有调用free()释放这块内存。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.684,
+            0.915,
+            0.791
+          ],
+          "content": "第2次调用gobble()时，它又创建了指针temp，并调用malloc()分配了16000字节的内存。第1次分配的16000字节内存已不可用，所以malloc()分配了另外一块16000字节的内存。当函数结束时，该内存块也无法被再访问和再使用。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.816,
+            0.917,
+            0.922
+          ],
+          "content": "循环要执行1000次，所以在循环结束时，内存池中有1600万字节被占用。实际上，也许在循环结束之前就已耗尽所有的内存。这类问题被称为内存泄漏（memory leak）。在函数末尾处调用free()函数可避免这类问题发生。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "917"
+        }
+      ]
+    },
+    {
+      "page_idx": 917,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.378,
+            0.06,
+            0.619,
+            0.084
+          ],
+          "level": 2,
+          "content": "12.4.2 calloc()函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.109,
+            0.655,
+            0.131
+          ],
+          "content": "分配内存还可以使用calloc()，典型的用法如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.157,
+            0.3,
+            0.179
+          ],
+          "content": "long \\* newmem;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.203,
+            0.594,
+            0.225
+          ],
+          "content": "newmem = (long \\*)calloc(100, sizeof (long));"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.248,
+            0.918,
+            0.413
+          ],
+          "content": "和malloc()类似，在ANSI之前，calloc()也返回指向char的指针；在ANSI之后，返回指向void的指针。如果要储存不同的类型，应使用强制类型转换运算符。calloc()函数接受两个无符号整数作为参数（ANSI规定是size\\_t类型）。第1个参数是所需的存储单元数量，第2个参数是存储单元的大小（以字节为单位）。在该例中，long为4字节，所以，前面的代码创建了100个4字节的存储单元，总共400字节。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.437,
+            0.915,
+            0.486
+          ],
+          "content": "用sizeof(long)而不是4，提高了代码的可移植性。这样，在其他long不是4字节的系统中也能正常工作。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.512,
+            0.91,
+            0.562
+          ],
+          "content": "calloc()函数还有一个特性:它把块中的所有位都设置为0（注意，在某些硬件系统中，不是把所有位都设置为0来表示浮点值0）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.587,
+            0.611,
+            0.608
+          ],
+          "content": "free()函数也可用于释放calloc()分配的内存。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.633,
+            0.918,
+            0.71
+          ],
+          "content": "动态内存分配是许多高级程序设计技巧的关键。我们将在第17章中详细讲解。有些编译器可能还提供其他内存管理函数，有些可以移植，有些不可以。读者可以抽时间看一下。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.286,
+            0.737,
+            0.71,
+            0.76
+          ],
+          "level": 2,
+          "content": "12.4.3 动态内存分配和变长数组"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.786,
+            0.918,
+            0.836
+          ],
+          "content": "变长数组（VLA）和调用 malloc()在功能上有些重合。例如，两者都可用于创建在运行时确定大小的数组:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.862,
+            0.273,
+            0.93
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint vlamal()\n{\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "918"
+        }
+      ]
+    },
+    {
+      "page_idx": 918,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.062,
+            0.486,
+            0.409
+          ],
+          "sub_type": "code",
+          "content": "```c\nint n;\n\nint * pi;\n\nscanf(\"%d\", &n);\n\npi = (int *) malloc (n * sizeof(int));\n\nint ar[n];// 变长数组\n\npi[2] = ar[2] = -5;\n\n...\n\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.431,
+            0.919,
+            0.625
+          ],
+          "content": "不同的是，变长数组是自动存储类型。因此，程序在离开变长数组定义所在的块时（该例中，即vlamal()函数结束时），变长数组占用的内存空间会被自动释放，不必使用 free()。另一方面，用malloc()创建的数组不必局限在一个函数内访问。例如，可以这样做:被调函数创建一个数组并返回指针，供主调函数访问，然后主调函数在末尾调用free()释放之前被调函数分配的内存。另外，free()所用的指针变量可以与 malloc()的指针变量不同，但是两个指针必须储存相同的地址。但是，不能释放同一块内存两次。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.649,
+            0.918,
+            0.727
+          ],
+          "content": "对多维数组而言，使用变长数组更方便。当然，也可以用 malloc()创建二维数组，但是语法比较繁琐。如果编译器不支持变长数组特性，就只能固定二维数组的维度，如下所示:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.127,
+            0.754,
+            0.554,
+            0.914
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint n = 5;\nint m = 6;\nint ar2[n][m]; // n×m的变长数组（VLA）\nint (*p2)[6]; // C99之前的写法\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "919"
+        }
+      ]
+    },
+    {
+      "page_idx": 919,
+      "blocks": [
+        {
+          "type": "equation",
+          "bbox": [
+            0.127,
+            0.108,
+            0.692,
+            0.13
+          ],
+          "content": "\\mathrm{p} 2 = (\\text {int} (*) [ 6 ]) \\operatorname{malloc} (\\mathrm{n} * 6 * \\text {sizeof(int)}); / / \\mathrm{n} \\times 6 \\text {数组}",
+          "image_source": "images/page_919_equation_0.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.127,
+            0.229,
+            0.401,
+            0.252
+          ],
+          "content": "\\mathrm{ar} 2 [ 1 ] [ 2 ] = \\mathrm{p} 2 [ 1 ] [ 2 ] = 1 2;",
+          "image_source": "images/page_919_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.275,
+            0.905,
+            0.324
+          ],
+          "content": "先复习一下指针声明。由于malloc()函数返回一个指针，所以p2必须是一个指向合适类型的指针。第1个指针声明:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.35,
+            0.462,
+            0.372
+          ],
+          "content": "\\text {int} (^ {*} \\mathrm{p2}) [ 6 ]; / / \\mathrm{C99之前的写法}",
+          "image_source": "images/page_919_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.396,
+            0.918,
+            0.447
+          ],
+          "content": "表明p2指向一个内含6个int类型值的数组。因此，p2[i]代表一个由6个整数构成的元素，p2[i][j]代表一个整数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.47,
+            0.906,
+            0.52
+          ],
+          "content": "第2个指针声明用一个变量指定p3所指向数组的大小。因此，p3代表一个指向变长数组的指针，这行代码不能在C90标准中运行。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.286,
+            0.547,
+            0.71,
+            0.57
+          ],
+          "level": 2,
+          "content": "12.4.4 存储类别和动态内存分配"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.595,
+            0.918,
+            0.674
+          ],
+          "content": "存储类别和动态内存分配有何联系？我们来看一个理想化模型。可以认为程序把它可用的内存分为 3部分:一部分供具有外部链接、内部链接和无链接的静态变量使用；一部分供自动变量使用；一部分供动态内存分配。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.699,
+            0.918,
+            0.777
+          ],
+          "content": "静态存储类别所用的内存数量在编译时确定，只要程序还在运行，就可访问储存在该部分的数据。该类别的变量在程序开始执行时被创建，在程序结束时被销毁。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.802,
+            0.919,
+            0.909
+          ],
+          "content": "然而，自动存储类别的变量在程序进入变量定义所在块时存在，在程序离开块时消失。因此，随着程序调用函数和函数结束，自动变量所用的内存数量也相应地增加和减少。这部分的内存通常作为栈来处理，这意味着新创建的变量按顺序加入内存，然后以相反的顺序销毁。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "920"
+        }
+      ]
+    },
+    {
+      "page_idx": 920,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.061,
+            0.919,
+            0.198
+          ],
+          "content": "动态分配的内存在调用 malloc()或相关函数时存在，在调用 free()后释放。这部分的内存由程序员管理，而不是一套规则。所以内存块可以在一个函数中创建，在另一个函数中销毁。正是因为这样，这部分的内存用于动态内存分配会支离破碎。也就是说，未使用的内存块分散在已使用的内存块之间。另外，使用动态内存通常比使用栈内存慢。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.221,
+            0.918,
+            0.271
+          ],
+          "content": "总而言之，程序把静态对象、自动对象和动态分配的对象储存在不同的区域。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.126,
+            0.342,
+            0.65,
+            0.924
+          ],
+          "sub_type": "code",
+          "content": "```c\n// where.c -- 数据被储存在何处?\n\n#include <stdio.h>\n\n#include <stdlib.h>\n\n#include <string.h>\n\nint static_store = 30;\n\nconst char *pcg=\"String Literal\";\n\nint main()\n{\nint auto_store = 40;\n\nchar auto_string [] = \"Auto char Array\";\nint *pi;\n\nchar *pcl;\n\npi = (int *) malloc(sizeof(int));\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.128,
+                0.296,
+                0.441,
+                0.318
+              ],
+              "content": "程序清单12.15 where.c程序"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.519,
+            0.977
+          ],
+          "content": "921"
+        }
+      ]
+    },
+    {
+      "page_idx": 921,
+      "blocks": [
+        {
+          "type": "code",
+          "bbox": [
+            0.129,
+            0.061,
+            0.855,
+            0.919
+          ],
+          "sub_type": "code",
+          "content": "```c\n*pi = 35;\npcl = (char *) malloc(strlen(\"Dynamic String\") + 1);\nstrcpy(pcl, \"Dynamic String\");\nprintf(\"static_store: %d at %p\\n\", static_store, &static_store);\nprintf(\" auto_store: %d at %p\\n\", auto_store, &auto_store);\nprintf(\" *pi: %d at %p\\n\", *pi, pi);\nprintf(\" %s at %p\\n\", pcg, pcg);\nprintf(\" %s at %p\\n\", auto_string, auto_string);\nprintf(\" %s at %p\\n\", pcl, pcl);\nprintf(\" %s at %p\\n\", \"Quoted String\", \"Quoted String\");\nfree(pi);\nfree(pcl);\nreturn 0;\n}\n在我们的系统中，该程序的输入如下：\nstatic_store: 30 at 00378000\nauto_store: 40 at 0049FB8C\n*pi: 35 at 008E9BA0\nString Literal at 00375858\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "922"
+        }
+      ]
+    },
+    {
+      "page_idx": 922,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.063,
+            0.51,
+            0.083
+          ],
+          "content": "Auto char Array at 0049FB74"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.109,
+            0.491,
+            0.13
+          ],
+          "content": "Dynamic String at 008E9BD0"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.155,
+            0.462,
+            0.176
+          ],
+          "content": "Quoted String at 00375908"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.2,
+            0.918,
+            0.279
+          ],
+          "content": "如上所示，静态数据（包括字符串字面量）占用一个区域，自动数据占用另一个区域，动态分配的数据占用第3个区域（通常被称为内存堆或自由内存）。"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "923"
+        }
+      ]
+    },
+    {
+      "page_idx": 923,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.31,
+            0.065,
+            0.687,
+            0.091
+          ],
+          "level": 2,
+          "content": "12.5 ANSI C类型限定符"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.122,
+            0.919,
+            0.289
+          ],
+          "content": "我们通常用类型和存储类别来描述一个变量。C90 还新增了两个属性:恒常性（constancy）和易变性（volatility）。这两个属性可以分别用关键字const 和 volatile 来声明，以这两个关键字创建的类型是限定类型（qualified type）。C99标准新增了第3个限定符:restrict，用于提高编译器优化。C11标准新增了第4个限定符:\\_Atomic。C11提供一个可选库，由stdatomic.h管理，以支持并发程序设计，而且\\_Atomic是可选支持项。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.312,
+            0.919,
+            0.392
+          ],
+          "content": "C99 为类型限定符增加了一个新属性:它们现在是幂等的（idempotent）！这个属性听起来很强大，其实意思是可以在一条声明中多次使用同一个限定符，多余的限定符将被忽略:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.416,
+            0.655,
+            0.436
+          ],
+          "content": "const const const int n = 6; // 与 const int n = 6;相同"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.461,
+            0.65,
+            0.482
+          ],
+          "content": "有了这个新属性，就可以编写类似下面的代码:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.509,
+            0.401,
+            0.531
+          ],
+          "content": "typedef const int zip;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.556,
+            0.367,
+            0.577
+          ],
+          "content": "const zip q = 8;"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.344,
+            0.601,
+            0.654,
+            0.625
+          ],
+          "level": 2,
+          "content": "12.5.1 const类型限定符"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.65,
+            0.909,
+            0.701
+          ],
+          "content": "第4章和第10章中介绍过const。以const关键字声明的对象，其值不能通过赋值或递增、递减来修改。在ANSI兼容的编译器中，以下代码:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.725,
+            0.725,
+            0.746
+          ],
+          "content": "const int nochange; /\\* 限定nochange的值不能被修改 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.772,
+            0.517,
+            0.793
+          ],
+          "content": "nochange = 12; /\\* 不允许 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.817,
+            0.892,
+            0.866
+          ],
+          "content": "编译器会报错。但是，可以初始化const变量。因此，下面的代码没问题:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.893,
+            0.51,
+            0.915
+          ],
+          "content": "const int nochange = 12; /\\* 没问题 \\*/"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "924"
+        }
+      ]
+    },
+    {
+      "page_idx": 924,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.061,
+            0.868,
+            0.083
+          ],
+          "content": "该声明让nochange成为只读变量。初始化后，就不能再改变它的值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.108,
+            0.6,
+            0.129
+          ],
+          "content": "可以用const关键字创建不允许修改的数组:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.155,
+            0.757,
+            0.177
+          ],
+          "content": "\\text {const int days1[12]} = \\{3 1, 2 8, 3 1, 3 0, 3 1, 3 0, 3 1, 3 1, 3 0, 3 1, 3 0, 3 1 \\};",
+          "image_source": "images/page_924_equation_2.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.13,
+            0.2,
+            0.502,
+            0.221
+          ],
+          "level": 2,
+          "content": "1.在指针和形参声明中使用const"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.247,
+            0.916,
+            0.324
+          ],
+          "content": "声明普通变量和数组时使用 const 关键字很简单。指针则复杂一些，因为要区分是限定指针本身为const还是限定指针指向的值为const。下面的声明:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.35,
+            0.673,
+            0.372
+          ],
+          "content": "const float \\* pf; /\\* pf 指向一个float类型的const值 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.396,
+            0.917,
+            0.446
+          ],
+          "content": "创建了 pf 指向的值不能被改变，而 pt 本身的值可以改变。例如，可以设置该指针指向其他 const值。相比之下，下面的声明:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.471,
+            0.55,
+            0.493
+          ],
+          "content": "float \\* const pt; /\\* pt 是一个const指针 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.517,
+            0.905,
+            0.566
+          ],
+          "content": "创建的指针pt本身的值不能更改。pt必须指向同一个地址，但是它所指向的值可以改变。下面的声明:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.594,
+            0.355,
+            0.614
+          ],
+          "content": "const float \\* const ptr;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.638,
+            0.703,
+            0.66
+          ],
+          "content": "表明ptr既不能指向别处，它所指向的值也不能改变。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.685,
+            0.461,
+            0.706
+          ],
+          "content": "还可以把const放在第3个位置:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.732,
+            0.569,
+            0.753
+          ],
+          "content": "float const \\* pfc; // 与const float \\* pfc;相同"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.777,
+            0.916,
+            0.856
+          ],
+          "content": "如注释所示，把const放在类型名之后、\\*之前，说明该指针不能用于改变它所指向的值。简而言之， const放在\\*左侧任意位置，限定了指针指向的数据不能改变；const放在\\*的右侧，限定了指针本身不能改变。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.88,
+            0.917,
+            0.931
+          ],
+          "content": "const 关键字的常见用法是声明为函数形参的指针。例如，假设有一个函数要调用 display()显示一个数组的内容。要把数组名作为实际参数传递给"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.519,
+            0.976
+          ],
+          "content": "925"
+        }
+      ]
+    },
+    {
+      "page_idx": 925,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.919,
+            0.112
+          ],
+          "continues_prev": true,
+          "content": "该函数，但是数组名是一个地址。该函数可能会更改主调函数中的数据，但是下面的原型保证了数据不会被更改:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.137,
+            0.535,
+            0.159
+          ],
+          "content": "void display(const int array[], int limit);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.183,
+            0.905,
+            0.234
+          ],
+          "content": "在函数原型和函数头，形参声明const int array[]与const int \\* array相同，所以该声明表明不能更改array指向的数据。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.257,
+            0.918,
+            0.336
+          ],
+          "content": "ANSI C库遵循这种做法。如果一个指针仅用于给函数访问值，应将其声明为一个指向const限定类型的指针。如果要用指针更改主调函数中的数据，就不使用const关键字。例如，ANSI C中的strcat()原型如下:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.362,
+            0.68,
+            0.383
+          ],
+          "content": "char \\*strcat(char \\* restrict s1, const char \\* restrict s2);"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.406,
+            0.9,
+            0.485
+          ],
+          "content": "回忆一下，strcat()函数在第1个字符串的末尾添加第2个字符串的副本。这更改了第1个字符串，但是未更改第1个字符串。上面的声明体现了这一点。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.128,
+            0.51,
+            0.398,
+            0.531
+          ],
+          "level": 2,
+          "content": "2.对全局数据使用const"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.556,
+            0.92,
+            0.664
+          ],
+          "content": "前面讲过，使用全局变量是一种冒险的方法，因为这样做暴露了数据，程序的任何部分都能更改数据。如果把数据设置为 const，就可避免这样的危险，因此用 const 限定符声明全局数据很合理。可以创建const变量、const数组和const结构（结构是一种复合数据类型，将在下一章介绍）。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.688,
+            0.918,
+            0.766
+          ],
+          "content": "然而，在文件间共享const数据要小心。可以采用两个策略。第一，遵循外部变量的常用规则，即在一个文件中使用定义式声明，在其他文件中使用引用式声明（用extern关键字）:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.791,
+            0.564,
+            0.813
+          ],
+          "content": "/\\* file1.c -- 定义了一些外部const变量 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.839,
+            0.484,
+            0.86
+          ],
+          "content": "const double PI = 3.14159;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.885,
+            0.918,
+            0.935
+          ],
+          "content": "const char \\* MONTHS[12] = { \"January\", \"February\", \"March\", \"April\", \"May\","
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "926"
+        }
+      ]
+    },
+    {
+      "page_idx": 926,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.061,
+            0.685,
+            0.084
+          ],
+          "content": "\"June\", \"July\",\"August\", \"September\", \"October\","
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.129,
+            0.109,
+            0.461,
+            0.13
+          ],
+          "content": "\"November\", \"December\" };"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.154,
+            0.636,
+            0.174
+          ],
+          "content": "/\\* file2.c -- 使用定义在别处的外部const变量 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.202,
+            0.421,
+            0.222
+          ],
+          "content": "extern const double PI;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.248,
+            0.413,
+            0.269
+          ],
+          "content": "extern const \\* MONTHS [];"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.292,
+            0.892,
+            0.341
+          ],
+          "content": "另一种方案是，把const变量放在一个头文件中，然后在其他文件中包含该头文件:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.368,
+            0.582,
+            0.389
+          ],
+          "content": "/\\* constant.h --定义了一些外部const变量\\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.415,
+            0.56,
+            0.436
+          ],
+          "content": "static const double PI = 3.14159;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.461,
+            0.918,
+            0.511
+          ],
+          "content": "static const char \\* MONTHS[12] ={\"January\", \"February\", \"March\", \"April\", \"May\","
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.535,
+            0.683,
+            0.557
+          ],
+          "content": "\"June\", \"July\",\"August\", \"September\", \"October\","
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.582,
+            0.434,
+            0.603
+          ],
+          "content": "\"November\", \"December\"};"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.628,
+            0.623,
+            0.648
+          ],
+          "content": "/\\* file1.c --使用定义在别处的外部const变量\\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.675,
+            0.367,
+            0.694
+          ],
+          "content": "#include \"constant.h\""
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.72,
+            0.623,
+            0.74
+          ],
+          "content": "/\\* file2.c --使用定义在别处的外部const变量\\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.768,
+            0.367,
+            0.787
+          ],
+          "content": "#include \"constant.h\""
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.813,
+            0.897,
+            0.92
+          ],
+          "content": "这种方案必须在头文件中用关键字static声明全局const变量。如果去掉static，那么在file1.c和file2.c中包含constant.h将导致每个文件中都有一个相同标识符的定义式声明，C标准不允许这样做（然而，有些编译器允许）。实际上，这种方案相当于给每个文件提供了一个单独的数据副本[1]。由于"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.478,
+            0.959,
+            0.52,
+            0.976
+          ],
+          "content": "927"
+        }
+      ]
+    },
+    {
+      "page_idx": 927,
+      "blocks": [
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.061,
+            0.919,
+            0.14
+          ],
+          "continues_prev": true,
+          "content": "每个副本只对该文件可见，所以无法用这些数据和其他文件通信。不过没关系，它们都是完全相同（每个文件都包含相同的头文件）的const数据（声明时使用了const关键字），这不是问题。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.165,
+            0.919,
+            0.273
+          ],
+          "content": "头文件方案的好处是，方便你偷懒，不用惦记着在一个文件中使用定义式声明，在其他文件中使用引用式声明。所有的文件都只需包含同一个头文件即可。但它的缺点是，数据是重复的。对于前面的例子而言，这不算什么问题，但是如果const数据包含庞大的数组，就不能视而不见了。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.334,
+            0.298,
+            0.666,
+            0.322
+          ],
+          "level": 2,
+          "content": "12.5.2 volatile类型限定符"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.347,
+            0.918,
+            0.482
+          ],
+          "content": "volatile 限定符告知计算机，代理（而不是变量所在的程序）可以改变该变量的值。通常，它被用于硬件地址以及在其他程序或同时运行的线程中共享数据。例如，一个地址上可能储存着当前的时钟时间，无论程序做什么，地址上的值都随时间的变化而改变。或者一个地址用于接受另一台计算机传入的信息。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.507,
+            0.424,
+            0.528
+          ],
+          "content": "volatile的语法和const一样:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.553,
+            0.592,
+            0.574
+          ],
+          "content": "olatile int loc1;/\\* loc1 是一个易变的位置 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.599,
+            0.78,
+            0.621
+          ],
+          "content": "volatile int \\* ploc; /\\* ploc 是一个指向易变的位置的指针 \\*/"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.646,
+            0.908,
+            0.694
+          ],
+          "content": "以上代码把loc1声明为volatile变量，把ploc声明为指向volatile变量的指针。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.721,
+            0.902,
+            0.77
+          ],
+          "content": "读者可能认为volatile是个可有可无的概念，为何ANSI委员把volatile关键字放入标准？原因是它涉及编译器的优化。例如，假设有下面的代码:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.797,
+            0.214,
+            0.816
+          ],
+          "content": "\\text {vall} = \\mathrm{x};",
+          "image_source": "images/page_927_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.842,
+            0.406,
+            0.862
+          ],
+          "content": "/\\* 一些不使用 x 的代码\\*/"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.89,
+            0.258,
+            0.907
+          ],
+          "content": "\\mathrm{val2} = \\mathrm{x}",
+          "image_source": "images/page_927_equation_11.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.479,
+            0.959,
+            0.521,
+            0.976
+          ],
+          "content": "928"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "C Primer Plus 第6版 中文版",
+      "authors": [
+        "[美]史蒂芬·普拉达（Stephen Prata）"
+      ],
+      "languages": [
+        "zh"
+      ],
+      "publisher": "人民邮电出版社",
+      "created_at": "2017-02-18T06:13:34+00:00",
+      "modified_at": "2018-09-06T19:39:18+08:00",
+      "creator_application": "calibre 2.79.1 [https://calibre-ebook.com]",
+      "producer_application": "calibre 2.79.1 [https://calibre-ebook.com]",
+      "page_count": 1635,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 896,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 897,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 898,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 899,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 900,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 901,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 902,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 903,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 904,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 905,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 906,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 907,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 908,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 909,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 910,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 911,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 912,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 913,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 914,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 915,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 916,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 917,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 918,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 919,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 920,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 921,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 922,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 923,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 924,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 925,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 926,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        },
+        {
+          "page_idx": 927,
+          "width_pt": 595.2755737304688,
+          "height_pt": 841.8897705078125
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}
