@@ -1,0 +1,5773 @@
+{
+  "pages": [
+    {
+      "page_idx": 224,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.402,
+            0.062,
+            0.597,
+            0.077
+          ],
+          "content": "§7. Numerische Integration"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.854,
+            0.061,
+            0.892,
+            0.075
+          ],
+          "content": "209"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.108,
+            0.096,
+            0.248,
+            0.113
+          ],
+          "level": 2,
+          "content": "Bemerkungen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.113,
+            0.893,
+            0.203
+          ],
+          "content": "1. Die Werte $T_{n,1}$ ($n = 1,2,3,\\ldots$) des Romberg-Extrapolationsschemas erhält man auch nach der sogenannten Simpson-Regel: Man ersetze den Integranden $f(x)$ über dem Teilintervall $[x_i, x_{i+2}]$ ($i = 0,2,\\ldots,2^n - 2$) durch die Parabel $g_i(x) = \\alpha_i x^2 + \\beta_i x + \\gamma_i$, die durch die aufeinanderfolgenden Punkte $(x_i, f(x_i)), (x_{i+1}, f(x_{i+1}))$, $(x_{i+2}, f(x_{i+2}))$ geht."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.204,
+            0.302,
+            0.22
+          ],
+          "content": "Die Approximation"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.238,
+            0.229,
+            0.757,
+            0.27
+          ],
+          "content": "\\int_ {a} ^ {b} f (x) d x \\approx T _ {1, 1} = \\frac {b - a}{6} \\left[ f (a) + 4 f (\\frac {a + b}{2}) + f (b) \\right]",
+          "image_source": "images/page_224_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.277,
+            0.598,
+            0.294
+          ],
+          "content": "wird Keplersche Faßregel genannt (→ §1, Aufg. 7)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.299,
+            0.89,
+            0.335
+          ],
+          "content": "2. Es gibt sehr schnell konvergierende Verfahren, die keine äquidistanten Stützstellen verwenden, deren Behandlung jedoch nicht so elementar ist."
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.106,
+            0.357,
+            0.881,
+            0.815
+          ],
+          "sub_type": "code",
+          "content": "```vba\n' Programm ROMBERG Integration\n' --------------------------------------------------\nDim I(7)\nE=1.OE-07\nPrint \"Grenzen A= ,B= \";\nInput A,B\nH=B-A\nN=1\nX=A\n' X=A+E, falls uneigentlich\nGosub Funktion\nFl=F\nX=B\n' x=B-E, falls uneigentlich\nGosub Funktion\nI(0)=H*(Fl+F)/2\nFor K=1 To 7\n    S=0\n    H=H/2\n    N=2*N\n    Q=1\n    For J=1 To N-1 Step 2\n        X=A+J*H\n        Gosub Funktion\n        S=S+F\nNext J\nI(K)=I(K-1)/2+S*H\nFor J=K-1 To O Step -l\n    Q=4*Q\n    I(J)=I(J+1)+(I(J+1)-I(J))/(Q-1)\nNext J\nPrint I(0)\nIa=Abs(I(0))\nIf Ia<1 Then\n    Ia=1\nEndif\nExit If Abs(I(1)-I(0))<E*Ia\nNext K\nPrint I(0)\nEnd\n' --------------------------------------------------\nProcedure Funktion\n    F=Log(x)/x\nReturn\n```",
+          "captions": [],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 225,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.108,
+            0.061,
+            0.147,
+            0.075
+          ],
+          "content": "210"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.449,
+            0.064,
+            0.549,
+            0.077
+          ],
+          "content": "4. Integration"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.107,
+            0.096,
+            0.202,
+            0.113
+          ],
+          "level": 2,
+          "content": "Aufgaben"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.114,
+            0.89,
+            0.162
+          ],
+          "content": "1. Ist $l$ die Länge des mathematischen Pendels und $\\alpha$ der maximale Auslenkwinkel, so ergibt sich die Schwingungsdauer $T$ ($\\rightarrow$ Band 2) mit $g = 9.80655\\mathrm{m/s}^2$ aus dem vollständigen elliptischen Integral"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.386,
+            0.168,
+            0.643,
+            0.212
+          ],
+          "content": "K (k) = \\int_ {0} ^ {\\pi / 2} \\frac {d x}{\\sqrt {1 - k ^ {2} \\sin^ {2} x}}",
+          "image_source": "images/page_225_equation_4.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.14,
+            0.226,
+            0.608,
+            0.264
+          ],
+          "content": "T = 4 \\sqrt {\\frac {l}{g}} K (\\sin \\frac {\\alpha}{2}). \\tag {1}",
+          "image_source": "images/page_225_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.271,
+            0.553,
+            0.286
+          ],
+          "content": "Eine gebräuchliche Näherung für kleine α ist"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.14,
+            0.293,
+            0.575,
+            0.331
+          ],
+          "content": "T = 2 \\pi \\sqrt {\\frac {l}{g}}. \\tag {2}",
+          "image_source": "images/page_225_equation_7.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.137,
+            0.337,
+            0.891,
+            0.459
+          ],
+          "sub_type": "text",
+          "content": "a) Man bestimme die für eine Standuhr mit 2-Sekunden-Pendel nötige Länge l aus (2) und aus (1) mit  $\\alpha = 4^{\\circ}$ . Dazu berechne man  $K(k)$  näherungsweise mit der Simpson-Regel für 2 und 4 Teilpunkte.\nb) Wie groß ist die Gangabweichung pro Woche, wenn l nach (2) bestimmt ist?\nc) (Mit PC) Man berechne $K(k)$ für $k = \\sin 89.5^{\\circ}$ mit Programm Romberg und vergleiche mit dem Tabellenwert 6.127778830.\nWarum ergibt sich eine so große Abweichung?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.475,
+            0.453,
+            0.491
+          ],
+          "content": "2. Das vollständige elliptische Integral"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.28,
+            0.498,
+            0.748,
+            0.54
+          ],
+          "content": "I (a, b) = \\int_ {0} ^ {\\pi / 2} \\frac {d x}{\\sqrt {a ^ {2} \\cos^ {2} x + b ^ {2} \\sin^ {2} x}} \\quad (0 <   b <   a)",
+          "image_source": "images/page_225_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.546,
+            0.704,
+            0.563
+          ],
+          "content": "läßt sich nach C.F. GAUSS über die beiden Folgen ausdrücken"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.287,
+            0.569,
+            0.748,
+            0.617
+          ],
+          "content": "\\begin{array}{l} a _ {0} = a, \\quad a _ {1} = \\frac {1}{2} (a _ {0} + b _ {0}), \\quad a _ {2} = \\frac {1}{2} (a _ {1} + b _ {1}), \\dots , \\\\ b _ {0} = b, \\quad b _ {1} = \\sqrt {a _ {0} b _ {0}} \\quad , \\quad b _ {2} = \\sqrt {a _ {1} b _ {1}} \\quad , \\dots , \\\\ \\end{array}",
+          "image_source": "images/page_225_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.624,
+            0.89,
+            0.656
+          ],
+          "content": "die gegen einen gemeinsamen Grenzwert, das sog. arithmetisch-geometrische Mittel $M(a,b)$ von $a$ und $b$ konvergieren:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.418,
+            0.662,
+            0.612,
+            0.693
+          ],
+          "content": "I (a, b) = \\frac {\\pi}{2} \\cdot \\frac {1}{M (a , b)}.",
+          "image_source": "images/page_225_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.698,
+            0.89,
+            0.714
+          ],
+          "content": "(Dies führt zu einem außerordentlich schnellen und genauen numerischen Verfahren.)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.717,
+            0.725,
+            0.743
+          ],
+          "content": "a) Für $a_1 = \\frac{1}{2}(a + b)$, $b_1 = \\sqrt{ab}$ zeige man mit der Substitution"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.17,
+            0.743,
+            0.438,
+            0.776
+          ],
+          "content": "\\sin x = \\frac {2 a \\sin \\psi}{(a + b) + (a - b) \\sin^ {2} \\psi}",
+          "image_source": "images/page_225_equation_21.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.26,
+            0.782,
+            0.802,
+            0.825
+          ],
+          "content": "\\int_ {0} ^ {\\pi / 2} \\frac {d x}{\\sqrt {a ^ {2} \\cos^ {2} x + b ^ {2} \\sin^ {2} x}} = \\int_ {0} ^ {\\pi / 2} \\frac {d \\psi}{\\sqrt {a _ {1} ^ {2} \\cos^ {2} \\psi + b _ {1} ^ {2} \\sin^ {2} \\psi}}.",
+          "image_source": "images/page_225_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.83,
+            0.766,
+            0.854
+          ],
+          "content": "b) Unter Berücksichtigung von $\\lim_{n\\to \\infty}a_n = \\lim_{n\\to \\infty}b_n = M(a,b)$ folgt aus a)"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.338,
+            0.86,
+            0.724,
+            0.887
+          ],
+          "content": "I (a, b) = I (M (a, b), M (a, b)) = M (a, b) ^ {- 1} \\cdot \\frac {\\pi}{2}.",
+          "image_source": "images/page_225_equation_24.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.892,
+            0.617,
+            0.909
+          ],
+          "content": "c) Teste das nachfolgende Programm in Aufgabe 1c."
+        }
+      ]
+    },
+    {
+      "page_idx": 226,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.398,
+            0.061,
+            0.596,
+            0.077
+          ],
+          "content": "§7. Numerische Integration"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.851,
+            0.061,
+            0.887,
+            0.076
+          ],
+          "content": "211"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.105,
+            0.096,
+            0.709,
+            0.114
+          ],
+          "level": 2,
+          "content": "Numerische Berechnung der vollständigen elliptischen Integrale"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.153,
+            0.123,
+            0.841,
+            0.182
+          ],
+          "content": "K (k) = \\int_ {0} ^ {\\pi / 2} \\frac {d x}{\\sqrt {1 - k ^ {2} \\sin^ {2} x}}, \\quad E (k) = \\int_ {0} ^ {\\pi / 2} \\sqrt {1 - k ^ {2} \\sin^ {2} x} d x \\quad (0 \\leq k <   1)",
+          "image_source": "images/page_226_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.206,
+            0.479,
+            0.221
+          ],
+          "content": "'Programm Vollst.Ellipt.Integrale"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.107,
+            0.224,
+            0.825,
+            0.433
+          ],
+          "sub_type": "algorithm",
+          "content": "' ---------------------------------------------------------- C=(A-B)/2\nInput \"k\";K          E=E+D\\*C\\*C\nIf K<1 Then         A=Al\n    A=1                     B=Bl\n    B=Sqr(1-K\\*K)        D=2\\*D\n    C=K                      Until C<1.OE-09\n    D=2                     Print \"K(k)=\";Pi/2/A\n    E=C\\*C                  Print \"E(k)=\";Pi/2/A\\*(1-E/2)\n    Repeat                       Else\n        Al=(A+B)/2          Print \"Fail\"\n        Bl=Sqr(A\\*B)           Endif\n                                      End",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.463,
+            0.474,
+            0.558
+          ],
+          "content": "3. Die Kontur Z des Wankelmotors hat die Form einer Hypozykloide. Sie ist die Bahn des Punktes A, wenn der Läuferkreis  $K_{L}$  auf dem (mit dem Gehäuse G starr verbundenen) Kreis  $K_{G}$  abrollt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.56,
+            0.474,
+            0.608
+          ],
+          "content": "a) Man bestimme die Parameterdarstellung  $x(t), y(t)$  von Z mit dem Winkel t gemäß Skizze."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.609,
+            0.472,
+            0.655
+          ],
+          "content": "Für welche Werte von $a/b$ liegen die Punkte $B$ und $C$ ebenfalls auf $Z$?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.166,
+            0.658,
+            0.4,
+            0.674
+          ],
+          "content": "(Rollbedingung:  $at = b\\varphi$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.166,
+            0.674,
+            0.474,
+            0.705
+          ],
+          "content": "Berührbedingung: $O, M_{L}, P$ auf einer Geraden.)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.706,
+            0.532,
+            0.722
+          ],
+          "content": "b) Für $a = 3$, $b = 2$, $d = 7$ bestätige man"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.359,
+            0.729,
+            0.589,
+            0.758
+          ],
+          "content": "x (t) = - \\sin \\frac {3}{2} t + 7 \\sin \\frac {1}{2} t,",
+          "image_source": "images/page_226_equation_12.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.361,
+            0.759,
+            0.692,
+            0.788
+          ],
+          "content": "y (t) = 7 \\cos \\frac {1}{2} t - \\cos \\frac {3}{2} t, \\quad 0 \\leq t \\leq 4 \\pi .",
+          "image_source": "images/page_226_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.165,
+            0.793,
+            0.887,
+            0.843
+          ],
+          "content": "Man bestimme den Flächeninhalt $F$ und den Umfang $U$ von $Z$, indem man $U$ auf ein elliptisches Integral $E(\\sqrt{0.84})$ zurückführt und entweder den Tabellenwert 1.1507... oder obiges Programm verwendet."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.536,
+            0.469,
+            0.893,
+            0.691
+          ],
+          "sub_type": "text_image",
+          "content": "A\ny\nK_G K_L\nd\nM_L\nt φ\na\nb\nP\nC x\nZ\nB\nG",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_226_image_15.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 227,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.45,
+            0.086,
+            0.548,
+            0.104
+          ],
+          "level": 2,
+          "content": "Kapitel 5"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.392,
+            0.11,
+            0.605,
+            0.133
+          ],
+          "level": 2,
+          "content": "Potenzreihen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.173,
+            0.893,
+            0.254
+          ],
+          "content": "Eine besonders wirkungsvolle Methode zur Lösung zahlreicher Probleme ist die Darstellung einer Funktion $f$ als unendliche Reihe $f(x)=\\sum_{k=0}^{\\infty}f_{k}(x)$ mit geeigneten, wohlbekannten Funktionen $f_{k}$; etwa als"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.259,
+            0.565,
+            0.277
+          ],
+          "content": "Potenzreihe mit $f_{k}(x) = a_{k}x^{k}$, oder als"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.278,
+            0.621,
+            0.295
+          ],
+          "content": "Fourier-Reihe mit  $f_{k}(x)=a_{k}\\cos kx+b_{k}\\sin kx$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.302,
+            0.89,
+            0.355
+          ],
+          "content": "Eine besondere Rolle spielen dabei die Potenzreihen: sie sind von einfacher Bauart, lassen sich leicht manipulieren (d.h. addieren, multiplizieren, differenzieren, integrieren, ...) und haben vielseitige, weitreichende Anwendungen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.357,
+            0.89,
+            0.392
+          ],
+          "content": "Bevor wir uns mit Potenzreihen befassen können, ist zu klären, was man unter einer unendlichen Summe  $a_{0} + a_{1} + a_{2} + \\cdots$  von Zahlen  $a_{i} \\in R$  versteht."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.37,
+            0.447,
+            0.628,
+            0.466
+          ],
+          "level": 2,
+          "content": "§1. Unendliche Reihen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.486,
+            0.89,
+            0.522
+          ],
+          "content": "1.1 Grundbegriffe. Die aus einer Zahlenfolge  $a_{0}, a_{1}, a_{2}, \\ldots$  gebildete Summenfolge  $(s_{n})_{n \\geq 0}$  mit"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.3,
+            0.532,
+            0.698,
+            0.577
+          ],
+          "content": "s _ {n} := \\sum_ {k = 0} ^ {n} a _ {k} = a _ {0} + a _ {1} + \\dots + a _ {n} \\quad (n \\geq 0)",
+          "image_source": "images/page_227_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.588,
+            0.89,
+            0.649
+          ],
+          "content": "heißt unendliche Reihe, sie wird mit  $\\sum_{k=0}^{\\infty}a_{k}$  (bzw. mit  $a_{0}+a_{1}+a_{2}+\\cdots$ ) bezeichnet.\nD.h."
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.318,
+            0.653,
+            0.682,
+            0.699
+          ],
+          "content": "a _ {0} + a _ {1} + a _ {2} + \\dots = \\sum_ {k = 0} ^ {\\infty} a _ {k} := (s _ {n}) _ {n \\geq 0}.",
+          "image_source": "images/page_227_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.706,
+            0.893,
+            0.785
+          ],
+          "content": "Die Zahlen $a_{i}$ heißen Glieder der Reihe und die Summen $s_{n} = \\sum_{k=0}^{n} a_{k}$ deren Partialsummen. Der Definition entsprechend sagt man, die Reihe konvergiert (bzw. divergiert), wenn $(s_{n})_{n \\geq 0}$ konvergiert (bzw. divergiert)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.786,
+            0.892,
+            0.849
+          ],
+          "content": "Im Fall $\\lim_{n\\to \\infty}s_n = \\lim_{n\\to \\infty}\\left(\\sum_{k = 0}^{n}a_k\\right) = s$ (mit $s\\in \\mathbb{R}\\cup \\{-\\infty ,\\infty \\}$) nennt man $s$ den Wert (oder die Summe) der unendlichen Reihe und schreibt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.445,
+            0.859,
+            0.556,
+            0.905
+          ],
+          "content": "\\sum_ {k = 0} ^ {\\infty} a _ {k} = s,",
+          "image_source": "images/page_227_equation_14.jpg"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.098,
+            0.93,
+            0.408,
+            0.946
+          ],
+          "content": "K. Meyberg et al., Höhere Mathematik"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.098,
+            0.947,
+            0.443,
+            0.964
+          ],
+          "content": "© Springer-Verlag Berlin Heidelberg 1998"
+        }
+      ]
+    },
+    {
+      "page_idx": 228,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.416,
+            0.061,
+            0.582,
+            0.077
+          ],
+          "content": "§1. Unendliche Reihen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.853,
+            0.061,
+            0.892,
+            0.076
+          ],
+          "content": "213"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.096,
+            0.894,
+            0.16
+          ],
+          "content": "wobei man sich der dadurch hervorgerufenen Doppeldeutigkeit des Symbols $\\sum_{k=0}^{\\infty} a_k$ durchaus bewußt ist."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.171,
+            0.185,
+            0.604,
+            0.231
+          ],
+          "content": "Die beiden Bedeutungen des Symbols $\\sum_{k=0}^{\\infty} a_k$:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.171,
+            0.233,
+            0.827,
+            0.295
+          ],
+          "sub_type": "text",
+          "content": "a)  $\\sum_{k=0}^{L} a_{k}$  (alleinstehend) bezeichnet die Folge der Partialsummen"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.216,
+            0.278,
+            0.53,
+            0.295
+          ],
+          "content": "s _ {n} = a _ {0} + a _ {1} + \\dots + a _ {n} \\quad (n \\geq 0).",
+          "image_source": "images/page_228_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.171,
+            0.295,
+            0.701,
+            0.341
+          ],
+          "content": "b) Die Gleichung $\\sum_{k=0}^{\\infty} a_k = s$ bedeutet $\\lim_{n \\to \\infty} \\sum_{k=0}^{n} a_k = s$."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.107,
+            0.377,
+            0.201,
+            0.394
+          ],
+          "level": 2,
+          "content": "Beispiele."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.398,
+            0.894,
+            0.482
+          ],
+          "content": "1) Die geometrische Reihe  $\\sum_{k=0}^{\\infty} q^{k} = 1 + q + q^{2} + q^{3} + \\cdots$  besitzt die Glieder  $a_{k} = q^{k} \\quad (k \\geq 0)$  und für  $|q| < 1$  die Summe  $\\frac{1}{1 - q}$ . In Kap. 2, §4 wurde gezeigt:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.108,
+            0.49,
+            0.765,
+            0.577
+          ],
+          "content": "\\boxed {\\sum_ {k = 0} ^ {\\infty} q ^ {k} = \\left\\{ \\begin{array}{c l} \\frac {1}{1 - q} & , \\text {falls} | q | <   1 \\\\ \\infty & , \\text {falls} q \\geq 1 \\\\ (\\text {unbestimmt}) \\text {divergent} & , \\text {falls} q \\leq - 1 \\end{array} \\right.} \\tag {1}",
+          "image_source": "images/page_228_equation_10.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.105,
+            0.591,
+            0.891,
+            0.779
+          ],
+          "sub_type": "text",
+          "content": "2) Die harmonische Reihe  $\\sum_{k=1}^{\\infty}\\frac{1}{k}=1+\\frac{1}{2}+\\frac{1}{3}+\\cdots$  hat die Glieder  $a_{k}=\\frac{1}{k}\\quad(k\\geq1)$  und den Wert  $\\infty$  ( $\\rightarrow$  Kap. 2, §4).\n3) Die alternierende harmonische Reihe  $\\sum_{k=1}^{\\infty}(-1)^{k+1}\\frac{1}{k}=1-\\frac{1}{2}+\\frac{1}{3}-\\frac{1}{4}+-\\cdots$  hat die Glieder  $a_{k}=(-1)^{k+1}\\frac{1}{k}$  ( $k\\geq1$ ); sie konvergiert ( $\\rightarrow$  Kap2., §5) gegen den Grenzwert  $\\ln 2$  ( $\\rightarrow$  §4); d.h.,  $\\sum_{k=1}^{\\infty}(-1)^{k+1}\\frac{1}{k}=\\ln 2$ . ☐"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.799,
+            0.892,
+            0.871
+          ],
+          "content": "Der Konvergenznachweis durch Berechnung der Summe, wie im Fall der geometrischen Reihe, ist die Ausnahme. Die Berechnung der Summe ist i.a. schwierig und erfordert spezielle Methoden. In der Regel gelingt es aber, die Konvergenz oder Divergenz anhand der folgenden Tests (Kriterien) nachzuweisen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.878,
+            0.892,
+            0.915
+          ],
+          "content": "Das Cauchy-Konvergenzkriterium (→ Kap. 2, Satz 5.4) auf Reihen übertragen lautet:"
+        }
+      ]
+    },
+    {
+      "page_idx": 229,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.108,
+            0.061,
+            0.147,
+            0.075
+          ],
+          "content": "214"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.444,
+            0.063,
+            0.555,
+            0.076
+          ],
+          "content": "5. Potenzreihen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.09,
+            0.89,
+            0.153
+          ],
+          "content": "Satz 1.1. Die Reihe $\\sum_{k=0}^{\\infty} a_k$ ist genau dann konvergent, wenn es zu jeder noch so kleinen Zahl $\\epsilon > 0$ einen Index $N_\\epsilon$ gibt, so daß gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.11,
+            0.159,
+            0.821,
+            0.178
+          ],
+          "content": "\\left| s _ {n} - s _ {m} \\right| = \\left| a _ {m + 1} + a _ {m + 2} + \\dots + a _ {n} \\right| <   \\epsilon \\text {fur alle} m, n \\geq N _ {\\epsilon} (o. E. n > m).",
+          "image_source": "images/page_229_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.188,
+            0.868,
+            0.206
+          ],
+          "content": "Als unmittelbare Folgerung ergibt sich eine notwendige Konvergenzbedingung:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.225,
+            0.89,
+            0.243
+          ],
+          "content": "Satz 1.2. Die Glieder einer konvergenten unendlichen Reihe bilden eine Nullfolge."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.262,
+            0.89,
+            0.297
+          ],
+          "content": "Beweis. In Satz 1.1 nehme man $m = n - 1: |s_n - s_{n-1}| = |a_n| < \\epsilon$ für alle $n > N_\\epsilon$; d.h. $a_n \\to 0$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.317,
+            0.89,
+            0.388
+          ],
+          "content": "Beispiel. Jeder Versuch, für  $\\sum_{k=1}^{\\infty}\\frac{k^{k}}{k!}$  einen endlichen Grenzwert zu bestimmen, muß scheitern;  $\\left(\\frac{k^{k}}{k!}\\right)_{k\\geq1}$  ist keine Nullfolge. ☐"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.399,
+            0.89,
+            0.44
+          ],
+          "content": "Die Bedingung  $\\lim_{n\\to\\infty}a_{n}=0$  ist zur Konvergenz der Reihe notwendig, aber i.a. nicht hinreichend, wie das Beispiel der harmonischen Reihe zeigt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.442,
+            0.89,
+            0.495
+          ],
+          "content": "Für alternierende Reihen (das sind solche, in denen aufeinanderfolgende Reihenglieder verschiedene Vorzeichen haben) ist diese Bedingung beinahe auch hinreichend (→ Aufg. 5). Es gilt:"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.106,
+            0.514,
+            0.612,
+            0.53
+          ],
+          "level": 2,
+          "content": "Satz 1.3. Leibniz-Kriterium für alternierende Reihen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.532,
+            0.89,
+            0.565
+          ],
+          "content": "Für jede monoton fallende Nullfolge  $a_{0}, a_{1}, a_{2}, \\ldots$  konvergiert die alternierende Reihe"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.306,
+            0.568,
+            0.691,
+            0.613
+          ],
+          "content": "\\sum_ {k = 0} ^ {\\infty} (- 1) ^ {k} a _ {k} = a _ {0} - a _ {1} + a _ {2} - a _ {3} + \\dots .",
+          "image_source": "images/page_229_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.607,
+            0.887,
+            0.654
+          ],
+          "content": "$k=0$\nFür die Approximation der Summe $s$ durch die Partialsummen $s_n = \\sum_{k=0}^{n} (-1)^k a_k$ gilt die Fehlerabschätzung"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.343,
+            0.663,
+            0.655,
+            0.681
+          ],
+          "content": "| s - s _ {n} | \\leq a _ {n + 1} \\quad (n = 0, 1, 2, \\dots).",
+          "image_source": "images/page_229_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.7,
+            0.893,
+            0.764
+          ],
+          "content": "Beweis. Der Beweis mit dem Cauchy-Kriterium (Satz 1.1) verläuft völlig analog zu dem in Kap. 2, §5 ausgeführten Spezialfall $a_{k} = \\frac{1}{k}$ (alternierende harmonische Reihe)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.783,
+            0.681,
+            0.801
+          ],
+          "content": "Beispiel. Die Sinusfunktion besitzt die Reihendarstellung"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.801,
+            0.749,
+            0.835
+          ],
+          "content": "$\\sin x = x - \\frac{x^3}{3!} + \\frac{x^5}{5!} - \\frac{x^7}{7!} + -\\cdots \\quad (\\rightarrow \\S 3). \\text{ Für } x = \\frac{1}{10} \\text{ ergibt das}$"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.227,
+            0.842,
+            0.772,
+            0.876
+          ],
+          "content": "\\sin \\frac {1}{1 0} = \\frac {1}{1 0} - \\frac {1}{3 ! 1 0 ^ {3}} + \\frac {1}{5 ! 1 0 ^ {5}} - + \\dots = 0. 0 9 9 8 3 3 4 1 6 \\pm \\epsilon",
+          "image_source": "images/page_229_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.884,
+            0.606,
+            0.916
+          ],
+          "content": "mit dem Fehler  $\\epsilon = |s - s_{3}| < a_{4} = \\frac{1}{7!10^{7}} < 10^{-10}$ ."
+        }
+      ]
+    },
+    {
+      "page_idx": 230,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.419,
+            0.063,
+            0.584,
+            0.077
+          ],
+          "content": "§1. Unendliche Reihen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.855,
+            0.061,
+            0.895,
+            0.076
+          ],
+          "content": "215"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.095,
+            0.896,
+            0.209
+          ],
+          "content": "Beachte: Die angegebene Abschätzung gilt i.a. nur für konvergente alternierende Reihen. Für  $\\sum_{k=1}^{\\infty}\\frac{1}{k^{2}}=1+\\frac{1}{2^{2}}+\\frac{1}{3^{2}}+\\cdots=\\frac{\\pi^{2}}{6}$  ( $\\rightarrow$  Kap. 2, §5) beispielsweise berechnet man  $s_{200}=1.639946548$ , was vom Summenwert s=1.644934067 „wesentlich“ weiter entfernt ist als  $\\frac{1}{(201)^{2}}=2.475186258E-05$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.212,
+            0.895,
+            0.246
+          ],
+          "content": "Die Rechenregeln für Folgen sind leicht auf Reihen zu übertragen. So gilt insbesondere:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.264,
+            0.771,
+            0.282
+          ],
+          "content": "Satz 1.4. Rechenregeln für konvergente Reihen. Für alle $c \\in \\mathbb{R}$ gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.118,
+            0.289,
+            0.88,
+            0.337
+          ],
+          "content": "\\sum_ {k = 0} ^ {\\infty} a _ {k} = a, \\quad \\sum_ {k = 0} ^ {\\infty} b _ {k} = b (a, b \\in \\mathbb {R}) \\Rightarrow \\sum_ {k = 0} ^ {\\infty} (a _ {k} \\pm b _ {k}) = a \\pm b, \\quad \\sum_ {k = 0} ^ {\\infty} (c a _ {k}) = c a.",
+          "image_source": "images/page_230_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.354,
+            0.895,
+            0.433
+          ],
+          "content": "Beispiel. Aus $\\sum_{k=1}^{\\infty} \\frac{1}{k^{2}} = \\frac{\\pi^{2}}{6}$ und $\\sum_{k=1}^{\\infty} \\frac{(-1)^{k}}{k+1} = \\ln 2 - 1$ folgt $\\sum_{k=1}^{\\infty} \\left( \\frac{1}{k^{2}} + \\frac{(-1)^{k}}{k+1} \\right) = \\frac{\\pi^{2}}{6} + \\ln 2 - 1$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.447,
+            0.893,
+            0.502
+          ],
+          "content": "Eine Warnung. Elementare Manipulationen, die bei endlichen Summen den Summenwert nicht ändern, sind bei unendlichen Reihen („unendlichen Summen“) nicht uneingeschränkt erlaubt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.526,
+            0.573,
+            0.546
+          ],
+          "content": "(a) Klammern fortzulassen ist i.a. nicht erlaubt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.561,
+            0.893,
+            0.719
+          ],
+          "content": "Beispiel. Die Reihe  $\\sum_{k=0}^{\\infty}a_{k}$  mit  $a_{k}=(1-1)=0$  ist konvergent, der Grenzwert  $\\sum_{k=0}^{\\infty}a_{k}=(1-1)+(1-1)+\\cdots=0$ . Durch Fortlassen der Klammern entsteht hieraus die divergente Reihe  $1-1+1-1+-\\cdots=\\sum_{k=0}^{\\infty}b_{k}$  mit  $b_{k}=(-1)^{k}$  ( $k=0,1,\\ldots$ ) und den Partialsummen  $s_{n}=0$ , falls n ungerade,  $s_{n}=1$ , falls n gerade. ☐"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.741,
+            0.637,
+            0.761
+          ],
+          "content": "b Klammern zu setzen ist i.a. ebenfalls nicht erlaubt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.764,
+            0.886,
+            0.841
+          ],
+          "content": "Man betrachte das vorhergehende Beispiel: Aus der divergenten Reihe entsteht durch Klammerung die konvergente Reihe  $\\sum_{k=0}^{\\infty}a_{k}$ . Jedoch gilt:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.856,
+            0.832,
+            0.874
+          ],
+          "content": "Satz 1.5. In einer konvergenten Reihe darf man beliebig Klammern setzen:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.185,
+            0.883,
+            0.811,
+            0.902
+          ],
+          "content": "s = a _ {0} + a _ {1} + a _ {2} + \\dots = (a _ {0} + \\dots + a _ {k _ {1}}) + (a _ {k _ {1} + 1} + \\dots + a _ {k _ {2}}) + \\dots",
+          "image_source": "images/page_230_equation_13.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 231,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.106,
+            0.061,
+            0.144,
+            0.075
+          ],
+          "content": "216"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.443,
+            0.063,
+            0.553,
+            0.076
+          ],
+          "content": "5. Potenzreihen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.095,
+            0.893,
+            0.166
+          ],
+          "content": "Beweis. Die Partialsummen  $s_{n}^{\\prime} = (a_{0} + \\cdots + a_{k_{1}}) + \\cdots + (a_{k_{n-1}+1} + \\cdots + a_{k_{n}})$  der „geklammerten“ Reihe bilden eine Teilfolge der konvergenten Folge  $s_{n} = a_{0} + a_{1} + \\cdots + a_{n}, n \\geq 0$ ; sie konvergieren deshalb gegen denselben Grenzwert s ( $\\rightarrow$  Kap. 2, §4). □"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.194,
+            0.89,
+            0.229
+          ],
+          "content": "© Eine Umordnung der Glieder (Summanden) ist ohne Zusatzvoraussetzungen nicht erlaubt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.252,
+            0.834,
+            0.27
+          ],
+          "content": "Beispiel. Für die alternierende harmonische Reihe (s.o.) gilt mit Satz 1.4:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.106,
+            0.277,
+            0.896,
+            0.358
+          ],
+          "content": "\\begin{array}{l} \\ln 2 = 1 - \\frac {1}{2} + \\frac {1}{3} - \\frac {1}{4} + \\frac {1}{5} - \\frac {1}{6} + \\frac {1}{7} - \\frac {1}{8} + \\frac {1}{9} - \\frac {1}{1 0} + \\frac {1}{1 1} \\dots \\\\ + \\frac {1}{2} \\ln 2 = 0 + \\frac {1}{2} + 0 - \\frac {1}{4} + 0 + \\frac {1}{6} + 0 - \\frac {1}{8} + 0 + \\frac {1}{1 0} + 0 \\dots \\\\ \\frac {3}{2} \\ln 2 = 1 + 0 + \\frac {1}{3} - \\frac {1}{2} + \\frac {1}{5} + 0 + \\frac {1}{7} - \\frac {1}{4} + \\frac {1}{9} + 0 + \\frac {1}{1 1} \\dots \\\\ \\end{array}",
+          "image_source": "images/page_231_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.364,
+            0.892,
+            0.399
+          ],
+          "content": "Läßt man die Nullen weg, so entsteht die Reihe in der letzten Zeile durch Umordnung aus der Reihe in der ersten Zeile."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.44,
+            0.89,
+            0.476
+          ],
+          "content": "1.2 Absolute Konvergenz. Die Sachlage vereinfacht sich, wenn alle Reihenglieder  $\\geq 0$  sind."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.487,
+            0.89,
+            0.56
+          ],
+          "content": "Definition. Die Reihe  $\\sum_{k=0}^{\\infty}a_{k}$  heißt absolut konvergent, wenn die Reihe der Beträge  $\\sum_{k=0}^{\\infty}|a_{k}|=|a_{0}|+|a_{1}|+|a_{2}|+\\cdots$  konvergiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.561,
+            0.89,
+            0.597
+          ],
+          "content": "Reihen, die zwar konvergieren, aber nicht absolut konvergieren, nennt man bedingt konvergent."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.609,
+            0.89,
+            0.645
+          ],
+          "content": "Die alternierende harmonische Reihe ist ein Beispiel für bedingte Konvergenz. Es gilt"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.667,
+            0.889,
+            0.686
+          ],
+          "content": "Satz 1.6. Jede absolut konvergente Reihe ist konvergent (im gewöhnlichen Sinn)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.707,
+            0.893,
+            0.853
+          ],
+          "content": "Beweis. Ist  $\\sum_{k=0}^{\\infty}|a_{k}|$  konvergent, dann gibt es ( $\\rightarrow$  Satz 1.1, Cauchy-Kriterium) zu  $\\epsilon > 0$  einen Index  $N_{\\epsilon}$ , so daß  $|a_{m}| + |a_{m+1}| + \\cdots + |a_{n}| < \\epsilon$  für  $m, n \\geq N_{\\epsilon}$ , n > m. Aufgrund der Dreiecksungleichung gilt  $|a_{m} + a_{m+1} + \\cdots + a_{n}| \\leq |a_{m}| + |a_{m+1}| + \\cdots + |a_{n}| < \\epsilon$  für  $m, n \\geq N_{\\epsilon}$ , was wiederum nach Satz 1.1 die Konvergenz der Reihe  $\\sum_{k=0}^{\\infty} a_{k}$  nach sich zieht."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.874,
+            0.89,
+            0.91
+          ],
+          "content": "Die wesentlichen Kriterien für absolute Konvergenz basieren auf der folgenden Beobachtung."
+        }
+      ]
+    },
+    {
+      "page_idx": 232,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.416,
+            0.061,
+            0.582,
+            0.077
+          ],
+          "content": "§1. Unendliche Reihen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.853,
+            0.061,
+            0.892,
+            0.075
+          ],
+          "content": "217"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.092,
+            0.894,
+            0.169
+          ],
+          "content": "Satz 1.7. Die Reihe  $\\sum_{k=0}^{\\infty}a_{k}$  ist genau dann absolut konvergent, wenn die Folge der Partialsummen  $S_{n} := |a_{0}| + |a_{1}| + \\cdots + |a_{n}|$  (d.h. die Reihe  $\\sum_{k=0}^{\\infty}|a_{k}|$ ) beschränkt ist."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.172,
+            0.894,
+            0.209
+          ],
+          "content": "Beweis. Da die Folge  $(S_{n})_{n\\geq0}$  offenbar monoton wächst, folgt die Behauptung sofort aus dem Monotoniekriterium ( $\\rightarrow$  Kap. 2, §5). ☐"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.107,
+            0.226,
+            0.192,
+            0.244
+          ],
+          "level": 2,
+          "content": "Beispiel."
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.108,
+            0.254,
+            0.699,
+            0.321
+          ],
+          "content": "\\boxed {\\sum_ {k = 1} ^ {\\infty} \\frac {1}{k ^ {\\alpha}} \\quad \\left\\{ \\begin{array}{l l} \\text {konvergiert}, & \\text {falls} \\alpha > 1 \\\\ \\text {divergiert}, & \\text {falls} \\alpha \\leq 1 \\end{array} \\right.} \\tag {2}",
+          "image_source": "images/page_232_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.34,
+            0.89,
+            0.377
+          ],
+          "content": "Beweis. 1. Fall $\\alpha > 1$. Zu $n \\in \\mathbb{N}$ wird $m \\in \\mathbb{N}$ so gewählt, daß $n \\leq 2^m - 1$ gilt. Es folgt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.166,
+            0.384,
+            0.831,
+            0.474
+          ],
+          "content": "\\begin{array}{l} s _ {n} \\leq s _ {2 ^ {m} - 1} = 1 + \\left(\\frac {1}{2 ^ {\\alpha}} + \\frac {1}{3 ^ {\\alpha}}\\right) + \\dots + \\left(\\frac {1}{(2 ^ {m - 1}) ^ {\\alpha}} + \\dots + \\frac {1}{(2 ^ {m} - 1) ^ {\\alpha}}\\right) \\\\ \\leq 1 + \\frac {2}{2 ^ {\\alpha}} + \\frac {4}{4 ^ {\\alpha}} + \\dots + \\frac {2 ^ {m - 1}}{(2 ^ {m - 1}) ^ {\\alpha}} \\leq \\sum_ {m = 0} ^ {\\infty} \\left(\\frac {1}{2 ^ {\\alpha - 1}}\\right) ^ {m} = \\frac {2 ^ {\\alpha - 1}}{2 ^ {\\alpha - 1} - 1}. \\\\ \\end{array}",
+          "image_source": "images/page_232_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.481,
+            0.89,
+            0.578
+          ],
+          "content": "2. Fall  $\\alpha \\leq 1$ . In diesem Fall sind die Partialsummen größer oder gleich den entsprechenden Partialsummen der harmonischen Reihe  $\\sum_{k=1}^{\\infty} \\frac{1}{k}$  und es gilt  $\\sum_{k=1}^{\\infty} \\frac{1}{k^{\\alpha}} = \\infty$  (falls  $\\alpha \\leq 1$ )."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.599,
+            0.89,
+            0.662
+          ],
+          "content": "Beachte:  $\\sum_{k=1}^{\\infty}\\frac{1}{k^{1}}=\\infty$ , aber  $\\sum_{k=1}^{\\infty}\\frac{1}{k^{1+\\epsilon}}$  hat für jedes noch so kleine  $\\epsilon>0$  einen endlichen Wert. Die Konvergenz ist für kleine  $\\epsilon$  aber sehr langsam."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.689,
+            0.89,
+            0.708
+          ],
+          "content": "Als einfache Folgerung aus Satz 1.7 ergibt sich das nützliche Vergleichskriterium:"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.105,
+            0.726,
+            0.643,
+            0.743
+          ],
+          "level": 2,
+          "content": "Satz 1.8. Vergleichskriterium oder Majorantenkriterium."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.744,
+            0.547,
+            0.761
+          ],
+          "content": "Besteht für die Reihenglieder die Abschätzung"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.182,
+            0.778,
+            0.816,
+            0.91
+          ],
+          "content": "\\boxed { \\begin{array}{c} 0 \\leq | a _ {k} | \\leq b _ {k} \\quad f u r k \\geq k _ {0}, d a n n g i l t \\\\ \\text {a)} \\quad \\sum_ {k = 0} ^ {\\infty} b _ {k} \\quad k o n v e r g e n t \\Rightarrow \\sum_ {k = 0} ^ {\\infty} a _ {k} \\quad a b s o l u t k o n v e r g e n t, \\\\ \\text {b)} \\quad \\sum_ {k = 0} ^ {\\infty} | a _ {k} | = \\infty \\Rightarrow \\sum_ {k = 0} ^ {\\infty} b _ {k} = \\infty . \\end{array} }",
+          "image_source": "images/page_232_equation_13.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 233,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.113,
+            0.061,
+            0.152,
+            0.075
+          ],
+          "content": "218"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.451,
+            0.065,
+            0.56,
+            0.078
+          ],
+          "content": "5. Potenzreihen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.109,
+            0.087,
+            0.897,
+            0.18
+          ],
+          "content": "Beweis. a): Es genügt, die Konvergenz der „Restreihe“ $\\sum_{k=k_0}^{\\infty}|a_k|$ nachzuweisen, deren Partialsummen nach Voraussetzung durch $\\sum_{k=0}^{\\infty}b_k$ beschränkt sind. Mit Satz 1.7 folgt die Behauptung. b) ist unmittelbar klar."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.199,
+            0.896,
+            0.277
+          ],
+          "content": "Eine Reihe  $\\sum_{k=0}^{\\infty}b_{k}$ , die den Voraussetzungen des Satzes 1.8 genügt, heißt eine Majorante der Reihe  $\\sum_{k=0}^{\\infty}a_{k}$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.109,
+            0.282,
+            0.732,
+            0.326
+          ],
+          "content": "Beispiel. $\\sum_{k=1}^{\\infty} \\frac{\\sin(k^3 + 3)}{2k^3 + 2k + 1}$ ist absolut konvergent; denn es gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.111,
+            0.329,
+            0.75,
+            0.375
+          ],
+          "content": "\\left| \\frac {\\sin (k ^ {3} + 3)}{2 k ^ {3} + 2 k + 1} \\right| \\leq \\frac {1}{2 k ^ {3}} \\quad (k \\geq 1) \\text {und} \\frac {1}{2} \\sum_ {k = 1} ^ {\\infty} \\frac {1}{k ^ {3}} \\text {konvergiert} (\\rightarrow (2)).",
+          "image_source": "images/page_233_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.394,
+            0.893,
+            0.43
+          ],
+          "content": "Ein Vergleich mit der geometrischen Reihe führt zu einem besonders anwendungsfreundlichen Konvergenz-Test."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.45,
+            0.893,
+            0.496
+          ],
+          "content": "Satz 1.9. Das Quotientenkriterium. Ist $a_{k} \\neq 0$ für alle $k \\geq k_{0}$ und konvergiert die Folge der Quotienten $\\frac{a_{k+1}}{a_{k}}$, dann gilt:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.203,
+            0.523,
+            0.786,
+            0.568
+          ],
+          "content": "a) $\\lim_{k\\to \\infty}\\left|\\frac{a_{k + 1}}{a_k}\\right| < 1 \\Rightarrow \\sum_{k = 0}^{\\infty}a_k$ ist absolut konvergent,"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.204,
+            0.57,
+            0.737,
+            0.615
+          ],
+          "content": "b) $\\lim_{k\\to \\infty}\\left|\\frac{a_{k + 1}}{a_k}\\right| > 1 \\Rightarrow \\sum_{k = 0}^{\\infty}a_k$ konvergiert nicht."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.649,
+            0.88,
+            0.694
+          ],
+          "content": "Beweis. a): Nach Voraussetzung gibt es eine Zahl $q$, $0 \\leq q < 1$, so daß $\\left|\\frac{a_{k+1}}{a_k}\\right| \\leq q$ für alle $k$ ab einem $k_1$. Für diese $k$, $k = k_1 + l$, folgt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.327,
+            0.706,
+            0.666,
+            0.728
+          ],
+          "content": "| a _ {k _ {1} + l} | \\leq q | a _ {k _ {1} + (l - 1)} | \\leq \\dots \\leq q ^ {l} | a _ {k _ {1}} |.",
+          "image_source": "images/page_233_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.736,
+            0.819,
+            0.756
+          ],
+          "content": "Das Majorantenkriterium (mit $b_{k_1 + l} := |a_{k_1}|q^l$) bestätigt die Behauptung."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.757,
+            0.888,
+            0.791
+          ],
+          "content": "b): In diesem Fall ist  $(a_{k})_{k\\geq0}$  keine Nullfolge und deshalb die Reihe nicht konvergent ( $\\rightarrow$  Satz 1.2)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.101,
+            0.817,
+            0.888,
+            0.89
+          ],
+          "content": "Bemerkung. An der divergenten harmonischen Reihe mit $\\frac{a_{k+1}}{a_k} = \\frac{k}{k+1} \\to 1$ erkennt man, daß in a) die Bedingung $< 1$ nicht durch $\\leq 1$ ersetzt werden darf. Falls $\\lim_{k \\to \\infty} \\left| \\frac{a_{k+1}}{a_k} \\right| = 1$, dann ist Satz 1.9 nicht anwendbar."
+        }
+      ]
+    },
+    {
+      "page_idx": 234,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.415,
+            0.065,
+            0.579,
+            0.078
+          ],
+          "content": "§1. Unendliche Reihen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.85,
+            0.061,
+            0.889,
+            0.075
+          ],
+          "content": "219"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.096,
+            0.817,
+            0.115
+          ],
+          "content": "Beispiele. Die folgenden Reihen konvergieren für jedes $x \\in \\mathbb{R}$ absolut:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.107,
+            0.117,
+            0.588,
+            0.255
+          ],
+          "sub_type": "text",
+          "content": "1.  $\\sum_{k=0}^{\\infty}\\frac{x^{k}}{k!}=1+x+\\frac{x^{2}}{2!}+\\frac{x^{3}}{3!}+\\frac{x^{4}}{4!}+\\cdots.$\n2.  $\\sum_{k=0}^{\\infty}(-1)^{k}\\frac{x^{2k+1}}{(2k+1)!}=x-\\frac{x^{3}}{3!}+\\frac{x^{5}}{5!}-\\frac{x^{7}}{7!}+-\\cdots.$\n3.  $\\sum_{k=0}^{\\infty}(-1)^{k}\\frac{x^{2k}}{(2k)!}=1-\\frac{x^{2}}{2!}+\\frac{x^{4}}{4!}-\\frac{x^{6}}{6!}+-\\cdots.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.273,
+            0.5,
+            0.289
+          ],
+          "content": "Beweis. Mit dem Quotientenkriterium:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.106,
+            0.291,
+            0.867,
+            0.377
+          ],
+          "sub_type": "text",
+          "content": "1. Mit $a_{k} = \\frac{x^{k}}{k!}$ wird $\\left|\\frac{a_{k+1}}{a_{k}}\\right| = \\left|\\frac{x}{k+1}\\right| \\to 0$ für $k \\to \\infty$.\n2. Mit $a_k = (-1)^k \\frac{x^{2k+1}}{(2k+1)!}$ wird $\\left| \\frac{a_{k+1}}{a_k} \\right| = \\left| \\frac{x^2}{(2k+2)(2k+3)} \\right| \\to 0$ für $k \\to \\infty$.\n3. analog."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.395,
+            0.839,
+            0.414
+          ],
+          "content": "Ohne Beweis zwei nur für absolut konvergente Reihen gültige Rechenregeln:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.419,
+            0.886,
+            0.467
+          ],
+          "content": "Satz 1.10. Cauchy-Produkt. Für absolut konvergente Reihen $\\sum_{k=0}^{\\infty} a_k$ und $\\sum_{k=0}^{\\infty} b_k$ gilt die Produktformel"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.254,
+            0.485,
+            0.752,
+            0.561
+          ],
+          "content": "\\begin{array}{l} \\left(\\sum_ {k = 0} ^ {\\infty} a _ {k}\\right) \\left(\\sum_ {k = 0} ^ {\\infty} b _ {k}\\right) = \\sum_ {n = 0} ^ {\\infty} \\left(\\sum_ {k = 0} ^ {n} a _ {k} b _ {n - k}\\right) \\\\ = a _ {0} b _ {0} + (a _ {0} b _ {1} + a _ {1} b _ {0}) + (a _ {0} b _ {2} + a _ {1} b _ {1} + a _ {2} b _ {0}) + \\dots . \\\\ \\end{array}",
+          "image_source": "images/page_234_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.109,
+            0.596,
+            0.192,
+            0.612
+          ],
+          "content": "Beispiel."
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.111,
+            0.611,
+            0.892,
+            0.722
+          ],
+          "content": "\\begin{array}{l} \\left(\\sum_ {k = 0} ^ {\\infty} \\frac {x ^ {k}}{k !}\\right) \\left(\\sum_ {k = 0} ^ {\\infty} \\frac {y ^ {k}}{k !}\\right) = \\sum_ {n = 0} ^ {\\infty} \\left(\\sum_ {k = 0} ^ {n} \\frac {x ^ {k} y ^ {n - k}}{k ! (n - k) !}\\right) = \\sum_ {n = 0} ^ {\\infty} \\frac {1}{n !} \\left(\\sum_ {k = 0} ^ {n} \\binom {n} {k} x ^ {k} y ^ {n - k}\\right) = \\\\ = \\sum_ {n = 0} ^ {\\infty} \\frac {(x + y) ^ {n}}{n !}. \\text {Das ist die Beziehung} e ^ {x + y} = e ^ {x} \\cdot e ^ {y} (\\rightarrow \\S 3 (5) \\text {und Kap.} 3, \\\\ \\end{array}",
+          "image_source": "images/page_234_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.111,
+            0.704,
+            0.153,
+            0.721
+          ],
+          "content": "4.1)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.74,
+            0.894,
+            0.82
+          ],
+          "content": "Satz 1.11. Umordnungssatz. Ist die Reihe $\\sum_{k=0}^{\\infty} a_k$ absolut konvergent mit Summenwert $s$, dann konvergiert jede aus $\\sum_{k=0}^{\\infty} a_k$ durch Umordnung der Glieder entstandene Reihe ebenfalls gegen $s$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.11,
+            0.835,
+            0.894,
+            0.879
+          ],
+          "content": "Beispiel.  $1 - \\frac{1}{4} + \\frac{1}{9} - \\frac{1}{16} + \\frac{1}{25} - \\frac{1}{36} + \\frac{1}{49} - +\\cdots = 1 + \\frac{1}{9} - \\frac{1}{4} + \\frac{1}{25} + \\frac{1}{49} - \\frac{1}{16} + -\\cdots.$"
+        }
+      ]
+    },
+    {
+      "page_idx": 235,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.108,
+            0.061,
+            0.147,
+            0.075
+          ],
+          "content": "220"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.446,
+            0.063,
+            0.556,
+            0.075
+          ],
+          "content": "5. Potenzreihen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.107,
+            0.096,
+            0.202,
+            0.113
+          ],
+          "level": 2,
+          "content": "Aufgaben"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.116,
+            0.597,
+            0.132
+          ],
+          "content": "1. Man untersuche, ob folgende Reihen konvergieren:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.136,
+            0.4,
+            0.165
+          ],
+          "content": "a)  $\\frac{1}{2} + \\frac{3}{4} + \\frac{4}{5} + \\frac{5}{6} + \\cdots$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.469,
+            0.137,
+            0.748,
+            0.165
+          ],
+          "content": "b)  $\\frac{2}{3} + \\frac{4}{9} + \\frac{6}{27} + \\frac{8}{81} + \\cdots$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.167,
+            0.43,
+            0.196
+          ],
+          "content": "c)  $1 + \\frac{1 \\cdot 2}{1 \\cdot 3} + \\frac{1 \\cdot 2 \\cdot 3}{1 \\cdot 3 \\cdot 5} + \\cdots$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.469,
+            0.168,
+            0.782,
+            0.196
+          ],
+          "content": "d)  $1 + \\frac{1}{100} + \\frac{1}{200} + \\frac{1}{300} + \\cdots$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.198,
+            0.419,
+            0.226
+          ],
+          "content": "e)  $1 + \\frac{2}{2!} + \\frac{4}{3!} + \\frac{8}{4!} + \\cdots$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.469,
+            0.198,
+            0.769,
+            0.231
+          ],
+          "content": "f) $1 - \\frac{1}{\\sqrt{2}} +\\frac{1}{\\sqrt{3}} -\\frac{1}{\\sqrt{4}} +\\dots .$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.24,
+            0.31,
+            0.254
+          ],
+          "content": "2. Die beiden Reihen"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.353,
+            0.258,
+            0.674,
+            0.302
+          ],
+          "content": "\\sum_ {n = 0} ^ {\\infty} q ^ {n} \\quad \\text {und} \\quad \\sum_ {n = 0} ^ {\\infty} \\frac {q ^ {n}}{1 + q ^ {n}} \\qquad (q > 0)",
+          "image_source": "images/page_235_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.306,
+            0.89,
+            0.337
+          ],
+          "content": "sind entweder beide konvergent oder beide divergent. Man begründe dies mit dem Vergleichskriterium."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.339,
+            0.89,
+            0.382
+          ],
+          "content": "3. Man zeige mit dem Quotientenkriterium, daß die Reihe $\\sum_{k=1}^{\\infty} k q^{k-1}$ für $|q| < 1$ konvergiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.394,
+            0.44,
+            0.41
+          ],
+          "content": "4. a) Warum konvergiert die Reihe"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.427,
+            0.419,
+            0.635,
+            0.463
+          ],
+          "content": "\\sum_ {n = 0} ^ {\\infty} \\left(\\frac {(- 1) ^ {n}}{2 n + 1} \\cdot \\frac {n}{n + 2}\\right) \\text {?}",
+          "image_source": "images/page_235_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.473,
+            0.89,
+            0.516
+          ],
+          "content": "b) Ab welchem Index  $N_{0}$  unterscheiden sich die Partialsummen  $s_{N}$  vom Grenzwert der Reihe sicher um weniger als  $\\frac{1}{100}$ ?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.526,
+            0.624,
+            0.568
+          ],
+          "content": "5. Für die Reihe $\\sum_{n=1}^{\\infty} a_n$ mit $a_n = \\frac{1}{n} + \\frac{(-1)^n}{\\sqrt{n}}$ zeige man:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.139,
+            0.569,
+            0.555,
+            0.614
+          ],
+          "sub_type": "text",
+          "content": "a) Die Reihe ist alternierend und  $\\lim_{n\\to\\infty}a_{n}=0$ .\nb) Die Reihe divergiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.622,
+            0.605,
+            0.637
+          ],
+          "content": "Warum ist das Leibniz-Kriterium nicht anwendbar?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.65,
+            0.436,
+            0.666
+          ],
+          "content": "6. Man untersuche auf Konvergenz"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.673,
+            0.365,
+            0.716
+          ],
+          "content": "a) $\\sum_{n=1}^{\\infty} \\frac{\\sqrt{n+1}-\\sqrt{n}}{\\sqrt{n}};$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.404,
+            0.676,
+            0.748,
+            0.709
+          ],
+          "content": "b) $1 + \\frac{3}{2 \\cdot 3} + \\frac{3^2}{2^2 \\cdot 5} + \\frac{3^3}{2^3 \\cdot 7} + \\cdots$;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.72,
+            0.365,
+            0.764
+          ],
+          "content": "c) $\\sum_{n=1}^{\\infty} \\frac{\\sqrt{n+3}-\\sqrt{n}}{\\sqrt[3]{n}};$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.404,
+            0.725,
+            0.807,
+            0.756
+          ],
+          "content": "d) $\\frac{1}{2} + \\frac{3!}{2 \\cdot 4} + \\frac{5!}{2 \\cdot 4 \\cdot 6} + \\frac{7!}{2 \\cdot 4 \\cdot 6 \\cdot 8} + \\cdots$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.774,
+            0.89,
+            0.805
+          ],
+          "content": "7. Man untersuche, ob die folgende Reihe konvergiert und bestimme gegebenenfalls ihren Summenwert"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.364,
+            0.808,
+            0.671,
+            0.838
+          ],
+          "content": "\\frac {1}{1 \\cdot 2 \\cdot 3} + \\frac {1}{2 \\cdot 3 \\cdot 4} + \\frac {1}{3 \\cdot 4 \\cdot 5} + \\dots .",
+          "image_source": "images/page_235_equation_28.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.841,
+            0.732,
+            0.858
+          ],
+          "content": "8. Man untersuche, für welche p die folgenden Reihen konvergieren"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.864,
+            0.457,
+            0.908
+          ],
+          "content": "a) $\\sum_{n=1}^{\\infty} n^{p} (\\sqrt{n+1} - 2\\sqrt{n} + \\sqrt{n-1})$;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.532,
+            0.865,
+            0.661,
+            0.908
+          ],
+          "content": "b) $\\sum_{n=1}^{\\infty} \\frac{(n!)^p}{(3n)!}$."
+        }
+      ]
+    },
+    {
+      "page_idx": 236,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.41,
+            0.062,
+            0.609,
+            0.077
+          ],
+          "content": "§2. Reihen von Funktionen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.863,
+            0.061,
+            0.899,
+            0.076
+          ],
+          "content": "221"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.097,
+            0.592,
+            0.113
+          ],
+          "content": "9. Für welche positiven u, v konvergiert die Reihe"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.393,
+            0.121,
+            0.655,
+            0.164
+          ],
+          "content": "\\sum_ {n = 1} ^ {\\infty} \\frac {(1 + u) (2 + u) \\cdots (n + u)}{(1 + v) (2 + v) \\cdot (n + v)} \\quad",
+          "image_source": "images/page_236_equation_3.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.147,
+            0.173,
+            0.9,
+            0.306
+          ],
+          "sub_type": "text",
+          "content": "a) Dazu betrachte man zunächst die zwei Fälle $v - u = 1$ und $v - u = 2$ und kürze geeignet.\nb) Die Konvergenz für $v - u > 1$ zeige man mit dem verschärften Quotientenkriterium von E. KUMMER (1810 - 1893): Ist $a_n > 0$ ($n \\geq 1$) und gibt es eine Folge positiver Zahlen $(c_n)_{n \\geq 1}$, so daß $c_n - c_{n+1} \\frac{a_{n+1}}{a_n} \\geq a > 0$, dann konvergiert die Reihe $\\sum_{n=1}^{\\infty} a_n$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.18,
+            0.31,
+            0.401,
+            0.327
+          ],
+          "content": "(Tip: Wähle  $c_{n}=n-v$ )"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.356,
+            0.379,
+            0.659,
+            0.399
+          ],
+          "level": 2,
+          "content": "§2. Reihen von Funktionen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.416,
+            0.9,
+            0.582
+          ],
+          "content": "\\* 2.1 Gleichmäßige Konvergenz. Ausgehend von einer auf einem Intervall $I \\subseteq \\mathbb{R}$ erklärten Funktionenfolge (Funktionensystem) $f_0, f_1, f_2, \\cdots$ bildet man zu jedem $x \\in I$ die Zahlenfolge $f_0(x), f_1(x), f_2(x), \\ldots$ und bezeichnet im Fall der Konvergenz den Grenzwert mit $f(x)$. Man sagt, die Funktionenfolge $(f_k)_{k \\geq 0}$ konvergiert auf $I$ punktweise gegen $f$, wenn für jedes $x \\in I$ der Grenzwert $f(x) = \\lim_{k \\to \\infty} f_k(x)$ existiert. Die Konvergenzgeschwindigkeit bzw. die Güte der Approximation von $f(x)$ durch $f_k(x)$ ($k \\geq k_0$) ist i.a. von Punkt zu Punkt verschieden; dadurch gehen oft gemeinsame Eigenschaften aller $f_k$ bei der Grenzwertbildung verloren."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.601,
+            0.9,
+            0.655
+          ],
+          "content": "Definition. Eine Funktionenfolge $f_{0}, f_{1}, f_{2}, \\ldots$ konvergiert gleichmäßig auf $I$ gegen die Funktion $f: I \\to \\mathbb{R}$, wenn sich zu jeder beliebig kleinen Fehlerschranke $\\epsilon > 0$ ein für alle $x \\in I$ gemeinsamer Index $N = N_{\\epsilon}$ finden läßt, so daß gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.273,
+            0.663,
+            0.741,
+            0.681
+          ],
+          "content": "n \\geq N \\implies | f (x) - f _ {n} (x) | <   \\epsilon \\quad \\text { für   alle } x \\in I.",
+          "image_source": "images/page_236_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.69,
+            0.9,
+            0.726
+          ],
+          "content": "Anschaulich: Für $n \\geq N$ liegen alle Graphen $y = f_n(x)$ im „$\\epsilon$-Schlauch“ um $y = f(x)$."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.116,
+            0.741,
+            0.9,
+            0.87
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_236_image_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.878,
+            0.9,
+            0.913
+          ],
+          "content": "Die Bedeutung der gleichmäßigen Konvergenz zeigt sich in den folgenden Sätzen."
+        }
+      ]
+    },
+    {
+      "page_idx": 237,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.107,
+            0.061,
+            0.144,
+            0.075
+          ],
+          "content": "222"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.443,
+            0.063,
+            0.553,
+            0.076
+          ],
+          "content": "5. Potenzreihen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.095,
+            0.894,
+            0.15
+          ],
+          "content": "Satz 2.1. Die Stetigkeit der Grenzfunktion. Sind alle Funktionen $f_{n}$ ($n \\geq 0$) auf dem Intervall I stetig und konvergiert die Folge der $f_{n}$ auf I gleichmäßig gegen $f$, dann ist auch die Grenzfunktion $f$ stetig."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.168,
+            0.891,
+            0.222
+          ],
+          "content": "Beweis. Sei $\\epsilon > 0$; wegen der gleichmäßigen Konvergenz gibt es einen Index $N$, so daß $R_{N}(x) := |f_{N}(x) - f(x)| < \\epsilon$ für alle $x \\in I$. Damit erhält man für beliebige $x, x_{0} \\in I$ die Abschätzung"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.184,
+            0.23,
+            0.811,
+            0.301
+          ],
+          "content": "\\begin{array}{l} | f (x) - f (x _ {0}) | = | f (x) - f _ {N} (x) + f _ {N} (x) - f (x _ {0}) + f _ {N} (x _ {0}) - f _ {N} (x _ {0}) | \\\\ \\leq R _ {N} (x) + | f _ {N} (x) - f _ {N} (x _ {0}) | + R _ {N} (x _ {0}) \\\\ \\leq | f _ {N} (x) - f _ {N} (x _ {0}) | + 2 \\epsilon \\\\ \\end{array}",
+          "image_source": "images/page_237_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.309,
+            0.779,
+            0.328
+          ],
+          "content": "Da $f_{N}$ stetig ist ergibt sich deshalb für $x \\to x_{0}$ auch $f(x) \\to f(x_{0})$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.365,
+            0.892,
+            0.418
+          ],
+          "content": "Satz 2.2. Die Integration der Grenzfunktion. Konvergiert die Folge stetiger Funktionen $f_n$, $n \\geq 0$, auf dem Intervall $I$ gleichmäßig gegen $f : I \\to \\mathbb{R}$, dann gilt für alle $a, b \\in I$"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.258,
+            0.426,
+            0.744,
+            0.468
+          ],
+          "content": "\\int_ {a} ^ {b} (\\lim _ {n \\to \\mathscr {X}} f _ {n} (x)) d x = \\int_ {a} ^ {b} f (x) d x = \\lim _ {n \\to \\mathscr {X}} \\int_ {a} ^ {b} f _ {n} (x) d x.",
+          "image_source": "images/page_237_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.484,
+            0.892,
+            0.547
+          ],
+          "content": "Beweis. Sei $\\epsilon > 0$ und $N \\in \\mathbb{N}$ so gewählt, daß für alle $n \\geq N$ und alle $x \\in I$ die Abschätzung $|f(x) - f_n(x)| < \\frac{\\epsilon}{b-a}$ gilt (o.E. $b \\neq a$). Mit der Integralabschätzung ($\\rightarrow$ Kap. 4, §1(9)) folgt dann für $n \\geq N$"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.22,
+            0.555,
+            0.779,
+            0.596
+          ],
+          "content": "\\left| \\int_ {a} ^ {b} f (x) d x - \\int_ {a} ^ {b} f _ {n} (x) d x \\right| \\leq \\int_ {a} ^ {b} | f (x) - f _ {n} (x) | d x <   \\epsilon .",
+          "image_source": "images/page_237_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.612,
+            0.892,
+            0.684
+          ],
+          "content": "Satz 2.3. Die Differentiation der Grenzfunktion. Sind alle Funktionen $f_n$, $n \\geq 0$, auf $I$ stetig differenzierbar, konvergiert die Folge $f_n(x)$, $n \\geq 0$, punktweise gegen $f(x)$ und konvergiert die Folge der Ableitungen $f_n'$, $n \\geq 0$, auf $I$ gleichmäßig, dann ist auch die Grenzfunktion $f$ differenzierbar und es gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.34,
+            0.692,
+            0.658,
+            0.718
+          ],
+          "content": "f ^ {\\prime} (x) = (\\lim _ {n \\to \\infty} f _ {n} (x)) ^ {\\prime} = \\lim _ {n \\to \\infty} f _ {n} ^ {\\prime} (x) .",
+          "image_source": "images/page_237_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.737,
+            0.892,
+            0.795
+          ],
+          "content": "Beweis. Die Grenzfunktion $g(x) := \\lim_{n \\to \\infty} f_n'(x)$ ist nach Satz 2.1 stetig. Satz 2.2 und der Hauptsatz der Differential- und Integralrechnung ($\\rightarrow$ Kap. 4, Satz 1.3) ergeben für $a, x \\in I$"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.194,
+            0.796,
+            0.814,
+            0.833
+          ],
+          "content": "\\int_ {a} ^ {x} g (t) d t = \\lim _ {n \\to \\infty} \\int_ {a} ^ {x} f _ {n} ^ {\\prime} (t) d t = \\lim _ {n \\to \\infty} [ f _ {n} (x) - f _ {n} (a) ] = f (x) - f (a).",
+          "image_source": "images/page_237_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.833,
+            0.568,
+            0.857
+          ],
+          "content": "Durch Ableiten folgt  $f'(x) = g(x) = \\lim_{n \\to \\infty} f_n'(x)$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.876,
+            0.892,
+            0.913
+          ],
+          "content": "In den folgenden Abbildungen mit speziellen Funktionenfolgen ( $\\rightarrow$  Aufgaben 1., 2., 3.) ist zu erkennen, daß die punktweise Konvergenz allein die erwähnten"
+        }
+      ]
+    },
+    {
+      "page_idx": 238,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.404,
+            0.064,
+            0.604,
+            0.079
+          ],
+          "content": "§2. Reihen von Funktionen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.858,
+            0.061,
+            0.896,
+            0.075
+          ],
+          "content": "223"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.099,
+            0.623,
+            0.117
+          ],
+          "content": "Eigenschaften der Grenzfunktion i.a. nicht erzwingt."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.105,
+            0.128,
+            0.889,
+            0.278
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.352,
+                0.284,
+                0.661,
+                0.3
+              ],
+              "content": "Abb. 133 - Gegenbeispiele 1, 2 und 3"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_238_image_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.322,
+            0.525,
+            0.339
+          ],
+          "content": "Gegenbeispiel 1. $f_{n}(x) = x^{n}$, $0 \\leq x \\leq 1$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.339,
+            0.782,
+            0.357
+          ],
+          "content": "Die  $f_{n}$  sind stetig, aber die Grenzfunktion ist in x = 1 nicht stetig."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.879,
+            0.34,
+            0.897,
+            0.352
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_238_image_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.378,
+            0.643,
+            0.405
+          ],
+          "content": "Gegenbeispiel 2. $g_{n}(x) = \\frac{2x}{\\pi}\\arctan nx, - 1\\leq x\\leq 1$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.404,
+            0.899,
+            0.446
+          ],
+          "content": "Alle $g_n$ sind differenzierbar, aber die Grenzfunktion $g(x) = \\lim_{n \\to \\infty} g_n(x) = |x|$ ist in $x = 0$ nicht differenzierbar."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.462,
+            0.9,
+            0.522
+          ],
+          "content": "Gegenbeispiel 3. Der Graph von $h_n$ hat die Knickpunkte $(0,0)$, $(\\frac{1}{n},n)$ und $(\\frac{2}{n},0)$. Für die Grenzfunktion $h(x) = \\lim_{n\\to \\infty}h_n(x) = 0$ gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.115,
+            0.524,
+            0.495,
+            0.564
+          ],
+          "content": "0 = \\int_ {0} ^ {1} h (x) d x \\neq \\lim _ {n \\to \\infty} \\int_ {0} ^ {1} h _ {n} (x) d x = 1.",
+          "image_source": "images/page_238_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.581,
+            0.902,
+            0.699
+          ],
+          "content": "\\* 2.2 Gleichmäßig konvergente Funktionenreihen. Von besonderer Bedeutung ist die gleichmäßige Konvergenz bei der Darstellung einer Funktion $f$ als unendliche Reihe, $f(x) = \\sum_{k=0}^{\\infty} f_k(x)$. Natürlich sagt man, die Reihe $\\sum_{k=0}^{\\infty} f_k(x)$ konvergiert auf $I$ gleichmäßig gegen $f(x)$, wenn die Folge der Partialsummen $s_n := f_0 + f_1 + \\cdots + f_n$ auf $I$ gleichmäßig gegen $f$ konvergiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.699,
+            0.804,
+            0.716
+          ],
+          "content": "Die Sätze 2.1, 2.2, und 2.3 werden in der folgenden Weise übertragen:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.725,
+            0.9,
+            0.773
+          ],
+          "content": "Satz 2.4. Konvergiert die Reihe $\\sum_{k=0}^{\\infty} f_k(x)$ stetiger Funktionen $f_k$ auf $I$ gleichmäßig gegen $f$, dann ist"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.431,
+            0.782,
+            0.587,
+            0.827
+          ],
+          "content": "f (x) = \\sum_ {k = 0} ^ {\\infty} f _ {k} (x)",
+          "image_source": "images/page_238_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.118,
+            0.837,
+            0.507,
+            0.856
+          ],
+          "content": "ebenfalls stetig und für alle  $a, b \\in I$  gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.237,
+            0.865,
+            0.784,
+            0.912
+          ],
+          "content": "\\int_ {a} ^ {b} \\left(\\sum_ {k = 0} ^ {\\infty} f _ {k} (x)\\right) d x = \\int_ {a} ^ {b} f (x) d x = \\sum_ {k = 0} ^ {\\infty} \\left(\\int_ {a} ^ {b} f _ {k} (x) d x\\right).",
+          "image_source": "images/page_238_equation_17.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 239,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.107,
+            0.061,
+            0.145,
+            0.075
+          ],
+          "content": "224"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.443,
+            0.063,
+            0.553,
+            0.076
+          ],
+          "content": "5. Potenzreihen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.095,
+            0.89,
+            0.189
+          ],
+          "content": "Satz 2.5. Sind alle Funktionen $f_{k}$ ($k \\geq 0$) auf $I$ stetig differenzierbar, konvergiert die Reihe $\\sum_{k=0}^{\\infty} f_{k}(x)$ auf $I$ punktweise gegen $f(x)$ und konvergiert die Reihe $\\sum_{k=0}^{\\infty} f_{k}'(x)$ der Ableitungen auf $I$ gleichmäßig, dann gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.334,
+            0.186,
+            0.658,
+            0.232
+          ],
+          "content": "f ^ {\\prime} (x) = \\left(\\sum_ {k = 0} ^ {\\infty} f _ {k} (x)\\right) ^ {\\prime} = \\sum_ {k = 0} ^ {\\infty} f _ {k} ^ {\\prime} (x) .",
+          "image_source": "images/page_239_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.239,
+            0.611,
+            0.256
+          ],
+          "content": "Die gleichmäßige Konvergenz ergibt sich meist aus"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.273,
+            0.89,
+            0.311
+          ],
+          "content": "Satz 2.6. M-Test. Gilt für jede Funktion der auf dem Intervall $I \\subseteq \\mathbb{R}$ definierten Funktionenfolge $(f_k)_{k \\geq 0}$ eine Abschätzung"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.318,
+            0.89,
+            0.405
+          ],
+          "content": "$|f_{k}(x)| \\leq M_{k}$  (const.) für alle  $x \\in I$  und für die Zahlenreihe  $\\sum_{k=0}^{\\infty} M_{k} < \\infty$ , dann ist die Funktionenreihe  $\\sum_{k=0}^{\\infty} f_{k}(x)$  auf I gleichmäßig und absolut konvergent."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.414,
+            0.893,
+            0.543
+          ],
+          "content": "Beweis. Nach dem Majorantenkriterium (→ Satz 1.8) ist die Reihe punktweise konvergent. Sei $f(x):=\\sum_{k=0}^{\\infty}f_{k}(x)$ der jeweilige Summenwert. Da es zu $\\epsilon>0$ ein $N_{\\epsilon}$ gibt, so daß $\\sum_{k=n+1}^{\\infty}M_{k}=\\left|\\sum_{k=0}^{\\infty}M_{k}-\\sum_{k=0}^{n}M_{k}\\right|\\leq\\epsilon$, falls $n>N_{\\epsilon}$, folgt für alle $n\\geq N_{\\epsilon}$ und alle $x\\in I$ die einheitliche Abschätzung"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.191,
+            0.55,
+            0.891,
+            0.598
+          ],
+          "content": "\\left| f (x) - \\sum_ {k = 0} ^ {n} f _ {k} (x) \\right| = \\left| \\sum_ {k = n + 1} ^ {\\infty} f _ {k} (x) \\right| \\leq \\sum_ {k = n + 1} ^ {\\infty} | f _ {k} (x) | \\leq \\sum_ {k = n + 1} ^ {\\infty} M _ {k} <   \\epsilon . \\tag {$\\square$}",
+          "image_source": "images/page_239_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.603,
+            0.894,
+            0.678
+          ],
+          "content": "Beispiel 1. Die Reihe $\\sum_{k=1}^{\\infty} \\frac{\\cos kx}{k^2}$ konvergiert gleichmäßig (und absolut) auf $\\mathbb{R}$; denn $\\left| \\frac{\\cos kx}{k^2} \\right| \\leq \\frac{1}{k^2}$ (für alle $x$) und $\\sum_{k=1}^{\\infty} \\frac{1}{k^2}$ ist konvergent."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.694,
+            0.894,
+            0.731
+          ],
+          "content": "Beispiel 2. Mit $\\{x\\}$ werde der Abstand der reellen Zahl $x$ zur nächsten ganzen Zahl bezeichnet. Da $x \\mapsto \\{x\\}$ stetig ist, sind für jedes $k \\geq 0$ die"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.732,
+            0.544,
+            0.873
+          ],
+          "content": "Funktionen $f_{k}(x):=\\frac{1}{10^{k}}\\{10^{k}x\\}$ stetig. Mit $|f_{k}(x)|\\leq\\frac{1}{10^{k}}$ (für alle $x$) ist die Reihe $\\sum_{k=0}^{\\infty}\\frac{1}{10^{k}}\\{10^{k}x\\}$ nach dem M-Test gleichmäßig auf $\\mathbb{R}$ konvergent und stellt mit Satz 2.4 eine auf $\\mathbb{R}$ stetige Funktion dar."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.591,
+            0.755,
+            0.883,
+            0.837
+          ],
+          "sub_type": "text_image",
+          "content": "y\n1\nx",
+          "captions": [
+            {
+              "bbox": [
+                0.645,
+                0.845,
+                0.81,
+                0.861
+              ],
+              "content": "Abb. 134 - $y = \\{x\\}$"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_239_image_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.874,
+            0.891,
+            0.892
+          ],
+          "content": "Es läßt sich zeigen, daß diese Funktion trotzdem nirgends differenzierbar ist. □"
+        }
+      ]
+    },
+    {
+      "page_idx": 240,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.397,
+            0.063,
+            0.597,
+            0.078
+          ],
+          "content": "§2. Reihen von Funktionen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.852,
+            0.061,
+            0.89,
+            0.076
+          ],
+          "content": "225"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.107,
+            0.099,
+            0.201,
+            0.115
+          ],
+          "level": 2,
+          "content": "Aufgaben"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.115,
+            0.893,
+            0.163
+          ],
+          "content": "1. Für folgende Folgen stetiger Funktionen  $f_{n}, g_{n}, h_{n}$  ( $n \\in N$ ) bestimme man die Grenzfunktion, untersuche auf gleichmäßige Konvergenz und Stetigkeit bzw. Differenzierbarkeit der Grenzfunktion. Eine sorgfältige Skizze ist empfohlen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.169,
+            0.692,
+            0.186
+          ],
+          "content": "a) $f_{n}(x) = x^{n}, 0 \\leq x \\leq 1$ (Gegenbeispiel 1)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.189,
+            0.692,
+            0.214
+          ],
+          "content": "b) $g_{n}(x) = \\frac{2x}{\\pi}\\arctan (nx), - 1\\leq x\\leq 1$ (Gegenbeispiel 2)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.217,
+            0.692,
+            0.266
+          ],
+          "content": "c)  $f_{n}(x) = \\left\\{ \\begin{array}{cc} n^{2}x & , 0 \\leq x \\leq 1/n \\\\ 2n - n^{2}x & , 1/n \\leq x \\leq 2/n \\\\ 0 & , 2/n \\leq x \\leq 1 \\end{array} \\right.$  (Gegenbeispiel 3)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.273,
+            0.697,
+            0.289
+          ],
+          "content": "2. Gegen welche Funktion  $f(x)$  konvergiert die Funktionenfolge"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.368,
+            0.298,
+            0.659,
+            0.314
+          ],
+          "content": "f _ {n} (x) = n x e ^ {- n x}, \\quad 0 \\leq x \\leq 1",
+          "image_source": "images/page_240_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.322,
+            0.848,
+            0.353
+          ],
+          "content": "Ist die Konvergenz gleichmäßig? (Dazu betrachte man das Maximum von $f_n$!) Gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.348,
+            0.352,
+            0.68,
+            0.39
+          ],
+          "content": "\\lim _ {n \\to \\mathscr {L}} \\int_ {0} ^ {1} f _ {n} (x) d x = \\int_ {0} ^ {1} \\lim _ {n \\to \\mathscr {L}} f _ {n} (x) d x \\text {?}",
+          "image_source": "images/page_240_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.401,
+            0.792,
+            0.427
+          ],
+          "content": "3. Man wiederhole Aufg. 2 für die Folge $f_{n}(x) = \\frac{x}{n^{2}} e^{-x / n}, 0 \\leq x \\leq a$. Gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.329,
+            0.433,
+            0.701,
+            0.471
+          ],
+          "content": "\\lim _ {n \\to \\mathscr {L}} \\lim _ {a \\to \\mathscr {L}} \\int_ {0} ^ {a} f _ {n} (x) d x = \\int_ {0} ^ {\\mathscr {L}} \\lim _ {n \\to \\mathscr {L}} f _ {n} (x) d x \\text {?}",
+          "image_source": "images/page_240_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.496,
+            0.691,
+            0.54
+          ],
+          "content": "4. Man betrachte $f(x) = \\sum_{k=0}^{\\infty} \\frac{x^2}{(1 + x^2)^k}$ und $g(x) = \\sum_{k=1}^{\\infty} x^k (1 - x)$."
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.137,
+            0.543,
+            0.83,
+            0.58
+          ],
+          "sub_type": "text",
+          "content": "a) Für welche x sind f und g erklärt, für welche x stetig?\nb) In welchen Intervallen darf gliedweise differenziert und integriert werden?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.597,
+            0.886,
+            0.641
+          ],
+          "content": "5. Man zeige,  $\\sum_{n=1}^{\\infty}\\frac{1}{x^{2}+n^{2}}$  konvergiert in jedem abgeschlossenen Intervall gleichmäßig."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.656,
+            0.781,
+            0.673
+          ],
+          "content": "6. Das Konvergenzkriterium von P.G.L. DIRICHLET (1805 - 1859) lautet:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.675,
+            0.892,
+            0.75
+          ],
+          "content": "Ist $(a_{n})_{n\\geq1}$ eine monoton fallende Nullfolge und sind die Summen $\\sum_{k=1}^{n}b_{k}$ beschränkt, so konvergiert die Reihe $\\sum_{n=1}^{\\gamma}a_{n}b_{n}$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.752,
+            0.432,
+            0.768
+          ],
+          "content": "Man zeige damit, daß die Reihe"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.365,
+            0.777,
+            0.665,
+            0.793
+          ],
+          "content": "a _ {1} \\sin x + a _ {2} \\sin 2 x + a _ {3} \\sin 3 x + \\dots",
+          "image_source": "images/page_240_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.802,
+            0.329,
+            0.818
+          ],
+          "content": "unter der Bedingung"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.336,
+            0.827,
+            0.697,
+            0.843
+          ],
+          "content": "a _ {1} \\geq a _ {2} \\geq a _ {3} \\geq \\dots \\geq a _ {n} \\geq 0, \\quad a _ {n} \\rightarrow 0",
+          "image_source": "images/page_240_equation_23.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.851,
+            0.685,
+            0.869
+          ],
+          "content": "im Intervall  $[a,b]$  mit  $0 < a, b < \\pi$  gleichmäßig konvergiert."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.869,
+            0.596,
+            0.885
+          ],
+          "content": "(Hilfe: Man verwende Formel (13) von Kap. 2, §3)"
+        }
+      ]
+    },
+    {
+      "page_idx": 241,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.114,
+            0.061,
+            0.152,
+            0.075
+          ],
+          "content": "226"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.451,
+            0.065,
+            0.56,
+            0.078
+          ],
+          "content": "5. Potenzreihen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.407,
+            0.112,
+            0.6,
+            0.133
+          ],
+          "level": 2,
+          "content": "§3. Potenzreihen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.111,
+            0.15,
+            0.435,
+            0.167
+          ],
+          "content": "Eine unendliche Reihe der Form"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.46,
+            0.175,
+            0.547,
+            0.222
+          ],
+          "content": "\\sum_ {k = 0} ^ {\\infty} a _ {k} x ^ {k}",
+          "image_source": "images/page_241_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.109,
+            0.229,
+            0.896,
+            0.311
+          ],
+          "content": "mit $x \\in \\mathbb{R}$ (variabel) und $a_k \\in \\mathbb{R}$ (konstant) nennt man eine Potenzreihe, die Zahlen $a_k$ ($k \\geq 0$) heißen Koeffizienten der Potenzreihe. Es handelt sich also um eine Funktionenreihe $\\sum_{k=0}^{\\infty} f_k(x)$ mit $f_k(x) = a_k x^k$ ($k = 0, 1, 2, \\ldots$)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.318,
+            0.893,
+            0.363
+          ],
+          "content": "Beispiele. 1. Die geometrische Reihe  $\\sum_{k=0}^{\\infty}x^{k}=1+x+x^{2}+\\cdots$  hat die Koeffizienten  $a_{k}=1\\ (k\\geq0)$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.366,
+            0.892,
+            0.473
+          ],
+          "content": "2. Die Reihe  $\\sum_{k=0}^{\\infty}(-1)^{k}\\frac{x^{2k+1}}{(2k+1)!}=x-\\frac{x^{3}}{3!}+\\frac{x^{5}}{5!}-\\frac{x^{7}}{7!}+-\\cdots$  hat die Koeffizienten  $a_{0}=0,\\quad a_{1}=1,\\quad a_{2}=0,\\quad a_{3}=-\\frac{1}{3!},\\quad a_{4}=0,\\quad a_{5}=\\frac{1}{5!},\\quad a_{6}=0,\\quad a_{7}=-\\frac{1}{7!},\\ldots$   $(a_{2k}=0,\\quad a_{2k+1}=(-1)^{k}\\frac{1}{(2k+1)!})$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.474,
+            0.632,
+            0.491
+          ],
+          "content": "Beachte: Fehlende x-Potenzen haben Koeffizienten 0."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.51,
+            0.891,
+            0.575
+          ],
+          "content": "Es ist das Ziel, eine Funktion $f$ auf einem Intervall $I$ durch eine Potenzreihe darzustellen, $f(x) = \\sum_{k=0}^{\\infty} a_k x^k (x \\in I)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.592,
+            0.89,
+            0.628
+          ],
+          "content": "3.1 Der Konvergenzradius. An einer Potenzreihe interessieren zu allererst die Menge"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.309,
+            0.633,
+            0.688,
+            0.681
+          ],
+          "content": "M := \\left\\{x \\in \\mathbb {R}; \\sum_ {k = 0} ^ {\\infty} a _ {k} x ^ {k} \\text {konvergiert} \\right\\}",
+          "image_source": "images/page_241_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.683,
+            0.24,
+            0.699
+          ],
+          "content": "und die Zahl"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.232,
+            0.708,
+            0.752,
+            0.746
+          ],
+          "content": "R := \\left\\{ \\begin{array}{c l} \\sup \\{| x |  ,   x \\in M   \\} & , \\text {falls} M \\text {beschränkt ist} \\\\ \\infty & , \\text {falls} M \\text {unbeschränkt ist}. \\end{array} \\right.",
+          "image_source": "images/page_241_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.754,
+            0.888,
+            0.786
+          ],
+          "content": "Man nennt R den Konvergenzradius der Potenzreihe. Es gibt die drei Möglichkeiten"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.334,
+            0.793,
+            0.659,
+            0.812
+          ],
+          "content": "R = 0, \\quad 0 <   R <   \\infty , \\quad R = \\infty .",
+          "image_source": "images/page_241_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.83,
+            0.888,
+            0.914
+          ],
+          "content": "Beispiel 1. Die Reihe $\\sum_{k=0}^{\\infty} k! x^{k}$ hat den Konvergenzradius $R = 0$, sie konvergiert nur für $x = 0$ (für $x \\neq 0$ ist $k! x^{k}$ keine Nullfolge). Also ist $M = \\{0\\}$, $R = \\sup M = 0$."
+        }
+      ]
+    },
+    {
+      "page_idx": 242,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.442,
+            0.063,
+            0.56,
+            0.076
+          ],
+          "content": "§3. Potenzreihen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.855,
+            0.061,
+            0.892,
+            0.075
+          ],
+          "content": "227"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.084,
+            0.894,
+            0.15
+          ],
+          "content": "Beispiel 2. Die geometrische Reihe $\\sum_{k=0}^{\\infty} x^{k}$ hat den Konvergenzradius $R = 1$, denn für diese Reihe ist $M = \\{x; |x| < 1\\}$ und $R = \\sup \\{|x|; |x| < 1\\} = 1$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.181,
+            0.894,
+            0.243
+          ],
+          "content": "Beispiel 3. Die Reihe $\\sum_{k=0}^{\\infty} \\frac{x^{k}}{k!}$ konvergiert für alle $x \\in \\mathbb{R}$ ($\\rightarrow$ §1), demnach ist $M$ unbeschränkt und $R = \\infty$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.263,
+            0.893,
+            0.311
+          ],
+          "content": "Satz 3.1. Die Konvergenz der Potenzreihen. Für eine Potenzreihe $\\sum_{k=0}^{\\infty} a_k x^k$ mit dem Konvergenzradius $R$ gilt"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.319,
+            0.642,
+            0.337
+          ],
+          "content": "a) $R = 0 \\iff$ Die Reihe konvergiert nur für $x = 0$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.346,
+            0.894,
+            0.426
+          ],
+          "content": "b) Ist $R > 0$ und $\\rho \\in \\mathbb{R}$ mit $0 < \\rho < R$, dann konvergieren die Reihen $\\sum_{k=0}^{\\infty} a_k x^k$ und $\\sum_{k=1}^{\\infty} k a_k x^{k-1}$ absolut und gleichmäßig auf dem abgeschlossenen Intervall $-\\rho \\leq x \\leq \\rho$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.425,
+            0.692,
+            0.468
+          ],
+          "content": "c) Für alle x mit  $|x| > R$  ist die Reihe  $\\sum_{k=0}^{\\infty} a_{k} x^{k}$  divergent."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.485,
+            0.488,
+            0.501
+          ],
+          "content": "Beweis. Für a) ist nichts zu beweisen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.502,
+            0.893,
+            0.557
+          ],
+          "content": "b): Zu $\\rho < R$ gibt es gemäß der Definition des Supremums ein $x_0 \\in M$ mit $\\rho < |x_0| \\leq R$. Nach Satz 1.2 gibt es eine Konstante $C$, so daß $|a_k x_0^k| \\leq C$ für alle $k \\geq 0$ gilt. Für $|x| \\leq \\rho$ und alle $k$ folgt dann"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.254,
+            0.571,
+            0.741,
+            0.602
+          ],
+          "content": "| a _ {k} x ^ {k} | = | a _ {k} | | x _ {0} | ^ {k} \\left| \\frac {x}{x _ {0}} \\right| ^ {k} \\leq C q ^ {k} \\quad \\text {mit} q := \\left| \\frac {\\rho}{x _ {0}} \\right| <   1.",
+          "image_source": "images/page_242_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.603,
+            0.89,
+            0.649
+          ],
+          "content": "Nach dem M-Test ist  $\\sum_{k=0}^{\\infty}a_{k}x^{k}$  auf  $-\\rho \\leq x \\leq \\rho$  absolut und gleichmäßig konvergent."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.65,
+            0.89,
+            0.729
+          ],
+          "content": "Ebenso sieht man $|ka_k x^{k-1}| \\leq C k q^{k-1}$. Für $\\sum_{k=1}^{\\infty} k a_k x^{k-1}$ folgt die absolute und gleichmäßige Konvergenz auf $-\\rho \\leq x \\leq \\rho$ wiederum mit dem M-Test ($\\to \\S 1$, Aufg. 3)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.73,
+            0.509,
+            0.746
+          ],
+          "content": "c) folgt direkt aus der Definition von $R$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.778,
+            0.89,
+            0.815
+          ],
+          "content": "Aufgrund dieses Satzes ist die Konvergenzmenge $M$ fallweise das offene, halboffene oder abgeschlossene Intervall (sofern $M \\neq \\{0\\}$):"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.177,
+            0.827,
+            0.816,
+            0.846
+          ],
+          "content": "M = (- R, R); \\quad M = [ - R, R); \\quad M = (- R, R ]; \\quad M = [ - R, R ].",
+          "image_source": "images/page_242_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.858,
+            0.89,
+            0.911
+          ],
+          "content": "Man nennt M das Konvergenzintervall der Potenzreihe. Ob in den Randpunkten x = -R, x = R Konvergenz oder Divergenz vorliegt, ist fallweise zu entscheiden."
+        }
+      ]
+    },
+    {
+      "page_idx": 243,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.112,
+            0.061,
+            0.15,
+            0.075
+          ],
+          "content": "228"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.449,
+            0.065,
+            0.56,
+            0.078
+          ],
+          "content": "5. Potenzreihen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.096,
+            0.895,
+            0.133
+          ],
+          "content": "3.2 Berechnung des Konvergenzradius. Für zahlreiche Potenzreihen kann man den Konvergenzradius R aus den Koeffizienten der Reihe berechnen:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.134,
+            0.792,
+            0.163
+          ],
+          "content": "①  $a_{k} \\neq 0$  für  $k \\geq k_{0}$  und  $\\lim_{k \\to \\infty} \\left| \\frac{a_{k}}{a_{k+1}} \\right|$  existiert oder ist  $\\infty$ , dann gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.111,
+            0.173,
+            0.583,
+            0.202
+          ],
+          "content": "R = \\lim _ {k \\to \\infty} \\left| \\frac {a _ {k}}{a _ {k + 1}} \\right|. \\tag {1}",
+          "image_source": "images/page_243_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.211,
+            0.896,
+            0.329
+          ],
+          "content": "② (regelmäßige Lücken): In regelmäßigen Abständen seien ein oder mehrere Koeffizienten Null; d.h.  $\\sum_{k=0}^{\\infty}a_{k}x^{k}=x^{r}(a_{r}+a_{r+l}x^{l}+a_{r+2l}x^{2l}+\\cdots)=x^{r}\\sum_{n=0}^{\\infty}b_{n}x^{ln}$ , alle  $b_{n}\\neq0$ . Falls auch  $\\lim_{n\\to\\infty}\\left|\\frac{b_{n}}{b_{n+1}}\\right|$  existiert oder  $\\infty$  ist, dann folgt mit der Substitution  $y:=x^{l}$  aus ①"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.111,
+            0.338,
+            0.596,
+            0.375
+          ],
+          "content": "R = \\sqrt [ l ]{\\lim _ {n \\to \\infty} \\left| \\frac {b _ {n}}{b _ {n + 1}} \\right|}. \\tag {2}",
+          "image_source": "images/page_243_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.384,
+            0.893,
+            0.421
+          ],
+          "content": "③ (allgemeiner Fall): Gelingt die R-Bestimmung nicht mit (1) oder (2), versuche man es mit der folgenden allgemeingültigen Formel:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.428,
+            0.842,
+            0.474
+          ],
+          "content": "(3)  $R = \\sup B$ , mit  $B := \\{ r \\geq 0 ; \\text{die Folge } (|a_n|r^n)_{n \\geq 0} \\text{ ist beschränkt} \\}$ , wobei man natürlich  $R = \\infty$  setzt, wenn B nach oben unbeschränkt ist."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.491,
+            0.893,
+            0.576
+          ],
+          "content": "Beweis. ① Nach dem Quotientenkriterium konvergiert (divergiert) die Reihe, falls $\\lim_{k\\to \\infty}\\left|\\frac{a_{k + 1}x^{k + 1}}{a_kx^k}\\right| < 1$ ($>1$). D.h., sie konvergiert, falls $|x| < \\lim_{k\\to \\infty}\\left|\\frac{a_k}{a_{k + 1}}\\right|$ und divergiert, falls $|x| > \\lim_{k\\to \\infty}\\left|\\frac{a_k}{a_{k + 1}}\\right|$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.579,
+            0.892,
+            0.722
+          ],
+          "content": "③ Für $|x| < R$ ist $\\sum_{n=0}^{\\infty} |a_n x^n|$ konvergent, insbesondere die Folge $(|a_n||x|^n)_{n \\geq 0}$ beschränkt ($\\to$ Satz 1.2); also gilt $R \\leq \\sup B$. Ist nun $r \\in B$ und $|x| < r$, dann sieht man wie im Beweis zu Satz 3.1 (mit $r$ anstelle $|x_0|$), daß $\\sum_{n=0}^{\\infty} a_n x^n$ konvergiert. Das bedeutet $r \\leq R$ für alle $r \\in B$ und somit $\\sup B \\leq R$. Insgesamt folgt $R = \\sup B$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.74,
+            0.837,
+            0.785
+          ],
+          "content": "Beispiel 1. Die Reihe $\\sum_{k=1}^{\\infty} \\frac{k^k}{k!} x^k$ (mit $a_k = \\frac{k^k}{k!}$) hat den Konvergenzradius"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.149,
+            0.795,
+            0.846,
+            0.832
+          ],
+          "content": "R = \\lim _ {k \\to \\infty} \\left| \\frac {a _ {k}}{a _ {k + 1}} \\right| = \\lim _ {k \\to \\infty} \\frac {k ^ {k} (k + 1) !}{k ! (k + 1) ^ {k + 1}} = \\lim _ {k \\to \\infty} (\\frac {k}{k + 1}) ^ {k} = \\frac {1}{e} \\quad (\\rightarrow \\text {Kap. 2, §5}).",
+          "image_source": "images/page_243_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.844,
+            0.892,
+            0.917
+          ],
+          "content": "D.h., die Reihe konvergiert für jedes $x \\in (-\\frac{1}{e}, \\frac{1}{e})$ und divergiert für alle $x$ außerhalb $[-\\frac{1}{e}, \\frac{1}{e}]$. Speziell: die Reihe $\\sum_{k=1}^{\\infty} \\frac{(0.36k)^k}{k!}$ konvergiert, die Reihe"
+        }
+      ]
+    },
+    {
+      "page_idx": 244,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.438,
+            0.061,
+            0.558,
+            0.076
+          ],
+          "content": "§3. Potenzreihen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.853,
+            0.061,
+            0.892,
+            0.075
+          ],
+          "content": "229"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.092,
+            0.894,
+            0.166
+          ],
+          "continues_prev": true,
+          "content": "$\\sum_{k=1}^{\\infty} \\frac{(0.37k)^{k}}{k!}$ divergiert. (Die Reihe konvergiert im Randpunkt $x = -\\frac{1}{e}$ und divergiert für $x = \\frac{1}{e}$.)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.186,
+            0.398,
+            0.204
+          ],
+          "content": "Beispiel 2. Die Potenzreihen"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.213,
+            0.214,
+            0.783,
+            0.261
+          ],
+          "content": "\\sum_ {k = 0} ^ {\\infty} x ^ {k} \\quad (a _ {k} = 1), \\quad \\sum_ {k = 1} ^ {\\infty} \\frac {x ^ {k}}{k} \\quad (a _ {k} = \\frac {1}{k}), \\quad \\sum_ {k = 1} ^ {\\infty} \\frac {x ^ {k}}{k ^ {2}} \\quad (a _ {k} = \\frac {1}{k ^ {2}})",
+          "image_source": "images/page_244_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.269,
+            0.893,
+            0.304
+          ],
+          "content": "haben nach (1) den Konvergenzradius $R = 1$. In den Randpunkten $x = -1$, $x = 1$ ist ihr Konvergenzverhalten sehr verschieden:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.153,
+            0.306,
+            0.72,
+            0.445
+          ],
+          "content": "\\begin{array}{l} \\sum_ {k = 0} ^ {\\infty} x ^ {k} \\text {divergiert für} x = 1 \\text {und} x = - 1, \\\\ \\sum_ {k = 1} ^ {\\infty} \\frac {x ^ {k}}{k} \\text {konvergiert für} x = - 1 \\text {und divergiert für} x = 1, \\\\ \\sum_ {k = 1} ^ {\\infty} \\frac {x ^ {k}}{k ^ {2}} \\text {konvergiert für} x = 1 \\text {und} x = - 1. \\\\ \\end{array}",
+          "image_source": "images/page_244_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.869,
+            0.447,
+            0.89,
+            0.459
+          ],
+          "content": "□"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.485,
+            0.584,
+            0.503
+          ],
+          "content": "Beispiel 3. Die Reihe mit regelmäßigen Lücken"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.161,
+            0.513,
+            0.834,
+            0.639
+          ],
+          "content": "\\begin{array}{l} \\sum_ {k = 1} ^ {\\infty} (- 1) ^ {k + 1} \\frac {x ^ {2 k + 1}}{5 ^ {k} \\cdot k} = \\frac {x ^ {3}}{5} - \\frac {x ^ {5}}{2 \\cdot 5 ^ {2}} + \\frac {x ^ {7}}{3 \\cdot 5 ^ {3}} - \\dots \\\\ = x ^ {3} \\left(\\frac {1}{5} - \\frac {x ^ {2}}{2 \\cdot 5 ^ {2}} + \\frac {x ^ {4}}{3 \\cdot 5 ^ {3}} - \\dots\\right) \\\\ = x ^ {3} \\left(\\frac {1}{5} - \\frac {y}{2 \\cdot 5 ^ {2}} + \\frac {y ^ {2}}{3 \\cdot 5 ^ {3}} - \\frac {y ^ {3}}{4 \\cdot 5 ^ {4}} + \\dots\\right) \\quad (y = x ^ {2}) \\\\ \\end{array}",
+          "image_source": "images/page_244_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.645,
+            0.457,
+            0.663
+          ],
+          "content": "hat nach (2) den Konvergenzradius"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.335,
+            0.676,
+            0.644,
+            0.714
+          ],
+          "content": "R = \\sqrt {\\lim _ {n \\to \\infty} \\frac {(n + 1) \\cdot 5 ^ {n + 1}}{n \\cdot 5 ^ {n}}} = \\sqrt {5}.",
+          "image_source": "images/page_244_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.869,
+            0.691,
+            0.89,
+            0.703
+          ],
+          "content": "□"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.736,
+            0.604,
+            0.755
+          ],
+          "content": "Beispiel 4. Die Koeffizientenfolge der Potenzreihe"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.321,
+            0.765,
+            0.672,
+            0.811
+          ],
+          "content": "\\sum_ {k = 0} ^ {\\infty} x ^ {k ^ {2}} = 1 + x + x ^ {4} + x ^ {9} + x ^ {1 6} + \\dots",
+          "image_source": "images/page_244_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.82,
+            0.892,
+            0.893
+          ],
+          "content": "weist immer größer werdende Lücken auf. Zur Bestimmung von R sind weder (1) noch (2) anwendbar; aber (3) führt sehr schnell zum Ziel. Offenbar ist für  $r \\geq 0$  die Folge  $1, r, r^{4}, r^{9}, \\ldots$  genau dann beschränkt, wenn  $r \\leq 1$ . D.h.  $R = \\sup B = 1$ . ☐"
+        }
+      ]
+    },
+    {
+      "page_idx": 245,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.111,
+            0.061,
+            0.15,
+            0.075
+          ],
+          "content": "230"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.448,
+            0.065,
+            0.558,
+            0.078
+          ],
+          "content": "5. Potenzreihen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.095,
+            0.894,
+            0.139
+          ],
+          "content": "3.3 Die Differentiation und Integration von Potenzreihen. Sei $\\sum_{k=0}^{\\infty} a_k x^k$ eine"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.139,
+            0.893,
+            0.175
+          ],
+          "content": "Potenzreihe mit Konvergenzradius R > 0 und Summe  $f(x)$ , falls  $|x| < R$ . Man sagt, die Funktion f wird auf  $(-R, R)$  durch die Potenzreihe dargestellt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.198,
+            0.894,
+            0.267
+          ],
+          "content": "Satz 3.2. Die Differentiation einer Potenzreihe. Eine durch eine Potenzreihe dargestellte Funktion f ist im offenen Konvergenzintervall -R < x < R, R > 0, beliebig oft differenzierbar. Die Ableitungen erhält man durch gliedweise Differentiation:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.111,
+            0.277,
+            0.792,
+            0.372
+          ],
+          "content": "\\begin{array}{l} f ^ {\\prime} (x) = \\sum_ {k = 1} ^ {\\infty} k a _ {k} x ^ {k - 1} = a _ {1} + 2 a _ {2} x + 3 a _ {3} x ^ {2} + 4 a _ {4} x ^ {3} + \\dots \\tag {4} \\\\ f ^ {\\prime \\prime} (x) = \\sum_ {k = 2} ^ {\\infty} k (k - 1) a _ {k} x ^ {k - 2} = 2 a _ {2} + 2 \\cdot 3 a _ {3} x + 3 \\cdot 4 a _ {4} x ^ {2} + \\dots , \\\\ \\end{array}",
+          "image_source": "images/page_245_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.373,
+            0.89,
+            0.419
+          ],
+          "content": "etc. Die abgeleiteten Reihen  $\\sum_{k=1}^{\\infty}ka_{k}x^{k-1},\\sum_{k=2}^{\\infty}k(k-1)a_{k}x^{k-2},\\cdots$  haben sämtlich den Konvergenzradius R."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.455,
+            0.889,
+            0.694
+          ],
+          "content": "Beweis. Jedes $x \\in (-R, R)$ liegt in einem abgeschlossenen Teilintervall $|x| \\leq \\rho < R$, in dem $\\sum_{k=0}^{\\infty} a_k x^k$ und die Reihe der Ableitungen $\\sum_{k=0}^{\\infty} ka_k x^{k-1}$ gleichmäßig konvergieren ($\\rightarrow$ Satz 3.1). Mit Satz 2.5 folgt $f'(x) = \\sum_{k=0}^{\\infty} ka_k x^{k-1}$. Speziell gilt auch $R \\leq R_1$, wenn $R_1$ den Konvergenzradius der Ableitung bezeichnet. Andererseits ist für $|x| < R_1$ die Reihe $\\sum_{k=1}^{\\infty} ka_k x^k = x \\sum_{k=1}^{\\infty} ka_k x^{k-1}$ absolut konvergent und deshalb konvergiert wegen $|a_k x^k| \\leq |ka_k x^k|$ auch die Reihe $\\sum_{k=1}^{\\infty} a_k x^k$; d.h. $R_1 \\leq R$, also insgesamt $R = R_1$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.718,
+            0.571,
+            0.738
+          ],
+          "content": "Beispiel. Die geometrische Reihe liefert mit (4)"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.184,
+            0.759,
+            0.816,
+            0.805
+          ],
+          "content": "\\frac {1}{1 - x} = \\sum_ {k = 0} ^ {\\infty} x ^ {k} \\quad = 1 + x + x ^ {2} + x ^ {3} + \\dots , | x | <   1",
+          "image_source": "images/page_245_equation_9.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.158,
+            0.808,
+            0.816,
+            0.851
+          ],
+          "content": "\\frac {1}{(1 - x) ^ {2}} = \\sum_ {k = 1} ^ {\\infty} k x ^ {k - 1} \\quad = 1 + 2 x + 3 x ^ {2} + 4 x ^ {3} + \\dots , | x | <   1",
+          "image_source": "images/page_245_equation_10.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.158,
+            0.853,
+            0.816,
+            0.898
+          ],
+          "content": "\\frac {1}{(1 - x) ^ {3}} = \\frac {1}{2} \\sum_ {k = 2} ^ {\\infty} k (k - 1) x ^ {k - 2} = \\frac {1}{2} (2 + 2 \\cdot 3 x + 3 \\cdot 4 x ^ {2} + \\dots), | x | <   1",
+          "image_source": "images/page_245_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.865,
+            0.902,
+            0.883,
+            0.914
+          ],
+          "content": "□"
+        }
+      ]
+    },
+    {
+      "page_idx": 246,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.438,
+            0.062,
+            0.558,
+            0.077
+          ],
+          "content": "§3. Potenzreihen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.853,
+            0.061,
+            0.888,
+            0.075
+          ],
+          "content": "231"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.096,
+            0.894,
+            0.16
+          ],
+          "content": "Satz 3.3. Die Integration einer Potenzreihe. Für alle $a, b$ aus dem offenen Konvergenzintervall $(-R, R)$ der Potenzreihe $f(x) = \\sum_{k=0}^{\\infty} a_k x^k$ gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.236,
+            0.169,
+            0.763,
+            0.216
+          ],
+          "content": "\\int_ {a} ^ {b} f (x) d x = \\sum_ {k = 0} ^ {\\infty} \\int_ {a} ^ {b} a _ {k} x ^ {k} d x = \\sum_ {k = 0} ^ {\\infty} \\frac {a _ {k}}{k + 1} (b ^ {k + 1} - a ^ {k + 1}).",
+          "image_source": "images/page_246_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.225,
+            0.467,
+            0.241
+          ],
+          "content": "Insbesondere ist (mit a = 0, b = x)"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.392,
+            0.252,
+            0.603,
+            0.297
+          ],
+          "content": "F (x) := \\sum_ {k = 0} ^ {\\infty} \\frac {a _ {k}}{k + 1} x ^ {k + 1}",
+          "image_source": "images/page_246_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.306,
+            0.89,
+            0.341
+          ],
+          "content": "eine Stammfunktion von $f$ auf $(-R,R)$; der Konvergenzradius von $F$ ist ebenfalls $R$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.351,
+            0.89,
+            0.387
+          ],
+          "content": "Der Beweis ergibt sich aus den Sätzen 3.1 und 2.4. Wegen $F' = f$ haben die beiden Reihen nach Satz 3.2 denselben Konvergenzradius. $\\square$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.404,
+            0.89,
+            0.441
+          ],
+          "content": "3.4 Die Potenzreihendarstellung einiger Funktionen. Als erste Anwendung der Sätze 3.2, 3.3 ergibt sich:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.157,
+            0.462,
+            0.815,
+            0.506
+          ],
+          "content": "a) $e^{x} = \\sum_{k=0}^{\\infty} \\frac{1}{k!} x^{k} = 1 + x + \\frac{x^{2}}{2!} + \\frac{x^{3}}{3!} + \\cdots, x \\in \\mathbb{R}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.158,
+            0.51,
+            0.815,
+            0.553
+          ],
+          "content": "b) $\\sin x = \\sum_{k=0}^{\\infty} \\frac{(-1)^k}{(2k+1)!} x^{2k+1} = x - \\frac{x^3}{3!} + \\frac{x^5}{5!} - \\frac{x^7}{7!} \\pm \\cdots, x \\in \\mathbb{R}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.111,
+            0.556,
+            0.815,
+            0.6
+          ],
+          "content": "(5) c)  $\\cos x = \\sum_{k=0}^{\\infty} \\frac{(-1)^{k}}{(2k)!} x^{2k}$   $= 1 - \\frac{x^{2}}{2!} + \\frac{x^{4}}{4!} - \\frac{x^{6}}{6!} \\pm \\cdots, x \\in R$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.158,
+            0.603,
+            0.819,
+            0.647
+          ],
+          "content": "d)  $\\ln(1+x)=\\sum_{k=0}^{\\infty}\\frac{(-1)^{k}}{k+1}x^{k+1}$   $=x-\\frac{x^{2}}{2}+\\frac{x^{3}}{3}-\\frac{x^{4}}{4}\\pm\\cdots,|x|<1$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.158,
+            0.649,
+            0.82,
+            0.694
+          ],
+          "content": "e) $\\arctan x = \\sum_{k=0}^{\\infty} \\frac{(-1)^k}{2k+1} x^{2k+1} = x - \\frac{x^3}{3} + \\frac{x^5}{5} - \\frac{x^7}{7} \\pm \\cdots, |x| < 1$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.725,
+            0.893,
+            0.851
+          ],
+          "content": "Beweis. a):  $e(x) := \\sum_{k=0}^{\\infty} \\frac{x^{k}}{k!}$  besitzt den Konvergenzradius  $R = \\infty (\\rightarrow 3.1)$ , stellt also eine auf ganz IR definierte, differenzierbare Funktion dar. Die Ableitung wird mit (4) berechnet:  $e'(x) = \\sum_{k=1}^{\\infty} \\frac{k}{k!} x^{k-1} = 1 + x + \\frac{x^{2}}{2!} + \\frac{x^{3}}{3!} + \\cdots = e(x)$ . Nach Kap. 3, §4.1 folgt  $e(x) = ce^{x}$  mit  $c = e(0) = 1$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.853,
+            0.894,
+            0.915
+          ],
+          "content": "b): Die Reihe  $s(x) := \\sum_{k=0}^{\\infty} \\frac{(-1)^{k}}{(2k+1)!} x^{2k+1} = x - \\frac{x^{3}}{3!} + \\frac{x^{5}}{5!} - \\frac{x^{7}}{7!} + \\cdots$  hat den Konvergenzradius  $R = \\infty (\\rightarrow 3.1)$  und stellt demnach auf ganz R eine beliebig"
+        }
+      ]
+    },
+    {
+      "page_idx": 247,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.11,
+            0.061,
+            0.148,
+            0.075
+          ],
+          "content": "232"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.444,
+            0.065,
+            0.555,
+            0.077
+          ],
+          "content": "5. Potenzreihen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.096,
+            0.894,
+            0.165
+          ],
+          "continues_prev": true,
+          "content": "oft differenzierbare Funktion dar. Für die nach (4) berechnete zweite Ableitung erkennt man  $s''(x)=\\left(1-\\frac{x^{2}}{2!}+\\frac{x^{4}}{4!}-\\frac{x^{6}}{6!}+\\cdots\\right)'=-x+\\frac{x^{3}}{3!}-\\frac{x^{5}}{5!}+-\\cdots=-s(x)$ . Nach Kap. 3, 2.2 folgt  $s(x)=s(0)\\cos x+s'(0)\\sin x=\\sin x$ ."
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.106,
+            0.167,
+            0.894,
+            0.251
+          ],
+          "sub_type": "text",
+          "content": "c) ergibt sich durch Differentiation aus b).\nd) und e) erhält man durch gliedweise Integration der speziellen geometrischen Reihen (x = -t, bzw.  $x = -t^{2}$ )  $\\frac{1}{1 + t} = \\sum_{k=0}^{\\infty} (-t)^{k}$  bzw.  $\\frac{1}{1 + t^{2}} = \\sum_{k=0}^{\\infty} (-1)^{k} t^{2k}$ . □"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.268,
+            0.893,
+            0.305
+          ],
+          "content": "Bemerkung. Mit der Taylor-Formel (→ Satz 4.1) kann man leicht zeigen, daß (5d) und (5e) auch noch für x = 1 gelten. Damit erhält man"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.154,
+            0.321,
+            0.843,
+            0.356
+          ],
+          "content": "\\ln 2 = 1 - \\frac {1}{2} + \\frac {1}{3} - \\frac {1}{4} + \\frac {1}{5} - + \\dots , \\quad \\frac {\\pi}{4} = 1 - \\frac {1}{3} + \\frac {1}{5} - \\frac {1}{7} + \\frac {1}{9} - + \\dots .",
+          "image_source": "images/page_247_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.387,
+            0.893,
+            0.436
+          ],
+          "content": "3.5 Die Binomialreihe stellt die Verallgemeinerung der binomischen Formel  $(1+x)^{n}=1+nx+\\frac{n(n-1)}{2}x^{2}+\\cdots+x^{n},\\;n\\in\\mathbb{N}\\;\\mathrm{dar:}$"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.108,
+            0.446,
+            0.855,
+            0.589
+          ],
+          "content": "\\begin{array}{l} \\text {Für alle} x \\text {mit} | x | <   1 \\text {und alle} \\alpha \\in \\mathbb {R} \\text {gilt} \\\\ (1 + x) ^ {\\alpha} = \\sum_ {k = 0} ^ {\\infty} \\binom {\\alpha} {k} x ^ {k} = 1 + \\alpha x + \\frac {\\alpha (\\alpha - 1)}{2 !} x ^ {2} + \\frac {\\alpha (\\alpha - 1) (\\alpha - 2)}{3 !} x ^ {3} + \\dots \\\\ \\text {wobei} \\binom {\\alpha} {k} := \\frac {\\alpha (\\alpha - 1) (\\alpha - 2) \\cdots (\\alpha - k + 1)}{k !}. \\end{array} \\tag {6}",
+          "image_source": "images/page_247_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.609,
+            0.891,
+            0.723
+          ],
+          "content": "Beweis. Nach (1) hat die Reihe $g(x) := \\sum_{k=0}^{\\infty} \\binom{\\alpha}{k} x^k$ den Konvergenzradius 1. Für $-1 < x < 1$ weist man durch gliedweise Differentiation $(1+x)g'(x) = \\alpha g(x)$ nach. Für $h(x) := \\frac{g(x)}{(1+x)^{\\alpha}}$ ergibt sich damit $h'(x) = 0$, also $h(x) = const$. $h(0) = 1$ zeigt $h(x) = 1$, bzw. $g(x) = (1+x)^{\\alpha}$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.742,
+            0.854,
+            0.76
+          ],
+          "content": "Formel (6) ist recht vielseitig; sie enthält zahlreiche interessante Spezialfälle:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.762,
+            0.891,
+            0.832
+          ],
+          "content": "1.  $\\alpha = n \\in N$ . Hierfür gilt  $\\binom{\\alpha}{k} = \\binom{n}{k} = \\frac{n(n-1)(n-2)\\cdots(n-k+1)}{k!} = 0$ , falls k > n (der Zähler enthält den Faktor  $(n-n) = 0$ ), und (6) ist in der Tat die zuvor erwähnte binomische Formel."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.833,
+            0.891,
+            0.913
+          ],
+          "content": "2. Für  $\\alpha = \\frac{1}{2}$  lauten die „Binomialkoeffizienten“  $\\begin{pmatrix} \\frac{1}{2} \\\\ 0 \\end{pmatrix} = 1$ ,  $\\begin{pmatrix} \\frac{1}{2} \\\\ 1 \\end{pmatrix} = \\frac{1}{2}$ ,  $\\begin{pmatrix} \\frac{1}{2} \\\\ 2 \\end{pmatrix} = \\frac{\\frac{1}{2} (\\frac{1}{2} - 1)}{2!} = -\\frac{1}{8}$  und für  $k \\geq 2$   $\\begin{pmatrix} \\frac{1}{2} \\\\ k \\end{pmatrix} = \\frac{\\frac{1}{2} (\\frac{1}{2} - 1) (\\frac{1}{2} - 2) \\cdots (\\frac{1}{2} - k + 1)}{k!} =$"
+        }
+      ]
+    },
+    {
+      "page_idx": 248,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.439,
+            0.062,
+            0.56,
+            0.078
+          ],
+          "content": "§3. Potenzreihen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.854,
+            0.061,
+            0.892,
+            0.076
+          ],
+          "content": "233"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.107,
+            0.089,
+            0.525,
+            0.123
+          ],
+          "content": "= (- 1) ^ {k - 1} \\frac {1 \\cdot 3 \\cdot 5 \\cdots (2 k - 3)}{2 \\cdot 4 \\cdots (2 k)}. \\text {Deshalb gilt}",
+          "image_source": "images/page_248_equation_2.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.108,
+            0.135,
+            0.823,
+            0.188
+          ],
+          "content": "\\sqrt {1 + x} = 1 + \\frac {1}{2} x - \\frac {1}{8} x ^ {2} + \\frac {1}{1 6} x ^ {3} - \\frac {5}{1 2 8} x ^ {4} + \\dots , \\text {falls} | x | <   1. \\tag {7}",
+          "image_source": "images/page_248_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.206,
+            0.893,
+            0.263
+          ],
+          "content": "3. Für  $\\alpha = -\\frac{1}{2}$  ist  $\\binom{-\\frac{1}{2}}{0} = 1$  und  $\\binom{-\\frac{1}{2}}{k} = (-1)^{k} \\frac{1 \\cdot 3 \\cdot 5 \\cdots (2k - 1)}{2 \\cdot 4 \\cdot 6 \\cdots (2k)}$  (für  $k \\geq 1$ ), also gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.108,
+            0.274,
+            0.813,
+            0.332
+          ],
+          "content": "\\boxed {\\frac {1}{\\sqrt {1 + x}} = 1 - \\frac {1}{2} x + \\frac {3}{8} x ^ {2} - \\frac {5}{1 6} x ^ {3} + \\frac {3 5}{1 2 8} x ^ {4} + \\dots , \\text {falls} | x | <   1.} \\tag {8}",
+          "image_source": "images/page_248_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.359,
+            0.89,
+            0.378
+          ],
+          "content": "3.6 Potenzreihen mit dem Zentrum  $a \\neq 0$ . Eine unendliche Reihe der Form"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.108,
+            0.389,
+            0.567,
+            0.435
+          ],
+          "content": "\\sum_ {k = 0} ^ {\\infty} a _ {k} (x - a) ^ {k} \\tag {9}",
+          "image_source": "images/page_248_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.446,
+            0.893,
+            0.616
+          ],
+          "content": "heißt Potenzreihe mit dem Zentrum (oder Entwicklungspunkt) $a$, die Zahlen $a_k$ heißen ihre Koeffizienten. Die bisher betrachteten Potenzreihen haben das Zentrum $a = 0$. Für theoretische Überlegungen genügt es, sich auf den Fall $a = 0$ zu beschränken; denn die Potenzreihe (9) mit dem Zentrum $a$ geht durch die Substitution $z := x - a$ in die Potenzreihe $\\sum_{k=0}^{\\infty} a_k z^k$ mit dem Zentrum 0 über. Als Konvergenzradius der Reihe (9) bezeichnet man den Konvergenzradius $R$ der entsprechenden Reihe mit Zentrum 0. Wegen $|x - a| < R \\iff a - R < x < a + R$ gilt für den Konvergenzradius von (9):"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.219,
+            0.627,
+            0.778,
+            0.741
+          ],
+          "content": "\\boxed { \\begin{array}{l l} 1. & x \\in (a - R, a + R) \\Longrightarrow \\sum_ {k = 0} ^ {\\infty} a _ {k} (x - a) ^ {k} \\text {konvergiert}, \\\\ 2. & x \\notin [ a - R, a + R ] \\Longrightarrow \\sum_ {k = 0} ^ {\\infty} a _ {k} (x - a) ^ {k} \\text {divergiert}. \\end{array} }",
+          "image_source": "images/page_248_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.779,
+            0.892,
+            0.915
+          ],
+          "content": "Ganz offensichtlich ist es bereits wegen des größeren Spielraums für die Variable x von Bedeutung, eine Funktion f als Potenzreihe mit beliebigem Zentrum a darzustellen,  $f(x) = \\sum_{k=0}^{\\infty} a_k (x - a)^k$ . Ist  $f(x)$  aus  $f(x - a)$  durch elementare Umformungen berechenbar, dann kann man diese Darstellung aus der mit dem Zentrum 0 gewinnen, andernfalls ist nach dem im nächsten Paragraphen beschriebenen Verfahren ( $\\rightarrow 4.3$ ) vorzugehen."
+        }
+      ]
+    },
+    {
+      "page_idx": 249,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.109,
+            0.061,
+            0.147,
+            0.075
+          ],
+          "content": "234"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.445,
+            0.063,
+            0.555,
+            0.076
+          ],
+          "content": "5. Potenzreihen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.107,
+            0.096,
+            0.201,
+            0.113
+          ],
+          "level": 2,
+          "content": "Beispiele."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.116,
+            0.893,
+            0.152
+          ],
+          "content": "1. Wegen  $e^{x}=e^{a}e^{x-a}$  folgt die Darstellung der e-Funktion als Potenzreihe mit Zentrum a direkt aus (5):"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.35,
+            0.153,
+            0.651,
+            0.198
+          ],
+          "content": "e ^ {x} = \\sum_ {k = 0} ^ {\\infty} \\frac {e ^ {a}}{k !} (x - a) ^ {k}, \\quad x \\in \\mathbb {R}.",
+          "image_source": "images/page_249_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.2,
+            0.21,
+            0.216
+          ],
+          "content": "2. Ebenso"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.128,
+            0.224,
+            0.893,
+            0.279
+          ],
+          "content": "\\begin{array}{l} \\sin x = \\sin (x - a + a) = \\sin (x - a) \\cos a + \\cos (x - a) \\sin a \\\\ = \\sin a + (\\cos a) (x - a) - \\frac {\\sin a}{2 !} (x - a) ^ {2} - \\frac {\\cos a}{3 !} (x - a) ^ {3} + \\dots , \\quad x \\in \\mathbb {R}. \\square \\\\ \\end{array}",
+          "image_source": "images/page_249_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.297,
+            0.892,
+            0.38
+          ],
+          "content": "3.7 Koeffizientenvergleich. Falls eine Funktion $f$ über $(a - R, a + R)$, $R > 0$, als Potenzreihe $f(x) = \\sum_{k=0}^{\\infty} a_k (x - a)^k$ mit Zentrum $a$ darstellbar ist, kann man mit (4) sofort die Koeffizienten berechnen: In der $n$-ten Ableitung"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.229,
+            0.388,
+            0.771,
+            0.459
+          ],
+          "content": "\\begin{array}{l} f ^ {(n)} (x) = \\sum_ {k = n} ^ {\\infty} k (k - 1) \\dots (k - n + 1) a _ {k} (x - a) ^ {k - n} \\\\ = n (n - 1) \\dots 1 a _ {n} + (n + 1) n \\dots 2 a _ {n + 1} (x - a) + \\dots \\\\ \\end{array}",
+          "image_source": "images/page_249_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.47,
+            0.628,
+            0.49
+          ],
+          "content": "setzt man x = a und erhält  $f^{(n)}(a) = n!a_{n}$ . Also gilt"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.107,
+            0.511,
+            0.554,
+            0.528
+          ],
+          "level": 2,
+          "content": "Satz 3.4. Eindeutigkeits-Satz für Potenzreihen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.53,
+            0.894,
+            0.592
+          ],
+          "content": "Aus $f(x) = \\sum_{k=0}^{\\infty} a_k (x - a)^k = \\sum_{k=0}^{\\infty} b_k (x - a)^k$ für alle $x \\in (a - R, a + R)$, $R > 0$, folgt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.111,
+            0.601,
+            0.682,
+            0.634
+          ],
+          "content": "a _ {k} = b _ {k} = \\frac {f ^ {(k)} (a)}{k !} \\quad (k = 0, 1, 2, \\dots). \\tag {10}",
+          "image_source": "images/page_249_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.655,
+            0.696,
+            0.673
+          ],
+          "content": "Die beiden wichtigsten Interpretationen des Satzes 3.4 sind:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.676,
+            0.893,
+            0.738
+          ],
+          "content": "a) Wenn es überhaupt möglich ist, $f$ über $(a - R, a + R)$ als Potenzreihe darzustellen, dann nur als Taylor-Reihe $f(x) = \\sum_{k=0}^{\\infty} \\frac{f^{(k)}(a)}{k!}(x - a)^k$ ($\\rightarrow$ §4)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.741,
+            0.894,
+            0.812
+          ],
+          "content": "b) Wird eine Funktion f auf zwei verschiedene Weisen als Potenzreihe mit Zentrum a dargestellt, dann sind die Koeffizienten entsprechender  $(x-a)$ -Potenzen gleich. Durch diesen sogenannten Koeffizientenvergleich gelangt man häufig zu nicht-trivialen Beziehungen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.833,
+            0.571,
+            0.852
+          ],
+          "content": "Beispiel 1. Für $\\alpha, \\beta \\in \\mathbb{R}$ und alle $n \\in \\mathbb{N}$ gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.358,
+            0.861,
+            0.648,
+            0.908
+          ],
+          "content": "\\binom{\\alpha + \\beta}{n} = \\sum_ {k = 0} ^ {n} \\binom{\\alpha}{k} \\binom{\\beta}{n - k}.",
+          "image_source": "images/page_249_equation_17.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 250,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.442,
+            0.063,
+            0.561,
+            0.076
+          ],
+          "content": "§3. Potenzreihen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.855,
+            0.061,
+            0.894,
+            0.075
+          ],
+          "content": "235"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.095,
+            0.823,
+            0.114
+          ],
+          "content": "Beweis. Mit (6) und der Produktformel von Cauchy (→ Satz 1.10) folgt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.126,
+            0.122,
+            0.877,
+            0.222
+          ],
+          "content": "\\begin{array}{l} \\sum_ {n = 0} ^ {\\infty} \\binom {\\alpha + \\beta} {n} x ^ {n} = (1 + x) ^ {\\alpha + \\beta} = (1 + x) ^ {\\alpha} (1 + x) ^ {\\beta} \\\\ = \\left(\\sum_ {n = 0} ^ {\\infty} \\binom {\\alpha} {n} x ^ {n}\\right) \\cdot \\left(\\sum_ {n = 0} ^ {\\infty} \\binom {\\beta} {n} x ^ {n}\\right) = \\sum_ {n = 0} ^ {\\infty} \\left(\\sum_ {k = 0} ^ {n} \\binom {\\alpha} {k} \\binom {\\beta} {n - k}\\right) x ^ {n}. \\\\ \\end{array}",
+          "image_source": "images/page_250_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.228,
+            0.594,
+            0.246
+          ],
+          "content": "Ein Koeffizientenvergleich liefert die Behauptung."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.265,
+            0.894,
+            0.318
+          ],
+          "content": "Anwendung. Lineare Differenzengleichungen. Von einer Folge  $(a_{k})_{k\\geq0}$  (in der Praxis meist Meßwerte zu diskreten Zeitpunkten) seien zunächst nur n Startwerte  $a_{0}$ ,  $a_{1}$  bis  $a_{n-1}$  bekannt und die nachfolgenden Glieder rekursiv durch"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.111,
+            0.327,
+            0.743,
+            0.345
+          ],
+          "content": "a _ {k} + \\alpha_ {1} a _ {k - 1} + \\alpha_ {2} a _ {k - 2} + \\dots + \\alpha_ {n} a _ {k - n} = 0 \\quad (k \\geq n) \\tag {11}",
+          "image_source": "images/page_250_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.353,
+            0.893,
+            0.406
+          ],
+          "content": "bestimmt (alle Koeffizienten $\\alpha_{1},\\ldots,\\alpha_{n}\\in\\mathbb{R}$). Zur Lösung dieser sogenannten Differenzengleichung betrachtet man die erzeugende Funktion der Folge $(a_{k})_{k\\geq0}$, das ist die Potenzreihe mit den Folgengliedern als Koeffizienten"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.109,
+            0.416,
+            0.586,
+            0.461
+          ],
+          "content": "f (x) := \\sum_ {k = 0} ^ {\\infty} a _ {k} x ^ {k}. \\tag {12}",
+          "image_source": "images/page_250_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.47,
+            0.89,
+            0.518
+          ],
+          "content": "Ist $A := \\max \\{|\\alpha_i|; 1 \\leq i \\leq n\\} > 0$, dann besitzt diese Reihe einen Konvergenzradius $R \\geq \\frac{1}{nA} > 0$. Dies folgt mit 3.2 (3) aus der Abschätzung"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.109,
+            0.527,
+            0.792,
+            0.548
+          ],
+          "content": "| a _ {k} | \\leq C (n A) ^ {k + 1 - n}, k \\geq n, C := \\max \\{| a _ {i} |; 0 \\leq i \\leq n - 1 \\}, \\tag {13}",
+          "image_source": "images/page_250_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.555,
+            0.89,
+            0.591
+          ],
+          "content": "die man mit vollständiger Induktion zeigt, indem man in (11) die Dreiecksungleichung anwendet. Mit Satz 1.4 kann man wie folgt aufsummieren:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.137,
+            0.599,
+            0.86,
+            0.712
+          ],
+          "content": "\\begin{array}{l} f (x) = a _ {0} + \\quad a _ {1} x + \\quad a _ {2} x ^ {2} + \\dots + \\quad a _ {k} x ^ {k} + \\dots \\\\ \\alpha_ {1} x f (x) = \\quad \\alpha_ {1} a _ {0} x + \\alpha_ {1} a _ {1} x ^ {2} + \\dots + \\alpha_ {1} a _ {k - 1} x ^ {k} + \\dots \\\\ \\begin{array}{c} \\vdots = \\\\ + \\alpha_ {n} x ^ {n} f (x) = \\\\ \\hline (1 + \\alpha_ {1} x + \\dots + \\alpha_ {n} x ^ {n}) f (x) = A _ {0} + A _ {1} x + A _ {2} x ^ {2} + \\dots + A _ {k} x ^ {k} + \\dots \\end{array} \\quad \\begin{array}{c} \\vdots \\\\ \\vdots \\\\ \\alpha_ {n} a _ {k - n} x ^ {k} + \\dots \\end{array} \\\\ \\end{array}",
+          "image_source": "images/page_250_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.719,
+            0.846,
+            0.737
+          ],
+          "content": "Wegen (11) gilt  $A_{k}=0$  für  $k\\geq n$ , daher ist  $f(x)$  eine rationale Funktion:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.109,
+            0.746,
+            0.677,
+            0.782
+          ],
+          "content": "f (x) = \\frac {A _ {0} + A _ {1} x + \\cdots + A _ {n - 1} x ^ {n - 1}}{1 + \\alpha_ {1} x + \\cdots \\alpha_ {n} x ^ {n}} \\quad \\text {mit} \\tag {14}",
+          "image_source": "images/page_250_equation_14.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.178,
+            0.787,
+            0.854,
+            0.804
+          ],
+          "content": "A _ {0} = a _ {0}, A _ {1} = \\alpha_ {1} a _ {0} + a _ {1}, \\dots , A _ {n - 1} = \\alpha_ {n - 1} a _ {0} + \\alpha_ {n - 2} a _ {1} + \\dots + a _ {n - 1}.",
+          "image_source": "images/page_250_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.813,
+            0.89,
+            0.913
+          ],
+          "content": "Diese rationale Funktion wird in konkreten Fällen zunächst in Partialbrüche zerlegt. Stellt man dann noch jeden einzelnen Teilbruch mit der geometrischen Reihe  $\\frac{1}{x-a} = -\\frac{1}{a}\\sum_{k=0}^{\\infty}\\left(\\frac{x}{a}\\right)^{k}, |x| < |a|$ , und ihren Ableitungen dar, so erhält man eine zweite Potenzreihendarstellung von  $f(x)$ . Der Koeffizientenvergleich"
+        }
+      ]
+    },
+    {
+      "page_idx": 251,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.108,
+            0.061,
+            0.147,
+            0.075
+          ],
+          "content": "236"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.444,
+            0.063,
+            0.555,
+            0.076
+          ],
+          "content": "5. Potenzreihen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.095,
+            0.884,
+            0.114
+          ],
+          "continues_prev": true,
+          "content": "mit (12) gibt schließlich eine explizite Formel für die Folgenglieder  $a_{k}$  ( $k \\geq 0$ )."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.129,
+            0.89,
+            0.164
+          ],
+          "content": "Beispiel 2. Die Fibonacci-Zahlen (LEONARDO DA PISA, genannt FIBONACCI, ca. 1170-1250) sind erklärt durch die Rekursion"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.256,
+            0.172,
+            0.741,
+            0.191
+          ],
+          "content": "a _ {0} := 0, \\quad a _ {1} := 1, \\quad a _ {k} := a _ {k - 1} + a _ {k - 2} \\quad (k \\geq 2).",
+          "image_source": "images/page_251_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.197,
+            0.893,
+            0.233
+          ],
+          "content": "Die ersten 11 Folgenglieder sind 0,1,1,2,3,5,8,13,21,34,55. In (11) ist n = 2 und  $\\alpha_{1} = \\alpha_{2} = -1$  zu setzen, daher ergibt sich mit (14) als erzeugende Funktion"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.283,
+            0.24,
+            0.714,
+            0.286
+          ],
+          "content": "f (x) = \\sum_ {k = 0} ^ {\\infty} a _ {k} x ^ {k} = \\frac {x}{1 - x - x ^ {2}} \\quad \\left(| x | <   \\frac {1}{2}\\right).",
+          "image_source": "images/page_251_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.294,
+            0.871,
+            0.316
+          ],
+          "content": "Mit den Nullstellen des Nenners  $x_{1} = -\\frac{1}{2}(1 - \\sqrt{5})$  und  $x_{2} = -\\frac{1}{2}(1 + \\sqrt{5})$  gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.16,
+            0.322,
+            0.837,
+            0.371
+          ],
+          "content": "f (x) = \\frac {1}{x _ {1} - x _ {2}} \\left(\\frac {x _ {2}}{x - x _ {2}} - \\frac {x _ {1}}{x - x _ {1}}\\right) = \\frac {1}{\\sqrt {5}} \\sum_ {k = 0} ^ {\\infty} \\left[ \\left(\\frac {1}{x _ {1}}\\right) ^ {k} - \\left(\\frac {1}{x _ {2}}\\right) ^ {k} \\right] x ^ {k}.",
+          "image_source": "images/page_251_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.377,
+            0.752,
+            0.395
+          ],
+          "content": "Der Koeffizientenvergleich liefert hieraus die explizite Darstellung"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.205,
+            0.401,
+            0.779,
+            0.45
+          ],
+          "content": "a _ {k} = \\frac {1}{\\sqrt {5}} \\left[ \\left(\\frac {1 + \\sqrt {5}}{2}\\right) ^ {k} - \\left(\\frac {1 - \\sqrt {5}}{2}\\right) ^ {k} \\right], \\quad k = 0, 1, 2, \\dots .",
+          "image_source": "images/page_251_equation_10.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.871,
+            0.418,
+            0.89,
+            0.43
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_251_image_11.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.108,
+            0.463,
+            0.204,
+            0.479
+          ],
+          "level": 2,
+          "content": "Aufgaben"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.479,
+            0.867,
+            0.495
+          ],
+          "content": "1. Man bestimme den Konvergenzbereich und untersuche das Verhalten am Rande:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.497,
+            0.407,
+            0.541
+          ],
+          "content": "a) $f(x) = \\sum_{n=0}^{\\infty}(-1)^{n}\\frac{x^{2n+1}}{2n+1}$;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.464,
+            0.499,
+            0.685,
+            0.541
+          ],
+          "content": "b) $\\sum_{n=1}^{\\infty} \\frac{3^n x^n}{\\sqrt{(3n-2) \\cdot 2^n}};$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.546,
+            0.307,
+            0.589
+          ],
+          "content": "c) $\\sum_{n=1}^{\\infty} \\frac{(2n)^{n} x^{n}}{n!}$;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.464,
+            0.546,
+            0.745,
+            0.589
+          ],
+          "content": "d) $\\sum_{n=1}^{\\infty}(-1)^{n}\\frac{x^{2n}}{3^{n}(n+1)\\sqrt{n+1}};$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.593,
+            0.397,
+            0.636
+          ],
+          "content": "e) $\\sum_{n=1}^{\\infty}(-1)^{n}3^{2n}(x-1)^{2n+1}$;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.464,
+            0.593,
+            0.598,
+            0.636
+          ],
+          "content": "f) $\\sum_{n=1}^{\\infty} n! x^n$;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.64,
+            0.285,
+            0.683
+          ],
+          "content": "g) $\\sum_{n=1}^{\\infty} \\frac{n^n x^n}{(n!)^2}$;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.464,
+            0.64,
+            0.616,
+            0.683
+          ],
+          "content": "h) $\\sum_{n=1}^{\\infty} \\frac{x^{5n+1}}{1 + 2^n}$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.685,
+            0.893,
+            0.717
+          ],
+          "content": "Bezeichne $s_m(x)$ die $m$-te Partialsumme von a), so bestimme man ein (von $m$ abhängiges) $N \\in \\mathbb{N}$, so daß $|f(1) - s_m(1)| < 10^{-2}$ für alle $m > N$ gilt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.724,
+            0.893,
+            0.768
+          ],
+          "content": "2. Man bestimme durch Multiplikation der entsprechenden geometrischen Reihen die Potenzreihenentwicklung von  $\\frac{1}{1-x} \\cdot \\frac{1}{1+x^{2}}$  samt Konvergenzbereich."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.775,
+            0.894,
+            0.832
+          ],
+          "content": "3. Man bestimme den Konvergenzradius von  $y(x) = 1 - \\frac{x^{3}}{2 \\cdot 3} + \\frac{x^{6}}{2 \\cdot 3 \\cdot 5 \\cdot 6} - \\frac{x^{9}}{2 \\cdot 3 \\cdot 5 \\cdot 6 \\cdot 8 \\cdot 9} \\pm \\cdots$  und zeige:  $y(x)$  erfüllt die Differentialgleichung  $y'' + xy = 0$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.838,
+            0.598,
+            0.881
+          ],
+          "content": "4. Man bestätige  $\\sum_{n=1}^{\\infty}n^{2}x^{n}=\\frac{x+x^{2}}{(1-x)^{3}}$  für  $|x|<1$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.881,
+            0.882,
+            0.898
+          ],
+          "content": "5. Man löse die Differenzengleichung  $a_{k}-5a_{k-1}+6a_{k-2}=0$  (k>1),  $a_{0}=0$ ,  $a_{1}=1$ ."
+        }
+      ]
+    },
+    {
+      "page_idx": 252,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.356,
+            0.063,
+            0.646,
+            0.077
+          ],
+          "content": "§4. Der Satz von Taylor; Taylor-Reihen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.855,
+            0.061,
+            0.894,
+            0.075
+          ],
+          "content": "237"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.273,
+            0.109,
+            0.726,
+            0.13
+          ],
+          "level": 2,
+          "content": "§4. Der Satz von Taylor; Taylor-Reihen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.146,
+            0.894,
+            0.264
+          ],
+          "content": "4.1 Die Taylor-Formel. In diesem Paragraphen befassen wir uns mit der Approximation einer hinreichend oft differenzierbaren Funktion $f$ durch das sogenannte $n$-te Taylor-Polynom $T_{n}(x,a):=\\sum_{k=0}^{n}\\frac{f^{(k)}(a)}{k!}(x-a)^{k}$ (nach B. TAYLOR, 1685-1731) und klären damit u.a. die noch offene Frage, unter welchen Bedingungen eine gegebene Funktion durch eine Potenzreihe darstellbar ist."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.281,
+            0.894,
+            0.317
+          ],
+          "content": "Satz 4.1. Taylor-Formel. Für jede auf dem offenen Intervall $I \\subseteq \\mathbb{R}$ $(n + 1)$-mal stetig differenzierbare Funktion $f$ und $a, x \\in I$ gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.108,
+            0.325,
+            0.816,
+            0.507
+          ],
+          "content": "\\begin{array}{l} f (x) = f (a) + \\frac {f ^ {\\prime} (a)}{1 !} (x - a) + \\dots + \\frac {f ^ {(n)} (a)}{n !} (x - a) ^ {n} + R _ {n + 1} (x, a) \\\\ \\text {mit dem Restglied} \\\\ R _ {n + 1} (x, a) = \\frac {1}{n !} \\int_ {a} ^ {x} (x - t) ^ {n} f ^ {(n + 1)} (t) d t \\quad (\\text {nach CAUCHY}), \\\\ b z w. \\\\ R _ {n + 1} (x, a) = \\frac {f ^ {(n + 1)} (\\xi)}{(n + 1) !} (x - a) ^ {n + 1} \\quad \\begin{array}{l} \\text {mit} \\xi \\text {zwischen x und a} \\\\ (\\text {nach LAGRANGE}). \\end{array} \\end{array} \\tag {1}",
+          "image_source": "images/page_252_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.526,
+            0.892,
+            0.702
+          ],
+          "content": "Beweis. Wegen $f(x) = f(a) + \\int_{a}^{x} f'(t) dt$ gilt die Formel für $n = 0$. Ist $f$ 2-mal stetig differenzierbar, folgt hieraus mittels partieller Integration ($u = t - x$, $v = f'$) $f(x) = f(a) + f'(a)(x - a) + \\int_{a}^{x}(x - t)f''(t)dt$. Weitere partielle Integration ergibt $f(x) = f(a) + f'(a)(x - a) + \\frac{f''(a)}{2!}(x - a)^2 + \\frac{1}{2!}\\int_{a}^{x}(x - t)^2 f'''(t)dt$. Man sieht, daß fortlaufende partielle Integration zur angegebenen Formel führt. Die Darstellung des Restgliedes nach Lagrange ist nun eine Konsequenz des Mittelwertsatzes der Integralrechnung ($\\rightarrow$ Kap. 4, Satz 1.2)"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.107,
+            0.703,
+            0.891,
+            0.742
+          ],
+          "content": "\\frac {1}{n !} \\int_ {a} ^ {x} f ^ {(n + 1)} (t) (x - t) ^ {n} d t = \\frac {1}{n !} f ^ {(n + 1)} (\\xi) \\int_ {a} ^ {x} (- t) ^ {n} d t = \\frac {f ^ {(n + 1)} (\\xi)}{(n + 1) !} (x - a) ^ {n + 1}. \\quad \\square",
+          "image_source": "images/page_252_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.756,
+            0.891,
+            0.809
+          ],
+          "content": "Deutung der Taylor-Formel. Sind die Werte einer Funktion $f: I \\to \\mathbb{R}$ und ihrer ersten $n$ Ableitungen in einem Punkt $x = a$ aus dem Innern des Intervalls $I$ bekannt, dann wird mit"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.211,
+            0.819,
+            0.783,
+            0.853
+          ],
+          "content": "p (x) = T _ {n} (x, a) = \\frac {f ^ {(n)} (a)}{n !} (x - a) ^ {n} + \\dots + f ^ {\\prime} (a) (x - a) + f (a)",
+          "image_source": "images/page_252_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.859,
+            0.891,
+            0.914
+          ],
+          "content": "ein Polynom bestimmt, das die Funktion in einer Umgebung des Punktes $x = a$ gut approximiert. Die Kurven $y = p(x)$ und $y = f(x)$ gehen beide durch $(a, f(a))$, sie haben dort dieselbe Steigung, dieselbe Krümmung ($\\rightarrow$ Kap. 3, §2)"
+        }
+      ]
+    },
+    {
+      "page_idx": 253,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.11,
+            0.061,
+            0.147,
+            0.075
+          ],
+          "content": "238"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.446,
+            0.064,
+            0.555,
+            0.076
+          ],
+          "content": "5. Potenzreihen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.097,
+            0.893,
+            0.132
+          ],
+          "content": "und alle Eigenschaften gemeinsam, die sich aus den Ableitungen bis zur Ordnung n ergeben:  $p^{(k)}(a) = f^{(k)}(a) \\quad (1 \\leq k \\leq n)$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.134,
+            0.893,
+            0.187
+          ],
+          "content": "Die Bedeutung der Taylor-Formel besteht darin, daß der bei dieser Approximation gemachte Fehler  $|f(x)-T_{n}(x,a)|=|R_{n+1}(x,a)|$  durch die Kenntnis des Restgliedes abgeschätzt werden kann."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.204,
+            0.893,
+            0.256
+          ],
+          "content": "Beispiele. 1.  $e^{x}=1+x+\\frac{x^{2}}{2!}+\\cdots+\\frac{x^{n}}{n!}+\\frac{e^{\\xi}}{(n+1)!}x^{n+1}$ . So ergibt sich etwa für  $|x|\\leq1$  die Abschätzung"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.222,
+            0.265,
+            0.776,
+            0.302
+          ],
+          "content": "\\left| e ^ {x} - 1 - x - \\dots - \\frac {x ^ {n}}{n !} \\right| = \\frac {e ^ {\\xi}}{(n + 1) !} | x | ^ {n + 1} \\leq \\frac {e}{(n + 1) !} | x | ^ {n + 1}.",
+          "image_source": "images/page_253_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.31,
+            0.893,
+            0.437
+          ],
+          "content": "Bei einem tolerierten Fehler, etwa  $\\pm10^{-7}$ , ist n (in Abhängigkeit von x) so zu bestimmen, daß  $\\frac{e}{(n+1)!}|x|^{n+1} \\leq \\frac{1}{10^{7}}$  gilt. Für  $x = \\frac{1}{10}$  ist das bereits für n = 5 erfüllt (d.h.  $e^{\\frac{1}{10}} = 1 + \\frac{1}{10} + \\frac{1}{10^{2} \\cdot 2!} + \\cdots + \\frac{1}{10^{5} \\cdot 5!} \\pm 10^{-7}$ ), für x = 1 sind mehr Summanden zu berücksichtigen, man muß bis n = 10 gehen:  $e = 1 + \\frac{1}{1!} + \\cdots + \\frac{1}{10!} \\pm 10^{-7}$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.438,
+            0.89,
+            0.47
+          ],
+          "content": "Im Fall $|x| > 1$ zerlegt man $x = x_0 + x_1$ mit $x_0 \\in \\mathbb{Z}$, $|x_1| < 1$ und berechnet $e^x = e^{x_0}e^{x_1}$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.47,
+            0.611,
+            0.502
+          ],
+          "content": "2. $\\left|\\sin x - x + \\frac{x^3}{3!} -\\frac{x^5}{5!} +\\frac{x^7}{7!}\\right| = \\left|\\frac{\\sin\\xi}{8!} x^8\\right|\\leq \\frac{1}{8!}|x|^8.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.502,
+            0.89,
+            0.537
+          ],
+          "content": "Man beachte, daß die in Satz 1.3 angegebene Abschätzung des Summenwertes einer alternierenden Reihe unter Umständen schärfer ist (→ Aufg. 5). □"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.114,
+            0.557,
+            0.893,
+            0.733
+          ],
+          "sub_type": "contour",
+          "content": "| n | Curve Description |\n| --- | --- |\n| 3 | Peak at x=0, trough at x=-1 |\n| 7 | Trough at x=-1, peak at x=0 |\n| 11 | Trough at x=-1, peak at x=0 |\n| 15 | Trough at x=-1, peak at x=0 |\n| 19 | Trough at x=-1, peak at x=0 |\n| 23 | Trough at x=-1, peak at x=0 |\n| 27 | Trough at x=-1, peak at x=0 |\n| 31 | Trough at x=-1, peak at x=0 |\n| 35 | Trough at x=-1, peak at x=0 |\n| 39 | Trough at x=-1, peak at x=0 |\n| 43 | Trough at x=-1, peak at x=0 |\n| 47 | Trough at x=-1, peak at x=0 |\n| 51 | Trough at x=-1, peak at x=0 |\n| 55 | Trough at x=-1, peak at x=0 |\n| 59 | Trough at x=-1, peak at x=0 |\n| 61 | Trough at x=-1, peak at x=0 |",
+          "captions": [
+            {
+              "bbox": [
+                0.338,
+                0.742,
+                0.658,
+                0.757
+              ],
+              "content": "Abb. 135 - Taylor-Polynome von sin x"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_253_chart_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.766,
+            0.56,
+            0.784
+          ],
+          "content": "Einfache Folgerungen aus der Taylor-Formel:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.802,
+            0.89,
+            0.839
+          ],
+          "content": "Satz 4.2. Jede auf einem offenen Intervall I  $(n+1)$ -mal differenzierbare Funktion mit  $f^{(n+1)}(x)=0$  für alle  $x\\in I$  ist ein Polynom vom Grad  $\\leq n$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.856,
+            0.89,
+            0.893
+          ],
+          "content": "Beweis. Aus der Restgliedformel nach Lagrange ersieht man  $R_{n+1}(x,a)=0$ , deshalb gilt  $f(x)=T_{n}(x,a)$  (mit einem  $a\\in I$ ). ☐"
+        }
+      ]
+    },
+    {
+      "page_idx": 254,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.352,
+            0.062,
+            0.646,
+            0.078
+          ],
+          "content": "§4. Der Satz von Taylor; Taylor-Reihen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.853,
+            0.061,
+            0.892,
+            0.076
+          ],
+          "content": "239"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.096,
+            0.894,
+            0.133
+          ],
+          "content": "Satz 4.3. 3. Extremwert-Test. Ist die Funktion f auf dem Intervall I n-mal stetig differenzierbar und  $a \\in I$  mit"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.202,
+            0.141,
+            0.795,
+            0.162
+          ],
+          "content": "f ^ {\\prime} (a) = f ^ {\\prime \\prime} (a) = \\dots = f ^ {(n - 1)} (a) = 0, \\quad f ^ {(n)} (a) \\neq 0, d a n n g i l t:",
+          "image_source": "images/page_254_equation_3.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.105,
+            0.173,
+            0.631,
+            0.23
+          ],
+          "sub_type": "text",
+          "content": "a) a Extremalstelle $\\iff n$ gerade;\nb) n gerade,  $f^{(n)}(a) < 0 \\Longrightarrow a$  lokale Maximalstelle,\n$n$ gerade, $f^{(n)}(a) > 0 \\Longrightarrow a$ lokale Minimalstelle."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.251,
+            0.893,
+            0.287
+          ],
+          "content": "Beweis. Da  $f^{(n)}(\\xi)$  und  $f^{(n)}(a)$  für  $\\xi$  nahe a dasselbe Vorzeichen haben, liest man alles aus der in diesem Fall besonders einfachen Taylor-Formel ab:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.349,
+            0.296,
+            0.646,
+            0.33
+          ],
+          "content": "f (x) - f (a) = \\frac {f ^ {(n)} (\\xi)}{n !} (x - a) ^ {n}.",
+          "image_source": "images/page_254_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.337,
+            0.894,
+            0.393
+          ],
+          "content": "Ist $n$ ungerade, dann hat die rechte Seite, so auch die linke, für $x < a$ und $x > a$ verschiedene Vorzeichen. Ist $n$ gerade, dann gilt stets $(x - a)^{n} > 0$ (für $x \\neq a$) und aus $f^{(n)}(a) < 0$ folgt $f(x) < f(a)$ für alle $x$ nahe bei $a$, $x \\neq a$. $\\square$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.411,
+            0.893,
+            0.451
+          ],
+          "content": "Beispiel. Für  $f(x) = x^{4} - 8x^{3} + 24x^{2} - 32x + 19$  gilt  $f'(2) = f''(2) = f'''(2) = 0$ ,  $f^{(4)}(2) = 24 > 0$ ; also ist x = 2 eine lokale Minimalstelle. ☐"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.469,
+            0.892,
+            0.506
+          ],
+          "content": "4.2 Die Taylor-Reihe. Es sei $f$ eine auf dem offenen Intervall $I \\subseteq \\mathbb{R}$ beliebig oft differenzierbare Funktion $f$ und $a \\in I$. Die unendliche Reihe"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.357,
+            0.515,
+            0.642,
+            0.561
+          ],
+          "content": "T _ {f} (x, a) := \\sum_ {k = 0} ^ {\\infty} \\frac {f ^ {(k)} (a)}{k !} (x - a) ^ {k}",
+          "image_source": "images/page_254_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.57,
+            0.774,
+            0.588
+          ],
+          "content": "heißt Taylor-Reihe von f mit Zentrum (oder Entwicklungspunkt) a."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.59,
+            0.779,
+            0.636
+          ],
+          "content": "Gilt $f(x) = \\sum_{k=0}^{\\infty} \\frac{f^{(k)}(a)}{k!} (x - a)^k$ für $a - R < x < a + R$, so sagt man:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.642,
+            0.845,
+            0.678
+          ],
+          "content": "f läßt sich um (den Entwicklungspunkt) a als Taylor-Reihe darstellen bzw.\nf läßt sich um a in eine Taylor-Reihe entwickeln."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.685,
+            0.296,
+            0.703
+          ],
+          "content": "Nach Satz 3.4 gilt:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.287,
+            0.726,
+            0.7,
+            0.744
+          ],
+          "content": "Eine konvergente Potenzreihe mit Summe"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.315,
+            0.745,
+            0.66,
+            0.789
+          ],
+          "content": "f (x) = \\sum_ {k = 0} ^ {\\infty} a _ {k} (x - a) ^ {k}, \\quad | x - a | <   R,",
+          "image_source": "images/page_254_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.287,
+            0.789,
+            0.705,
+            0.807
+          ],
+          "content": "ist bereits die Taylor-Reihe von $f$ um $a$;"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.358,
+            0.807,
+            0.637,
+            0.841
+          ],
+          "content": "a _ {k} = \\frac {f ^ {(k)} (a)}{k !} \\quad (k = 0, 1, 2, \\dots).",
+          "image_source": "images/page_254_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.866,
+            0.892,
+            0.918
+          ],
+          "content": "Speziell: Das Polynom  $p(x) = a_{n}x^{n} + \\cdots + a_{1}x + a_{0}$  ( $a_{k} = 0$  für k > n) ist bereits die Taylor-Entwicklung von  $p(x)$  um den Punkt 0;  $a_{k} = \\frac{p^{(k)}(0)}{k!}$  ( $0 \\leq k \\leq n$ )."
+        }
+      ]
+    },
+    {
+      "page_idx": 255,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.11,
+            0.061,
+            0.147,
+            0.075
+          ],
+          "content": "240"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.446,
+            0.063,
+            0.555,
+            0.076
+          ],
+          "content": "5. Potenzreihen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.095,
+            0.893,
+            0.146
+          ],
+          "content": "Gegenbeispiel. Es ist durchaus möglich, daß die Taylor-Reihe von $f$ um $a$ nur für $x = a$ konvergiert oder eine von $f(x)$ verschiedene Summe besitzt. Etwa für"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.347,
+            0.148,
+            0.646,
+            0.187
+          ],
+          "content": "f (x) := \\left\\{ \\begin{array}{c l} e ^ {- 1 / x ^ {2}} & , \\text {falls} x \\neq 0 \\\\ 0 & , \\text {falls} x = 0 \\end{array} \\right.",
+          "image_source": "images/page_255_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.192,
+            0.893,
+            0.228
+          ],
+          "content": "stellt die Taylor-Reihe  $T_{f}(x,0)=0$  (wegen  $f^{(k)}(0)=0$  für alle  $k\\geq0$ ) eine von f verschiedene Funktion dar. □"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.246,
+            0.893,
+            0.3
+          ],
+          "content": "Satz 4.4. Darstellung einer Funktion als Taylor-Reihe. Ist $f$ auf dem Intervall $I$ beliebig oft differenzierbar und $a \\in I$, dann konvergiert die Taylor-Reihe genau für diejenigen $x \\in I$ gegen $f(x)$,"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.37,
+            0.308,
+            0.632,
+            0.355
+          ],
+          "content": "f (x) = \\sum_ {k = 0} ^ {\\infty} \\frac {f ^ {(k)} (a)}{k !} (x - a) ^ {k},",
+          "image_source": "images/page_255_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.364,
+            0.893,
+            0.433
+          ],
+          "content": "für die das Restglied $R_{n}(x,a) = \\frac{f^{(n)}(\\xi)}{n!} (x - a)^{n}$ mit $n \\to \\infty$ gegen 0 strebt. Dies ist sicher dann der Fall, wenn es Konstanten $A$, $B$ gibt, so daß für alle $x \\in I$ und alle $n \\in \\mathbb{N}$ die Abschätzung $|f^{(n)}(x)| \\leq AB^{n}$ gilt."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.109,
+            0.449,
+            0.892,
+            0.485
+          ],
+          "content": "Beweis. Die Taylor-Formel (1) lautet $f(x) - T_{n}(x,a) = R_{n + 1}(x,a)$ mit der $n$-ten Partialsumme $T_{n}(x,a)$ der Taylor-Reihe. Also gilt"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.293,
+            0.493,
+            0.706,
+            0.519
+          ],
+          "content": "f (x) = \\lim _ {n \\to \\infty} T _ {n} (x, a) \\iff \\lim _ {n \\to \\infty} R _ {n} (x, a) = 0.",
+          "image_source": "images/page_255_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.11,
+            0.526,
+            0.547,
+            0.544
+          ],
+          "content": "Besteht die angegebene Abschätzung, so gilt"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.109,
+            0.544,
+            0.893,
+            0.62
+          ],
+          "content": "$|R_{n}(x,a)| \\leq A \\frac{B^{n}}{n!} (x-a)^{n} \\to 0$ (für $n \\to \\infty$); denn die Glieder der konvergenten Reihe $e^{B(x-a)} = \\sum_{n=0}^{\\infty} \\frac{B^{n}(x-a)^{n}}{n!}$ bilden eine Nullfolge."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.637,
+            0.892,
+            0.674
+          ],
+          "content": "Satz 4.5. Die Taylor-Form eines Polynoms. Jedes Polynom $p(x) = a_{n}x^{n} + \\cdots + a_{1}x + a_{0}$ läßt sich um jeden Punkt $a \\in \\mathbb{R}$ in die Taylor-Form"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.111,
+            0.681,
+            0.831,
+            0.717
+          ],
+          "content": "p (x) = \\frac {p ^ {(n)} (a)}{n !} (x - a) ^ {n} + \\frac {p ^ {(n - 1)} (a)}{(n - 1) !} (x - a) ^ {n - 1} + \\dots + p ^ {\\prime} (a) (x - a) + p (a) \\tag {2}",
+          "image_source": "images/page_255_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.109,
+            0.725,
+            0.893,
+            0.76
+          ],
+          "content": "„entwickeln“. Dieses ist die einzige Möglichkeit,  $p(x)$  als Potenzreihe mit Zentrum a darzustellen."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.109,
+            0.777,
+            0.892,
+            0.814
+          ],
+          "content": "Beweis. Aus  $p^{(n+1)}(x)=0$  für alle x folgt  $R_{n+1}(x,a)=0$  und  $p(x)=T_{n}(x,a)$  für alle x. □"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.83,
+            0.894,
+            0.913
+          ],
+          "content": "Mit der Taylor-Entwicklung (2) des Polynoms $p(x) = \\sum_{k=0}^{n} a_k x^k$ um $a$ lassen sich sämtliche Funktionswerte berechnen, sobald man für eine einzige Stelle $x = a$ die Werte $p(a), p'(a), p''(a), \\ldots, p^{(n)}(a)$ kennt."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "authors": [
+        "\u00104<8=8AB@0B>@"
+      ],
+      "created_at": "2013-06-18T10:53:02+04:00",
+      "modified_at": "2013-07-31T10:19:19+01:00",
+      "creator_application": "PdfCompressor 3.1.34",
+      "producer_application": "CVISION Technologies",
+      "page_count": 548,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "ocr"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 224,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 225,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 226,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 227,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 228,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 229,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 230,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 231,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 232,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 233,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 234,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 235,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 236,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 237,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 238,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 239,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 240,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 241,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 242,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 243,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 244,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 245,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 246,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 247,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 248,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 249,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 250,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 251,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 252,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 253,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 254,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 255,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

@@ -1,0 +1,3221 @@
+--- PDF page 177 ---
+Kapitel4 
+Integration 
+Mit der Integration wird das Umkehrproblem gelost, aus der Ableitung 
+l' die urspriingliche Funktion f 
+zu rekonstruieren. 
+Die wesentliche, zur 
+Losung fiihrende Idee stammt aus dem Mittelwertsatz der Differentialrechnung 
+(---> Kap. 3, §2): Zu jeder Zerlegung a = Xo < XI < ... < Xn-I < Xn = x 
+des Intervalls [a, x], auf dem f differenzierbar ist, gibt es Zwischenpunkte 
+¢; E [X;_I,X;], so daB gilt 
+f(x;}-f(x;-d =1'(¢;)(x;-xi-d (i= 1,2, ... ,n). 
+Summation dieser Gleichungen ergibt 
+n 
+f(x) - f(xo} = Lf'(¢i)(Xi - Xi-d· 
+i~1 
+Da man die ¢i nicht kennt, ersetzt man sie durch beliebige Zwischenpunkte 
+aus [Xi-I, Xi], und erreicht so bei hinreichend feiner Zerlegung des Grundin-
+tervalls [a, x] durch die entsprechende Summe eine gute Approximation von 
+f (x) - f (xo)· Es wird sich zeigen, daB der auf diesen Ideen beruhende Integral-
+begriff das geeignete Mittel ist zur Berechnung von BogenHingen, Flachen- und 
+Rauminhalten, Arbeit, Potentialen, Momenten, magnetischem FluB, Zirkulation 
+und vielem anderen. 
+§ 1. Das bestimmte Integral 
+1.1 Die Definition des bestimmten Integrals. 
+Sei f eine auf dem Intervall 
+[a, b) definierte, beschrankte Funktion, die an hochstens endlich vielen Stel-
+len nicht stetig ist (derartige Funktionen nennt man stiickweise stetig). Durch 
+Einftigen von n - 1 Teilpunkten 
+a = Xo < XI < ... < Xn-I < Xn = b 
+wird [a,b] in n Teilintervalle [Xi-I, Xi] 
+zerlegt, sodann wird in jedem Teilinter-
+vall irgendein Zwischenpunkt 
+¢i mit 
+Xi-I :s; ¢i :s; Xi ausgewahlt und schlieB-
+lich die Summe 
+n 
+(1) 
+Zn := Lf(¢;)(Xi - xi-d 
+i~1 
+berechnet. 
+Man nennt Zn eine Zwi-
+schensumme oder Riemannsche Summe 
+von f (nach B. RIEMANN, 1826-1866). 
+y 
+Abb. 99 - Riemann-Summe 
+x 
+K. Meyberg et al., Höhere Mathematik
+© Springer-Verlag Berlin Heidelberg 1998
+
+
+--- PDF page 178 ---
+162 
+4. Integration 
+Man kann zeigen, daB lim Zn existiert, sofern nur die maximale Intervallbreite 
+n--+oo 
+der einzelnen Unterteilungen mit n -+ 00 gegen Null strebt. AuBerdem ist 
+dieser Grenzwert unabhangig davon, wie die Teilpunkte und die Zwischenpunkte 
+gewahlt werden. Der fUr aIle derartigen Teilungsfolgen gemeinsame Grenzwert 
+wird mit f! f(x) dx bezeichnet und heiBt das bestimmte Integral von f iiber 
+[a, b] , die Randpunkte heiBen Integrationsgrenzen. 
+(2) 
+b 
+n 
+1 f (x) dx := lim" f (~i)(Xi - XH) . 
+a 
+n-+oo i..J 
+i=1 
+Urn die Konvergenz der Folge (Zn)n;;,1 einzusehen, setzen wir vereinfachend 
+f . als stetig voraus und eine Folge immer feiner .werdender Unterteilungen 
+von [a, b], in der die (n + 1)-te Unterteilung aus der n-ten durch Hinzu-
+nahme weiterer Teilpunkte entsteht. Hierzu bilden wir fUr n = 1,2,3,... mit 
+mi := Minimum von f auf [Xi-I,xd , 
+Y 
+Mi := Maximum von f auf [Xi-I,Xi] , 
+die (fntersummen 
+n 
+Sn := L mj(xi - xi-d , 
+i=1 
+und die Obersummen 
+n 
+Sn := LMi(Xi - xi-d· 
+i=1 
+Y 
+x 
+Mit globalem Minimum m und glo-
+balem Maximum M von f auf [a,b] 
+gilt m ::s; mi ::s; f(~i) ::s; Mi ::s; M und 
+deshalb 
+a 
+x 
+Abb. 100 - Unter- und Obersummen 
+(3) 
+m(b - a) ::s; sn ::s; Zn ::s; Sn ::s; M(b - a) . 
+Man sieht leicht, daB die Folge (Sn)n;;,1 der Untersummen monoton wachst und 
+die Folge der Obersummen (Sn)n;;,1 monoton Hillt. Weil beide Folgen beschrankt 
+sind (-+ (3)), konvergieren sie (-+ Monotonie-Kriterium, Kap. 2, Satz 5.4). Auf-
+grund der Stetigkeit von f gilt fUr beliebig kleines E > 0 die Abschatzung 
+o ::s; Mi - mi ::s; E fUr aIle i, sobald nur samtliche Teilintervalle hinreichend klein 
+sind (-+ Kap. 2, Satz 6.5d). Damit sieht man Sn - Sn -+ 0 (mit n -+ 00) und es 
+folgt lim Sn = lim Sn . Mit dem Vergleichskriterium (-+ Kap. 2, Satz 6.2) folgt 
+n~oc; 
+n-+oo 
+lim Sn = lim Zn = lim Sn . 
+n-+oo 
+n-+oo 
+n--+oo 
+b 
+Beachte: Das bestimmte Integral 1 f(x) dx ist eme Zahl; die "Integra-
+
+
+--- PDF page 179 ---
+§l. Das bestimmte Integral 
+163 
+tionsvariable" kann beliebig bezeichnet werden: 
+b 
+b 
+b 
+1 f(x)dx = 1 f(t)dt = 1 f(u)du. 
+Zur Vermeidung von Fallunterscheidungen setzt man 
+1.2 Die geometrische Deutung. 
+1) 1st f iiber [a,b] stetig, f(x) ::::: 0 fUr alle x E [a, b) , dann ist die Riemann-
+n 
+sche Summe Zn = If(~i)(Xi - xi-d eine Summe von Rechteckftachen, die den 
+i=1 
+Flacheninhalt J des von der Kurve y = f(x) , der x-Achse und den Geraden 
+x = a, x = b begrenzten Fliichenstiicks approximiert. Je [einer die Zerlegung 
+ist, urn so genauer ist die Approximation. Also gilt (--+ (2» 
+(4) 
+b 
+J = 1 f(x) dx . 
+(Genau genommen wird hierdurch 
+erst der Fliicheninhalt definiert.) 
+y 
+y= f (x) 
+x 
+y=-f(x) 
+2) Verlauft die Kurve y = f(x) ganz 
+unterhalb der x-Achse (f(x) :s; 0 fUr 
+alle x E [a, b) ), kann man mit (4) den 
+entsprechenden Fliicheninhalt berech-
+nen: 
+Abb. 101 - Flacheninhalt mit Formel (4) 
+b 
+b 
+J = 1 -f(x)dx = -1 f(x)dx ; 
+b 
+d.h. 1 f(x) dx = -J . 
+3) Begrenzt y = f(x) Flachenstiicke oberhalb und unterhalb der x-Achse, dann 
+ist S!f (x) dx die Summe der mit einem Vorzeichen versehenen Flacheninhalte; 
+" +" fUr die oberhalb der x-Achse liegenden Teile, ,,-" fUr die unterhalb der 
+x-Achse liegenden Teile. 
+y 
+x 
+Abb. 102 - Flachen zwischen y = 0 und y = f(x) , mit Vorzeichen 
+
+
+--- PDF page 180 ---
+164 
+4. Integration 
+b 
+Beispiel 1,2. 1 c dx = c(b - a) , 
+o 
+Beispiel 3. FUr die in der Abb. 103 skizzierte stUckweise lineare Funktion f 
+gilt 
+4 1 f(x)dx=-I,+h-IJ=-IJ=-1. 
+0 
+-2 
+y 
+y=x 
+x 
+x 
+Abb. 103 - Zu den Beispielen 1, 2 und 3 
+1.3 Elementare Integrationsregeln ond der Mittelwertsatz. 
+Samtliche be-
+trachteten Funktionen seien auf dem abgeschlossenen Intervall [a, b] stUckweise 
+stetig. Aus (2) ergeben sich direkt die folgenden Regeln: 
+b 
+b 
+b 
+(5) 1 [exf (x) + pg(x)] dx = ex 1 f (x) dx + p 1 g(x) dx 
+(ex, p E lR) ; 
+(6) 
+1b f(x) dx = 1
+C f(x) dx + lb f(x) dx 
+(a:::;; c :::;; b) ; 
+b 
+b 
+(7) 
+f(x) :::;; g(x) 
+(a:::;; x :::;; b) => 1 f(x) dx :::;; 1 g(x) dx . 
+Satz 1.1. Integralabschiitzungen. 1st die Funktion f stetig auf [a,b], so gilt 
+b 
+(8) 
+m:::;;f(x):::;;M 
+(a:::;; x:::;; b) => m(b-a):::;;l f (x)dx:::;;M(b-a); 
+(9) 
+b 
+b 
+11 f(x)dx I:::;; 1If(X)'dX (a:::;; b). 
+Beweis. 
+(8) folgt aus (7) und der bekannten Formel S! c dx = c(b - a) . 
+Zu (9): FUr aIle x gilt -If(x)1 :::;; f(x) :::;; If (x) I , daher folgt mit (7) die Unglei-
+chung - S! If(x)1 dx :::;; S! f(x) dx :::;; S! If(x)1 dx. 
+0 
+
+
+--- PDF page 181 ---
+§l. Das bestimmte Integral 
+165 
+Es folgt eine fUr die weitere Theorie wichtige Anwendung. 
+Satz 1.2. Mittelwertsatz der Integralrechnung. 
+Sind die Funktionen f, g auf [a, b] stetig, g(x) ~ 0 fur alle x E [a, b] , dann gibt 
+es wenigstens eine Stelle ( E [a, b] mit 
+b 
+b 
+1 f(x)g(x) dx = f(() 1 g(x) dx . 
+Beweis. 
+Mit dem Minimum m und dem Maximum M von f auf [a, b] 
+gilt mg(x) :0:; f (x)g(x) :0:; M g(x) und damit m S: g(x) dx :0:; S: f (x)g(x) dx :0:; 
+M S: g(x) dx. Deshalb ist S: f (x)g(x) dx darstellbar in der Form c S: g(x) dx , 
+mit einer Zahl c zwischen m und M, zu der es nach dem Zwischenwertsatz 
+(-+ Kap. 2, Satz 6.5c) wenigstens eine Stelle (E [a, b] gibt mit c = f((). 
+0 
+Der Spezialfall g(x) = 1 zeigt 
+h 
+(10) 
+1 fix) dx = f(()(b - a) mit geeignetem ( E [a, b] . 
+Beispiel. 
+Die spezifische Warme c eines Korpers hangt von seiner Temperatur 
+Tab, c = c(T). Unter der mittleren spezifischen Warme im Temperaturbereich 
+1 JT' 
+T, :0:; T :0:; T2 versteht man das Integralmittel C := T _ T 
+ciT) dT , wel-
+2 
+I 
+T, 
+ches nach (10) an wenigstens einer Stelle T E [TI , T2] "angenommen" wird; 
+c = c(T). 
+0 
+1.4 Differentiation und Integration. 
+Der in der Einleitung zu diesem Kapitel 
+skizzierte Weg, aus f = F' die Funktion F zu konstruieren, fiihrt auch zu 
+einer einfachen Methode, bestimmte Integrale auszuwerten. 
+Definition. 
+Man nennt eine auf dem Intervall I difJerenzierbare Funktion F 
+eine Stammfunktion von f ' wenn F' (x) = f (x) fur alle x E I gilt. 
+Satz 1.3. Hauptsatz der Differential- und Integralrechnung. 
+1st f eine auf dem Intervall I stetige Funktion, a, bEl, dann gilt: 
+a) Existenz von Stammfunktionen. Die durch 
+Fa(x) := l
+x f(t) dt 
+(x E I) 
+definierte Integralfunktion ist eine Stamm[unktion von f ; d.h. 
+(11 ) 
+d (jX 
+dx 
+a f(t)dt) = f(x). 
+Jede andere Stammfunktion von f hat die Form F(x) = Fa(x) + c, c E lR. 
+
+
+--- PDF page 182 ---
+166 
+4. Integration 
+b) Integralberechnung. Mit einer beliebigen Stammfunktion F von f gilt 
+(12) 
+lb f(x) dx = F(x) I: := F(b) - F(a). 
+Beweis. 
+a): Aus (6) und (10) folgt 
+Fa (x + h) - Fa (x) = l
+x+hf(t) dt - l
+x f(t) dt 
+f
+X+h 
+= 
+x 
+f(t)dt=f(~h)h 
+mit einer Zahl ~h, die mit h ~ 0 gegen x strebt. Deshalb gilt 
+F~(x) = lim -hI [Fa (x + h) - Fa(x)] = limf(~h) = f(x) . 
+h-+O 
+h-+O 
+Jede weitere Funktion F mit F' = f = F~ hat nach Kap. 3, § 2 (2) die Form 
+F(x) = Fa(x) + emit c E R.. 
+b): Nach Teil a) gilt F(x) = l
+x f(t)dt+c fUr x E I. Mit x = a folgt F(a) = c, 
+bzw. l
+x f(t)dt = F(x) -F(a) fUr aIle x E I, insbesondere fUr x = b. 
+0 
+b 
+Berechnung des bestimmten Integrals. 1 f(x)dx 
+1. Schritt: Man bestimmt eine Stammfunktion F von f 
+(Probe: F'(x) = f(x». 
+2. Schritt: Man berechnet lb f(x)dx = F(x) 1:= F(b) - F(a). 
+Wir befassen uns im folgenden mit den Methoden, zur stetigen Funktion feme 
+Stammfunktion explizit zu ermitteln. 
+Definition. 
+Die Menge aller Stammfunktionen von f wird mit J f (x) dx bezeich-
+net und heiftt unbestimmtes Integral von f . 
+J f (x) dx besteht nach Teil a) des Hauptsatzes aus allen Funktionen der Form 
+F (x) + emit c E R. und einer (festen) Stammfunktion F von f . Man schreibt 
+dafUr J f(x) dx = F(x) + c. DefinitionsgemaB gilt 
+(13) 
+J f(x) dx = F(x) + c = 
+F'(x) = f(x) . 
+Aus jeder Differentiationsformel F' = fist demnach sofort das unbestimmte 
+
+
+--- PDF page 183 ---
+§1. Das bestimmte Integral 
+167 
+Integral von f abzulesen; so findet man zunachst die folgenden Grundintegrale. 
+Die Differentiationsformeln entnehmen wir Kap. 3. 
+F(x) 
+I 
+n+l 
+--x 
+n+l 
+In Ixl 
+-cosx 
+smx 
+F'(x) = f(x) 
+xn 
+smx 
+cosx 
+J f(x)dx =F(x)+c 
+J 
+xn dx = _1_xn+l + c 
+n+l 
+J ~dx =Inlxl+c 
+J 
+sin x dx = - cos x + c 
+J 
+cos x dx = sin x + c 
+Bemerkg. 
+n j-l 
+xjD 
+tanx 
+cos2 X J _I-dx = tanx+c 
+cos2 x 
+x j (2k+ l)n 
+cotx 
+arcsmx 
+arctan x 
+! In 1 + x 
+2 
+I-x 
+coshx 
+sinh x 
+In(x+~) 
+Inlx+~1 
+sinh x 
+cosh x 
+J ~ 
+dx = - cot x + c 
+sm- x 
+J dx 
+= arcsin x + c 
+v'f=X2 
+J dx 
+= arc tan x + c 
+I +x2 
+J dx 
+1 
+1 +x 
+1 _ x2 = 2" In 1 _ x + c 
+J 
+eaxdx = ~eax +c 
+J 
+sinh x dx = cosh x + c 
+J 
+cosh x dx = sinh x + c 
+J dx 
+=In(x+~) +c 
+Vi +x2 
+J dx 
+=lnlx+~I+c 
+VX2=1 
+x j 2kn 
+Ixl < 1 
+Ixl < 1 
+ajD 
+Ixl> 1 
+Beispiel l. 
+mM 
+Die von der Gravitationskraft K(x) = y-- langs [a,b] geleistete 
+x2 
+Arbeit betragt 
+A = lb K(x)dx = ymM lh dx = ymM(-.l) Ih = ymM(! _!). 
+a 
+a x2 
+X 
+a 
+a 
+b 
+D 
+
+
+--- PDF page 184 ---
+168 
+4. Integration 
+Beispiel 2. 
+lb k 
+dx = In Ibl -In lal = In ::: ' 
+vorausgesetzt, [a, b] enthiilt nicht den NUllpunkt. Insbesondere ergibt sich so 
+die I ntegraldarstellung der In-Funktion: 
+x J dt 
+Inx = 
+T 
+(x> 0) . 
+o 
+1 
+Beispiel 3. 
+1
+,,/2 
+,,/2 
+o 
+sin x dx = - cos x 10 = 1 . 
+o 
+l
+b 
+dx 
+Beispiel 4. 
+= arc tan b - arc tan a . Speziell erhiilt man die Inte-
+a 1 + x2 
+graldarstellung des Arcustangens: 
+x J dt 
+arctan x = 
+1 + t2 
+(x E JR.) . 
+o 
+Aufgaben 
+1. a) Man berechne F' (x) und F" (x) von F (x) = l
+x .J1=t8 dt, -1 ~ x ~ 1 . 
+b) Mit einfachen Unter- und Obersummen bestatige man 
+0.496 < F(O.5) < 0.500; 
+0.733 < F(1) < 1.00 . 
+2. Man berechne die Integrale durch Rationalmachen des Nenners 
+2 J x2-3x+4d 
+~ 
+x, 
+I 
+YX 
+1
+1 
+dx 
+o Jx+ v'x+T . 
+3. Man bestatige flir zweimal stetig differenzierbares f(x) 
+lb xI" (x) dx = bI' (b) - feb) + f(a) - aI' (a) . 
+4. Fiir rx., f3 : [a, b] --> [a, b] differenzierbar und f auf [a, b] stetig berechne man 
+P(x) 
+:x (J f(t) dt) 
+"(x) 
+5. Was ist falsch an 
+o 
+
+
+--- PDF page 185 ---
+§2. Integrationsregeln 
+169 
+6. Man berechne mit Polynomdivision 
+j
+x2 -X+l 
+x - 2 
+dx, 
+7. (FaBregel von 1. KEPLER, 1571 - 1630) Man bestatige, daB der FIacheninhalt S des 
+Bereiches, der von der x-Achse, den Geraden x = a und x = b und der kubischen 
+Parabel Y = p(x) = ()(X3 + fJx2 + yx + t5 begrenzt wird, gegeben ist durch 
+b-a 
+S = -6-(YO +4YI + Y2) , 
+a+b 
+wenn Yo = p(a), YI = P(-2-) und Y2 = p(b). 
+8. Man diskutiere die Kurve 
+y = F(x) = 1
+x t(t - 1)e-t2 dt . 
+9. Ein biegeweiches Seil nimmt bei einer 
+spezifischen Langenbelastung q(x) die 
+Form der Seilkurve 
+y(x) = c 1
+x (1" q(t) dt) du 
+an. Man berechne die Seilkurve 
+a) fUr eine Hiingebriicke mit konstantem q(x) = qo, 
+b) fUr die Kettenlinie (Seil unter Eigenlast) q(x) = cosh x, 
+fi. 
+{ ql 
+,0 < x :;:; 1 
+c) 
+ur q(x) = 
+1 
+' ql j q2 . 
+q2 
+, 
+< X 
+f2. Integrationsregeln 
+y 
+x 
+Die 3 Regeln der Differentiation (Linearitiit, Produktregel und Kettenregel) er-
+geben mit §1 (13) Regeln zur Berechnung unbestimmter Integrale. 
+2.1 Linearitat. 
+Aus F' (x) = f (x), G' (x) = g(x) folgt fUr aIle a, b E lR 
+af(x)+bg(x) = aF'(x)+bG'(x) = (aF(x)+bG(x))'. Das bedeutet fUr das Integral 
+J (af (x) + bg(x)) dx = aF (x) + bG(x) + c ; man schreibt dafUr 
+(1) 
+j (af(x) + bg(x)) dx = a j f(x) dx + b j 
+g(x) dx . 
+Beispiel. 
+j(anxn+"'+alx+ao)dx=an j xndx+"'+al j 
+xdx+ao j 
+dx 
+= n ~ 1 xn+1 + ... + i x 2 + aox + c . 
+0 
+
+
+--- PDF page 186 ---
+170 
+4. Integration 
+2.2 Partielle Integration. 
+Fiir je zwei auf einem Intervall I stetig differen-
+zierbare Funktionen u, v ist uv wegen (uv)' = u'v+uv' eine Stammfunktion von 
+u'v + uv'. Nach §1 (13) bedeutet das u(x)v(x) + c = f (u'(x)v(x) + u(x)v'(x» dx = 
+f u'(x)v(x) dx + f u(x)v'(x) dx, bzw. 
+(2) 
+J u'(x)v(x) dx = u(x)v(x) - J u(x)v'(x) dx . 
+Fiir das bestimmte Integral lautet die entsprechende Formel 
+(3) 
+b 
+b 
+1 u'(x)v(x) dx = u(x)v(x) I: -J u(x)v'(x) dx . 
+a 
+Die Berechnung eines Integrals mit Formel (2) bzw. 
+(3) nennt man parti-
+elle Integration. Sie gestattet, Integrale der Form f f(x)g(x) dx mit dem An-
+satz f(x) = u'(x) , g(x) = vex) auf das oft leichter berechenbare Integral 
+f u(x)v'(x) dx zuriickzuftihren. 
+Beispiel 1. 
+J xex dx = xex - J 
+eX dx = (x -
+1 lex + c ; 
+(Ansatz: u'(x) = eX, vex) = x; u(x) = eX, v'(x) = 1) 
+Beispiel 2. 
+J x2 sin x dx = - x2 cos X + 2 J x cos x dx , 
+(Ansatz: u' (x) = sin x, vex) = x 2 ; u(x) = - cos x, v' (x) = 2x) 
+J xcosxdx = xsinx - J 
+sinxdx = xsinx + cosx + c ; 
+insgesamt: 
+J x2 sin x dx = - x2 cos X + 2x sin x + 2 cos x + c . 
+Beispiel 3. 
+J 
+eax sin bx dx = ~ eax sin bx -
+~ J 
+eax cos bx dx 
+= ~eax sinbx -
+~ [~eax cosbx + ~ J 
+eax sinbxdx] , (a 1- 0). 
+D 
+D 
+Zweimalige partielle Integration (beide Male mit u'(x) = eax ) ftihrt wieder zum 
+gleichen Integral, jedoch auf der rechten Seite mit einem anderen Faktor als auf 
+
+
+--- PDF page 187 ---
+§2. Integrationsregeln 
+171 
+der linken Seite. Man kann deshalb die Gleichung nach dem gesuchten Integral 
+aufiosen und erhiilt J ax . (b ) d _ aeax sin(bx) - beax cos(bx) 
+e 
+Sill 
+X 
+X -
+2 
+b2 
++ C . 
+a + 
+So ist beispie1sweise im Zeitintervall 0 ::0:; t ::0:; n das Integralmittel der Auslen-
+kung eines nach y(t) = e-31 sin 2t schwingenden Punktes 
+)= lin ()d = e-31(-3sin2t-2cos2t) In = ~(I_ -3n) 
+D 
+} 
+n 
+Y t 
+t 
+13n 
+13n 
+e 
+. 
+o 
+0 
+Beispiel 4. 
+Mit dem Ansatz u' (x) = 1 erhiilt man 
+J v(x) dx = xv(x) - J xv' (x) dx ; 
+speziell 
+J In x dx = x In x - x + c , 
+J arc sin x dx = x arc sin x + ~ 
++ c . 
+Beispiel 5. 
+Bei Integralen der Farm 
+h 
+SII := J (sinx)"dx , 
+h 
+en := 1 (cosx)"dx , 
+a 
+h 
+All := J x" sinxdx, 
+a 
+b 
+B" := 1 x" cosxdx , 
+h 
+Ell := J x"e'dx, 
+a 
+b 
+Ln := 1 (In x)ndx 
+D 
+liefert die sich anbietende partielle Integration jeweils eine Rekursionsformel. 
+Wir erliiutern das am Beispiel 
+I
+n/ 2 
+S,,:= 
+0 
+(sin x)"dx 
+(n = 0, 1,2, ... ) . 
+Aus der Definition liest man sofart So = ~, SI = 1 abo Fur n ~ 2 ergibt eine 
+partielle Integration (mit u' (x) = sin x, v(x) = (sin x)n-l ) 
+n/2 
+11[/2 
+Sn(X) = -(cos x)(sin X)"-1 10 + 
+0 
+(n-I)(cosx)2(sinx)"-2dx 
+I
+n/ 2 
+= (n -
+I) 
+0 
+(l - (sin x)2)(sin x)n-2dx = (n -
+I)(S,,-2 - SIl) . 
+Das bedeutet 
+n-I 
+SII = -n-SIl-2 
+(n ~ 2) . 
+
+
+--- PDF page 188 ---
+172 
+4. Integration 
+A 
+d· 
+R k 
+. 
+" 
+I 
+'b' h S 
+n - 1 S 
+n - 1 n - 3 S 
+us 
+Ieser 
+e urSlOnSlorme ergl t SIC 
+n = -n-
+n-2 = -n- . n _ 2 n-4 = 
+n-ln-3n-5 
+. 
+. 
+n 
+-n- n _ 2 n _ 4 Sn-6, etc., schheBhch (wegen So = 2' SI = 1) fUr gerades n, 
+n = 2k, 
+(2k - 1)(2k - 3) ... 3 . 1 n 
+S2k = 
+'-
+2k(2k - 2) ... 4 . 2 
+2 
+und fUr ungerades n, n = 2k + 1 , 
+2k(2k - 2) ... 4 . 2 
+S2k+1 = (2k + 1)(2k - 1) ... 5· 3 . 1 . 
+Bemerkung. 
+Aus diesen beiden Formeln folgt eine interessante bereits 1656 von 
+J. WALLIS angegebene Darstellung der Kreiszahl n. 
+Wegen 0 :::; sin x :::; 1 im Intervall [0, ~] gilt dort (sin x)2k+1 :::; (sin X)2k :::; 
+(sinx)2k-l 
+(k = 1,2,3, ... ) und damit S2k+l :::; S2k:::; S2k-l, bzw. 
+1 < 
+S2k < S2k-1 
+-
+S2k+l -
+S2k+l . 
+Hierin werden die oben berechneten Werte fUr die Sn eingetragen. Nach einfa-
+.. 
+(2k - 1)(2k - 3) .. ·3· 1 2 n 
+2k + 1 
+cher Umformung erhalt man 1 :::; (2k + 1)[ 
+2k(2k _ 2) ... 4. 2 
+] 2 :::; ~ 
+. 
+Mit dem Vergleichskriterium (-+ Kap. 2, Satz 6.2) folgt 
+n 
+. 
+1 
+2·4· ... 2k 
+2 
+-=hm--[ 
+] 
+2 
+k-oo 2k + 1 3·5 .. · (2k - 1) 
+. 
+2.3 Die Substitutionsmethode. Aus der Kettenregel ixF(g(x)) = F'(g(x))g'(x) 
+folgt mit §1(13) und F'(x) = f(x) 
+(4) 
+J f(g(x))g'(x) dx 
+F(g(x)) + c. 
+Fur das bestimmte Integral erhiilt man damit 
+(5) 
+b 1 f(g(x))g'(x) dx 
+F(g(b)) - F(g(a)) 
+g(b) J f(t) dt. 
+g(a) 
+Es gibt zwei Versionen der Substitutionsmethode; beide haben das Ziel, Inte-
+grale mit Hilfe von (4) bzw. (5) auszuwerten. 
+
+
+--- PDF page 189 ---
+§2. 
+Integrationsregeln 
+1. Version: Berechnung von J f (g(x))g' (x) dx . 
+1. Schritt: Substitution g(x) = t und g' (x)dx = dt . 
+2. Schritt: Berechnung der Stammfunktion S f (t) dt = F (t) + c . 
+3. Schritt: Rucksubstitution t = g(x), F(t) = F(g(x)). 
+I Ilsgesam t: 
+J f(g(x))g'(x) dx = J f(t) dt = F(t) + c = F(g(x)) + c . 
+Beispiel 1. 
+(6) 
+J ~g1 dx = J ~t = In It I + c = In Ig(x)1 + c 
+(fur jede stetig differenzierbare Funktion g ohne Nullstellen). 
+Beispiel 2. 
+J (In x)2 
+J 2 
+1 1 
+1 
+1 
+-x-dx= 
+t dt=}t" +c= }(lnx)" +c. 
+Beispiel 3. 
+J esin " cos x dx = J / dt = / + c = esin x + c . 
+Beispiel 4. 
+J sin(kx + cp) dx = i< J sin(kx + cp)k dx 
+(k i= 0) 
+= i< J sin t dt = -i< cos t + c = -i< cos(kx + cp) + c . 
+Fur jede ganze Zahl k i= 0 folgt damit (oder bereits direkt aus (5)) 
+1
+27r 
+o sin(kx + cp) dx = 0 
+mit den beiden Spezialfallen (cp = 0, cp = -n) 
+(7) 
+1
+27r 
+o sin(kx) dx = 0 , 1
+27r 
+o cos(kx) dx = 0 
+(k i= 0, ganz) . 
+173 
+o 
+o 
+o 
+
+
+--- PDF page 190 ---
+174 
+4. Integration 
+Aus den trigonometrischen Identitaten (-4 Kap. 2, §3(5» 
+sin mx sin nx = 4 
+[cos(m - n)x - cos(m + n)x] , 
+sin mx cos nx = 4 
+[sin(m + n)x + sin(m - n)x] , 
+1 
+cos mx cos nx = 2 [cos(m + n)x + cos(m - n)x] 
+folgen nun mit (7) die wichtigen Orthogonalitiitsrelationen der Sinus- und Cosi-
+nusfunktion: 
+Fur ganze Zahlen m, n ~ 0 gilt 
+(8a) 
+(8b) 
+(8c) 
+2rr 
+{O 
+1 sinmx sinnxdx = 
+0 
+o 
+n 
+2rr 
+{2n 
+1 cos mx cos nx dx = 
+0 
+o 
+n 
+1
+2rr 
+o sin mx cos nx dx = 0 . 
+, falls m = n = 0 
+, falls m + n 
+, falls m = n + 0 
+, falls m = n = 0 
+, falls m + n 
+, falls m = n + 0 
+2. Version: Berechnung von J f (x) dx . 
+1. Schritt: Substitution x = g(t) , dx = g' (t) dt mit einer geeigneten, 
+umkehrbaren Funktion g. 
+2. Schritt: Berechnung J f(g(t»g'(t) dt = H(t) + c. 
+3. Schritt: Aufiosung x = get) nach t, d.h. t = h(x) , dann ist 
+J f(x) dx = H(h(x» + c . 
+J 
+e3x 
+Beispiel 1. 
+F(x) = 
+e2x _ 1 dx 
+1. Schritt: Die Substitution x = In t , 
+F(lnt) = J t2 ~ 1 dt. 
+2. Schritt: Die Integralberechnung: 
+1 
+dx = t dt fUhrt auf 
+J t2 
+J 
+1 
+t2 _ 1 dt = 
+(1 + t2 _ 1 ) dt 
+o 
+
+
+--- PDF page 191 ---
+§2. Integrationsregeln 
+175 
+= J dt + J t2 ~ 1 = t + ~ In I ~ ~ ~ I +c 
+(---+ Tabelle) . 
+3. Schritt: Die Riicksubstitution t = eX bringt 
+o 
+Beispiel 2. 
+F(x) = J ~ 
+dx (Ixl ~ 1). 
+I. Schritt: Die Substitution x = sin t, dx = cos t dt (-1 ~ x ~ 1) ftihrt auf 
+F(sin t) = J J I - sin:! t cos tdt = J cos2 tdt 
+(cost:::c: 0 iiber [-1' 1]) . 
+2. Schritt: J cos2 t dt = ~ (t + sin t cos t) + c (---+ Aufgabe I) 
+3. Schritt: Die Riicksubstitution t = arcsin x ftihrt auf 
+F(x) = J JI-x:!dx = ~(arcsinx+xJI-X2) +c. 
+o 
+Ii 
+Hinweis: 
+Zur Berechnung eines bestimmten Integrals 1 f (x) dx mit der Sub-
+stitutionsmethode ist es hiiufig giinstiger, direkt von (5) in der Form 
+J
+I3 
+Jh 
+h 
+fIx) dx = 
+f(g(t))g'(t) dt = F(g(t)) I 
+x 
+a 
+a 
+auszugehen, wobei a, b aus :x = g(a), {J = g(b) zu bestimmen sind. Durch die 
+im l.Schritt ebenfalls vorzunehmende Substitution der Grenzen (:x durch a, f3 
+durch h) erspart man sich die Riicksubstitution. 
+1
+1 
+dx 
+Beispiel. 
+1-
+-
+0 (I + x 2 )2 . 
+I 
+IT 
+Die Substitution x = tan t, dx = -- dt und die neuen Grenzen 0, -4 (mit 
+cos2 t 
+IT 
+0= tanO, I = tan 4) ergeben 
+_11[/4 
+dt 
+I -
+2 
+2 
+o 
+cos2 t (1 + sin t) 
+cos2 t 
+IT 
+1 
+= 8+4' 
+1
+1[/4 
+I 
+1[/4 
+= 
+0 
+cos2 t dt = :2 (t + sin t cos t) 10 
+o 
+2.4 Symmetrien beachten. 
+Hiiufig lassen sich bestimmte Integrale leichter 
+auswerten, wenn Symmetrie-Eigenschaften des Integranden erkannt und beriick-
+sichtigt werden. Fiir eine gerade Funktion f mit f(-x) = f(x) gilt 
+i: fIx) dx = 21Q f(x) dx , 
+
+
+--- PDF page 192 ---
+176 
+4. inlegration 
+und flir eine ungerade Funktion g mit g(-x) = -g(x) gilt 
+i: g(x)dx = 0, 
+g(-x) = -g(x) 
+Abb. l04a - Gerade Symmetrie 
+Abb. l04b - Ungerade Symmetrie 
+was man sofort aufgrund der geometrischen Deutung (--. 1.2) einsieht, aber auch 
+mittels der Substitution x = -t, dx = -dt leicht besHitigen kann. 
+Beispiele. 
+J"/2 
+1"/2 
+cos x dx = 2 
+cos x dx = 2 
+-,,/2 
+0 
+2.5 Ausblicke. 
+Man sagt, 
+5 J (sinhx)dx = o. 
+-5 
+"die Differentiation gehort zum Handwerk. die Integration zur Kunst". 
+o 
+Die Ableitung einer Funktion, die sich aus den bisher behandelten "elemen-
+taren" Funktionen zusammensetzt, kann man mit den bekannten Regeln direkt 
+berechnen. Anders verhalt es sich bei der Integration. Man kann zwar mit 
+geschickten Ansatzen und zum Teil "trickreichen" Substitutionen neben den 
+Grundintegralen noch zahlreiche weitere Integrale berechnen (--. §3); doch sehr 
+viele Integranden widersetzen sich allen Tricks, sie besitzen (nachweislich) keine 
+aus den elementaren Funktionen zusammengesetzte Stammfunktion. In diesen 
+Fallen liefert das Integral F(x) = l x f(t) dt neue, noch nicht erfaBte Funktio-
+nen. Dazu gehoren etwa (--. §7 und Kap. 5, §5): 
+a) Der Integralsinus 
+S· 
+1x sint d 
+IX := 
+-t- t 
+o 
+(0 ::; x < (0) . 
+UT 
+I· 
+sin t 
+1· dId 
+b . 
+0 d 
+h 1 
+vvegen 1m -- = 
+1st er ntegran 
+el t = 
+urc 
+zu ersetzen. 
+t-+O 
+t 
+b) Die Fehlerfunktion 
+2 1x 
+2 
+<I>(x) := Vii 
+0 e-t dt 
+(0 ::; x < (0) . 
+
+
+--- PDF page 193 ---
+§2. Integrationsregeln 
+177 
+c) Die elliptischen Integrale und deren Umkehrfunktionen (die elliptischen Funk-
+tionen ). 
+(0 s x < 00) 
+(0 s x < 00) 
+Fur die Konstante kist 0 S k2 < 1 vorausgesetzt. 
+Aufgaben 
+1. Man berechne durch partielle Integration 
+J 
+sin2 xdx , 
+und gebe je eine Rekursionsformel fUr 
+J 
+sinn xdx , 
+2. Man berechne die Integrale 
+Jo n cos(3t - 5) dt , 
+J ~dx, 
+v 1 -x6 
+J sin2x 
+dx 
+3 +sin2 x 
+3. Es sei En := Jo 1 Xnex dx, n = 0, 1,2, .... 
+J 
+cos2 xdx 
+J 
+cosn xdx . 
+I
+n 
+cos x 
+d 
+-n 5 + sin2 x x, 
+J 
+x2 cosxdx, 
+J 
+dx 
+~1 - x2 arcsin x 
+a) Man berechne Eo, E1 , E2 und stelle En rekursiv durch En- 1 dar. 
+b) Mit einem Taschenrechner berechne man dam it E16. 1st dieser Wert zuverlassig? 
+c) Man zeige: Die Folge der En rallt monoton und es gilt 
+e 
+e 
+n + 2 < En < n + 1 . 
+d) Man setze E25 = 0, berechne daraus tiber die Rekursionsformel riickwiirts E 16 
+mit einem Taschenrechner (Riickwiirtsrekursion). 
+4. a) Man bestatige tiber das Symmetrieverhalten der Funktion (x - ;)f (sin x) : 
+Jo n xf(sinx)dx =; Jo n f(sinx)dx. 
+b) Mit der Substitution t = 11: - x berechne man fo n 
+x sin x 
+dx 
+1 +cos2 X 
+• 
+5. a) Man berechne mittels partieller Integration (u'(x) = 1) 
+J~dX, J~dX, J P=!dx. 
+
+
+--- PDF page 194 ---
+178 
+4. Integration 
+b) Man berechne den FUlcheninhalt F der schraffierten Sektoren als Funktion 
+von x und stelle x als Funktion von F dar. (Interpretation von "area" bei 
+arcoshx) 
+6. Eine zweistujige Rakete fUr kleine Satelliten hat die Kenndaten: 
+1. Stufe 
+2. Stufe 
+Leermasse 
+Treibstoffmasse 
+Verbrauch 
+Schubkraft F 
+5000kg 
+2000kg 
+125000kg 
+16000kg 
+lO00kg/s 
+80kg/s 
+2.45.106 N 
+2.48.105 N 
+Die Rakete wird vertikal gestartet; ist der Treibstoff der 1. Stufe verbraucht, so wird 
+deren HUlle abgestofien. Setzt man vereinfachend g = 9,81 m/s2 (unabhangig von 
+der Hohe) fUr den Flug konstant, so gilt fUr die Beschleunigung der Rakete 
+.. 
+F 
+h(t) = vet) = bet) = met) - g . 
+a) Bestimme die Funktion met) (= Gesamtmasse zur Zeit t). 
+b) Welche Geschwindigkeit v hat die Rakete 125 s bzw. 325 s nach dem Start? 
+c) Welche Hohe h wird nach 125 s bzw. 325 s erreicht? 
+d) Skizziere m(t), b(t), vet) und h(t) fUr 0:-:;; t :-:;; 325 s . 
+7. Mittels partieller Integration rechne man fUr die LEGENDRE-Polynome (---> Kap. 2, 
+§2, Aufg. 11, Kap. 3, §1, Aufg. 5) 
+Pn(x) = 2} 'dd"n (x 2 -
+1)" , 
+n. x 
+die Orthogonalitatsrelation nach 
+I 
+{ 
+0 
+J Pn(x)Pm(x) dx = 
+_2_ 
+-I 
+2n + 1 
+n =0,1,2, ... 
+, n 1= m 
+, n=m 
+8. FUr einen Wechselstrom J(t) mit der Periode T definiert man drei Mittelwerte: 
+Effektivwert 
+1 IT 2 
+1/2 
+Jeff := (T 
+0 J (t) dt) 
+I ntegralmittel 
+1 IT 
+] := T 
+0 
+J(t)dt 
+Gleichrichtwert 
+1 IT 
+1]1 := T 
+0 
+IJ(t)1 dt . 
+Berechne die drei Mittelwerte 
+
+
+--- PDF page 195 ---
+93. Die Integration der rationalen Funktionen 
+a) fUr den sinusformigen Strom J(t) = Jo sin 2;1 , 
+b) fUr den "Sdgezahn" -Strom: 
+c) 
+fUr den "Batterie-Ladestrom" 
+r~ 
+~ iL. 
+1ft) 
+~ 
+t 
+J(t) = max[ 0, *(IUusin 2;t 1- UB )) 
+mit UB = 14V, Uo = 20V, R = O.SQ 
+1 
+~
+U'U)/R 
+o 
+B 
+T 
+t 
+und T = 50hz. 
+9. 
+a) Mit der Substitution cos x = case cp bestiitige man 
+1
+n/, ~ 
+= j2F(~, V1/2). 
+o 
+Jcosx 
+-
+b) Man substituicre sin t = cos' 1/' und zeige 
+f' vSintdt = 2J'i(E(~,k) - E(cp,k)) - j2(F(~,k) - F(cp,k)) 
+. 
+() 
+mit k' = l 
+sin x = cos' m . 
+2' 
+'t' 
+c) 
+Man substituiere x = sin t und bestiitige 
+§3. Die Integration der rationalen Funktionen 
+179 
+3.1 Die Partialbruchzerlegung. 
+Fur die Integration einer echt gebrochen 
+rationalen Funktion ist deren Zerlegung in eine Summe sogenannter Partial-
+bruche (oder Stammbruche) wichtig. Wir gehen aus von einer rationalen Funk-
+tion f (x) = P((X)) mit Poly nomen pix), q(x) ohne gemeinsamen Polynomfaktor 
+q x 
+(---+ Kap. 2, §2), Grad pix) < Grad q(x), und erstellen die Partialbruchzerlegung 
+wie folgt: 
+J. Schritt: 
+Die Produktdarstellung von q(x) herstellen. 
+q(x) = c(x - bd kl (x - h2)k2 , .. (x - hr)kr qd.'dl ... q,(x)ls 
+mit den paarweise verschiedenen reellen Nullstellen bj der Vielfachheit kj und 
+verschieden quadratischen Polynomen q;(x), die in IR keine Nullstelle besitzen 
+(---+ Kap, 2, Satz 2.3). 
+2. Schritt: 
+Der Partialbruchansatz. 
+Die zu jedem Linearfaktor x - b von q(x) (h E {b l ,.", br }) der Vielfachheit k 
+und zu jedem quadratischen Faktor Q E {qJ,,,., qs} der Vielfachheit I gebilde-
+
+
+--- PDF page 196 ---
+180 
+4. Integration 
+ten Funktionen der Form 
+A, 
+x-b 
+(x - b)2 
+B2x + C2 
+Q(x)2 
+Ak 
+(x - b)k ' 
+B,x+C, 
+Q(x) 
+Blx+C1 
+Q(x)1 
+(mit Koeffizienten Ai, Bj , Cj E 1R.) nennt man Partialbruche von :~~~. 1m Par-
+tialbruchansatz wird nun :~~~ als Summe all dieser Partialbriiche mit noch 
+unbekannten Koeffizienten Ai, Bj. Cj dargestellt. (Die Existenz der Partialbruch-
+zerlegung wird mit Mitteln der Funktionentheorie gezeigt werden, ~ Bd. 2.) 
+3. Schritt: 
+Koeffizientenberechnung (Einsetzmethode. KoejJizientenvergleich). 
+Man multipliziert die Ansatzgleichung mit q(x) und erhiilt auf beiden Seiten 
+ein Polynom. Nun ergeben sich Bestimmungsgleichungen flir die Unbekann-
+ten Ai, Bj. Cj ,... des Partialbruchansatzes durch Gleichsetzen der Koeffizienten 
+entsprechender x -Potenzen links und rechts (~ Kap. 2, Satz 2.1) oder durch 
+Einsetzen spezieller x -Werte (etwa x = b" b2, ••• ). 
+B · . I 1 
+F·· f() 
+x 2 + X + 1 
+I 
+d 
+P 
+. Ib 
+h 
+elsple 
+. 
+ur 
+x = (x _ 1)3(x _ 2) 
+autet er artIa rue ansatz 
+A, 
+A2 
+A3 
+B 
+f(x) = x-I + (x-l)2 + (x-l)3 + x-2 
+(jeweils nur bis zu der Potenz, mit welcher der entsprechende Faktor im Nenner 
+vorkommt). Multiplikation mit dem Nennerpolynom (x - 1)3(x - 2) flihrt auf 
+x2+x+l =A,(x-l)2(x-2)+A2(x-l)(x-2)+A3(x-2)+B(x-l)3. 
+Einsetzmethode: Die speziellen Werte x = 1, x = 2, x = 3, x = 0 ergeben 
+die Bestimmungsgleichungen 3 = -A3, 7 = B, 13 = 4A, + 2A2 + A3 + 8B, 
+1=-2A,+2A2-2A3-B.Darausfolgt A,=-7, A2=-6, A3 =-3, B=7, 
+X2+X+ 1 
+(x-l)3(x-2) 
+7 
+6 
+3 
+7 
+--x---l -
+(x -1)2 - (x -1)3 + -x---2 . 
+KoejJizientenvergleich: Zuerst wird die rechte Seite obiger Gleichung nach fal-
+lenden x -Potenzen geordnet. 
+x2 + x + 1 =(A, + B)x3 + (-4AJ + A2 - 3B)x2 + (5A, - 3A2 + A3 + 3B)x 
++ (-2A, + 2A2 - 2A3 - B) . 
+Der Koeffizientenvergleich ergibt A, + B = 0, -4AJ + A2 - 3B = 1, 5A, - 3A2 + 
+A3 + 3B = 1, -2A, + 2A2 - 2A3 - B = 1 . 
+0 
+Beispiel 2. 
+Der Partialbruchansatz flir 
+x+l 
+f (x) = (x _ 1)2(x2 + 1)3 
+
+
+--- PDF page 197 ---
+§3. Die Integration der rationalen Funktionen 
+181 
+lautet 
+Al 
+A2 
+Blx+CI 
+B2X+C2 
+B3 X + C3 
+f (x) = x _ I + (x _ 1)2 + x2 + 1 + (x2 + 1)2 + (x2 + 1)3 
+Nach Multiplikation mit dem Nennerpolynom (x -
+1)2(x2 + 1)3 entsteht die 
+Polynomgleichung 
+x + I =Adx -
+l)(x2 + 1)3 + A2(x2 + 1)3 + (Blx + Cd(x _1)2(x2 + 1)2 
++ (B2x + C2)(x -
+1)2(x2 + 1) + (B3X + C3)(x -
+1)2 , 
+aus der man durch Einsetzen spezieller x -Werte (x = 1,2,0, ... ) oder iiber 
+einen Koeffizientenvergleich die A j , Bj , Cj bestimmt. Man erhiilt 
+x + I 
+I (2 
+5 
+5x + 3 
+6x + 2 
+4x - 4 ) 
+(x -
+1)2(x2 + 1)3 = 8" 
+(x -1)2 -
+X -
+I + x 2 + 1 + (x2 + 1)2 + (x2 + 1)3 
+. D 
+Bemerkung: 
+Hiiufig fiihrt eine Kombination aus Einsetzmethode und Koeffizi-
+entcnvergleich am schnellsten zum Ziel. 
+3.2 Die Integration 
+einer gebrochen rationalen Funktion R(x) geschieht in 
+mehreren Schritten: 
+1. Schritt: 
+Mittels Polynomdivision (-> Kap. 2, §2) wird R(x) dargestellt in der 
+Form 
+pIx) 
+R(x) - g(x) + -(-) 
+qx 
+mit dem ganzen Polynomanteil g(x) , den Polynomen pix), q(x) ohne gemeinsa-
+men Polynomfaktor und Grad pix) < Grad q(x). 
+Falls p = 0, kann sofort integriert werden, sonst geht es weiter mit dem 
+2. Schritt: 
+Die Partialbruchzerlegung von P«x)) erstellen (-> 3.1). 
+qx 
+3. Schritt: 
+Die Integration des ganzen Anteils g(x) (miihelos, -> 2.1) und der 
+Partialbriiche: dieses geschieht mit den folgenden Formeln, die man durch Dif-
+ferenzieren bestiitigen kann. 
+(I) 
+(2) 
+J ~ 
+= In Ix - al + c 
+x-a 
+J dx 
+1 
+1 
+(x -
+a)k = - k - I (x _ a)k-I + c 
+(k > 1) . 
+In den Formeln (3)-(6) wird p2 -
+4q < 0, in (5) und (6) k > 1 vorausgesetzt. 
+J 
+dx 
+2 
+2x + P 
+(3) 
+2 
+= 
+arctan 
++ c 
+x + px + q 
+vi 4q -
+p2 
+vi 4q _ p2 
+(4) 
+J ax + b 
+a 
+2 
+ap J 
+dx 
+7 
+dx = -2 In Ix + px + ql + (b - -2 ) 
+~2 ---
+x~ + px + q 
+x + px + q 
+(5) J 
+h 
+h+p 
+(x2 + px + q)k = (k -
+1)(4q -
+p2)(x2 + px + q)k-I 
+2(2k - 3) J 
+dx 
++ (k -
+1)(4q -
+p2) 
+(x2 + px + q)k-I 
+
+
+--- PDF page 198 ---
+182 
+4. Integration 
+(6) 
+J 
+ax+b 
+dx = 
+a 
+(x2 + px + q)k 
+2(k - l)(x2 + px + q)k-l 
+(b 
+ap ) J 
+dx 
++ -2 
+(X2+px+q)k 
+Die Rekursionsformel (5) ist gegebenenfalls mehrfach anzuwenden, bis das qua-
+dratische Polynom im Nenner nur noch einfach vorkommt. 
+4. Schritt: Das Integral J R(x) dx als Summe der Teilintegrale darstellen. 
+Beispiel. 
+3x5 -
+2X4 + 4x3 + 4x2 - 7x + 6 
+R(x) = 
+(x _ 1)2(x2 + 1)2 
+1. Schritt entrallt, da Ziihlergrad < Nennergrad und weder x - I noch x2 + 1 
+gekiirzt werden kann. 
+2. Schritt: Die Partialbruchzerlegung ergibt 
+I 
+2 
+2x+ I 
+4 
+R(x) = --1 + ( 
+1)2 + -2--1 + (2 
+1)2 
+x-
+x-
+X + 
+X + 
+3. Schritt: Die Integration der Partialbriiche. 
+J x ~ I = In Ix -11+ c , 
+J 2dx 
+2 
+(x -
+1)2 = - X -
+I + c , 
+J 2x+ I 
+J 2x 
+J dx 
+2 
+x2+1 dx= 
+x2+1 dx+ 
+x2+1 =Inlx +ll+arctanx+c, 
+J 4 dx 
+2x 
+J dx 
+2x 
+(2 
+1)2 = -2--1 + 2 
+-2--1 = -2--1 + 2 arctan x + c . 
+x+ 
+x+ 
+x+ 
+x+ 
+4. Schritt: 
+J 
+2 
+2x 
+2 
+R(x) dx = - x _ I + x2 + I + In Ix - II + In Ix + II + 3 arctan x + c . 
+Ein 5. Schritt, zur Probe die rechte Seite zu differenzieren, beruhigt das Gemiit! 
+o 
+Ergiinzung: 1m folgenden geben wir elmge weitere Funktionstypen an, de-
+ren Integration mit einer passenden Substitution ebenfalls auf diesem Wege 
+durchftihrbar ist. 
+3.3 Die Integration von R(eX ). 
+In einem Integral der Form J R(eUX ) dx 
+mit einer rationalen Funktion R ftihrt die Substitution eUx = t, d.h. x = ~ In t , 
+dx = dt dt, auf J R(eUX ) dx = J R(t) dt dt . 
+
+
+--- PDF page 199 ---
+§3. Die Integration der rationalen Funktionen 
+183 
+Beispiel. 
+J dx 
+J 1 
+1 
+x 
+-x = 
+--I -t dt = arctan t + e = arctan eX + e . 
+e +e 
+t+t 
+D 
+3.4 Die Integration von R (x, \j ~~! ~), ae - be i= O. 
+Mit R(x, y) soIl ein 
+rationaler Ausdruck in x und y bezeichnet werden; d.h. R(x, y) entsteht aus 
+x, y und Konstanten allein durch Addition, Subtraktion, Multiplikation und 
+Division. R(x,f(x» bedeutet, daB y in R(x,y) durch f(x) ersetzt wurde. 
+Ein Integral vom Typ J R (x, \j ~~! ~) dx (mit ae - be i= 0) wird mit der 
+.. 
+kJ ax + b 
+etk - b 
+tk-I 
+SubstitutIOn t = 
+-+- , d.h. x = --k' dx = k(ae - be) 
+k 2 dt, zum 
+a 
+e 
+a-ct 
+0-ct) 
+Integral einer in t rationalen Funktion. 
+Beispiel. 
+J 1 - y'x dx = J 1 - t 2t dt = 2 J 1 - t dt 
+x + y'x 
+t2 + t 
+1 + t 
+= 41n It + 11- 2t + e = 4In(y'x + 1) - 2VX + c . 
+D 
+3.5 Die Integration von R(sin x, cos x) 
+mit rationalem Ausdruck R(x, y) 
+wird iiber die Substitution 
+x = 2 arc tan t , 
+2 
+dx = -1--2 dt 
+und daraus folgend 
++t 
+. 
+2t 
+smx = 1 + t2 ' 
+1- t 2 
+cosx = -1--2 
++t 
+(-n < x < n) , 
+ebenfalls auf die Integration einer rationalen Funktion zuriickgeftihrt. 
+Beispiel. 
+J ~ -J 1 + t 2 ~ 
+-
+11 + t I 
+- I 11 + tan 1 I 
+cos X-I _ t2 1 + t2 - In 
+1 _ t 
++e -
+n 
+1 _ tan 1 +e. 
+D 
+3.6 Trigonometrische und hyperbolische Substitutionen. 
+Integrale der Form 
+J R(x, J ax2 + bx + e) dx, a i= 0, lassen sich mit einer linearen Substitution 
+u = ax + f3, dx = ~ du in eine der folgenden Normalformen umwandeln. 
+J R(u, ~) 
+du, J R(u, ~) 
+du, J R(u, ~) 
+du 
+Die Substitution u = sinh t, bzw. u = cosh t, bzw. u = sin t ftihrt weiter auf 
+Integrale des in 3.3 und 3.5 behandelten Typs. 
+
+
+--- PDF page 200 ---
+184 
+4. Integration 
+Beispiel. 
+J J4X2+12x+5dx=2 J Jex;3f -1dx 
+J ~ 
+2x+3 
+. 
+= 2 
+y u2 - 1 du; 
+u = -2- = cosh t, du = smh tdt 
+= u~ 
+-In(u + Vu2=1) + c 
+= 2X; 3 J ex ; 3 f -1 -
+In [2x ; 3 + J ex; 3) 2 - 1] + c . 
+D 
+Aufgaben 
+1. Man berechne die Integrale 
+J x2-2x+3 d 
+x2 _ 3x+ 2 x, 
+J x+1 
+d 
+x3 +x2 +x x, 
+J 
+12x5 
+(1 + x4)2 dx , 
+J x4 - 5x3 -
+30x2 - 36x 
+(x + 1)3(X2 _ 4) 
+dx , J x4 + 3x2 + X + 1 d 
+(x + 1)(x2 + 1)2 
+X. 
+2. Man berechne 
+J cos:~+ 1 ' J 3ex + 4e-x + 2 d 
+1-e2x 
+x, 
+1" 1 +d~nx ' 
+J 3sinx~4cosx ' 
+J (x4 _ 2x2 + 2tarctan(x2 _ 1) dx 
+(Subst. y = x2 - 1 ) . 
+3. Fur das Integral J ~ 
+dx gibt es mindestens 8 verschiedene Losungs-
+x+ x2 -1 
+wege. Man suche moglichst viele davon. 
+4. Man berechne durch die angegebene Substitution 
+J v'tanxdx 
+(t = tan x) , 
+J cosx + sin x dx 
+v'sin2x 
+(t = i-x) . 
+5. Man zeige: Gilt q(x) = (x - xd'" (x - x n) mit Xj =F Xj fUr i =F j und ist zusatzlich 
+Grad p < Grad q , dann lautet die Partialbruchzerlegung 
+p(x) _ ~ p(Xj) _1_ 
+q(x) - L. q'(Xj) x -
+Xj . 
+i=1 
+
+
+--- PDF page 201 ---
+§4. Uneigentliche Integrale 
+185 
+§4. Uneigentliche Integrale 
+4.1 Die Definition der uneigentlichen Integrale. 
+Die Funktion f sei auf 
+dem rechts offenen Intervall a .:s:: x < b erklart und auf jedem abgeschlossenen 
+Teilintervall [a, c], c < b, stiickweise stetig, b E IR u {ex::} . Durch die Definition 
+h 
+x 
+(I) I J f(x) dx 
+,I!.IJ:-J f(x) dx, 
+hzw. J f(x) dx .- !~~ J f(x) dx 
+(/ 
+a 
+a 
+a 
+wird der Integralbegriff erweitert auf 
+a) 
+Integranden f (x) , die bei der Annaherung x -+ b- nicht beschrankt sind; 
+b) 
+unbeschrankte Integrationsintervalle [a, ex::) . 
+In diesen beiden Fallen nennt man die in (1) definierten Integrale uneigentlich 
+(uneigentlich an der oberen Grenze). Bei entsprechenden Verhaltnissen sind die 
+an der unteren Grenze uneigentlichen Integrale definiert durch 
+h 
+h 
+h 
+h 
+J f(x) dx := lim J f(x) dx ; 
+c--+a+ 
+J f(x) dx := c~~x J f(x) dx . 
+a 
+-Uj 
+Soli betont werden, daB keine Ausnahmesituation vorliegt, dann nennt man die 
+bisher betrachteten bestimmten Integrale eigentlich. Man sagt, ein uneigentiiches 
+Integral konvergiert (bzw. divergiert), wenn der zugehorige Grenzwert existiert 
+(bzw. nicht existiert). 
+Beispiel 1. 
+j
+x dx 
+I' 
+jC dx 
+I' 
+I 
+-
+= 1m 
+-
+= 1m n c = 00 
+1 
+X 
+c--+:t~ 
+I 
+X 
+('---+-,X 
+(divergiert) , 
+I 
+I 
+1 dx = lim J dx = lim (-Inc) = 00 
+o x 
+c~o+ 
+C 
+X 
+c~o+ 
+(divergiert) . 
+o 
+Beispiel 2. 
+Sei!Y. E IR , !Y. =1= 1 . 
+jXdX = lim _1_ [1 __ 1_] = { !Y.~ 1 
+' falls !Y. > 1 (konvergiert) 
+x~ 
+c~x!Y. -
+1 
+ca- I 
+, falls rJ. < 1 ( divergiert) 
+I 
+11 dx 
+. 
+1 
+1 
+{ 
+00 
+, falls !Y. > 1 (divergiert) 
+----;x = hm -- ---1 = 
+1 
+o x 
+c~o+ !Y. -
+1 [c,-1 
+] 
+1- rJ. 
+' falls rJ. < 1 (konvergiert) . 
+
+
+--- PDF page 202 ---
+186 
+y 
+x 
+Abb. I05a - J
+x dx 
+1 
+~ =c0 
+4. Integration 
+y 
+x 
+Abb. I05b _ JX dx - 5 
+1 
+x1.2 -
+Beispiel 3. 1 
+x cos x dx = lim sin c divergiert. 
+o 
+C-foOC 
+D 
+4.2 Ein Konvergenz-Test. 
+Aufgrund der klaren Verhaltnisse bei der Funktion 
+f(x) = -.; (bei festem rx. > 0, -4 Beispiele 1 u. 2) wird sie gerne als Vergleichs-
+x 
+funktion gewahlt. 
+Satz 4.1. Vergleichskriterium. 
+1st f auf [a, CX») und g auf (0, b] stetig und sind rx., K E 1R, dann gilt: 
+1 
+If(x)1 :::; K x~ , a:::;x<oo, 1 < rx. 
+= 1°C f(x) dx konvergiert, 
+1 
+b 
+Ig(x)1 :::; K x~ , 0< x:::; b, 0<rx.<1 = 10 g(x) dx konvergiert. 
+Beweis. 
+Die mono ton wachsende Funktion F(c) := J:lf(x)1 dx ist nach oben 
+durch KJ~ ;~ dx beschrankt und hat deshalb fUr c -4 00 einen Grenzwert 
+(-4 Kap. 2, 5.4 Monotoniekriterium). 
+Anschaulich: 
+Nach der Vorausset-
+zung liegt der Graph y = If(x)1 zwi-
+y 
+schen den beiden Kurven y = 0 und 
+y = ~ (x ~ a). Laut Beispiel 2 
+ist der gesamte FIacheninhalt zwi-
+schen diesen Kurven endlich. Also ist 
+auch die schraffierte Flache endlich, 
+elf(x)1 dx < cx). 
+Dieselben Uberlegungen mit f (x) + 
+If(x)1 
+anstelle von 
+If(x)1 
+zeigen, 
+daB e(f(x) + If(x)1) dx konvergiert. 
+Abb. 106 - Vergleichskriterium 
+Deshalb konvergiert schlieBlich 
+J~ f(x) dx = J~(f(x) + If(x)1) dx -
+J~lf(x)1 dx . Teil b) wird analog bewiesen. 
+D 
+
+
+--- PDF page 203 ---
+§4. Uneigentliche Integrale 
+187 
+Beispiel. 1% sin x dx. Zunachst einmal, wegen lim Sill x = 1 ist der Inte-
+o 
+x 
+x-->o 
+X 
+grand bei x = 0 durch 1 zu ersetzen. Das Integral ist an der unteren Grenze 
+eigentlich. Mit S~I (x) dx = S ~I (x) dx + S~I (x) dx braucht nur die Konvergenz 
+des zweiten Summanden gezeigt zu werden. 
+M· 
+. II 
+I 
+. 
+h"1 
+Je 1. 
+d 
+1 
+Ie Je cos x d 
+It partIe er ntegratlOn er a t man 
+-
+Sill X 
+X = -- cos x -
+-2-
+X. 
+I 
+X 
+X 
+I 
+I 
+x 
+Mit (---> XJ strebt der erste Summand gegen cos 1 ; fur den zweiten Summan-
+den liefert das Vergleichskriterium die Konvergenz. 
+Also konvergiert 1 
+Y. sin x dx. Es gilt 1 
+y sin x dx = 
+7[,2 
+(---> Band 2). 
+0 
+o 
+x 
+0 
+x 
+4.3 Ein an beiden Grenzen uneigentliches Integral 
+ist wie folgt definiert: 
+1" 
+e 
+1b 
+I(x) dx := 1 I(x) dx + 
+I(x) dx 
+{/ 
+a 
+(' 
+(mit a < c < b) 
+= lim l'f (x) dx + lim 1'f (x) dx . 
+u---+u+ 
+u 
+r---+h-
+c 
+1m Fall a = -x, b = x bedeutet das 
+l~f(X)dx:= J~''lf(X)dX+ J'f(X)dX 
+= lI~~\ 1
+e I (x) dx + ,I~~ J' I (x) dx . 
+Es wird ausdrucklich darauf hingewiesen, daB auf der rechten Seite die beiden 
+Grenzwerte unabhiingig voneinander zu bestimmen sind; nur wenn beide Grenz-
+h 
+Y. 
+werte existieren, dann konvergiert 1 I (x) dx bzw. 1y. I (x) dx . 
+Beispiel 1. 
+J x 
+d 
+JO 
+d 
+1'· d 
+1% 
+~= ~+ ~=2 
+-x 1 + X 
+_Y. 1 + x 
+° 1 + x-
+0 
+dx 
+1 + x2 
+= 2 lim arc tan L' = rr . 
+o 
+r---l>Y 
+Beispiel 2. 
+Die Energiedichte V, einer monochromatischen Strahlung eines 
+schwarzen Korpers der (absoluten) Temperatur T wird nach dem Strahlungs-
+gesetz von M. PLANCK berechnet: 
+8rrh 
+l,J 
+V -
+----0---
+\ 
+(2 
+".r. 
+ekT -
+1 
+(mit der Lichtgeschwindigkeit c, den Konstanten h und k). Die Integration 
+
+
+--- PDF page 204 ---
+188 
+4. Integration 
+uber aIle Frequenzen ergibt die gesamte Energiedichte 
+1
+00 
+8n k4T41°O 
+x 3 
+V = 
+0 
+Uv dv = C2~ 0 
+eX -1 dx 
+hv 
+(x= kT). 
+Das an beiden Grenzen uneigentliche Integral ist konvergent, da die beiden Teil-
+integrale nach Satz 4.1 konvergieren. Mit einer Potenzreihenentwicklung erhalt 
+man den Wert: 
+1
+00 
+x3 
+n 4 
+o 
+eX -1 dx = 15 
+(---. Kap. 5, §5, Aufg. 9). Insbesondere folgt damit das T4 -Gesetz von J. STEFAN 
+und L. BOLTZMANN: V = aT4 (mit einer Konstanten a). 
+0 
+Beispiel 3. 
+Die Gamma-Funktion. 
+Zu den besonders wichtigen "h6heren" 
+Funktionen geh6rt die Gamma-Funktion 
+Dieses ist ein an beiden Grenzen uneigentliches Integral, des sen Konvergenz wie 
+folgt nachgewiesen wird: 
+I 
+a) Das Integral 10 e-ttx- I dt ist an der unteren Grenze nur uneigentlich fUr 
+0< x < 1. In diesem Fall garantiert wegen e-ttx- I :s; tx- I = CC!., IX := I-x < 1, 
+das Vergleichskriterium (---. Satz 4.1) die Konvergenz. 
+b) Die Konvergenz von 1
+00 e-ttx- I dt folgt ebenfalls aus Satz 4.1, da wegen 
+t2tx- 2 
+-- ---. 0 mit t ---. 00, (---. Kap. 3, §4(4» fUr aIle hinreichend groBen 
+die 
+et 
+Abschatzung e-ttx- 2 :s; t-2 gilt. 
+0 
+Mit partieller Integration (u' = e-t , v = tx- I ) bestatigt man leicht die Funktio-
+nalgleichung der Gamma-Funktion. 
+rex + 1) = x rex) 
+(x > 0) , 
+aus der mit r(1) = 10
+00 e-t dt = 1 speziell 
+r(n + 1) = nr(n) = n(n -l)r(n - 1) = .. , = n!r(I) = n! 
+fUr aIle n E N folgt. 
+4.4 Ausnahmestellen im Innern des Integrationsintervalls. 
+Besitzt der In-
+tegrand im Innern des Definitionsintervalls endlich viele Ausnahmestellen a = 
+Xo < XI < ... < Xn-I < Xn = b (Unstetigkeitsstellen oder Lucken), dann setzt 
+
+
+--- PDF page 205 ---
+§4. U neigentliche Integrale 
+189 
+man 
+J 
+b 
+n /X 
+f(x) dx := 2:: . ' f(x) dx , 
+a 
+i=l 
+X,_l 
+wobei die Summanden der rechten Seite eigentliche oder uneigentliche Integrale 
+der zuvor behandelten Art sind. 
+Gelegentlich arbeitet man auch mit dem Cauchyschen Hauptwert 
+CHWJbf(X)dX:=li~(Jc-£f(X)dx+Jb f(x)dx) , 
+a 
+£~o+ 
+a 
+c+£ 
+wenn f nur in c eine Ausnahmestelle (Singuiaritat) hat. 
+Es ist durchaus 
+moglich, daB das uneigentliche Integral fa b f (x) dx = fa C f (x) dx + l b f (x) dx 
+nicht konvergiert, dagegen der CHW existiert. 
+Beispiel. 
+fo 3 x ~ 1 = fo' x ~ 1 + f, 3 X ~ 1 konvergiert nicht, dagegen ergibt 
+sich fUr den CHwj 3 dX 1 = lim (lne+ln2-lne) =ln2. 
+D 
+o x -
+£-->0+ 
+Aufgaben 
+1. Man untersuche, ob folgende Integrale eigentlich oder uneigentlich sind, teile falls 
+notig den Integrationbereich auf, teste auf Konvergenz und berechne ihren Wert, 
+falls moglich: 
+fo ex; xe-r- dx 
+j 2 2xdx 
+j 00 sin2 x d 
+o (x2 -
+1)2 
+X 
+x, 
+0 
+fo ex; x"e-X dx 
+/00 xdx 
+2 y'1+x4 
+, f 
+00 
+dx 
+1 
+X2y'X2 - 1 ' 
+f 
+if; lnx dx 
+x2 
+1 
+/00 
+d 
+2 
+Vx 3X + 1 ' 
+f 
+e dx 
+1 xlnx' 
+2. Man bestimme den Inhalt der Flache zwischen der Kurve y = xe - r-/ 2 , x ~ 0, 
+und ihrer Asymptote. 
+3. Man ermittle den Bereich des Parameters p, fUr we1chen das Integral 
+konvergiert. 
+4. Man bestatige 
+5. Man bestatige 
+I oc (2x 2 : 2p - x ~ 1) dx 
+/ 
+CD 
+dx 
+{ konvergent 
+2 
+x(ln x)" = 
+divergent 
+fUrCl:> 1 
+fUrCl:~1 
+a) J 
+00 e-stcoswtdt = ~ 
+o 
+s +w 
+j oc e-st sinwtdt = ~ 
+o 
+s +w 
+(s> 0), 
+
+
+--- PDF page 206 ---
+190 
+4. Integration 
+(a> 0), 
+n 
+(a oF -b), 
+2ab(a + b) 
+d) 1
+00 sin2 x dx = 1
+00 sin x dx 
+o 
+x2 
+0 
+x 
+(Tip: 2 sin2 x = 1 - cos 2x , partiell integrieren). 
+6. Mit dem Wert r (D = vn zeige man 
+I 
+(2n)! r::: 
+a) r(n+ 2) = 4nn! yn, 
+b) f:e-x2/2dX=..,Ih 
+(Subst. t=~X2, x>O). 
+7. Die Hermite-Polynome Hn(x) (CH. HERMITE, 1822 - 1901) sind erkJart durch 
+2 dn 
+2 
+H.(x) = (-I)·ex dx. (e- X 
+) 
+• 
+Man bestatige fUr ein beJiebiges Polynom p(x) vom Grad n -
+1 , daB 
+f: e-x2 Hn(x)p(x) dx = 0 , 
+d.h. die Hn bilden ein Orthogonal system (-+ Kap. 6, 6.3 und Band 2) bzgl. des 
+Skalarproduktes 
+< f, g> := f: e-x2 f (x)g(x) dx . 
+8. FlieBt durch den zwischen XI und X2 (auf der x-Achse) eingespannten elektrischen 
+Leiter der Strom I, so gilt fUr das magnetische Feld H im Punkt P(O,a) nach 
+dem Gesetz von BlOT u. SAVART 
+Wie groB ist H fUr XI -+ -00 und X2 -+ 00 . 
+§5. Kurven, Langen- und Flachenmessung 
+Mit den Mitteln der Differential- und Integralrechnung sollen nun geometrische 
+Eigenschaften ebener Kurven analytisch untersucht werden. Kurven im Raum 
+werden in Kap. 7, §1 behandelt. 
+5.1 Die Parameterdarstellung. 
+Die allgemeinste und fUr unsere Zwecke 
+glinstigste Beschreibung einer ebenen Kurve erfolgt mit zwei differenzierbaren 
+Funktionen x(t),y(t) (a ~ t ~ b). In einem festen kartesischen Koordinatensy-
+stem durchlliuft der sich mit t stetig veriindernde Punkt 
+P(t) = (x(t),y(t» , a ~ t ~ b , 
+
+
+--- PDF page 207 ---
+§s. Kurven. Langen- und FUichenmessung 
+eine Kurve. Man nennt die vektorwertige Funktion 
+(l) 
+r(t) = r(t) = (;g~) 
+bzw. das System der beiden Gleichun-
+gen 
+(2) 
+x = x(t), y = y(t) 
+(a ~ t ~ b) , 
+y 
+Abb. 107 - Ebene Kurve 
+191 
+x 
+eine Parameterdarstellung dieser Kurve, 
+den Parameter und [a, b] das Parame-
+terillterrall. Man sagt, daB die Kurve mit wachsendem t in positiver Richtung 
+durchlaufen wird. 
+Deutet man t als Zeit, so beschreibt die Parameterdarstellung (2) die Bewegung 
+eines Massenpunktes auf der Kurve. Damit ist klar, daB eine Kurve unendlich 
+viele verschiedene Parameterdarstellungen besitzt; es konnen auf ihr ganz ver-
+schiedene Bewegungen stattfinden. 
+Ein Graph y = f(x) (a ~ x ~ b) besitzt die Parameterdarstellung 
+(3) 
+x = t, Y = f(t) 
+(a ~ t ~ b) 
+oder auch x = g(t), y = f(g(t)) mit einer auf [:1, fJ] differenzierbaren Funktion 
+g mit g([:x,rm = [a,b]. 
+Von einer Parameterdarstellung x = x(t), y = y(t) kann man i.a. nur stiickweise 
+zu einer expli:iten Darstellung V = f(x) oder x = h(y) iibcrgehen; namlich 
+dann, wenn wenigstens eine der beiden Gleichungen nach t aufgelost werden 
+kann (t = t(x) => y = y(t(x)) =: f(x)). 
+Beispiel 1. 
+Die Gerade durch die Punkte (XO,Yo), (xI,yd besitzt die Parame-
+terdarstellung (~ Kap. 1, §6) 
+x = Xo + t(XI - xo) , 
+Y = Yo + t(YI - yo) 
+(t E JR.) . 
+Beispiel 2. 
+Der Kreis urn (xo,yo) mit dem Radius r (~Abb. 108) 
+x = Xo + r cos t, 
+Y = Yo + r sin t 
+(0 ~ t ~ 2n) . 
+o 
+0 
+o 
+o 
+Beispiel 3. 
+Die Ellipse :~ + ~~ = 1 (~Abb. 109) hat die Parameterdarstellung 
+x = a cos t, 
+Y = b sin t 
+(0 ~ t ~ 2n) . 
+o 
+y 
+x 
+Abb. 108 - Kreis 
+Abb. 109 - Ellipse 
+
+
+--- PDF page 208 ---
+192 
+4. Integration 
+Beispiel 4. 
+Zykloiden. Rollt ein Kreis K mit dem Radius r ohne zu gleiten 
+auf der x-Achse, dann beschreibt ein mit K fest verbundener Punkt P, der 
+yom Kreismittelpunkt den Abstand a hat, eine Zykloide (oder Radkurve). Sie 
+besitzt die Parameterdarstellung 
+(4) 
+x = rt - a sin t, Y = r - a cos t 
+mit dem Rollwinkel t (0 =s; t < (0) als Parameter, wobei wlr von der in 
+der Abb. 110 gezeigten Nullage 
+ausgehen. Denn nach dem Ab-
+rollen urn den Winkel t liegt 
+der Kreismittelpunkt in 
+XM = 
+rt, YM = r und P ist nach 
+PI = (x(t), y(t» gewandert: 
+x(t) = XM - asin t = rt - asint, 
+y(t) = YM - a cos t = r - a cos t . 
+p 
+21tr 
+X 
+Abb. 110 - Zykloide 
+Rollt der Kreis (mit dem Punkt P) nicht auf der x-Achse sondern auf dem 
+Kreis x2 + i = p2 , dann ist die Bahn des Punktes Peine Epizykloide mit der 
+Parameterdarstellung 
+p+r 
+x = (p + r) cos t - a cos -r - t , 
+( 
+) . 
+. p+r 
+y = p + r sm t - a sm -r - t . 
+1m Sonderfall p = r = a entsteht die 
+Herzlinie (Kardioide) x = a(2 cos t - cos 2t), Y = a(2 sin t - sin 2t) . 
+Y 
+Y 
+Abb. III - Epizykloide 
+Abb. 112 - Cardioide 
+Beim Abrollen im Innern der p-Kreise entsteht die Hypozykloide 
+p-r 
+x = (p - r) cos t + a cos -r-t , 
+y = (p - r) sin t - a sin p -; r t , 
+p 
+die fUr a = r = 4" die Astroide ergibt. 
+
+
+--- PDF page 209 ---
+§s. Kurven, Langen- und Fliichenmessung 
+193 
+x 
+x 
+Abb. 113 
+Hypozykloide 
+Abb, 114 ~ Astroide 
+D 
+5.2 Tangente nnd Normale. 
+Zu jeder Parameterdarstellung r(t) 
+( X(t)) 
+y(t) 
+einer Kurve K definiert man 
+r(tj := lim -hi [r(t + h) - r(t)] 
+h----+O 
+= (~i~~) 
+(wobei der Punkt die Ableitung nach 
+t 
+bedeutet), 
+Als Grenzvektor von 
+"Sekantenvektoren" (-+ Abb, 115) ist 
+dieser Vektor parallel zur Kurventan-
+gente im Punkt (x(t),y(t)), 
+y 
+x 
+Abb. 115 ~ Sekantenvektor 
+Beschreibt r(t) die Bewegung eines Massenpunktes, dann gibt r{t) die 
+schwindigkeit dieses Punktes (zur Zeit t) an, 
+1st in einem Kurvenpunkt (x(t), y(t)) der Vektor r(t) = (~g~) vom Null-
+vek tor verschieden, dann weist er in die 
+positive Tangentenrichtung, 
+Der hier-
+y 
+aus durch eine positive Drehung (entge-
+gen Uhrzeigersinn) urn 90° entstandene 
+Vektor n{t) := (-~~;)) gibt die posi-
+tive Normalenrichtung in diesem Punkt 
+an, 
+Demnach besitzen Tangente und 
+Normale (in diesem Kurvenpunkt zur 
+Zeit t) die Parameterdarstellungen 
+riW 
+r(j) 
+?W 
+Abb, 116 ~ Normalenrichtung 
+Tangente 
+Normale 
+x = x(t) + Xx(t) , 
+y = y(t) + Ay(t) , 
+x = x(t) - }.y(t) , 
+y = y(t) + }.x(t) 
+x 
+(). E IR ist der Geradenparameter, t fester Parameter des Kurvenpunktes), 
+Ge-
+
+
+--- PDF page 210 ---
+194 
+4. Integration 
+5.3 Kurvenlinge. 
+Die Parameterdarstellung x = x(t) , y = y(t) (a $; t $; b) 
+einer Kurve heiBt regulir, wenn die Funktionen t 1-+ x(t) , t 1-+ y(t) iiber [a, b) 
+stetig differenzierbar sind und x(t)2 + .Y(t)2 -+ 0 fUr a $; t $; b gilt, dabei sind 
+x(a) und x(b) ais einseitige Ableitungen zu verstehen. 
+Satz 5.1. a) Die Lange eines Kurvenbogens mit regularer Parameterdarstellung 
+x = x(t). y = y(t). X(t)2 + .Y(t)2 -+ O. a $; t $; b. betragt 
+(5) 
+b 
+L = 1 ...; X(t)2 + y(t)2 dt . 
+b) Der Graph y = f (x) einer stetig difJerenzierbaren Funktion f : [a, b) --+ R hat 
+die Lange 
+(6) 
+b 
+L = 1 "';1 + f'(x)2dx. 
+Beweis. a): Wir zerlegen das Parameterintervall [a, b) durch aquidistante Zwi-
+schenpunkte a = to < tl < ... < tn = b, ti+l - ti = At, in n Teilintervalle. 
+Uber jedem dieser Intervalle [ti' ti + At] wird der Kurvenbogen ersetzt durch die 
+Sehne der Lange 
+As = ...; (Ax)2 + (Ay)2 
+= ...; X(~i)2 + .Y('7i)2At 
+mit 
+~i' '7i zwischen ti und ti + At 
+(--+ Mittelwertsatz). Summation und 
+y 
+der Grenziibergang At --+ 0 (bzw. 
+x 
+n --+ (0) ergeben die Behauptung. 
+Abb. 117 - Bogenliinge 
+b) ist ein Spezialfall von a), denn es ist x = t, Y = f (t) eine stetig differenzier-
+bare Parameterdarstellung der Kurve y = f (x) . 
+0 
+Beispiel 1. 
+Der Zykioidenbogen x = r(t - sin t), y = r(1 - cos t) 
+(0 $; t $; 2n) 
+hat nach (5) die Lange 
+1~~ 
+1~ 
+t 
+r 
+0 
+(1 - cos t)2 + sin2 t dt = 2r 
+0 
+sin 2. dt = 8r . 
+o 
+Beispiel 2. 
+Der Bogen der Normaiparabel y = x 2 iiber [0, x] hat nach (6) die 
+Lange 
+L(x) = fox "';1 + 4t2 dt = ~ [2X"'; 1 + 4x2 + In (2x + ...; 1 + 4x2) ] 
+(--+ §2, Aufg. 5). 
+0 
+
+
+--- PDF page 211 ---
+§s. Kurven, Langen- und Flachenmessung 
+195 
+5.4 KriimmuDg UDd KriimmuDgskreis. 
+Es sei x = x(t), y = y(t) mit 
+a ~ t ~ b eine zweimal differenzierbare Parameterdarstellung einer Kurve 
+mit X(t)2 + y(t)2 
+=1= 0 fUr aile t. Mit tp(t) bezeichnen wir den positiv ge-
+messenen Winkel zwischen der positiven x-Achse und der Richtung des Tan-
+gentenvektors (;i~~); s(t) := it Vx(r)2+5:(r)2dr ist die Lange des Kur-
+venbogens tiber dem Parameterintervall [a, t] (-+ (5)). Die A.nderung l'itp der 
+Tangentenrichtung tiber dem Intervall 
+[t, t + /'it], bezogen auf die A.nderung 
+der Bogenliinge, also ~~, ist offen bar 
+ein gutes Ma/3 fUr die durchschnittli-
+che Krtimmung der Kurve tiber die-
+sem Teilintervall. Man ncnnt 
+K '= lim l'itp(t) = til(t) 
+. 
+~HO l'is(t) 
+w) 
+y • 
+x 
+die Kriimmung der Kurve im Punkt 
+P = (x(t).y(t)). (-+ L'Hospital-Regel) 
+Abb. 11 X- Kri.immung 
+Satz 5.2. 
+a) Die Kriimmung ciller Kun;e mit ::\\"cimal stctig diffcren::ierbarer Pa-
+ramctcrdarstellung x = x(t). y = y(t), a ~ t ~ h ,fiir die iiberall .x(t) 2 + 5,(t)2 =1= 0 
+gilt, hetriigl im K urrenpullkt P (t) = (x(t), y(t)) 
+(7) 
+b) Die Kriil1l1111ll1g des Graphell y = f (x) eiller ::weimal difJerenzierbarell Funktion 
+f : [a, h] -+ IR im Punkt (x,f (x)) betriigt 
+(8) 
+K(X) = 
+f"(x) 
+V(l + f'(.\:)2)3 
+Beweis. 
+a): 
+Fur s(t) = s:, vx(r)2 + j'(r)2dr 
+gilt 
+i'(t) 
+(-+ sl(ll)). Aus sintp(t) = 
+. 
+, costp(t) 
+V.x(t)2 + y(t)2 
+til = .~~ -
+~'; . Mit diesen Wertcn ergibt sich fUr K = 2 
+x~ + y-
+s 
+b) ist ein Spezialfall von a); die Parameterdarstellung 
+die gestellten Voraussetzungen. 
+5(t) 
+= 
+V.x(t)2 + y(t)2 
+.XU) 
+C I 
+10 gt 
+V.XU)2 + 5·(t)2 
+die angegebene Forme\. 
+x = t, Y = f(t) erftillt 
+o 
+Wegen 
+.~ = V.x2 + P > 0 haben K und til dasselbe Vorzeichen. Kap. 3, Satz 
+2.3 zeigt: 
+
+
+--- PDF page 212 ---
+196 
+4. Integration 
+K > 0 ~ cp nimmt zu ~ die Kurve ist (bzgl. der positiven Richtung) 
+linksgekriimmt. 
+K < 0 => cp nimmt ab => die Kurve ist (bzgl. der positiven Richtung) 
+rechtsgekriimmt. 
+Man beachte, daJ3 sich bei entgegengesetzter Durchlaufrichtung das Vorzeichen 
+von K andert. )( 
+Abb. 119a -
+K > 0; Linkskrilmmung 
+Abb. 119b -
+K < 0 ; Rechtskrilmmung 
+Beispiel 1. 
+Die Kriimmung der Ellipse x = a cos t, Y = b sin t 
+(0 ~ t ~ 2n) 
+im Punkt (x(t), y(t)) : 
+(x,y) = (-asint,bcost), (x,ji) = (-acost,-bsint), 
+ab 
+Insbesondere hat ein gegen Uhrzeigersinn umlaufender Kreis mit dem Radius r 
+in jedem Punkt die Kriimmung K = ~ . 
+0 
+Beispiel 2. 
+Die Kriimmung der Normalparabel y = x2 betragt 
+2 
+o 
+Einen durch den Kurvenpunkt P = (x(t),y(t)) gehenden Kreis nennt man 
+den zu P 
+gehorigen Kriimmungskreis der Kurve, wenn er dort dieselbe 
+Kriimmung und diesel be Tangentenrichtung wie die Kurve besitzt. Der Ra-
+dius r des Kriimmungskreises, der sogenannte Kriimmungsradius der Kurve in 
+P, betragt nach Bsp. 1, falls K =1= 0, 
+Der Mittelpunkt des Kriimmungskreises (XM, YM) liegt auf der Normalen im 
+1 
+Abstand IKI von P. Unter Beriicksichtigung der Orientierung (bzw. des Vor-
+zeichens von K) ergibt sich 
+
+
+--- PDF page 213 ---
+§5. Kurven, Langen- und Flachenmessung 
+197 
+1 
+y(t) 
+. 
+x(t)2 + Y(t)2 
+XM = x(t) - K J x(t)2 + y(t)2 = x(t) - y(t) x(t)ji(t) - Y(t)x(t) 
+1 
+xW 
+. 
+xW 2 +yW2 
+YM = y(t) + -K J 
+= y(t) + x(t) . (t)"( ) 
+. (t)"(t) 
+x(t)2 + y(t)2 
+X 
+Y t - Y 
+x 
+Durchliiuft t das Parameterintervall, dann beschreibt (XM, YM) eine Kurve, die 
+sogenannte Evolute der gegebenen Kurve. 
+Beispiel. 
+Die Evolute der Parabel x = t, Y = t2 hat die Parameterdarstellung 
+.. x2 + l, 
+.. x2 + },2 
+2 
+1 
+·'(H = X - Y ... 
+." = -4t·, YM = Y + x ... 
+." = 3t + -2 ' 
+xy - yx 
+xy - yx 
+aus der man durch Elimination von t die explizite Darstellung 
+XM I 
+1 
+hI = 3( 4)3 + 2: erhiilt, eine nach W. NEIL (1637 -1670) benannte Parabel. 
+D 
+Abb. 120 - Krilmmungskreis 
+Abb. 121 - Evolute der Parabel 
+5.5 Die Polardarstellung einer ebenen Kurve. 
+Der Polardarstellung kom-
+plexer Zahlen 
+(~ Kap. 2, §3) entspricht in der reellen Ebene die Dar-
+stellung der Punkte in Polarkoordinaten. 
+Jeder Punkt 
+P 
+= 
+(x, y) 
+der 
+mit kartesischen Koordinaten versehenen Ebene ist eindeutig bestimmt durch 
+den Abstand r des Punktes 
+P 
+vom Ursprung und durch den Polar-
+winkel (oder Drehwinkel) 
+qJ derjeni-
+gen Drehung, die (r,O) nach (x, y) 
+bringt (~ Abb. 122). Man nennt r, qJ 
+die Polarkoordinaten des Punktes P. 
+Der Ursprung (d.i. der Pol) hat die 
+Polarkoordinaten r = 0, 
+qJ 
+belie-
+big, Man beachte auch, daB r, qJ und 
+r, qJ + 2kn (k ganz) denselben Punkt 
+beschreiben, Es bestehen die folgen-
+den Beziehungen (~ Kap, 2, §3): 
+y 
+o 
+r 
+x 
+Abb. 122 - Polarkoordinaten 
+
+
+--- PDF page 214 ---
+198 
+4. Integration 
+a) 
+x = r cos cp, y = r sm cp , 
+(9) 
+b) 
+arccos r 
+{
+X 
+r = J x2 + y2 , cp = 
+2n _ arccos ~ 
+unbestimmt 
+Die Spitze eines urn den Nullpunkt 
+kreisenden Zeigers, der mit dem Dreh-
+winkel cp auch seine Lange verandert, 
+r = r(cp) , liegt auf einer Kurve. Die 
+Polarkoordinaten der Kurvenpunkte 
+sind r(cp) , cp 
+(0( ~ cp ~ p) . 
+r = r(cp) , 
+0( ~ cp ~ f3 , 
+y 
+, falls y ~ 0 
+, falls y < 0 
+, falls r = 0 
+x 
+heiBt Polardarstellung der Kurve; die 
+Achse, von der aus cp gemessen wird, 
+hier die x-Achse, heiBt Polarachse. 
+Abb. 123 - Polardarstellung einer Kurve 
+Parameterdarstellung der Kurve r = r(cp). 0( ~ cp ~ f3 : 
+(to) 
+X = r(cp) cos cp, 
+y = r(cp) sin cp 
+mit dem Polarwinkel cp, 
+0( ~ cp ~ f3 , als Parameter. 
+Mit dieser Parameterdarstellung kann man Tangenten, Normalen, Bogenliinge, 
+Kriimmung etc. berechnen. Insbesondere ergibt sich aus (10) und (5): 
+Bogenliinge der K urve r = r( cp). IX ~ cp ~ f3 : 
+Ii 
+(11) 
+L = f 
+r(cp)2 + (d~~)f dcp . 
+Beispiel 1. 
+r = c (const.) ist die Polardarstellung eines Kreises urn O. 
+0 
+Beispiel 2. 
+Archimedische Spirale. 
+r = acp (a > 0, 0 ~ cp < (0) ist die 
+Polardarstellung einer Spirale. Die Bo-
+genlange nach einem Umlauf betragt 
+L = .£2" J (acp)2 + a2dcp 
+= ~ [2nJI + (2n)2 
++ In(2n + v'-l -+-(2-n-::-)2)] 
+0 
+Abb. 124 - Archimedes Spirale 
+
+
+--- PDF page 215 ---
+§5. Kurven, Langen- und Flachenmessung 
+199 
+Beispiel 3. Herzlinie. 
+Durch r = a(l + costp) (a> 0, 0 ~ tp ~ 2n) ist eine 
+Epizykloide (~ 5.1, Bsp. 4) bestimmt, denn mit (10) ist 
+x = ~ + ~(2 cos tp + cos 2tp), 
+Y = ~(2 sin tp + sin 2tp) , 0 ~ tp ~ 2n . 
+Die Kurve hat den Umfang L = a .£27[ V(1 + cos tp)2 + sin2 
+tp dtp = 8a. 
+0 
+5.6 FUicheninhalte. 
+o Die Fliiche zwischen zwei Graphen. 
+Satz 5.3. 
+Sind f, g : [a, b] ~ IR. stetig. a < b. dann betriigt der Inhalt der von 
+den vier Kurven y = f(x). y = g(x). x = a. x = b berandeten Fliiche 
+b 
+F = llf (X) - g(x)ldx . 
+(12) 
+Beweis. 
+Ein Streifen tiber x der Breite Ax hat angenahert den Flacheninhalt 
+If(x) - g(x)IAx. Die Summation und der Grenztibergang Ax ~ 0 zeigen die 
+Behauptung (~ 1.2, Abb. 125). 
+0 
+Beispiel. 
+Die Flache zwischen den beiden Parabeln 4y = x2 und l = 4x tiber 
+[0,4] betragt F = .£4 (2 yX - * 
+X2) dx = [2. ~ J -* . 
+~ x 3]: = 136 . 
+0 
+y 
+4~----------~~ 
+Abb. 125 - Flache zwischen Parabeln 
+Abb. 126 -
+Sektorflache 
+® Sektorfliichen in Polarkoordinaten. 
+Satz 5.4. 
+1st r : [iX, P] ~ {r E IR.; r ~ O} stetig. 
+iX < P. dann betriigt der 
+Inhalt der in Polarkoordinaten von den drei Kurven r = r(tp). tp = iX und tp = P 
+berandeten Sektorfliiche (~ Abb. 126) 
+(13) 
+
+
+--- PDF page 216 ---
+200 
+4. Integration 
+Beweis. Die Sektorftiiche zwischen den Winkeln lp und lp+Alp hat angeniihert 
+den Fliicheninhalt eines Kreissektors mit Radius r(lp) , d.i. AF = ~: r(lp)2n = 
+~r(lp)2Alp. Summation und Grenziibergang Alp -. 0 ergeben wie in 1.1 die 
+Behauptung. 
+0 
+BeispieL 
+Bei einem Umlauf (0 ~ lp ~ 2n) begrenzt die Archimedische Spirale 
+r = alp eine Sektorftache mit dem Inhalt F = ~ .£21< a2lp2dlp = ja2n3 • 
+0 
+© Sektorflicben in Parametenlarstellung. 
+Satz 5.5. Leibniz-SektorformeL 1st x = x(t) , y = y(t) , a ~ t ~ b, eine stiick-
+weise stetig difJerenzierbare Parameterdarstellung eines ebenen Kurvenstiicks K, 
+das von jedem Ursprungsstrahl hOchstens einmal getroffen wird (jedem Polarwin-
+kel lp entspricht hOchstens ein Parameterwert t), dann betriigt der Inhalt der 
+durch K begrenzten Sektorfliiche (-. Abb. 126) 
+(14) 
+b 
+F = ~ 11 [x(t)Y(t) - y(t)x(t)] dt I· 
+Beweis. Die Substitution lp = lp(t) = arctan ~~~~, ~~ = 1 + ~ I X)2 xY':; yx ist 
+umkehrbar, daher ergibt sich (14) aus (13) mit der Substitutionsregel. 
+0 
+Beispiel. Der Inhalt der Ellipse x = a cos t, Y = b sin t (0 ~ t ~ 2n) betragt 
+1121< 
+F =:2 
+0 
+[abcos2 t + absin2 t]dt = abn. 
+0 
+Bemerkung. Man kann (14) auch mit einer Dreieckszerlegung der Sektorfliiche 
+herleiten: Das Dreieck mit den Ecken (0,0), (x,y) , (x + Ax,y + Ay) hat den 
+1 (x X+AX) 
+1 
+. 
+Inhalt AF = :2 det 
+y 
+y + Ay 
+= :2(xAy - yAx) , wenn der Polarwmkel von 
+(x,y) nach (x + Ax,y + Ay) zunimmt (-. Kap. 6, 5.1). 
+Satz 5.6. 
+Formel (14) gilt auch for den Inhalt Feiner Fliiche, die von einer 
+geschlossenen, iiberschneidungsfreien Kurve mit stiickweise stetig difJerenzierbarer 
+Parameterdarstellung x = x(t) , y = y(t) , a ~ t ~ b, berandet wird. 
+Beweis. 
+Wir nehmen zuerst an, daB es einen Punkt P = (u, v) in der Fliiche 
+gibt, so daB die von P ausgehenden Strahlen die Randkurve in nur einem 
+Punkt schneiden. Dann ist xp(t) := x(t)-u, yp(t) := y(t)-v eine Parameterdar-
+stellung der Kurve in einem kartesischen Koordinatensystem mit Ursprung P, 
+b 
+auf die die Fliichenformel (14) anwendbar ist. Wegen 1 (xpyp - ypxp) dt = 
+
+
+--- PDF page 217 ---
+§5. Kurven, Langen- und Flachenmessung 
+201 
+b 
+b 
+b 
+= 1 (xy-yx)dt-u 1 ydt+v 1 xdt und y(a) =y(b), x(a) =x(b) folgt fUr 
+diesen Fall die Behauptung. Der allgemeine Fall laBt sich (was hier nicht aus-
+gefUhrt wird) durch eine geeignete Zerlegung der Flache auf diesen Sonderfall 
+zuruckftihren (fur Fortgeschrittene --> Kap. 8, 3.5). 
+0 
+Beispiel. 
+Die von der Astroide x = R cos3 t + 2, y = R sin3 t + 3 
+(0 ~ t ~ 2n) 
+begrenzte Flache hat den Inhalt F = ~ J~rr (xy - y.x) dt = ~nR2 = 6nr2 wegen 
+R = 4r ; das ist der 6-fache Inhalt des kleinen, im Innern abrollenden Kreises 
+(--> 5.2, --> Abb. 114). 
+0 
+Aufgaben 
+I. Man 
+berechne 
+fUr 
+die 
+ebene 
+geschlossene 
+Schlinge :' mit der Parameterdarstellung 
+x = 3t2 - 1. 
+Y = 3t3 - t ; 
+1 
+It I :<.; 
+M 
+v3 
+den Inhalt der von )' umrandeten Fliiche und 
+den Umfang. 
+2. 
+a) Man stelle die durch die Gleichung 
+x 3 + / - 3xy = 0 
+y 
+-1 
+x 
+beschriebene Kurve in Polarkoordinaten dar, skizziere die Kurve und berechne 
+den Fliicheninhalt der Schlinge. (Blatt des DESCARTES) 
+b) Bestimme die Bogenliinge der in Polarkoordinaten gegebene Kurve 
+. 3 ip 
+r = a sm '3' 
+0:<.; ip < 2n, 
+a> 0 . 
+3. a) Bestimme die Polardarstellung r = r(ip) 
+fUr die Ellipse 
+E 
+fUr die Hyperbel 
+H 
+x2 +4i = 4, 
+x 2 -4l = 4. 
+b) Liegt der Pol p = 0 im Brennpunkt, so hat 
+ein Kegelschnitt nach KEPLER die Polardar-
+stellung 
+p = 1 + :COS1p 
+(p > 0, E:::: 0) . 
+Wie 
+lautet die 
+(~, '1)-Gleichung. 
+Man 
+berechne 
+p 
+und 
+E 
+fUr die Ellipse 
+E 
+und bestimme mit dieser Darstellung den 
+Flacheninhalt von E. 
+a-'-'----t--,-
+x 
+
+
+--- PDF page 218 ---
+202 
+4. Integration 
+4. Die Lemniskate 
+hat in Polarkoordinaten die Darstellung 
+r2 = cos2qJ ; 
+o ~ qJ ~ 21t . 
+a) Man berechne den Inhalt der umschlos-
+senen Flache. 
+b) Man zeige fUr die Bogenlange t: 
+Das Integral (11) ist uneigentlich. 
+y 
+Substituiert man V2 sin qJ = sin tp , so erhalt man ein eigentliches Integral 
+t = 2V2 . K (Jz) ~ 2V2 . 1.854074679 . 
+K(k) bezeichnet ein vollstiindiges elliptisches Integral (-+ §7, Aufg. 1, 2). 
+5. LISSAJOus-Figuren in der Ebene haben die Form (-+ Kap. 1, 3.5) 
+y(t) = b COS(W2t + (X2) 
+Man wahle 
+(x, = (X2 = 0 (bzw. 
+(x, = 0, (X2 = ~), und skizziere die LISSAJOUS-
+F· 
+fi' 
+2 
+3 
+Iguren ur W2 = W" 
+W2 = 
+W" 
+W2 = 2w1 . 
+Welche Werte liefert die Sektorenformel fUr die Flacheninhalte? 
+6. a) Man gebe fUr die Gerade y = ax + b die Polardarstellung r = r(qJ). 
+b) Man berechne den Flacheninhalt des n-Blattes r = I cos nqJl 
+(0 ~ qJ ~ 21t) . 
+7. Fur die allgemeine Polardarstellung einer Kurve r = r(t), qJ = qJ(t), a ~ t ~ b, 
+bestatige man die Formeln fUr die Bogenlange s und die Sektorflache F : 
+b 
+s = 1. Jt2 +r2tp2dt , 
+1 fb 
+F = 2 
+a r2(t)tp(t) dt . 
+Wie lautet die Formel fUr die Kriimmung? Teste die Ergebnisse fUr die Kurven 
+qJ=t, r=t, 0~t~1 und 
+qJ=cosht, r=e', -oo<t<oo. 
+8. Ebene Bewegung in Polarkoordinaten 
+x(t) = (x(t») = r(t) (C?S qJ(t») . 
+y(t) 
+sm qJ(t) 
+Man drucke x, x und v = Ixl durch 
+t, ;:, tp und iP aus, fUhre die yom Ort 
+abhangige Basis 
+'= (cosqJ) 
+e, . 
+. 
+smqJ 
+e := (-SinqJ) 
+'P 
+cos qJ 
+ein und bestatige fUr die Radial- und Transversalkomponenten von Ort, Geschwin-
+digkeit und Beschleunigung: 
+9. Man bestimme fUr die Kurve in Parameterform 
+x = 6 cos t + 2 cos 3t, 
+y = 6 sin t + 2 sin 3t 
+(0 ~ t ~ 21t) 
+
+
+--- PDF page 219 ---
+§s. Kurven. Langen- und Flachenmessung 
+203 
+a) den Inhalt der begrenzten Flache, 
+n 
+b) die Gleichung der Tangente im Punkt mit t = "2 ' 
+c) die t-Werte, fiir we1che die Tangente parallel zur x-Achse oder zur Geraden 
+J = x verlauft. 
+d) die BogenHinge. 
+e) eine sorgfaltige Skizze. 
+10. In Scheitelpunkten einer Kurve ist die Krummung extremal. Man bestimme die 
+Krummungskreise in den Scheitelpunkten von 
+y = Inx. 
+I!. Man bestimme die Evolute 
+a) der Ellipse 4x' + 91" 
+= 36. 
+b) der Hyperbel xy = 4. 
+c) der Zykloide x = t - sin I, Y = 1 - cos I 
+(t E JR.) . 
+12. Eill Teilchell /liegt ji-ei ill eillem zentralell Kraltfeld vom Punkt Po(r = J2 - L <p = 0) 
+aus langs der ebenen Kurve 
+(I) 
+J' 
+dp 
+<p = <p(r) = 
+, 
+v2 1 P V p2 + 2p - 1 
+r~J2-1 
+ins U ncndliche ( 1', <p : Polarkoordinaten). Die Flugzeit ist 
+(2) 
+1= 1(1') = 
+P P 
+, 
+J' 
+d 
+v2-1 V p2 + 2p - 1 
+a) Fur den Tei1chenflug (l), (2) berechne man <p' (1'), I' (I') und bestimme daraus 
+r = V.x' + J.2 mit Aufg. 8 als Funktion von r. 
+Wie groG ist lim r(r) ? 
+b) Man fiihre die Integration in (1) durch und lose auf nach r = r(<p). 
+c) We1che Richtung hat die Asymptote an die Flugbahn und wie lange dauert der 
+Flug; d.h. wic groG ist lim <p(r) und lim t(r) ? 
+13. Fur die hori::olliale Riclwharaklerislik 
+cillcr Alltellllc mit vier 
+~-Dipolen (im 
+~ -Abstand ubereinander) hat man die 
+Formel (<p Polarwinkel) 
+I 
+cosq sin (p) sin(4~ sin <p) I 
+C((p) = 
+4~os<psinqsi~<p) 
+a) Man setze 
+C(<p) 
+stetig auf [0,2n] 
+fort, bestimme die Nullstellen und 
+berechne C'(<p). 
+y 
+b) Mit Hilfe eines Rechners berechne man Lage und Amplitude der "Keuiell del' 
+C harakteristik" und skizziere r = C( <p) . 
+
+
+--- PDF page 220 ---
+204 
+4. Integration 
+§6. Weitere Anwendungen des Integrals 
+6.1 Abkiirzende Redeweisen. 
+Urn schneller zu weiteren Resultaten zu gelan-
+gen, fUhrt man einige abkiirzende Bezeichnungen und Redeweisen ein. Zur 
+Berechnung einer reellen GroBe G mit Hilfe der Integralrechnung wird diese in 
+kleine Bestandteile dG, die man Elernente nennt, zerlegt. Die Summation aller 
+Elemente dG wird eben falls Integration genannt und man schreibt G = J dG . 
+Die Kunst des Integrierens besteht darin, fUr die Elemente dG eine von einem 
+Parameter x abhiingige Anniiherung der Form dG ~ f (x)Ax, a ::;; x ::;; b, an-
+zugeben, die so beschaffen ist, daB die Riemannsche Summe If(x)Ax beim 
+Grenziibergang Ax -4 0 gegen G konvergiert. Man erhiilt demnach G = 
+J~ f(x) dx. Ais KurzJorrn fUr diesen Rechengang schreibt man dG = f(x) dx, 
+woraus durch Integration G = J! f (x) dx folgt. 
+In diesem Zusammenhang 
+ist es iiblich, eine kleine Parameterdifferenz Ax mit dx zu bezeichnen, wenn 
+beabsichtigt ist, im Verlauf der Rechnung den Grenziibergang Ax -4 0 durch-
+zufUhren. Statt Af(x) ~ !,(x)Ax (-4 Kap. 3, 1.3) schreibt man df(x) = !'(x) dx. 
+So wird beispielsweise das Liingenelernent ds einer in kartesischen Koordinaten 
+durch x = x(t), y = y(t) 
+(a::;; t ::;; b) gegebenen Kurve in der Form 
+(1) 
+ds = V X(t)2 + y(t)2 dt 
+dargestellt (-4 5.3); speziell fUr den Graph y = f (x) : 
+(2) 
+ds = VI + f'(x)2dx. 
+6.2 Das Volumen eines Rotationskorpers. 
+Von einem dreidimensionalen 
+Korper sei (nach Wahl eines geeigneten kartesischen Koordinatensystems) 
+fUr jedes x E [a, b] der Fliichenin-
+halt F = F (x) des Querschnitts be-
+Y 
+kannt (-4 Abb. 127). 
+Das Volumen 
+AV einer diinnen Scheibe der Dicke 
+Ax betriigt niiherungsweise F(x)Ax. 
+In Kurzform: dV = F(x) dx ; die In-
+tegration ergibt 
+b 
+(3) 
+v=jdv=lF(X)dx. 
+Speziell - mit F(x) = nf(x)2- gilt 
+z 
+Abb. 127 - Volumen Drehkorper 
+Satz 6.1. 
+Ein durch Drehung der Kurve (der Kontur) y = f (x), a::;; x ::;; b, urn 
+die x-Achse erzeugter Rotationskorper hat das Volurnen 
+(4) 
+
+
+--- PDF page 221 ---
+§6. Weitere Anwendungen des Integrals 
+205 
+Beispiel 1. 
+Ein Kreiskegel entsteht 
+(nach pas sender Wahl des Koordina-
+y 
+tensystems) durch Rotation der Kon-
+tur y = ~ x urn die x-Achse. Das 
+Volumen ergibt sich mit (4) zu 
+V 
+r 
+2d 
+2 
+x 
+21h 
+h 
+= n h2 
+0 x 
+X = nr 3" . 
+(AUgemein: Volumen einer Pyramide 
+= Grundflache mal t Hohe.) 
+0 
+Abb. 128 - Kreiskegel 
+Beispiel 2. Torus. 
+Wird aus dem Rotationskorper, der durch Drehung des obe-
+ren Kreisbogens YI = R + V r2 - x2 (urn die x-Achse) entsteht, der "innere" 
+Korper entfernt, der sich durch Dre-
+hung von Y2 = R - V r2 - x2 ergibt, 
+y 
+Y 
+so erhalt man den in Abb. 129 ge-
+zeigten Torus (Reifen) mit dem Volu-
+men 
+=4nR J: Vr2-x2 dx 
+= 2n2r2R . 
+o 
+6.3 Die MantelfHiche 
+des Drehkor-
+pers mit der Kontur Y = f(x), a :s; 
+:s; x :s; b, berechnen wir wie folgt: die 
+Mantelflache dM einer dunnen Scheibe 
+der Dicke dx wird angenahert durch 
+die Mantelflache eines Zylinders mit 
+dem Radius f (x) und der Mantelhohe 
+ds = VI + f'(x)2dx (-+ Abb. 130 und 
+(2)). Das bedeutet 
+dM = 2nf(x)Vl + f'(x)2dx ; 
+x 
+z 
+Abb. 129 - Torus 
+y 
+z 
+die Integration ergibt 
+Abb. 130 - Mantel Drehkorper 
+b 
+(5) 
+M=2nl f(x)Vl+f'(x)2dx. 
+
+
+--- PDF page 222 ---
+206 
+4. Integration 
+Beispiel. Die MantelfHiche des in 6.2, Beisp. 2, betrachteten Torus berechnen 
+wir aus M = Ml + M2 mit den beiden aus Yi = R + {-ltv'r2 - x2 (i = 1,2) 
+erzeugten Mantelflachen 
+M = 2:n: J: {Yl + Y2)Vl + y?dx = 4:n:R J: VI + y?dx = 4:n:2rR. 
+{In der Rechnung wurden y~2 = y;2, Yl + Y2 = 2R und i~ VI + y;2 dx 
+:n:r (i = 1,2) - Lange des Halbkreisbogens - beriicksichtigt.) 
+Bemerkung. 
+(4) und (5) sind Spezialfalle der GULDIN-Regel (-+ Kap. 8, §4). 
+Aufgaben 
+1. Man berechne das Volumen der Korper, die man durch Rotation erhait 
+a) Hyperbel xy = a2 (0 < a ~ x < (0) urn x-Achse, 
+b) Kardioide , = a(l + cos cp) urn Polarachse (dV = 2;,3 sin cp dcp). 
+o 
+2. Man berechne das Volumen des Korpers, der von den FJachen x2 + i 
+= ax, 
+x - z = 0, x + z = 0 begrenzt wird, indem man Schnitte senkrecht zur x-Achse legt. 
+3. Man berechne die Mantelfiache der Korper, die man durch Rotation erhait 
+a) y = sin x (0 ~ x ~ n) urn x-Achse, 
+b) i = 2px (0 ~ x ~ a) urn x-Achse, 
+c) , = a(l + cos cp) urn Polarachse 
+(dM = 2n "/r2 + r,2 sin cp dcp) . 
+4. Ein Becher besitzt die Form eines geraden 
+Kreiszylinder mit Radius " seine Achse ist 
+urn den Winkel 
+(1. gegen die Waagerechte 
+geneigt. 
+Er ist mit soviel Wasser geflillt, 
+daB auf dem Boden ein Kreisabschnitt mit 
+dem Zentriwinkel 2cp benetzt ist. 
+-
+Man berechne das Wasservolumen V . 
+Hilfe: Man lege - abhangig von der Hohe h - Schnitte senkrecht zur Achse, be-
+stimme den Flacheninhait S(h), drticke h und S(h) durch den sich mit h andern-
+den Zentriwinkel 211' aus und berechne V = S: S(h) dh als Integral tiber 11'. 
+,7. Numerische Integration 
+* Unter numerischer Integration (auch numerische Quadratur genannt) versteht 
+man die naherungsweise Berechnung eines bestimmten Integrals, gestiitzt auf 
+endlich viele Funktionswerte Yi = f (~i) (i = 1,2, ... , n) , in der Form 
+
+
+--- PDF page 223 ---
+§7. Numerische Integration 
+207 
+mit "Gewichtsfaktoren" gi. Uber die Giite der Approximation mu13 eine Ab-
+schiitzung des Restgliedes Auskunft geben: 
+b 
+n 
+R:='£ I(X)dx-~gJ(~i) 
+Die primitive Methode der Approximation des Integrals 
+S~ I(x) dx durch 
+II 
+Riemann-Summen ZII = I/(~;)(Xi - xi-Il (~ 5.1) spieJt in der Praxis keine 
+i=1 
+gro13e Rolle, da i.a. die Konvergenz ZII ~ S~ 1 (x) dx nicht besonders schnell ist. 
+Bei der Approximation des Integrals nach der Trapez-Regel geht man von ei-
+ner iiquidistanten Teilung des Grundintervalls a = Xo < XI < ... < XII = b 
+aus (Schrittweite h := b -;; a, Stiitzstellen 
+Xi := a + ih (i = 0,1, ... , II) ) 
+und ersetzt die Kurve y = 1 (x) iiber jedem Teilintervall [Xi-I, x;] durch die 
+(Xi-I,f(Xi-!l), (Xi,f(Xi)) verbindende Sehne. Mit Yi := I(Xi) ergibt sich so die 
+Approximation 
+(1) 
+h 1 I(x)dx ~ he~ + YI + ... + Yn-I + ~') 
+a 
+Anschaulich: 
+Die Fliiche unter der 
+Kurve wird durch eine Summe von 
+Trapezfliichen approximiert. 
+Fiir praktische Rechnungen ist die 
+Schrittweite 
+hll := b;, a 
+besonders 
+giinstig. Sie erlaubt eine schnelle Be-
+rechnung der Niiherungssummen: 
+y 
+Abb. 131 - Trapezsumme 
+T. . = h [/(a) + I(b)] 
+o . 
+0 
+2 
+2' 
+. 
+h [/(a) 
+. 
+h 
+1 
+(2" 
+l)h) 
+I(b)] 
+Til . = 
+II -2- + j (a + II) + ... + (a + 
+-
+II + 2 
+' 
+II = 1,2, .... 
+Urn von Til nach TIl+I zu gelangen, braucht man nur die bei der Schrittwei-
+tenhalbierung hll+1 = ~' neu hinzugekommenen Teilpunkte zu beriicksichtigen. 
+Mil := hll [I (a + ~') + 1 (a + 3 ~') + ... + 1 (a + (2/+1 - 1) hi)] 
+liefert 
+1 
+Tn+1 ="2 [Til + Mil] . 
+1 
+Deshalb berechnet man in der Praxis der Reihe nach To, Mo, TI = "2 (To+Mo) , 
+1 
+MI ,T2 = "2(TI + Mil, M2, ... , so weit, bis sich Tn und Tn+1 nicht mehr 
+merklich unterscheiden. 
+
+
+--- PDF page 224 ---
+208 
+4. Integration 
+Bei gehobenen Anspriichen bestimmt man n aus der Restgliedabschiitzung 
+Ij
+b 
+I (b-a)3 M 
+a f (x) dx - Tn:::::; 
+3 
+4n+1 
+mit M = max{ 1f"(x)1 ; a:::::; x:::::; b} (die hier nicht bewiesen wird): Man gibt 
+eine Genauigkeitsschranke £ (etwa £ = 10-7 ) vor und bestimmt das kleinste n 
+mit 
+(b - a)3 M 
+3 
+4n+1 < £ . 
+b 
+Mit diesem n gilt dann 1 f(x) dx = Tn ± £. 
+Romberg-Extrapolation. 
+Fiir praktische Rechnungen mit hoher Genauigkeit 
+konvergiert die Folge 
+Tn 
+(n = 0, 1,2, ... ) noch zu langsam. 
+Aul3erdem 
+verfalschen die beim Einsatz eines Rechners unvermeidlichen Rundungsfehler 
+fUr grol3e n das Ergebnis. Deshalb berechnet man To, TI, T2, ..• , Tn fUr nur 
+wenige n und fUhrt anschliel3end die sogenannte Romberg-Extrapolation durch, 
+die zu einem wesentlich besseren Ergebnis fUhrt. Die Idee ist einfach: Man bil-
+det aus den Tn andere Folgen, die i.a. schneller gegen den Integralwert konver-
+gieren. Aus Tn,o := Tn (n = 0, 1,2, ... ) berechnet man 
+4Tno - Tn-I 0 
+Tn, I := 
+'4-1 
+' 
+(n = 1,2,3, ... ), 
+damit 
+etc; allgemein 
+4kTnk_I-Tn_Ik_1 
+kk 
+) 
+Tn,k := 
+' 4k _ l' 
+(n = , + 1, .... 
+Ohne Beweis: 
+1st der Integrand f in [a, b] geniigend oft differenzierbar, so ist Tn,k eine 
+bessere Approximation des Integrals als Tn,k-l. 
+Beispiel. 
+Es wird S:o In/ dx = ~(ln 10)2 = 2.650947928 ... aus To,···, T6 mit 
+anschliel3ender Romberg-Extrapolation berechnet: 
+n 
+Tn 
+Tn,l 
+T n,2 
+T n,3 
+T n,4 
+T n,5 
+T n,6 
+0 
+1.036163292 
+1 
+1.912875540 2.205112956 
+2 
+2.366921161 
+2.518269702 
+2.539146818 
+3 2.559871380 2.624188120 2.631249348 2.632711293 
+4 
+2.625551439 2.647444792 2.648995237 2.649276917 2.649341880 
+5 2.644362875 
+2.650633354 2.650845924 2.650875300 2.650881569 
+2.650883074 
+6 2.649285546 2.650926437 2.650945976 2.650947564 2.650947847 2.650947912 2.650947928 
+Wie man sieht, kommt T6,5 dem wahren Wert ausreichend nahe. 
+D 
+
+
+--- PDF page 225 ---
+§7. Numerische Integration 
+209 
+Bemerkungen. 
+1. Die Werte Tn,1 (n = 1,2,3" .. ) des Romberg-Extrapolationsschemas erhalt 
+man auch nach der sogenannten Simpson-Regel: Man ersetze den Integranden 
+f (x) iiber dem Teilintervall 
+[Xi. xi+21 (i = 0,2, ... , 2n -
+2) durch die Parabel 
+gi(X) = CliX2 + PiX + Yi, die durch die aufeinanderfolgenden Punkte (Xi,f(Xi» , 
+(Xi+I,f(Xi+d) , (Xi+2,f(Xi+2» geht. 
+Die Approximation 
+lh f(x) dx ~ TI,I = b ~ a [f(a) + 4f(a; b) + f(b)] 
+wird Keplersche FaBregel genannt (~ §1, Aufg. 7), 
+2. Es gibt sehr schnell konvergierende Verfahren, die keine aquidistanten Stiitz-
+stellen verwenden, deren Behandlung jedoch nicht so elementar ist. 
+, Programm 
+ROMBERG Integration 
+Dim 1(7) 
+E=l. OE-07 
+Print IIGrenzen A~ ,B= "; 
+Input A,B 
+H=B-A 
+N=l 
+X=A 
+, X=A+E, falls uneigentlich 
+Gosub Funktion 
+Fl=F 
+X=B 
+, x=B-E, falls uneigentlich 
+Gosub Funktion 
+I(0)=H*(Fl+F)/2 
+For K=l To 7 
+S=O 
+H=H/2 
+N=2*N 
+Q=l 
+For J=l To N-l Step 2 
+X=A+J*H 
+Gosub Funktion 
+S=S+F 
+Next J 
+I(K)=I(K-l)/2+S*H 
+For J=K-l To 0 Step -1 
+Q=4*Q 
+I(J)=I(J+l)+(I(J+l)-I(J))/(Q-l) 
+Next J 
+Print 1(0) 
+Ia=Abs(I(O) ) 
+If Ia<l Then 
+Ia=l 
+Endif 
+Exit If Abs(I(l)-I(O))<E*Ia 
+Next K 
+Print 1(0) 
+End 
+Procedure Funktion 
+F=Log(x)/x 
+Return 
+
+
+--- PDF page 226 ---
+210 
+4. Integration 
+Aufgaben 
+1. 1st I die Liinge des mathematischen Pendels und ()( der maximale Auslenkwinkel, 
+so ergibt sich die Schwingungsdauer T (--> Band 2) mit g = 9.80655m/s2 aus dem 
+vollstandigen elliptischen Integral 1
+"/2 
+K (k) = 
+0 
+---,.=d=x==.:== 
+VI - k2sin2 x 
+(1) 
+T = 4.["£ K(sin~) . 
+Eine gebriiuchliche Niiherung flir kleine ()( ist 
+(2) 
+T = 2rr.["£ . 
+a) Man bestimme die flir eine Standuhr mit 2-Sekunden-Pendel notige Liinge I aus 
+(2) und aus (1) mit ()( = 4°. Dazu berechne man K(k) niiherungsweise mit der 
+Simpson-Regel flir 2 und 4 Teilpunkte. 
+b) Wie groB ist die Gangabweichung pro Woche, wenn I nach (2) bestimmt ist? 
+c) (Mit PC) Man berechne K(k) flir k = sin 89S mit Programm Romberg und 
+vergleiche mit dem Tabellenwert 6.127778830. 
+Warum ergibt sich eine so groBe Abweichung? 
+2. Das vollstandige elliptische Integral 
+1
+"/2 
+dx 
+I (a, b) = 
+0 
+---,.======:= 
+Va2 cos2 x + b2 sin2 x 
+(0 < b < a) 
+liiBt sich nach c.F. GAUSS tiber die beiden Foigen ausdrticken 
+1 
+1 
+ao = a, 
+al = Z(ao + bo), 
+a2 = Z(al + btl 
+bo = b, bl = vaobo 
+b2 = vIa;b; 
+die gegen einen gemeinsamen Grenzwert, das sog. arithmetisch-geometrische Mittel 
+M(a,b) von a und b konvergieren: 
+rr 
+1 
+I(a, b) = Z· M(a,b) . 
+(Dies flihrt zu einem auBerordentlich schnellen und genauen numerischen Verfahren.) 
+a) Ftir al = ~ (a + b), bl = v'ab zeige man mit der Substitution 
+. 
+2a sin tp 
+sin x = -----'---0;--
+(a + b) + (a - b) sin2 tp 
+1
+"/2 
+dx 
+= 1"/2 
+dtp 
+Va2 cos2 x + b2 sin2 x 
+vai cos2 tp + bi sin2 tp 
+b) Vnter Berticksichtigung von lim an = lim bn = M (a, b) folgt aus a) 
+n-+oc 
+"--/Ox 
+I(a,b) = I(M(a,b),M(a,b)) = M(a,b)-I . ~ . 
+c) Teste das nachfolgende Programm in Aufgabe 1c. 
+
+
+--- PDF page 227 ---
+§7. Numerische Integration 
+Numerische Berechnung der vollstiindigen elliptischen Integrate 
+1[/2 
+1[/2 
+K(k) = J 
+dx 
+, 
+V 1 - k2 sin2 x 
+o 
+E(k) = J V1-k2 sin2 xdx (O::;k< 1) 
+o 
+, Programm Vollst.Ellipt.Integrale 
+--------------------------------
+C=(A-B)/2 
+Input "k";K 
+E=E+D*C*C 
+If K<l Then 
+A=Al 
+A=l 
+B=Bl 
+B=Sqr(l-K*K) 
+D=2*D 
+C=K 
+Until C<1.OE-09 
+D=2 
+Print "K(k)=";Pi/2/A 
+E=C*C 
+Print "E(k)=";Pi/2/A*(1-E/2) 
+Repeat 
+Else 
+Al=(A+B)/2 
+Bl=Sqr(A*B) 
+3. Die Kontur Z des Wanke/motors hat 
+die Form einer Hypozykloide. Sie ist 
+die Bahn des Punktes A, wenn der 
+Uiuferkreis KL auf dem (mit dem 
+Gehause G starr verbundenen) Kreis 
+KG abrollt. 
+a) Man bestimme die Parameterdar-
+stellung 
+x(t), y(t) 
+von 
+Z 
+mit 
+dem Winkel t gemaB Skizze. 
+Fiir welche Werte von alb Jiegen 
+die Punkte B und C eben falls 
+auf Z? 
+(Rollbedingung: at = bcp. 
+Beriihrbedingung: 0, ML , P auf 
+einer Geraden.) 
+Print "Fail" 
+Endif 
+End 
+b) Fiir a = 3, b = 2, d = 7 bestatige man 
+( ) 
+. 3 
+7' 1 
+x t = -
+Sill 2't + Sill 2't , 
+1 
+3 
+y(t) = 7 cos 2't-cos2't, 0 ~ t ~ 4n. 
+211 
+Man bestimme den Fliicheninhalt Fund den Umfang U von Z, indem man 
+U auf ein elliptisches Integral E(v'0.84) zuriickfUhrt und entweder den Tabel-
+len wert 1.1507... oder obiges Programm verwendet. 

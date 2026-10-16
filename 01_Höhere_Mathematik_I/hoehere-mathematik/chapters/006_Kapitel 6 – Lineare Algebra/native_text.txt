@@ -1,0 +1,6934 @@
+--- PDF page 266 ---
+Kapitel6 
+Lineare Algebra 
+Zur saehgereehten mathematisehen Behandlung zahIloser Probleme der Teehnik, 
+etwa zur Netzwerkbereehnung in der Elektroteehnik oder zur Bereehnung von 
+Faehwerken in der Statik, zur Lasung (Optimierung) von Transportproblemen, 
+zur qualitativen und quantitativen Diskussion meehaniseher dynamiseher Sy-
+sterne (Differentialgleiehungssysteme) bedient man sieh der Matrizenreehnung. 
+Eine zeitgemaBe Darstellung dieses Kalkiils erfordert einige Begriffe aus der 
+Theorie "abstrakter" Vektorraume, ohne die aueh die hahere Ingenieurmathe-
+matik heute nieht mehr auskommt. Die Grundlagen sollen aber weitgehend 
+reeht "konkret" dargestellt werden. 1m Vordergrund steht die Anwendung von 
+Matrizen bei linearen Gleiehungssystemen, linearen Abbildungen, Koordinaten-
+transformationen und quadratisehen Funktionen. 
+§ 1. Lineare Gleichungssysteme und Matrizen 
+1.1 Was ist eine Matrix? 
+Eine Matrix vom Typ m x n (oder eine m x n-
+Matrix) ist ein reehteekiges Zahlensehema der Form 
+(1) 
+(
+(XII 
+(X 12 
+(X2I 
+(X22 
+A = 
+.. 
+(Xml 
+(Xm2 
+(xln) 
+(X2n 
+(Xmn 
+Die Zahlen (Xij E IR heiBen Komponenten (oder Elemente) der Matrix A. Wir 
+sehreiben abkiirzend 
+(2) 
+A = «(Xij)mxn 
+oder nur A = «(Xij) , wenn der Typ feststeht. 
+Die m x I-Matrizen (bzw. 1 x n-Matrizen) heiBen Spaltenmatrizen oder Spal-
+tenvektoren (bzw. Zeilenmatrizen oder Zeilenvektoren), sie haben die Form 
+(Bei nur einer Zeile oder Spalte benotigt man i.a. keinen zusatzliehen Zeilenin-
+dex oder Spaltenindex.) Die Matrix A = «(Xij)mxn besteht aus m Zeilenvektoren 
+(mit je n Komponenten) 
+(1 :$; i :$; m) 
+K. Meyberg et al., Höhere Mathematik
+© Springer-Verlag Berlin Heidelberg 1998
+
+
+--- PDF page 267 ---
+§l. Lineare Gleichungssysteme und Matrizen 
+251 
+bzw. aus n Spaltenvektoren (mit je m Komponenten) 
+( 
+exlj ) 
+ex2j 
+si := 
+. 
+exmj 
+(1 ~ j ~ n) . 
+Je nachdem, ob wir die Zeilen oder die Spalten von A hervorheben wollen, 
+schreiben wir 
+( 
+ZI) 
+Z, 
+A = 
+-
+L 
+(Zeilendarstellung), bzw. A = (SI, S2, ... , SIl) (Spaltendarstellung). 
+Die (i,j)-Komponente exij gehort dem i-ten Zeilenvektor Zi und dem j-ten 
+Spaltenvektor Sj an. Man sagt, exij steht im Schnittpunkt der i-ten Zeile mit 
+der j-ten Spalte (i Zeilenindex, j Spaltenindex). Man kann zur Verdeutlichung 
+die Komponenten einer Matrix durch Kommata trennen, man mul3 es aber 
+nicht. 
+Zwei Matrizen A = (exu) , B = ({3ij) heil3en gleich, i.Z. A = B, wenn sie yom 
+gleichen Typ III x 11 sind und wenn aul3erdemexij = {3ij gilt fUr alle i,j mit 
+l~i~lIl, l~j~l1. 
+Beispiel. 
+Die Matrix A = (; ~ ~) ist yom Typ 2 x 3, sie hat die Zei-
+lenvektoren ZI = (1,3,5), Zz = (2,0,4) und die Spaltenvektoren SI = (;), 
+S2 = (~), S3 = (~) . Es gilt A = (; 
+.~ 
+~) genau dann, wenn x = I, 
+Y = 2, 'X = 3, U = 0, f = 5, t· = 4 (Komponentenvergleich). Man beachte 
+femer A + (; ~ ~ ~). 
+D 
+Die Menge aller m x I1-Matrizen mit Komponenten aus IR bezeichnen wir mit 
+IR"'XI', femer IR" := lR" xl (Spaltenvektoren), IRIl := IRlxlI (Zeilenvektoren). 
+1.2 Addition, Subtraktion und Multiplikation mit einem Zahlenfaktor. 
+Fur A = ('Xij) , B = ({3ij) aus lR"'xll und jede Zahl I. E IR sind die Summe 
+
+
+--- PDF page 268 ---
+252 
+6. Lineare Algebra 
+A + B und das ).-fache )A komponentenweise definiert: 
+(
+0(11 
+0(12 ... 0(111) 
+(P11 PI2 ... Pill) 
+O(~I 0(~2 •.. O(~" 
++ 
+P~I P~2 ... P~" 
+O(ml rxm2 ... rxmn 
+Pml Pm2 ... Pmn 
+(3) 
+( 
+rx11 + P11, 
+0(12 + PI2, ... , O(ln + Pin) 
+0(21 + P21, 0(22 + P22, ... , rx2n + P2n 
+,-
+. 
+. 
+. 
+. 
+. 
+. 
+. 
+. 
+. 
+O(ml + Pml , O(m2 + Pm2, ... , O(mn + Pmn 
+( 
+0(11 
+0(12 ... rxlll) 
+( 
+).rx11, Arx12, •• , , ).rxln ) 
+0(21 
+0(22 ..• rx21l 
+Arx21., ).rx22, .. , , ).0(211 
+). 
+.. 
+. 
+:= 
+.. 
+. 
+Q':~z1 !1.'~i2 ... !1.~m 
+;'(X~1l , ;.rx:1I2, ... , ;·!Xmn 
+Beispiel. 
+(4 3 2) (6 -3 
+10iJ.+2/3 
+(4 3 2) (2 
+0.5 
+1 0 iJ. 
+= 
+.! 
+2 
+D 
+Fur die n x I-Matrizen (Spaltenvektoren) UIid die 1 x n-Matrizen (Zeilenvekto-
+ren) sehen diese Verknupfungen wie folgt aus: 
+(4) 
+Aus 
+(
+iJ.l) 
+(/31) 
+(iJ.1 + /31) 
+(iJ.I) 
+(~iJ.l) 
+iJ.2 
+/32 
+iJ.2 + /32 
+iJ.2 
+)·iJ.2 
+· 
++ 
+. 
+= 
+. 
+,).. 
+., 
+· 
+. 
+. 
+. 
+. 
+· 
+. 
+. 
+. 
+. 
+iJ.n 
+/3n 
+iJ.n + /3n 
+iJ.n 
+AiJ.n 
+(iJ.I, iJ.2,···, iJ.n) + (/31, /32"", /3n) = (iJ.1 + /31, iJ.2 + /32, ... , iJ.n + /3n) 
+A(iJ.I,iJ.2, •.. ,iJ.n) = ().iJ.I,).iJ.2, ••. ,).iJ.n). 
+sieht man, daB sich jeder Spaltenvektor a E 1R.n eindeutig darstellen IaBt in der 
+Form 
+
+
+--- PDF page 269 ---
+§l. Lineare Gleichungssysterne und Matrizen 
+253 
+mit den Vektoren 
+Das System (el, ... , ell) der ej E lR" heiJ3t naturliche Basis des lR". Vollig 
+analog hierzu wird das aus 
+e'l := (1,0,0, ... ,0), 
+e;:= (0,1,0, ... ,0) , ... , 
+e;,:= (0, ... ,0,1) 
+bestehende System (e'I"'" e;,) von Zeilenvektoren des lR" die naturliche Basis 
+des IR" genannt. 
+(4) zeigt, daJ3 die Matrizenaddition und die Multiplikation mit Skalaren (Zah-
+lenfaktoren) spaltenweisc ausgefUhrt werden kann: 
+Fur A = (al,a:" ... ,a,,) und B = (bl,b2, ... ,bll) aus lR/ll XIl (mit den Spaltenvek-
+(oren aj, bj E lRlIl ) gilt 
+A + B = (al + bl,a2 + b2, ... ,an + bn ) , 
+;A = (l.al,).a2, ... ,;,all) . 
+(Analog fur Zeilen). Zu jeder Matrix A = (:Xjj)/llX" bezeichnet man (-I)A 
+(-:Xii) mit -A und erklart damit die Differenz zweier m x n-Matrizen 
+B-A :=B+(-A). 
+Die Matrix 
+(
+0,0, ... , 0) 
+0,0, ... , ° 
+0:=: 
+: 
+E lRlIlx" , 
+0,0, ... , ° 
+dercn samtliche Komponenten Null sind, heiBt Nul/matrix (vom Typ III X 11). Die 
+Nullmatrix 0 E IR" (bzw. 0 E lR,,) wird auch - den sonstigen Bezeichnungen 
+angepaBt - N ulh'cktor genannt. 
+Es ist klar, daB sich die Rechengesetze fUr Zahlen auf Addition, Subtraktion 
+und i,-fache von Matrizen ubertragen. Man bestatigt leicht die folgenden grund-
+legend en Rechenrege1n: 
+a) 
+A+B=B+A 
+fUr aile A, B E lR"IX" 
+b) (A + B) + C = A + (B + C) 
+fUr aile A, B, C E lR"'''' 
+c) 
+A+O=A 
+fUr aile A und der Nullmatrix 0 E lR"'Y" 
+d) 
+A+(-A)=O 
+fUr aile A E lR"'Y" 
+(5) 
+e) 
+(/,fl)A = i,(flA) 
+fUr aile i.,1' E lR, 
+A E lR..mxll 
+f) 
+lA = A 
+fii r aile A E lR'" '" 
+g) 
+(i, + fl)A = iA + flA 
+fi.ir aile i., I' E lR, 
+A,B E lRnlXI' 
+h) 
+;'(A + B) = )A + ;,B 
+fUr aile i. E lR, 
+A, B E lR"'''' . 
+
+
+--- PDF page 270 ---
+254 
+6. Lineare Algebra 
+1.3 Lineare Gleichungssysteme und Matrizen. 
+Augenfallig ist das Auftreten 
+von Matrizen in linearen Gleiehungssystemen. Ein lineares Gleichungssystern mit 
+rn linearen Gleiehungen flir n Unbekannte XI, •.• , Xn hat die Form 
+!X 11 XI + !X12X2 + ... + !XlnXn = /h 
+!X21 XI + !X22X2 + ... + !X2n X n = /h 
+(6) 
+!XmIXI + !Xm2X2 + ... + !XmnXn = 13m 
+mit den Koeffizienten !Xij E 1R und den Absolutgliedern 13i E 1R . 
+(Kommt eine Unbekannte in einer Gleiehung nieht vor, dann hat sie dort den 
+Koeffizienten 0.) Fur (6) sehreibt man 
+C 
+!X12 
+"'") C) (n 
+0(21 
+!X22 
+!X2" 
+X2 
+(7) 
+· 
+. 
+· 
+. 
+· 
+. 
+O(ml 
+!Xm2 
+O(m" 
+Xn 
+oder kurz 
+(8) 
+Ax =b 
+mit der Koeffizientenrnatrix A = (!Xij) E 1Rmxn , dem Spaltenvektor x mit den 
+unbekannten Komponenten Xi und dem Spaltenvektor b der reehten Seite. 
+In der i-ten Zeile der Koeffizientenmatrix stehen die Koeffizienten der i-ten 
+Gleiehung, die j-te Spalte von A "gehort" zur Unbekannten Xj (dort stehen 
+die Koeffizienten von Xj) ( 1 ::; i ::; rn, 1::; j ::; n). 
+Das lineare Gleiehungssystem (6) bzw. (8) heiBt hornogen, wenn b = 0 (d.h. 
+131 = 132 = ... = 13m = 0) gilt, andernfalls inhornogen. 
+Beispiel 1. 
+1m abgebildeten Netzwerk mit bekannten Widerstanden Ri Q gel-
+ten naeh den KIRCHHOFFsehen Gesetzen flir die geriehteten Gleiehstrome die 
+folgenden Bedingungen 
+II 
++ h 
+= I 
+h 
+-h -14 
+=0 
+I 
+II 
++h 
+-15 
+=0 
+- Rill + R2h + R3h 
+= 0 
+- R3h + ~I4 - R515 = 0 
+Abb. 137 - Stromkreis I 
+Die Koeffizientenmatrix hiervon lautet ("fehlende" Koeffizienten sind Null) 
+1 
+0 
+0 
+1 
+-1 
+-1 
+0 
+1 
+0 
+R2 
+R3 
+0 
+0 
+-R3 
+~ 
+o ) 
+o 
+-1 
+. 
+-~5 
+I 
+o 
+
+
+--- PDF page 271 ---
+§1. Lineare Gleichungssysteme und Matrizen 
+255 
+Beispiel 2. 
+Fiir die Bewegung eines Massenpunktes P seien die kartesischen 
+Koordinaten des Geschwindigkeitsvektors x, y, z in Abhangigkeit von den Orts-
+koordinaten x, y, z gegeben: 
+x(t) = 
+2x(t) + 3y(t) -
+z(t) 
+y(t) = 
+x(t) + y(t) 
+z(t) = -3x(t) + 5y(t) + 7z(t) . 
+Diejenigen Punkte, in denen die Geschwindigkeit .x = VI, Y 
+erreicht wird, berechnet man aus dem linearen Gleichungssystem 
+3 
+1 
+5 
+o 
+Ein Spaltenvektor c E lR" mit den Komponenten el, C2, ... , ell E lR heiBt eine 
+LOSllllg des Systems (6) bzw. (8), wenn fiir Xi = ei (1 ~ i ~ n) die m Gleichun-
+gen in (6) tatsachlich erfiillt sind; bzw. - was dasselbe ist - wenn Ac = b gilt. 
+Haufig wird eine Losung in der Form XI = el, X2 = e2, ... , X" = ell angegeben. 
+Ein homogenes System Ax = 0 besitzt stets mindestens eine Losung, namlich 
+die Nul/osting (oder triviale Lostlng) XI = X2 = ... = X" = O. 
+Nicht jedes System ist losbar. Es treten die drei folgenden Faile auf: 
+o Das Gleiciltlngssystem besitzt keine Lostlng. 
+Beispiel. 
+3xI + 2X2 = 1 
+3xI + 2X2 = 2 
+0 
+® Das Gleicilullgssystem besitzt genau eine Losung. 
+Beispiel. 
+3xI + 2X2 = 1 
+(.XI = 3, X2 = -4) 
+o 
+CD 
+Das Gleiclnlllgssystem besitzt unendlich viele Losungen. 
+Beispiel. 
+3xI + 2X2 = 1 
+Fiir jede Zahl ;. ist XI = ~(1 - 2;.), X2 =;. eine Losung. 
+o 
+Zwei lineare Gleichungssysteme Ax = b, Ex = c fiir XI, ... , Xn (nicht notwen-
+dig mit derselben Anzahl von Gleichungen) heiBen iiquivalent, wenn sie dieselbe 
+Losungsmenge besitzen. 
+Ein nach CARL FRIEDRICH GAUSS (1777-1855) benanntes Losungsverfahren ba-
+siert auf der Beobachtung, daB bei folgenden Umformungen das Gleichungssy-
+stem (6) in ein dazu aquivalentes iibergeht: 
+CD Vertauschung zweier Gleichungen. 
+G) Multiplikation einer Gleichung mit einer Zahl 
+C( =1= o. 
+G) Addition (bzw. Subtraktion) des Vielfachen einer Gleichung zu (bzw. von) 
+einer anderen. 
+Da diese Umformungen mit Umformungen vom gleichen Typ riickgangig ge-
+macht werden konnen, andern sie nichts an der Losungsmenge. 
+
+
+--- PDF page 272 ---
+256 
+6. Lineare Algebra 
+Diese Umformungen werden iibersichtlicher, wenn sie an der sogenannten 
+erweiterten KoeJfizientenmatrix 
+(9) 
+( 
+IXIl 
+1X21 
+(Alb) := 
+: 
+IXml 
+IXm2 
+ausgeftihrt werden. Man erweitert A urn die von den anderen Koeffizienten 
+durch einen senkrechten Strich getrennte Spalte der Absolutglieder. 
+Die den Gleichungsumformungen CD, 0, CD entsprechenden Veranderungen 
+der Matrix (Alb) heiBen elementare Zeilenumformungen, das sind: 
+CD Vertauschen zweier Zeilen. 
+o Multiplikation einer Zeile mit einer Zahl IX 1- o. 
+CD Addition (bzw. Subtraktion) des IX-fachen einer Zeile zu einer anderen. 
+Also gilt 
+Entsteht (Blc) aus (Alb) durch endlich viele elementare Zeilen-
+umformungen, dann sind Ax = b und Bx = c aquivalent. 
+1.4 Das Gau8'sche Losungsverfahren. 
+1) Das homogene System Ax = O. In diesem Fall formen wir nur die "einfache" 
+Koeffizientenmatrix 
+A = (~~: 
+~~~ 
+~~: ) 
+IXm I 
+IXm2 
+IXmn 
+urn, die rechte Seite des Gleichungssystems bleibt ja bei den Umformungen CD, 
+0, CD konstant gleich 0 (Nullvektor). Das GauB-Verfahren (die sogenannte 
+GaufJ'sche Elimination) besteht aus zwei Teilen 
+o der Vorwartselimination, 
+® der Riickwartssubstitution. 
+o Die Vorwirtselimination. Man bringt durch eventuelle Zeilenvertauschung 
+eine Zahl 1- 0 an die erste Stelle der ersten Spalte und annulliert die darun-
+terstehenden Zahlen durch Subtraktion eines passenden Vielfachen der neuen 
+ersten Zeile von der zweiten, dritten, ... . D.h., ist - nach eventuell vorherge-
+hender Zeilenvertauschung -
+IXll 1- 0, dann subtrahiert man das 
+1X21 -fache der 
+IX 11 
+ersten Zeile von der zweiten, das :31 -fache der ersten Zeile von der dritten, etc. 
+"'11 
+
+
+--- PDF page 273 ---
+§1. Lineare Gleichungssysteme und Matrizen 
+257 
+Auf diese Weise entsteht aus A eine Matrix B der Form 
+B= (w· ~:::~::::::) 
+(.* * * 
+*) 
+00···0**···* 
+:: :::: 
+Al 
+.. 
+... 
+. 
+00···0**···* 
+mit einer (11l-I)xll-Matrix AI, deren vordere s Spalten Null sind, s ~ 1 (beim 
+ersten Eliminationsschritt konnen unter Umstanden auch in anderen Spalten un-
+terhalb der ersten Zeile lauter Nullen entstehen). An der • -Stelle steht eine Zahl 
+=/= 0, tiber die an den *-Stellen stehenden Zahlen wird nichts Naheres gesagt. 
+1m Fall Al = 0 (Nullmatrix) ist die Elimination bereits beendet. Andernfalls 
+( A I =/= 0) wiederholt man im 2. Elimillationsschritt denselben Rechenschritt an 
+der ersten von Null verschiedenden Spalte von A I (die erste Zeile von B bleibt 
+unverandert), etc., bis man nach hochstens m - I-Eliminationsschritten zu einer 
+Ma trix M gelangt, die eine sogenannte Zeilenstulenlorm besitzt: 
+* ... * . .. * 
+* 
+" . * . .. * 
+r 
+(10) 
+M= 
+0 
+0 
+o 1 • * ... *1 
+0 
+0 
+0 0 
+0 
+}m-r 
+0 
+0 
+0 0 
+0 
+Es stehen an den. -Stellen Zahlen =/= 0, an den *-Stellen irgendwelche sich aus 
+der Rechnung ergebenden Zahlen, an allen anderen Stellen in M nur die Null. 
+Kennzeichen der Zeilenstufenform: 
+• In jcder Zeile stehen links vor • nur Nullen. 
+• Liest man von oben nach unten, so rtickt • pro Zeile urn mindestens eme 
+Stelle nach rechts. 
+Das homogene Gleichungssystem Mx = 0 ist aquivalent zu Ax = O. 
+® Die Riickwlirtssubstitution eriautern wir zuerst an einem Beispiel. Aus A sei 
+durch Vorwartselimination (elemcntare Zeilenumformungen) die folgende Ma-
+trix entstanden: 
+M= 
+
+
+--- PDF page 274 ---
+258 
+6. Lineare Algebra 
+Das Gleichungssystem Mx = 0 lautet explizit 
+(11 ) 
+XI - 2X2 + 3X3 + 4X4 + 2X5 = 0 
+2X3 + X4 - 4X5 = 0 
+-
+X4 + 3X5 = 0 
+Es beschreibt nur die Abhangigkeit der zu den. -Stellen geh6renden Unbekann-
+ten XI, X3, X4 (man nennt sie die abhiingigen Variablen) von X2, X5, die man 
+nun, da sie keiner weiteren Bedingung unterworfen sind, als unabhiingige Varia-
+ble (oder freie Parameter) ansieht, die jeden beliebigen Wert annehmen k6nnen. 
+Wir setzen 
+(Ai E 1R varia bel) , 
+bringen im Gleiehungssystem Mx = 0 die freien Variablen auf die reehte Seite 
+XI + 3X3 + 4X4 = 2X2 - 2X5 = 2AI - 2A2 
+2X3 + X4 = 4X5 
+4).2 
+X4 = 3X5 
+3).2 
+und berechnen daraus der Reihe nach (von unten naeh oben) X4, X3, xI in 
+Abhangigkeit von ).1, ).2. 
+X4 = 3).2, x3 = ~)'2' XI = 2AI - 15.5A2 . 
+Die derart bestimmte (parameterabhangige) L6sung 
+(
+~~) 
+(2)'I-A~5.5A2) ,(;) 
+(-lg.5) 
+X3 
+= 
+0.5A2 
+= ).1 
+0 + A2 
+0.5 
+X4 
+3).2 
+0 
+3 
+x5 
+).2 
+0 
+1 
+().I, ).2 E 1R) heiBt allgemeine Losung, jede spezielle Wahl der Parameter ).1, ).2 
+ergibt eine spezielle (oder partikuliire) L6sung. So ergibt etwa AI = 1, A2 = 0 
+die spezielle L6sung XI = 2, X2 = 1, X3 = X4 = X5 = O. 
+0 
+Allgemein: 
+• 
+Die in (10) zu den Spalten ohne • -Stelle geh6renden Unbekannten sind die 
+freien Variablen, sie werden der Reihe naeh gleieh AI, ).2, ... , ).n-r gesetzt. 
+• 
+1m (10) zugeordneten Gleiehungssystem bringt man die freien Variablen 
+auf die reehte Seite, ersetzt sie dureh den ihnen zugewiesenen "Wert" Ai und 
+berechnet der Reihe naeh von unten nach oben die zu • -Stellen geh6renden 
+abhiingigen Variablen (in Abhangigkeit von ).1, A2, ... , An-r). Die derart be-
+stimmte L6sung heiBt allgemeine Losung des Systems, jede spezielle Wahl flir 
+die ).1, ... , )'n-r ergibt eine spezielle (oder partikuliire) L6sung. 
+Beispiel. 
+XI -4X2 +2X3 
+= 0 
+2xI - 3X2 -
+X3 -
+5X4 = 0 
+3xI -
+7x2 + X3 - 5X4 = 0 
+X2 -
+X3 -
+X4 = 0 
+
+
+--- PDF page 275 ---
+§1. Lineare Gleichungssysteme und Matrizen 
+259 
+Die Gau13-Elimination fiihrt von der Koeffizientenmatrix 
+-4 
+2 
+-3 -I 
+-7 
+I 
+-I 
+-~) 
+-5 
+-I 
+( OJ -4 2 0) 
+_ 
+0 OJ -I -I 
+zu M-
+0 
+0 
+0 
+0 
+o 
+0 
+0 
+0 
+Die Unbekanntcn X3, X4 sind frei wahlbar: X3 = /,1, X4 = ;.2 . Die Riickwarts-
+substitution ergibt 
+Die allgemeine Lasung lautet 
+Spezielle Parameterwcrte ergeben spezielle Lasungen. 
+o 
+Man nennt die Anzahl der von Null verschiedenen Zeilen (also die Anzahl 
+der • -Stellen) in der aus A mitteIs Gau13-Elimination erzielten Zeilenstufen-
+matrix M 
+(--> (10) 
+den Rang von A, i.Z. Rang A. 
+In §4 wird gezeigt, 
+da13 Rang A nur von der Matrix A und nicht von den speziellen Eliminati-
+onsschritten abhangt. 
+Satz 1.1. n - Rang A Variable frei wiihlbar. 
+Sei A E IR"'xl! . 
+a) 
+Das homogene Gleichungssystem Ax = 0 hat genau dann als einzige Losung 
+XI = ... = XI! = 0, wenn Rang A = n gilt ( n = Anzahl der Unbekannten). 
+b) 
+Die allgemeine Losung des linearen Gleichungssystems Ax = 0 enthalt 
+II - Rang A freie Variahle. 
+c) 
+1st die Anzahl der Gleichungen kleiner als die Anzahl der Unhekannten 
+(111 < 11) , dal1n hesitzt Ax = 0 VOIl Null verschiedene LOsullgen. 
+Bcweis. 
+b): Es gibt II -
+Rang A Spalten in M ohne. -Stelle. Jede der zu 
+diescn Spaltcn geharenden Varia bIen ist ,,frei". 
+a): Gibt es in jeder Spalte cine. -Stelle (d.h. Rang A = n), dann gibt es keine 
+freie Variable, die Riickwartssubstitution zeigt XI! = 0, XI! I = 0, ... , XI = o. 
+c): Aus Rang A :s; III (--> (10») und m < 11 folgt Il -
+Rang A ;::. Il -
+m ;::. I. 
+Also enthalt die allgemeine Lasung von Ax = 0 wenigstens eine freie Variable, 
+etwa XI- = i. Die Wahl J. = I ergibt die von Null verschiedene Lasung XI 
+* , ... , Xk = 1 , ... , X/I == * . 
+D 
+2) Das inhomogene lineare Gleichungssystem Ax = b. 
+In diesem Fall besteht der Lasungsweg aus drei TeiIen: 
+(0 der Vorwartselimination an der erweiterten Matrix (Alb), 
+G) einer Lasbarkeitsentscheidung, 
+(0 der Riickwartssubstitution. 
+
+
+--- PDF page 276 ---
+260 
+6. Lineare Algebra 
+o Die erweiterte Koeffizientenmatrix (Alb) wird mittels GauB'seher Elimina-
+tion (~ 1) in (Mid) umgewandelt, mit M in Zeilenstufenform. 
+• * * * * * . .. * ... * bl 
+* ... * 
+(12) 
+(Mid) = 
+0 
+0 
+0 • * . .. * 
+br 
+0 
+0 
+0 0 
+0 
+br+1 
+0 
+0 
+0 0 
+0 
+brn 
+® Die Losbarkeitsentscheidung. 1st eine der Zahlen br+ I, ... , brn in (12) von 
+Null versehieden, etwa naeh Zeilenvertausehung br+1 1- 0, dann ist Mx = d, 
+also aueh Ax = b, nieht lOsbar. Denn die (r + l)-te Gleiehung in Mx = d gibt 
+den Widersprueh 
+OXI +"'+Oxn =br+1 1-0. 
+1m Fall br+1 = ... = brn = 0 bereehnet man die Losungen mittels 
+o Riickwiirtssubstitution, vollig analog wie im homogenen Fall. Dieser Sehritt 
+kann dadureh vereinfaeht werden, daB man zuerst die spezielle (partikulare) 
+Losung Vo E IRn bereehnet, in der die freien Variablen samtlieh den Wert Null 
+haben, und dann die allgemeine Losung des homogenen Systems Mx = 0 be-
+stimmt. Denn es gilt 
+Satz 1.2. 
+Sei A E IRrnxn , b E IRnI . 
+a) Losbarkeitstest. Das inhomogene lineare Gleichungssystem Ax = b ist genau 
+dann iOsbar, wenn gilt 
+Rang (Alb) = Rang A . 
+b) Struktur der Losungsmenge. 1st das System Ax = b iOsbar, dann liijJt sich die 
+allgemeine Liisung darstellen in der Form 
+v = Vo + u 
+mit einer speziellen Liisung Vo und der allgemeinen Losung u des zugehorigen 
+homogenen Systems. 
+c) Anzahl der freien Variablen. 1st Ax = b iOsbar, dann enthiilt die allgemeine 
+Losung (n - Rang A) freie Variable (n = Anzahl der Unbekannten). 
+Beweis. a): Die Bedingung br+1 = .. , = brn = 0 (~ (12» ist gleiehbedeutend 
+damit, daB die aus A und (Alb) erzielten Zeilenstufenmatrizen eine gleiehe 
+Anzahl von. -Stellen besitzen, also mit Rang A = Rang (Alb) . 
+b): Mit Au = 0 und Avo = b gilt aueh A(vo + u) = b und andererseits folgt aus 
+Av = b, Avo = b, daB die Differenz u := v - Vo das homogene System Ax = 0 
+lost. e) folgt aus Teil b) und Satz 1.1. 
+0 
+
+
+--- PDF page 277 ---
+§t. Lineare Gleichungssysteme und Matrizen 
+Beispiel 1. 
+Die KIRCHHOFFschen Regeln fUr elektrische Stromkreise lauten: 
+D · S 
+d 
+{ 
+Teilstrome in jedem Knoten }. N II 
+Ie 
+umme er T'I 
+. . d 
+M 
+h 
+1St 
+u. 
+1 el spannungen In Je er 
+asc e 
+Urn das lineare Gleichungssystem fur die 
+fUnf Teilstrome des skizzierten Gleichstrom-
+kreises fUr R = 300n, U = V = 300V, 
+u 
+W = 200 V zu bestimmen, wahlen wir die 
+~ 
+Stromrichtung wie skizziert. 
+Von den drei Knotenbedingungen lauten 
+zwei: 11+h-Ic-1s =0 und h+14-15 =0. 
+Dazu nehmen wir drei Maschenbedingun-
+gcn: 1,R-W+1sR=0, 3R11-U-V+ 
+RIc = 0 und V + W - 1,R - 12R + 214R = 
+O. 
+AIle weiteren moglichen Bedingungen 
+R 
+R 
+v 
+Abb. 138 - Stromkreis 2 
+261 
+R 
+hangen linear von diesen 5 Gleichungen abo Mit den gegebenen Zahlenwerten 
+erhiilt man fUr die fUnf Strome in der Mal3einheit Ampere das Gleichungssystem 
+o 
+1 
+o 
+o 
+-I 
+-I 
+600 
+-1 
+o 
+o 
+300 
+300 
+1 
+300 
+o 
+300 -600 
+300 
+o 
+o 
+2~0) . 
+500 
+Der Eliminationsschritt (0 liefert 
+[~ 
+-I 1 
+0 -1 
+o ) 
+1 
+-2 
+0 
+5/3 
+0 
+1 
+1 -I 
+-~/3 
+0 
+0 
+1 -2 
+0 
+0 
+0 
+8/39 
+Das Gleichungssystem hat also eine eindeutige Losung 
+1 
+(l1,hhh 1s) = 39(17,27,18,-10,8) . 
+Beispiel 2. 
+Auf das skizzierte ebelle 
+Fachwerk mit 4 Staben und 4 Kno-
+-----+ 
+-----+ 
+ten wirken zwei Krafte P 
+und Q 
+ein, sie rufen in jedem Stabende eine 
+Reaktion in Richtung des Stabes her-
+vor; in den festen Auftagcrn CD und 
+---+ 
+---+ 
+8) sind 
+A 
+bzw. 
+B 
+die Reaktio-
+nen. 
+Die Gleichgewichtsbedingungen 
+lauten 
+A 
+-B 
+~y 
+·0 
+~ 
+D6-----b->:: 
+Abb. 139 - Ebenes Fachwerk 
+D· S 
+II {aut eillen Knotell} 
+. k 
+d 
+K Ii . N II 
+Ie 
+umme a er 
+. 
+wlr en ell 
+ra te 1St 
+u. 
+in einem Stab 
+D 
+p 
+
+
+--- PDF page 278 ---
+262 
+6. Lineare Algebra 
+Sie liefern ein lineares Gleiehungssystem fUr die Komponenten der Lagerreak-
+tionen und die skalaren Stabkrafte Si (Si > 0 : Zugstab, Si < 0 : Druekstab): 
+KnotenG) 
+S, (_ ~) + S4 ( ~) + P = 6 
+S, (~) + S2 ( ~) + Q = 6 
+S2 ( - ~ ) + S3 (~) + A = 6 
+S3 ( _ ~) + S4 ( - ~ ) + B = 6 
+KnotenG) 
+KnotenG) 
+Knoten0 
+o 
+0 
+0 
+1 0 0 0 0 
+-~ 
+-1 
+0 
+0 
+0 0 0 0 0 -P2 
+o 
+1 
+0 
+0 0 0 0 0 -QI 
+d.h. 
+1 
+0 
+0 
+0 0 0 0 0 -Q2 
+o -1 
+0 
+0 
+1 0 0 0 
+0 
+001001000 
+o 
+0 
+0 -1 0 0 
+1 0 
+0 
+o 
+0 -1 
+0 0 0 0 
+0 
+Elimination liefert hieraus 
+1 0 0 0 0 0 0 0 
+P2 
+o 1 0 0 0 0 0 0 
+-QI 
+001001000 
+o 0 0 
+1 0 0 0 0 
+-PI 
+o 0 0 0 
+1 0 0 0 
+-QI 
+000001010 
+o 0 0 0 0 0 
+1 0 
+-~ 
+o 0 0 0 0 0 0 0 P2 + Q2 
+mit dem Unbekanntenvektor 
+x = (S"S2,S3,S4,A"A2,B"B2). 
+Der Rang der Matrix A des Systems ist stets 7. Man hat also zwei FaIle zu 
+unterseheiden: 
+a) 
+P2 + Q2 1- 0: Rang (Alb) = 8 > Rang A, das System ist nicht lOsbar: Die 
+--
+--
+. 
+. 
+Resultante von P und Q bes,tzt eme Komponente 1- 0 in y-Riehtung, 
+die nieht auf die Lager iibertragen werden kann; 
+das Stabwerk ist kinematisch unbestimmt. 
+b) 
+P2 + Q2 = 0: Rang (Alb) = 7 = Rang A. Es existiert eine einparametrige 
+Losungsschar : 
+nD~(~:)+l(-D; nD (=t:)+lG) 
+A" 
+B" 
+S" 
+S2 und S4 sind eindeutig bestimmt; wegen der festen 
+--
+--
+Einspannung kann S3 und A2 nieht eindeutig aus P und Q bestimmt 
+werden; 
+das Stabwerk ist statisch unbestimmt. 
+o 
+
+
+--- PDF page 279 ---
+§t. Linearc Glcichungssysteme und Matrizcn 
+Aufgaben 
+1. 
+Man lose die linearen Gleiehungssysteme 
+a) 
+5x -
+7y 
+3 
+-lOx + 14y = -6 
+c) 
+x + 2y + 3:: = 
+4 
+4x + 5y + 6:: = 0 
+7x + 8.1' + 9:: = 
+4 
+el 
+XI 
++ x) -
+X4 + 4.y, = 2 
+2xI + 
+X2 + X) + 
+X4 -
+x, = 5 
+XI + 2x. + 3X3 + 8X4 + X, = 1 
+3\1 -
+3X2 + x) -
+18x4 + 9X5 = 8 . 
+b) 
+2x 
+z 
+2x + 4y 
+z 
+-x + 8y + 3z 
+d) 
+XI + 2X2 + 
+X3 
+2xI + 
+X2 + 
+X3 
+XI + 2X2 + 2X3 
+XI + 
+Xl + 
+X3 
+263 
+2 
++ 
+X4 = 0 
++ 2X4 = 0 
++ 
+X4 = 0 
++ 
+X4 = 0 
+Man bestimme - abhangig von 
+Y. 
+- siimtliehe Losungen des linearen Gleiehungssy-
+stems im JR4: 
+al 
+(
+1 1 3/2 
+2 
+2 3 7/2 
+3 
+3 2 Y. + 4 6y. + 7 
+bl 
+XI + X2 + x) + X4 = 
+Y. 
+XI -
+X2 -
+X) -
+X4 = 
+Y. -
+4 
+XI + X2 -
+X) -
+X4 = 
+Y. + 1 
+45 
+7 
+30 
+3xI + X2 + X) -
+X4 = 
+0 
+3. 
+1m skizzierten Quadrat ist in den 8 Kastehen 
+mit * eine reelle Zahl einzusetzen, so daf3 die 
+3 Zeilensummen, die 3 Spaltensummen und 
+die Diagonalsummen den Wert 15 haben. 
+* 
+* 
+* 
+4. 
+Fur welehe Werte von t sehneiden sieh die vier Ebenen im JR3 : 
+9 * 
+* * 
+* * 
+.I' +:: = 0 : 
+2x - y +:: = 0 : 
+X + y = 2t : 
+2(x - y) + t(:: + 1) = 0 '? 
+" 
+5. 
+Man sehreibc das lincare Gleiehungssystem L(i - k)xi = 1, k = 
+1,2, ... ,11 in 
+i=i 
+Matrizenform explizit aus und bestimme dureh Gauss-Elimination die allgemeine 
+Uisung fUr 
+11 = 1, 11 = 2. 11 = 3 . 
+6. 
+Man bestimme reelle Zahlen Xi 
+(0 ::; i ::; /l + 1) , fUr die gilt 
+Xo=O. 
+x,_1-2xi+Xi+I=0 (l::;i::;I1), 
+x".,.I=1 
+7. 
+Dil11ellsiollsa/la/yse des Striil11ul1gswiderstalldes eilles Schifles. 
+1m egs - Maf3system gilt fUr die Einheiten: 
+Diehte des Wassers 
+p 
+Sehiffsgeschwindigkeit r 
+benetzte Oberftiiche 
+0 
+Schiffsmasse 
+111 
+Bremsverzogerung 
+b 
+Welche Formeln des Typs 
+cm 
+cml , 
+cm-
+cmO 
+cml 
+3 gl seeO 
+gO sec· I 
+gO secO 
+gl secD 
+gO sec -2 
+p' l'f! 0; /11" bF = K 
+sind vom Maf3system her moglich, wenn K eine dimensions lose Zahl sein soli ~ 
+Welche Formeln ergeben sich fUr die Widerstandskraft W = I11b ? 
+
+
+--- PDF page 280 ---
+264 
+6. Lineare Algebra 
+8. a) Fur das skizzierte Fachwerk mit 7 
+Staben und 5 Knoten stelle man 
+(-+ Beisp. 2) das lineare Glei-
+chungssystem flir die 10 skalaren 
+GroBen SJ, ... , S7, AI. BJ, B2 auf 
+(A 2 =0). 
+b) Wie lautet die Losung flir P, = 
+ION, P2 = 20N, P3 = 30N . 
+c) Man lOse das Gleichungssystem 
+flir allgemeine Lasten P" 
+P2 , P3 
+und lese die 7 x 3-Matrix E der 
+EinflujJzahlen ab, so daB 
+9. Der Massenausgleich 2. Ordllung einer k-Zylindermaschine liefert flir die Impulse 
+(11), (I 2) und die Momente (M 1), (M 2) der 1. und 2.0rdnung die Bedingungen: 
+(Kurbelwinkel X;, Massen m; > 0, Massenschwerpunkt in z = 0; Z; oF zi fiir i oF j , 
+k> 1.) 
+k 
+k 
+(II) Lm;sin:x; =0. Lm;cos:x; =0. 
+;=1 
+i=l 
+k 
+k 
+(12) Lm;sin2:x;=0. Lm;cos2:X;=0. 
+;=1 
+;=1 
+\ 
+• 
+I 
+, 
+\ ' 
+....... .1', ex ,ex 
+2 
+5 
+k 
+k 
+(MI) Lm;::;sin:x; = O. Lm;z;cos:x; = o. 
+;=1 
+i=l 
+k 
+k 
+(M2) L m;::; sin 2:x; = o. L m;z; cos 2:x; = 0 . 
+;=1 
+;=1 
+z 
+k=6 
+a) Wie lautet die Matrix A des homogenen linearen Gleichungssystems, das die 
+Vektoren m = (mJ, ... ,m.) und rnz = (m,zJ, ... ,mkzd erflillen mussen? Warum 
+ist rnz nie ein Vielfaches von rn? Welchen Rang darf A bei Massenausgleich 
+hochstens haben? 
+b) Bestimme A, Rang A und lose Ax = 0 flir die 2 Faile: 
+4 Zylillder: Zundfolge 1 - 3 - 4 - 2, X, = X4 = 0; 0(2 = 0(3 = 1800 
+; 
+6 Zylillder: Ziindfolge 1 -5 - 3 - 6 - 2 - 4, 0(, = 0(6 = 0; 0(5 = 0(2 = 1200
+; 
+X3 = 
+X4 = 240". 
+1st in beiden Fallen Massenausgleich zweiter Ordnung moglich? 
+c) Gibt es flir den ublichen Aufbau einer Vierzylindermaschine 
+
+
+--- PDF page 281 ---
+§2. Die Matrizenmultiplikation 
+Kurbelwinkel (X;, so daB Massenausgleich zweiter Ordnung vorliegt? 
+to. FUr den skizzierten Wechselstromkreis stelle 
+man das komplexwertige lineare Gleichungs-
+system fUr die 3 Teilstrome ii, i2 , 
+i3 auf 
+und lose es fUr die aufgepragten Quellstrome 
+i" und ih. 
+11. Numerische Problematik bei linearen Gleichungssystemen 
+a) Man lose 
+( 1044.005 696) (X) = (696) 
+174 
+116 
+Y 
+116' 
+b) Man ,Jose" mit dem Taschenrechner 
+( 1044.0045 
+696.0028) (X) = (696.0034) 
+174.0008 
+116.0005 
+Y 
+116.0006' 
+c) Die Losung von b) erfUllt gleichzeitig die beiden linearen Gleichungssysteme 
+( 1044 696) (X) = (696) . 
+174 116)' 
+116' 
+Man bestatige dies, bestimme diese gemeinsame Losung und lOse damit b). 
+§2. Die Matrizenmultiplikation 
+265 
+2.1 "Zeile mal Spalte". 
+Das Produkt ab eines Zeilenvektors a E lR" und 
+eines Spaltenvektors b E lR" (beide mit n Komponenten (XI, (X2, ... , (x" bzw. 
+fJlo fJ2,'''' fJ" ) ist definiert durch 
+" 
+(I) 
+:= (Xlfil + (X"fi2 + ... + (Xllfill = I (X;fi; 
+;=1 
+Beachte: 
+Das Produkt "Zeile mal Spalte" ist eine Zahl. 
+o 
+Beispiel 2. 
+Eine lineare Gleichung (XIXI + (X2X2 + ... + (X"Xn = {3 schreibt man 
+kurz als Produkt a x = {3, mit dem Zeilenvektor a = (!XI, •.. , !Xn) und dem 
+Spaltenvektor der Unbekannten x. 
+0 
+
+
+--- PDF page 282 ---
+266 
+6. Lineare Algebra 
+Man verifiziert miihelos die folgenden Rechengesetze: 
+(al + a2)b = al b + a2b, 
+a(b, + b2) = ab, + ab2 
+(2) 
+a(ab) = (aa)b = a(ab) , 
+fUr aile a, a I, a2 E 1Rn (Zeilen), 
+b, bl, b2 E 1R n (Spalten), 
+a E 1R . 
+2.2 Die Multiplikation zweier Matrizen. 
+Das Produkt einer m x n-Matrix 
+mit einer n x r-Matrix 
+B = ({3U)nxr = (Sj, S2,"" sr) 
+ist definiert durch 
+("" 
+Zj S2 
+Z2Sj 
+Z2S2 
+(3) 
+AB:= 
+zl1:Sj 
+Z/IlS2 
+(Zeilendarstellung, -> 1.1) 
+(SpaJtendarstellung, -> 1.1) 
+'''') 
+Z2Sr 
+: 
+E 1R/IlXl . 
+... 
+ZmSr 
+Die i-te Zeile von AB ist (ZiSj, ZiS2, ... , ZiSr) (1 ssm), die j-te Spalte 
+Z2 Sj 
+( 
+ZjSj ) 
+(1 s j s r). Demnach berechnet sich die (i,j)-Komponente von 
+ZI1~Sj 
+AB = (eli )/Ilxr nach der Vorschrift "i-te Zeile mal j-te SpaJte" : 
+(4) 
+Beachte: 
+AB ist nur erkIart fUr A E 1R/Ilxn und B E 1Rnxr , d.h." SpaJtenzahl 
+von A = Zeilenzahl von B". In diesem Fall liegt AB in 1Rmxr. 
+Man sagt kurz: 
+" m x n mal n x r ergibt m x r " . 
+Beispiel. 
+(
+~ ~ ~ 0 
+004 1 
+2 0 
+0 
+17) 
+to 
+7 
+. 
+17 
+o 
+
+
+--- PDF page 283 ---
+§2. Die Matrizenmultiplikation 
+267 
+1 
+SI 
+.. . Sj ... Sr 
+1 
+ZI 
+ZISI 
+~ 
+ZISr 
+--> Zj --> = 
+ZjSj 
+ZI1l 
+ZI1IS1 
+zl1Is,. 
+Abb. 140 - Schema der Matrizenmultiplikation. 
+Die in (3) enthaltenen Sonderfalle r = 1 bzw. m = 1 stellen Wlr gesondert 
+heraus: 
+Fiir A E IRI1IXII , S E 1R" bzw. B E lR"xr , Z E IRII gilt 
+(5) 
+( 
+ZIS) 
+Z'S 
+As = 
+~ 
+, 
+Z,:,S 
+Damit ergibt sieh die iibersiehtliehe Spalten- bzw. Zeilendarstellung des Produkts 
+(--> (3)) 
+(6) 
+( ZIB) 
+Z2 B 
+AB =(AsI,As2, ... ,Asr)= 
+: 
+' 
+zlIIB 
+wenn A die Zeilen Zj 
+(l:-::; i :-::; m) und B die Spalten Sj 
+(l:-::; j :-::; r) hat. 
+2.3 Rechenregeln. 
+Das fUr A = (~jj)I1IXIi und den Spaltenvektor x E IRn mit 
+(5) und (l) explizit bereehnete Produkt Ax lautet 
+(7) 
+( 
+~ll 
+~21 
+()(,~" 
+~III) (XI) 
+( ~llXI + ()(12X2 + ... + ()(IIIXIl ) 
+~211 
+X2 
+()(21 Xt + ~22X2 + ... + ()(21l X n 
+()(':III 
+.~Il 
+= 
+()(IIII X I + ()(m2 X 2: + ... + ()(mnXn 
+:<m2 
+In der bisher nur als Abkiirzung verstandenen Sehreibweise Ax = b fUr ein li-
+neares Gleiehungssystem, erhiilt die linke Seite jetzt mit (7) die riehtige Deutung. 
+Die reehte Seite in (7) kann man aueh sehreiben als Xtal + ... + xilan mit den 
+Spaltenvektoren aj von A. Also gilt fUr A = (al, ... , all) E IRrnxn, x E IRn die 
+niitzliehe Multiplikationsformel 
+(8) 
+I Ax = Xlal + X2a 2 + ... + Xnan . I 
+
+
+--- PDF page 284 ---
+268 
+6. Lineare Algebra 
+Hierin x = ej (d.h. Xj = 1, Xj = 0 fUr j =1= j) eingetragen, zeigt 
+(9a) 
+Aej = aj 
+(i-te Spalte von A, 
+1:<:;; i :<:;; n) . 
+Ebenso erhiilt man 
+(9b) 
+(i-te Zeile von A, 
+1:<:;; i :<:;; m) , 
+wobei e; = (0, ... , 0, 1,0, ... ,0) mit 1 an der i-ten Stelle. 
+Die Matrix 
+En := (~ .~ .::.-~) E 1R.nxn 
+: .. ·.0 
+o ... 0 1 
+hei13t n X n-Einheitsmatrix, sie hat die Spaltendarstellung En = (eJ, ... , en) mit 
+den Vektoren ej der natiirlichen Basis des 1R.n. Besteht keine Unklarheit iiber 
+n, dann schreiben wir kurz E statt E/I. 
+Satz 2.1. Rechenregeln. 
+Fur aile Matrizen A,AI,A2 E 1R.mxn. B,BI,B2 E 1R.nxr. 
+C E 1R.rx., gilt: 
+a) 
+b) 
+c) 
+d) 
+e) 
+(AI + A2)B = AlB + A2B , 
+a(AB) = (aA)B = A(aB) 
+A(BC) = (AB)C , 
+EmA = AEn = A . 
+Aber 
+im 
+allgemeinen 
+AB =1= BA . 
+A(BI + B2) = ABI + AB2 , 
+(a E 1R.) , 
+Beweis. 
+Direktes Nachrechnen (wird vereinfacht mit (3), (2), (6) und (9)). 
+0 
+Wiederum gewiihrleisten diese Rechenregeln, da13 man im wesentlichen wie ge-
+wohnt mit Matrizen rechnen kann. Wegen c) kann man in einem Matrizen-
+produkt mit mehr als zwei Faktoren auf Klammerungen verzichten: ABC := 
+(AB)C = A(BC), ABCD := (AB)(CD) = «AB)C)D = .... Das Matrizenpro-
+dukt ist aber nicht kommutativ; d.h., im allgemeinen gilt AB =1= BA, selbst wenn 
+beide Produkte erkliirt sind (-+ Aufg. 1). Fiir die aus lauter Nullen bestehende 
+Matrix 0 (vom geeigneten Typ) gilt selbstverstiindlich OA = AO = O. Ferner 
+gilt: 
+fUr aIle Aj E 1R.mxn, Bj E 1R.nxr, aj, {1j E 1R.. 
+Auch fUr die Potenzen Ak einer (quadratischen) n x n-Matrix 
+AO := E, Ak+l := Ak A 
+(d.h. Ak = A A ... A , k mal) 
+gelten die iiblichen Rechenregeln AkAI = Ak+l, (Ak)1 = Akl fUr k, I E No. 
+
+
+--- PDF page 285 ---
+§2. Die Matrizcnmultiplikation 
+269 
+2.4 Die Transponierte einer Matrix. 
+Jeder m x n-Matrix A = (elij) zugeord-
+net ist die transponierte Matrix A 7 (die Transponierte von A), deren i-te Zeile 
+aus den Koeffizienten der i-ten Spalte von A besteht (1 :s; i :s; n) . Explizit: zu 
+A_( 
+elll 
+ell2 
+ell" 
+) 
+el2l 
+eln 
+~21l 
+~ml 
+~m2 
+Ct.mn 
+i 
+i 
+i 
+CD 
+CD 
+0 
+ist die Transponierte Al definiert durch 
+I elll, 
+:X21 , 
+Xml 
+<- CD 
+I X12, 
+X22, 
+Y.m2 
+<- CD 
+AT 
+I XIII, 
+'Y.2n, 
+Y.mn I <-0 
+Beachte: Die Transponierte einer m x n-Matrix ist eine 11 x Ill-Matrix. 
+Speziell : 
+(
+ell) 
+1 
+el2 
+(ell, el2,.··, el,,) 
+= 
+: 
+' 
+elll 
+([Jdh ... , [J1l) . 
+Aus den Spalten von A werden die Zeilen von AT, dabei werden gleichzeitig 
+aus den Zeilen von A die Spalten von AT. 
+Beispiele. 
+m 
+(~) T 
+= (I, O. xl. (~ 
+2 
+3 
+~)T (j 
+0 
+~) 
+( I, ::!. 3. 4 l T 
+= 
+0 
+1 
+0 
+2 
+. 
+x 
+2 
+4 
+x 
+o 
+Es gel ten folgende Rechenregeln: 
+a) 
+(A + B)T = Al + BT 
+fiir aile A, B E lR"'xll 
+b) 
+(XA)T = XAl 
+fUr aile A E lR"'xll , el E lR 
+(10) 
+c) 
+(AT)T =A 
+fiir aile A E lR"'xll 
+d) 
+(AB)l = BT AT 
+fiir aile A E lRlIlx " , BE lR"xp 
+Beweis. 
+a), b), c) sind direkt aus der Definition ersichtlich, d) ist mit (3) leicht 
+nachzurechnen; dabei ist zu beach ten 
+
+
+--- PDF page 286 ---
+270 
+6. Lineare Algebra 
+D 
+Definition. 
+Eine n x n-Matrix A heijJt symmetrisch, wenn AT = A gilt, sie heijJt 
+schiefsymmetrisch, falls AT = -A . 
+Fur A = 
+(()(ij) 
+E lRnxn 
+ist 
+(()(iI,()(i2, ..• ,()(in) 
+die 
+i-te Zeile von 
+A 
+und 
+(()(li, ()(2i, ... , ()(Ilil die i-te Zeile von AT (entstanden aus der i-ten Spalte von 
+A ). Also gilt 
+AT = A 
+= 
+()(ij = ()(ji 
+(l :e:; i :e:; n, 1 :e:; j :e:; n) , 
+AT = -A = 
+()(ij = -()(ji 
+(1:e:; i :e:; n, 1 :e:; j :e:; n) . 
+Insbesondere gilt 
+()(ii = 0 fUr die Diagonalelemente einer schiefsymmetrischen 
+Matrix. 
+Fur jede Matrix A E lRnxn sind nach (10) die Matrizen A + AT, AAT symme-
+trisch und A - AT schiefsymmetrisch. 
+Die Einheitsmatrix ist symmetrisch. 
+Eine symmetrische Matrix A = AT = (()(ij) ist wegen ()(ij = ()(ji symmetrisch zu 
+der durch ()(II, ... , ()(Illl bestimmten Diagonalen. 
+Beispiele. 
+(' 2 3 (12 
+-1 -l) 
+2 4 6), -i ~ 
+0 
+3 
+3 6 
+5 
+5 
+3 -7 -1 
+(symmetrisch) 
+( 
+-~ 
+1 2 (0 
+-3 n 
+0 ~). -l 
+0 -4 
+4 
+0 
+-2 -3 
+0 -2 
+(schiefsymmetrisch) 
+D 
+Symmetrische Matrizen spielen in der Theorie der quadratischen Formen eine 
+wichtige Rolle (~ §7). Wir werden in §4 die Transponierte einer Matrix heran-
+ziehen, urn Ergebnisse tiber Zeilen einer Matrix auf entsprechende Aussagen fUr 
+Spalten (und umgekehrt) zu ubertragen. 
+2.5 Invertierbare Matrizen. 
+In diesem Abschnitt betrachten wir "quadra-
+tische" n x n-Matrizen. Mit E bezeichnen wir stets die Einheitsmatrix E = 
+(el,'" ,en). 
+Definition. 
+Eine n x n-Matrix A heijJt invertierbar, wenn es eine n x n-Matrix 
+B gibt, so dajJ gilt AB = BA = E. In diesem Fall ist die Matrix B eindeutig 
+bestimmt, sie wird meist mit A~I bezeichnet (d.h. 
+A~I := B), und heijJt inverse 
+Matrix oder die Inverse von A. 
+Die Eindeutigkeit der Inversen liefert der 
+
+
+--- PDF page 287 ---
+§2. Die Matrizenmultiplikation 
+271 
+Satz 2.2. 
+Wenn es zur Matrix A E 1R./ XI zwei Matrizen B, C E 1R./ xn gibt mit 
+BA = AC = E , dann ist A invertierbar und B = C = A~l . 
+Beweis. 
+B = BE = B(AC) = (BA)C = EC = C. Also gilt BA = AB = E und 
+es gibt zu A keine andere Matrix mit dieser Eigenschaft; d.h. es ist B = A~l . 
+o 
+Beispiele. 
+1. Die Einheitsmatrix E = EE ist invertierbar, E~l = E. 
+2. Fur A = (~ ~) E 1R.2x2 mit ad - be =1= 0 und B = ad ~ be (_~ -:) 
+gilt AB = BA = E, also ist A invertierbar, A~l = B . 
+0 
+Satz 2.3. 
+a) 
+Die Inrerse eiller im'ertierbaren n x n-Matrix A ist illvertierbar; (A~l)~l = 
+A. 
+b) 
+Das Produkt AB :weier inl'ertierbarer n x n-Matrizen ist illvertierbar; 
+(AB)~' = B~' A~' . 
+c) 
+Die Transponierte AT eiller n x n-Matrix ist genau dann invertierbar. wenn 
+A imwtierbar ist. In diesem Fall gilt (AT)~' = (A~') T . 
+Beweis. 
+a), b): Zu den Matrizen 
+A~l, AB erfUllen A bzw. 
+B~l A~' die 
+Bedingung AA~' = A~IA = E, B~'A~'(AB) = (AB)B~'A~' = E. Sie sind 
+deshalb nach Satz 2.2 die eindeutig bestimmten Inversen von A~' und AB. 
+c) folgt durch Transponieren von AA ' = A~' A = E bzw. von A T (AT)~' 
+(AT)~'AT = Emit (10d). 
+0 
+Fur endlich viele invertierbare 11 x n-Matrizen A" ... , Ak folgt damit 
+(11 ) 
+I (A,A 2 ··· Ad~' = A;:' ... A2' AI' . 
+(Man beachte in (11) die Anderung der Reihenfolge.) 
+Die Bedeutung der invertierbaren Matrizen fUr !ineare Gleichungssysteme ergibt 
+sich daraus, daB jede Matrizengleichung 
+AX =B 
+mit B,X E 1R.nxk 
+mit einer invertierbaren n x n-Matrix A eine eindeutig bestimmte Losung X = 
+A~l B besitzt. (Man multip!iziere die Gleichung beidseitig von links mit A~' .) 
+Satz 2.4. 
+Fur eine n x n-Matrix A sind folgende Aussagen iiquivalent (d.h .. ist 
+eine der Aussagen wahr. so gilt das auch fur aile anderen): 
+a) A ist invertierbar. 
+b) Es gibt eine n x n-Matrix B mit AB = E . 
+c) Es gibt eine n x n-Matrix C mit CA = E . 
+d) Ax = 0 => x = 0 , 
+e) Rang A = n. 
+
+
+--- PDF page 288 ---
+272 
+6. Lineare Algebra 
+Beweis. 
+a) = c) : Man nehme C = A-I. 
+c) = d) : Ax = 0 = CAx = Ex = x = o. 
+d) = e) : Satz 1.1. 
+e) = b) : Nach Satz 1.2 ist jedes lineare Gleichungssystem Ax = b mit b E IRn 
+eindeutig losbar; insbesondere gibt es zu den Vektoren ei der natiirlichen Basis 
+des IRn genau einen Vektor bi mit Abi = ei. Also gilt fUr die n x n-Matrix 
+B = (bl, ... ,bn) die Gleichung AB = (Abl, ... ,Abn ) = (el, ... ,en) = E. 
+b) = a) : Aus AB = E folgt BT AT = E. Der bereits bewiesene SchluB "c) = 
+e) = b)" garantiert die Existenz einer n x n-Matrix D mit AT D = E. Also ist 
+AT und damit A invertierbar (-> Satz 2.2, Satz 2.3). Am Beweisschema 
+a) = c) = d) = e) = b) = a) 
+erkennt man, daB tatsachlich samtliche Aussagen aquivalent sind. 
+o 
+2.6 DiagoDal- ODd DreiecksmatrizeD. 
+In einer quadratischen n x n-Matrix 
+A = (aij) nennt man die Zahlen 'Xii (1 :0; i :0; n) Diagonalelemente; man sagt, 
+sie stehen auf der Diagonalen von A. Unterhalb der Diagonalen stehen aij mit 
+i > j, oberhalb die Zahlen aij mit i < j. Man nennt A eine untere (bzw. 
+obere) Dreiecksmatrix, wenn sie hochstens auf und unterhalb (bzw. oberhalb) 
+der Diagonalen von Null verschiedene Elemente hat. 
+'XIII 
+A= 
+Die Diagonale von A. 
+.... ~ 
+A= 
+Eine obere Dreiecksmatrix. 
+o 
+A= 
+Eine untere Dreiecksmatrix. 
+Die Transponierte einer oberen Dreiecksmatrix ist eine untere Dreiecksmatrix 
+(und umgekehrt). 
+Satz 2.5. 
+Eine (untere oder obere) Dreiecksmatrix ist genau dann invertierbar, 
+wenn siimtliche Diagonalelemente von Null verschieden sind. 
+
+
+--- PDF page 289 ---
+§2. Die Matrizenmultiplikation 
+273 
+Beweis. 
+Mit einer Dreiecksmatrix A hat das homogene Gleichungssystem 
+Ax = 0 genau dann nur die triviale Losung x = 0, wenn aile Diagonalele-
+mente 1= 0 sind. Die Behauptung folgt nun aus Satz 2.4. 
+D 
+Spezielle Dreiecksmatrizen sind die Diagonalmatrizen 
+Diag (:XI, :X2, •.• , :X/1) 
+( ~~' !) 
+o 
+O:Xn 
+Sind aile :Xi 1= 0, dann gilt 
+D' 
+( 
+)-1 
+D' 
+(1 
+1 
+1 ) 
+Jag ':X""":X/1 
+= 
+lag :XI' :X2"'" 
+:X/1 
+• 
+Die Berechnung der Inversen anderer Matrizen erfolgt in §4.4. 
+Zum vcrtieften Studium der Matrizen werden einige Begriffe und Ergebnisse der 
+im nachsten Paragraphen dargestellten Theorie der Vektorraume benotigt. 
+Aufgaben 
+1. 
+Fur a = (1,2,5.0,6,3), b = (2, I, 1,8, 4, ~ I), c = (1,0, 2, ~ 1,0,2) berechne man die 
+Produkte ah T . aTh. (acT)b, a(cTb). 
+2. 
+Man prufe, ob AB = BA . falls 
+A~ 0 
+9 
+~15 12) 
+B~ (1 
+~3 
+~I 22) 
+0 
+~6 
+1:0 
+. 
+I 
+2 
+~2 
+0 
+0 
+0 
+I 
+o 
+' 
+0 
+0 
+0 
+0 
+I 
+. 
+(a h) . d' 
+(I 2) 
+3. Welche Matnzen B = 
+c 
+d 
+SIn 
+mIt A = 
+0 
+3 
+vertauschbar. d.h. wann gilt 
+AB = BA? 
+Dazu lose man das 4 x 4-Gleichungssystem fUr a, b, c, d. 
+4. 
+In IR JxJ bestimme man fUr die Matrix A = (~ ~ ;) 
+3 
+I 
+0 
+a) aile B of 0 mit AB = 0, 
+b) aile C of 0 mit C A = 0, 
+c) aile D mit AD = DA . 
+5. Man bestatige durch vollstandige Induktion nach n: 
+(I 1 o)n (1 n 
+o 1 1 
+= 
+0 
+1 
+o 0 
+1 
+0 0 
+
+
+--- PDF page 290 ---
+274 
+6. Lineare Algebra 
+~ 
+E lRnxn zeige man explizit daB 
+6. Fu" r A __ (~:~.: 
+A.o·:. 
+00::.) 
+... 0 0 
+AB = BA 
+<==> 
+B = PoE + PIA + ... + Pn_IAn- 1 
+(1 0 0) 
+(1 1 
+o 2 0 
+und 
+0 
+1 
+o 0 3 
+0 0 r) und bestimme da-
+7. Man berechne die Inverse von 
+(
+1 0 
+mit ein A E JR.3x3 mit 
+0 
+2 
+o 0 0) (1 1 0) (1 
+OAOll =4 
+3 
+0 
+0 
+1 
+2 2 3) 
+5 
+1 
+. 
+3 4 
+8. Man rechne nach, daB E - N E JR.nxn eine Inverse der Form E + N + ... + N k- I 
+besitzt, wenn N k = 0 ist. Wie lautet (E - N)-I flir 
+N=(~O· ~: :o,)? 
+... 0 0 
+9. Manrechnenach,daBfiir A= (~ 0 ~) gilt: A 3-4A2+3A=E undbestimme 
+daraus A-I als Polynom in A. 
+10. Man zeige flir A, B E JR."xn 
+E - AB invertierbar 
+<==> 
+E - BA invertierbar. 
+13. Vektorraume 
+3.1 Der "abstrakte" Vektorraum. 
+Immer wieder trifft man in der Mathe-
+matik auf Mengen, deren Elemente man addieren und mit einem Zahlenfaktor 
+multiplizieren kann; etwa die raumlichen ("geometrischen") Vektoren, die mxn-
+Matrizen (mit den Sonderfallen m = 1, n = 1) oder die Menge aller auf einem 
+Intervall definierten Funktionen f : I -+ 1R.. Man beobachtet, daB flir diese Re-
+chenoperationen diesel ben grundlegenden Regeln gelten, die auch das Rechnen 
+mit Vektoren des Anschauungsraumes beherrschen (-+ §1 (5». Zur einheitIi-
+chen Herleitung der sich daraus ergebenden Konsequenzen wurde der Begriff 
+des (abstrakten) Vektorraumes eingeflihrt. 
+
+
+--- PDF page 291 ---
+§3. Vektorraume 
+275 
+Definition. 
+Eine nichtleere Menge V, in del' man zu je zwei Elementen a, bE V 
+eine Summe a + b E V und zu jedem Element a E V und zu jedem Zahlenfaktor 
+i E lR das ;.-fache I.a E V bilden kann, heijJt ein lR-Vektorraum (odeI' Vektor-
+raum iiber lR, bzw. Ii nearer Raum iiber lR), wenn folgende acht Rechengesetze 
+(die Vektorraum-Axiome) erfullt sind: 
+(VI) 
+Die Addition ist kommutativ; d.h. fur aile a, b E V gilt a + b = b + a . 
+(V2) 
+Die Addition ist assoziativ; d.h. fur aile a, b, c E V gilt (a + b) + c 
+a + (b + c). 
+(V3) 
+Es gibt ein Element 0 E V, Nullelement odeI' Nullvektor genannt, mit 
+a + 0 = a fur aile a E V . 
+(VA) 
+Zu jedem a E V gibt es genau ein mit -a bezeichnetes Element in V 
+mit a + (-a) = o. 
+(V5) 
+I a = a fur aile a (Zahlen/i.lktor 1 E lR ). 
+(V6) 
+i.(JLa) = (i.p)a fiir aile i .. II E lR, a E V . 
+(V7) 
+i.(a + b) = i.a + ;.b fur aile i. E lR, a, bE V. 
+(VS) 
+(I. + Ida = i.a + pa fur aile i .. p E lR, a E V . 
+Die Elemellte eilles Vektorraumes nenllt man Vektoren; statt a+(-b) schreibt man 
+a - b (Dif(erell::). 
+Die Axiome (VI )-(VS) garantieren. daB man mit Summen. Differenzen und 
+Vielfachen wie gewohnt rechnen darf. Wegen (V2) kann man in endlichen Sum-
+men a I + a2 + ... + all auf Klammern verzichten und aus den Distributivgesetzen 
+(V7). (VS) folgt (1.1 + i2 + ... + i . .)(al + a2 + ... + all) = ilal + ... + ;.kan 
+(/i E lR. ai E V). AuBerdem gel ten die Vorzeichenregeln 
+-a=(-I)a. -(-a)=a. -(a+b)=(-a)+(-b)=-a-b. 
+etc. 
+Mit den Einzelheiten wollen wir uns nicht aufhalten. Das Nullelement wird 
+uberall einheitlich mit 0 bezeichnet. Bei Gefahr der Verwechslung schreibt man 
+OJ 
+fur den Nullvektor in V. So gilt 
+)a = OJ =- I. = 0 oder a = Ov . 
+Beispiel1. 
+Ein Vergleich von (5). §1. mit (Vl)-(VS) zeigt. daB die Menge aller 
+m x n-Matrizen. zusammen mit der komponentenweisen Addition und skalaren 
+Multiplikation ein lR-Vektorraum ist. Insbesondere sind 
+(Zeilenvek torra urn) 
+mit (ClIo- ... ClIl ) + (Pl •...• fJ Il ) = (CII + Pl ..... ClIl + /JIl) • 
+).(ClI ..... ClIl) = (/.ClI ..... i.Cllll 
+(i. E lR) 
+und 
+lR" = { (~;) ; Cli E lR } 
+(1.11 
+(Spaltenvektorraum) 
+
+
+--- PDF page 292 ---
+276 
+6. Lineare Algebra 
+mit 
+( :;) + (~;) = (:;!~:), A (::) 
+( ~: ) 
+(Xn 
+f3 n 
+(Xn + f3 n 
+(Xn 
+A(Xn 
+(J. E 1R) 
+1R-Vektorraume. 1R) (mit diesen Verkniipfungen) ist ein mathematisehes Mo-
+dell des Raumes der "geometrisehen" Vektoren (~ Kap. 1, §4). 
+0 
+Beispiel 2. 
+IPn := { (Xo + (XIX + ... + (Xnxn ; (Xi E 1R 
+(i = 0, ... , n) } , 
+die Menge aller reellen Polynome vom Grad ~ n ist mit der iibliehen Ad-
+dition und skalaren Multiplikation von Polynomen ein Vektorraum (mit dem 
+Nullvektor p(x) = 0 fUr alle x, und dem zu q(x) = (Xo + (XIX + ... + (Xnxn 
+"entgegengesetzten" Vektor -q(x) = -(Xo - (XIX - ... - (Xnxn). 
+0 
+Beispiel 3. 
+Fiir jedes Intervall I £:: 1R ist 
+ct°(I) := {f : I ~ 1R ; f stetig} , 
+die Menge aller auf I 
+stetigen reellen Funktionen, mit der iibliehen 
+"punktweisen" Addition f +g und skalaren Multiplikation Af von Funktionen 
+(f + g)(x) := f(x) + g(x), 
+(J.f)(x):= Af(x) 
+ein Vektorraum mit Nullvektor 0, O(x) = 0 fUr alle X E I , und dem zu jedem 
+f E ~(l) entgegengesetzten Vektor -f, (-f)(x) = -f(x) fUr alle X E I. 
+0 
+3.2 Unterraume, Linearkombinationen, Iineare Hiille. 
+1m folgenden sei V 
+ein 1R-Vektorraum (etwa 1Rn, IPn oder ~(l». 
+Definition. 
+Eine nichtleere Teilmenge V £:: V heifJt Unterraum (oder linearer 
+Teilraum) von V, wenn mit je zwei Elementen u, v E V auch deren Summe u + v 
+in V liegt und wenn mit jedem u E V und ;, E 1R das A-fache AU ebenfalls in 
+V liegt. D.h., wenn gilt: 
+(V.1) 
+u, v E V ==> U + v E V, 
+(V.2) 
+u E V, A E R ==> AU E V . 
+Ein Unterraum "erbt" vom umfassenden Vektorraum die Addition und skalare 
+Multiplikation (man sagt, er ist "abgesehlossen" beziiglieh dieser Operationen) 
+und ist damit selbst ein 1R-Vektorraum. Denn mit a E V liegt naeh (V.2) 
+der Vektor -a = (-l)a in V, und aueh a + (-a) = 0 E V naeh (V.1). Alle 
+anderen Vektorraumgesetze sind fUr Elemente aus V ebenfalls erfUllt, da sie 
+ja naeh Voraussetzung fUr alle Elemente aus V gelten. Hierin liegt einer der 
+Griinde, sieh beim Studium der Vektorraume nieht nur auf 1Rn zu besehranken, 
+meistens werden Vnterraume des 1Rn von Bedeutung sein und fUr diese solI die 
+Theorie angewendet werden. 
+
+
+--- PDF page 293 ---
+§3. Vektorraume 
+277 
+Beispiel 1. 
+Jeder Vektorraum V besitzt die "trivialen" Unterraume U = {O} 
+(Nuliraum) und U = V . 
+0 
+Beispiel 2. 
+Zu jedem Vektor v E V ist 
+IR v := { IXV ; IX E IR } 
+ein Unterraum von V. lm Spezialfali V = 1R3 besteht IRv aus alien zu v 
+paralielen Vektoren (einschliel3lich des Nulivektors). 
+0 
+Bei"i,( 3. 
+U,~: (~i) c IR' ; h, + 3" +", ~ 0) i<t Untemum ,on IR'. 
+Vorsicht: 
+U ,~ : (~D E IR' ; h, + 3'd 'F I) ;« kein Untmaum 
+o 
+Beispiel 4. 
+Fiir jede m x Il-Matrix A E lR"'xli ist 
+Kern A := {x E 1R" ; Ax = O} , 
+die Losungsmenge eines homogellell Gleichungssystems, ein Unterraum von IRn. 
+Beweis. 
+Wegen 0 E Kern A ist die Menge nicht leer. Sind u, v E Kern A und 
+i. E IR dann gilt A(u + v) = Au + Av = 0 + 0 = 0 und A().u) = i(Au) = ),0 = 0, 
+also liegen auch u + v und ).u in Kern A. 
+0 
+Definition. 
+J ede aus elldlich vielell Vektorell v I, V2, ... ,Vk E V gebildete Summe 
+der Form 
+k 
+L 
+IXiVi = IXIVI + IX2V2 + ... +'Y.kVk 
+i~1 
+mit dell Koeffizienten 'Y.i E IR heijJt eille Linearkombination der Vi. Eine solche 
+Linearkombillation wird trivial genannt, wenn siimtliche'Y.i gleich Null sind. Die 
+Mellge aller Linearkombinationen der Vi. 
+k 
+Lin(vI, ... , vd := {L 'Y.iVi ; IXi E IR 
+(I::; i::; k) } , 
+i~1 
+heij3t lineare Hiilie der Vi. 
+Ohne Miihe sieht man, daB die lineare Hiilie Lin(vI, ... , Vk) ein Unterraum von 
+V ist, denn 
+k 
+k 
+k 
+k 
+k 
+(L 'Y.iVi) + (L f3ivd = L('Y.i + f3i)Vi , 
+i·(L'Y.iVi) = L()·IXi)Vi . 
+i~1 
+i~1 
+i~1 
+i~1 
+i~1 
+
+
+--- PDF page 294 ---
+278 
+6. Lineare Algebra 
+&k~. Fu, die VekMen " ~ m ' " 
+~ ( -0 ' " 
+~ m 
+au, R' ~lt 
+Lin(vI, V2, V3) = { (Xv, + PV2 + yV3 ; (X, p, Y E 1R.} 
+~{(~i~:) ;~P,'ER). 
+Dieses ist ein U nterraum von 1R. 4 . 
+o 
+1m nachsten Paragraph en werden uns insbesondere die lineare HiiIle der Zeilen-
+vektoren (Zeilenraum) und die lineare HiiIle der Spaltenvektoren (Spaltenraum) 
+einer m x n-Matrix interessieren. 
+Definition. Man sagt, ein Unterraum 
+U 
+von 
+V 
+wird von den Vektoren 
+VI, V2, ... , Vk erzeugt, oder (v" V2,"" Vk) ist ein Erzeugendensystem von U, wenn 
+U = Lin(vI' V2, ... , Vk) . 
+Beispiel 1. 
+Die Vektoren el = (1,0,0,0), e2 = (0,1,0,0), e3 = (0,0,1,0), e4 = 
+(0,0,0,1) erzeugen den Vektorraum ~. Derselbe Vektorraum wird aber auch 
+erzeugt von den Vektoren el + e2, e, - e2, e, + e2 + e3, el - e2 + e4 (aber auch 
+von zahIlosen anderen Systemen). Allgemein: Die Vektoren ei (1 :::; i :::; n) der 
+natiirlichen Basis des 1R.n erzeugen 1R.n (analog flir 1R.n). 
+0 
+Beispiel 2. 
+Der Unterraum 
+{ (~) E 1R.3 ; 3x + y + z = ° } 
+<::; 1R.3 (eine Ebene durch den Nullpunkt) 
+wird erzeugt von den Vektoren 01 = (-t), 02 = (-~). 
+o 
+Beispiel 3. 
+Der Vektorraum 
+{f E ~(JR.) ; f"(X) + f(x) = ° 
+flir aIle x E 1R.} 
+wird erzeugt von den Funktionen fleX) = sin x , hex) = cosx; denn nach 
+Kap. 3, 2.2, Beispiel 3 ist jede differenzierbare Funktion f : 1R. -4 1R., welche die 
+Gleichung f" + f = ° 
+erfliIlt, eine Linearkombination aus sin und cos. 
+0 
+Beachte. Wegen VI = 1 VI + OV2 + ... + OVk, 
+V2 = Ov, + 1 V2 + ... + OVk, 
+etc., liegen die Vektoren Vi selbst in der von ihnen erzeugten linearen HiiIle, 
+Vi E Lin(vI, ... , Vk) . 
+
+
+--- PDF page 295 ---
+§3. Vektorraume 
+279 
+Es stellt sich nun die Frage, unter welchen Voraussetzungen zur Erzeugung von 
+U = Lin(vI, V2, ... , vd tatsachlich samtliche Vektoren Vi benatigt werden. 
+Definition. 
+a) Endlich viele Vektoren 
+VI, V2, ... , Vk 
+des IR-Vektorraumes 
+V 
+heiJ3en linear abhlingig. wenn es Zahlen ()(I, ()(2, ... ,()(k E IR gibt. die nicht samt-
+lich gleich Null sind. so daj1 gi!t()(lvl + ()(2 V2 + ... + ()(kVk = O. 
+b) Die Vektoren VI, V2, ... , Vk 
+ileiJ3en linear unabhiingig. wenn sie nicilt linear 
+abhangig sind .. d.h .. 
+Urn die Vektoren VI,"" Vk E V auf lineare Unabhangigkeit bzw. 
+lineare 
+Abhangigkeit zu iiberpriifen, ist (mit noch unbekannten Xi E IR) die Gleichung 
+(I) 
+zu betrachten. Laut Definition gilt: 
+o VI,.··, Vk linear abhangig 
+= 
+(l) besitzt eine Lasung x I = ()( I, ... ,Xk = ()(k mit 
+wenigstens einem ()(i =1= O. 
+® V I, ... , V k linear unabhangig 
+= (I) ist nur durch XI = ... = Xk = 0 lasbar. 
+Die Sonderfalle k = I, k = 2 : 
+V E V linear unabhangig = 
+(()(V = 0 => ()( = 0) = 
+V =1= 0 
+u, V linear abhangig = es gibt ()(, f3 E IR, nicht beide gleich Null, mit 
+()(U + f3v = 0 
+= u = -~v (falls ()( =1= 0) oder V = -~u (falls f3 =1= 0). 
+Abb. l4la - linear abhiingig 
+Abb. l4lb - linear unabhiingig 
+Allgemein gilt: Die Vektoren VI, ... , Vk E V sind genau dann linear abhangig, 
+wenn einer von ihnen als Linearkombination der anderen darstellbar ist. 
+Beweis. 
+Aus ()(I VI + ... + ()(kVk = 0 mit mindestens einem Koeffizienten ()(i =1= 0 
+folgt 
+1 
+Vi = -ij(()(IVI + ... + ()(i-IVi-J + ()(i+IVi+1 + ... + ()(kvkl . 
+1st umgekehrt Vi = f31 VI + ... + f3i-1 Vi-I + f3i+1 Vi+1 + ... + f3kVk (Vi fehlt auf der 
+rechten Seite), dann gilt 
+0= f31 VI + ... + f3i-1 Vi-I -
+1 Vi + f3i+1 Vi+1 + ... + f3k Vk • 
+Der Koeffizient bei Vi ist =1= 0, also sind die Vektoren linear abhangig. 
+0 
+
+
+--- PDF page 296 ---
+280 
+6. Lineare Algebra 
+Ferner ergeben sich aus der Definition leicht die folgenden Eigenschaften: 
+(2) 
+a) 
+Jedes endliche System von Vektoren, das linear abhangige Vekto-
+ren enthalt, ist linear abhangig. 
+b) 
+Jedes endliche System von Vektoren, das den NuIlvektor enthalt, 
+ist linear abhangig. 
+c) 
+Jedes Teilsystem eines Systems linear unabhangiger Vektoren ist 
+linear unabhangig. 
+Beweis. a) Sind (nach eventueller Anderung der Reihenfolge) in VI. V2, ... , Vk die 
+ersten 1 Vektoren linear abhangig, IXI VI + ... + IXIVI = 0 mit wenigstens einem 
+Koeffizienten lXi + 0, dann gilt auch IXIVI + ... + IXIVI + OVI+I + ... + OVk = 0 
+(nicht aIle Koeffizienten + 0 ). 
+b) ist ein Sonderfall von a), 10 = O. 
+c) Ware ein Teilsystem linear abhangig, dann wlirde das nach a) auch fUr das 
+gesamte System gelten. 
+0 
+Beispiel 1. 
+DieVektoren VI =(1,2,3), v2=(0,2,1), v3=(1,4,4) des 1R3 sind 
+linear abhangig. Es gilt VI +V2 -V3 = (0,0,0) bzw. V3 = VI +V2, was anschaulich 
+besagt, daB V3 parallel zu der von VI. V2 aufgespannten Ebene liegt. 
+0 
+Beispiel 2. 
+Die Vektoren eI, e2, ... , en der natlirlichen Basis des 1R n (bzw. des 
+1Rn, ~ 1.1) sind linear unabhangig. Denn die Gleichung 
+hat als einzige Losung XI = X2 = ... = Xn = O. 
+Satz 3.1. 
+a) In einer Matrix in Zei-
+lenstufenform (~ (l 0). § 1) sind die von 
+Null verschiedenen Zeilenvektoren linear 
+unabhiingig. 
+b)In einer Matrix in (analoger) Spal-
+tenstzifenform sind die von Null verschie-
+denen Spalten linear unabhiingig. 
+o 
+Beweis. a): Sind Zl = (0, ... ,0, 1X1i, ... , IXln), Z2 = (0, ... ,0, 1X2b'" 1X2n),"" 
+Zr = 
+(0, ... ,0, IX,., . , IXrn) die von Null verschiedenen Zeilen der Zeilenstufenmatrix 
+( 1 ~ i < j < ... < s ~ n, IXIi + 0, 1X2j + 0, ... , IXrs + 0), dann folgt aus 
+(Nullvektor in 1Rn) 
+
+
+--- PDF page 297 ---
+§3. Vektorraume 
+281 
+komponentenweise XI Q(li = 0, also XI = 0 ; dann X2(X2j = 0, also X2 = 0, etc., 
+X3 = ... = X,. = O. 
+b) folgt aus a) dureh Ubergang zur Transponierten. 
+0 
+In einer n x n-Matrix A = (al, ... ,a/1) sind die Spaltenvektoren ai E lR/1 genau 
+dann linear unabhiingig, wenn Ax = Xlal + ... + X/1a/1 = 0 (--+ (8), §2) nur die 
+Lasung x = 0 besitzt. 
+Das ist genau dann der Fall, wenn A invertierbar ist (--+ Satz 2.4). Also gilt: 
+Satz 3.2. 
+Fiir eine n x n-Matrix A sind die folgenden Aussagen iiquivalent: 
+a) A ist illl"ertierbar. 
+b) Die Spaltell roll A sind linear unahhiingig. 
+c) Die Zeilen roll A sind linear ullahhiingig. 
+Zur Aquivalenz von c) mit a) beaehte man nur, daB die Zeilen von A zu 
+S pal ten von A T werden (--+ Sa tz 2.4). 
+Nun sci wieder Vein beliebiger lR-Vektorraum. 
+Satz 3.3. 
+Fiir Vektoren VI, ... , Vk, W E V gilt: 
+a) 
+Lin (Vi, .... Vb W) = Lin (VI, ... , vd <==> wE Lin (VI, ... , vkJ. 
+b) 
+Die Vektoren 
+VI, ... , Vk 
+sind linear unabhiingig 
+<==> Zur Erzeugung von 
+Lin(vI .... ,vd kann kein Vi (I ~ i ~ k) weggelassen werden (in diesem Fall 
+llelJllt mall (VI, ... , vd ein minimales Erzeugendensystem). 
+Beweis. 
+a) .. =": wELin(vI, ... ,Vk,w)=Lin(vI, ... ,vd . 
+.. =": Falls w = :XlVI + ... + :XkVk, dann gilt 
+k 
+k 
+k 
+).IVI + ... + hVk + IlW = I>iVi + 11 L:XiVi = L()·i + ll:Xi)Vi 
+fUr aile ii, II E lR. Also ist jede Linearkombination von VI, ... , Vk, W bereits eine 
+Linearkombination von VI, ... , Vk; w wird zur Erzeugung der linearen Hiille 
+nieht benatigt. 
+b): Naeh a) kann man genau dann ein Vi E {VI, ... , vd zur Erzeugung der Hiille 
+weglassen, wenn sieh Vi als Linearkombination der anderen darstellen liiBt. Das 
+ist genau dann der Fall, wenn VI,"" Vi,'''' Vk linear abhiingig sind. 
+0 
+3.3 Basis und Dimension. 
+Definition. 
+Ein System ( n- Tupel) (VI, V2, ... , vll ) von Vektoren aus V heij3t eine 
+Basis des lR- Vektorraumes V, wenn gilt: 
+(B.I) 
+Die Vektoren VI, V2, ... , VI! sind linear unabhiingig. 
+(B.2) 
+Die Vi erzeugen V, d.h. V = Lin(vI, V2, ... , V/1)' 
+Die Bedeutung einer Basis ergibt sieh aus folgender Eigensehaft: 
+
+
+--- PDF page 298 ---
+282 
+6. Lineare Algebra 
+Satz 3.4 
+1st (VI, V2, ... , Vn) eine Basis von V. dann gibt es zu jedem Vektor 
+a E V genau ein n-Tupel reefIer Zahlen (IX I, IX2, ... , IXn) mit 
+Ferner sind je m Vektoren aus V linear abhiingig. falls m > n. 
+n 
+Beweis. 
+Nach (B.2) ist jeder Vektor a E V als Linearkombination a = I 
+IXjVj 
+j=1 
+der Vj darstellbar. Diese Darstellung ist eindeutig; denn aus a = I 
+IXjVj = 
+I 
+PjVj folgt I(IXj -
+Pj)Vj = 0 und deshalb 
+IXj -
+pj = 0 bzw. 
+IXj = pj fUr 
+i = 1,2, ... ,n (nach (B.l)). 
+Nun nehmen wir m Vektoren WI, w2, ... , wm aus V, m > n, stellen diese 
+eindeutig dar in der Form 
+WI = IX II VI + IX2I V2 + ... + IX"I V" 
+W2 = IXI2VI + IX22V2 + ... + IXn2Vn 
+und bestimmen dazu reelle Zahlen )." ... , ).m, die nicht samtlich Null sind, so 
+daB gilt: 
+IX II AI + IXI2).2 + ... + IXlmAm = 0 
+IX21 AI + I(22)·2 + ... + IX2mAm = 0 
+IXnl).1 + IXn2).2 + ... + IXnmAm = 0 . 
+Wegen m> n ist das stets moglich (-4 Satz 1.1). Mit diesen Zahlen ).j gilt 
+).,W, + ... + ).mwm = (oc,,)., + ... + oc'mAm)v, + ... + (ocn,A, + ... + ocnmAm)vn 
+=Ov, +···+Ovn =0. 
+Also sind die Vektoren WI, ... , Wm (m > n) linear abhangig. 
+Beispiel 1. 
+V = 1R.2 (Vektoren einer Ebene) anschaulich: 
+/v,~7 /vi?j 
+Abb. 142a - Basis in 1R. 2 
+Abb. 142b - Keine Basis in 1R.2 
+o 
+o 
+Beispiel 2. 
+Die natiirliche Basis (e"e2, ... ,en) des 1R.n (bzw.1R.n, -4 1.1) ist eine 
+
+
+--- PDF page 299 ---
+§3. Vektorraume 
+283 
+Basis im Sinne der obigen Definition. Wesentlieh allgemeiner gilt: 
+Satz 3.5. 
+Die Zeilen (bzw. Spalten) einer invertierbaren n x n-Matrix bilden eine 
+Basis des lR" (bzw. lR" ). 
+Beweis. 
+Sei A = (al, ... ,a,,) mit den Spalten ai E lRn invertierbar. Naeh 
+Satz 3.2 sind aI, a2, ... , a" linear unabhangig. Also gilt (B.1). Nun sei v E lR" 
+(beliebig). Mit ((XI, ... ,(X,,)] := A-IV zeigt Formel (8), §2 
+v = A(A-Iv) = (Xlal + ... + (Xnan . 
+Damit ist aueh (B.2) naehgewiesen. 
+o 
+Beispiel 3. 
+Die Poly nome 1, x + 1, (x + 1)2, ... , (x + 1)" bilden eine Basis des 
+lR-Vektorraumes JP" aller Polynome vom Grad :s: n. Denn es gilt 
+1. 
+Aus (Xo' 1 + (Xdx + 1) + ... + :x,,(x + I)" = 0 fUr aile x folgt :Xo = (XI = ... = 
+:x" = 0 (also gilt (B.1 )). 
+" 
+2. 
+Jedes p E JP" laGt sieh naeh Kap. 5, §3 in der Form p(x) = L:Xi(X + l)i 
+darstellcn (das ist (B.2)). 
+i~O 
+0 
+Definition. 
+Eill Vektorraum 
+V 
+heifJt endlichdimensional oder endlich erzeugt. 
+\\'el1ll es elldlich ric Ie Vektorell WI,.'" Wr E V mit V = Lin(wI, W2, ... , wr ) giht. 
+1m folgenden werden fundamentale Eigensehaften endliehdimensionaler Vek-
+torraume zusammengestellt. 
+Satz 3.6. Basiserganzungssatz. 
+III einem endlichdimensionalen Vektorraum V =F 
+(0: bildell linear ul1ahhallgige Vektoren VI, ... , Vk bereits eille Basis (VI, ... , vd . 
+odeI' mall kann sie durch H inzunahme weiterer Vektorell UI, ... , UI zu eiller Basis 
+(VI .... , Vk, UI, ... , uil 
+('Oil V erganzell. 
+Beweis. 
+Sei 
+V 
+Lin(w" ... , wr ). 
+Offen bar gilt dann aueh 
+V 
+Lin(vI, ... ,vkowI, ... ,wr) (-4 Satz 3.3). Nun lassen wir all die Wi weg, die zur 
+Erzeugung dieser linearen Hiille nieht benotigt werden. Das sind entweder aile, 
+in diesem Fall gilt bereits V = Lin(vI' ... , vd und (VI, ... , vd ist eine Basis von 
+V , oder es gilt - wenn wir die verbleibenden Wi mit UI •...• ul bezeiehncn -
+V = Lin(vI, .... Vk,UI, ... ,U/), worin kein weiterer Vektor u) wcggelassen werden 
+kann. 
+Behauptung: (VI, .... Vk.UI .... ,U/) ist eine Basis von V. 
+Beweis. Da naeh Konstruktion (B.2) crfiillt ist, braueht nur (B.1) naehgewiesen 
+zu werden: Nehmen wir an. VI, ...• Vk,UI, ...• UI waren linear abhangig. Dann 
+gabe es Zahlen (Xi, (f) , nieht aile gleieh Null. mit 
+(3) 
+Hierin miiSte aufgrund der linearen Unabhangigkeit der Vi wenigstens ein (3) 
+von Null versehieden sein. In diesem Fall konnte man (3) naeh dem entspre-
+ehenden u) auftosen und 
+Uj 
+bei der Erzeugung von Lin(vI, ... , Vb UI, ... , U/) 
+weglassen (-4 Satz 3.3). Das ist aber naeh Konstruktion nieht mehr moglieh. 
+0 
+
+
+--- PDF page 300 ---
+284 
+6. Lineare Algebra 
+Satz 3.7. Basislinge = Dimension. 
+Jeder endlich erzeugte Vektorraum V =fo {O} 
+besitzt eine (endliche) Basis (VI. ... , vn) . 1st (WI. ..• , wm) eben/ails eine Basis von 
+V , dann gilt m = n. Die gemeinsame "Lange" nailer Basen von V heijJt die 
+Dimension von V, abgekiirzt Dim V . Zur Vermeidung von Fallunterscheidungen 
+setzt man Dim {O} = O. 
+Beweis. 
+V enthalt nach Voraussetzung wenigstens einen Vektor v = VI =fo O. 
+Satz 3.6 mit k = 1 zeigt die Existenz einer Basis (VI, ••. , vn) von V. Nach 
+Satz 3.4 sind je n + 1 Vektoren aus V linear abhangig. 1st nun (WI. ... , wm) 
+eine weitere Basis, so gilt deshalb m :$; n. Ein Rollentausch (beginne mit der 
+Basis (w" ... , wm) und nehme dann die Basis (VI, •.. , vn) hinzu) zeigt n :$; m. 
+Insgesamt m = n . 
+0 
+Beispiele. 
+(4) 
+Dim R.n = Dim R.n = n, 
+Dim 1Pn = n + 1 
+(~ 3.1, Bsp. 2), 
+Dim {f : R. ~ R. ; f zweimal stetig differenzierbar 
+mit f" + f = O} = 2 
+Dim { (~) E R.3 ; 3x + y + z = O} = 2. 
+In jedem der Beispiele ist eine Basis entsprechender Lange bekannt. 
+o 
+Foigerung. 1st r die Maximalzahllinear unabhangiger Vektoren aus V" V2, ... , 
+Vk, dann gilt 
+Beweis. 
+Nach eventueller Umnumerierung seien VI, ..• , Vr linear unabhangig 
+und VI, ... , V" Vj (fUr r + 1 :$; j :$; k) linear abhangig. Aus Satz 3.3 folgt 
+Lin (VI, ... , vd = Lin (VI. ... , vr); (VI. ... , vr) ist eine Basis dieser linearen Hiille 
+und deshalb gilt r = Dim Lin (VI, ..• , vd . 
+0 
+Satz 3.8. 
+In einem R.-Vektorraum V der Dimension n gilt: 
+a) 
+Je n linear unabhangige Vektoren aus V bilden bereits eine Basis von V. 
+b) 
+Jedes Erzeugendensystem von V mit n Elementen ist eine Basis von V. 
+c) 
+Je n + 1 Vektoren aus V sind linear abhangig. 
+Beweis. a): Es braucht nur (B.2) nachgewiesen zu werden. Das geschieht wie 
+im Beweis von Satz 3.5. 
+b): Sei V = Lin (w" ... , wn). Durch Fortlassen der Wi, die zur Erzeugung nicht 
+benotigt werden, entsteht eine Basis der Lange n (~Satz 3.3, Satz 3.7). Also 
+darf kein Wi weggelassen werden. 
+c): ~ Satz 3.4. 
+0 
+
+
+--- PDF page 301 ---
+§3. Vektorriiume 
+285 
+Beispiel. Je 4 Vektoren des IR3 , 7 Vektoren des IR6 , ... , n + 1 Vektoren des 
+IRII sind linear abhangig (ohne Rechnung!). 
+0 
+Satz 3.9. Dimension der Unterriiume. 
+Jeder Unterraum U eines endlichdimen-
+sionalen Vektorraums V ist endlichdimensional; im Fall U i= V gilt 
+Dim U < Dim V. 
+Beweis. 
+Sei U i= to} und 
+(Ul, ... ,Ur) ein System mit der groBtmoglichen 
+Anzahl linear unabhangiger Vektoren aus U. Nach Satz 3.8 c) gilt r ~ n. 
+Fur jeden belie big en Vektor U E U sind die r + 1 Vektoren Ul, ... , Ur, U li-
+near abhiingig und deshalb U als Linearkombination der Ui darstellbar; d.h. 
+U = Lin (Ul, ... , ur ). Folglich ist (Ul, ... , Ur) eine Basis von U, r = Dim U ~ 
+n = Dim V . 1m Fall r = n ist das nach Satz 3.8 a) bereits eine Basis von V, 
+also U = V. 
+0 
+Mit Satz 3.9 ist gesichert, daB die Siitze 3.6-3.8 fUr jeden Unterraum eines end-
+lichdimensionalen Vektorraumes V anwendbar sind. 
+Beispiel. 
+Sei A E IRIIXII, 
+A i= O. 
+Nach Satz 3.9 besitzt der Unterraum 
+Kern A := {x E IRII ; Ax = O} des IRII wenigstens eine Basis (Ul, ... , ud mit 
+k < 11 Vektoren. Jede andere Basis von Kern A besteht nach Satz 3.7 ebcn-
+falls aus k linear unabhiingigen Losungsvektoren von Ax = O. Ein einfaches 
+Verfahren zur Berechnung einer Basis von Kern A wird in 4.4 angegeben. 
+0 
+Aufgaben 
+1. Welche der folgenden Mengen sind lineare Teilrliume des lR" : 
+a) {x: x, = a}, 
+a E lR : 
+b) {x: x, = O} U {x ; X2 = O} : 
+c): x : x, ;::: O} : 
+d) {x; x, = O} n {x ; X2 = O} ; 
+e) {x; x, . X2 = O} ; 
+f) {x; Ixl = 1 } ? 
+2. Es seien V, V Unterrliume des lR iO mit Dim V = 5, Dim V = 7. Welche 
+Moglichkeiten gibt es fiir Dim Lin(u" ... , U,., v" ... , vs), fiir Uj E V, Vj E V 
+(1 ~ i ~ 
+r ~ 5, 1 ~ j ~ s ~ 7) ? Man gebe fiir jede Moglichkeit explizit ein Beispiel an. 
+3. DieVektoren a=(1,-2,5,-3)T, b=(2,3,1,-4)T und c=(3,8,-3,-5)T erzeugen 
+einen linearen Teilraum W des lR4. 
+Bestimme die Dimension von W. Man 
+vervollstlindige diese Basis zu einer Basis des lR4. 
+4. Durch die vier Polynome wird ein Vektorraum V erzeugt 
+p(t) = t3 - 2t2 + 4t + 1 , 
+r(t) = t3 + 6t - 5 , 
+q(t) = 2t3 -
+3t2 + 9t - 1 , 
+sit) = 2t3 -
+5t2 + 7t + 5 
+Man bestimme Dim V und gebe eine Basis fiir Van. 
+5. Fiir welche ex, fJ E lR sind die Vektoren des lR3 linear unabhlingig? 
+a) 
+(ex2,I,fJ),(fJ,-I,I); 
+b) (ex, 0, 1), (0, ex, 2) , (3,2,fJ). 
+
+
+--- PDF page 302 ---
+286 
+6. Lineare Algebra 
+6. Man gebe jeweils 3 verschiedene Basen der folgenden Vektorraume an: 
+a) 1R3 ; 
+b) V = { (ex, fJ,or) E IR 3 ; 2ex + 3 fJ = O} ; 
+c) 
+V = {p(x) E !Pn ; p(l) = O} . 
+§4. Elementarmatrizen nnd elementare Umformnngen 
+4.1 Zeilenraum und Spaltenraum. 
+Sei A eine m x n-Matrix mit den Zeilen 
+ZI, ... ,Zm E lRlI und den Spalten a I, ... ,all E lR m . Man nennt 
+m 
+Lin (ZI, ... ,zm) = {L>jZi ; ).j E lR} 
+j~1 
+den Zeilenraum von A und 
+II 
+Lin (a I, ... , all) = { L ).jaj ; }.j E lR } 
+j~1 
+den Spaltenraum von A. Naeh der Folgerung zu Satz 3.7 ist die Dimension 
+des Zeilenraumes (Spaltenraumes) gleieh der Maximalzahl linear unabhangiger 
+Zeilen (Spalten) von A. Da beim Transponieren aus den Zeilen Spalten und aus 
+den Spalten Zeilen werden, spiegein sieh aile Eigensehaften des Zeilenraumes 
+(Spaltenraumes) von A wieder im Spaltenraum (Zeilenraum) von AT. Wegen 
+II 
+Ax = LXjaj (fUr x E lRII, -> (8), §2) gilt: 
+i~1 
+(1) 
+Spaltenraum von A = {Ax; x E lR" } , 
+Zeilenraum von A = { yT A ; y E lRm } . 
+Satz 4.1. 
+Fur aile A E lRmxlI und aile invertierbaren Matrizen P E lRlIlxm. 
+Q E lRIIXII gilt: 
+A und AQ haben dense/ben Spaltenraum. A und P A dense/ben Zeilenraum. 
+Beweis. 
+Wegen Ax = (AQ)(Q-I x ) = AQx' mit x' = Q-I X liegt jedes Element 
+des Spaltenraumes von A im Spaltenraum von AQ und umgekehrt (-> (1)). 
+Der analoge Sehlul3 mit yT A = yT p-I P A liefert die Behauptung fUr den Zei-
+lenraum. 
+o 
+4.2 Elementarmatrizen. 
+Zeilen- und Spaltenraum einer Matrix werden mit 
+elementaren Zeilen- bzw. Spaltenumformungen vom Typ CD, CD, G) unter-
+sueht. 
+Typ CD : 
+Typ CD: 
+Typ G) : 
+Vertausehung zweier Zeilen (Spalten). 
+Multiplikation einer Zeile (Spalte) mit Zahlenfaktor 1= O. 
+Addition des Vielfaehen einer Zeile (Spalte) zu einer anderen. 
+
+
+--- PDF page 303 ---
+§4. Elementarmatrizen und clementare Umformungen 
+287 
+Hinter diesen Umformungen verbergen sich Multiplikationen mit besonderen 
+invertierbaren Matrizen, den sogenannten Elementarmatrizen. 
+Definition. 
+Eine m x m-M atrix E heij3t Elementarmatrix vom Typ CD, wenn 
+sie aus der m x m-Einheitsmatrix E dureh eine elementare Zeilenum{ormung vom 
+Typ CD herwrgeht. Wir sagen. E gehOrt zu dieser Umformung. 
+Beispiele 
+(fUr m = 3 ). 
+(:~) = (~ r ~) 
+( 
+~:~2 ) 
+= (~ ~ ~) (~# 0) 
+(:J (r ~ ~) 
+o 
+Satz 4.2. 
+a) Elltsteht A aus A E lR"'xli dl/reh eine elementare Zeilenum{ormung 
+(h::\\'. Spaltellwllj()J"IlHlIlg), dann gilt 
+(2) 
+mit der ::ugehijrigell Elemelltarmatrix E. 
+b) Die Elementarmatrizen sind invertierbar, die Inversen sind eben/aIls Elementar-
+matri::en. 
+c) Elltsteht M bz\\,. N aus A E lR"'xli dureh endlich viele elementare Zeilen- bzw. 
+Spaltellumjormungen. dal1l1 giht es invertierhare Matrizen P E IRmxm. Q E 1R" xn 
+mit 
+(3) 
+M=PA, 
+N =AQ. 
+P ist Produkt ['on Elemelltarmatrizen, eben so Q. 
+Beweis. 
+a): A entstehe aus A (mit den Zeilen Zi) durch die Zeilenumformung 
+Zi --> Zi +:1.Zj (:x. E 1R, i i= j) vom Typ 0). Die Formeln (6) und (9) aus §2 
+zeigen, wenn el, ... e", die Zeilen der m x m-Einheitsmatrix E bezeichnen, 
+A = 
+Zi + :x.Zj 
+eiA + :x.ejA 
+emA 
+
+
+--- PDF page 304 ---
+288 
+6. Lineare Algebra 
+Analog fUr die anderen Typen. Entsteht dagegen A aus A durch eine Spal-
+tenumformung, dann entsteht AT aus AT durch die gleichartige Zeilenumfor-
+mung, also AT = EAT, bzw. A = AET (-4 (to), §2). 
+b): Eine Elementarmatrix Z kann mit einer elementaren Zeilenumformung in 
+E zuriickverwandelt werden; Z = E . Nach (2) gilt E = EZ , also Z-l = E . 
+c) ergibt sich durch Mehrfachanwendung von (2). 
+0 
+Beziehung (3) zusammen mit Satz 4.1 ergibt die 
+Foigerung. 
+Der Zeilenraum einer Matrix andert sich nicht bei elementaren Zei-
+lenumformungen, der Spaltenraum nicht bei elementaren Spaltenumformungen. 
+Wird nun die Matrix A nach dem GauB-Verfahren (Vorwartselimination, -4 §1) 
+mit elementaren Zeilenumformungen umgewandelt in eine Matrix M in Zeilen-
+stufenform und in ganz analoger Weise mit Spaltenumformungen (Vorwartseli-
+mination mit den Spalten von links nach rechts) in eine Matrix N in Spalten-
+stufenform, 
+(4) 
+M= 
+N= 
+) 
+dann bilden nach Satz 3.1 und obiger Folgerung die von Null verschiedenen 
+Zeilen von M (bzw. Spalten von N) eine Basis des Zeilenraumes von A (bzw. 
+Spaltenraumes von A). Insbesondere gilt 
+r = Dimension des Zeilenraumes A 
+= Maximalzahl linear unabhangiger Zeilen von A , 
+(5) 
+P = Dimension des Spaltenraumes von A 
+= Maximalzahl linear unabhangiger Spalten . 
+Damit erhalt die in §1 gegebene Definition 
+" Rang A = Anzahl der .-Stellen in M" 
+eine neue Fassung: 
+Rang A = Dimension des Zeilenraumes von A 
+Ferner gibt es nach Satz 4.2 invertierbare Matrizen P, Q mit M = P A, N = 
+AQ. 
+
+
+--- PDF page 305 ---
+§4. Elementarmatrizen und elementare Umformungen 
+289 
+4.3 Der Rang ond die P-Q-Normalform. 
+(~s ~) E lR.mxn bezeichnet die 
+Matrix, die an den ersten s Diagonalstellen eine 1 und sonst nur Nullen hat. 
+Satz 4.3. 
+Fur jede m x n-Matrix A gilt 
+a) "Zeilenrang = Spaltenrang". 
+Rang A = Dimension des Zeilenraumes von A 
+= Dimension des Spaltenraumes von A . 
+b) Die Dimensionsformel. Rang A + Dim(Kern A) = n. 
+c) Die P-Q-Normalform. Es gibt invertierbare Matrizen P E lR.mxm , 
+Q E lR.nxn , derart dafJ 
+PAQ = (~ ~), 
+r = Rang A. 
+d) Eine Basis von Kern A. Sind P E lR.mxm , Q = (ql,"" qn) E lR.nxn 
+invertierbare Matrizen mit P AQ = (~s ~), dann gilt s = r und 
+die letzten n -
+r Spalten qr+l, ... , qn von Q bilden eine Basis 
+von Kern A. 
+Beweis. 
+c): Offenbar kann man die Matrix M = P A aus (4) mit elementaren 
+Spaltenumformungen, was nach Satz 4.2 der Multiplikation von rechts mit einer 
+invertierbaren Matrix Q entspricht, umwandeln in 
+PAQ = (~ ~), 
+r = Rang A. 
+d): x E Kern A 
+<==> 
+Ax = 0 <==> P AQ(Q-lx) = 0 
+= 
+(~' ~) (D ~O mit y~Q-'x 
+<==> 
+Yl = ... = Ys = 0 und Ys+!' ... , Yn E 1R. beliebig 
+<==> 
+x = Q(Ys+l es+l + ... + Ynen) = Ys+l qs+l + ... + Ynqn 
+(--+ (9), §2). Also erzeugen die linear unabhiingigen Vektoren qs+1,"" qn den 
+Unterraum Kern A und bilden deshalb eine Basis von Kern A (--+ Satz 3.2). 
+Insbesondere ist Dim (Kern A) = n - s, d.h. s ist eindeutig bestimmt durch 
+s = n - Dim (Kern A). In Verbindung mit c) ergibt dies r = n - Dim (Kern A) 
+(das ist Teil b) und s = r. 
+a): Mit N = AQ aus (4) wird durch elementare Zeilenumformungen 
+PAQ = (? ~), 
+p = Dim (Spaltenraum) 
+
+
+--- PDF page 306 ---
+290 
+6. Lineare Algebra 
+mit einer invertierbaren Matrix P. Nach dem soeben bewiesenen Teil c) gilt 
+p = Rang A. Damit ist alles bewiesen. 
+0 
+Foigerungen. 
+Fur A E lRmxn gilt 
+(6) 
+(7) 
+Rang AT = Rang A , 
+Rang (PAQ) = Rang A 
+flir aIle invertierbaren 
+P E lRmxn, Q E lRnxn. 
+Beweis. 
+Da die Zeilen von AT aus den (transponierten) Spalten von A beste-
+hen, gilt 
+Rang AT = Maximalzahl linear unabhangiger Spalten von A 
+= Rang A . 
+Eine "P-Q-Normalform" PI(PAQ)Q! = (~' ~) mit s = Rang PAQ ist 
+wegen (PIP)A(QQd = PI (P AQ)QI auch eine "P-Q-Normalform" von A, also 
+gilt s = r = Rang A . 
+0 
+Formel (7) bildet die Grundlage schneller Rangberechnungen; sie besagt (nach 
+Satz 4.2): 
+Der Rang einer Matrix andert sich nicht sowohl bei elementaren 
+Zeilen- als auch bei elementaren Spaltenumformungen. 
+Beispiel. 
+Die Matrix 
+(
+1 -1 
+A= 
+2 
+2 
+4 
+1 
+1 
+2 -! -D 
+hat, wie man schnell mit elementaren Zeilen- und Spaltenumformungen fest-
+stellt, den Rang 4. 
+Demnach bilden die Zeilen eine Basis des IRt und die 
+Spalten eine Basis des lR4. A ist invertierbar. 
+0 
+4.4 Rechenverfahren. 
+Aus zwei Matrizen A = (cxij) E lRmxn, 
+gleicher Zeilenzahl bilden wir eine m x (n + k)-Matrix 
+cx!n 
+1311 
+CXmn 
+(8) 
+( 
+CXII 
+(A,B) := 
+: 
+cxml 
+Pm! 
+B = (Pij) E lRmxk 
+Umgekehrt kann man eine Matrix durch eine (gedachte) Trennung zwischen 
+zwei Spalten auf diese Weise in zwei "Blocke" zerlegen. 
+Ganz analog ist flir Matrizen A E lRmxn, C E lRkxn gleicher Spaltenzahl die 
+Matrix (~) definiert. Wiederholung so1cher Zusammensetzung en bzw. Tren-
+
+
+--- PDF page 307 ---
+§4. Elementarmatrizen und elementare Umformungen 
+291 
+nung zwischen Spalten und/oder Zeilen fUhrt auf die sogenannten Blockmatrizen 
+wobei die nebeneinander stehenden Matrizen Ail, ... , Aik gleich viele Zeilen und 
+die untereinander angeordneten Matrizen A Ij, .. . , Alj gleich viele Spalten haben 
+(l ::5: i ::5: I, 1 ::5: j ::5: k) . 
+Besitzen A, B die SpaltendarsteIlungen A = (al, ... ,all), B = (b" ... ,bd, so 
+ist (A,B) = (a" ... ,all,b" ... ,bkl (entsprechend fUr Zeilen) und nach der Multi-
+plikationsformel (6), §2, gilt fUr aIle P E lRIIIXIII, Q E lR"xl 
+P(A,B) = (PA,PB) , 
+(9) 
+A) Rechenverfahren, die nur Zeilenumformungen erfordern: 
+An zwei Matrizen gleicher Zeilenzahl 
+A E lRIIIXII , B E lRlllxk werden wie im 
+nebenstehenden Schema gleichzeitig die-
+selben elementaren ZeilenUll!!ormungell 
+ausgefUhrt, bis man zu (M, N) gelangt. 
+Dann gibt es nach Satz 4.2 eine inver-
+tierbare m x m-Matrix P mit (M,N) = 
+P(A,B) = (PA,PB), d.h. 
+(10) 
+M = P A, 
+N = P B . 
+A 
+B 
+elementare 
+Zeilen-
+umformungen 
+1 
+MIN 
+Mit einer spezieIlen Wahl der Anfangs- und/oder Enddaten kann eine explizite 
+DarsteIlung von P erreicht werden. 
+o Berechnung von P mit M = P A (---+ Satz 4.2). 
+Mit B = E E lR"'x", zeigt (10) 
+M=PA, N=P. 
+D.h., dieselben eiemelltaren Zeilellum(or-
+mUllgell. die A ill M umwandein. filhren 
+gleichzeitig von E zur invertierbaren 
+m x m-Matrix P mit 
+M = P A , bzw. 
+A = P-' M . 
+P ist ein Produkt von Elementarmatrizen. 
+A 
+E 
+elementare 
+Zeilen-
+umformungen 
+1 
+M 
+I 
+P 
+
+
+--- PDF page 308 ---
+292 
+6. Lineare Algebra 
+Beispiel. 
+A 
+E 
+Protokoll 
+1 -4 
+2 
+0 
+1 
+0 
+0 
+2 -3 -1 -5 
+0 
+1 
+0 
+3 -7 
+1 -5 
+0 
+0 
+1 
+1 -4 
+2 
+0 
+1 
+0 
+0 
+0 
+5 -5 -5 
+-2 
+1 
+0 
+0 
+5 -5 -5 
+-3 
+0 
+1 
+1 -4 
+2 
+0 
+1 
+0 
+0 
+0 
+1 -1 -1 
+2 
+I 
+0 
+-S-
+S-
+O 
+0 
+0 
+0 
+-1 -1 
+1 
+\. 
+y 
+I '-.r---' 
+=M 
+=P 
+Also gilt (PA = M): 
+® Berechnung der Inversen (Zeilenverfahren, GauB-Jordan-Verfahren) 
+Jede invertierbare Matrix A E 1R.nxn liijJt sich allein durch elementare Zeilenum-
+formungen in die n x n-Einheitsmatrix E umwandeln. Denn mit A ist auch die 
+mittels Vorwartselimination aus A entstandene Zeilenstufenmatrix 
+invertierbar (Rang A = Rang Ml = 
+(~ Satz 3.1). 
+Die Riickwartselimi-
+nation (von unten nach oben) und 
+Normierung der Diagonalstellen zu 1 
+ftihrt von M I ZU E. 
+Nach 0 - mit M = E - ergibt sich 
+E = P A, also P = A-I. 
+Da mit P auch A = p-l ein Produkt 
+von Elementarmatrizen ist, haben wir 
+auBerdem das niitzliche Beweismittel: 
+n), aile Diagonalelemente sind 1- 0 
+A 
+E 
+GauB-Elimination 
+(Vorwiirts- und 
+Riickwiirtselimination 
+im 1.B1ock) 
+! 
+E 
+I 
+A 
+Satz 4.4. 
+Jede invertierbare n x n-Matrix ist darstellbar als Produkt von n x n-
+Elementarmatrizen. 
+
+
+--- PDF page 309 ---
+§4. Elementarmatrizen und elementare Umformungen 
+Beispiel. 
+A 
+E 
+1 
+2 
+3 
+1 
+0 
+0 
+2 
+1 
+0 
+0 
+1 
+0 
+1 
+0 
+2 
+0 
+0 
+1 
+1 
+2 
+3 
+1 
+0 
+0 
+0 
+~3 ~6 
+~2 
+1 
+0 
+0 
+~2 ~1 
+~1 
+0 
+1 
+1 
+2 
+3 
+1 
+0 
+0 
+0 
+~3 ~6 
+~2 
+1 
+0 
+0 
+0 
+3 
+I 
+2 
+1 
+3 
+~3 
+1 
+2 
+0 
+2 
+2 
+~1 
+:3 
+3 
+0 
+1 
+0 
+4 
+I 
+~ 
+9 
+9 
+0 
+0 
+1 
+I 
+2 
+9 
+~9 
+1 
+0 
+0 
+2 
+4 
+~9 
+9 
+0 
+1 
+0 
+4 
+I 
+~ 
+9 
+9 
+0 
+0 
+1 
+I 
+2 
+9 
+~9 
+Damit gilt: 
+~r c: 
+(i 
+2 
+1 
+0 
+CD Matrixgleichungen (GauB-Verfahren). 
+Das in ® beschriebene Verfahren 
+Iiefert bei allgemeiner rechter Seite 
+B 
+E lR" xk 
+die eindeutig bestimmte 
+Lasung X 
+= A-I B der Matrixglei-
+chung AX = B (X,B E lR" xk , A E 
+lR" xl invertierbar). Denn mit M = E 
+zeigt (10) N = A-I B . 
+@ Die LR-Zerlegung. 
+4 
+9 
+I 
+9 
+2 
+~9 
+Protokoll 
+Z2 ~ 2z1 
+z, ~ ZI 
+) 
+z3 ~ 3Z2 
+ZI ~ Z, 
+~~(Z2 + 2z,) 
+!Z3 
+3 -
+ZI ~ 2Z2 
+') 
+:J 
+~{ 
+A 
+B 
+(Vorwarts- und 
+Riickwartselimination 
+im A-Block) 
+1 
+E 
+I 
+A IB 
+293 
+0 
+Bringt man eine invertierbare n x n-Matrix A nach 0 nur mit Vorwartseli-
+mination (Zeilenumformungen yom Typ CD) auf eine obere Dreiecksmatrix 
+M, und kommt man dabei ohne Zeilenvertauschungen aus, dann beobachtet 
+man auf der rechten Seite (des Rechenschemas) nur Veranderungen unterhalb 
+der Diagonalen; d.h. P ist eine untere Dreiecksmatrix mit lauter Einsen auf 
+der Diagonalen. Es ist eine einfache Ubung nachzuweisen (etwa anhand ®), 
+daB auch p- I dieselbe Gestalt hat. Die Formel A = p- I M 
+(~ 0) besagt in 
+diesem Fall : 
+
+
+--- PDF page 310 ---
+294 
+6. Lineare Algebra 
+A besitzt eine Produktzerlegung A = LR in eine untere Dreiecksmatrix L = p~l 
+(mit lauter Einsen auf der Diagonalen) und eine obere Dreiecksmatrix R = M 
+(mit Diagonalelementen i= 0 ). 
+Diese sogenannte LR- oder Dreieckszerlegung ist sehr vorteilhaft flir die 
+Auflosung der Matrixgleichung AX = B, insbesondere dann, wenn diese flir 
+verschiedene rechte Seiten zu losen ist: Man berechnet zuerst die Matrix Y 
+(vom gleichen Typ wie X) mit LY = B und damit X aus RX = Y. Diese 
+Rechnungen gestalten sich aufgrund der Dreiecksform von Lund R recht ein-
+fach. (-4 Programm GAUSS) 
+In der Praxis wird die LR-Zerlegung sehr oft direkt aus dem Ansatz A = LR 
+bestimmt. (-4 Aufgabe 5) 
+Beispiel. 
+An dem zu ® angegebenen Beispiel kann man bereits nach der 
+Vorwartselimination A = P-IM ablesen: 
+( 123) (1 0 
+2 1 0 
+= 
+-2 
+1 
+1 02 
+! -j 
+0)-1(123) (100)(123) 
+o 
+0 -3 -6 = 
+2 1 0 
+0 -3 -6 
+1 
+003 
+Ijl003 
+B) Rechenverfahren, die nur Spaltenumformungen erfordern, 
+verlaufen nach folgendem Schema an A E 1Rmxn und C E 1Rkxn : 
+~I elementare Spaltenumformungen 
+~ 
+Cl an A und gleichzeitig an C 
+-4 ~ 
+o 
+Nach Satz 4.2 gibt es eine invertierbare n x n-Matrix Q gleicher SpaJtenzahl 
+mit (~) = ( ~ ) Q = ( ~~) (-4 (9», also M = AQ, N = CQ . 
+So berechnet man etwa die "Transformationsmatrix" Q nach diesem Schema 
+mit C = E (der n x n-Einheitsmatrix). 
+® Eine Basis fUr Kern A (Spaltenverfahren). 
+Sei A E 1Rmxn. Wir bestimmen flir den Losungsraum Kern A des homogenen 
+linearen Gleichungssystems Ax = 0 wie folgt eine Basis: 
+41 
+Vorwartselimination flir Spalten (von links 
+~ 
+nach rechts) im A-Block; diese Spalten-
+-4 
+E 
+umformungen gieichzeitig an E ausflihren 
+Q . 
+mit N = (VI, ... , vr , 0, ... ,0) in Spaltenstufenform (-4 (4), mit Vi i= 0, r = Rang A) 
+und Q = (q" ... ,q"qr+I, ... ,qn) (Spaltendarstellung). Nach Satz 4.3 gilt: 
+(11) 
+(qr+l, qr+2, .. ·, qn) 
+ist eine Basis von Kern A . 
+Die allgemeine Losung von Ax = O'lautet x = Alqr+1 + ... + An-rqn 
+(Ai E 1R). 
+
+
+--- PDF page 311 ---
+§4. Elementarmatrizen und e1ementare Umformungen 
+Beispiel. Fur die Matrix 
+A~U5 
+6 
+9 
+-3 ) 
+2 
+6 
+10 
+34 
+58 
+49 ~IX 
+-9 -10 -3 
+ist in Abhangigkeit von IX eine Basis von Kern A zu bestimmen: 
+3 
+6 
+9 
+-3 
+3 
+0 
+0 
+0 
+3 
+0 
+0 
+0 
+0 
+2 
+6 
+10 
+0 
+2 
+6 
+10 
+0 
+2 
+0 
+0 
+15 34 58 
+3 
+15 4 13 
+18 
+15 4 
+1 -2 
+-9 -10 -3 49+0( 
+---> -9 8 24 40 + 0( 
+---> -9 8 
+0 
+0( 
+1 
+0 
+0 
+0 
+1 -2 -3 
+1 
+1 -2 3 11 
+0 
+1 
+0 
+0 
+0 
+1 0 
+0 
+0 
+1 
+0 
+0 
+1 
+0 
+0 
+0 
+1 
+0 
+0 
+0 
+0 
+0 
+0 
+1 
+0 
+0 
+0 
+0 
+0 
+Fall 1: 
+IX =1= 0 => Rang A = 4; Kern A = {O} . 
+Fall 2: 
+IX = 0 => Rang A = 3; Dim Kern A = 1 . 
+-3 -5 
+1 
+0 
+0 
+3 
+0 
+0 
+2 
+15 4 
+---> -9 8 
+1 -2 
+0 
+1 
+0 
+0 
+0 
+0 
+295 
+0 
+0 
+0 
+0 
+1 
+0 
+0 
+0( 
+3 
+17 
+-3 -11 
+1 
+2 
+0 
+o 
+Eine Mischung aus dem GauB-Verfahren (-+ §1) und dem vorstehenden Spalten-
+verfahren zur Lasung von Ax = 0 ergibt eine ubersichtlich strukturierte Losung 
+der inhomogenen linearen Gleichung 
+Ax = b 
+(A E IRmxn , bE IRm , b =1= 0) : 
+Man beginnt mit dem GauB-Verfahren; d.h., (Alb) wird mit elementaren Zeilen-
+umformungen umgewandelt zu (Mid) mit M in Zeilenstufenform. Mx = d be-
+sitzt genau dieselben Lasungen wie Ax = b. 1m Fall der Lasbarkeit (Rang M = 
+Rang (Mid)) berechnet man zuerst die spezielle (partikullire) Lasung vo, in der 
+die freien Variablen den Wert Null haben. Dann bestimmt man mit dem Spal-
+tenverfahren eine Basis (UI,"" un- r ) von Kern M (= Kern A), was wegen der 
+Dreiecksform von M recht einfach ist. Damit wird die allgemeine Lasung von 
+Ax = b dargestellt in der Form (-+ Satz 1.2) 
+x = Vo + AIUI + ... + An-run- r 
+(Ai E JR, r = Rang A) . 
+1m nachfolgenden Programm GAUSS ist das Prinzip der LR-Zedegung reali-
+siert, wobei aber zusatzlich Zeilenvertauschungen vorgenommen (und gespei-
+chert) werden, so daB in jedem GauB-Eliminationsschritt das betragsgraBte Ele-
+ment einer Restspalte zum .Element (Pivot-Element) wird. Urn bestmagliche 
+numerische Ergebnisse zu erzielen, wird das Gleichungssystem zunachst aquili-
+briert, indem jede Gleichung durch die Lange des entsprechenden Zeilenvektors 
+von A dividiert wird. Mit der fertigen "LR-Zedegung" kann die Ruckwarts-
+substitution mit verschiedenen rechten Seiten wiederholt werden. 
+
+
+--- PDF page 312 ---
+296 
+, Programm GAUSS 
+Print "DIMENSION N="; 
+Input N 
+M=N-l 
+Dim A(M,M),B(M),C(M) 
+Print "A ZEILENWEISE: " 
+For 1=1 To N 
+For J=l To N 
+Print "A"+Str$(I)+Str$(J); 
+Input A(I-l,J-l) 
+Next J 
+Next I 
+Zeilen skalieren -----
+For 1=0 To M 
+Y=O 
+For S=O To M 
+Y=A(I,S)*A(I,S)+Y 
+Next S 
+If Y=O Then 
+Print " A singulaer" 
+End 
+Else 
+C(I)=ljSqr(Y) 
+Endif 
+Next I 
+LR-Zerlegung -------
+D=l 
+For K=O To M 
+L=K 
+X=O 
+V=K 
+For I=K To M 
+Y=-A(I,K) 
+U=I 
+Gosub Scalar2 
+A(I,K)=-Y 
+Y=Abs(Y*C(I» 
+If Y>X Then 
+X=Y 
+L=I 
+Endif 
+Next I 
+If L<>K Then 
+6. Lineare Algebra 
+, ---- Zeilenvertauschung 
+D=-D 
+For J=O To M 
+Y=A(K,J) 
+A(K,J)=A(L,J) 
+A(L,J)=Y 
+Next J 
+C(L)=C(K) 
+Endif 
+C(K)=L 
+D=D*A(K,K) 
+Exit If X<1.OE-09 
+U=K 
+X=A(K,K) 
+If K<M Then 
+For J=K+l To M 
+Y=-A(K,J) 
+V=J 
+Gosub Scalar2 
+A(K,J)=-YjX 
+Next J 
+Endif 
+Next K 
+If Abs(D)<1.OE-09 Then 
+Print "A SINGULAER" 
+End 
+Endif 
+Print "D=";D 
+Repeat 
+Print "RECHTE SEITE·· 
+For 1=1 To N 
+Print "B"+Str$(I); 
+Input B(I-l) 
+Next I 
+For 1=0 To M 
+Y=C(I) 
+If I<>Y Then 
+X=B(I) 
+B(I)=B(Y) 
+B(Y)=X 
+Endif 
+Next I 
+
+
+--- PDF page 313 ---
+§4. Elementarmatrizen und element are Umformungen 
+u=o 
+For 1=0 To M 
+Y=B(I) 
+V=I-1 
+Gosub Scalar1 
+B(I)=-Y/A(I, I) 
+Next I 
+V=M 
+For I=M To 0 Step -1 
+Y=B(I) 
+U=I+1 
+Gosub Sca1ar1 
+B(I)=-Y 
+Next I 
+Print "ERGEBNIS" 
+For 1=1 To N 
+Print "X"+Str$(I)+"=";B(I-1) 
+Next I 
+Print "Neue rechte Seite (j/n)" 
+Input R$ 
+Procedure Scalar1 
+If U<=V Then 
+For S=U To V 
+Y=Y+A(I,S)*B(S) 
+Next S 
+Endif 
+Return 
+Procedure Scalar2 
+If K>O Then 
+For S=O To K-1 
+Y=Y+A(U,S)*A(S,V) 
+Next S 
+Endif 
+Return 
+Until R$="n" 
+Aufgaben 
+1. Fiir die folgenden Matrizen bestimme man 
+a) den Rang r (Zeilen- u. Spaltenumformungen I), 
+b) eine Basis des Zeilenraumes, 
+c) eine Basis des Spaltenraumes, 
+d) Matrizen P, Q, so daB P AQ = 
+( 6-
+~) : 
+(l 
+3 
+I 
+-2 -3) (i 
+-1 
+2 
+3 
+(~ 
+2 
+~) 
+4 
+3 -1 -4 
+1 0 
+5 
+3 -4 -7 -3 
+0 
+I 
+0 
+8 
+8 
+-7 -8 
+0 
+0 
+1 0 
+0 
+2. Mittels Zeilenverfahren ® berechne - falls moglich - die Inversen von 
+U 
+3 -I j) C' 
+1/3 
+1/4 1/5 
+(f 
+0 -1) 
+5 -1 
+1/3 
+1/4 1/5 
+1/6 
+1 -3 
+4 -3 
+1/4 1/5 
+1/6 1/7 
+2 -2 
+1 -5 
+1/5 1/6 1/7 1/8 
+1/6 1/7 
+1/8 
+1/9 
+und stelle die 3 x 3-Matrix als Produkt von Elementarmatrizen dar. 
+297 
+~) 
+1/6 ) 
+1/7 
+1/8 
+1/9 
+1/10 
+3. Man lose die Matrixgleichung AX = B gemaB Verfahren @, analog dazu BY = A 
+und berechne schlieBlich zur Kontrolle X Y fUr 
+a) A = (~ ~ =!), B = (!! ~); 
+o 4 -3 
+2 3 -4 
+
+
+--- PDF page 314 ---
+298 
+6. Lineare Algebra 
+A~ ( 
+; 
+2 -2 
+D ( 
+-~ 
+0 -1 J) 
+b) 
+5 -2 
+,B= 
+-1 -2 
+-2 -4 
+3 
+2 
+2 
+1 
+3 
+0 
+1 
+2 -5 
+4. a) Mittels ZeilenumJormungen bestimme man gemaB @ fUr A eine untere Drei-
+ecksmatrix P und eine obere Dreiecksmatrix R, so daB P A = R und leite 
+daraus die LR-Zerlegung von A ab: 
+( 
+3 
+6 
+o 
+2 
+A = 
+15 
+34 
+-9 -to 
+9 
+6 
+58 
+-3 
+~g) =LR= (1* 
+50 
+b) Man bestatige, daB A = (~ ~ :~) invertierbar ist aber keine LR-Zerlegung 
+besitzt! 
+5. a) Man bestimme die LR-Zerlegung: 
+C' 
+1/3 1/4 1/5) 
+H= 
+1/3 
+1/4 1/5 1/6 
+= LR = 
+1/4 1/5 1/6 1/1 
+(*) 
+1/5 1/6 1/1 1/8 
+~e' 
+0 )C 
+'" '" ''') 
+r22 
+r23 
+r24 
+131 
+132 
+r33 
+r34 
+141 
+142 
+143 
+o 
+r44 
+durch Zeilenverfahren @ , 
+direkt aus (*): LR ausmultiplizieren und auftosen nach '11, 12J , /31 , ...• 
+6. Man bestimme - abhangig von 0( - mittels SpaItenverfahren ® eine Basis von 
+Kern A fUr die Matrizen A 
+(
+1 1 
+2 
+2 3 
+3 
+4 5 
+30 
+3260(+7 
+3 
+) 
+7 
+14 
+' 
+20(+8 
+7. Man zeige fUr eine invertierbare Matrix A 
+a)A=AT 
+=A-I=(A-I)T, 
+b) 
+A = _AT = A-I = _(A-I)T . 
+8. Es seien A E IRmxn und B E IRnxm mit AB = O. Man beweise oder widerlege mit 
+einem Beispiel: 
+a) Es gilt auch BA = 0, 
+b) Rang A = n = B = 0, 
+c) Rang A = m = B = o. 
+9. Man zeige, daB jede invertierbare Matrix allein durch elementare Zeilenumformun-
+gen vom Typ CD auf die Form Diag(I, ... , I,d) mit d =f 0 gebracht werden kann. 
+
+
+--- PDF page 315 ---
+§5. Determinanten 
+299 
+to. Pseudo-Inverse einer Matrix A E JR.""" nennt man eine Matrix A+ E JR."xm, fUr 
+welche 
+(i) 
+(ii) 
+A+ AA+ = A+ 
+AA+ A = A . 
+) M 
+. 
+F" A -- (EO" 00) 
+a 
+an zelge: 
+ur 
+ist AT eine Pseudo-Inverse. 
+b) Man bestatige: Sind P E JR.I11XI11 , Q =E JR."x" invertierbar und A+ Pseudo-
+Inverse von A, so ist B+ = Q I A+ p-i Pseudoinverse von B = P AQ . 
+c) Man bestimme eine Pseudoinverse fUr (00 0') 
+und 
+( ' 
+0 ') 
+238 . 
+§s. Determinanten 
+5.1 Einfiihrung. 
+Determinanten wurden bereits 1678 von G. W. LEIBNIZ ein-
+gefiihrt, sie waren aber - aufgrund ihrer komplizierten Berechnung - fUr lange 
+Zeit als magisches Rechenmittel verrufen und nur den Konnern vorbehalten. 
+Man kann mit ihnen elementargeometrische Gro13en au13erst elegant beschrei-
+ben, die Losung eines linearen Gleichungssystems mit invertierbarer Koeffi-
+zientenmatrix direkt als Funktion der Koeffizicnten darstellen und schliel3lich 
+den Test "Rang A < 11" bei einer 
+11 x n-Matrix auf eine blo13e Nullabfrage 
+zuriick fiihren. 
+2-reihige Determinanten. Das von zwei 
+Vektoren a = (:~), b = (~~) der 
+(x, y)-Ebene erzeugte Parallelogramm 
+hat nach Kap. 1, §5.3 den FJachenin-
+halt 
+y 
+Abb. 143 - Parallelogrammflache 
+Es ist F = y.dh-'y-2/31 ;:0: 0, wenn die Drehung von a nach b iiber den kleineren 
+Winkel positiv (gegen den Uhrzeigersinn) erfolgt, andernfalls gilt -F = (lIth -
+Y.2f31 ~ O. Die Zahl 
+(1 ) 
+hei13t Determinante der 
+~~ ) . Man berechnet sie nach 
+dem Schema 
+
+
+--- PDF page 316 ---
+300 
+6. Lineare Algebra 
+Es ist det A = ±F = 0 genau dann, wenn a, b parallel sind (oder einer der 
+beiden der Nullvektor ist). Damit ist gezeigt: 
+( :~) , (~~) linear abhlingig ==> det ( :~ ~~) = 0 
+bzw., liquivalent dazu 
+A = (:~ ~~) invertierbar ==> det A =1= 0 
+Beispiel. 
+det ( ; ;) = 1 . 5 - 2 . 3 = -1 =1= o. Die Matrix ist invertierbar; 
+(; ;)~I=(_l)(_; -i)· 
+Ferner: Der Fllicheninhalt des von (;) und (;) aufgespannten Parallelo-
+gramms betrligt F = I det A I = 1 . 
+o 
+3-reihige Determinanten. Ein Spat mit den beziiglich einer kartesischen Basis 
+dargestellten Kanten 
+hat nach Kap. 1, §5.4 das Volumen 
+(2) 
+V = l[a"a2,a3]1 
+Die bisher als Spatprodukt bekannte Zahl 
+detA := [a1,a2,a3] 
+heiBt auch Determinante der 3 x 3-Matrix 
+(
+0(11 
+A = 
+0(21 
+0(31 
+Es gilt V = 
+detA > 0, wenn (al,a2,a3) ein Rechtssystem ist. V = 
+detA = 
+0 
+genau dann, wenn der Spat entartet ist, d.h. wenn ai, a2, a3 linear abhlingig 
+sind. In anderen Worten: 
+Rang A < 3 ==> detA = 0, bzw. 
+Rang A = 3 ==> A invertierbar ==> det A =1= 0 . 
+Die auf der rechten Seite von (2) eingeklammerten Faktoren erkennt man als 
+Determinanten gewisser 2 x 2-Matrizen. D.h., 
+
+
+--- PDF page 317 ---
+§5. Determinanten 
+301 
+(3) 
+Anschaulich: 
+det 
+= 
+~+ 
+Abb. 144 -
+3 x 3-Determinante 
+Fur 3 x 3-Matrizen gibt es die nach dem franz6sischen Mathematiker P. F. 
+SARRUS (1798 - 1861) benannte Regel: 
++ 
++ 
++ 
+~11 
+~12 
+~13 
+~11 
+~12 
+~ X 
+X 
+/ 
+~21 
+~22 
+0(23 
+~21 
+~22 
+/' X 
+X 
+~ 
+~31 
+~32 
+~33 
+~31 
+~32 
+Man schreibt die ersten beiden Spalten noch einmal rechts neben A, addiert die 
+langs der '" -Diagonalen zu bildenden Produkte und suhtrahiert die tangs 
+.7' 
+berechneten Produkte. Man erhait 
+Beispiel. 
+0 
+-2 
+3 
+0 
+-2 
+A = ( -~ 
+-2 
+3 ) 
+~ X 
+X 
+/ 
+1 -2 
+-2 
+-2 
+-2 
+6 
+5 
+/' X 
+X 
+~ 
+3 
+6 
+5 
+3 
+6 
+det A = 0 + 12 - 36 - 9 - 0 - 20 = -53. Dip Matrix ist invertierbar, die Spalten 
+bilden eine Basis des 1R3 , aber kein Rechtssystem. Der von den Spalten (in 
+kartesischen Koordinaten) aufgespannte Spat hat das Volumen V = I det AI 
+53. 
+0 
+Bemerkung. 
+Die Regel von SARRUS laf3t sich nicht auf die III 5.2 definierten 
+n-reihigen Determinanten mit n > 3 ubertragen. 
+5.2 Definition der Determinante einer n x n -Matrix. 
+Ais Verallgemeinerung 
+der beiden Sonderfalle n = 2, n = 3 ergibt sich fUr beliebiges n E N die 
+folgende 
+
+
+--- PDF page 318 ---
+302 
+(4) 
+60 Lineare Algebra 
+Rekursive Definition der Determinante det A, A = (aij) E IR"X II • 
+Fur n = I , d.h. A = (aid , ist det A := all. 
+Fur 11 ~ 2 ist (Encw;cklung von det A nC/eh der ersten Spalte) 
+det A := (X II det A II -
+(X21 det A 21 + a 31 det A 31 
+-+ . .. +(_ \)"+I(XllldetA III
+, 
+wobei Ail die (/I- I) x (n- I)-Matrix bezeichnet, die au A durch 
+ntfernen (Streichen) der ersten Spalte und der i-ten Zeile entsteht 
+(I ~ i ~ n) 
+0 
+Fur det A ist ebenfalls die Bezeichnung IA I iiblich. 
+Die folgende Abbildung veranschaulicht (4) : 
+Abbo 145 - Entwicklung nach der I. Spalte 
+Beispiel. 
+A~ U 
+2 0 
+') 
+-2 
+I 
+-~) 
+-2 
+_; 
+, A" ~ ( 
+: 
+3 
+6 
+3 
+4 
+3 
+3 
+A21 = (! 
+0 
+-~) , A31 = ( -~ 
+0 
+~) , A41 = ( -~ 
+0 j) 
+3 
+I 
+1 
+3 
+3 
+3 
+det A = I . det A II - 3 . det A 21 + 0 . det A 31 - 2 0 det A41 
+= -32 - 3 · 24 - 2· (- 16) = - 72 
+0 
+0 
+Bemerkung. 
+Wendet man (4) rekursiv in (4) auf det Ail 
+(I ~ i ~ n) an, so 
+ergibt sich zum SchluB die sogenannte vollstiindige Entwieklung der Determinante 
+detA = 
+~ ( 
+1)E(i)No 
+N02 • •• No 
+L... 
+-
+Vo/1l \.A.12 
+v..'lIn , 
+wobei sich die Summe iiber aile Permutationen i = (i" ... , in) der Zahlen 
+\ , 2, . .. , n erstreckt, und 10 (i) gleich der Anzahl der Vertauschungen ist, die er-
+forderlich sind, urn (i I, .. . , in) in die natiirliche Reihenfolge zu bringen. 
+Die vollstandige Entwicklung besteht aus n! Summanden. Da mit wachsendem 
+n die Fakultat n! rapide ansteigt (7! = 5040) , sucht man nach Eigenschaften, 
+die eine schnellere Berechnung von det A, etwa durch Riickftihrung auf den 
+folgenden Spezialfall, erlauben. 
+
+
+--- PDF page 319 ---
+§5. Determinanten 
+303 
+Satz 5.1. 
+Far eine obere Dreiecksmatrix gilt 
+Speziell: det E = 1 , det(!XE) =!X" (E E JR"xn) . 
+Beweis. 
+Wegen !X21 = ... = !X"I = 0 reduziert sich (4) auf 
+C") 
+C
+33
+) 
+det A = !Xll det 0"'* 
+= !XII!Xn det 
+0'" * 
+= ... = !XI I !Xn ... !X"" . 
+D 
+rtml 
+CimJ 
+Beispiele. 
+dot G 
+4 
+0 D 
+~-6; 
+dot (~ 
+3 4 
+2 
+i) 
+1 
+4 
+0 2 
+4 
+0 -2 
+0 5 -1 
+=0. 
+D 
+0 
+0 
+0 0 
+4 
+0 0 
+0 
+5.3 Rechenregeln fUr Determinanten. 
+Der folgende Satz enthalt die grund-
+legenden Eigenschaften der Determinante. 
+Satz 5.2. 
+a) det ist linear in jeder Zeile. Damit ist gemeint: 
+1. 
+Ein gel1leinsal1ler Faktor einer Zeile ['on A kann aus det A herausgezogen 
+werden. 
+2. Besteht eine Zeile von A aus einer SUl1ll1le, Zi = a + b, dann besitzt det A die 
+entsprechende SUl1lmenzerlegung. In Forl1leln: 
+ZI 
+ZI 
+ZI 
+ZI 
+det 
+!XZi 
+= !X det 
+Zj 
+det 
+a + b 
+= det 
+a 
++ det 
+b 
+Zn 
+Zn 
+Z" 
+Z" 
+b) det ist aIternierend. Das bedeutet: Entsteht Ii aus A E JRnx" durch Vertau-
+schung zweier Zeilen, dann gilt det Ii = - det A ; insbesondere det A = 0 ,falls A 
+zwei gleiche Zeilen enthiilt. 
+Beweis. 
+a) beweist man leicht mit vollstandiger Induktion (n = 1,2, ... ) und 
+der Rekursionsformel (4). 
+b): Wegen der alternierenden Vorzeichen erkennt man an (4) (ebenfalls mit 
+vollstandiger Induktion), daB sich bei Vertauschung zweier benachbarter Zeilen 
+das Vorzeichen andert. Da man die Vertauschung zweier beliebiger Zeilen von 
+A stets durch eine ungerade Anzahl von Vertauschungen benachbarter Zeilen 
+erzielen kann, ist nun alles bewiesen. Sind zwei Zeilen von A gleich, so gilt 
+mit einer Vertauschung dieser beiden Zeilen det A = - det A ; das ist nur mit 
+det A = 0 moglich. 
+D 
+
+
+--- PDF page 320 ---
+304 
+6. Lineare Algebra 
+Satz 5.3. Die Rechenregeln fUr Determinanten. 
+Fur aile A, B E lRnxn gilt.' 
+a) Die Anderung bei elementaren Zeilen- bzw. Spaltenumformungen. Entsteht A 
+aus A durch eine elementare Zeilen- oder SpaltenumJormung vom Typ CD. 
+dann andert sich die Determinante wie Jolgt .' 
+(5) 
+Typ CD.' 
+detA = -detA , 
+Typ (1): det A = !X det A 
+(Faktor !X =f. 0) , 
+Typ CD: 
+detA = detA . 
+b) Symmetrie in Zeilen und SpalteD. 
+I detAT = detA 
+insbesondere gilt Satz 5.2 entsprechend for Spalten. 
+c) MultiplikatioDssatz. 
+(6) 
+det(AB) = (det A)(det B) . 
+d) Invertierbarkeits-Test. A invertierbar <=> det A =f. 0 ; 
+aquivalent dazu: Rang A < n <=> det A = 0 . 
+Beweis. a): Fur die Zeilenumformungen yom Typ CD und (1) stehen die 
+Formeln in Satz 5.2. Fur Typ CD (z; -+ Z; + !XZj) verwendet man die Linea-
+rita! in dcr i-ten Zeile und det ( ~) ~ O. Die Gilltigkoit di"" Fonneln boi 
+Spaltenumformungen ergibt sich ruckwirkend, sobald b) bewiesen ist. 
+d) : Mit elementaren Zeilenumformungen laBt sich A in eine obere Drei-
+ecksmatrix M umwandeln. 
+Nach (5) gilt detM = y detA mit y =f. O. 
+Damit: 
+A invertierbar 
+<=> 
+samtliche Diagonalelemente in M sind =f. 
+0(-+ 4.4 ®) <=> detM =f. 0 (-+ Satz 5.1) <=> detA =f. O. 
+c): (5) (fUr Zeilenumformungen) zeigt fUr A = E wegen det E = 1, daB es 
+sich bei den Koeffizienten jeweils urn die Determinante der zugehorigen Ele-
+mentarmatrix E handelt (A = EA, -+ Satz 4.2); deshalb laBt sich (5) in der 
+einheitlichen Form 
+(7) 
+det(EA) = det E . det A 
+angeben. Also gilt (6) fUr Elementarmatrizen, damit auch fUr aIle endlichen Pro-
+dukte von Elementarmatrizen und deshalb (-+ Satz 4.4) fUr aIle invertierbaren 
+A, B. 
+1st A oder B nicht invertierbar, so auch AB nicht und es gilt det AB = 
+det A det B = 0 . 
+b): 1st A nicht invertierbar, so gilt nach d) det A = 0 = det AT. Wegen 
+Satz 4.4 und (6) braucht nur noch det E = det ET fUr jede Elementarmatrix 
+nachgewiesen zu werden. Das geschieht direkt: Fur E yom Typ CD oder 
+
+
+--- PDF page 321 ---
+§s. Determinanten 
+305 
+CD gilt f;T = f; , fUr f; vom Typ 0 ist auch f;T eine Elementarmatrix vom 
+Typ 0, hierfUr gilt det f; = 1 = det f;T (-. (5». 
+0 
+Folgerungen aus dem Multiplikationssatz. 
+a) 
+det(AB) = det(BA) 
+b) 
+det(Ak) = (det A)k 
+(k E N) 
+c) 
+det(A-1) = (det A)-I, falls A invertierbar 
+d) 
+det(C-1 AC) = det A, fUr aIle invertierbaren C E IRnxn . 
+(8) 
+e) 
+Der Kiistchensatz. Fiir eine Blockmatrix (-. 4.4) der Form 
+A = (~ g) 
+bzw. 
+A = (~ Z) 
+mit k x k-Matrix B, (n - k) x (n - k)-Matrix D, 
+o Nullmatrix und C jeweils vom passenden Typ gilt 
+det A = det B det D . 
+Beweis. 
+a): det(AB) = det A det B = det B det A = det(BA). 
+b): det(Ak) = (det A)(det Ak- 1) = ... = (det A)k . 
+c): 1= detE = detA-1A = (det A-1)(detA) . 
+d): det(C-1AC) =det(AC)C-1 =detA. 
+e): Man rechnet leicht 
+nach, mit jeweils E vom passenden Typ. Der zweite Faktor kann mit ele-
+mentaren Zeilenumformungen vom Typ 0 (we1che die Determinante nicht 
+andern) in 
+(~ ~) umgewandelt werden. 
+Aus det (~ ~) = det B , 
+det (~ Z) = det D (einfache Ubung) und dem Multiplikationssatz folgt nun 
+die Behauptung. 
+0 
+5.4 Die Entwicklung von det A nach einer beliebigen Zeile oder Spalte. 
+Die Matrix A = (aj,al, ... ,aj-l,aj+l, ... ,an) entsteht aus A = (al, ... ,aj, ... ,an ) 
+durch j - 1 sukzessive Vertauschungen benachbarter Spalten. Also gilt det A = 
+(_l)j-l detA. Entwickelt man andererseits erneut detA mit (4), dann ergibt 
+sich die sogenannte Entwicklung von det A nach der j-ten Spalte: 
+n 
+detA = L(-l)i+j(J(ijdetAij 
+i=1 
+wobei Aij die (n-l) x (n-l)-Matrix bezeichnet, die aus A durch Streichen der 
+
+
+--- PDF page 322 ---
+306 
+6. Lineare Algebra 
+i-ten Zeile und j-ten SpaJte entsteht. Wegen det AT = det A hat man ebenso 
+die Entwicklung von det A nach der i-ten Zeile: 
+n 
+detA = Z)-l)i+jQ(ijdetAij . 
+j=l 
+5.5 Beispiele. 
+Zur Berechnung von det A (fUr n > 3) ist es zweckmaBig, 
+zuerst mit elementaren Umformungen moglichst viele Nullen zu erzeugen. Dabei 
+sind die Regeln (5) zu beachten. 
+Beispiel 1. 
+(~(8e)) 
+(
+1 3 -5 
+422 
+det 
+0 
+0 
+1 
+000 
+000 
+1 4) 
+o -3 
+2 
+3 
+4 
+5 
+1 3 (I 2 3) 
+= det ( 4 J det 
+00 
+4 
+5 
+= 240 . 
+o -6 
+o -6 
+Beispiele 2. 
+det (~ ~ ~) = 0 
+334 
+det (~~ !) = +Q(31 det A3J = 1 . det (~ !) = 5 ; 
+1 2 -I 
+det ( 
+~ ~ 1 j) = det (~ ~ r j) 
+-1 
+2 0 
+1 
+0 4 
+3 
+5 
+= det (! ~ -!) = 45 , 
+o 
+die Matrix ist invertierbar; sowohl Zeilen als auch 
+abhangig. 
+SpaJten sind linear un-
+o 
+Beispiel 3. 
+(Die Vandermonde-Determinante) 
+det (~l ; ;~) = det (b y ~ x l ~ x2) = det (y - x 
+Y~ - x~ ) 
+Z 
+z2 
+0 
+Z _ X 
+z2 _ x 2 
+Z -
+X 
+Z 
+-
+x 
+= (y - x)(z - x) det (~ ~ : :) = (y - x)(z - x) det (~ ~ ) 
+= (y - x)(z - x)(z - y) . 
+Analog 
+det (:., :~.l::::: :~ .• =:) = II (Xj - Xi) . 
+I S;i<j S;n 
+1 
+X n , •.. , X~-l 
+wobei auf der rechten Seite das Produkt tiber aile Differenzen Xj - Xi mit i < j 
+
+
+--- PDF page 323 ---
+§5. Determinanten 
+307 
+zu bilden ist. Diese Determinante ist genau dann 1- 0, wenn die x I, ... , Xn 
+paarweise verschieden sind. 
+Diese nach A. VANDERMONDE (1735-1796) benannte Determinante bzw. Matrix 
+tritt beispielsweise bei der Polynominterpolation auf, wenn man die Koeffizien-
+ten des Polynoms p(x) = ao + alx + ... + an_IXn- 1 mit p(xa = Yi 
+(1:::; i :::; n) 
+d 
+GI ' h 
+2 
+n-I 
+(1') 
+aus em 
+elC ungssystem ao + Xial + Xi a2 + ... + Xi 
+an-I = Yi 
+:::; I :::; n 
+berechnet. 
+D 
+Beispiel 4. 
+Mit Rechenschema @ zur LR-Zerlegung (-+ 4.4) berechnet man 
+A = (~ 2 3) (1 
+1 0 
+= 
+o 2 
+* 
+also gilt det A = det L det R = det R = -9. 
+D 
+5.6 Anwendungen. 
+CD Die Cramer-Regel (G. CRAMER, 1704 - 1752). Mit einer invertierbaren Matrix 
+A = (al, ... ,an) E IRnxn und b E IRn hat das Gleichungssystem Ax = b die 
+Losung 
+(9) 
+(die i-te SpaJte von A wird durch b ersetzt), 1:::; i :::; n. 
+Beweis. Wir tragen b = Ax = LXiai anstelle von al ein und verwenden die 
+Linearitat von det in der ersten SpaJte: 
+n 
+= LXi det(ai, a2,· .. , an) 
+i~1 
+die anderen Summanden sind Null, wei I jeweils zwei gleiche SpaJten vorhanden 
+sind; X2, ... , Xn ebenso. 
+D 
+Man sollte (9) nicht zur vollstandigen Aufiosung eines Systems mit vielen Un-
+bekannten verwenden (Rechenaufwand)! Die Formel ist aber gut geeignet zur 
+Berechnung einzelner Unbekannter und besonders giinstig zur Weiterverarbei-
+tung, wenn im Gleichungssystem zusatzliche Parameter enthalten sind. 
+
+
+--- PDF page 324 ---
+308 
+6. Lineare Algebra 
+Beispiele. 
+1. 2x+ 3y= 3 
+det (-i -;) 
+18 
+det (~ -D 
+17 
+==> 
+5x-7y=-1 
+X= 
+det (~ -;) 
+29 ' 
+y= 
+det (~ -;) 
+29 . 
+2. 
+Man benotigt nur X2 aus folgendem 4 x 4-Gleichungssystem: 
+( 
+5 
+4 
+2 
+-~) 
+-3 1 6 
+5xI + 3X2 + 2X3 
+=4 
+det 
+~ 0 
+-1 
+-3xI + 5X2 + 6X3 - 5X4 = 1 
+0 4 
+1 
+95 
+==> 
+X2 = 
+3 2 
+-~) 
+-156 . 
+3X2 + X3 -
+X4 = 0 
+( 
+5 
+5xI + 3X2 + 4X3 + X4 = 0 
+-3 5 
+6 
+det 
+~ 3 
+-1 
+3 4 
+1 
+0 
+(2) Die Adjunkte von A. Sei zunachst A E lRnxn invertierbar und A-I = (fJij) = 
+(bJ, ... ,bn), dann erftillt bj wegen AA-I = (AbJ, ... ,Abn) = E = (el, ... ,en) 
+das Gleichungssystem Abj = ej. Bestimmt man die i-te Komponente fJij von 
+bj mit der Cramer-Regel (9) und entwickelt den Zahler nach der i-ten Spalte 
+(--+ 5.4), dann ergibt sich 
+1 
+1 
+~. 
+fJij = detA det(al, ... ,ai-l,ej,ai+J, ... ,an) = detA(-l) JdetAji . 
+Man beachte die Anderung der Indexreihenfolge (Aij ist die Matrix, die aus A 
+durch Streichen der i-ten Zeile und j-ten Spalte entsteht). 
+Man nennt A· := (O(ij) mit O(ij = (-i)~j detAji die Adjunkte von A. Sie stellt 
+bis auf einen Faktor die inverse Matrix von A dar: 
+(10) 
+A -I -
+1 A· -
+1 
+(( l)i+j d A) 
+-
+detA 
+- detA 
+-
+et ji ij 
+Beachte. A· ist auch im FaIle det A = 0 definiert. In numerischen Rechnungen 
+mit gro8em n sind in jedem FaIle die Verfahren aus 4.4 vorzuziehen. 
+CD Flacheninhalte und Volumina (--+ 5.1). Ein Tetraeder im lR3 mit den Eck-
+punkten Ai = (Xi,Yi,Zi) 
+(1 ~ i ~ 4) hat das Volumen V = ~ldet(a,b,c)1 mit 
+~ ~ ~ 
+a = AIA2 , b = AIA3 , C = AIA4 . 
+Eine leichte Umformung der Determinante ergibt eine ,,4-Punkte-Formel" 
+YI ZI) 
+Y2 
+Z2 
+Y3 
+Z3 
+Y4 
+Z4 
+
+
+--- PDF page 325 ---
+§5. Determinanten 
+309 
+o Kegelschnitte. Ein Kegelschnitt in der (x, y)-Ebene hat eine Gleichung der 
+Form 
+alx2 +a2l +a3xy +a4x +a5Y +a6 =0, 
+in der nicht alle Koeffizienten ai Null sind. Da ein Koeffizient zu 1 normiert 
+werden kann, sind im allgemeinen zur Bestimmung der Koeffizienten 5 verschie-
+dene Punkte auf der Kurve erforderlich. Die Punkte Ai = (Xi,Yi) 
+(1 ~ i ~ 5) 
+und der "allgemeine" Punkt X = (x, y) auf dem Kegelschnitt liefem ein lineares 
+Gleichungssystem 
+alx2 +a2l +a3xy 
++a4x +a5Y +a6 = 0 
+alxi + a2Yt + a3XIYl + a4x l + a5Yl + a6 = 0 
+. 
+. 
+alx~ + a2Y~ + a3X5Y5 + a4x5 + a5Y5 + a6 = 0 
+mr al, ... , a6. Da dieses eine von Null verschiedene Losung besitzt, muB die 
+Determinante der Koeffizientenmatrix Null sein. Das ergibt die sogenannte 
+5-Punkte-Gleichung for den allgemeinen Kegelschnitt 
+C 
+l 
+xy 
+x 
+Y 
+;) 
+x2 
+Yt 
+XIYl 
+Xl 
+Yl 
+det 
+:1 
+=0. 
+x; 
+Y; 
+X5Y5 
+X5 
+Y5 
+Bemerkung. 
+Spezielle Kegelschnitte sind durch weniger als 5 Punkte festgelegt. 
+So hat beispielsweise ein Kreis die Gleichung a(x2 + l) + bx + cy + d = 0, er ist 
+durch 3 verschiedene Punkte festgelegt. Genau wie zuvor ergibt sich: 
+ist die Gleichung des Kreises durch die Punkte (Xi, Yi) , 
+i = 1,2,3 . 
+Beispiel. Der Kreis durch die Punkte (0,0), (1,3), (2, -1) hat die Gleichung 
+det (X2 ! 
+i 
+~ 
+~ ~) 
+5 
+2 -1 1 
+also: 7(x2 + l) - 25x -15y = O. 
+D 
+Weitere, besonders wichtige Anwendungen werden in den folgenden Paragra-
+phen behandelt. 
+
+
+--- PDF page 326 ---
+310 
+6. Lineare Algebra 
+Aufgaben 
+1. Man berechne die Determinanten der Matrizen 
+( r C?S IX 
+-r sin IX ) 
+r sin IX 
+r cos IX 
+' 
+(
+1/2 1/3 1/4) 
+1/3 1/4 1/5 
+1/4 1/5 1/6 
+a) mitte!s Entwicklung nach der ersten Zeile; 
+b) mittels elementarer Umformungen bis zur oberen Dreiecksgestalt. 
+2. Man berechne die Determinante der Matrizen 
+( 
+I 
+0 -1 ') C2 
+1/3 
+2 
+1 
+2 
+1 
+1/3 1/4 
+-3 1 
+o 
+1 
+' 
+1/4 1/5 
+2 2 
+o -1 
+1/5 
+1/6 
+3. Man lose mit der Cramer-Regel Ax=b 
+A~ ( 
+; 
+-1 0 
+2 0 
+-4 -4 3 
+-2 
+2 1 
+4. Man beweise 
+2 3 4 
+3 4 
+n-2 n-1 
+n 
+1/4 
+1/5 
+1/6 
+1/7 
+mit 
+D 
+( -! 
+0 0 
+1/5 ) 
+2 0 
+1/6 
+1 2 
+1/7 
+3 
+1/8 
+0 
+3 
+b~m 
+0 
+0 
+0 
+2 
+4 
+n-1 
+n 
+nU 
+n(n-I) (n + l)nn-l 
+= (-1)"'-
+2 
+... n-3 n-2 
+... n~J ~ 1l2'3!··· (n -I)!. 
+0 l 
+0 
+0 
+0 
+2 
+5. Man gebe fUr die Gleichungen einer Ebene durch 3 Punkte im R3 eine Darstellung 
+mitte!s 4 x 4-Determinate. 
+6. Man beweise fUr zwei Spaltenvektoren a, bE R" 
+det(E + abT ) = 1 + a Tb 
+und 
+det(IXE + abT) = 1X"-1(1X + a Tb) , IX E R. 
+7. a) Fur die Flache eines ebenen Dreiecks mit den Seiten a, b, c gilt bekanntlich die 
+HERON-Forme!: 
+F=vs(s-a)(s-b)(s-c) mit s=!(a+b+c). 
+Man rechne nach, daB hierfUr die folgende Formel gilt: 
+
+
+--- PDF page 327 ---
+§6. Lineare Abbildungen und Eigenwerte 
+b) Fur das Volumen V des Tetraeders mit den 
+Kantenliingen 
+Q, b, c, p, q, r (Reihenfolge aus 
+der Skizze) gilt: 
+c 
+, b2 
+c2 
+1) 
+a-
+, 
+0 
+, 
+q2 
+a-
+r-
+,I 
+) 
+r2 
+0 
+p2 
+V" = 25 . 32 det 
+b~ 
+c 
+q2 
+p2 
+0 
+I 
+I 
+I 
+Welchen Inhalt hat der Tetraeder mit den Kantenlangen 
+a = 1 (,Ill: b = 2 cm: c = 3 cm: p = 4 cm: q = 3 cm und r = 2 em ? 
+311 
+8. Seien Yi: IR --> IR (i = 1,2,3) dreimal differenzierbar und Losungen der linearen 
+Differentialgleichung 
+y;"(x) + al (x)y;'(x) + a2(x)y;(x) + a3(x)Yi(X) = 0 
+und 
+( 
+Ydx) 
+Y2(X) 
+W(x) :=det 
+y;(x) 
+y;Cx) 
+yi(x) 
+y~(x) 
+Ii 
+Man zeige dx W(x) = -adx)W(x) . 
+Y3(X) ) 
+y;(x) 
+die sog. WRONSKI-Determinante. 
+y;Cx) 
+§6. Lineare Abbildungen und Eigenwerte 
+Nach den linearen Gleichungssystemen behandeln wir nun als zweiten wichtigen 
+Anwendungsbereich der Matrizen die linearen Abbildungen. 1m lR" sind das 
+die Zuordnungen x f-+ Ax (x E lR" und fester n x n-Matrix A). 1m Hinblick 
+auf allgemeine Anwendungen ist es aber erforderlich, die grundlegenden Begriffe 
+und Bezeichnungen in beliebigen Vektorraumen und unabhangig von speziellen 
+Basen zu formulieren. 
+6.1 Lineare Abbildungen. 
+Seien V, W Vektorraume iiber lR. Mit einer Ab-
+bildung I : V --+ W ("von V in W ") wird jedem Vektor v E Vein eindeutig 
+bestimmter Vektor w = I (v) E W, das sogenannte I -Bild von v zugeordnet. 
+Definition. 
+Eine Abbildung I : V --+ W heij3t linear, wenn gilt: 
+(L.l) list homogen; d.h. I ((Xv) = (XI (v) fur aile (X E lR, v E V , 
+(L.2) list additiv; d.h. I (u + v) = I (u) + I (v) fur aile u, v E V . 
+Andere Bezeichnungen fur eine lineare Abbildung sind: lineare Transformation, 
+linearer Operator, Vektorraumhomomorphismus. 
+Gleichwertig mit (L.l), (L.2) ist 
+(1) 
+
+
+--- PDF page 328 ---
+312 
+6. Lineare Algebra 
+fUr aIle Q(i E R, Vi E V 
+(1:::;; i :::;; n; n EN), 
+was besagt, daB das f -Bild jeder Linearkombination gleich der entsprechenden 
+Linearkombination der einzelnen f -Bilder ist. 
+Beispiele. Lineare Abbildungen sind: 
+1. Die Nullabbildung 0 : V -+ V, O(v) := O. 
+2. Die identische Abbildung Id : V -+ V, Id(v) := V • 
+3. Die Projektion Pi : R n -+ R, Pi(X) := Xi (i-te Komponente von x). 
+4. Die Multiplikation mit einer festen m x n-Matrix A 
+1 : R n -+ R m , 
+l(x):= Ax . 
+5. Der Differentiationsoperator ix : ~1(I) -+ ~(I), ixf(x) := j'(x). ~(I) 
+bzw. ~1(I) bezeichnet den Vektorraum aller auf dem Intervall I £; R steti-
+gen bzw. stetig differenzierbaren Funktionen. 
+b 
+6. Das Integral f 1-+ 1 f (x)dx, f E ~(a, b) . 
+Keine linearen Abbildungen sind: 
+7. Die Parallelverschiebung ta : V -+ V, ta(v) := v + a (mit festem Vektor 
+a =F 0). 
+8. f :R2 --+R2, f(x,y) := (x2, X + y) (quadratisch in der 1. Komponente). 
+Lineare Abbildungen in der Technik: 
+9. Die Werkstoftbeanspruchung eines ela-
+d t 
+,ti,ehen K0'P<". auf den von auBen 
+C 
+,)~E.-ii 
+___ ----· __ ~-_-.-_--_- n 
+Krafte wirken, wird in der linearen Ela-
+, 
+stostatik durch den Spannungstensor S 
+beschrieben. 
+Dieser bestimmt fUr je-
+den inneren Punkt Peine lineare Ab-
+bildung, die den Normalenrichtungen 
+Abb. 146 - Dreiachsiger Spannungs-
+n von (idealisierten) Schnittebenen E 
+zustand 
+durch P den Spannungsvektor t E R3 zuordnet, d.h. in kartesischen Koor-
+dinaten: 
+( 
+Ux 
+.xy .XZ) 
+t = Sn mit S = 
+.xy 
+u y 
+.yz 
+. 
+• xz 
+.yz 
+Uz 
+Flir Inl = 1 ist t := lim A1 .. kAA, wenn kAA die Kraft bezeichnet, die auf 
+AA-->O UJ':l 
+ein FIachenstlick in E mit Schwerpunkt P und Flacheninhalt AA wirkt 
+(-+ Aufg. 7, §7). 
+10. Flir einen lineartm elektrischen Vierpol (-+ Abb. 147) gilt zwischen Ein- und 
+Ausgang die Beziehung 
+
+
+--- PDF page 329 ---
+§6. Lineare Abbildungen und Eigenwerte 
+313 
+Abb. 147 - Vierpo) 
+Man verifiziert leicht, daB zu linearen Abbildungen f, g : V ~ W und a E IR 
+auch die Summe f + g : V ~ W, (j + g)(v) := f(v) + g(v), und das a-fache 
+rxf : V ~ W, (rxf)(v) := rxf (v), linear sind. Mit dieser Addition und skalaren 
+Multiplikation ist die Menge aller linearen Abbildungen von V in W 
+Hom(V, W) := {f ; f : V ~ W linear} 
+selbst wieder ein IR-Vektorraum (Raum der Homomorphismen). 
+Auch sieht man leicht ein, daB die HintereinanderausHihrung ("Komposition") 
+zweier linearer Abbildungen insgesamt ebenfalls linear ist; d.h., Hir zwei lineare 
+Abbildungen f : V ~ W, g : V ~ V ist auch 
+fog: V ~ W, (j 0 g)(u) := f(g(u» , 
+linear. 
+1st Vein endlichdimensionaler IR-Vektorraum und B = 
+(VI, V2, ... , vn) eine 
+Basis von V, dann HiBt sich jeder Vektor V E V eindeutig in der Form v = 
+rxlVI + ... + rxnvn mit rxi E IR darstellen. Man nennt 
+(2) 
+n 
+(falls v = I rxiVi) 
+i=1 
+den Koordinatenvektor von v E V bezuglich B. Die lineare Abbildung v f-4 VB 
+(von V in IRn) heiBt Koordinatenabbildung bzgl. B. Mit ihr ubertriigt man 
+Probleme aus V zur rechnerischen Behandlung in den IRn und umgekehrt mit 
+der (inver sen) Abbildung (rxl, ... ,rxn)T ~ rxlVI + ... + rxnvn nach V zuruck. 
+6.2 V = W = IRn. 
+Von nun an betrachten wir nur noch lineare Abbildungen 
+des IRn in sich. Diese lassen sich in einfacher Weise durch Matrizen beschreiben. 
+Es wurde bereits erwiihnt, daB mit einer festen n x n-Matrix A die Abbildung 
+x f-4 Ax linear ist. Jede lineare Abbildung des IRn sieht so aus! 
+Satz 6.1. Darstellung einer Iinearen Abbildung in der natiirlichen Basis. 
+Gegeben sei eine lineare Abbildung f : IRn ~ IRn. 
+Mit der Matrix F = 
+(j (el), ... , f (en» , deren S pal ten aus den Bildern der natilrlichen Basisvektoren be-
+stehen, gilt 
+f(x) = Fx . 
+Man nennt F die Abbildungsmatrix von f beziiglich der natiirlichen Basis. 
+Beweis. Fur x = Xlel + ... + Xnen folgt mit (1) und der Multiplikationsformel 
+(8) aus §2 bereits die Behauptung: f(x) = xd(ed + ... + xnf(en ) = Fx. 
+0 
+
+
+--- PDF page 330 ---
+314 
+6. Lineare Algebra 
+Man beachte: Wegen A = (Aet.Ae2, ... ,Aen) ist die Matrix A E JR.nxn die 
+Abbildungsmatrix der linearen Abbildung I : JR.n -+ JR.n, l(x) = Ax, bzgl. der 
+naturlichen Basis. Die Darstellung in einer anderen Basis erfolgt in 6.4. 
+Beispiel. Die Abbildung I : JR.3 -+ JR.3, 1((X,y,Z)T) = (x,y + 2z,zf 
+sie besitzt beziiglich (et. e2, e3) die Abbildungsmatrix 
+F = (f(ed,/(e2),f(e3)) = (~ ~ ~), d.h. I(x) = (~ 
+o 0 1 
+0 
+I beschreibt eine Scherung des JR.3, bei 
+der alle Vektoren mit z = 0 auf sich 
+abgebildet werden. Aligemein bezeichnet 
+man die lineare Abbildung 
+00) 
+1 2 x. 
+o 1 
+ist linear, 
+I I: JR.3 -+ JR.3 , I (x) = x + (b . x)a , I 
+als Scherung in Richtung a senkrecht zu 
+b, wenn a, b zwei Vektoren des JR.3 mit 
+a· b = 0 bezeichnen. Die Abbildungsma-
+trix lautet E + a bT • 
+0 
+Abb. 148 - Scherung 
+Sind I,g : JR.n -+ JR.n lineare Abbildungen mit den Abbildungsmatrizen 
+F = (f(el), ... ,/(en)), G = (g(el), ... ,g(en)), dann gehort zur zusammengesetz-
+ten linearen Abbildung log: JR.n -+ JR.n, (f 0 g)(x) = I(g(x)) (erst g, dann 
+I anwenden), die Abildungsmatrix FG (das Matrizenprodukt). Denn nach 
+Satz 6.1 gilt I(g(x)) = Fg(x) = F(Gx) = (FG)x. Ebenso verifiziert man sofort, 
+daB zu I + g und rx.1 die Abbildungsmatrizen F + G und rx.F gehOren. 
+Eine lineare Abbildung I : JR.n -+ JR.n heiBt invertierbar (oder umkehrbar), wenn 
+es zu jedem y E JR.n genau ein x E R n gibt mit I(x) = y (vgl. Kap. 1, §1). 
+Man sieht sofort wegen I (x) = Fx, daB I genau dann invertierbar ist, wenn 
+die Abbildungsmatrix F invertierbar ist. In diesem Fall hat die zu I inverse 
+Abbildung 1-1 : JR.n -+ JR.n (f(x) wird unter 1-1 wieder auf x abgebildet) die 
+Abbildungsmatrix F-l ; d.h. I-l(x) = F-lx. 
+Geometrische Eigenschaften der linearen Abbildung I : JR.n -+ JR.n spiegeln sich 
+in algebraischen Eigenschaften der Abbildungsmatrix F, I(x) = Fx, wieder: 
+Die Anderung des Volumens. Zu n Vektoren bt. ... , bn des R" bezeichnet man 
+die Menge aller Linearkombinationen 
+Albl + ... + Anbn 
+mit 05: Ai 5: 1 (i = 1, ... ,n) 
+als n-Spat (mit den Kanten bt. ... , bn). Ein 2-Spat ist ein (evtl. ausgearte-
+tes) Parallelogramm, ein 3-Spat mit linear unabhangigen Kanten stellt einen 
+"gewohnlichen" Spat dar. In Ubereinstimmung mit den Verhaltnissen in JR.2, 
+JR.3 (-+ §5.1) nennt man V = I det (bt. ... , bn)1 das Volumen des von bt. ... , bn 
+aufgespannten n-Spats. 
+Unter einer linearen Abbildung I : JR.n -+ JR.n mit der Abbildungsmatrix F 
+
+
+--- PDF page 331 ---
+§6. Lineare Abbildungen und Eigenwerte 
+315 
+wird der von bl , ... , bn E lRn aufgespannte n-Spat abgebildet auf den n-Spat 
+mit den Kanten f (bd, ... ,f (bn). Wegen f (bi) = Fbi und den Formeln (8, §2), 
+(6, §5) ergibt sich fUr das Volumen VI des Bildspats 
+VI = I det (f(bd, .. ·,f(bn»1 = I det(Fbl, ... ,Fbn)1 
+= Idet F(bl, ... ,bn)1 = Idet Fdet(bl, ... ,bn)1 = Idet Fl' V . 
+Demnach ist I det FI der Volumenverzerrungsfaktor der linearen Abbildung f. 
+Man nennt f volumentreu, wenn I det FI = 1 gilt. Die im obigen Beispiel 
+betrachtete Scherung ist volumentreu (--+ §5, Aufg. 6). 
+6.3 Langen und Winkel im lRn; Orthogonalitat. 
+Definition. 
+Seien x,y E lRn, x = (xt, ... ,Xn)T, y = (YI, ... ,Xn)T. Die Zahl 
+I X· Y := x T y = XIYI + X2Y2 + ... + xnYn 
+heifit Skalarprodukt (oder inneres Produkt) der Vektoren x, y, und 
+Ixl := ~ 
+= vi xi + x~ + ... + x~ 
+heij3t Bctrag (oder Lange) des Vektors x. 
+x ist normiert (oder Einheitsvektor), wenn Ixl = 1 . 
+Be;'''.Ie. 
+x ~ (D · 
+y ~ CD = X'y ~ 2·(-1)+0'3+1-5+4'(-3) ~ -9. 
+Ixl = V22 + 12 + 42 = 51 ~ 4.582576, Iyl = VI + 9 + 25 + 9 ~ 6.633250. Die 
+Vektoren ei der naturlichen Basis sind Einheitsvektoren; zu jedem Vektor x =f- 0 
+. 
+1 
+. 
+1st 1XT x normlert. 
+o 
+Rechenregeln 
+(wie in lR2, lR3 ): Fur aIle x,y,z E lRn und aIle a E lR gilt: 
+a) 
+X· Y = y' x, 
+b) 
+a(x . y) = (ax) . y = x . (Q(y) , 
+c) 
+X· (y + z) = xc' y + x . z , 
+d) 
+x . x > 0 fUr aIle x =f- 0 , 
+e) 
+Ixl = 0 -= x = 0 , 
+(3) 
+f) 
+lQ(xl = 1Q(llxl , 
+g) 
+Ix' yl ::; Ixllyl 
+(CAUCHY-SCHWARzsche Ungleichung) , 
+h) 
+Ix + yl ::; Ixl + Iyl 
+(Dreiecksungleichung). 
+Beweis g): Die Ungleichung ist erfUIlt fUr y = O. Sei also y =f- O. Fur aIle 
+,l, E lR folgt aus a)--d) 0::; (x - ,l,y) . (x - ,l,y) = x . x - 2).(x . y) + ,l,2y . Y . 
+
+
+--- PDF page 332 ---
+316 
+6. Lineare Algebra 
+. 
+x' Y 
+2 
+Die Wahl ), = W ergibt 0 ~ (x . x)(y . y) - (x . y) , das ist die Behauptung. 
+h): Mit g) folgt 
+Ix + yl2 = (x + y) . (x + y) = Ixl2 + 2x . y + lyl2 
+~ Ixl2 + 21xllyl + lyl2 = (Ixl + IYI)2 . 
+o 
+x'y 
+Aufgrund der Ungleichung (3g) gilt fUr x i= 0, y i= 0 stets -1 ~ Ixllyl ~ 1, 
+x'y 
+deshalb gibt es genau einen Winkel I.{J mit 0 ~ I.{J ~ n und cos I.{J = Ixllyl . 
+x'y 
+Definition. 
+Fur x,y i= 0 nennt man 1. (x,y) := I.{J = arccos Ixllyl 
+(0 ~ I.{J ~ n) 
+den Winkel zwischen x und y. Ferner nennt man x, y E lRII orthogonal, wenn 
+x . y = 0 gilt. Der Nullvektor ist orthogonal zu allen Vektoren des lRII. 
+Definition. 
+a) Eine lineare Abbildung f : lRII --> lR" heij3t orthogonal, wenn sie das Skalar-
+produkt invariant liijJt; d.h. wenn fur aile x, y E lR II gilt: 
+f(x)·f(y)=x·y. 
+b) Eine Matrix A E lR" xl heijJt orthogonal, wenn gilt: 
+ATA=E (alsoAT=A-'). 
+c) Eine Basis B = (b l , ... , bll) heij3t orthogonal, wenn die Vektoren bi paarweise 
+orthogonal sind; d.h., wenn fur i i= j gilt 
+bi · bj = 0 . 
+Die Basis B heijJt orthonormal, wenn sie orthogonal ist und aile Basisvektoren 
+normiert sind; d.h., 
+bi . bj = 0 fur 
+i i= j 
+und 
+Ibd = 1 . 
+Beispiele. 
+1. Die natiirliche Basis (e" ... ,ell) ist eine Orthonormalbasis des lRII. 
+2. Sind a, b E lR3 orthonormal, a' b = 0, lal = Ibl = 1 , dann ist (a, b, c) mit 
+c := a x b stets eine orthonormales Rechtssystem des lR3 (--> Kap. 1, §4). 
+0 
+Den Zusammenhang zwischen diesen drei Orthogonalitatsbegriffen klart 
+Satz 6.2. 
+Fur eine Matrix A E lR" XII sind iiquivalent: 
+a) 
+A ist orthogonal. 
+b) 
+(Ax)' (Ay) = x . y fur aile x, y E lRII . 
+c) 
+Die Spalten von A bilden eine orthonormale Basis des lRII. 
+Insbesondere ist eine lineare Abbildung f : lRII --> lRn genau dann orthogonal, 
+wenn die Abbildungsmatrix F = (f(eIl, ... ,f(en)) orthogonal ist. 
+
+
+--- PDF page 333 ---
+§6. Lineare Abbildungen und Eigenwerte 
+317 
+Beweis. 
+a) => b): Aus AT A = E folgt 
+(Ax)· (Ay) = (Ax)T(Ay) = x! AT Ay = xTEy = xT Y = X· y. 
+b) => c): FUr x = ej, y = ej und aj := Aej (i-te Spalte von A) ergibt sich 
+, falls i = j 
+, falls i i= j 
+. 
+c) => a): Aus aj' aj = aT aj = 1 und aj' aj = aT aj = 0 (falls i i= j) folgt mit der 
+Produktformel (4, §2) fUr die Matrix A die Gleichung AT A = E . 
+0 
+Bemerkungen. 
+1. FUr eine orthogonale Matrix A ist die Inverse sehr einfach zu berechnen. Es 
+gilt (definitionsgemiiB!) A-I = AT. 
+2. 
+AT A = E 
+<==> 
+AAT = E (--4 (10), §2) <==> Die Zeilen von A sind 
+orthogonal; wobei das Skalarprodukt (und jeder damit verbundene Begrift) fUr 
+Zeilenvektoren x, y E Rn durch X· Y := xyT definiert ist. 
+3. A E R nxn orthogonal => det A = ±1 . 
+Denn aus AT A = E folgt 1 = det E = det AT det A = (det A)2. 
+4. Jede orthogonale lineare Abbildung f : R n --4 R n ist 
+volumentreu, da I det FI = 1 (F Abbildungsmatrix von f) (--4 Bern 3.), 
+llingentreu ,da If(x)1 = Jf(x)' f(x) = vx:x = lxi, 
+. 
+f (x) . f (y) 
+x . y 
+wznkeltreu ,da cos 1:(f(x),f(y)) = If(x)llf(y)1 = Ixllyl = cos 1: (x, y). 
+6.4 Speziell: Spiegelungen und Drehungen 
+sind neben den Parallelverschie-
+bungen die wichtigsten llingentreuen Abbildungen. Sie sind nur dann linear, 
+wenn sie den Ursprung auf sich abbilden. 
+o Spiegelungen im Raum. Dazu gehort die Punktspiegelung s : x - -x mit der 
+Matrix S = -E. Interessanter sind jedoch die Spiegelungen an Ebenen durch 
+den U rsprung: 
+1st a = (at. a2, a3) T ein Einheitsvektor, 
+dann lautet die Spiegelung an der Ebene 
+a'x=O: 
+Is: R3 --4 R 3, s(x) = x - 2(x . ala. I 
+Man bestiitigt leicht s(x)· s(y) = X· Y und 
+s(s(x)) = x, daher ist die Abbildungsma-
+trix S wegen S-I = S = ST stets eine 
+symmetrische und orthogonale Matrix: 
+Abb. 149 - Spiegelung im 1R.3 
+( 
+1 - 2ai 
+-2a2al 
+-2a3a1) 
+S = (s(ed, s(e2), s(e3)) = 
+-2ala2 1 -
+2a~ -2a3a2 
+= E - 2 a aT . 
+-2ala3 
+-2a2a3 
+1 -
+2a~ 
+FUr diese Spiegelungen im R3 gilt det S = -1 (--4 §5, Aufg. 6). 
+
+
+--- PDF page 334 ---
+318 
+6. Lineare Algebra 
+® Drehungen der Ebene 
+urn den Nullpunkt lauten in kartesischen Koordina-
+ten 
+d (;) = (:~::; : ~~~ :) , 
+Drehwinkel cp , 
+(--+ Kap. 1, §3.4). Die Abbildung d ist linear mit der orthogonalen Abbildungs-
+matrix (der "Drehrnatrix") 
+- sin cp) 
+cos cp 
+, 
+det D = 1 . 
+(4) 
+d(x) = (cos cp)x + (sin cp)x' , 
+wobei x' aus x durch eine positive Drehung urn .1f entsteht. 
+o Drehungen im Raum 
+erfolgen stets urn eine Achse, diese sog. Drehachse 
+wird durch die Wahl eines Richtungsvektors a =/= 0 (auf der Achse) orientiert. a 
+weist in die positive Achsenrichtung. Blickt man in diese Richtung, dann erfolgt 
+eine positive Drehung (Drehwinkel cp 20) irn Uhrzeigersinn (--+ Abb. 29). Die 
+Koordinatenachsen eines kartesischen Koordinatensysterns sind stets durch die 
+zugehorigen Basisvektoren orientiert. 
+a) Die Drehung urn die x-Achse besitzt wegen (4) die Abbildungsgleichung 
+d] (x) = x e] + (y cos rt. - z sin rt.) e2 + (y sin rt. + z cos rt.) e3 
+und die Abbildungsrnatrix 
+o 
+cosrt. 
+sma 
+-s~nrt.) . 
+cosa 
+Zur Drehung urn die y- bzw. z-Achse gehoren die Drehrnatrizen 
+( 
+cosf3 
+D2(f3) = 
+0 
+- sin f3 
+si~f3 ) 
+o cos f3 
+o 
+-smy 
+cosy 
+o 
+Man kann zeigen, daB sich jede Drehung urn eine beliebige Achse durch den 
+Nullpunkt als Hintereinanderausfiihrung von Drehungen urn die Koordinaten-
+achsen darstellen laBt, d.h. fUr ihre Matrix D lassen sich a, f3, y bestirnrnen, 
+so daB D = D3(y)D2(f3)D] (a) (erst urn die x-Achse, dann urn die y-Achse und 
+schlieBlich urn die z-Achse drehen). a, f3, y heiBen die Cardan-Winkel der 
+Drehung (benannt nach CARDANUS, 1501-1576). Die Euler-Winkel der Drehung 
+werden in 6.6 behandelt. 
+b) 1st von einer Drehung d : lR3 --+ lR3 der Richtungsvektor a =/= 0 der Dreh-
+achse (durch den NUllpunkt) und der Drehwinkel cp 20 bekannt, dann wird d 
+(in kartesischen Koordinaten) dargestellt durch 
+
+
+--- PDF page 335 ---
+§6. Lineare Abbildungen und Eigenwerte 
+(5) 
+x . a 
+SIn cp 
+d(x) = (cos cp) x + (1 - cos cp)w a + 131 a x x . 
+Beweis. 
+Wir zerlegen x = xa + r 
+mit der Komponente 
+Xa in Achsen-
+rich tung und r = x -
+Xa. Der Vektor 
+Xa bleibt bei der Drehung fest, r geht 
+nach (4) iiber in 
+d(r) = (cos cp)r + (sin cp)r* 
+mit dem aus r durch cine (positive) 
+Drehung urn 
+~ gewonnencn Vektor 
+ax x 
+r* = 
+~I a x r. Mit d(x) = 
+Xa + d(r) 
+la 
+folgt (5) aus Formel (6, Kap 1., §5). 0 
+Abb. 150 - Drehung im IR3. lal = I 
+319 
+Die Abbildungsmatrix (die Drehmatrix) D beziiglich der gegebenen kartesi-
+schen Basis lautet (mit a = (al,(/2,(/3)T und lal = 1 ): 
+( 
+cosrp + (I - cosCP)(/T. 
+(I -cos cp)a, (/2 - (/3 sinrp . (I - cOSCP)(/'(/3 + (/2 sin CP) 
+(1 - cos rp)a'{/2 + {/3 sin cp. 
+cos cP + (l - cos cp){I;. 
+(I - cos CP)(/2{13 - (/, sin cP 
+(l-cosrp)a'(/3-a2sincp, (1-cosCP)(j2(/3+a,si~rp. 
+coscp+(1-coscp)a~ 
+Da die aus el, e2, e3 durch Drehung entstandenen Vektoren e'l = d(el), 
+e~ = d(e;J, e; = d(e3) ebenfalls eine kartesische Basis bilden, gilt sicher ,,=> 
+in der Charakterisierung 
+I 
+D ist Drehmatrix 
+== 
+D T D = E und det D = 1 . I 
+Die Aussage ,,=", daB jede orthogonalc 3 x 3-Matrix D mit det D = 1 eine 
+Drehung beschreibt, wird erst in 6.8 gezeigt werden. 
+1st cine Drehmatrix D = (dij) f E vorgegeben, so findet man aus obiger Ma-
+trixdarstellung zu (5) den Drehwinkel cp ~ 0 mit der Formel 
+(6) 
+1 
+cos cp = 2(Spur D -1), Spur D := dll + dn + d33 . 
+Die Drehachsenrichtung a = (£II, (/2, (3) T, lal = 1 , ergibt sich aus 
+(D - E)a = 0 oder explizit 
+(7) 
+1 (d 32 - dn ) 
+a = -2-'-
+dl1 - dll 
+,falls 
+SIn cp 
+. 
+. 
+d21 - dl2 
+cp f n. 
+
+
+--- PDF page 336 ---
+320 
+6. Lineare Algebra 
+Beispiel. 
+Nach einer Drehung urn die x-Achse mit Q( = 
+~ wird noch urn die 
+z-Achse mit y = 
+~ gedreht. Zur resultierenden Abbildung gehort die Abbil-
+dungsmatrix 
+So wird beispielsweise der Punkt P = (1,1,1) - genauer: der Ortsvektor 
+~ 
+OP = 
+( I! ) - abgebildet auf P' = (x',y',z') mit 
+( ;:) =D (!) = (\(;::::/) 
+z' 
+1 
+!h13 + 1) 
+Mit den Drehmatrizen D3 , D] ist auch D orthogonal und es gilt det D = 1 . 
+Nach dem noch zu beweisenden Satz (-+ 6.8) stellt deshalb D eine Drehung 
+dar, deren Drehwinkel qJ Z Omit (6) zu bestimmen ist: 
+cos qJ = ~(Spur D -
+1) = ~(~h + ~J6 + ~J3 -1) , 
+also 
+qJ = 53.64743528° , 
+sin qJ = 0.805384813 . 
+Aus (7) liest man die Achsenrichtung ab: 
+a = (0.529904075,0.219493454,0.819160725)T . 
+o 
+6.5 Das Schmidtsche Orthonormierungsverfahren 
+(E. SCHMIDT, 1876-1959) 
+ermoglicht den Ubergang von einer beliebigen Basis zu einer giinstigen Ortho-
+normalbasis. 
+Wir gehen aus von linear unabhangigen Vektoren b], ... , bk E IRn (k ::::; n) und 
+berechnen daraus der Reihe nach eine Orthonormalbasis C], ... , Ck der linearen 
+Hiille Lin (b], ... , bk) • 
+1 
+Man setzt c] := 1bJb] und berechnet 
+die zu c] orthogonale Komponente 
+c; = b2 - (b2 . cdc] von b2. Normie-
+·b 
+I 
+, 
+W· 
+. d 
+rung ergl t C2 := Ic;1 c2 . 
+elter wlr 
+b2 
+nun der zu c] und C2 orthogonale 
+Vektor c; = b3 - (b3 . C2)C2 - (b3 . cdc] 
+berechnet und normiert: C3 := IcI'31 C'3 . 
+Abb. 151 - Orthonormierung in )R2 
+I 
+Etc.: c~ = b4 - (b4 . C3)C3 - (b4 . C2)C2 - (b4 . cdc], C4 := Ic~1 C4 , ... , 
+k-] 
+bis c~ = bk - L(bk • cJc;, Ck = 1:~lc~. 
+;=] 
+
+
+--- PDF page 337 ---
+§6. Lineare Abbi'dungen und Eigenwerte 
+321 
+In jedem Schritt wird ein zu den vorher berechneten Ci orthogonaler Vektor 
+vom Betrag 1 bestimmt und man sieht leicht, daB C" ... , Ck E Lin (b" ... , bd 
+linear unabhiingig sind. 
+Bemerkungen. 
+1. Ein Beispiel und eine Anwendung dieses Verfahrens behan-
+deln wir in 7.2. 
+2. Fur eine invertierbare n x n-Matrix B = (b l , .. :, b,,) ergibt das Orthonormie-
+rungsverfahren (fur bl , ... , b,,) die Zerlegung Q = BR, bzw. B = QR- I , mit 
+der orthogonalen Matrix Q = (CI, ... , c,,) und einer oberen Dreiecksmatrix R. 
+Diese sog. QR-Zerlegung wird in vielen numerischen Verfahren bevorzugt, da 
+die Transformation x f--+ Qx liingentreu ist. 
+6.6 Basiswechsel, Koordinatentransformation. 
+Es ist zu unterscheiden zwi-
+schen den Koordinaten eines Vektors bezuglich einer Basis und den Koordinaten 
+eines Punktes in einem affinen Koordinatensystem. 
+0) Vektorkoordinaten. Sei B = (b" ... , b,,) eine (beliebige) Basis des 1R.", die wir 
+gleichzeitig als invertierbare n x n-Matrix ansehen. Die eindeutig bestimmten 
+Koeffizienten oX; E 1R. der Zerlegung x = x', bl + ... + x~b" heiBen Koordinaten 
+des Vektors x E 1R." , und man nennt 
+XB = x' = (~~), falls x = Xii bl + ... + x;,b" , 
+x" 
+den Koordinatenvektor von x E 1R." bezuglich B. Die Koordinatenabbildung 
+x f--+ XB ist linear (-4 6.1). Aus der nutzlichen Multiplikationsformel (8, §2) 
+ergibt sich so fort 
+.<,b, +. + x;,b. ~ B (J ~ BX8 
+Damit gilt fUr die Koordinatentransformation beim 
+Basiswechsel von (e" ... , ell) nach B = (bl , ... , bll): 
+(8) 
+Substitutionsformel: 
+x = BXB, 
+Transformationsformel: 
+XB = B-1 X 
+Beispiel. 
+Die Euler-Winkel 1p, e, ({J einer Drehung des 1R.3 sind (-4 Abb. 152) 
+durch drei Drehungen vom Typ D, und D3 erkliirt: 
+CD Drehung urn die x3-Achse mit Winkel lP, 
+CD Drehung urn das Bild der xI-Achse mit Winkel e, 
+0) Drehung urn das Bild der x3-Achse mit Winkel ({J. 
+
+
+--- PDF page 338 ---
+322 
+6. Lineare Algebra 
+1m Gegensatz zu den Cardan-Winkeln 
+(-+ 6.4, Beisp. 3) ist diese Bestimmung 
+nieht auf ein ortsfestes, sondern im 2. 
+und 3. Sehritt auf ein gedrehtes Koor-
+dinatensystem bezogen. In diesem FaIle 
+stellt man einen festen Vektor x dureh 
+seine Koordinatenvektoren x', x", x", 
+in den 3 gedrehten Basen dar und erhiilt 
+mit (8) 
+Abb. 152 - Euler-Winkel 
+CD x = D3(lP)X/ , CD x' = DI«(})X", 0) x" = D3(qJ)X'" . 
+Setzt man 0) in CD und CD in CD ein, so folgt 
+x = D3(lP)D I«(})D3(qJ)x'" . 
+Dies ist die Substitutionsformel (8) fUr die dureh d gedrehte Basis. In der 
+Basis el, e2, e3 hat daher d die Darstellung x ~ D3(lP)DI(lP)D3(qJ)X mit der 
+Abbildungsmatrix 
+(
+COS tp cos qJ - sin tp cos (J sin qJ 
+- cos tp sin qJ - sin tp cos (J cos qJ 
+sin tp sin (J 
+) 
+sin tp cos qJ + cos tp cos (J sin qJ 
+- sin tp sin qJ + cos tp cos (J cos qJ 
+- cos tp sin (J 
+. 
+sin (J sin qJ 
+sin (J cos qJ 
+cos (J 
+o 
+® Punktkoordinaten. Begriffe der ansehauliehen Geometrie des 1R.3 werden in 
+den 1R. n iibernommen. Die Zeilen-n-Tupel X = (x\, ... , Xn), 
+Xi E 1R., nennt 
+man Punkte des n-dimensionalen reellen Punktraumes 1R.n . Zu jedem Punkt 
+X ~ (x ..... , x"l gohM d" Voktm x ~ C:) E R" - und umgokohrt. (,t 
+P = (PI, ... ,Pn) ein fester Punkt, dann heiBt 
+(
+XI-PI) 
+-----+ 
+X2 -
+P2 
+PX :=x-P= 
+: 
+Xn -Pn 
+-----+ 
+Ortsvektor des Punktes X in bezug auf P. Demnaeh ist x = OX der Orts-
+vektor des Punktes X in bezug auf den NUIlpunkt 0 = (0, ... ,0) . 
+Definition. 
+Ein aflines Koordinatensystem K = (P; b\, ... ,bn) des Punktraumes 
+1R.n besteht aus einem Jesten Bezugspunkt P = (PI, ... , Pn) und einer Basis B = 
+-----+ 
+(bl , ... ,bn) des 1R. n. Die Koordinaten x; des Ortsvektors P X 
+beziiglich der 
+Basis B. 
+-----+ 
+I 
+I 
+PX = xlbl + ... +xnbn , 
+heifJen Koordinaten des Punktes X im Koordinatensystem K; man schreibt 
+X K = (X/I'···'X~). 
+
+
+--- PDF page 339 ---
+§6. Lineare Abbildungen und Eigenwerte 
+e1 
+e2 
+Abb. 153 - Affine Koordinaten 
+Die Definitionen und (8) ergeben 
+(9) 
+Wir fassen dies fUr den wichtigen Spezialfall n = 3 noch einmal zusammen: 
+Satz 6.3. Koordinatenwechsel im Raum. 
+Ubergang vom kartesischen "Inertialsystem" 1= (O;e"e2,e3) zum 
+affinen (i.a. schiefwinkligen) Koordinatensystem K = (P; b" b2, b3) . 
+1st P = (PI. P2, P3) E 1R3, (b" b2, b3) = B E 1R3x3 die Darstellung beziig-
+lich I und sind (X"X2,X3) und (X'"x;, x;) die 1- bzw. K-Koordinaten 
+do. Pun"o. X , so IDlt nUl x.~ (~:), x' :~ G) und P :~ GD 
+Substitutionsformel: 
+x = Bx' + P , 
+Transformationsformel: x' = B-' (x - p) . 
+323 
+Bemerkungen. 1. Geniigt eine Flache im 1R3 in I-Koordinaten der Gleichung 
+Q(x) = 0, so hat sie mit der Substitutionsformel im K -System die Darstellung 
+Q(Bx' + p) = 0 (-4 7.3, 7.4). 
+2. 
+Bei der Parallelverschiebung des initialen Achsenkreuzes in den neuen Ur-
+sprung P erhalt X die neuen Koordinaten x; = Xi -
+Pi 
+(i = 1,2,3) . 
+3. Bei der Drehung des Achsenkreuzes mit der Drehmatrix D = (De"De2,De3) 
+erhalt X die neuen Koordinaten 
+, 
+(;~) =D-' (;:) =D T (;~) . 
+Aufgrund dieser Transformationsformel wird von manchen Autoren die Inverse 
+D-' = DT als Drehmatrix dieser Koordinatentransformation bezeichnet. 
+
+
+--- PDF page 340 ---
+324 
+6. Lineare Algebra 
+Beispiel. 
+(e~,e;,e~) 
+entstehe aus 
+(e"e2,e3) 
+durch die Drehung 
+D 
+D3 (~)D, (~) (---+ 6.4). Wird das gedrehte Koordinatensystem noch in den Punkt 
+P = (1,2,3) verschoben, dann hat der Punkt X = (x,y,z) im neuen Koordina-
+tensystem (P; e~, e;, e~) die Koordinaten 
+( X') 
+(X-I) 1 ( .j2 
+.j2 0) (X-I) 
+y' 
+=D T y-2 =2 -h/6 
+h/6 
+1 
+y-2, 
+z' 
+z - 3 
+!.j2 -!.j2 v'3 
+z - 3 
+d.h. 
+X' = i(.j2(x -1) + .j2(y - 2» 
+y' = i(-iV6(x -1) + iV6(Y - 2) + (z - 3» 
+z' = i(iv'2(x -1) - iv'2(Y - 2) + vJ(z - 3» . 
+o 
+o Abbildungsmatrix. Zu jeder n x n-Matrix A gehort die lineare Abbildung 
+f : R.n ---+ R.n , f(x) = Ax, dabei ist A die Abbildungsmatrix von f beziiglich 
+der natiirlichen Basis (---+ Satz 6.1). Der Wechsel zu einer anderen Basis bringt 
+zusatzliche Erkenntnisse: 
+Definition. Seien f : R. n ---+ R. n eine lineare Abbildung und B = (b" ... , bn) eine 
+Basis des R.n. Die Matrix 
+C := (f(bIlB, ... ,f(bn)B) , 
+in deren Spalten die Koordinatenvektoren (bzgl. B) der Bilder f(bi) stehen, heijJt 
+Abbildungsmatrix von f beziiglich B. 
+Satz 6.4. Die Anderung der Abbildungsmatrix beim Basiswechsel. 
+Es seien A eine n x n-Matrix und B = (b" ... , bn) eine Basis des R.n. Die 
+Abbildungsgleichung y = Ax lautet in Koordinaten bezuglich B 
+(10) 
+mit der Abbildungsmatrix C = «AbIlB, ... , (Abn)B) . 
+Ferner gilt 
+(11) 
+n 
+n 
+Beweis. Aus x = LX; bi folgt (AX)B = Lx;(Abi)B = «AbIlB, ... , (Abn)B)XB . 
+i=' 
+i=' 
+Daher ist in (10) C = «Ab')B, ... , (Abn)B) zu setzen. Mit Transformationsformel 
+(8) ergibt sich hieraus C = (B-'Ab" ... ,B-'Abn) = B-'A(b" ... ,bn) = B-'AB. 
+o 
+Beispiel 1. 
+Sei (---+ 6.4, 0) S E R.3x3 die Abbildungsmatrix der Spiegelung 
+sex) = x - 2(x . ala = Sx an der zu a E R.3, lal = 1 , orthogonalen Ebene. 
+
+
+--- PDF page 341 ---
+§6. Lineare Abbildungen und Eigenwerte 
+325 
+Wir gehen tiber zu einer anderen kartesischen Basis B = (a, b, a x b) mit einem 
+Einheitsvektor b orthogonal zu a. Aus 
+s(a) = -a, s(b) = b, s(a x b) = a x b 
+liest man sofort die Abbildungsmatrix S' beztiglich B ab: 
+(-1 0 0) 
+S' = 
+0 
+1 0 
+. 
+001 
+In Koordinaten beztiglich B wird die Spiegelung einfach durch y' = S'x' be-
+schrieben. Ferner gilt S' = B-ISB. 
+0 
+Beispiel 2. 
+Wir betrachten die in 6.4, Beispiel 3 behandelte Drehung d(x) = Dx 
+(mit der 3 x 3-Drehmatrix D) beztiglich einer kartesischen Basis B = (a, b, c) 
+mit dem Einheitsvektor a in Richtung der Drehachse. Mit (4) gilt 
+d(a) = a, d(b) = (cos cp)b + (sin cp)c, d(c) = (- sin cp)b + (cos cp)c . 
+Hieraus liest man die Abbildungsmatrix beztiglich B ab: 
+D' = (~ c?~ cp 
+- s~n cp ) 
+o sm cp 
+cos cp 
+Es gilt (DX)8 = D'XB und D' = B-1 DB. 
+In §7 und in den Aufgaben sind weitere Beispie1c angegeben. 
+o 
+Definition. 
+Zwei n x n-Matrizen A. C heijJen iihnlich. wenn es eine invertierbare 
+n x n-Matrix B gibt. so dafJ gilt C = B-1 AB . 
+In Satz 6.4 ist die geometrische Bedeutung der Ahnlichkeit beschrieben. Am Bei-
+spiel der Spiege1ung und der Drehung wurde deutlich, daB eine verhaltnismaBig 
+komplizierte Abbildung mit Matrix A beztiglich einer "passenden" Basis eine 
+Abbildungsmatrix C = B-1 AB von recht einfacher Gestalt hat. Welche Eigen-
+schaften der neuen Basis bewirken diese Vereinfachung? 
+Sei A E ]R."xn, B = (bl , ... , bn) eine Basis des 1R.n mit Ab l = Abl {}. E 1R.). 
+Dann ist (AbilB = ).el die erste Spalte der Abbildungsmatrix C, tiber die an-
+deren Spalten ist noch nichts Naheres bekannt. Immerhin hat man - gemaB Satz 
+6.4 - schon folgende "Vereinfachung": 
+(12) 
+(
+~ :: :) 
+B-IAB = 
+0 
+• 
+'" 
+'" 
+· 
+. 
+· 
+. 
+· 
+. 
+o '" 
+'" 
+'" 
+(an den ·-Stellen stehen die Koordinaten von Ab2, ••. , Abn beztiglich B). Falls 
+auch Ab2 = Ilb2 gilt (Il E 1R.), dann steht auf der rechten Seite von (12) in der 
+zweiten Spalte der Vektor lle2 = (0, Il, 0, ... ,0) T . 
+
+
+--- PDF page 342 ---
+326 
+6. Lineare Algebra 
+Die Fragestellung nach solchen Basisvektoren nennt man das algebraische Ei-
+genwertproblem. Es tritt beispielsweise in der Elastomechanik auf bei der Be-
+stimmung der Hauptspannungsrichtungen. 
+6.7 Eigenwerte, Eigenvektoren. 
+Da die Behandlung des algebraischen Eigen-
+wertproblems eng verbunden ist mit der Nullstellenbestimmung von Polynomen, 
+lassen wir von jetzt an auch komplexe Zahlen als Skalare und Matrizen (also 
+auch Zeilen- und Spaltenvektoren) mit komplexen Koeffizienten zu. Die bis-
+herigen AusfUhrungen tiber Vektoren und Matrizen bleiben unveriindert gtiltig, 
+wenn 1R durch CC ersetzt wird. 
+Definition. 
+Eine Zahl A E CC heij.Jt Eigenwert einer Matrix A E ccnxn . wenn es 
+wenigstens einen Spaltenvektor b E CCn • b 1- O. gibt mit 
+Ab = ).b. 
+Jeder Vektor b 1- O. der diese Gleichung erfillit. heij.Jt Eigenvektor von A zum 
+Eigenwert ),. 
+Beispiele. 
+1. Die Matrix A = (-~ =! ~) hat den Eigenwert ). = -2 mit zugehorigem 
+o 
+I 
+0 
+Eigenvektor b = (j) ; 
+denn es gilt Ab = -2b und b 1- O. 
+2. Jede Drehmatrix D E 1R3x3 hat den Eigenwert 1, jeder Vektor 1- 0 parallel 
+zur Drehachse ist Eigenvektor. 
+0 
+Zur Berechnung der Eigenwerte einer n x n-Matrix betrachtet man (mit einer 
+Variablen A) das charakteristische Polynom von A 
+I XA (A) := det (A - ),E). I 
+Diese Determinante ist explizit zu berechnen und das Ergebnis nach fallenden 
+A-Potenzen zu ordnen. Man erhiilt 
+(13) 
+XA (),) = (_),)n + (Spur A)(-A)"-I + ... + det A 
+wobei Spur A, die Spur von A, definiert ist durch 
+Spur A : = all + a22 + ... + ann 
+(= Summe der Diagonalelemente von A) . 
+
+
+--- PDF page 343 ---
+§6. Lineare Abbildungen und Eigenwerte 
+327 
+Satz 6.5. 
+Es ist ), E <C genau dann ein Eigenwert der n x n-Matrix A, wenn I, 
+eine Nullstelle des charakteristischen Polynoms XA, d.h., wenn det (A -
+),E) = 0 
+ist. 
+Beweis. 
+Es ist ), E <C genau dann Eigenwert, wenn das homogene lineare 
+Gleichungssystem (A -
+),E)x = 0 eine von Null verschiedene Lasung besitzt. 
+Das ist nach Satz 1.1 genau dann der Fall, wenn Rang(A - ),E) < n, also wenn 
+det (A -).E) = 0 gilt (-4 Satz 5.3). (Diese Ergebnisse gelten auch tiber <C.) 
+0 
+Die Berechnung der Eigenwerte und Eigenvektoren erfolgt daher in 2 Schritten: 
+1. Schritt. 
+Man bestimmt die (verschiedenen) Nullstellen 
+),1, ... , I,,. 
+der 
+"charakteristischen Gleichung'" XA (),) = det (A -
+I.E) = 0, was gleichbedeutend 
+ist mit der Erstellung der Produktdarstellung des charakteristischen Polynoms 
+(14) 
+(-> Kap. 2, 2.2, der Leitkoeffizient von XA ist (_I)"). 
+;,1, ... , I,,. sind die Eigenwerte von A. Die Vielfachheit ki der Nullstelle I.i 
+heiSt algebraische Vie([achheit des Eigenwertes I.i. Demnach besitzt jede Matrix 
+/J nicht notwendig verschiedene Eigenwerte; jeder Eigenwert kommt dabei so 
+oft vor, wie seine algebraische Vie!fachheit angibt. 
+2. Schritt. Zu jedem Eigenwert )'i (l :s; i :s; r) berechnet man den Lasungsraum 
+des homogenen linearcn Glcichungssystems (A -
+)'iE)X = O. Jede Lasung 1- 0 
+ist ein Eigenvektor zu I.i. 
+V(}'i) := {b E <e" ; (A -
+)'iE)b = O} = Kern (A - )'iE) 
+heiSt Eigenraum zum Eigenwert I'i 
+(I:S; i :s; r). Man nennt Dim V (I'i) (die 
+Dimension des Eigenraumes) die geometrische Vielfachheit des Eigenwertes I'i' 
+Algebraische und geometrische Vielfachheit stimmen im allgemeinen nicht tiber-
+ein (-4 Beispiel Ie und Aufgabe 14). 
+Bemerkung. 
+Wird die rechte Seite von (14) ausmultipliziert und das Ergebnis 
+mit (13) verglichen, erhiilt man 
+Spur A = k,)" + ... + k,.),,. , 
+(15) 
+det A = ),~I I,;' ... I,;' , 
+mit den verschiedenen Eigenwerten I'i der algebraischen 
+Vielfachheit ki (1 :s; i :s; r) . 
+Forme! (15) ist ntitzlich fUr Rechenkontrollen; sie erlaubt auSerdem eine leichte 
+Berechnung eines Eigenwerts, wenn aIle anden,n bekannt sind. 
+Beispiel 1. 
+Gegeben A = (~ ~) E IR2x2 . 
+
+
+--- PDF page 344 ---
+328 
+6. Lineare Algebra 
+1. Sehritt. 
+( a-A b) 
+2 
+XA (A) = det 
+e 
+d _ A = A - (a + d)A + (ad - be) 
+= A2 - (Spur A)A + det A = (A - Ad(A - A2) , 
+wobei AI, A2 mit der Losungsformel fUr XA(A) = 0 bestimmt wird. 
+2. Sehritt. Mit jedem Eigenwert Ai (i = 1,2) wird 
+(a~Ai d~AJ (;) = (g) 
+gelost und jeweils eine Basis des Losungsraumes angegeben. 
+1m FaIle n = 2 gibt es somit vier verschiedene FaIle: 
+o At. A2 E R, Al =F A2, 
+® 
+Al = A2 E R, geometrische Vielfachheit 2, 
+o 
+Al = A2 E R, geometrische Vielfachheit 1, 
+o A2 = II E «::, Al rJ. R. 
+Konkrete Zahlenbeispiele zu jedem dieser FaIle: 
+o A = (~ ;) hat die Eigenwerte Al = -1, A2 = 3, V(Ad, V (A2) sind 
+eindimensional mit den Basisvektoren bl = ( -! ) , b2 = ( ! ) . 
+® A = (~ ~) hat die Eigenwerte Al = A2 = 3 mit Eigenraum V(Ad = R2. 
+o A = (~ ~) hat die Eigenwerte Al = A2 = 2 (algebraische Vielfachheit 2); 
+der Eigenraum V (Ad = { IX ( ~) ; IX E R} ist eindimensional (geometrische 
+Vielfachheit 1). 
+o A = (C?S qJ 
+- sin qJ ) 
+hat die beiden konjugiert komplexen Eigenwerte 
+sm qJ 
+cos qJ 
+Al = cos qJ + i sin qJ, A2 = cos qJ -
+i sin qJ, also keinen reellen Eigenwert 
+(falls qJ =F 0, ±n, ±2n, . " ) und daher auch keinen reellen Eigenvektor. Die 
+komplexen Eigenraume sind 
+V (AI) = { IX ( _Ii) ; 
+IX E «:: }, V (A2) = { IX ( !) ; 
+IX E «::} . 
+0 
+Beispiel 2. Jede obere (analog untere) Dreiecksmatrix 
+(
+IXI. 
+• ) 
+A = ? ~2 ." 
+: 
+. 
+. 
+. . 
+o . .". 
+O' 
+IXn 
+
+
+--- PDF page 345 ---
+§6. Lineare Abbildungen und Eigenwerte 
+329 
+hat die Eigenwerte OCt. ••• , OCn ; denn es gilt 
+XA (l) = det (A - lE) = (OCI -
+l)(OC2 - l) ... (ocn - l) 
+(-+ Satz 5.1). 
+Die zugehorigen Eigenraume sind die Losungsraume von 
+(A - ocjE)x = 0, sie hangen ganz wesentlich von den *-Stellen in A abo 1st 
+speziell A eine Diagonalmatrix (also aIle *-Stellen gleich Null), dann ist ej ein 
+Eigenvektor zum Eigenwert OCj (1 :5: i :5: n) . 
+0 
+Beispiel 3. 
+Zwei Linearschwinger mit Massen 
+ml, m2 und gleicher Federkonstan-
+ten 
+Cl sind iiber eine dritte Fe-
+der der Konstante 
+C2 
+gekoppelt. 
+Das Gesetz von HOOKE liefert fUr 
+die Auslenkungen SI (t), S2(t) die 
+Bewegungsgleichungen 
+(m\,m2,Cl > 0, C2 ~ 0). 
+Der Ansatz 
+Abb. 154 - Linearschwinger 
+mit 
+(:~~:~) = (cos rot) (~~) = (cos rot) v 
+fUhrt wegen cos rot ¢ 0 auf das Eigenwertproblem 
+Av = ro2v. 
+Schreibt man abkiirzend 
+A = ( wi -ki) 
+-~ 
+w~ 
+, 
+so lauten die Eigenwerte 
+Die Eigenwerte sind stets reell und wegen wi ~ ki und w~ ~ ~ positiv, d.h. 
+man hat zwei sogenannte Eigenschwingungen mit den Frequenzen rol,2 = ~. 
+Jede Losung der Bewegungsgleichungen kann als Superposition dieser beiden 
+Eigenschwingungen geschrieben werden. 
+Besonders einfach ist der Fall ml = m2 = m mit symmetrischem A: 
+VI = (!) 
+V2 = (_!) 
+(gleichphasige Schwingung) 
+(gegenphasige Schwingung) 
+o 
+
+
+--- PDF page 346 ---
+330 
+6. Lineare Algebra 
+1m folgenden Satz stellen wir niitzliche Beobachtungen zusammen. 
+Satz 6.6. 
+Sei A E (Cnxn . 
+a) Besitzt A den Eigenvektor b zum Eigenwert A, dann haben 
+IXA, Am, A + pE, p(A) := C(mAm + ... + C(IA + C(oE 
+ebenfalls den Eigenvektor b, jedoch jeweils zum Eigenwert 
+c(A, Am, A + p, p(A) = C(mAm + ... + C(IA + c(o . 
+b) A 
+und die Transponierte AT haben dasselbe charakteristische Polynom, 
+deshalb besitzen sie dieselben Eigenwerte (jedoch i.a. mit verschiedenen Ei-
+genriiumen) . 
+c) Die iihnlichen Matrizen A und B-1 AB haben dasselbe charakteristische Poly-
+nom und deshalb dieselben Eigenwerte.. b ist genau dann Eigenvektor von A, 
+wenn B-Ib Eigenvektor von B-1 AB ist. 
+d) Es ist A genau dann invertierbar, wenn aile Eigenwerte =1= 0 sind. 1st A ein 
+Eigenwert von A mit Eigenvektor b, dann ist A-I Eigenwert von A-I mit 
+demselben Eigenvektor b. 
+Beweis. 
+a): Aus Ab = Ab folgt p(A)b = p(A)b . 
+b): det(AT - AE) = det (A - AE)T = det (A - AE) (-4 Satz 5.3b). 
+c): 
+det (B- 1 AB -
+AE) = det B-1 (A -
+AE)B = det B-1 det (A -
+AE) det B 
+= det (A - AE) (-4 (8), §5). 
+d): det A = A~l ... A~' =1= 0 (-4 15) <==> aIle Ai =1= O. 
+Ferner: Ab = Ab => jb = A-lb. 
+0 
+Bemerkung. Die Koeffizienten des charakteristischen Polynoms 
+XA (A) 
+= 
+Cn(-At + Cn_I(-At-l + ... + CI(-A) + Co sind Invarianten der n x n-Matrix A, 
+bzw. Invarianten der zugehorigen linearen Abbildung x ~ Ax, da sie sich 
+gemaB Satz 6.4 und Satz 6.6, Teil c, bei einem Basiswechsel nicht andern. 
+Beispiel. 
+A = (C(ij) E R 3x3 , XA(A) = _A3 + C2A2 -
+CIA + Co = (AI -
+A)(A2 - A)(A3 - A) . 
+C2 = Spur A = all + all + a33 = Al + A2 + A3 , 
+c = det I all a121 + det I all a131 + det I a22 a231 = A A + A A + A A 
+I 
+a21 a22 
+a31 a33 
+a32 a33 
+I 2 
+I 3 
+2 3 , 
+Co = det A = AIA2A3 . 
+co, CI, C2 sind Invarianten der linearen Abbildung f (x) = Ax, x E R3. 
+Das bedeutet speziell mr den Spannungstensor (-4 6.1, Beisp. 9), der in einem 
+kartesischen Koordinatensystem durch die Matrix 
+( 
+(Jx 
+S = 
+"t"xy 
+"t"xz 
+
+
+--- PDF page 347 ---
+§6. Lineare Abbildungen und Eigenwerte 
+331 
+dargestellt wird, daB in jedem anderen Koordinatensystem (mit gleichem Ur-
+sprung) die den GraBen 
+Co = det S 
+entsprechenden Werte gleich sind. 
+D 
+Zur Berechnung eines maximalen Systems linear unabhangiger Eigenvektoren 
+der Matrix A geniigt es, jeweils eine Basis der Eigenraume zu den einzelnen 
+Eigenwerten zu bestimmen. Denn es gilt 
+Satz 6.7. 
+Eigenvektoren 
+bl , ... , br 
+zu paarweise verschiedenen Eigenwerten 
+).1, ... , Ar der Matrix A sind linear unabhiingig. 
+Beweis. 
+Aus al bl + ... + arbr = 0 [olgt durch Multiplikation mit A (von links) 
+)qalbl + ... + Ararbr = o. Aus beiden Gleichungen ergibt sich 
+(A.I - A2}a2b2 + ... + (AI - Ar}arbr = 0 . 
+Ebenso (Multiplikation mit A und Vergleich) [olgt hieraus 
+(AI - A3}{A2 - A3}a3b3 + ... + (AI - Ar}{A2 - Ar}arbr = 0 , 
+etc. Man gelangt schlieBlich zu (AI - Ar}{A2 - Ar) ... (Ar-I - Ar}arbr = 0, woraus 
+ar = 0 [olgt. Dies gibt riickwarts eingesetzt ar-I = ... = al = O. 
+D 
+Besonders giinstige Verhaltnisse liegen vor, wenn es im (Cn eine Basis gibt, die 
+vollstandig aus Eigenvektoren der Matrix A E (Cnxn besteht. 
+Satz 6.S. 
+Besitzt eine Matrix A E (Cnxn 
+n linear unabhiingige Eigenvekto-
+ren bj, ... , bn , Abj = Ajbj , mit den nicht notwendig verschiedenen Eigenwerten 
+AI, ... , An, dann bringt die Transformationsmatrix 
+B := (bl' b2, ... , bn) 
+(mit den Eigenvektoren als Spalten) die Matrix A auf Diagonalform; d.h., es gilt, 
+wenn die Reihenfolge der Aj und der bj abereinstimmt, 
+B-'AB = [ H 
+~ : ) 
+=: D. 
+o 0 ... 0 An 
+
+
+--- PDF page 348 ---
+332 
+6. Lineare Algebra 
+Die "Diagonalisierung" gema/3 Satz 6.8 bringt beachtliche Rechenvorteile mit 
+sich. Etwa bei der Berechnung der k-ten Potenzen von A : 
+Beispiel. 
+A = (-~ -! -1~) 
+o 
+0 
+1 
+J. Schritt : Die Eigenwerte. 
+det(A-I,E)=(J-I,)(),-2)),=0 = 1.1 =0, }'2=1, 1.3=2. 
+2. Schritt: Die Eigenvektoren. Es sind drei homogene lineare Gleichungssysteme 
+(A-},;E)x = 0 (i = 1,2,3) zu losen. In diesem Fall ergeben sich eindimensionale 
+Eigenraume 
+3. Schritt: Die Diagonalisierung. Mit der (invertierbaren) Transformationsmatrix 
+ergibt sich B-IAB = (~ ~ ~) =: D , bzw. A = BDB- I . Damit berechnen 
+002 
+wir beispielsweise A 100 : 
+A 100 = BDIOOB- 1 = (-~ j -I ) (~ 
+o -~) 
+-2 -2 
+D 
+Die numerische Berechnung der Eigenwerte und Eigenvektoren einer Matrix ist 
+i.a. ein schwieriges Problem. Man vermeidet dabei den Weg iiber die charakte-
+ristische Gleichung (---+ Programm JACOBI, §7). Zur Unterstiitzung von Hand-
+rechnungen dient das folgende Programm zur Bestimmung der Koeffizienten des 
+Polynoms det(AE -
+A) fUr eine n x n-Matrix A, das auf den franzosischen 
+Astronomen U. LEVERRIER (1811 - 1877) zuriickgeht. 
+(Man beachte: Der Koeffzient von J,n ist stets 1 !) 
+
+
+--- PDF page 349 ---
+§6. Lineare Abbildungen und Eigenwerte 
+Programm LEVERRIER------
+Print "DIMENSION N="; 
+Input N 
+Dim A(N,N),B(N,N) 
+Print "A ZEILENWEISE" 
+For 1=1 To N 
+For J=l To N 
+Print "A"+Str$(I)+Str$(J); 
+Input A(I,J) 
+B( I, J) =A( I, J) 
+Next J 
+Next I 
+For K=l To N-2 
+Exi t If N=2 
+Gosub Shift 
+For J=l To N 
+For 1=1 To N 
+B( I, 0) =B(I, J) 
+Next I 
+For 1=1 To N 
+For L=l To N 
+X=X+A(I,L)*B(L,O) 
+Next L 
+B(I,J)=X 
+Next I 
+Next J 
+Next K 
+Gosub Shift 
+S=O 
+For L=l To N 
+S=S+A(l,L)*B(L,l) 
+Next L 
+K=N 
+Gosub Ausgabe 
+End 
+Procedure Shift 
+S=O 
+For 1=1 To N 
+S=S+B(I,I) 
+Next I 
+S=S/K 
+Gosub Ausgabe 
+For 1=1 To N 
+B(I, I)=B(I, I)-S 
+Next I 
+Return 
+Procedure Ausgabe 
+Print "C"+Str$(K)+"=";-S 
+Return 
+333 
+* 6.8 Die orthogonale Gruppe. 
+Wir geben weitere wichtige Eigenschaften or-
+thogonaler n x n-Matrizen (insbesondere fur n = 2,3) an. 
+Definition. 
+Die Menge aller orthogonalen n x n-Matrizen, 
+O(n) := {A E .lR"xll . AlA = E} , 
+heij3t orthogonale Gruppe des lR/, und die Teilmenge 
+SO(n) := {A E lRnxll ; AlA = E und det A = I}, 
+heif3t spezielle orthogonale Gruppe oder Drehgruppe. 
+Man verifiziert leicht anhand der Definitionen: 
+(16) 
+A, BE O(n) (bzw. SO(n)) = A-I, AB E O(n) (bzw. SO(n)) 
+
+
+--- PDF page 350 ---
+334 
+6. Lineare Algebra 
+Satz 6.9. 
+a) 
+0(2) besteht aus allen Matrizen der Form ( cp E IR ) 
+A = (-~os cp 
+sm cp 
+-sin cp) 
+cos cp 
+, falls det A = 1 , bzw. 
+sin cp ) , falls det A = -1 . 
+cos cp 
+b) 
+Zu A E 0(3) gibt es ein kartesisches Koordinatensystem K = 
+(O;e;,e~,e~), 
+in der die orthogonale Abbildung x ~ Ax , dargestellt wird durch 
+(
+COS cp 
+x' ~ 
+si~cp 
+-smcp 
+cos cp 
+o 
+Aquivalent hierzu ist die Aussage 
+mit E = det A . 
+-smcp 
+cos cp 
+° 
+~ ) = pT AP 
+det A 
+mit der orthogonalen Matrix P = (e;, e~, e~), det P = 1 . 
+c) 
+A E SO(3) ==> A ist eine Drehmatrix (-> 6.4). 
+Bewe~~. 
+( a. 
+b ) 
+a): Fur A= 
+mit detA=1 und AT=A-I muB d=a, b=-c und 
+c 
+d 
+a2 + c2 = 1 sein, d.h. die Spitze des Zeigers (~) liegt auf dem Einheitskreis 
+(urn 0), also gibt es cp mit a = cos cp, c = sin cp . 
+T m Fall det A = -1 betrachtet man die orthogonale Matrix 
+(-1 0) 
+A I := 
+0 
+1 A 
+mit det Al = 1 
+b): 1. Fall: A E SO(3) ,d.h. AT A = E, det A = 1 . 
+Dann hat A den Eigenwert ), = 1 . 
+Denn det (A -
+E) = (det AT)(det (A - E» = det (A T A - AT) = det (E - AT) = 
+det (E - A) = (_1)3 det (A - E), also det (A - 1 . E) = O. 
+Sei e~ ein normierter Eigenvektor von A zum Eigenwert 1. Dazu wahlen wir 
+eine kartesische Basis P = (e;, e~, e~). Da A orthogonal ist, sind auch die Bilder 
+Ae; , Ae~ orthogonal zu e~ = Ae~ . Das bedeutet 
+Ae; = ae; + be~ 
+Ae~ = ce; + de~ 
+Ae~ = e~ 
+mit gewissen Zahlen a, b, c, d. Man erhalt deshalb (-> Satz 6.4) 
+
+
+--- PDF page 351 ---
+§6. Lineare Abbildungen und Eigenwerte 
+c = (~ 
+c 
+d 
+o 
+335 
+(man beachte p-i = P T ). Da mit A auch C und deshalb (~ ~) orthogo-
+nal ist und det (~ ~) = det C = det A = 1 gilt, folgt die Beh. aus a). x f-+ Ax 
+ist eine Drehung um die in Richtung e~ weisende Achse (durch den Nullpunkt) 
+mit dem Winkel ({J. Damit ist auch c) bewiesen. 
+2. Fall: A E 0(3), det A = -1. 
+In diesem Fall gehe man tiber zur orthogonalen Matrix 
+o 
+1 
+o 
+mit det Ii = 1 
+X f-+ Ax ist eine Drehspiegelung, d.h. darstellbar als eine Drehung, gefolgt von 
+einer Spiegelung (--+ Aufg. 9). 
+0 
+Folgerung. 
+Die Hintereinanderausftihrung zweier Drehungen des lR3 - um i.a. 
+verschiedene Achsen durch den Nullpunkt - ergibt eine Drehung; d.h. sind D i , 
+D2 Drehmatrizcn, so ist auch D = DID2 eine Drehmatrix. (Drehwinkel und 
+Drehachse von D werden mit (6) und (7) bestimmt, --+ Bsp. in 6.4.) 
+Aufgaben 
+I. Welche der Abbildungen fi : IR3 ---> 1R' sind linear') 
+a) fdxI,xc,x,)=(sinxI,xc+x"O), 
+b) h(XI,Xc,X,) = (2xI +xc,3xc,xI +x~), 
+c) hC'I,Xc,X,) = (3x, + 2xc,x] + XI,Xc - 5xd, 
+d) f4(XI,Xc,X,) = CI:I'Xc + I,x,), 
+e) f5(XI, X2, Xl) = (XI - Xc, 17xl, XI + Xc + X,) . 
+Wie lautet gegebenenfalls die Abbildungsmatrix? 
+2. Fur die Iinearen Abbildungen fl,h : IRl ---> 1R3 
+berechne man den Bildraum, 
+Kern fi, fl 0 h. h 
+0 fl, (flo fl - Id) 0 (h - 3 Id), fll ; 
+fdxI, Xc, X3) = (3XI, XI -
+X2, 2xI + X2 + Xl) , 
+h(XI,X2,Xl) = (XI -xc,2xI +x),O). 
+3. 
+Gegeben sind drei Iineare Abbildungen im IRl : 
+(J 
+Spiege/ung an der Ebene X + 4y + 8z = 0 , 
+r 
+Scherunglangs a=(1,2,-3)T 
+senkrecht b=(1,I,I)T :x>->x+(x·b)a; 
+i5 
+Drehung urn die y-Achse urn 
+(J. = ~ mit anschliel3ender Drehung urn 
+die z-Achse urn ,,= ~ 
+I 
+4 
+Man bestimme 
+a) die Abbildungsmatrizen S, T, D ; 
+b) jeweils das Bild des Punktes (1,2,3) ; 
+
+
+--- PDF page 352 ---
+336 
+6. Lineare Algebra 
+c) die Matrizen S-' und T-' iiber die Umkehrabbildungen 
+d) die Drehachse und den Drehwinkel von i5 ; 
+e) die 
+Koordinaten 
+des 
+Punktes 
+(1,2, -3) 
+beziiglich 
+der gedrehten 
+Basis 
+(De, , De2, De3) . 
+4. Man bestatige, daB B = (a,b,c) mit a = (I, I, l)T, b = (I, I,O)T, c = (0,1,2)T eine 
+Basis des JR.3 bestimmt und berechne XB fUr x = (l,2,3)T. 
+5. 
+Die gegebene Matrix A kann auf zwei Wei-
+sen zu einer orthogonalen Matrix erganzt 
+werden; wie lauten diese? 
+a) Man berechne jeweils die Determinante 
+von A. 
+o 
+I/~) 
+b) Fiir den Fall einer Drehung bestimme man die Drehachse und den Drehwinkel; 
+falls eine Spiegelung vorliegt, die Ebene, an der gespiegeIt wird. 
+c) Wie lauten jeweils die Koordinaten des Punktes 
+(1,2,3) 
+in der Basis 
+( Ae, , Ae2, Ae3) ? 
+6. Zwei orthogonale Abbildungen p und q des JR.3 sind zu betrachten, die jeweils 
+aus zwei Elementar-Abbildungen zusammengesetzt sind: 
+Abhildung p 
+Abbildung q 
+CD 
+Drehung urn die 
+z-Achse mit 
+Winkel <p, 
+CD 
+CD 
+Drehung urn die 
+z-Achse mit 
+Winkel <p, 
+CD Spiegelung an der Ebene y = 0 . 
+Spiegelung am Bild der Ebene 
+y = 0 . 
+a) Man bestimme die Abbildungsmatrix der beiden Spiegelungen sowohl 
+- im Inertialsystem I = (0; e" e2, e3) , als auch 
+- im gedrehten System B, das aus I durch CD entsteht. 
+b) Man leite daraus die Abbildungsmatrizen von p und q 
+In lund B abo 
+Welcher Typ von Abbildung liegt jeweils vor? 
+7. Durch geeignete Verschiebung des Koordi-
+natenursprungs im JR.3 
+ist jede Abbildung 
+x >-+ Dx + c, die aus einer Drehung und ei-
+ner anschlie13enden Parallelverschiebung ent-
+steht, stets als Schraubung darstellbar: 
+y >-+ Dy + va, 
+wobei a, lal = I, die Achsenrichtung der 
+Drehmatrix D und v den Vorschub bezeich-
+net. 
+o 
+a 
+Dx+c = m+Dy+va 
+x 
+Man bestimme die Achsenrichtung a, den Vorschub v und den Drehwinkel i5 der 
+Abbildung 
+x 
+1 (I 
+v'2 
+~ 
+-I 
+o 
+8. Das kartesische (x, y, z)-Koordinatensystem wird zuerst 45° urn die y-Achse und 
+dann 45° urn das Bild der z-Achse gedreht. Welche Koordinaten 
+(~,Yf,() besitzt 
+der Punkt (x,y,z) = (\,2,3) in der neuen Basis? 
+
+
+--- PDF page 353 ---
+§6. Lineare Abbildungen und Eigenwerte 
+9. Ais Drehspiegelung bezeichnet man im JR3 eine 
+Drehung urn 0 (Achsenrichtung a, lal = 1, 
+Drehwinkel 
+qJ) mit anschlie13ender Spiegelung 
+an der Ebene X· a = O. 
+a) Man zerlege x und y wie skizziert ortho-
+gonal langs a und leite daraus eine Vektor-
+gleichung flir x ...... y abo 
+b) Man bestimme die Matrix D der Drehspie-
+gelung und leite aus Spur D und D - DT 
+Formeln flir cos qJ und die Komponenten 
+von a abo 
+Welche Ausnahmefalle sind zu beach ten ? 
+337 
+10. Man berechne die Achsenrichtung und den Winkel der Drehung mit den Euler-
+Winkeln 
+~' = 45", 0 = 45°, qJ = 90° . 
+II. Die Matrizen V = (~ -~ ~), T = (~ ~ ~) beschreiben zwei Drehullgell, 
+o 
+0 
+I 
+0 
+I 
+0 
+die den Wi.irfel mit den acht Ecken (±I,±I,±I) in sich i.iberflihren. 
+a) Man bestimme die Drehachsell von V und T 
+und berechne V2, V 3 , V4, V-I, T2, T 3 , 
+T I. 
+Welche Drehwillkel haben somit V und T? 
+b) Berechne 
+VT, 
+(VT)2, 
+TV, 
+(TV)2, die 
+zugehorigen Drehachsell und Drehwinkel und 
+bestatige die Beziehung V T = T2 V 3 • 
+c) Begri.inde: Durch geeignete Produkte von V und T erhalt man aile 24 Dre-
+hungen, die den Wi.irfel in sich abbilden (Hexaeder-Gruppe). 
+12. (DarstellulIg eilles 4D- Wiirfe!s) 
+Der Wi.irfel 
+W = 
+{ x E JR4 ; IXII :::;; I, IX21 :::;; I, IX31 :::;; I, 0:::;; X4 :::;; 2} 
+wird 
+zunachst in Richtung des Vektors (I, I, 1,-2)T in 
+den 3-dimensionalen Teilraum 
+X4 = 0 projiziert 
+und anschlie13end parallel zu (2, I, -4,0) T in die 2-
+dimensionale Ebene X3 = X4 = 0 abgebildet. 
+Man bestimme die Matrix A der gesamten Abbil-
+dung 
+f: JR4 ..... JR4, f(x)=Ax, xEJR4 , 
+und skizziere das Bild aller Kanten von W. 
+13. a) Man berechne die Eigenwerte und Eigenvektoren folgender Matrizen A : 
+A = (~ ~) 
+(
+-2 
+B= 
+~ -! -I~) . 
+o 
+1 
+
+
+--- PDF page 354 ---
+338 
+6. Lineare Algebra 
+b) Man bestimme - falls moglich - invertierbare Matrizen P und Q, so daB D A = 
+P-'AP und DB = Q-'BQ Diagonalgestalt besitzen und berechne DA bzw. DB' 
+Mit Hilfe von P ermittle man explizit A '00 . 
+14. Man berechne Eigenwerte und Eigenvektoren von 
+n 
+b 
+b 
+D ( 
+-~ 
+-2 
+-~) , ( -j 
+0 
+D 
+a 
+b 
+10 
+1 
+b 
+a 
+-2 
+0 
+4 
+b 
+b 
+0 -3 
+Hilfe: Die dritte Matrix besitzt einen dreifachen Eigenwert. 
+15. Die Matrix N ist nilpotent; denn N 3 = O. Wel-
+(" 
+20 -2 -10) 
+-3 -4 
+-1 
+che Eigenwerte hat somit N? Man berechne 
+N= 
+14 -2 
+-4 
+aIle Eigenvektoren von N, N 2 und N 3• 
+9 
+3 
+6 
+0 
+-6 
+16. Zwei Matrizen A, B E lRnxn heiBen simultan diagonalisierbar, wenn es eine invertier-
+bare Matrix P gibt, so daB P-' AP und P-' BP beide Diagonalgestalt besitzen. 
+Man zeige: 
+a) A, B simultan diagonalisierbar 
+=0> 
+AB = BA. 
+b) Hat A paarweise verschiedene Eigenwerte, so gilt 
+AB = BA 
+=0> 
+A, B simultan diagonalisierbar. 
+17. Flir den skizzierten linearen elektrischen Vierpol 
+gilt zwischen Ein- und Ausgang die Beziehung 
+a) Man bestiitige, daB der Vierpol passiv ist, d.h. daB det A = 1 gilt und berechne 
+die Eigenwerte und Eigenvektoren von A. Flir welche Werte von ~, i, =F 0, 
+I, 
+hat man 
+Widerstandsanpassung, d.h. 
+? 
+Was ergibt sich flir R, = R2 = 1 Q, R3 = 40Q? 
+b) Der Vierpol heiBt symmetrisch, wenn R, = R2 • Flir diesen Fall bestimme man 
+Zahlen g und Z, so daB 
+( coshg 
+A= 
+1 
+Z sinhg 
+Z Sinh g ) 
+coshg 
+Man drlicke die Kettenmatrix An der Kettenschaltung von n symmetrischen 
+Vierpolen mit derselben Kettenmatrix 
+A liber die Additionstheoreme von 
+sinh, cosh durch g und Z aus und 
+interpretiere Z als Wellenwiderstand 
+aus dem Grenzlibergang n --> 00 . 
+
+
+--- PDF page 355 ---
+§7. Symmetrische Matrizen und quadratische Formen 
+339 
+.7. Symmetrische MatrizeD uDd quadratische FormeD 
+7.1 Quadratische FormeD. 
+Mit Hilfe von Matrizen gestaltet sich die Be-
+schreibung und Behandlung von Funktionen in mehreren Vedinderlichen be-
+sonders iibersichtlich. Eine auf einer Teilmenge D 5; R.n erkIarte Funktion 
+f : D ~ R., x ~ f (x) =: f (XI, ..• , xn), wird als reelIe Funktion der n reellen 
+Vedinderlichen XI. ... , xn bezeichnet. Die Vektorkoordinaten Xj werden auch 
+als Ortskoordinaten des Punktes X = (x I. ..• , xn) aufgefaBt. 
+Jede derartige Funktion liiBt sich unter entsprechenden Voraussetzungen nach 
+einem Satz von TAYLOR (~ Kap. 7) in der Form 
+n 
+n 
+f (XI, ... , xn) = lXo + I IXjXj + I IXjjXjXj + Terme hoherer Ordnung in den Xj 
+j=1 
+jJ=1 
+= lXo + aT x + x T Ax + ... 
+mit lXo E R., aT = (1X1. ..• ,lXn) E R.n , 
+x T = (XI. ..• ,Xn) und A = (lXij) E R.nxn 
+darstellen. Wegen XjXj = XjXj kann man hierin lXij durch !(lXij + IXji) ersetzten. 
+Es bedeutet daher keine Einschriinkung, wenn man von einer symmetrischen 
+Matrix A = AT ausgeht. Wir befassen uns hier mit den algebraischen Metho-
+den, den Anteil p(x) = lXo + aT x + x T Ax zu untersuchen. 
+Definition. 
+Eine Funktion p : R.n ~ R. der Form 
+n 
+n 
+p(x) = lXo + aT x + x T Ax = IXo + I lXiXi + I lXijXiXj 
+i=1 
+iJ=1 
+mit IXo E R., aT E R.n , A = AT E R.nxn heiftt quadratisches Polynom in den 
+Variablen XI. .•. , Xn • 
+1m Fall lXo = 0, a = 0, also p(x) = x T Ax, heiftt peine quadratische Form. 1st 
+zusiitzlich A eine Diagonalmatrix, so heiftt p rein quadratisch. 
+Beispiel 1. Die Rotationsenergie T = !w T Jw eines starren Korpers ist eine 
+quadratische Form in den Koordinaten Wi des Drehgeschwindigkeitsvektors w ; 
+J = JT der Triigheitstensor bezogen auf den Massenmittelpunkt (~ Aufg. 8).0 
+Beispiel 2. 
+Der Spannungstensor (~ 6.1, Beisp. 9) 
+eines unter Krafteinwirkung stehenden elastischen Korpers in einem Punkt P 
+ist symmetrisch. Mit dem Normalenvektor n, Inl = 1, eines Schnittes durch 
+P ist die Zerlegung Sn = s + t des Spannungsvektors in die zu n parallele 
+Normalenspannung t und die dazu senkrechte Schubspannung s verbunden. 
+
+
+--- PDF page 356 ---
+340 
+6. Lineare Algebra 
+n's = 0 und n' t = It I zeigen nT Sn = It I ; d.h., der Betrag der Normalenspan-
+nung berechnet sich aus der quadratischen° Form q(x) = x T Sx. Gelegentlich 
+sind auch die Ellipsoide x T Sx = C (c E 1R konstant, c > 0) von Interesse. 
+0 
+Beispiel 3. 
+Mit A = Diag()'I,"" ),") lautet die rein quadratische Form 
+(1) 
+o 
+Beispiel 4. 
+Ein einfaches Problem der Ausgleichsrechnung ist die Bestim-
+mung einer Geraden 
+y = ax + b, die "moglichst genau" zwischen n 
+MeBpunkten (Xi, Yi) verHiuft, in dem Sinne, daB das quadratische Polynom 
+" 
+q(u, v) := L(Yi -
+UXi -
+v)2 in (u, v) = (a, b) ein Minimum annimmt. (Wir 
+i=1 
+kommen darauf zuruck, -+ Kap. 7). 
+o 
+7.2 Die Hauptachsentransformation. 
+Es ist q(x) = x T Ax die Darstellung 
+der quadratischen Form q : 1R" -+ 1R bezuglich der gegebenen naturlichen 
+Basis. Der Ubergang zu einer anderen Basis B = (b\, ... , bn) geschieht mit der 
+Substitution x = By (-+ (8), §6). Yl"",Yn sind die Koordinaten des Punktes 
+X = (x\, ... , x") im Koordinatensystem (0; bl , ... , bn) • Dabei ergibt sich 
+(2) 
+q(x) = q(By) = (By)T A(By) = yT(BT AB)y =: q(y) . 
+Definition. 
+Als Hauptachsensystem der quadratischen Form q(x) = x T Ax (bzw. 
+der symmetrischen Matrix A = AT E 1Rnxn ) bezeichnet man eine Orthonormalba-
+sis B = (b l , ... , bn) des 1R", wenn q im Koordinatensystem (0; bl , ... , bn) rein 
+quadratisch ist. 
+Bemerkung. Nach (2) und obi gem Beispiel 3 ist eine Orthonormalbasis B ge-
+nau dann ein Hauptachsensystem flir A, wenn BT AB eine Diagonalmatrix ist. 
+Die folgenden Eigenschaften symmetrischer Matrizen garantieren, daB jede qua-
+dratische Form wenigstens ein Hauptachsensystem besitzt. 
+Satz 7.1. Das Eigenwertproblem bei symmetrischen Matrizen. 
+Fur jede reelle symmetrische n x n-Matrix A = AT gilt: 
+a) Aile Eigenwerte von A sind reell. 
+b) Eigenvektoren zu verschiedenen Eigenwerten von A sind orthogonal. 
+c) Algebraische und geometrische Vielfachheit jedes Eigenwertes sind gleich. 
+Beweis. 
+a): 1st ), E <e ein Eigenwert und b E <en (b i= 0) ein Eigenvektor 
+von A, dann folgt aus Ab = Ab durch Ubergang zu den komplex konjugier-
+ten Vektoren (man nehme komponentenweise die konjugiert komplexen Zahlen) 
+
+
+--- PDF page 357 ---
+§7. Symmetrische Matrizen und quadratische Formen 
+341 
+A6 = Ab = Ab und damit AbT6 = (Abf6 = bT A T6 = bT A6 = lbT6. Wegen 
+bT6 = I Ibil2 > 0 ergibt sich A = l. also A E R. 
+b): Aus Ab = Ab. Ae = p.e folgt AbTe = (Ab)Te = bT(ATe) = bT(Ae) = p.bTe. 
+was im Fall A 1- p. die OrthogonaliHit bT e = 0 nach sich zieht. 
+c) : Sei 
+p. E Rein Eigenwert von A der algebraischen Vielfachheit k. 
+XA (A) = (p. - A)kp(A) mit p(p.) 1- 0 und (bl •...• bl) eine Basis des Eigenraumes 
+V (p.) • erganzt zu einer Basis B = (bJ. ...• bt. bl+J. ...• bn) des Rn. Man kann an-
+nehmen. daB die Matrix B orthogonal ist. andernfalls ist noch das Schmidtsche 
+Orthonormierungsverfahren (-+ 6.5) anzuwenden. Beziiglich dieser Basis wird 
+x 1-+ Ax dargestellt durch B-1 AB = BT AB (-+ (11). §6) in der "Blockform" 
+p. o ... 0 0 
+0 }I 
+0 P. 
+0 
+BT AB = (AbdB •...• (Abl)B •...• (Abn)B) = 
+0 .. · 0 p. 0 
+0 
+0 
+0 
+Al 
+0 
+0 
+Wesentlich ist. daB im rechten oberen I x (n -I)-Block lauter Nullen stehen; 
+denn BT AB muB mit A symmetrisch sein. Damit gilt 
+(3) 
+(p. - A)kp(A) = XA(A) = XBT AB(A) = (p. - A)I det (AI - AE) . 
+Ferner ist p. - A kein Faktor von det (AI - AE). Denn ware p. ein Eigenwert 
+von AI. dann hatte BT AB einen Eigenvektor e E Lin(el+J. .... en) zum Eigen-
+wert p. und demzufolge A einen weiteren. von bl •...• bl linear unabhangigen 
+Eigenvektor Be E Lin (bl+J. .... bn) zum Eigenwert p.. was Dim V (p.) = I wi-
+dersprache. 
+Ein Vergleich der (p. - A)-Potenzen auf beiden Seiten von (3) zeigt 1= k. 
+0 
+Satz 7.2. Die Hauptaehsentransformation. Zu jeder quadratischen Form q(x) = 
+x T Ax, bzw. zu jeder reellen symmetrischen n x n-Matrix A, gibt es wenigstens 
+ein H auptachsensystem. Man berechnet es wie Jolgt: 
+Zu jedem der verschiedenen Eigenwerte Ai von A bestimmt man eine Orthonor-
+malbasis (b~i). bgl •...• br!) von (A -AiE)x = 0 (-+ 6.5), 1;5; i ;5; r. Diese Teilbasen, 
+in angegebener Reihenfolge zusammengesetzt, ergeben ein Hauptachsensystem 
+for das 
+B = (b~ll •...• bk~l. b~2l •...• bk~l •...• brl •...• btl) • 
+BT AB = Diag (AJ. .... AI. A2 ..... A2 .... .Ar ..... Ar) 
+'-y-I '-y-I '-y--I 
+kl-mal 
+k2-mal 
+k,.-mal 
+gilt und demzuJolge q(x) = q(By) = Alyi + ... + Ary~ . 
+
+
+--- PDF page 358 ---
+342 
+6. Lineare Algebra 
+Beweis. 
+Nach Satz 7.1 a) und c) erhiilt man durch die Zusammensetzung 
+tatsiichlich eine volle Basis des IRn. Wegen Satz 7.1 b) muB die Orthonor-
+mierung nur innerhalb der Eigenriiume erfolgen. 
+0 
+Bemerkuog. 
+Die Bestimmung einer orthogonalen Matrix B, so daB B T AB 
+Diagonalform hat, nennt man orthogonale Diagonalisierung der Matrix A. 
+FUr n = 2,3 ergeben sich folgende Vereinfachungen: 
+0=2: 
+Zu A = (~ ~), b =F 0, berechnet man die Losungen AI, A2 von 
+),2 _ (a + c)), + (ac - b2) = 0; dazu eine normierte Losung b = (:~) der 
+Gleichung (A -
+)'1 E)x = O. FUr den anderen Hauptachsenvektor gibt es nur die 
+Moglichkeit ±c, c := (-:~). Mit diesem (b,c) ist (O;b,c) ein kartesisches 
+Koordinatensystem. 
+0=3: 
+1st A = AT E IR3x3 keine Diagonalmatrix, dann sind wenigstens zwei 
+verschiedene Eigenwerte (Losungen von det (A -
+AE) = 0) Al =F A2 vorhan-
+den. Man bestimmt entweder fUr i = 1,2 je eine normierte Losung bj von 
+(A -
+)'iE)X = 0, oder, falls }'I die Vielfachheit 2 hat, zwei normierte und or-
+thogonale Losungen von (A - }'IE)x = O. Die dritte Hauptachse ist parallel 
+zu b3 := bl x b2 . B = (bl , b2, b3) ist ein (kartesisches, d.h. rechtsorientiertes) 
+Hauptachsensystem fUr A. 
+Beispiel 1. 
+Die Matrix A = (~ ;) hat die Eigenwerte }'I = ~(5 + v5) , 
+).2 = ~(5 - v5). Eine Losung von (A - AIE)x = 0 ist x = (1, ~ + ~v5)T und 
+demnach ist (b, c) ein Hauptachsensystem fUr A mit 
+b= 
+I (2) 
+VlO+2J5 1+J5 ' 
+I 
+(-I-J5) 
+c= VlO+2J5 
+2 
+Die quadratische Form q(x, y) = (x, y)A (;) = 2X2 + 2xy + 3l hat im Koordi-
+natensystem (0; b, c) die Darstellung 
+q(x,y) = AIU2 + A2V2 = ~(5 + v5)u2 + ~(5 - v5)v2, 
+wobei 
+(X)=(bc)(U)= 
+I 
+(2 -1-J5)(U) 
+0 
+Y 
+, 
+v 
+VlO+2J5 1+J5 
+2 
+v' 
+Beispiel 2. 
+Die Rotationsenergie eines starren Korpers sei 
+T = 5wr + 5wi + 5w~ + 8WIW2 + 8WIW3 + 8W2W3 = ~ibT Jib 
+
+
+--- PDF page 359 ---
+§7. Symmetrische Matrizen und quadratische Formen 
+mit dem Tragheitstensor 
+J = (1~ 1~ J) 
+Aus det (J - AE) = 0 ergeben sich die Eigenwerte (Haupttragheitsmomente) 
+).1 = 2, 
+).2 = 26, 
+A3 = 2 , 
+dazu ein Hauptachsensystem (die Haupttragheitsrichtungen) 
+343 
+b1 = ~ 
+( -l), b2 = ~ G), b3 = bl X b2 = ~ 
+( =1) 
+0 
+Beispiel 3. 
+Die quadratische Form 
+q(x,Y,z) = x2 + 6xy - 2l- 2yz + z2 
+ist durch die 3 x 3-Matrix 
+A = (~ -; -~) bestimmt. 
+o -1 
+1 
+Die Lasungen von det (A -
+}.E) = 0 sind }.1 = 1, ).2 = 3, ).3 = -4. Je-
+weils normierte Lasung von (A -
+}.iE)X = 0 (i = 1,2) sind bl = ~ 
+(1,0,3) T , 
+vlO 
+b2 = ;,. (3, 2, -1) T . Mit b3 := bl x b2 ist (b l , b2, b3) ein (kartesisches) Haupt-
+v 14 
+achsensystem und 
+eine Drehmatrix mit 
+(vk 
+B = 
+0 
+3 
+ViO 
+3 
+yT4 
+2 
+yT4 
+1 
+-yT4 -0) 
+J35 
+1 
+J35 
+BT AB = 
+0 
+3 
+0 
+(1 0 0) 
+o 0 -4 
+o 
+7.3 Quadriken. 
+Als Quadrik (oder Hyperjiache zweiter Ordnung) bezeichnet 
+man die Menge aller Punkte X = (Xl, ... , Xn) E lRn, die eine Gleichung erfiillen 
+der Form 
+p(x) = x T Ax + aT x + f3 = 0, 
+A = AT E lRnxn , a E lRn, f3 E lR. 
+Die Quadrik liegt in Normalform vor, wenn x T Ax rein quadratisch ist und 
+a T x + f3 durch keine affine Substitution verkiirzt werden kann. 
+1m Fall n = 2 hat man 9, im Fall n = 3 insgesamt 17 Typen von verschiedenen 
+Normalformen, die in den folgenden Tabellen aufgefiihrt sind: 
+
+
+--- PDF page 360 ---
+344 
+6. Lineare Algebra 
+Die Normalformen der Quadriken im JR.3 (Konstante a, b, c, p aile =F 0) 
+Rang A = 3 
+(Aile Eigenwerte =F 0) 
+Ellipsoiq (evtl. Kugel) 
+leere Menge 
+zweischaliges Hyperboloid 
+einschaliges Hyperboloid 
+Punkt 
+Kegel 
+Rang A = 2 
+(Ein Eigenwert = 0) 
+elliptisches Paraboloid 
+-~-t--
+:'_ 
+/ 
+,,~ 
+, 
+hyperbolisches Paraboloid 
+leere Menge 
+: 
+elliptischer Zylinder 
+x 
+---.---
+, 
+hyperbolischer Zylinder 
+Gerade 
+Ebenenpaar mit Schnittgerade 
+Rang A = I 
+(Zwei Eigenwerte = 0) 
+x2 - 2py = 0 
+parabolischer Zylinder 
+x2 -
+a2 = 0 
+paralleles Ebenenpaar 
+x2 + a2 = 0 
+leere Menge 
+x2 = 0 
+Ebene 
+
+
+--- PDF page 361 ---
+97. Symmetrische Matrizen und quadratische Formen 
+345 
+Die Normalformen der Quadriken im 1R2 (Konstante Q, b, p aile =f- 0) 
+Rang A = 2 
+(Aile Eigenwerte =f- 0) 
+o 
+0 
+or 
+v-
+)-~-1=0 
+a-
+b-
+Ellipse (evtl. Kreis) 
+leere Menge 
+Hyperbel 
+Punkt 
+Geradenpaar mit 
+Schnittpunkt 
+Rang A = 1 
+(Ein Eigenwert = 0) 
+x 2 - 2py = 0 
+Parabel 
+*' 
+paralleles Geradenpaar 
+leere Menge 
+Gerade x = 0 
+Die Transformation einer Quadrik auf Normalform erfolgt in zwei Schritten: 
+J. Schritt: Die Hauptachsentransformation des quadratischen Anteils, BTAB = 
+Diag VI, ... ,).Il) mit einem Hauptachsensystem B = (b l , ... , bll) von A, liefert 
+tiber die Substitution x = By die Darstellung der Quadrik im Koordinatensy-
+stem (O;bl, ... ,bn ) durch 
+(4) 
+).Iyr + ... + i,"y~ + flYI + '" + fllY" + f3 = 0 
+mit gewissen Zahlen fi E IR. 
+2. Schritt: Mit der anschlieI3enden Substitution 
+{ 
+Yi 
+Zi = 
+Yi+ ~ 
+2).i 
+, falls J.i = 0 
+, falls )'i =f- 0 
+(d.i. eine quadratische Erganzung) werden die linearen Terme - falls moglich -
+"wegsubstituiert". Diese Substitution entspricht einer Verschiebung des bereits 
+gedrehten Koordinatensystems in einen anderen Ursprung (---> (9), §6). Schrei-
+
+
+--- PDF page 362 ---
+346 
+6. Lineare Algebra 
+ben wir z = y + u, so folgt der Ubergang von den x-Koordinaten zu den 
+z-Koordinaten tiber die Substitution 
+x = By = B(z - u) = Bz - Bu . 
+D.h. im Koordinatensystem (-(Bu) T ; bl , ... , bn) hat die Quadrik die Gleichung 
+(5) 
+wobei wir AI, ... , Ar + 0 und Ar+1 = ... = An = 0 angenommen haben. 1st einer 
+der Koeffizienten J.lr+I, ... , J.ln von Null verschieden, etwa J.lk + 0, kann man 
+sogar y = 0 annehmen (andernfalls wird noch einmal 'k = Zk + :k substituiert). 
+Bemerkung. 1st A invertierbar, also Ai + 0 (1 ::;; i ::;; n), dann hat die trans-
+formierte Gleichung die Form AIZ? + ... + Anz~ + y = O. Mit jedem Punkt 
+X = (ZI, ... ,Zn) liegt auch (±ZI, ... ,±zn) auf der Quadrik. Der neue Ursprung 
+ist der Mittelpunkt (oder das Zentrum) der Quadrik. In diesem Fall ist das Zen-
+trum m der Quadrik x T Ax+aT x+f3 = 0 die eindeutige Lasung von Am = -~a 
+und es gilt y = f3 + ~aT m = ~:~~ mit der 4 x 4-Matrix Q := (~:T ~a). 
+Ganz allgemein (also A nicht notwendig invertierbar) kann man stets versu-
+chen, zuerst Ax = -~a zu lasen. Mit einer Lasung m und der Substitution 
+x = y + m, d.i. eine Verschiebung des Koordinatensystems in den Punkt M, 
+vereinfacht sich die Gleichung der Quadrik zu yT Ay+y = 0 mit y = f3 + ~a T m. 
+Beispiel 1. 
+Der Typ und die Nor-
+malform des Kegelschnitts q(x, y) = 
+2X2 + 2xy + 3 y2 = 1 ergeben sich 
+allein aus den Eigenwerten der Ma-
+trix 
+A = (; ~). 
+Schritt 2 ist 
+tiberfltissig. Mit Bsp. 1 von 7.2 liegt 
+eine im 
+(x, y)-System gedrehte El-
+lipse vor mit den Hauptachsenlangen 
+a = J2/(5 + VS), b = J2/(5 - VS) . 
+0 
+v 
+y 
+u 
+Abb. 155 -
+2x2 + 2xy + 3i = 1 
+Beispiel 2. 
+Es sind Typ und Normalform zu bestimmen fUr die Quadrik 
+q(x, y, z) = _x2 - y2 + z2 + 6xy + 2xz + 2yz - 12x + 4y - 10z - 11 = 0 . 
+x 
+1. Schritt. Die Matrix A = (-~ -i ~) hat die Eigenwerte Al = 3, ..1.2 = -4, 
+1 
+1 1 
+..1.3 = O. Dazu das Hauptachsensystem 
+bl = ~ (~), b2 = ~ 
+( ~1 ), b3 = bl X b2 = ~ (-l) . 
+
+
+--- PDF page 363 ---
+§7. Symmetrische Matrizen und quadratische Formen 
+347 
+Mit der Substitution 
+geht die Gleichung der Quadrik tiber in 
+3(X')2 - 4(y')2 - 6J3x' - 8v'2/ + 2V6z' - 11 = 0 . 
+2. Schritt. Durch quadratische Erganzung ergibt sich die Verschiebung 
+" 
+, 
+h3 
+x =x -v.), y" = y' + v'2, 
+dazu :;;" = z' - V6 und man hat die Normalform 
+3(X")2 - 4(y")2 + 2V6z" = 0 . 
+Den Typ liest man durch Vorzeichenvergleich aus der Tabelle ab: 
+Hyperbolisches Paraboloid. 
+Die Normalform wird im Koordinatensystem 
+(( J3, -v'2, V6)B T ; bl , b2, b3) angenommen. 
+D 
+z 
+x 
+Abb. 156 - Hyperbolisches Paraboloid 
+Beispiel 3, 
+Zur Quadrik p(x,y,z) = x2 -
+yz - 2x + 3y - 3z + 4 = 0 gehort 
+die Matrix A = (~ 
+~ -I/~); sie hat die Eigenwerte ), I = 1, ),2 = ~, 
+o -1/2 
+0 
+i3 = -~ mit den normierten Eigenvektoren 
+bl = (~) , 
+b2 = ~ (JJ ' b3 = bl X b2 = ~ (f) 
+(;) ~ -'- (V; 
+0 f) (~:) 
+Mit der Substitution 
+und quadratischer 
+z 
+J2 
+0 -I 
+
+
+--- PDF page 364 ---
+348 
+6. Lineare Algebra 
+Ergiinzung entsteht 
+0= p(X,y,Z) = X'2 + ~y'2 -
+~z'2 - 2x' + 3V2y' + 4 
+= (x' -
+1)2 + ~(y' + 3V2)2 -
+~z'2 - 6 
+= (x")2 + ~(y")2 _ ~(Z")2 - 6 . 
+Es handelt sich also urn ein einschaliges Hyperboloid. Die gesamte Substitution 
+x 
+x' 
+x" + 1 
+Vi 
+0 0 
+x" 
+1 
+( ~) = B (~; ) 
+= B (y" -)/ V2 ) = ~ 
+( 
+~ _! !) (~;;) + ( -;3 ) 
+liefert die Normalform im Koordinatensystem ((\,-3,3);b l,b2,b3). 
+o 
+y 
+x 
+Abb. 157 - Einschaliges Hyperboloid 
+* 7.4 Die nichtorthogonale Diagonalisierung einer symmetrischen Matrix. 
+Die Hauptachsenbestimmung ftihrt auf ein Eigenwertproblem und damit auf 
+eine Polynomgleichung det (A - XE) = o. Damit ist zwar die theoretische Kenn-
+zeichnung erledigt, jedoch ist die exakte Lasung dieser Gleichung in der Praxis 
+oft gar nicht mit algebraischen Mitteln maglich. Man mu13 dann mit numeri-
+schen Niiherungsverfahren arbeiten. 
+Die folgende nichtorthogonale Diagonalisierung kommt ohne Eigenwerte aus 
+und ist stets mit rationalen Rechenoperationen durchftihrbar. Man erhiilt zwar 
+nicht die Hauptachsen, jedoch ist damit bei Quadriken eine schnelle Typbestim-
+mung und bei quadratischen Formen ein wichtiger Positivtest maglich. 
+Eine Vorbetrachtung: Sei S E lRnxn eine Elementarmatrix. Nach §4 entsteht 
+SAS T aus A durch die zu S geharende element are Zeilenumformung mit der 
+anschlie13enden analogen elementaren Spaltenumformung. A --+ SAS T bezeich-
+nen wir kurz als ZS-UmJormung ("Zeilen-Spalten-Umformung"). 
+Die Hauptachsentransformation BT AB = Diag ().l, ... In) ist mit einer Zerle-
+gung von B in ein Produkt von Elementarmatrizen somit auch zu deuten als 
+eine endliche Folge von ZS-Umformungen. 
+
+
+--- PDF page 365 ---
+§7. Symmetrische Matrizen und quadratische Formen 
+349 
+Wir beschreiben nun ein Verfahren, das A mittels ZS-Umformungen ebenfalls 
+auf Diagonalform bringt, jedoch i.a. nicht mit den Eigenwerten von A auf der 
+Diagonalen: 
+Gegeben A = (aij) E lRnxn, A= AT. Es sind drei FaIle zu unterscheiden: 
+ail 
+ali 
+o all + O. Mit den Umformungen Zj ~ Zj - QJiZI, 
+Sj ~ Sj - QJiSI werden 
+die Koeffizienten alj = ail (i = 2, ... , n) der ersten Zeile und der ersten Spalte 
+annulliert. 
+® 
+all = 0, aber ajj + 0 fUr ein i. Durch Vertauschen der i-ten mit der 
+ersten Zeile und anschliel3end der i-ten mit der ersten Spalte liegt 0 vor. 
+o ajj = 0 (1 :s; i :s; 11) , aber aij = ajj + 0 fUr ein Indexpaar (i,j). Man addiert 
+die jete Zeile zur i-ten, dann die jete Spalte zur i-ten und erhalt eine Matrix, 
+deren i-tes Diagonalelement 2aij + 0 ist. Jetzt liegt 00der ® vor. 
+Auf diese Weise entsteht aus A mittels ZS-Umformungen eine Matrix der Form 
+o 
+mit einer symmetrischen (n -
+1) x (n - I)-Matrix A I , die in gleicher Weise wei-
+terbehandelt wird, bis man zu Diag (:XI, ... , :xn ) gelangt. 
+Das Produkt der zu den Zeilenumformungen gehorenden Elementarmatrizen 
+bezeichnen wir mit WT, dann gehort zu allen Spaltenumformungen die (inver-
+tierbare) Matrix W und es gilt (~ Satz 4.2) 
+(6) 
+WT AW = Diag(:XI, ... ,:Xn ) • 
+Beispiel. 
+A 
+E 
+-1 -2 
+1 
+0 
+0 
+0 
+-1 
+2 -2 
+3 
+0 
+1 
+0 
+0 
+-2 -2 
+3 
+0 
+0 
+1 
+0 
+3 
+1 
+0 
+0 
+0 
+ij 
+ij 
+mit 
+nur 
+ZS-U mform ungen 
+Z-Umformungen 
+ij 
+ij 
+1 
+0 
+0 
+0 
+0 
+0 
+0 
+0 
+1 
+0 
+0 
+1 
+0 
+0 
+0 
+o -17 
+0 
+6 
+4 
+0 
+0 
+0 
+0 
+89 
+29 
+8 
+19 
+17 
+17 
+17 
+17 
+Diag (:XI, ... , :xn ) 
+W T 
+0 
+
+
+--- PDF page 366 ---
+350 
+6. Lineare Algebra 
+Anwendung zur schnellen Typerkennung einer Quadrik. Analog zu 7.3 wird die 
+Gleichung einer Quadrik p(x) = ° tiber eine Substitution x = Wy + u mit (6) 
+und passendem u auf Normalform gebracht. An dieser Normalform kann man 
+auf jeden Fall den Typ der Quadrik erkennen. Dieser ist gemaB 7.3 aus der 
+Anzahl der positiven und der Anzahl der negativen Eigenwerte abies bar. 
+Man nennt das Zahlentripel (p, q, s) mit der Anzahl p der positiven, q der 
+negativen und s der "verschwindenden" (= 0) Eigenwerte von A die Signatur 
+von A. (Vielfach heiBt p -
+q die Signatur.) Die Signatur laBt sich an jeder 
+(nicht notwendig orthogonalen) Diagonalisierung ablesen; denn es gilt: 
+Satz 7.4. Trigheitssatz von J. J. SYLVESTER, (1814-1897). 1st A E IRnxn sym-
+metrisch und WE IRnxn invertierbar (det W i= 0), dann haben A und WT AW 
+die gleiche Signatur. 
+Beweis. Wegen p + q = r = Rang A (= Anzahl der Eigenwerte i= 0) und 
+s = n - r braucht nur noch gezeigt zu werden, daB A und WT A W dieselbe 
+Anzahl positiver Eigenwerte haben. Da sich bei orthogonaler Diagonalisierung 
+die Eigenwerte nicht andern (~ Satz 6.6c), k6nnen wir ausgehen von 
+A = Diag(A" ... ,Ap,Ap+I, ... ,A"O, ... ,O) , 
+W T AW = Diag(p" ... ,pc,Pt+" ... ,Pr,O, ... ,O) 
+mit den positiven Eigenwerten A" ... ,Ap von A und PI, ... ,Pt von WT AW. 
+In 
+p(x) = x T Ax = AIXi + ... + ApX~ -IAp+llx~+1 - ... -IArlx~ 
+substituieren wir x = Wy, d.h. 
+p(x) = p(Wy) = yTW T AWy = Plyi + ... + PtY; -IPt+1IY;+1 _ ... -IPrli . 
+Hierzu betrachten wir das homogene lineare Gleichungssystem (in XI, ... , Xn ) 
+Xp+1 = ... = Xr = 0, 
+YI = ... = Yt = ° . 
+Ware p > t, dann hiitte dieses System r -
+p + t = r -
+(p -
+t) < r < n 
+Gleichungen in n Unbekannten XI, •.• ,Xn und damit wenigstens eine L6sung 
+x i= 0 (~ Satz 1.1). Ftir diese L6sung x wtirde p(x) = AIXi + ... + ApX~ = 
+-(IPt+dY;+1 + ... + IPrly;) gelten, also auch XI = ... = xp = 0. Das ist ein 
+Widerspruch. Also gilt p:5; t und aus gleichem Grund t:5; p, somit t = P . 
+0 
+A --
+( 2;1 
+00
+2
+2 
+~~ 0;1) 
+Beispiel. 
+wird mit ZS-Umformungen umgewandelt in 
+Diag (1, -4, 3, -16) . Also besitzt A zwei positive und zwei negative Eigenwerte, 
+Rang A = 4. Die Quadrik p(x) = x T Ax = 1 hat demzufolge in einem (noch 
+nicht naher bestimmten) Hauptachsensystem die Gleichung 
+(mit ai := vVJ, Ai Eigenwert). 
+o 
+
+
+--- PDF page 367 ---
+§7. Symmetrische Matrizen und quadratische Formen 
+351 
+Bemerkung. 
+Die nichtorthogonale Transformation der Gleichung p(x) 
+= 
+x TAx + a T x + f3 = 0 auf Normalform laBt sich auch mittels quadratischer 
+Erganzung erreichen. 
+Beispiel. 
+Gegeben sei die Quadrik 
+q(x,y,z) = x2 + 6i - z2 + 6xy + 2xz + 4x - 6y - 8z + 5 = 0 . 
+Diese wird (schrittweise) mit quadratischen Erganzungen umgeformt zu 
+q(x,y,z) = (x + 3y + z + 2)2 - 3(y + z + 3)2 + (z + 3)2 + 19 
+= (x')2 - 3(y')2 + (z')2 + 19 = 0 
+mit x' := x + 3 y + z + 2, 
+y':= y + z + 3, 
+z':= z + 3 . 
+Also liegt ein zweischaliges Hyperboloid vor. Die Umrechnung 
+liefert die Normalform der Flachengleichung 
+(x')2 
+3(y')2 
+(z')2 
+19-19+19+ 1 =0 
+im (schiefwinkligen) Koordinatensystem (0,0,-3); (~} (-1} ( -f))· 0 
+7.5 Positiv definite Matrizen. 
+Die Bestimmung der Extremwerte einer reellen 
+Funktion in n Veranderlichen ist eng verbunden mit der Frage, wann eine 
+quadratische Form q(x) = x T Ax fUr x i= 0 nur positive oder nur negative 
+Werte annimmt (---> Kap. 7). 
+Definition. 
+Eine quadratische Form q(x) = x T Ax, bzw. die zugehorige symmetri-
+sche Matrix A E IRnxn , heij3t positiv definit (negativ definit), wenn aus x i= 0 stets 
+q(x) > 0 (q(x) < 0) folgt. Die quadratische Form heij3t indefinit, wenn sie sowohl 
+positive als auch negative Werte annimmt. Sie heijJt positiv (negativ) semidefinit, 
+wenn stets q(x) z 0 (q(x) :s; 0) gilt. 
+Beispiel 1. 
+Der Tragheitstensor eines rotierenden starren Korpers ist positiv 
+definit (T = illT Jill> 0, falls ill i= 0). 
+0 
+Beispiel 2. 
+In der speziellen Relativitatstheorie spielen die nach H.A. LORENTZ 
+(1853-1928) benannten Transformationen 
+
+
+--- PDF page 368 ---
+352 
+6. Lineare Algebra 
+des Raum-Zeit-Kontinuums ]R.4, welche die quadratisehe Form 
+q(x,y,z,t) = x 2 + l + z2 - c2t2 
+invariant lassen (d.h. fUr die q(x',y',z',t') = q(x,y,z,t) gilt) eine wiehtige Rolle. 
+Diese quadratisehe Form ist indefinit; es gibt "raumartige" Vektoren U E ]R.4 
+mit q(u) > 0 und "zeitartige" Vektoren v E]R.4 mit q(v) < o. 
+D 
+Satz 7.3. 
+a) 
+D = Diag (()(l, ... , ()(n) ist genau dann positiv definit. wenn aile ()(j positiv sind. 
+b) 
+A = AT ist genau dann positiv definit. wenn W T AW fUr irgend eine inver-
+tierbare n x n-Matrix W positiv definit ist. 
+e) 
+A = AT ist genau dann positiv definit. wenn siimtliche Eigenwerte von A 
+positiv sind. 
+Beweis. 
+a): q(x) = x T Dx = 2. ()(jXT > 0 fUr aIle x -=F 0 <==> aIle ()(j > o. 
+b): A positiv definit = 
+XT(WT AW)x = (WX)T A(Wx) > 0 fUr aIle x -=F O. 
+W T AW positiv definit = (W-I)T(WT AW)W-I = A positiv definit. 
+c) folgt aus a), b) mit einem Hauptaehsensystem W. 
+D 
+Beispiel. 
+Die Matrix A = (~ 
+~ =~) ist positiv definit; denn die Eigen-
+-2 -4 
+5 
+werte A.I = 1, ).2 = 5 + J24, ).3 = 5 - J24 sind positiv. 
+D 
+Die Positivitat einer Matrix wird nur in Ausnahmefallen dureh Bereehnung der 
+Eigenwerte entsehieden (man vgl. die 7.4 einleitenden Bemerkungen). Hingegen 
+beinhaltet Satz 7.3 einen durehaus praktikablen Test: 
+1. Positivitatstest: Die reelle symmetrisehe n x n-Matrix A ist genau dann 
+positiv definit, wenn in einer (nieht notwendig orthogonalen) Diagonalisierung 
+aIle ()(j positiv sind. 
+Man beaehte: fUr A 
+Bedingung: 
+WT AW = Diag(()(l, ... ,()(n) 
+D 
+(()(ij)nxn gilt eT Aej 
+ajj und damit die notwendige 
+A = AT positiv definit = 
+ajj > 0 
+(1::; i ::; n) . 
+1m folgenden gehen wir deshalb stets davon aus, daB die Diagonalelemente einer 
+auf Positivi tat zu iiberpriifenden Matrix positiv sind. 
+
+
+--- PDF page 369 ---
+§7. Symmetrische Matrizen und quadratische Formen 
+353 
+Sonderfall n = 2 : Die Matrix A = (~ ~) wird mit einer ZS-Umformung in 
+(~ ad ~ b2) umgewandelt. Also gilt: 
+(7) 
+( a 
+b ) 
+.. d fi . 
+0 
+d d 
+bJ 
+0 
+b d 
+POSltIV e mt <==> a > 
+un a -
+- > 
+. 
+Beispiel. 
+A = (_; -~) ist positiv definit; denn a = 3 > 0 und det A = 
+II > O. Die quadratische Form q(x, v) = (x, y)A (x) = 3x2 - 4xy + 5y2 nimmt 
+. 
+y 
+fUr (x,y) =1= (0,0) nur positive Werte an. 
+0 
+Sonderfall n = 3 : A = (:~ 
+a3 
+a, ) 
+as 
+wird mit ZS-Umformungen in 
+a6 
+(~ 
+o 0) 
+A, 
+umgewandelt. Offenbar ist A genau dann positiv definit, wenn a, > 0 und A, 
+positiv definit ist. Aus (7) ergibt sich (nach leichter Umformung): 
+(a, 
+a2 
+a3 ) 
+A = 
+a2 
+a4 
+as 
+positiv definit 
+(8) 
+a3 
+as 
+a6 
+<==> a, > 0, 
+det ( a, 
+a2 ) > 0, 
+det A > O. 
+a2 
+a4 
+Beispiel. 
+A = (-~ -~ -i) ist positiv definit; denn a, 
+2 -1 
+4 
+det (_~ -~) > 0, det A = 83 > O. 
+5 > 0, 
+o 
+Dieses Verfahren, mit Induktion auf n x n-Matrizen fortgesetzt, ergibt den 
+2. Positivitiitstest 
+(c. G. JACOBI, 1804 - 1851): 
+A = AT = (aij) E 1R./ XIJ ist genau dann positiv defin it , wenn die Determinanten der 
+n "Hauptuntermatrizen" Hi positiv sind.' 
+al2 ) 
+'''., 
+an 
+Hn =A. 
+
+
+--- PDF page 370 ---
+354 
+6. Lineare Algebra 
+Beispiel. 
+D;, Matri, A ~ (; 
+0 
+2 
+0 
+-l) 
+0 
+2 
+0 
+8 
+2 
+ist positiv definit; denn all = 1 > 0, 
+2 
+2 
+9 -4 
+-3 2 -4 
+12 
+det (~ 
+0 
+~) 
+dot 0 
+0 
+2 n 
+det (~ n 
+= 1 > 0, 
+1 
+= 4> 0, 
+0 
+= 16> 0 
+0 
+0 
+8 
+und det A = 16 > 0 . 
+2 
+2 
+0 
+Erganzung: 
+Eine POSltIV definite Matrix A kann man mit ZS-Umformungen 
+auf die Einheitsmatrix E transformieren; hierbei kommt man ohne Zeilen- bzw. 
+Spaltenvertauschungen aus. Daraus ergibt sich: 
+A positiv definit -= A = LL T mit einer invertierbaren 
+unteren Dreiecksmatrix L. 
+0 0 
+-1 0 
+Im vorhergehenden Beispiel gilt A = LL T mit L~ (i 
+0 2 
+-2 
+3 
+0 
+Dieses L hat sowohl posItIve als auch negative Eigenwerte. Man kann aber 
+zeigen, daB es eine Zerlegung M M T mit einer unteren Dreiecksmatrix M gibt, 
+die nur positive Diagonalelemente besitzt (CHOLESKY-Zerlegung). 
+Das folgende Programm benutzt zur Berechnung von Eigenwerten und Eigen-
+vektoren einer symmetrischen Matrix ein Verfahren, dessen Grundidee auf JA-
+COBI zuriickgeht, namlich mit geeigneten Drehungen sukzessive die Elemente 
+auBerhalb der Diagonalen betragsmaBig zu verkleinern. Uber das Produkt der 
+Drehmatrizen sind die Eigenvektoren bestimmt, die stets ein Orthonormalsystem 
+bilden. 
+Programm JACOBI ---------
+Print "DIMENSION N="; 
+Input N 
+M=N-1 
+Dim A(M,M) 
+Print "Mit Eigenvektor YIN "; 
+Input 0$ 
+If O$="Y" Or O$="y" Then 
+Dim B(M,M) 
+Endif 
+For 1=0 To M 
+For J=I To M 
+If O$="Y" Or O$="y" Then 
+B(I,I)=l 
+Endif 
+Print "A"+Str$(I+1)+Str$(J+1); 
+Input A(I,J) 
+Next J 
+Next I 
+
+
+--- PDF page 371 ---
+§7. Symmetrische Matrizen und quadratische Formen 
+355 
+Repeat 
+S=O 
+For P=O To M-l 
+For Q=P+l To M 
+R=A(P,Q) 
+A=A(P,P) 
+B=A(Q,Q) 
+A(P,Q)=O 
+If (Abs(R)+Abs(A)<=Abs(A» 
+And 
+(Abs(R)+Abs(B)<=Abs(B» 
+Then 
+R=O 
+Else 
+E=(B-A)/2/R 
+If E=O Then 
+E=l 
+Else 
+E=l/(E+Sgn(E)*Sqr(l+E*E» 
+Endif 
+C=l/Sqr(l+E*E) 
+D=C*E 
+A(P,P)=A-E*R 
+A(Q,Q)=B+E*R 
+If P>O Thcn 
+V=Q 
+X=P 
+For 1=0 To P-l 
+U=I 
+W=I 
+Gosub Rot 
+Next I 
+Endif 
+If Q<>P+l Then 
+V=Q 
+W=P 
+For K=P+l To Q-l 
+U=K 
+X=K 
+Gosub Rot 
+Next K 
+Endif 
+If Q<>M Then 
+U=Q 
+W=P 
+For J=Q+l To M 
+V=J 
+X=J 
+Gosub Rot 
+Next J 
+Endif 
+If O$="Y" Or O$="y" Then 
+For J=O To M 
+B=B(Q,J) 
+A=B(P,J) 
+B(P,J)=C*A-D*B 
+B(Q,J)=D*A+C*B 
+Next J 
+Endif 
+Endif 
+S=S+Abs(R) 
+Next Q 
+Next P 
+Until S=O 
+For 1=0 To M 
+Print "X"+Str$(I+l)+"=";A(I,I) 
+Next I 
+If O$="Y" Or O$="y" Then 
+For 1=0 To M 
+Print Str$(I+l)+".EIG.VECT:" 
+For J=O To M 
+Print B(I,J) 
+Next J 
+Next I 
+Endif 
+End 
+Procedure Rot 
+B=A(U,V) 
+A=A(W,X) 
+A(W,X)=C*A-D*B 
+A(U,V)=D*A+C*B 
+Return 
+
+
+--- PDF page 372 ---
+356 
+6. Lineare Algebra 
+Aufgaben 
+I. Man bestimme die Hauptachsenform der Quadriken 
+a) Q 
+2X2 + 2y2 - z2 - 2xy + 4xz + 4yz - 6(x + y + z) + 9 = ° , 
+b) Q 
+2x2+3y2+4z2_4xy-4yz+2x+2y+2z+3=0. 
+Wie lautet die zugehorige Koordinatentransformation? 
+2. 
+Man bestimme fUr die Quadrik 
+9(x2 + y2 + z2) + rx(x + 2y + 2z -
+1)2 = rx 
+die Matrixdarstellung x T Ax + aT x + d = ° , 
+abhangig von rx eine Hauptachsenform mit zugehoriger Koordinatensubstitution, 
+den FIiichentyp fUr rx = -2. 
+3. Gegeben ist die quadratische Form 
+a) Fur welche Werte von a ist q positiu deftnit? 
+b) Fur welchen Wert von a ist v = (1,0,1)7 eine Hauptachsenrichtung von q? 
+Fur diesen Fall bestimme man 
+die Hauptachsenform fUr q, 
+die zugehorige Koordinatensubstitution, 
+den Typ der Flache 
+q(XI' X2. x,) + 2xI + X2 + x, = 0. 
+4. Gegeben ist die Quadrik 
+Q 
+rx(xy + xz + yz) + z = ° 
+und die Gerade 
+g 
+x=y=z. 
+a) Man bestatige, daB g fUr aile Werte von rx parallel zu einer Hauptachse von 
+Q veriauft, und lese daraus einen Eigenwert von Q abo 
+b) Unabhangig von rx liegen stets zwei Geraden durch ° ganz auf Q. Wie lauten 
+diese? 
+c) 
+Fur welche rx ist Q eine Rotationsflache? 
+d) Man bestimme eine Hauptachsenform von Q, die zugehorige Koordinatensub-
+stitution und den FIiichentyp von Q in Abhangigkeit von rx. 
+5. 
+Gegeben ist die Quadrik Q und die Gerade g 
+Q : (65 + 16rx)x2 + (17 + 64rx)y2 + (80 + rx)z2+ 
++ (I - rx)(64xy - 8xz + 16yz) + 126x + 72y + 72z = ° , 
+g : 2x + y = 8z + y = ° . 
+a) Fur welche Werte von rx gibt es zwei Geraden durch 0, die ganz auf Q liegen? 
+b) Man bestatige, daB g fUr aile Werte von rx parallel zu einer Hauptachse von 
+Q veriauft, und lese daraus einen Eigenwert von Q abo 
+c) Aus der Tatsache, daB Q fUr aile rx eine Rotationsflache ist, bestimme man -
+ohne die charakteristische Gleichung von Q aufzustellen - die Hauptachsenform 
+von Q, die zugehorige Koordinatensubstitution und den FIiichentyp von Q in 
+Abhangigkeit von rx . 
+
+
+--- PDF page 373 ---
+§7. Symmetrische Matrizen und quadratische Formen 
+6. Die Ellipse '/' ist als Schnitt des Ellipsoids 
+Q mit der Ebene E bestimmt: 
+Q : x2+2/+3z2 = 1 ; E : 2x+y+2z = 0 . 
+Zur Berechnung der Hauptachsen von r be-
+stimme man 
+a) die 
+Basisvektoren 
+bl , b2 , b3 
+eines 
+(~, IJ, (j-Koordinatensystems, in dem E 
+die Gleichung ( = 0 besitzt, 
+b) die zugehorige Koordinatensubstitution 
+und die (~,IJ,(tGleichung von Q, 
+c) die 
+(~, Il)-Gleichung und die Hauptach-
+senform von 
+~'. 
+7. 
+Ein zylindrischer Stahlstab (Radius 
+r 
+= 
+I em, Lange i = 1 m) wird urn 10° ver-
+drillt. 
+Das HOOKEsche Gesetz Jiefert als 
+Spannungstensor S 
+mit 
+stanten k = 13.6 N/mm2 : 
+S=k( ~ ~ 
+-J x 
+der Materialkon-
+-y) 
+x 
+. 
+o 
+357 
+a) Man berechne die H£llIptspalll1l1l1gell (Eigenwerte) und IIauptspal1l1ul1gsrichtlillgell 
+(Eigenvektoren) von S fUr jeden Punkt (x,)" z) des Stabes. 
+b) Die Norlllaispallllullg, d.i. der Betrag der Komponente von So liings 
+0 ergibt 
+sich als quadratische Form in 0 
+Die Scilubspallllllllg, d.i. die dazu senkreehte Komponente lautet 
+r (0) = I So - 0'(0)0 I 
+1st r (0) auch eine quadratische Form in 0 ? 
+In welch en Punk ten des Stabes und fUr welche Schnitte ist 0'(0) bzw. r (0) am 
+groBten? 
+8. 
+Eine zylindrische Schwungscheibe (r = h = 30 em, Masse M = I kg) hat am 
+Rand eine punktfOrmige Unwucht der Masse m = 0.1 kg. In dem (korperfesten) 
+skizzierten Koordinatensystem lautet der Triigheitstellsor 
+( 
+~(3r2 +4h2) +mh2 
+0 
+1= 
+0 
+~(3r2 + 4h2) + m(h2 + r2) 
+-mrh 
+0 
+Rotiert die Scheibe mit dem (momentanen) Drehgeschwil1digkeitsvektor OJ, so hat sie 
+
+
+--- PDF page 374 ---
+358 
+die Rotationsenergie 
+den Drehimpuls 
+T 
+L 
+6. Lineare Algebra 
+- !. TI· 
+-
+20) 
+0), 
+=Iw. 
+Bei freier Bewegung ist L konstant und 
+w rotiert urn L. Dies wird Nutation be-
+zeichnet. 
+a) Man berechne I sowie Lund T fUr 
+w = e3' 
+b) Man bestimme die Eigenwerte und Ei-
+genvektoren von I. 
+(Haupttriigheitsmomente und Haupttriigheitsachsen) 
+c) FUr welche Richtungen der Drehachse w, Iwl = 1, wird die Rotationsenergie 
+maximal bzw. minimal? (Permanente Drehungen ohne Nutation) 
+Knobelecke 
+5 gleichgroBe reguliire Tetraeder sind so ineinander geschachtelt (-> Skizze), daB die 20 
+Ecken zugleich die Eckpunkte eines reguliiren Dodekaeders bilden. Die Vereinigung der 
+5 Tetraeder stellt ein nicht konvexes Polyeder dar. Ihr gemeinsamer Durchschnitt ist 
+ein Ikosaeder. Seine 12 Eckpunkte sind genau die einspringenden (konkaven) Ecken des 
+Polyeders. Wieviele Ecken, Kanten und Seitenfliichen besitzt das Polyeder? 
+Es gibt 12 Elemente der Gruppe SO(3), die ein Tetraeder in sich UberfUhren und 60 
+Elemente in SO(3), die das Polyeder auf sich abbilden. Man bestiitige dies. 
+Originalskizze von Prof. A. Leutbecher 

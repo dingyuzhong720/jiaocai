@@ -1,0 +1,816 @@
+{
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "authors": [
+        "\u00104<8=8AB@0B>@"
+      ],
+      "created_at": "2013-06-18T10:53:02+04:00",
+      "modified_at": "2013-07-31T10:19:19+01:00",
+      "creator_application": "PdfCompressor 3.1.34",
+      "producer_application": "CVISION Technologies",
+      "page_count": 548,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "ocr"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 522,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 523,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 524,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 525,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 526,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 527,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 528,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 529,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 530,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        },
+        {
+          "page_idx": 531,
+          "width_pt": 439.3699951171875,
+          "height_pt": 666.1420288085938
+        }
+      ]
+    }
+  },
+  "pages": [
+    {
+      "page_idx": 522,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "index": 0,
+          "bbox": [
+            0.3,
+            0.06,
+            0.759,
+            0.088
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "Anhang: Pascal-Programme"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "type": "code",
+          "index": 1,
+          "bbox": [
+            0.135,
+            0.119,
+            0.766,
+            0.325
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 1,
+              "bbox": [
+                0.135,
+                0.119,
+                0.766,
+                0.325
+              ],
+              "content": "program Horner(input, output);\nconst maxgrad = 50;\nvar    N, I      : integer;\n        A, C      : array[0..maxgrad] of real;\n        B      : real;\nbegin\n    write('Polynomgrad = '); read(N);\n    for   I:=N downto O do\n        begin write(I:2,'.Koeffizient = '); read(A[I]); end;\n    write('b = '); read(B);\n    C[N]:=A[N];\n    for I:=N-1 downto O do C[I]:=C[I+1]*B+A[I];\n    writeln('f(',b,') = ',C[O]);\nend."
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "code",
+          "index": 2,
+          "bbox": [
+            0.135,
+            0.354,
+            0.765,
+            0.631
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 2,
+              "bbox": [
+                0.135,
+                0.354,
+                0.765,
+                0.631
+              ],
+              "content": "program HORNERvollstaendig(input,output);\nconst maxgrad = 50;\nvar    N,I,K    : integer;\n      C,A       : array[O..maxgrad]   of real;\n      B       : real;\nbegin\n    write('Polynomgrad = '); read(N);\n    for I:=N downto O do\n      begin write(I:2,'.Koeffizient = '); read(A[I]); end;\n    write('b = '); read(B);\n    for K:=0 to N do  C[K]:=A[K];\n    writeln('f(x)= ');\n    for K:= 0 to N-1 do\n      begin C[N]:=A[N];\n        for I:= N-1 downto K do C[I]:=C[I+1]*B+C[I];\n        writeln (C[K],'*(x-b)^',K:2,' +');\n      end;\n    writeln(A[N], '*(x-b)^', N:2);\nend."
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        },
+        {
+          "type": "code",
+          "index": 3,
+          "bbox": [
+            0.135,
+            0.662,
+            0.861,
+            0.866
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 3,
+              "bbox": [
+                0.135,
+                0.662,
+                0.861,
+                0.866
+              ],
+              "content": "program NEWTONinter(input,output);\nconst maxgrad = 50;\nvar I,K,N : integer;\n    P,X,H,Z,U : real;\n    F : array[l..maxgrad] of real;\nbegin\n    write('Grad = '); read(N); write('Step = '); read(H);\n    write('XO = '); read(Z);\n    for I:=0 to N do begin write('F',I:2,' = '); read(F[I]); end;\n    for I:=1 to N do for K:=N downto I do F[K]:=(F[K]-F[K-1])/I/H;\n    write('p(x) for x = '); read(X); P:=F[N]; U:=X-Z;\n    for I:=N-1 downto O do P:=P*(U-I*H)+F[I];\n    writeln(P);\nend."
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "pascal"
+        }
+      ]
+    },
+    {
+      "page_idx": 523,
+      "blocks": [
+        {
+          "type": "page_number",
+          "index": 0,
+          "bbox": [
+            0.133,
+            0.061,
+            0.169,
+            0.075
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "508"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 1,
+          "bbox": [
+            0.428,
+            0.064,
+            0.62,
+            0.077
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "Anhang: Pascal-Programme"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 2,
+          "bbox": [
+            0.13,
+            0.099,
+            0.87,
+            0.905
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 2,
+              "bbox": [
+                0.13,
+                0.099,
+                0.87,
+                0.905
+              ],
+              "content": "program Bisektion(input,output);\nconst EPS = 1.OE-06;\nvar    A,B,Fa,Fb : real;\n\nfunction Fn(x:real):real; begin Fn:=x*(x*x*x*x+1)+1; end;\n\nprocedure Bisect(var A,B,Fa,Fb: real);\nvar C,Fc :   real;\nbegin\n    C:=(A+B)*0.5; Fc:=Fn(C);\n    if Fc*Fa<=0 then begin B:=C; Fb:=Fc; end\n        else begin A:=C; Fa:=Fc; end;\nend;\n\nbegin\n    write('A = '); read(A); writeln; write('B = '); read(B); writeln;\n    Fa:=Fn(A); Fb:=Fn(B);\n    if Fa*Fb>0 then begin writeln('f(a)*f(b) positiv!'); halt; end;\n    while abs(A-B)>=EPS do Bisect(A,B,Fa,Fb);\n    writeln('Nullstelle im Intervall:[',A,'',B,']');\nend.\n\nprogram NEWTONverf(input,output);\nconst EPS = 1.OE-5;\nvar    Dx,X,Xa,Fl :   real;\n\nfunction F(x:real):real; begin F:=((x+1)*x+2)*x+1; end;\n\nbegin\n    repeat\n        begin\n            Dx:=EPS;\n            if abs(X)>EPS then Dx:=X*EPS;\n            Fl:=F(X); X:=X+Dx; Dx:=-F(X)*Dx/(F(X)-Fl);\n            X:=X+Dx; Xa:=abs(X);\n            if Xa<=1 then Xa:=1;\n        end;\n    until (abs(Dx)<(EPS*Xa)) or (abs(F(X))<EPS);\nwriteln(X);\nend.\n\nprogram KubischeSpline(input,output);\nconst max = 50;\nvar    M,N,I,K      :integer;\n        X,Y,B,C,D     :array[0..max] of real;\n        R,S,Q,Z,T     :real;\nbegin\n    write('Punktezahl = '); read(N); writeln;\n    N:=N-1;\n    for I:=0 to N do\n        begin\n            write('X',I:2,' = '); read(X[I]); writeln;\n            write('Y',I:2,' = '); read(Y[I]); writeln;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "matlab"
+        }
+      ]
+    },
+    {
+      "page_idx": 524,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.406,
+            0.062,
+            0.601,
+            0.076
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "Anhang: Pascal-Programme"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.857,
+            0.061,
+            0.895,
+            0.076
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "509"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 2,
+          "bbox": [
+            0.107,
+            0.097,
+            0.874,
+            0.873
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 2,
+              "bbox": [
+                0.107,
+                0.097,
+                0.874,
+                0.873
+              ],
+              "content": "end;\nM:=N-1; S:=0;\nfor I:=0 to M do\n    begin\n        D[I]:=X[I+1]-X[I]; R:=(Y[I+1]-Y[I])/D[I]; C[I]:=R-S; S:=R;\n    end;\nS:=0; R:=0; C[0]:=0; C[N]:=0;\nfor I:=1 to M do\n    begin\n        C[I]:=C[I]+R*C[I-1]; B[I]:=(X[I-1]-X[I+1])*2-R*S;\n        S:=D[I]; R:=S/B[I];\n    end;\nfor I:=M downto l do C[I]:=(D[I]*C[I+1]-C[I])/B[I];\nfor I:=1 to M do\n    begin\n        S:=D[I]; R:=C[I+1]-C[I]; D[I]:=R/S; C[I]:=C[I]*3;\n        B[I]:=(Y[I+1]-Y[I])/S-(C[I]+R)*S;\n    end;\nwrite('S(x) for x = ');read(Z); writeln;\nif (X[N]-X[O])=0 then Q:=0\n            else Q:=(X[N]-X[O])/abs(X[N]-X[O]);\nK:=-1;\nrepeat I:=K; K:=K+1; until (Q*Z<Q*X[K]) or (K=N) ;\nQ:=Z-X[I]; T:=((D[I]*Q+C[I])*Q+B[I])*Q+Y[I]; writeln(T);\nend.\n\nprogram ROMBERG(input,output);\nconst EPS = 1.OE-7;\nvar    I                      : array[0..7] of real;\n    Ia,S,Fl,A,B,H,X,Q     : real;\n    K,J,N                 : integer;\n\nfunction F(x:real) : real; begin F:= ln(x)/x; end;\n\nbegin\n    write('Grenze A = '); read(A); writeln;\n    write('Grenze B = '); read(B); writeln;\n    H:=B-A; N:=1; X:=1; Fl:=F(X); X:=B; I[0]:=H*(Fl+F(X))/2;\n    for K:=1 to 7 do\n        begin\n            S:=0; H:=H/2; N:=2*N; Q:=1; J:=1;\n            while J<N do\n                begin X:=A+J*H; S:=S+F(X); J:=J+2; end;\n            I[K]:=I[K-1]/2+S*H;\n            for J:=K-1 downto O do\n                begin Q:=4*Q; I[J]:=I[J+1]+(I[J+1]-I[J])/(Q-1); end;\n            writeln(I[O]); Ia:=abs(I[O]);\n            if Ia<1 then Ia:=1;\n            if abs(I[1]-I[O])<EPS*Ia then begin writeln(I[O]); halt; end;\n        end;\n    writeln(I[O]);\nend."
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "pascal"
+        }
+      ]
+    },
+    {
+      "page_idx": 525,
+      "blocks": [
+        {
+          "type": "page_number",
+          "index": 0,
+          "bbox": [
+            0.127,
+            0.061,
+            0.163,
+            0.075
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "510"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 1,
+          "bbox": [
+            0.422,
+            0.064,
+            0.615,
+            0.077
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "Anhang: Pascal-Programme"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 2,
+          "bbox": [
+            0.126,
+            0.099,
+            0.877,
+            0.905
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 2,
+              "bbox": [
+                0.126,
+                0.099,
+                0.877,
+                0.905
+              ],
+              "content": "program VollstElliptInt(input,output);\nconst pi = 3.14159265359;\n    EPS = 1.0E-9;\nvar Al,Bl,E,K,A,B,C,D: real;\n\nbegin\n    write('K= '); read(K); writeln;\n    if K<1 then\n        begin\n            A:=1; B:=sqrt(1-K*K);\n            C:=K; D:=2; E:=C*C;\n            repeat\n                begin\n                    Al:=(A+B)/2; Bl:=sqrt(A*B); C:=(A-B)/2;\n                    E:=E+D*C*C; A:=Al; B:=Bl;D:=2*D;\n                end;\n            until C<EPS;\n            writeln('K(k)= ',pi/2/A);\n            writeln('E(k)= ',pi/2/A*(1-E/2));\n        end\n    else writeln('fail');\nend.\n\nprogram GAUSS(input,output);\nconst maxdim = 50;\n    EPS = 1.0E-09;\ntype Typ1 = array[0..maxdim,0..maxdim] of real;\n    Typ2 = array[0..maxdim] of real;\n    Typ3 = array[0..maxdim] of integer;\nvar L,K,I,J,N,M,S,V,U,P : integer;\n        A : Typ1;\n        B,C : Typ2;\n        F : Typ3;\n        Y,X,D : real;\n        E : char;\n\nprocedure Scalar1(U,V,I:integer; A:Typ1; B:Typ2; X:real; var Y:real);\nbegin\n    Y:=X; while U<=V do begin Y:=Y+A[I,U]*B[U]; U:=U+1; end;\nend;\n\nprocedure Scalar2(K,U,V: integer; A: Typ1; X: real; var Y: real);\nbegin\n    Y:=X; while K>0 do begin K:=K-1; Y:=Y+A[U,K]*A[K,V]; end;\nend;\n\nbegin\n    write('DIMENSION N = '); read(N); writeln;\n    M:=N-1;\n    writeln('A ZEILENWEISE');\n    for I:=1 to N do\n        begin\n            for J:=1 to N do\n                begin write('A',I:2,J:2,' = '); read(A[I-1,J-1]); end;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        }
+      ]
+    },
+    {
+      "page_idx": 526,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.404,
+            0.063,
+            0.599,
+            0.077
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "Anhang: Pascal-Programme"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.856,
+            0.061,
+            0.892,
+            0.076
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "511"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 2,
+          "bbox": [
+            0.108,
+            0.097,
+            0.859,
+            0.83
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 2,
+              "bbox": [
+                0.108,
+                0.097,
+                0.859,
+                0.83
+              ],
+              "content": "writeln;\n    end;\nfor I:=0 to M do\n    begin\n        Y:=0;\n        for S:=0 to M do Y:=A[I,S]*A[I,S]+Y;\n        if Y=0 then writeln('A singulaer') else C[I]:=1/sqrt(Y);\n    end;\nD:=1;\nfor K:=0 to M do\n    begin\n        L:=K; X:=0;\n        for I:=K to M do\n            begin\n                Scalar2(K,I,K,A,-A[I,K],Y);\n                A[I,K]:=-Y; Y:=abs(Y*C[I]);\n                if Y>X then begin X:=Y; L:=I; end;\n            end;\n        if L<>K then\n            begin\n                D:=-D;\n                for J:=0 to M do\n                    begin Y:=A[K,J]; A[K,J]:=A[L,J]; A[L,J]:=Y; end;\n                    F[L]:=F[K];\n                end;\n        F[K]:=L; D:=D*A[K,K];\n        if X<EPS then exit;\n        if K<M then for J:=K+1 to M do\n            begin Scalar2(K,K,J,A,-A[K,J],Y); A[K,J]:=-Y/A[K,K]; end;\n        end;\nif abs(D)<EPS then begin writeln('A singulaer'); halt; end;\nwriteln('D=',D);\nrepeat\n    writeln('RECHTE SEITE');\n    for I:=1 to N do\n        begin write('B',I:2,' = '); read(B[I-1]); writeln; end;\n    for I:=0 to M do\n        begin\n            P:=F[I];\n            if I<>P then begin X:=B[I]; B[I]:=B[P]; B[P]:=X; end;\n        end;\n    for I:=0 to M do\n        begin Scalar1(0,I-1,I,A,B,B[I],Y); B[I]:=-Y/A[I,I]; end;\n    for I:=M downto O do\n        begin Scalar1(I+1,M,I,A,B,B[I],Y); B[I]:=-Y; end;\n    writeln('ERGEBNIS:');\n    for I:=1 to N do writeln('X',I:2,'=',B[I-1]);\n    writeln('Neue rechte Seite (j/n) '');read(E);\nuntil E='n';\nend."
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "pascal"
+        },
+        {
+          "type": "code",
+          "index": 3,
+          "bbox": [
+            0.107,
+            0.861,
+            0.575,
+            0.906
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 3,
+              "bbox": [
+                0.107,
+                0.861,
+                0.575,
+                0.906
+              ],
+              "content": "program LEVERRIER(input, output);\nconst   max = 50;\ntype   Typl = array[0..max, 0..max] of real;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        }
+      ]
+    },
+    {
+      "page_idx": 527,
+      "blocks": [
+        {
+          "type": "page_number",
+          "index": 0,
+          "bbox": [
+            0.12,
+            0.061,
+            0.156,
+            0.075
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "512"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 1,
+          "bbox": [
+            0.416,
+            0.063,
+            0.609,
+            0.076
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "Anhang: Pascal-Programme"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 2,
+          "bbox": [
+            0.119,
+            0.097,
+            0.885,
+            0.891
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 2,
+              "bbox": [
+                0.119,
+                0.097,
+                0.885,
+                0.891
+              ],
+              "content": "var    I,J,K,L,N  : integer;\n        A,B           : Typ1;\n        X,S           : real;\n\nprocedure Shift;\nvar   I  : integer;\nbegin\n    S:=0;\n    for I:=1 to N do  S:=S+B[I,I];\n    S:=S/K; writeln('C',K:2,' = ',-S); K:=K+1;\n    for I:=1 to N do  B[I,I]:=B[I,I]-S;\nend;\n\nbegin\n    write('DIMENSION N = '); read(N); writeln;\n    writeln('A ZEILENWEISE');\n    for I:=1 to N do\n        begin\n            for J:=1 to N do\n                begin\n                    write('A',I:2,J:2,' = '); read(A[I,J]); B[I,J]:=A[I,J];\n                end;\n        end;\n    writeln('C',O:2,' = ',l:2); K:=1;\n    while K<=N-2 do\n        begin\n            Shift;\n            for J:=1 to N do\n                begin\n                    for I:=1 to N do B[I,O]:=B[I,J];\n                    for I:=1 to N do\n                        begin\n                            X:=0;\n                            for L:=1 to N do X:=X+A[I,L]*B[L,0];\n                            B[I,J]:=X;\n                        end;\n                    end;\n            end;\n        Shift; S:=0;\n        for L:=1 to N do S:=S+A[1,L]*B[L,l];\n        writeln ('C',K:2,' = ',-S);\nend.\n\nprogram Jacobi(input,output);\nconst maxgrad = 50;\ntype  Typ1     = array[l..maxgrad,l..maxgrad] of real;\nvar    K,W,U,N,M,I,J,P,Q,V,X      : integer;\n        A,B                      : Typ1;\n        S,R,F,G,E,C,D          : real;\n\nprocedure Rot(C,D: real; U,V,W,X: integer; var A: Typ1);\nvar    F,G: real;\nbegin G:=A[U,V]; F:=A[W,X]; A[W,X]:=C*F-D*G; A[U,V]:=D*F+C*G; end;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "csv"
+        }
+      ]
+    },
+    {
+      "page_idx": 528,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.405,
+            0.063,
+            0.599,
+            0.077
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "Anhang: Pascal-Programme"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.855,
+            0.061,
+            0.892,
+            0.076
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "513"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 2,
+          "bbox": [
+            0.107,
+            0.097,
+            0.836,
+            0.801
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 2,
+              "bbox": [
+                0.107,
+                0.097,
+                0.836,
+                0.801
+              ],
+              "content": "begin\n    write('DIMENSION N = '); read(N); M:=N-1;\n    for I:=0 to M do\n        begin\n            for J:=I to M do\n                begin\n                    if I=J then B[I,I]:=1\n                    else begin B[I,J]:=0; B[J,I]:=0; end;\n                    write('A',I+1:2,J+1:2,' = '); read(A[I,J]);\n                end;\n            end;\n        repeat\n        S:=0;\n        for P:=0 to M-1 do\n            begin\n                for Q:=P+1 to M do\n                    begin\n                        R:=A[P,Q]; F:=A[P,P]; G:=A[Q,Q]; A[P,Q]:=0;\n                        if (abs(R)+abs(F)<=abs(F)) and\n                            (abs(R)+abs(G)<=abs(G)) then R:=0\n                        else\n                            begin\n                                E:=(G-F)/2/R;\n                                if E=0 then E:=1\n                                else\n                                    if E>0 then E:=l/(E+sqrt(1+E*E))\n                                    else          E:=l/(E-sqrt(1+E*E));\n                                C:=l/sqrt(1+E*E); D:=C*E;\n                                A[P,P]:=F-E*R; A[Q,Q]:=G+E*R;\n                                if P>0 then\n                                    for I:=0 to P-1 do Rot(C,D,I,Q,I,P,A);\n                                if Q<>P+1 then\n                                    for K:=P+1 to Q-1 do Rot(C,D,K,Q,P,K,A);\n                                if Q<>M then\n                                    for J:=Q+1 to M do Rot(C,D,Q,J,P,J,A);\n                                for J:=0 to M do Rot(C,D,Q,J,P,J,B);\n                            end;\n                            S:=S+abs(R);\n                        end;\n                    end;\nuntil S=0;\nfor I:=0 to M do writeln('X',I+1:2,' = ',A[I,I]);\nfor I:=0 to M do\n    begin\n        writeln(I+1:2,'.Eigenvektor:');\n        for J:=0 to M do writeln(B[I,J]);\n    end;\nend."
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "pascal"
+        },
+        {
+          "type": "code",
+          "index": 3,
+          "bbox": [
+            0.106,
+            0.845,
+            0.442,
+            0.904
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 3,
+              "bbox": [
+                0.106,
+                0.845,
+                0.442,
+                0.904
+              ],
+              "content": "program BAIRSTOW(input,output);\nlabel Start;\nconst maxgrad = 50;\nEPS=1.OE-07;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        }
+      ]
+    },
+    {
+      "page_idx": 529,
+      "blocks": [
+        {
+          "type": "page_number",
+          "index": 0,
+          "bbox": [
+            0.125,
+            0.061,
+            0.164,
+            0.075
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "514"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 1,
+          "bbox": [
+            0.421,
+            0.063,
+            0.615,
+            0.077
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "Anhang: Pascal-Programme"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 2,
+          "bbox": [
+            0.126,
+            0.097,
+            0.879,
+            0.901
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 2,
+              "bbox": [
+                0.126,
+                0.097,
+                0.879,
+                0.901
+              ],
+              "content": "Steps=30;\nvar N,M,I,K : integer;\nB,C : array[O..maxgrad] of real;\nU,V,S,BK,BK1,BK2,CK,CK1,CK2,Det : real;\n\nprocedure Quadr_gleichg(var U,V: real);\nvar X,Y,W : real;\nbegin\nX:=U/2; Y:=X*X+V; W:=sqrt(abs(Y));\nif Y=0 then writeln('doppelte Wurzel:',X)\nelse\nbegin\nwrite('2 Wurzeln:');\nif Y>0 then\nbegin\nif X>=0 then writeln(X+W,',',-V/(X+W))\nelse writeln(X-W,',',-V/(X-W));\nend\nelse writeln(X,'+-i*',W);\nend;\nend;\n\nbegin\nwrite('Polynomgrad = '); read(N); writeln;M:=N;\nfor I:=0 to N do\nbegin write('a',I:2,' = '); read(B[I]); writeln; end;\nwhile M>2 do\nStart: begin\nwrite('Startwert UO = '); read(U); writeln;\nwrite('Startwert VO = '); read(V); writeln;\nS:=0;\nrepeat\nBK:=0; BK1:=0; CK:=0; CK1:=0;\nfor K:=0 to M-1 do\nbegin\nCK2:=CK1; CK1:=CK; BK2:=BK1; BK1:=BK;\nBK:=B[K]+U*BK1+V*BK2;\nC[K]:=BK;\nCK:=BK+U*CK1+V*CK2;\nend;\nBK2:=BK1; BK1:=BK; BK:=B[M]+U*BK1+V*BK2; C[M]:=BK;\nDet:=CK1*CK1-CK2*CK;\nif Det=0 then\nbegin writeln('Neue Startwerte!’); goto Start; end;\nU:=U+(BK*CK2-BK1*CK1)/Det; V:=V+(BK1*CK-BK*CK1)/Det;\nS:=S+1;\nif S=Steps then\nbegin writeln('Neue Startwerte!’); goto Start; end;\nuntil abs(BK1)+abs(BK)<EPS;\nQuadr_gleichg(U,V); M:=M-2;\nfor K:=0 to M do B[K]:=C[K];\nend;\nif M=1 then writeln('reelle Wurzel: ',-B[1]/B[0])\nelse begin U:=-B[1]/B[0]; V:=-B[2]/B[0]; Quadr_gleichg(U,V); end;\nend."
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "pascal"
+        }
+      ]
+    },
+    {
+      "page_idx": 530,
+      "blocks": [
+        {
+          "type": "header",
+          "index": 0,
+          "bbox": [
+            0.405,
+            0.063,
+            0.599,
+            0.076
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "Anhang: Pascal-Programme"
+            }
+          ]
+        },
+        {
+          "type": "page_number",
+          "index": 1,
+          "bbox": [
+            0.856,
+            0.061,
+            0.894,
+            0.076
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "515"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 2,
+          "bbox": [
+            0.107,
+            0.111,
+            0.609,
+            0.289
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 2,
+              "bbox": [
+                0.107,
+                0.111,
+                0.609,
+                0.289
+              ],
+              "content": "program NLSQ(input,output);\nconst M = 6;\n    N = 3;\n    P = 4;\ntype Typ1 = array[0..N] of real;\n    Typ2 = array[0..M] of real;\n    Typ3 = array[0..M,0..P] of real;\nvar X : Typ1;\n    F,T,Y : Typ2;\n    A : Typ3;\n    I,L,J : integer;\n    Lambda,FO,FK,D,B,C,Dl,Bl,Cl : real;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "matlab"
+        },
+        {
+          "type": "code",
+          "index": 3,
+          "bbox": [
+            0.107,
+            0.316,
+            0.761,
+            0.888
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 3,
+              "bbox": [
+                0.107,
+                0.316,
+                0.761,
+                0.888
+              ],
+              "content": "function Fn(D,B,C: real;T: Typ2;Y: Typ2;var F: Typ2): real;\nvar I : integer;\n    Q : real;\nbegin\n    Q:=0;\n    for I:=1 to M do\n        begin F[I]:=Y[I]-D-B*exp(C*T[I]); Q:=Q+F[I]*F[I]; end;\n    Fn:=sqrt(Q);\nend;\n\nprocedure Linfit(var X: Typ1; var A: Typ3);\nvar I,J,K          : integer;\n    S,F,V          : real;\nbegin\n    for I:=1 to N do\n    begin\n        S:=0;\n        for J:=I to M do S:=S+A[J,I]*A[J,I];\n        if S=0 then\n            begin writeln('Matrix singulaer'); halt; end;\n        V:=sqrt(S);\n        if A[I,I]>0 then V:=-V;\n        X[I]:=V; F:=S-V*A[I,I]; A[I,I]:=A[I,I]-V;\n        for K:=I+1 to N+1 do\n            begin\n                S:=0;\n                for J:=I to M do S:=S+A[J,I]*A[J,K];\n                S:=S/F;\n                for J:=I to M do A[J,K]:=A[J,K]-A[J,I]*S;\n            end;\n    end;\n    X[N]:=A[N,N+1]/X[N];\n    for I:=N-1 downto 1 do\n        begin\n            S:=A[I,N+1];\n            for J:=I+1 to N do S:=S-A[I,J]*X[J];\n            X[I]:=S/X[I];\n        end;\nend;"
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "txt"
+        }
+      ]
+    },
+    {
+      "page_idx": 531,
+      "blocks": [
+        {
+          "type": "page_number",
+          "index": 0,
+          "bbox": [
+            0.127,
+            0.061,
+            0.163,
+            0.075
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "516"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "index": 1,
+          "bbox": [
+            0.42,
+            0.063,
+            0.615,
+            0.076
+          ],
+          "content": [
+            {
+              "type": "text",
+              "content": "Anhang: Pascal-Programme"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "index": 2,
+          "bbox": [
+            0.126,
+            0.099,
+            0.874,
+            0.463
+          ],
+          "content": [
+            {
+              "type": "code_body",
+              "index": 2,
+              "bbox": [
+                0.126,
+                0.099,
+                0.874,
+                0.463
+              ],
+              "content": "begin\n    for I:=l to M do\n        begin write('t(i)= '); read(T[I]); write('y(i)= '); read(Y[I]);\n        end;\n    write('a,b,c ='); read(D,B,C);\n    FK:=Fn(D,B,C,T,Y,F); FO:=FK; L:=0;\n    repeat\n        for I:=l to M do\n            begin\n                A[I,1]:=l; A[I,2]:=exp(C*T[I]);\n                A[I,3]:=B*T[I]*exp(C*T[I]); A[I,4]:=F[I];\n            end;\n        Linfit(X,A); Lambda:=l;\n        repeat\n            Dl:=D+Lambda*X[1]; Bl:=B+Lambda*X[2];\n            Cl:=C+Lambda*X[3]; FK:=Fn(Dl,Bl,Cl ,T,Y,F);\n            if FK<FO then exit;\n            Lambda:=Lambda/2;\n        until Lambda<0.002;\n        if Lambda<0.002 then exit;\n        if FK<FO then begin D:=Dl; B:=Bl; C:=Cl; FO:=FK; end;\n        L:=L+1;\n    until L=30;\n    writeln('Steps,a,b,c =',L,D,B,C);\nend."
+            }
+          ],
+          "sub_type": "code",
+          "guess_lang": "pascal"
+        }
+      ]
+    }
+  ],
+  "is_full_document": false,
+  "schema": "docvortex.middle",
+  "schema_version": "2.0"
+}

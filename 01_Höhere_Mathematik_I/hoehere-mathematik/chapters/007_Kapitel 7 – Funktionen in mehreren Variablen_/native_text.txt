@@ -1,0 +1,4317 @@
+--- PDF page 375 ---
+Kapitel 7 
+Funktionen in mehreren Variablen 
+Teill: Differentiation 
+In der mathematischen Behandlung von Naturvorgiingen treten oft Funktionen 
+auf, die von mehreren Variablen XI,"" X" abhiingen (etwa von den Ortsko-
+ordinaten x, y, z, von der Zeit 1, yom Druck p, ... ) und deren Wertebereich 
+mehrdimensional ist. Zur Differentialrechnung mit diesen Funktionen benotigt 
+man die gesamte in Kap. 6 entwickelte Lineare Algebra. Es ist daher vorteilhaft, 
+(XI) 
+die 
+11 Variablen zu einem variablen Spaltenvektor x = 
+: 
+E IR" zusam-
+Xfl 
+menzufassen. 1m folgenden untersuchen wir deshalb Funktionen f : D -> IRIIl , 
+mit D c;; IR", die jedem Spaltenvektor x = (x\, ... ,x,,)T E D einen mit f(x) 
+oder f(x\ ..... x,,) bezeichneten Vektor in IRIIl zuordnen. Hierfiir schreiben wir 
+ki.inftig 
+f : IR" ;:> D -> IRIIl , 
+x= (~I) >-+f(x\, ... ,x,,) = (fdX)). 
+x" 
+j",(x) 
+IR" hei13t Urhifdraul1J, D Definitionshereich, IRIIl Biidraul11 und das Bifd der 
+Funktion fist f(D) = [f(x) ; XED}. Funktionen in mehreren Variablen, 
+insbesondere wenn der Bildraum mehrdimensional ist, werden hiiufig als Abbil-
+dungen oder Transformationen (a us dem IR" in den IR"') bezeichnet. 
+Vereinbarung. Jede Funktion f : IR" ;:> D -> IRI1I , mit der Spalten-
+vcktoren des IR" auf Spaltenvektoren des IRI1I abgebildet werden, 
+ist zugleich eine Funktion, die jedem Punkt X = (x\, ... , x,,) mit 
+zugehorigem Ortsvektor x = (x\, ... , x,,) TED den Vektor f(x) 
+zuordnet. Wir schreiben dafiir f(X) := f(x) = f(X1, ... ,X,,) bzw. 
+(x\, ...• x,,) >-+ f(X1, ... ,X,,). 
+Statt "Punkt X = (x\, ... , x,,) mit Ortsvektor x = (XI) E IR" .. 
+.\/1 
+sagt man kurz "Punkt x E IR" ". In diesem Sinne fassen wir IR" 
+als Punktraum und jede Teilmenge D C;; IR" als Punktmenge auf. 
+Zuerst behandeln wir die Sonderfalle 
+n = I, d.h. f: IR 
+;:> I -> IR'" 
+(Kurven im IR"', -> §l) , 
+111 = I , d.h. f: IR" ;:> D -> IR 
+(Skalarenfelder, -> §2) . 
+Der allgemeine Fall (111 > 1, n > 1) liiJ3t sich hierauf zuriickfiihren (-> §4). 
+K. Meyberg et al., Höhere Mathematik
+© Springer-Verlag Berlin Heidelberg 1998
+
+
+--- PDF page 376 ---
+360 
+7. Funktionen in mehreren Variablen. Teil I: Differentiation 
+§ 1. Kurven im IR n 
+1.1 Parameterdarstellungen. 
+In der Praxis hat man haufig das Problem, ein 
+geometrisches Gebilde "Kurve" oder "Weg" analytisch, d.h. durch Funktionen, 
+darzustellen. In der Ebene sind bereits einige Darstellungsarten bekannt: 
+Die evtl. nur abschnittsweise explizite Darstellung y = f(x) als Graph einer 
+Funktion, die Polardarstellung r = r(cp) (--+ Kap. 4, §5), die implizite Darstel-
+lung F (x, y) = 0 (etwa bei den Kegelschnitten) und die Parameterdarstellung 
+(--+ Kap. 4, §5). Flir die allgemeine Behandlung eignet sich am besten die Pa-
+rameterdarstellung mit der Vorstellung, daB die Kurve die Bahn eines bewegten 
+Punktes darstellt, der zur Zeit t den Ortsvektor x(t) besitzt. 
+Wir betrachten daher vektorwertige, auf einem Intervall I ~ IR erkliirte Funk-
+tionen x : I --+ IRn • Jede derartige Funktion besteht aus n Komponentenfunk-
+tionen Xi : I --+ IR 
+(l:::; i :::; n) , d.h. 
+x(t) = (;~::~), tEl. 
+xn(t) 
+Der flir die Analysis grundlegende Grenzwertbegriff wird komponentenweise 
+etkliirt: 
+(
+XI (t») 
+X2(t) 
+lim 
+. 
+t-+to 
+: 
+xn(t) 
+( ~.~) 
+:<==> lim Xi(t) = Ci 
+(1:::; i :::; n) . 
+: 
+t-+to 
+Cn 
+Dementsprechend heiBt x : I --+ IRn in to E I (auf I) stetig, bzw. diffe-
+renzierbar, wenn aIle Komponentenfunktionen in to E I (auf I) stetig, bzw. 
+differenzierbar sind. Aus gleichem Grunde ist die Ableitungkomponentenweise 
+zu berechnen. 
+( 
+X'(t») 
+d 
+1 
+~W 
+x(t) = -d x(t) = lim -h [x(t + h) - x(t)] = 
+. 
+t 
+h~O 
+• 
+xn(t) 
+mit Xi(t) = :tXi(t). Man nennt x(t) den Tangentialvektor von x an der Stelle 
+tEl (--+ Kap. 4, §5 flir n = 2). Stellt t --+ x(t) das "Weg-Zeit-Gesetz" eines 
+bewegten Punktes dar, dann bestimmt x(t) dessen Momentangeschwindigkeit, 
+sie ist tangential zur Bahn. 1m Fall x(to) = 0 ist der Punkt zur Zeit t = to in 
+Ruhe. 
+Flir vektorwertige Funktionen x, y : I --+ IR n und !Yo, f3 E IR bestatigt man leicht 
+
+
+--- PDF page 377 ---
+§1. Kurven im JRn 
+die folgenden Ableitungsregeln: 
+(1) 
+a) :t (:xx(t) + py(t)) = o:i(t) + py(t) 
+(Linearitat) , 
+b) :t [x(t) . y(t)] = x(t) . y(t) + x(t) . y(t) 
+(Produktregel fiir das Skalarprodukt) , 
+c) :t [x(t) x y(t)] = x(t) x y(t) + x(t) x y(t) 
+(Produktregel fiir das x-Produkt. n = 3), 
+d) 
+dl [o:(t)x(t)] = x(t)x(t) + o:(t)i(t) 
+(( 
+(Produktregel fiir Multi plikatioll mit skalarer F unktioll). 
+Insbesondere folgt wegen Ix(t)1 2 = x(t)· x(t) aus (Ib): 
+(2) 
+Ix(t)1 = COllst 
+(t E 1) = x(t)· x(t) = 0 
+fiir aile tEl. 
+361 
+Die Parameterdarstellungen eignen sich, dem Begriff "Kurve" eme Bedeutung 
+zu geben. die auch im JRIl 
+(n ~ 1) sinnvoll ist. 
+Definition. 
+Es sei G s; JRIl und [a, b] s; JR ein abgeschlossenes lntermll. Wir 
+11 ell 11 ell jede stetig di{(erel1zierbare Funktion 
+x 
+: [a, b] -> G eil1 Kurvenstiick ill 
+G mit An(al1gspunkt x(a). Endpunkt x(b) ulld der Spur {x(t) : a ::::: t ::::: h}. 
+x(a), x(h) sil1d als eil1seitige Ableitungen zu verstehen. Ein Kurvenstiick x heijJt 
+regular, \\'el1I1 x(t) i= 0 gilt fiir aile t E [a, h] . 
+Bemerkungen. 
+1. Unter einer Kurre 
+versteht man eine Kctte von ancinan-
+derhangenden Kurvenstiickcn (-> Kap. 
+8, 
+§2). 
+Fiir die Differentialrech-
+nung beschranken wir uns auf Kur-
+venstiicke. 
+Abb. 158 - Kurvc 
+2. Statt "Spur eines Kurvenstiicks" sagt man oft kurz "ein Kurvenstiick". D.h. 
+sowohl die Punktmenge {x(t) ; t E [a, b]} s; JRIl als auch die Funktion x : 
+[a, h] -> JRIl werden als Kurvenstiick bezeichnet. Aus dem Zusammenhang wird 
+stets klar sein, was gemeint ist. Steht die anschauliche Deutung im Vordergrund, 
+dann nennt man x : [a, b] -> JRIl eine Parameterdarstellung des Kurvenstiicks 
+{x(t) : a ::::: t ::::: h} . 
+Die zum Parameterwert t E [a, b] eines regularen Kurvenstiicks x : [a, b] -> JRn 
+bestimmte Zahl 
+(3) 
+s(t) := it li(t) Idt 
+heiJ3t Bogenliinge des Kurvenstiicks iiber [a, t]. Fiir n = 2,3 ist das tatsachlich 
+
+
+--- PDF page 378 ---
+362 
+7. Funktionen in mehreren Variablen. Teil I: Differentiation 
+die Lange des durch x parametrisierten Bogens "tiber" [a, t], wobei gegebe-
+nenfalls mehrfaches Durchlaufen einer Schleife berticksichtigt wird. L(x) := s(b) 
+ist die Lange des Kurvenstticks x. Nach Kap. 4, Satz 1.3 gilt 
+(4) 
+ds = s(t) = Ix(t)1 
+dt 
+. 
+Man nennt (--. Kap. 4, 6.l) 
+(5) 
+ds := Ix(t)ldt das (skalare) Bogenelement, 
+dx := x(t)dt das vektorielle Bogenelement von x. 
+(ds ist - in erster Naherung - die im Zeitintervall [t, t + dt] zurtickgelegte 
+Weglange, dx ein zum Tangentialvektor x(t) paralleler Vektor der Lange ds.) 
+1.2 Das begleitende Dreibein, Kriimmung, Torsion. 
+Die Bewegung eines 
+Massenpunktes langs einer durch x : [a, b] --. JR.3 parametrisierten Spur und 
+die Auswirkung von Kraften und Momenten in den einzelnen Kurvenpunkten 
+x(t) wird am besten in einem der Geometrie der Spur angepaBten begleitenden 
+kartesischen Koordinatensystem (x(t); T, N, B) beschrieben, in dem sich auch 
+die Vektoren T, N, B der kartesischen Basis mit dem Parameter t verandern. 
+Wir setzen bei Bedarf fUr x Differenzierbarkeit von jeweils benotigter Ordnung 
+voraus, ferner sei x(t) 1- 0 fUr alle t E [a, b] ,d.h. x regular. 
+o Der Tangentenvektor T(t). 1st x(t) 1- 0 so nennt man den Einheitsvektor 
+(6) 
+T(t) := Ix:t)1 x(t) 
+Tangenteneinheitsvektor 
+oder kurz den Tangentenvektor der Kurve an der Parameterstelle t. 
+Die Gleichung (Parameterdarstellung) der Kurventangente in x(to) lautet 
+x(A.) = x(to) + A.T(to) 
+(A. E JR.) . 
+® Der Hauptnormalenvektor N(t) und der Binormalenvektor B(t). 1st die 
+Kurve x : [a, b] --. JR.3 zweimal (komponentenweise) stetig differenzierbar, 
+t E [a, b] eine Parameterstelle mit x(t) 1- 0 und T(t) 1- 0, so nennt man 
+die nach (2) zu T(t) orthogonalen Einheitsvektoren 
+1 
+. 
+N(t) := -.-T(t) 
+Hauptnormalen(einheits)vektor, 
+(7) 
+IT(t) I 
+B(t) := T(t) x N(t) 
+Binormalen( einheits)vektor 
+und das Rechtssystem (T(t), N(t), B(t») das begleitende Dreibein der Kurve an 
+
+
+--- PDF page 379 ---
+§l. Kurven im R n 
+der Parameterstelle t. 
+Ferner heiBt 
+die von T(t) und N(t) aufgespannte 
+Ebene durch x(t) , 
+r(A, J1.) = x(t) + AT(t) + J1.N(t) 
+(A, J1. 
+E JR), die Schmiegebene der 
+Kurve an der Stelle t. Man gewinnt 
+sie als Grenzlage der Ebene durch 
+x(t) und zwei weitere Kurvenpunkte. 
+363 
+fj B(t) 
+x(b) 
+~"m_~ 
+x(t) 
+/--- '" N(t) 
+T(t)p 
+x(a) 
+Abb. 159 - Begleitendes Dreibein 
+© Die Kriimmung. Die Anderungsrate } AT:= ( ) 1 () [T(tl) - T(t)] des 
+o.s 
+s tl - s t 
+Tangentenvektors, bezogen auf die BogenIange, beschreibt anschaulich das mitt-
+lere Kriimmungsverhalten der Kurve im Parameterintervall [tl> t] (bzw. [t, tIl ). 
+Mit der L'Hospital-Regel erhalt man 
+. 
+1 
+1 . 
+lIm TAT = ~(t)T(t) 
+den Krummungsvektor, 
+I,_t o.S 
+S 
+seine Lange ist mit (4) 
+(8) 
+1· 
+/t(t)/ 
+K(t) := s(t) /T(t)/ = /x(t)/ 
+die Krummung 
+der Kurve an der Stelle t. 
+Flir die Darstellung von x und x im begleitenden Dreibein (T, N, B) ergibt 
+sich aus (4), (6) und nach der Differentiation mit (1) und (8) 
+(9) 
+x(t) = s(t)T(t) , 
+x(t) = s(t)T(t) + s(t)2K(t)N(t) . 
+Kinematische Deutung: 
+Stellt x : [a, b] 
+--+ JR3 
+mit x(t) =F 0 
+die Bewegung eines Massenpunktes dar, so 
+fj B 
+5 ) 0 
+ist dessen Geschwindigkeitsvektor x(t) = 
+5) 0 
+s(t)T(t) tangential zur Bahn (in Durchlauf-
+richtung) und dem Betrage nach gleich der 
+Momentangeschwindigkeit s(t). 
+Der Be-
+schleunigungsvektor x(t) hat s(t)T(t) als 
+Tangential- und S(tfK(t)N(t) als Normal-
+Abb. 160 - Kinematik 
+komponente. Daraus liest man ab, daB 
+K~t) als Radius eines Kriimmungskreises in der Schmiegebene gedeutet werden 
+kann, falls K(t) =F O. 
+
+
+--- PDF page 380 ---
+364 
+7. Funktionen in mehreren Varia bien. Teil I: Differentiation 
+Mit TxT = 0, T X N = B ergibt (9) x(t) X x(t) = s(t)3 K(t)B(t). Wegen IB(t)1 = 1 
+folgt Ix(t) X x(t)1 = S(t)31(t) . Also gel ten 
+(10) 
+.( ) _ Ix(t) X x(t)1 
+K. t -
+Ix(t)13 
+, 
+(11 ) 
+B(t) = Ix(t) ~ x(t) I x(t) X x(t) 
+(vorausgesetzt x(t) X x(t) i= 0). 
+Bemerkungen. 
+1. Formel (10) ergibt fUr eine ebene Kurve t ---+ (;g~) die 
+Kriimmung I( = 
+!~ji ~ ~~~2 ; d.h. die hier definierte Kriimmung stimmt mit 
+(x + r) 
+der in Kap. 4, 5.4 eingefUhrten Kriimmung nur bis aufs Vorzeichen iiberein. 
+(Nur falls xji - yx > 0 ist, haben n (---+ Kap. 4, 5.2) und N dieselbe Richtung.) 
+2. Aufgrund der Formel (11) bestimmt man das begleitende Dreibein (T,N,B) 
+in der Reihenfolge T = I!I x, B = Ix ~ xl x X x, N = B X T. 
+@ Die Torsion. Das Herauswinden der Kurve aus der Schmiegebene wird 
+durch die Anderungsrate des Binormalenvektors, bezogen auf die BogenJange, 
+beschrieben. Man nennt 
+. 
+1 
+1 . 
+hm () 
+( ) [B(td - B(t)] = :---( ) B(t) 
+/,-./ S tl - s t 
+s t 
+den Torsionsvektor 
+der Kurve an der Stelle t. 
+Nach (2) ist B orthogonal zu B und wegen B = :t (T X N) = t X N + T X N = 
+T X N auch orthogonal zu T, also parallel zu N. D.h., es gibt eine skalare 
+Funktion T = T (t) ~ man nennt sie die Torsion der Kurve x ~ mit 
+(12) 
+1 . 
+s(t) B(t) = -T (t)N(t) . 
+Es gilt 
+(13) 
+det (x(t), x(t), x (t)) 
+T (t) = 
+Ix(t) x x(t)12 
+Beweis. 
+Aus B· N = 0 folgt B' N + B . N = 0, deshalb fUhrt (12) auf 
+T = -!B' N = !B' N. Auf der rechten Seite setzen wir B aus (11) und 
+s 
+s 
+N aus der nochmals differenzierten 2. Gleichung (9) ein und erhalten nach 
+leichter Rechnung mit (10) die Behauptung. 
+0 
+Wir fassen zusammen: 
+
+
+--- PDF page 381 ---
+§l. Kurven im JR" 
+365 
+Satz 1.1. 
+Eine dreimal dijferenzierbare Kurve x 
+[a, b) ~ 1R3 besitzt an jeder 
+Parameterstelle t mit x(t) x x(t) + 0 
+den Tangentenvektor 
+T(t) = Ix~01 x(t) 
+den Binormalenvektor 
+B(t) = Ix(t) ~ x(t)1 x(t) x x(t) 
+den Hauptnormalenvektor N(t) = B(t) x T(t) 
+die Krummung 
+die Torsion 
+o( ) _ Ix(0 x x(01 
+K t -
+Ixl 3 
+T (t) = det(x(t), x~~), x' (t)) 
+Ix(t) X x(t)1 2 
+Beispiel. 
+Die neutrale Faser einer 
+Schraubenfeder wird dargesteUt durch 
+( rcos t) 
+xU) = 
+rs~~t 
+mit O:s; t :s; 2rrn, dabei ist r der Ra-
+dius, 2rrh die Ganghohe und n die 
+Windungszahl. 
+Abb. 161 - Schrauhlinie 
+Mit x(t) = (~~~i;/), x(t) = (=~ ~~::), x (t) = (~rs~:: t) und der 
+Abkiirzung 
+R:= Ix(t)1 = Vr2 + h2 
+erhiiit man 
+1 (-r sin t) 
+T(t)=R 
+rc~st 
+; 
+( -cost) 
+N(t) = 
+-~nt 
+; 
+1 ( h sin t ) 
+B(t) = R -h ~os t 
+Kriimmung 
+Torsion 
+r 
+K(t) = -Y--h2 
+(konstant), 
+r + 
+h 
+T (t) = ~,h2 (konstant). 
+Eine Belastung F = -Fe3 mit der Schraubachse als Wirkungslinie (~ Abb. 161, 
+Kap. 1,7.1) erzeugt in jedem Punkt x(t) das Moment 
+m(t) = -x(t) x F = rF ( ~~~~t) . 
+Dieses besitzt in der begleitenden Basis (T, N, B) die Zerlegung 
+Fr2 
+Frh 
+m = (m 'T)T+ (m' N)N + (m· B)8 = -If"T+ TB. 
+
+
+--- PDF page 382 ---
+366 
+7. Funktionen in mehreren Variablen. Teil I: Differentiation 
+Fr2T d· 
+7' 
+. 
+k 
+d 
+FrhB d· 
+Man nennt mT := -Ii: 
+Ie lorSlOns omponente un 
+mB:= R 
+Ie Bie-
+gekomponente des Moments. (~ Aufg. 7) 
+0 
+Bemerkungen. 
+1. Diese Ergebnisse sind nur auf reguUire Kurvenstucke x : [a, b] ~ JR3 an-
+wendbar. Besitzt x singuliire Stellen to E [a, b] mit x(to) = 0, so sind Grenz-
+wertbetrachtungen t ~ to+ und t ~ to- durchzuflihren. 
+Beispiel. 
+x 2 
+x(t) = ( 1:: ) , t E JR, 
+ist III t = 0 singular, da Ix(O)1 = O. 
+T(t) = ~ 
+(It) (fur t =/= 0) 
+It I t2 + I 
+strebt bei t ~ 0- gegen TJ = (_~) , 
+T, 
+Abb. 162 - Neilsche Parabel 
+bei t ~ 0+ gegen T2 = (~). Obwohl wegen x(O) = 0 durch X keine 
+Tangentenrichtung festgelegt wird, besitzt die Kurve im Ursprung eine Tangente, 
+namlich die y-Achse. 
+0 
+2. Ist K(t) = 0 flir ein Teilintervall rJ. ::; t ::; fJ, dann stellt x uber [rJ., fJl eine 
+Gerade dar; N, B werden dort nicht benotigt. 
+3. Falls T (t) = 0 flir rJ.::; t ::; IJ, dann verlauft das entsprechende Kurvenstuck 
+ganz in der Schmiegebene. 
+* 1.3 Erganznng: Der natiirliche Parameter nnd die Frenetschen Formeln. 
+Fur die Bewegung auf einer regularen Kurve ist die eindeutige Ortsbestimmung 
+x(t) nicht nur durch Vorgabe der "Zeit" t, sondern auch durch den bis zu 
+diesem Zeitpunkt zuruckgelegten Weg s = s(t) moglich. Denn wegen s(t) = 
+Ix(t)1 > 0 ist s = s(t) als monotone Funktion (zumindest theoretisch) eindeutig 
+nach t auflosbar, t = t(s) . 
+Man sagt, die Kurve 
+y : [0, L] ~ JR3 , 
+y(s) := x (t(s)) , 
+entsteht aus der regularen Kurve x durch Umparametrisierung auf Bogenliinge. 
+Offenbar besitzen x und y dieselbe Spur. Uber y(s(t)) = x(t) kommt man zur 
+ursprunglichen Parameterdarstellung zuruck. Die Kettenregel und (3) Kap. 3, §3 
+ergeben 
+:sy(s) = :sx(t(s)) = x(t(s)) :st(s) = S(t~S)) x(t(s)) = T . 
+Die Bogenlange als Parameter (man spricht yom natiirlichen Parameter) ist da-
+durch ausgezeichnet, daB der die Kurve begleitende Tangentialvektor :sy(s) 
+konstant den Betrag I hat; dadurch ergeben sich besonders elegante Formeln: 
+
+
+--- PDF page 383 ---
+§1. Kurven im R" 
+367 
+Satz 1.2. Formeln von FRENET (1816-1900). 
+Fur eine dreimal stetig dijferenzier-
+bare, auf Bogenltinge parametrisierte Kurve y : [0, L] ~ 1R3 , die uberall eine 
+Krummung K(S) ~ 0 besitzt, gelten folgende Ableitungsformeln: 
+dT 
+ds 
++KN 
+(14) 
+dN = -KT 
+ds 
++TB 
+dB 
+-TN 
+ds 
+Beweis. 
+In diesem Fall (S = 1, S = 0) Iauten die Beziehungen (6), (9) und (12) 
+dy 
+dT 
+d2y 
+dB 
+T = ds' ds = ds2 = KN, ds = -T N . Nun braucht man nur noch N = B x T 
+nach s abzuleiten und erhiilt die dritte Ableitungsformel. 
+0 
+Damit kann man den Satz von S. LIE (1842-1899) beweisen, daB eine auf Bo-
+genliinge parametrisierte Kurve im wesentlichen durch K = K(S) und T = T (s) 
+bestimmt ist. Durch das DifferentiaIgleichungssystem (14) werden T(s) , N(s) , 
+B(s) bei Vorgabe der Anfangslage T(O) , N(O) , B(O) und stetig differenzier-
+barer Funktionen K, T : [0, L] ~ 1R bis auf liingentreue Abbildungen eindeutig 
+bestimmt (~ Band 2, Kap. 9, §8, Aufg. 19). 
+Beispiel. Die Raumkurve 
+1 
+(COS t) 
+x(t) = "let s:;¥ 
+, t E 1R , 
+Iiegt auf dem Kegel 2x2 + 2l- z2 = 0 
+und hat als Projektion in die (x, y)-
+Ebene eine logarithmische Spirale 
+r = 4e'P (r, c:p Polarkoordinaten). 
+1 
+( cos t - sin t ) 
+Wegen x(t) = "let 
+sin t hCOS t 
+y 
+Abb. 163 - Logarithmische SpiraJe 
+ist s(t) = i~ IX(T)I dT = et , d.h. t = In(s) , s > O. Mit der BogenUinge als 
+Parameter erhiilt man aus der Darstellung 
+y(,) ~ ~'(~~:!i:) , ,> 0 
+d 
+1 (COS In s - sin In s ) 
+T = dsY(s) ="l 
+sin Ins hcoslns 
+, 
+d 
+1 (- sin In s - cos In s ) 
+ds T = 2s 
+cos In s ~ sin In s 
+, 
+
+
+--- PDF page 384 ---
+368 
+7. Funktionen in mehreren Varia bien. Teil 1: Differentiation 
+I dT I 
+1 
+1 ( - sin In s -
+~os In s ) 
+K(S) = I ds I = 2s J2 , N = J2 
+cos In s ~ sm In s 
+, 
+I d 
+I 
+1;;:, 
+res) = Ids N +KT1 = 2s v2. 
+Aufgaben 
+1. Man berechne den Winkel, unter dem aile Tangenten der Kurve 
+r;;; 
+I 
+I 
+x(t) = v 2, y(t) = t2 - 4 In t, z(t) = t2 + 4 In t (1 ~ t ~ 2) 
+auf die (x, y)-Ebene treffen, und berechne ihre Bogenllinge. 
+2. Gegeben ist die rliumliche Spirale 
+X(t)=C~Ii:)' t~O. 
+Man berechne das begleitende Drei-
+bein (T, N, B) fUr x. Wie groB ist 
+die Kriimmung K und die Torsion , 
+im Punkt O? 
+We1che Kurve ergibt 
+sich in der Projektion auf die Ebene 
+z =O? 
+o 
+3. Man zeige, daB aile Geraden durch den Ursprung die (ebene) logarithmische Spirale 
+r = e-<P unter konstantem Winkel treffen, wie groB ist dieser? 
+4. Gegeben ist die Epizykloide 
+w(t) __ (COS 3t + 3 .sin t) 
+o ~ t ~ 2n . 
+3 cos t - sm 3t ' 
+a) Man bestimme die singulliren Punkte (x = y = 0) und in diesen Punkten die 
+Richtungen der Tangenten iiber die moglichen Grenzwerte lim .Y(t) / x(t) . 
+b) Man berechne die Bogenllinge der Kurve und in jedem Punkt die Kriimmung. 
+c) In welchen Punkten wird r = Iw(t)1 maximal? Skizziere w samt Durchlaufsinn. 
+5. Die Raumkurve (Fenster der VIVIANI) 
+(
+cost) 
+x(t) = 
+s~ntt 
+,0~t~4n, 
+2sm 2 
+entsteht durch Verschneidung des Dreh-
+zylinders x 2 + i = I mit der Kugel 
+(x + If + i + Z2 = 4. Man bestiitige 
+dies, berechne (T, N, B) fUr t = 0 und 
+t = 2n und driicke die Bogenllinge der 
+Kurve durch das vollstandige elliptische 
+Integral 
+E(k) = 10 I VI -k2 sin2 qJ dqJ 
+aus. 
+x 
+A-· 
+
+
+--- PDF page 385 ---
+§ 1. Kurven im JRI1 
+6. 
+1m StraBenbau wird der Dbergang von 
+der Geraden in eine kreisfOrmige Kurve 
+durch K/othoidell-Bogen modelliert, da 
+sie folgende natiirliche Parameterdarstel-
+lung besitzen: 
+K = c . s, 
+Kri.immung wachst proportional 
+mit Bogenlangc. 
+369 
+Man bestimme daraus den Tangentenwinkel (p als Funktion <p(s) der Bogenlange 
+und stelle damit x = xis) und y = y(s) als Funktionen von s dar, so daB wie in 
+der Skizze x(O) = riO) = r' (0) = 0 und x' (0) = I . 
+( Hilfe: 
+h' = I d<p i' 
+X'2 + /2 = I 
+~.~:: = tan <p : Integrale fUr x und y sind nieht 
+ds 
+, 
+elementar los bar ! ) 
+7. 
+Die ncutrale Faser einer Schrauhell/eder wird 
+dargcstcllt dureh 
+( reos t) 
+x(l)= 
+rsmt 
+ht 
+0<::: t <::: 211][ 
+( r : Radius. 2][h : Ganghohe, II : Windungs-
+/ahl). 
+a) Man driieke Kriimmung K und Torsion 
+r yon x(l) sowohl dureh die Hohe H 
+und die Lange L der Feder als aueh 
+iiber den Winkel 
+'Y. aus (vgl. Skizze). 
+~ F 
+b) Eine Belastung F der Feder in Riehtung der Sehraubaehse ruft im Federstahl 
+prim~ir Torsion her\or und reduziert die Hohe auf H(F). Die Torsionsgleiehung 
+lautet (in erster Niiherung) 
+GJ· [r -r(Fi] = F'r 
+(GJ : Torsionssteifigkeit, r(F): Torsion mit Last F). 
+Man leite daraus eine Beziehung zwischen H(F) und F her und stelle die 
+Fedcrrate 
+c= lim 
+F 
+f~O H - H(F) 
+H 
+in erster Naherung als Funktion von r, Lund GJ dar (L q I) . 
+c) 
+Die Federheil1e eilles VW K 70 (Bauiahr 1972) haben 
+die Daten 
+Federstahl 
+GJ = 2.24· 106 N em 2 ; 
+Vorderaehse 
+r = 7.6em , H = 12.6em , 11 = 5.5 ; 
+Hinteraehse 
+r = 6.3em , H = 18.7em , II = 7.5 . 
+Bereehne jeweils die Lange des Federstahls und die Fe-
+derrate c. 
+Wie weit sinkt das Auto vorne und hinten ein, wenn es 
+gleiehmaBig mit 1500 N belastet wird? 
+
+
+--- PDF page 386 ---
+370 
+7. Funktionen in mehreren Variablen. Teil I: Differentiation 
+8. 1m CAD werden ebene Kurven durch B-Splines dargestellt, da sie eine schnelle 
+Beeinflussung der Form durch wenige sogenannte Kontrollpunkte erlauben. 1m ein-
+fachsten Fall setzt man diese Kurven aus kubischen Kurvenstiicken zusammen, flir 
+die man die BEZIER-BERNsTEIN-Darstellung verwendet. 
+w(t) = (l - t)3ko + ( i) t(1 - t)2k t + (~) t2(l - t)k2 + t3k 3 
+, 0 ~ t ~ 1 . 
+ko, ... , k3 E JR2 heiBen Kontrollpunkte von w. 
+a) Man rechne nach: 
+w verbindet ko und k3 , Tangentenrichtung in ko ist 
+kl - ko , in k3 ist sie k2 - k3 . 
+b) Warum Iiegt w ganz im (konvexen) Viereck mit den Ecken ko, kl , k2 , k3 ? 
+(Hilfe: Die Polynomfaktoren vor ko, ... , k3 sind positiv und in der Summe 1.) 
+c) Welche Bedingungen miissen flir eine Kurve erflillt sein, die aus zwei Bezier-
+Kurvenstiicken WI, W2 zusammengestzt ist, damit x und x im gemeinsamen 
+Kontrollpunkt stetig sind? 
+12. Reellwertige Funktionen mehrerer reeller Veranderlicher. 
+2.1 Grundlagen. 
+Unter einer reellen Funktion von n reellen Veranderlichen 
+versteht man eine auf einer Teilmenge D ~ IRn erkllirte Funktion f : D ~ IR 
+mit Werten in IR. Sie ordnet jedem Punkt (bzw. Vektor) x = (XI, ... , xll ) T E 
+D des Definitionsbereiches in eindeutiger Weise eine reelle Zahl z = f (x) = 
+f (XI, ... , xn) zu. Flir Funktionen von 2 oder 3 Veranderlichen schreibt man 
+liblicherweise auch f(x,y) bzw. f(x,y,z). 
+Die Zuordnung xl-+f(x/, ... ,xn) kann gegeben sein 
+1. 
+durch eine explizite Rechenvorschrift, z.B. 
+f(x,y) = 3xy + 2x + 5y -7 (D = 1R2), oder 
+f(x,y,z) = eX+Y • 3z' sin(xz) + In(x2 + i) + 5z 
+(D = 1R3 \ {O}), 
+2. 
+durch eine implizite Gleichung, z.B. bezeichne f (x, y) die eindeutig be-
+stimmte positive Losung z der Gleichung z3 - xz -
+y = 0 
+(x E IR, 
+y > 0), 
+3. 
+durch eine kompliziertere Vorschrift, etwa in Form einer Differentialglei-
+chung oder in Tabellenform. 
+Eine reellwertige Funktion f : IRn :::2 D ~ IR wird hliufig als Skalarenfeld oder 
+Belegungsfunktion bezeichnet, insbesondere dann, wenn jeder Punkt XED mit 
+
+
+--- PDF page 387 ---
+§2. Reellwertige Funktionen mehrerer reellcr Veranderlicher. 
+371 
+der MaBzahl 1 (x) einer skalaren physikalischen GroBe (etwa Ladungsdichte, 
+Temperatur) "belegt" ist. 
+Ais besonders vorteilhaft zur Diskussion einer Funktion 1 : lRn 2 D -> lR, 
+erweist es sich, 1 auf gezielt gewahlten Teilbereichen von D zu untersuchen. 
+Das sind in erster Linie 
+• 
+die Nireawnellgell oder Nireauhyperflachen von 1 zum (konstanten) Ni-
+veau c E lR : 
+Nc := [x ED: 1 (x) = c} , 
+• 
+allc zu einer Koordinatenachse parallelen Geraden, die D treffen. Man 
+erhiilt damit dic .. partiellcn" Funktionen von 1 : 
+mit (/ = (al ..... {/II) E D konstant. 
+Wic im Falle 11 = 1 laBt sich jedcr Funktion 1 : D -> JR auch der Graph 
+f( := [ (x,f(x)) : xED} ~ JRII+I 
+zuordncn. Er besteht aus allen Punkten (XI, ... ,XII,XII11) mit XII+I =I(XI, .... XII ) 
+und kann somit als Niveauhyperftache der Funktion 
+zum Niveau 0 angesehen werden. Wir nennen F(XI, ... ,XII+tl = 0 die implizite 
+und XII. 1 = f (Xl ..... XII) die explizite Darstellung des Graphen r f . 
+All dicse BcgrifTe sind fur 11 = 2 und 11 = 3 sehr anschaulich zu interpretieren: 
+n = 2: N, ist in dcr Regel cine ebene Kurve, "die Niveaukurve f (x, y) = c". 
+Man nennt f (x. y) = c die implizite Gleichung (oder Darstellung) dieser Kurve. 
+Beschreibt etwa T = f (x, y) die Temperaturverteilung (Druckverteilung) auf 
+einer Platte D ~ lR 2 , dann ist f (x, y) = To die Gleichung einer Isotherme 
+(Isobare). 1st f (x. y) = c nach y auflosbar in der Form y = h(x, c), dann 
+nennt man dieses eine expli::ite Darstellung der Niveaukurve. 
+Beispiele. 
+l. 
+Die Gerade 2x + 3y 
+f(x.y) = 2x + 3y zum Niveau c 
+2 
+5 
+Y = -3 x + 3' 
+5 ist die Niveaukurve der Funktion 
+5. 
+Die explizite Darstellung lautet 
+2. Der Kreis x 2 + i 
+r" 
+(r > 0) 
+(-> Abb. 165) ist die Niveaukurve der 
+Funktion 1 (x, y) = x2 + i 
+zum Niveau r2. 
+Diese Kurve ist nicht liberall 
+explizit durch eine einzige Funktion y = lI(x) darstellbar. Sie besteht vielmehr 
+aus zwei Teilen, die explizit darstellbar sind: y = vi r2 - x2 und y = - vi r2 - x2 
+(-r S x S r). Allgemein ist ein Kegelschnitt ax2 + bi + exy + dx + ey + f = 0 
+die Niveaukurve eines quadratischen Polynoms in x, y . 
+3. Jeder Graph y = h(x) einer (stetigen) Funktion der einen Varia bien x kann 
+als Niveaukurve F(x,y) = y - f(x) = 0 einer Funktion von zwei Veranderlichen 
+angesehen werden. 
+
+
+--- PDF page 388 ---
+372 
+7. Funktionen in mehreren Varia bien. Teil 1: Differentiation 
+fm Faile n = 
+2 wird der Graph 
+f, als Flache im 1R3 veranschaulicht. 
+D ist Teilmenge der (x, y)-Ebene und 
+iiber (x,y) E D liegt der Flachen-
+punkt (x,y,z) mit z = J(x,y). 
+Die Graphen der "partiellen" Funk-
+rf 
+tionen z = J(a!,y) und z = J(x,a2) 
+entstehen durch Schnitt des Graphen 
+r, 
+mit den zur z-Achse parallelen 
+x 
+Ebenen: 
+x 
+= 
+a! 
+bzw. 
+y 
+= 
+a2. 
+Zur Untersuchung des Graphen r f 
+(ara) 
+im Punkt (a!, a2) wird man auf diese 
+beiden Schnittkurven zuriickgreifen. 
+Abb. 164 - Partielle Funktionen 
+Uber der Niveaulinie J(x,y) = c in D liegen aile Punkte von r f mit der-
+sci ben "H6he" ::: = c. Sie ist die senkrechte Projektion der Schnittkurve der 
+FHiche ::: = J(x,y) mit der Ebene z = c in die (x,y)-Ebene (Hohenlinien einer 
+La 11£1 ka rte). 8' 
+y 
+z=const. 
+x 
+z=con~s. 
+x 
+y 
+.L) 
+Niveaulinie 
+~ 
+Abb. 165 - Graph und Niveaulinie von f(x.),) = XC + yC 
+"=3: N, ist (unter Zusatzvoraus-
+setzungen an J) eine Flache im 
+IR', "die Niveauftache J(x,y,z) = 
+c". 
+Man nennt J(x,y,z) = c 
+die implizite Gleichung (oder Dar-
+stellung) dieser Flache. 
+Ist diese 
+Gleichung fUr einen Teilbereich ex-
+plizit in der Form z = h(x, y, c) 
+auft6sbar, dann nennt man dieses 
+eine explizite Darstellung des ent-
+sprechenden Flachenstiicks. 
+Abb. 166 - NiveaufHichen von f = 2.>: + 3} + 4~ 
+Beispiele. 
+1. Die Ebene 2x+3y+4z = 5 ist Niveauftache der linearen Funktion 
+J(x,y,z) = 2x + 3y + 4z 
+2. Niveauftache eines quadratischen Polynoms III drei Veranderlichen ist jede 
+Quadrik x T Ax + bT X + c = 0 im 1R3. 
+0 
+
+
+--- PDF page 389 ---
+§2. Reellwertige Funktionen mehrerer reeller Veranderlicher. 
+373 
+Der Graph r f einer Funktion von drei Variablen ist Teilmenge des ]R.4 und 
+daher fUr eine Veransehauliehung von f nieht geeignet. 
+2.2 Grenzwerte und Stetigkeit. 
+Begriffe der ansehauliehen Geometrie des 
+]R. I, ]R. 2 , ]R. 3 wurden in Kap. 6, 6.3, fUr beJiebige n E N in den ]R." iiber-
+nommen. So wird der Abstand zweier Punkte x, y E]R." definiert dureh 
+" 
+Ix-YI = 
+l:)Xi - Yi)2 . 
+i~1 
+Zu festem a E]R." und r > 0 hei13t die Punktmenge 
+Ur(a) := [ x E ]R." : Ix - al < r} 
+r-Umgehwlg von a. 
+Fi.ir 11 = list Ur(a) das offene Intervall a - r < x < a + r, 
+fiir 
+11 =:2 besteht Ur(a) aus allen Punk ten der Kreisseheibe mit dem Mittel-
+punkt a und Radius r ohne Randpunkte, 
+fur 
+11 = 3 ist Ur(a) eine Kugel urn a mit dem Radius r ohne die Punkte der 
+Kugeloberfhiehe. 
+Bereits fiir reelle, auf einem Intervall I s ]R. definierte Funktionen ist nieht 
+nur deren Verhalten im Innern von I, sondern aueh in den Randpunkten von 
+Bedeutung (--+ Kap. 2, §5 und Kap. 3). Zur Besehreibung iihnlieher Saehverhalte 
+im ]R." benotigen wir einige Begriffe. 
+Definition. 
+Sci D cine Teilmenge des ]R.". 
+(/) 
+Eil1 PlInkt a E D heifJt innerer Punkt l'on D, wenn es eine r-Umgebung l'On 
+a giht. die gCII1= in D elltha/ten ist. 
+h) 
+D hei/ft offen, II'ellll jeder PlInkt 1'on D ein innerer Punkt ist. 
+(') 
+Eil1 PUl1kt b E]R." heifJt Randpunkt [lon D, wenn jede r-Umgebung von b 
+sOll'ohl mindestens einen Punkt aus Dais auch mindestens einen nicht zu D 
+gehorenden Punkt enthiilt. Die Menge aller Ral1dpunkte [lon D heif3t Rand 
+von D und wird mit cD bezeichnet. 
+d) 
+Eine Menge lzeifJt abgeschlossen, wenl1 sie aliI' ihre Randpunkte enthiilt. 
+Beispiele. 
+1. Die "offene" Kreisseheibe (ohne Rand) 
+K = { (x, y) ; (x -
+XO)2 + (y -
+YO)2 < r2 } 
+ist eine offene Menge mit dem Rand cK : (x -
+xO)2 + (y -
+YO)2 = r2. 
+
+
+--- PDF page 390 ---
+374 
+7. Funktionen in mehreren Variablen. Teil 1: Differentiation 
+2. 
+Das "Rechteck" Q = {(x,y) ; 2 ~ X < 3, -1 < y ~ 2} (--+ Abb. 167a) ist 
+weder offen noch abgeschlossen. ABe Punkte (x,y) mit 2 < x < 3, -1 < y < 2 
+sind innere Punkte. Der Rand enthiilt sowohl Punkte, die zu Q gehoren (etwa 
+(2, y) mit -1 < y ~ 2) als auch solche, die nicht zu Q gehoren (etwa (x,-I) 
+mit 2 ~ x ~ 3 ). 
+0 
+Offene Mengen werden oft durch strikte Ungleichungen in der Form 
+U = {x E JR.n ; gl(X) < O, ... ,gr(x) < O} 
+beschrieben, wobei gl, ... , gr stetige Funktionen in n Veriinderlichen sind. Fiir 
+x E au gilt gi(X) = 0 fUr wenigstens ein i. (Kurz: U wird berandet von den 
+Hyperfiiichen gi(X) = 0.) 
+U uau = {x E JR.n ; gl(X) ~ O, ... ,gr(x) ~ O} . 
+y 2 
+1 
+1 
+- 1 
+Abb. 167a - Randpunkte 
+Abb. 167b - Die Parabelfalte 
+Definition. 
+Sei f : JR.n 2 D --+ JR. und a E D U aD . 
+a) f hat in a den Grenzwert c E JR., in Zeichen 
+limf(x) = c 
+(oder f (x) --+ c for x --+ a) , 
+x .... a 
+wenn es zu jeder (beliebig kleinen) Schranke € > 0 eine r-Umgebung Ur(a) 
+gibt, so daft If (x) - cl ~ € for aile XED n Ur(a) gilt. 
+b) f heiftt in a E D stetig, wenn lim f (x) = f (a) gilt. 
+x .... a 
+c) f heijJt auf D stetig, wenn f in allen a E D stetig ist. 
+Die aus Kap. 2 bekannten Rechenregeln fUr Grenzwerte und stetige Funktionen 
+gelten auch hier: 
+Summe, Produkt, Quotient stetiger Funktionen sind stetig. 
+Beispiel. 
+Die Projektionen Pi : JR.n --+ JR., Pi(X) = Xi sind stetig'. Aufgrund der 
+soeben genannten Rechenregeln ist dann auch jede lineare Funktion I : JR.n --+ 
+JR., l(x) = aT x = alxl + a2x2 + ... + anxn, jedes Polynom in n Variablen 
+p(x) -
+"'" 
+xk, Xk2 ... x kn 
+-
+L... 
+---k,kr·kn 
+1 
+2 
+n 
+l :s;k;:s;m 
+und jede rationale Funktion f (x) = p(x) stetig, falls q(x) =F O. 
+q(x) 
+o 
+
+
+--- PDF page 391 ---
+§2. Reellwertige Funktionen mehrerer reeller Variabler 
+375 
+Die Stetigkeit von f (x, y) in (xo, Yo) ergibt sieh noeh nicht aus der Stetigkeit 
+der partiellen Funktionen x 1-4 f(x,yo) und y 1-4 f(xo,Y). 
+GegenbeispieI. Die ParabelfaIte 
+(-4 Abb. 167b) 
+{ 
+2xy2 
+f(x,y):= 
+X21;y4 
+, falls x > 0 , 
+falls x ~ 0 . 
+2tuv2 
+Sowohl x 1-4 f(x,O) = 0 als aueh y 1-4 f(O,y) = 0 und t 1-4 f(tu,tv) = 
+2 
+2 4 
+U + tv 
+(u > 0) sind stetig. Dagegen ist f (x, y) fUr y > 0 auf der Para bel x = l 
+konstant 1. Daher ist f unstetig in (0,0). 
+0 
+Definition. 
+a) Eine Menge D c:;; IRn heij3t beschrankt, wenn es eine Konstante 
+K > 0 gibt mit 
+Ixl < K 
+fur aile XED . 
+b) Die abgeschlossenen und beschriinkten Mengen des IRn nennt man kompakt. 
+Beispielsweise ist die "Vollkugel" urn a vom Radius r, 
+Urea) := {x E IRn ; Ix - al ~ r} , 
+(einschlieBlich des Randes Ix - al = r) kompakt. 
+Ebenso wie im Fall einer Variablen (-4 Satz 6.5, Kap. 2) gilt (ohne Beweis): 
+Satz 2.1. 
+a) 
+Satz vom Minimum und Maximum. Jede auf einer kompakten Menge D c:;; 
+IRn stetige Funktion nimmt auf D ein Minimum und ein Maximum an; d.h., 
+es gibt a, bED mit feb) ~ f(x) ~ f(a) fur aile XED. 
+b) 
+Satz von der gleichma8igen Stetigkeit. Jede auf einer kompakten Menge D c:;; 
+IRn stetige Funktion ist dort gleichmiiftig stetig; d.h. zu E > 0 gibt es ein 
+b > 0 , so daft fur aile x, y E D gilt 
+Ix - yl < b = If(x) - f(y)1 < E . 
+Satz 2.1 ist im allgemeinen falsch, wenn D nieht kompakt ist (-4 eine Variable). 
+1st nun D belie big und besitzt die stetige Funktion f : D -4 IR in jedem 
+Randpunkt a E aD einen Grenzwert c(a) = limf(x) , so wird f durch 
+x->a 
+lex) := {f(X) ,falls XED 
+c(x) 
+,falls x E aD 
+zu einer stetigen Funktion 1 : D U aD -4 IR auf der abgeschlossenen Menge 
+D U aD fortgesetzt. 
+Eine wichtige Eigenschaft stetiger Funktionen ergibt sich leicht aus der Defi-
+mtlOn: 
+1st f : D -4 IR stetig und f(a) > 0, dann gilt f(x) > 0 fur aile 
+xED n Ur(a) mit geeignetem r > O. 
+
+
+--- PDF page 392 ---
+376 
+7. Funktionen in mehreren Variablen. Teil 1: Differentiation 
+2.3 Partielle Ableitungen, der Gradient. 
+Sei D ~ IR n offen, f : D -+ IR und 
+a = (a"a2, ... ,a,,) ED. Existiert die Ableitung der "partiellen" Funktion 
+an der Stelle Xi = ai, so nennt man diese die partielle Ableitung von f nach Xi 
+im Punkte a; sie wird mit 
+of (x) I 
+OXi 
+X=3 
+oder of (a) 
+OXi 
+bezeichnet. Das Zeichen ,,0" anstelle von "d" soli verdeutlichen, daB von 
+einer Funktion mit mehreren Variablen das A.nderungsverhalten bezuglich ei-
+ner einzelnen Veranderlichen untersucht wird, wobei fUr das Differenzieren die 
+anderen Variablen als Konstante anzusehen sind: 
+(\) 
+?f(x) 
+CXj 
+:= lim -t\ [f(x" ... ,Xi + t, ... ,x,,) - f(x" ... ,Xi, ... ,X,,)] 
+t~O 
+= lim -t1 [f(x + tei) - f(x)] 
+t~O 
+Fur die partiellen Ableitungen sind ebenfalls die Bezeichnungen f" 
+ublich, 
+bzw. I\,f,,fc,ff,"" wenn die Variablen x, y, z, t, ... lauten. Dementsprechend 
+schreibt man flir die hoheren partiellen Ableitungen 
+f 
+° (Of) 
+x, = (I,), = oy 
+ox 
+' 
+etc. 
+f heiBt partiell differenzierbar (bzw. stetig partiell differenzierbar), wenn aile 
+partiellen Ableitungen fx, existieren (und stetig sind). 
+Beispiele. 
+1. f (x, y) = x2 y3 + y In x 
+(x > 0) 
+IJx, y) = 2y 3x + ~, fr(x, y) = 3x21 + In x , 
+o 
+\ 
+fxr(x,y) = 6y~x + x = fn(.x,y) . 
+f --(X y,) = 2y,3 - L 
+:xx 
+, 
+2 ' 
+X 
+fry(x,y) = 6x2y , 
+2. Der Schalldruck einer ebenen Schallwelle wird bestimmt durch 
+p(x, y, z, t) = A sin (ax + fly + yz - wt) 
+ep 
+ex = aA cos (ax + fly + yz - wt) beschreibt (bei fester Zeit) die A.nderung in 
+x-Richtung. 
+~p = -wA cos (ax + fly + yz - wt) bestimmt am festen Ort (x, y, z) die zeitliche 
+ct 
+(momentane) A.nderung. 
+0 
+FaBt man die partiellen Ableitungen einer Funktion zu einem Vektor zusammen, 
+
+
+--- PDF page 393 ---
+~2. Reellwertige Funktionen mehrerer reeller Veranderlicher. 
+377 
+so erhiilt man den Gradienten von f an der Stelle x : 
+Cf 
+('1x\ (x) 
+gradf(x) 
+elf 
+(~X2 (x) 
+E IR" . 
+, 
+L __________________________ ~ 
+X f-> gradf(x) ist eine vektorwertige Funktion (ein "Vektorfeld" -> §4): Jedem 
+XED wird der Vektor grad f (x) E IR" zugeordnet (vorausgesetzt, fist partiell 
+differcnzicrbar). 
+Beispiel. 
+f (x. y.::) = e't"' + 2x sin:: + ::"xy, 
+( f, (x, )', ::) ) 
+( ex+2.l + 2 sin z + z" y ) 
+gradt(x.y.z) = 
+fr(.~.y.~) 
+= 
+2ex+"~ +z~x . 
+f:(x,}.-) 
+2xcos_+2~xJ 
+o 
+f hcif3t zweimal (k-mal) partiell differenzierbar, wenn aile zweiten partiellcn 
+Ableitungen 
+(1 ::; i,j ::; 11) 
+(aile k-ten Ableitungen f",\,,) existicren. Sind siimtliche dieser Ableitungen 
+stetig. dann heif3t I zll"eimai (bzw. k-mal) stetig partiell differenzierbar. 
+Wir bezeichnen die Menge aller auf einer offenen Menge D ~ IR" k-mal stetig 
+partiell differenzierbaren Funktionen I : D -> IR mit (6'(D, IR) und nennen 
+r E (("(D,IR) cine ((,"-Funktion. 
+r 
+I ((,' (D. IR) := : I : D -> IR : I k-mal stetig partiell differenzierbar J 
+I (('(\D.IR) := : I : D -> IR : fist stetig] 
+I 
+1m vorhcrgehenden ersten Beispiel sahen wir fn = fn. Dies ist nicht Immer 
+der Fall: 
+{ 
+X2 _ r2 
+Gegenbeispiel. 
+Es sei I (x, y) = 
+xy x 20+ ;," 
+,(x, y) f (0,0) 
+, (X,y) = (0,0) 
+Da fUr aile x.y E IR stets I(x,O) = I(O,),) = 0, gilt I,(O,O) = f,(O, 0) = 0. Fiir 
+(x, y) f (0,0) erhiilt man dureh Differentiation 
+. _ , (X2 _ )'2 
+4x2 y2 
+) 
+j, -.I 
+x2 + y2 + (x2 + )'2)2 
+' 
+ir = X 
+-1 --1 -
+1 
+1 
+1 
+( x2 _),2 
+4x2/) 
+. 
+x-+y-
+(x-+y)-
+
+
+--- PDF page 394 ---
+378 
+7. Funktionen in mehreren Varia bien. Teil I: Differentiation 
+Damit folgt fiir f 
+- ~ ( Of) 
+XI -
+oy 
+AX 
+f,\(O,O) = lim f,(O,y) - f,(O,O) = lim _~2 =-1 
+. 
+J~O 
+Y 
+J~O Y~ 
+und andererseits 
+f 
+(00) - r 
+fr(x,O) - Ir(O,O) - r 
+x2 -
+1 
+yx 
+, 
+-
+}~ 
+x 
+-
+xl~ x2 -
+Satz 2.2 von SCHWARZ fiber die Vertauschbarkeit der partiellen Ableitungen. 
+Fur ;ede C(;2-Funktion f : D -> lR. D ~ lR" offen. gilt 
+(2) 
+(I S; i, j S; n) . 
+o 
+Beweis 
+fur n = 2. Sei (xa, Yo) E D und t E lR 
+mit den Eckpunkten (xa, Ya), (xa + t, Yo) , 
+so klein, daB das Quadrat Q 
+(xo, Ya + t), (xa + t, Yo + t) ganz in D ent-
+halten ist. Fur 
+~ 1 
+~2 
+(xo +t 
+g(x) := f(x,ya + t) - f(x, Yo) 
+xo'Yo) 
+x 
+gilt g' (x) = fx(x, Yo + t) - fJx, Yo) und 
+durch Mehrfachanwendung des Mittel-
+wertsatzes fUr Funktionen einer Verander-
+lichen folgt 
+Abb. 168 - Zu fx\" = fIX 
+h(t) := f(xo + t,Ya + t) - f(xo + t,yo) - f(xo,Ya + t) + f(xa,ya) 
+= g(xo + t) - g(xo) 
+= g'((Jlt = [(x((I,YO + t) -
+f'(~I,Yo)lt 
+= f,y((I, '1dt2 
+mit (I zwischen xa+t und Xo bzw. '11 zwischen Yo+t und Yo. Ebenso - mit 
+g(y) := f(xa + t,y) - f(xo,Y) - folgt h(t) = g(Ya + t) - g(yo) = In(¢2,'12)t2 mit 
+((2, '12) E Q und damit 
+fxy(~I,'1d = 11'((2,'12) . 
+Aufgrund der Stetigkeit folgt beim Grenziibergang t -> 0 die Behauptung: 
+fxr(xo,Ya) = fyx(xo,Yo). 
+0 
+Eine Mehrfachanwendung dieses Satzes zeigt etwa fiir eine Funktion in x, y, z 
+fxIX = fur = fyxx, fXF = f:yx = fyzx = ... , etc., vorausgesetzt, samtliche 
+vorkommenden Ableitungen sind stetig. 
+
+
+--- PDF page 395 ---
+§2. Reellwertige Funktionen mehrerer reelJcr Veranderlicher. 
+379 
+2.4 Die totale Ableitung und Iineare Approximation. 
+Die Approximation 
+einer Funktion durch eine (einfachere) "Ersatzfunktion" ist ein zentrales Thema 
+der Analysis. Zur Beschreibung der Approximationsgute verwenden wir folgende 
+Abkurzung: 
+Definition des "o-Symbols". 
+Filr zwei Funktionen f, g 
+lR";::> D -+ lR und 
+Xo ED. k E IN , schreibt man 
+(3) 
+f(x) = g(x) + o(lx ~ xolk) 
+falls lim f (x) ~ g(x) = 0 
+X~XIl 
+Ix ~ xolk 
+(filr x -+ xo) , 
+Das so definierte o-Symbol ist keine eindeutig festgelegte Funktion. Die Glei-
+chung f(x) = g(x) + o(lx ~ xolk) besagt, daB der bei der Approximation von f 
+durch g in der Niihe des Punktes Xo gemachte Fehler R(x, xo) := f(x) ~ g(x) 
+klein ist im Vergleich zu Ix ~ xOlk, in dem Sinne, daB lim R(x, XO)k = 0 gilt. 
+x~x() Ix~xol' 
+Ins bcsondere folgt 
+(4) 
+lim (f(x) ~ g(x)) = lim R(x, xo) = lim Ix ~ xolk R(x, xo)" = 0 . 
+'\.-'\.o 
+X-Xo 
+X-Xo 
+Ix ~ xol 
+4 Y 
+91<1= 0 
+, 
+-- -
+-
+-
+-
+~ 
+f(x)=x 3 +x L +x 
+Abb. 169a -
+oil) 
+/' 
+/' 
+/ 
+/ 
+/ 
+/ / gl,l=, 
+Ahb. 16% -
+ollxl) 
+, . 
+\ 
+Die Approximation einer differenzierbaren Funktion einer Varia bien f : I -+ lR 
+(I c; lR ein offenes Intervall) in der Umgebung von Xo E I durch die lineare 
+Funktion g(x) = f(xo)+ f'(xo)(x~xo) (-+ Kap. 3, §1.3) wird mit dem o-Symbol 
+geschrieben als 
+(5) 
+f(x) = f(xo) + f'(xo)(x ~ xo) + o(lx ~ xol) 
+Fur Funktionen von mehreren Varia bien gewiihrleistet die partielle DifTerenzier-
+barkeit al\ein noch nicht die analoge Approximation durch lineare Funktionen 
+(-+ Aufg. 6). 
+Definition. 
+Sei D c; lR" offen. Eine Funktion f : D -+ lR heijit in Xo E D total 
+differenzierbar (oder linear approximierbar ), wenn es einen Vektor a E lR" mit 
+(6) 
+f(x) = f(xo) + a' (x ~ xo) + o(lx ~ xol) 
+(filr x nahe xo) gibt. 
+
+
+--- PDF page 396 ---
+380 
+7. Funktionen in mehreren Variablen. Teil I: Differentiation 
+Satz 2.3. 
+1st f 
+in Xo E D total difJerenzierbar, f(x) = f(xo) + a . (x - xo) + 
+o(lx - xol) , dann gilt: 
+a) 
+fist in Xo stetig; 
+b) 
+lim -t1 [f(xo + tv) - f(xo)] = a' v (fUr aile v E JRn , v =fo 0); 
+t-O 
+c) 
+fist partiell difJerenzierbar und a eindeutig bestimmt als a = gradf(xo). 
+Beweis. 
+a) folgt aus (4). 
+b): Fur Punkte der Geraden Xo + tv ergibt (6) f (xo + tv) - f (xo) = t a . v + 
+o(ltvl). Division durch t mit anschlieBendem Grenzubergang t ~ 0 liefert die 
+Behauptung. 
+c): Man nimmt v = ei in b) und erhiilt mit (1) af (xo) = a' ei = ai (die i-te 
+aXi 
+Koordinate von a). 
+1m Sinne der Definition (6) bedeutet also 
+(7) 
+f(x) = f(xo) + gradf(xo) . (x - xo) + o(lx - xol) 
+die lineare Approximation von f (x) nahe bei Xo. 
+o 
+Anschauliche Deutung fUr n = 2: Die "iiber" D ~ JR2 liegende FIache (der 
+Graph) z = f(x,y) wird in der Niihe 
+des FIachenpunktes (xo, Yo, f (xo, Yo» 
+durch die Ebene 
+z =f(xo,yo) + fAxo,yo)(x - xo)+ 
++ fy(xo,yo)(Y - Yo) 
+mit einem Fehler 
+R(x, y) = 0 ( J (x -
+XO)2 + (y - Yo)2) 
+approximiert. Diese Ebene heiBt Tan-
+gentialebene der Fliiche z = f(x,y) 
+im Punkt (xo,yo,f(xo,yo». Sie enthiilt 
+siimtliche FIachentangenten (~ 3.1).0 
+x 
+y 
+- grad f(xo'YO) 
+(xo'YO) 
+Abb. 170 - Tangentialebene 
+Bemerkung. Uber die tatsiichliche GroBe des Fehlers bei der Approximation 
+von f (x) durch f (xo) + grad f (xo) . (x - xo) werden wir erst in 3.2 genauere 
+Angaben machen. Vorerst begniigen wir uns mit der qualitativen Fehlerangabe 
+o(lx - xol). 
+Satz 2.4. 
+Jede rcl-Funktion f : D ~ JR (D ~ JRn offen) ist auf D (d.h. in 
+allen Punkten von D) total difJerenzierbar. 
+Beweis 
+fUr n = 2. Sei (xo, Yo) ED. Fiir aIle (x, y) aus einer (hinreichend klei-
+nen) r-Umgebung Ur(xo,Yo) ~ D gilt nach dem Mittelwertsatz fUr Funktionen 
+
+
+--- PDF page 397 ---
+§2. Reellwertige Funktionen mehrerer reeller Veranderlicher. 
+einer Veriinderlichen 
+I(x,y) - I (Xo,J'o) = I(x,y) - I(xo,)') + I(xo,y) - I(xo,Yo) 
+= f,(~, y)(x - Xo) + f,(xo, '/)(Y - Yo) 
+mit ~ zwischen x und xo, 'I zwischen Y und Yo. Es folgt 
+I (x, y) = I (Xo, Yo) + grad I (Xo, Yo) . (;.::::;.~ ) + R(x, y) 
+mit der Funktion 
+R(x,y) = U·,(( . .\') - I,(xo . .\'o)](x - xo) + l{,(Xo,l/) - I, (xo,Yo)](y - Yo) 
+= o( v(x - xo)2 + (y -
+.1'0)2) . 
+381 
+Die letzte Beziehung ergibt sieh aus der Stetigkeit von I, und fr und aus 
+Ix - xol 
+1 
+~ 
+~ . 
+Iy - yol 
+< I 
+0 
+V(x - xO)2 + (y -
+.1'0)2 -
+V (x -
+xO)2 + (y -
+YO)2 
+Beispicle. 
+l. In der Umgebung von (1,1) lautet die lineare Approximation der 
+«(,I-Funktion f(x,y)=x 4 +2x'y2+ y : 
+f(x,y) = f(l, 1) + gradf(1. 1)· C~:::::) + o( V(X -
+1)2 + (y -
+1)2) 
+=4+10(x-l)+5(y-l)+o(V(.\ 
+1)2+(y_I)2). 
+Dementsprechend ist 
+:: = 4 + 1 O(x -
+I) + 5(.1' -
+I) 
+die Gleichung der Tangentialebene der Fliiche :: = X4 + 2x·\2 + y im Fliichen-
+punkt (1.1.4). 
+2. Die lineare Approximation der ((,I-Funktion I (x • .1',::) = ex+2r +:: sin y + x im 
+Nullpunkt lautet 
+fix • .1',::) = frO. 0, 0) + f, (0, O. O)x + f,(O, 0, O)y + Ie (0, 0, 0):: + o( vx2 + .1'2 + ::2) 
+= 1 + 2x + 2y + o( Vx2 + y2 + ::2) . 
+o 
+2.5 Einfache Anwendungen. 
+Fur einfache Niiherungs- und Fehlerrechnungen 
+wird in (7) der "o-Anteil" vernachliissigt und I (x) in der Niihe des Punktes Xo 
+durch I (Xo) + grad f (xo) . (x - xo) ersetzt. Man schreibt dafUr 
+(8) 
+fIx) ~ f(xo) + gradI(xo) . (x - Xo) . 
+CD Niiherungsrechnung. 
+Beispiel. 
+I(x,y) = x' = erin, wird in (1,3) an-
+geniihert durch f (x, y) ~ 1 + 3(x -
+1) + O(y -
+1); speziell 1.02'O! ~ 1.06 
+(der genaue Wert: 1.02,01 = 1.061418168 ... ). 
+0 
+
+
+--- PDF page 398 ---
+382 
+7. Funktionen in mehreren Variablen. Teil I: Differentiation 
+CD Fehlerrechnung. 
+Werden statt der wahren Werte x = (XI, ... , xn) die 
+Naherungswerte Xo = (XOl,"" XOn) gemessen, dann belasten die MeBfehler 
+IAxil = IXi - xod den Funktionswert mit dem Fehler 
+IAf(x)1 = If(x) - f(xo)1 = I gradf(xo) . (x - xo) + o(lx - xol)l 
+n I vf 
+I 
+::;; ~ VXi (xo) IAxd + o(lx - xol) . 
+Sind fUr die einzelnen Messungen Fehlerschranken IAxil ::;; Si bekannt, so erhalt 
+man eine ungefiihre Fehlerschranke S fUr die Funktionswerte (IAf(x)1 ::;; S) 
+n I vf 
+I 
+S ~ ~ VXi (xo) Si . 
+Beispiel. 
+Fur den Elastizitiitsmodul 
+E 
+eines Stabes mit quadratischem 
+Querschnitt gilt beim skizzierten Ver-
+suchsaufbau 
+Abb. 171 - Biegung 
+MiBt man I = 50cm (auf 1 %), a = 2cm (auf 1 %), h = 2mm (auf 3%) 
+und F = l30N (auf 0.5% genau), so gibt die Fehlerrechnung (mit Ii nearer 
+Approximation) 
+AE 
+1 
+lEI ~ T£TIEFAF + E/Al + E"Ah + EaAal 
+< IAF I + 31 A1 1 + l-l/1Ah I + 1-4/1Aa l 
+-
+F 
+I 
+h 
+a 
+~ 0.105 
+Obiger Versuchsaufbau liefert E auf 10.5% genau, d.h. 
+E = 203125.000 ± 21328.000 N 2 
+mm 
+Direktes Auswerten von E durch Eintragen der Intervallgrenzen liefert bei den 
+gegebenen Genauigkeiten und MaBeinheiten 
+203125.000 - 20159.451 ::;; E ::;; 203125.000 + 22600.720 . 
+o 
+CD Newton-Verfahren zur naherungsweisen Lasung eines nichtlinearen Glei-
+chungssystems im JR2 
+f(x,y)=O, 
+g(x,y)=O 
+(mit <c1-Funktionen f,g): 
+Mit einem Startwert (Naherungswert) (xo, Yo) ersetzt man mit (8) dieses System 
+durch das lineare Gleichungssystem 
+f (xo, Yo) + fx(xo, yo)(x - xo) + fy (xo, yo)(y - Yo) = 0 
+g(xo,Yo) + gx(xo,yo)(x - xo) + gy(xo,yo)(y - yo) = 0, 
+
+
+--- PDF page 399 ---
+§2. Reellwertige Funktionen mehrerer reeller Variabler. 
+fUr das man im Fall 
+.1 := det (fAxo, Yo) 
+fy(Xo,Yo)) ~O 
+gAxo,Yo) 
+gy(xo,Yo) 
+mit der Cramerschen Regel (---+ Kap. 6, 5.6) eine verbesserte Niiherung 
+XI = Xo +.!. det (-f(xo,Yo) 
+.1 
+-g(xo, Yo) 
+YI = Yo + .!. det ( fAxo, Yo) 
+.1 
+gAxo, Yo) 
+383 
+berechnet. Mit diesem Wert (x I, Y dais S tart wert kann das Verf ahren wieder-
+holt werden. 
+Beispiel 1. 
+Zur Darstellung der Zahnjlanken von Stirnradgetrieben verwendet 
+man die Kreisevolvente y 
+( 
+rsint-rtcost ) 
+x(t) = 
+r cos t + rt sin t - r 
+(d.i. die Ortskurve des Endpunktes ei-
+nes Fadens, der von einem Kreis abge-
+wickelt wird). 
+Soil y die Punkte (0,0) und (a, b) 
+verbinden, so fUhrt dies auf zwt:i nicht-
+lineare Gleichungen fUr r und t: 
+f(r,t) := rsint-rtcost-a = 0 
+g(r, t) := r cos t + rt sin t - r - b = O. 
+y 
+(a,b) 
+(O,-r) 
+Abb. 172 - Zahnflanke 
+Lineare Approximation von fund g im Punkt (ro, to) liefert das lineare Glei-
+chungssystem 
+(
+sin to - to cos to 
+cos to + to sin to -
+1 
+roto sin to) (r - ro) + (f (ro, to)) = 0 . 
+roto cos to 
+t - to 
+g(ro, to) 
+Hierbei ist die Determinante .1 = roto(sin to - to) stets ~ 0, so fern nur roto ~ O. 
+Die L6sung (rJ. td liefert eine verbesserte Niiherung 
+( rl ) 
+( ro ) 
+1 ( 
+roto cos to 
+-roto sin to 
+) (f (ro, to) ) 
+tl 
+= 
+to 
+- A 
+1 - cos to - to sin to 
+sin to - to cos to 
+g(ro, to) 
+. 
+Fur (a, b) = (1,1) und die Startwerte (ro, to) = (2,1.2) liefert ein kleines Rech-
+nerprogramm folgende rasch konvergierenden Niiherungswerte: 
+ro = 2 
+rl = 2.l259866695 
+r2 = 2.l289130127 
+r3 = 2.l289145239 
+to = 1.2 
+tl = 1.1744908026 
+t2 = 1.1750438903 
+t3 = 1.1750426289 
+
+
+--- PDF page 400 ---
+384 
+7. Funktionen in mehreren Varia bIen. Teil I: Differentiation 
+Man beaehte, daB dieses Verfahren 
+keine eindeutige Losung liefert: Mit 
+dem Startwert (ro, to) = (1,8) liefert 
+obiges Programm naeh 5 Schritten die 
+Niiherung 
+r = 0.18223, 
+t = 8.4381 , 
+die fLir die teehnische Aufgabenstel-
+lung nieht brauehbar ist. 
+0 
+Abb. 173 - Kreisevolvente 
+Beispiel 2. Bairstow-Verfahren 
+zur niiherungsweisen Bereehnung aller komple-
+xen Nullstellen eines reellen Polynoms 
+p(x) = aoxn + alXn- 1 + ... + an 
+(a; E JR., ao 1- 0) . 
+Ein quadratisches Polynom q(x) = x 2 -
+ux - v ist genau dann ein Teiler von 
+p(x) , wenn in der Zerlegung (-+ Kap. 2, 2.5 (7» 
+p(x) = (x2 -
+ux - v)h(x) + (ax + b) 
+die Koeffizienten a, b des Restes versehwinden, d.h. wenn u, v Losungen sind 
+von 
+a = a(u, v) = 0, 
+b = b(u, v) = 0 . 
+Dieses Gleichungssystem, das fLir n ~ 2 stets eine Losung in JR.2 besitzt 
+(-+ Kap. 2, Satz 2.10), wird mit dem zweidimensionalen Newton-Verfahren 
+niiherungsweise gelost. Die Berechnung von a(u, v) und b(u, v) erfolgt mit dem 
+Horner-Schema (-+ Kap. 2, §2). 1st eine Niiherungslosung ii, v gefunden, so gibt 
+die quadratisehe Gleichung x 2 -
+iix - v = 0 zwei Nullstellen von p(x). Da das 
+Horner-Schema gleichzeitig die Koeffizienten von h(x) liefert, kann der AIgo-
+rithmus sofort an h(x) wiederholt werden. 
+Die Wahl von giinstigen Startwerten uo, Vo ist i.a. schwierig, daher muB mitunter 
+mehrfach mit untersehiedliehen uo, Vo begonnen werden. 
+, Programm BAIRSTOW 
+Input "Polynomgrad=";N 
+Eps=l. OE-07 
+Steps=30 
+M=N 
+Dim B(N), C(N) 
+For 1=0 To N 
+Print "a"+Str$(I) 
+Input B(I) 
+Next I 
+While M>2 
+Start: 
+Input "Startwerte UO= ,VO= ";U;V 
+S=O 
+Repeat 
+Bk=O 
+Bk_l=O 
+Ck=O 
+Ck_l=O 
+For K=O To M-l 
+Ck_2=Ck_l 
+Ck_l=Ck 
+Bk_2=Bk_l 
+Bk_l=Bk 
+Bk=B(K)+U*Bk_l+V*Bk_2 
+C(K)=Bk 
+Ck=Bk+U*Ck_l+V*Ck_2 
+Next K 
+
+
+--- PDF page 401 ---
+§2. Reellwertige Funktionen mehrerer reeller Veriinderlicher. 
+Bk_2=Bk_l 
+Bk_l=Bk 
+Bk=B(M)+U*Bk_l+V*Bk_2 
+C(M)=Bk 
+Det=Ck_l*Ck_l-Ck_2*Ck 
+If Det=O Then 
+Print "Neue Startwerte!" 
+Goto Start 
+Endif 
+U=U+(Bk*Ck_2-Bk_l*Ck_l)/Det 
+V=V+(Bk_l*Ck-Bk*Ck_l)/Det 
+S=S+l 
+If S=Steps Then 
+Print "Neue Startwerte!" 
+Goto Start 
+Endif 
+Until Abs(Bk_l)+Abs(Bk)<Eps 
+Gosub Quadr_gleichg 
+M=M-2 
+For K=O To M 
+B(K)=C(K) 
+Next K 
+Wend 
+If M=l Then 
+Print "rccllc Wurzel: "; -D(l)/B(O) 
+Else 
+U=-B(l)/B(O) 
+V=-B(2)/B(O) 
+Gosub Quadr_gleichg 
+Endif 
+End 
+Procedure Quadr_gleichg 
+X=U/2 
+Y=X*X+V 
+W=Sqr(Abs(Y) ) 
+If YeO Then 
+Print "doppelte Wurzel: ";X 
+Else 
+Print "2 Wurzeln: "; 
+If Y>O Then 
+If x>=o Then 
+Print X+W; ", "; -V/(X+W) 
+Else 
+Print X-W; ", "; -V/(X-W) 
+Endif 
+Else 
+Print X;" +-i* ";W 
+Endif 
+Endif 
+Return 
+385 
+D 
+2.6 Die Richtungsableitung, der Anstieg und die Kettenregel. 
+Die partiellen 
+Ableitungen 
+~.~; (x) geben gemaB (1) die "momentane" Anderung der Funk-
+tionswerte in Richtung der Koordinatenachsen (d.h. in e;-Richtung) an. Es ware 
+unverniinftig, sich auf diese Richtungen zu beschranken. 
+Zu jedem Vektor v E IR", v =f. 0, nennen wir den Grenzwert 
+(9) 
+cvf(x) := lim -t1 [f(x + tv) - f(x)] 
+1 .... 0 
+(sofern er existiert) die Abfeitung von f an der Stelle x fangs v. 1st vein Ein-
+heitsvektor (Ivl = 1 ), dann heiBt ovf(x) die Richtungsabfeitung (oder Anstieg) 
+von f an der Stelle x in Richtung v. 
+
+
+--- PDF page 402 ---
+386 
+7. Funktionen in mehreren Variablen. Teil I: Differentiation 
+Bemerkung. 
+Fur aJ (x) sind die Bezeichnungen ~I (x) oder DJ (x) ebenfalls 
+cv 
+weit verbreitet. 
+Betrachtet man die Einschrankung von I langs der Geraden x+tv (in Richtung 
+v), also h(t) := I (x + tv) , dann gilt h(O) = a,I (x) und deshalb 
+aJ (x) > 0 = I (x) nimmt in Richtung v zu, 
+(\1 (x) < 0 = I (x) nimmt in Richtung \ abo 
+Eine anschauliche Deutung fUr n = 2 : 
+Die Schnittkurve des Graphen z = 
+I(x,y) mit der zur z-Achse paralle-
+len Ebene durch die Gerade 
+( xo) +t ( VI ) , V = (VI) , Ivl = 1 , 
+Yo 
+1'2 
+['2 
+besitzt die Parameterdarstellung 
+x(t) = ( 
+.~:: : ~::~ 
+) 
+f(xo + wI,yo + we) 
+mit dem Tangentialvektor 
+( 
+1'1 
+) 
+x(t) = 
+t'e 
+?J(xo. Yo) 
+zoo f(x,yl 
+Abb. 174 - Richtungsableitung 
+im Kurvenpunkt (xo, Yo.! (xo, Yo)). Die Tangente hat III der Tat den Anstieg 
+?,f(xo.Yo). 
+0 
+Eine physikalische Deutung fUr n = 2: Ein Massenpunkt uberquert eine ebene 
+Platte mit konstanter Geschwindigkeit v = (VI, V2)T (nicht notwendig Ivl = 1 ). 
+Herrscht auf der Platte die Temperaturverteilung T = I (x, y), so gilt fur die 
+momentane Temperaturanderung des Punktes in (xo, Yo) 
+lim -t1 [f(xo + tVI,yo + tv2) - I(xo,Yo)] = a,f(xo,Yo) . 
+t~O 
+o 
+Aus den Satzen 2.3 und 2.4 folgt: 
+Satz 2.5. 
+Fur jede aut'der offenen Menge D <:; JR" total difJerenzierbare Funk-
+tioll I (insbesondere fur I E ~I (D, JR) ) und fur jeden Vektor v E JRn • v =1= 0, 
+gilt 
+" 
+(10) 
+cJ (x) = grad I (x) . v = L:)Xi (X)Vi . 
+i=l 
+Mit Ivl = 1 stellt (10) die Richtungsableitung (bzw. den Anstieg) von I an der 
+Stelle x in Richtung v dar. 
+
+
+--- PDF page 403 ---
+§2. Reellwertige Funktionen mehrerer reeller Veranderlicher. 
+387 
+Beispiele. 
+1. Der Anstieg der Funktion f (x, y) = x 2 + l 
+im Punkt (1, I) in 
+Richtung des (Einheits-) Vektors v = (sin:x, cos:x) T betragt 
+?J(x) = gradf(I, I)' (C?s:x) = (2,2) (cos:x) = 2(cos:x+sin:x). 
+SIll:X 
+SIll:X 
+2. Der mit der Geschwindigkeit v = (2,4,7) T (Einheiten vernachlassigt) einen 
+Raum mit der Temperaturverteilung T = f(x,y,z) = 2xy + 4yz durchquerende 
+Massenpunkt erfahrt im Punkt (I, I, I) die momentane Temperaturanderung 
+(\f(l,l,l)=gradf(LI,I)' (~) = (:) (~) =56. 
+3. Fur die durch A = AT E IR" xl bestimmte quadratische Form q gilt: 
+(II) 
+Beweis. 
+q(x) 
+= x 7Ax, 
+i\q(x) 
+= 2 (Ax) . v , 
+grad q(x) = 2Ax . 
+r,q(x) = lim -tl [q(x + tv) - q(x)] 
+I~O 
+= lim(vT Ax + xTAv + tvTAv) = 2(Ax)' v . 
+I~O 
+o 
+Die physikalische Deutung der Ableitung langs v legt es nahe, das Anderungs-
+verhalten der Funktion f langs einer im Definitionsbereich verlaufenden Kurve 
+(Bahn eines bewegten Punktes) zu untersuchen. 
+Satz 2.6. Die Kettenregel. 
+Fiir jede ((,I-Funktion f : D -+ IR. D c;; IR" otTen, 
+1111£1 fur jcdcs KUITcl1stiick x : IR ;2 [a, h] -+ D gilt 
+d j . 
+d j.( 
+) 
+-I (x(t)) = -I 
+XI(t),X2(t),···,x l1 (t) 
+{ t 
+( t 
+= f'l (xU)).xd t) + ... + f,,, (x(t))XI1(t) = gradf(x(t))· x(t) . 
+Beweis. 
+Aus der linearen Approximation (7) in einem Kurvenpunkt x(t) nahe 
+Xo :=x(to), f(x(t))-f(xo) =gradf(xo)'(x(t)-xo)+R(x(t),xo) mit dem Fehler 
+R(x, xo) = o(lx - Xo I) , ergibt sich nach Division durch t - to und Grenzubergang 
+t -+ to die Behauptung; denn es gilt 
+lim R(x(t), xo) = lim Ix(t) - xol . R(x(t), xo) = 0 . 
+HII) 
+t - to 
+HI" 
+t -
+to 
+Ix(t) - xol 
+o 
+Die Kettenregel benotigt man immer dann, wenn neue Variable eingefiihrt wer-
+den und die partiellen Ableitungen in bezug auf diese Veranderlichen zu berech-
+nen sind. 
+
+
+--- PDF page 404 ---
+388 
+7. Funktionen in mehreren Variablen. Teil 1: Differentiation 
+Beispiel 1. 
+Polarkoordinaten im lR 2 " Durch x = r cos ({J, Y = r Sill ({J wird die 
+Funktion f (x, y), (x, y) E D s; lR2 , transformiert in 
+F(r,({J) :=f(rcos({J,rsin({J) " 
+Fur die partiellen Ableitungen von F ergibt sich aus der Kettenregel (falls 
+f E (6 2(D) ) 
+F,. = fx cos ({J + fr sin ({J , 
+F", = I,{-r sin ({J) + fr(r cos ({J) , 
+F,.,. = In cos2 ({J + 21\\ cos ({J sin <p + frr sin2 <p , 
+F,.", = In{-r sin <p cos ((J) + f\\r(cos 2 <p - sin2 <p) + fn{r sin <p cos <p) 
+- I, sin <p + fr cos <p , 
+f 
+0" 1 
+2j" 
+1 
+" 
+j" 
+1 
+1 
+j" 
+F,p,p = 
+xx (1'- Slll- <p) + 
+yr( -1'- cos <p Sill ({J) + rr (r- cos- <p) -
+,I' cos (P 
+- fIr sin <p " 
+Lost man diese Beziehungen nach den partiellen Ableitungen von f auf, so 
+erhiiit man fur I' =1= 0 
+j " 
+1" 
+x = F,. cos <p - r F", Sill <p 
+j " 
+}-" 
+1 F 
+r = 
+,. Sill ({J + r '" cos ({J 
+und fUr den LAPLACE-Operator 
+( 13) 
+D 
+Beispiel 2. 
+Kugelkoordinaten im lR 3 • Durch 
+x=rcos<psinfi, y=rsin<psinfi, z=rcosfi 
+(O:O;<p<2n,O:o;O:o;n) 
+erhiilt man fUr die Funktion f(x,y,z) 
+F (I', ({J, 0) := f (r cos ({J sin 0, r sin <p sin 0, r cos fi) " 
+Mehrfache Anwendung der Kettenregel und anschliel3endes Auftosen ergibt fUr 
+den LAPLAcE-Operator 
+t:,.f := In + frr + fcc = 
+(14) 
+2 
+1 
+1 
+1 
+=F""+-r F,.+ 
+"" F,p", + oFoo+2{cot8)Fo " 
+r2 Slll- 8 
+r-
+r 
+D 
+
+
+--- PDF page 405 ---
+*2. Reellwertige Funktionen mehrerer reeller Veriinderlicher. 
+Aufgaben 
+J. 
+Gegeben sind die Funktionen f : JR." ---> JR. 
+f(x , y) = x" -.I'" 
+f(x,y) = vfxYj , 
+f(x, y) = Ixl + Iyl 
+a) Zur Veranschaulichung im JR."' bestimme und skizziere man 
+- die Niveaulinien 
+- die Graphen der Einschrankungen 
+- den Graphen :: = f(x,y) 
+(f(x,)') = const) 
+(x = const bzw. J' = const 
+bzw. y / x = const) 
+im Schragbild . 
+389 
+[" f 
+f 2f 
+b) Soweit moglich berechne man grad fund f>.f = -;;----, + -;;----, und skizzierc einige 
+IX-
+(.1'-
+Gradienten. 
+') 
+a) 
+Berechne die ersten und zweiten partiellen Ableitungen von 
+I = In VX2 + .1" 
+: 
+r 
+f = arctan x . x f. 0 . 
+Welchen Wert hat jeweils In + In '? 
+b) Wie lautet jeweils die Gleichung der Tangentialebene im Punkt mit x 
+r = I .) 
+c) 
+Fiir die Funktion f(x ,y) = arctan f. x f. O. bestimme man 
+den Gradienten gradl im Punkt (1.2). 
+die Richtungsableitung dJ im Punkt (I. 2) mit v in Richtung von ( _ :) . 
+~ 
+.' I 
+IR 
+-I . wenn :: = t (t -
+Sill r. - cos t) . I E. 
+( I 
+. 
+3. 
+Die Funktion :: = f({,.(f} ist definiert als die groBte reelle Wurzel von 
+::' + {':: + if = 0 . 
+Wie lautet der Definitionsbereich von I: wie lauten die Hohenlinien -
+und die partiellen Ableitungen ,::: . 
+(~:: ? 
+1/1 
+('(I 
+4. Man berechne die ersten und zweiten partiellen Ableitungen der Funktion 
+I(x. y, ::) = x . <,xy/ :: 
+5. 
+Fiir f. g : IR" ---> IR rechne man nach: 
+grad(f . g) 
+f>.(j . g ) 
+g grad f + I grad g . 
+f f>.g + 2 (grad fl· (grad g) + g f>.f 
+6. 
+Gegeben ist die Funktion (SilllIsk<'g<,/) 
+, (x, y) f. (0.0) 
+, (x, y) = (0,0) 
+Man berechne gradf fUr aile (x, .1') E JR. . 
+Sind I, und I, in (0.0) stetig') 
+Besitzt f in (0, 0) eine Tangentialebene ') 
+const. 
+
+
+--- PDF page 406 ---
+390 
+7. Funktionen in mchreren Variablen. Teil I: Differentiation 
+7. 
+Die Funktion U = f(x,y), (x,y) E lR2 , hat 
+in Polarkoordinaten 
+(r, <p) 
+die Gestalt (Si-
+nusparaboloid) : 
+U = F(r,<p) = f(rcos<p,rsin<p) = r2 sin4<p 
+Man berechne: 
+Fr , F <{J' Frr , Fr<{J' F <{Jr, F <{J<{J fUr r = ° , 
+-
+[,' f, ausgedriickt durch Fr , F<{J' 
+-
+grad U in der Basis (er , e<{J) , 
+(-> §I, Aufgabe 5), 
+-
+[n (0,0), fx, (0,0), f,x (0, 0), f'l (0, 0) . 
+1st f,AO,O) = [,,(0,0) und ist 
+Fr<{J(O, <p) = F<{Jr(O, <p) ? 
+8. 
+Die Funktion 
+u(x, J, t) = sin x cos y cos(x + y) cos(x - y) cos wt 
+beschreibt fUr 
+t > Odie Transversal-
+schwingung einer biegeweichen Membral1 
+in dem Quadrat Ixl + 1.1'1 :::; ~ . 
+a) Man zeige: 
+1I lost die Schwingungs-
+gleichung 
+In welchem Zusammenhang stehen c 
+und w? 
+b) In welchen Punkten ist zu allen Zei-
+ten t stets 1I = ° (KnoteI11inie)? 
+9. 
+Die Schnittkurve K der beiden Flachen 
+z = f(x ,y) = 2x3 )! - x"i 
+z = g(x,y) = 3xyl + xli - 5 
+u 
+·x 
+durchstof3t die x,y-Ebene in der Nahe des Punktes (xo, Yo) = (I, I). Zur Verbesse-
+rung dieses Wertes bestimme man: 
+a) die Tangentialebene von ::: = f (x, y) in (xo,}'o); 
+b) die Tangentialebene von z = g(x, y) in (xo, Yo) ; 
+c) den Schnittpunkt 
+(XI, yll der Schnittgeraden dieser beiden Ebenen mit der 
+Ebene z = 0; 
+d) die Werte f(xl,ytl und g(xl , ytl. 
+10. Man zeige: Die Funktion f : lR2 -> lR 
+{ 
+_1'2 Ix 
+f(x,y)= 
+e' l 
+,:{oF ° 
+,x = ° 
+ist eingeschrankt auf die Geraden y = mx, m E lR, stetig. 
+1st f iiber lR2 stetig? Man skizziere einige Niveaulinien von f . 
+
+
+--- PDF page 407 ---
+§3. Anwendungen der Differentiation 
+391 
+13. Anwendungen der Differentiation 
+3.1 Die Bedeutung des Gradienten. 
+CD Richtung des starksten Anstiegs. FUr eine ~l-Funktion f : 1Rn :::2 D --41R 
+ist der Anstieg im Punkt xED in Richtung eines Vektors v E 1Rn , Ivl = 1, 
+gegeben durch o.J(x) = gradf(x)· v = I gradf(x)1 COSIX, wobei IX den Winkel 
+zwischen gradf(x) und v bezeichnet (--4 §(1O) und Kap. 1, §5). Dieser Anstieg 
+ist am groi3ten fUr cos IX = 1, d.h. fUr IX = o. Also gilt fUr grad f (x) i= 0 : 
+Richtung von grad f (x) = 
+Richtung des maximalen Anstiegs der Funktion f tn x 
+Richtung mit groi3tem Zuwachs von f in x . 
+Da f genau dann ansteigt, wenn -f abfaIlt, erhalt man damit gleichzeitig die 
+Richtung des starksten Abnehmens ("AbfaIls") der 
+Funktionswerte, namlich - grad f (x) . 
+SpezieIl ergibt sich fUr den Graphen ei-
+ner ~l-Funktion f : 1R2 :::2 D --4 1R : 
+1m Punkt (x, y) erfolgt der steilste An-
+stieg der Flache z = f(x,y) in Richtung 
+von gradf(x,y) . Die Ebene senkrecht 
+zur 
+(x,y)-Ebene durch den FHichen-
+punkt (x,y,f(x,y)) 
+langs gradf(x,y) 
+schneidet den Graphen in der "FaIlinie". 
+grad ftx,yl 
+Abb. 175 -
+gradf(x,y) 
+Anwendungen. 1. Die elektrische Feldstiirke E(x) im Punkt XED ~ 1R3 hat 
+die Richtung des starks ten SpannungsabfaIls in einem elektrostatischen Span-
+nungsfeld U (x) , da E(x) = - grad U (x) (--4 Kap. 8, 2.5). 
+Beispiel. 
+c 
+Das Potential einer Punktladung in 0 ist U (x) = TXT' x i= 0, c E 1R , 
+1 
+c 
+mit der Feldstarke E(x) = -c grad TXT = IXj3x. 
+D 
+2. 
+Das Gradientenverfahren zur Bestimmung von Maximum (oder Minimum) 
+einer Funktion f. Ausgehend von einem Startwert Xo bestimmt man in Rich-
+tung von grad f (xo) (bzw. - grad f (xo) ) einen Punkt 
+Xl = Xo + h grad f (xo) 
+mit einer dem Problem angepai3ten Schrittweite h > 0 
+( h < 0 ) . 
+1m FaIle f(xd < f(xo) (bzw. f(xd > f(xo)) ist man zu weit gegangen, man 
+h 
+versucht es deshalb noch einmal mit halber Schrittweite: Xl = xO+2 gradf(xo) . 
+
+
+--- PDF page 408 ---
+392 
+7. Funktionen in mehreren Varia bien. Teil I: Differentiation 
+f(x) =1 
+1st f(xd > f(Xa) (bzw. f(xd < f(xa», 
+SO nimmt man 
+XI 
+als neuen Start wert 
+und wiederholt das Verfahren. Auf diese 
+Weise niihert man sich auf einem Strecken-
+zug in D einer Maximal- (bzw. Minimal-) 
+Stelle der Funktion. Diese Stelle hiingt yom 
+gewiihlten Startwert ab und bestimmt nicht 
+notwendig das globale Maximum (bzw. 
+Minimum) von f auf D (-+ 3.4). 
+-'r-f----t-- Minimum 
+Abb. 176 - Gradientenverfahren 
+a 
+Beispiel. Bei der Struktursynthese 
+ebelJer Kurbelgetriebe stellt sich 
+die Aufgabe, aus N MeBpunkten 
+(Xi,)'i) in der Ebene eine Kreis-
+bahn zu rekonstruieren. 
+Da die 
+Punkte fUr N > 3 im allgemei-
+nen nicht auf einem Kreis liegen, 
+bestimmt man die Mittelpunkts-
+koordinaten X, y und den Radius 
+r als Minimalstelle der Fehlerqua-
+dratfunktion 
+Abb. 177 - Interpolation mit Kreis 
+N 
+1 
+F(x,y,r)=I(J(Xi -x)2+(Yi-y)2- rr· 
+i=1 
+Wiihlt man die Startwerte liber einen Kreis, der durch drei der N Punkte (Xj, Yj) 
+geht, so liefert das Gradientenverfahren fUr das skizzierte Beispiel nach wenigen 
+Schritten eine brauchbare "Losung". Zur Programmierung der Schrittweitenhal-
+bierung und des Abbruchkriteriums (-+ Programm NLSQ in 3.5). 
+0 
+CD Tangenten und Tangentialebene. 
+Sei D ~ lR" offen und f : D -+ lR eine <j&.I-Funktion, dann definiert f(x) = c 
+«(' E lR konstant) eine Hyperfliiche in D. Flir jede parametrisierte Kurve 
+t ~ x(t) auf dieser Hyperfliiche gilt f(x(t» = c 
+(t E I), und mit der Kettenre-
+gel (12) von §2 folgt 
+(I) 
+grad f (x(t)) . x(t) = 0 . 
+Diese Formel werten wir nun getrennt fUr n = 2 und n = 3 aus. 
+n = 2 : In jedem Punkt (xa,Ya) der Niveaukurve f(x,y) = c ist gradf(xa,Ya) 
+orthogonal zur Kurventangente. Man sagt auch, 
+grad f (xa, Yo) ist im Kurvenpunkt (xa, Yo) 
+orthogonal zur Niveaukurve f(x,y) = c. 
+Diese Feststellung liefert fUr den Fall grad f (xa, Yo) i= 0 sofort die 
+
+
+--- PDF page 409 ---
+(2) 
+§3. Anwendungen der Differentiation 
+Norrnalengleichung der Tangente an die Niveaukurve 
+f(x,y) = c im Kurvenpunkt (xo,yo): 
+fx(xo,Yo)(x - xu) + fy(xo,Yo)(Y - Yo) = o. 
+393 
+Speziell ergibt dieses fUr den Graph Y = f (x) einer Funktion in einer Verander-
+lichen, implizit dargestellt durch F (x, y) = Y - f (x) = 0, die Gleichung der 
+Kurventangente grad F (xo, Yo) . 
+= 0, also Y - Yo - f' (xo)(x - xu) = o. 
+(
+X - xu) 
+Y - Yo 
+n = 3 : In jedem Punkt Xo = (xo, Yo, zo) 
+dargestellten Flache ist grad f (xo) or-
+thogonal zu den Tangenten samtlicher 
+parametrisierten Flachenkurven durch 
+diesen Punkt. 
+Kurz: 
+grad f (xo) ist 
+orthogonal zu allen Tangenten an die 
+Flache im Punkt xo, bzw. 
+grad f (x) 
+ist in jedern Flachenpunkt 
+orthogonal zur Niveaufiiiche f (x) = c. 
+Die Ebene, die von den Tangenten an 
+die Flache in einem Flachenpunkt auf-
+gespannt wird, hei13t Tangentialebene. 
+der durch f(x) = f(x,y,z) = c implizit 
+f(x) = c 
+Abb. 178 - Tangentialebene 
+1st grad f (xo) i= 0, so ist grad f (xo) . (x -
+xu) = 0 eine Normalengleichung, 
+d.h. explizit 
+Norrnalengleichung der Tangentialebene an die Niveaujiiiche 
+(3) 
+f(x,y,z) = c im Flachenpunkt (xo,Yo,zo) : 
+f,(xo, Yo, zo)(x - xo) + fy(xo, Yo, zo)(y - Yo) + f: (xo, Yo, zoHz - zo) = o. 
+Speziell ergibt sich fUr den Graph einer ~I-Funktion z = f(x,y), dargestellt als 
+Niveauflache F(x,y,z) = z-f(x,y) = 0, die (bekannte, -+ 2.4) Gleichung der 
+(
+X -
+XO ) 
+Tangentialebene 
+grad F (xo, Yo, zo)· 
+y - Yo 
+= 0, also 
+z -Zo 
+Beispiele 
+1. Die Kreistangente im Punkt (xo, Yo) an (x - u)2 + (y - v)2 = r2 hat 
+die Gleichung 2(xo - u)(x -
+xo) + 2(yo - v)(y - Yo) = o. Dieses kann mit der 
+Kreisgleichung leicht umgeformt werden zur bekannten Formel 
+(xo - u)(x - u) + (Yo - v)(y - v) = r2 . 
+2. Das Paraboloid 
+(p i= 0) 
+
+
+--- PDF page 410 ---
+394 
+7. Funktionen in mehreren Varia bien. Teil I: Differentiation 
+besitzt im Fliichenpunkt (XO, Yo, zo) die Tangentialebene 
+xo(x ;- xo) + yo(y ;- Yo) _ p(z _ zo) = 0 . 
+a 
+b 
+Eine leichte Umformung erbringt 
+XoX 
+YoY 
+---;;'l + 1)2 - p(z + zo) = 0 . 
+o 
+3.2 Approximation hOherer Ordnung; die TAYLOR-Formel. 
+Wir verallgemei-
+nern die TAYLOR-Formel flir Funktionen einer Veriinderlichen (--+ Kap. 5, §4) auf 
+~k-Funktionen f : 1R.n :2 D --+ 1R. in n ~ 1 Veriinderlichen. Dazu betrachten wir 
+flir xED und v E 1R. n die Funktion h(t) := f (x + tv) 
+(0:$ t :$ 1) der einen 
+reellen Variablen t, vorausgesetzt, die ganze x mit x+v verbindende Strecke liegt 
+in D. Vereinfachend setzen wir deshalb voraus, daB D ein konvexes Gebiet ist, 
+d.h. 
+I. 
+D ist offen, 
+2. 
+x, y ED=> x + t(y - x) E D flir aile t E [0, 1]. 
+Abb. 179a - Konvexes Gebiet 
+Abb. 179b - Kein konvexes Gebiet 
+Die Taylor-Formel flir h(t) an der Stelle t = 0 lautet 
+(4) 
+_ 
+. 
+1 .. 
+. . . J.. (k) 
+1 
+(k+l) 
+h(l) -h(O) +h(O) + 2!h(0) + 
++ k!h (0)+ (k+l)!h 
+(~d 
+mit einer Zahl ~k zwischen 0 und 1 (--+ Kap. 5, §4(1)). Die Ableitungen h(/)(t), 
+bzw. h(l)(O), berechnen wir mit der Kettenregel. Sie lassen sich mit dem Diffe-
+rentialoperator 
+a 
+a 
+a. = VI -
++ ... + vn -
+ax, 
+Xn 
+iibersichtlich darstellen, wobei zu beach ten ist, daB 
+a. : ~1(D,1R.) --+ ~1-I(D,1R.), 
+f(x) ~ a./(x) , 
+(die Ableitung liings v) linear ist und a~f (x) = a.( ... (a./ (x)) ... ) die l-malige 
+Anwendung von a. bedeutet. Man erhiilt 
+h(1) =f(x+v), 
+h(t) = gradf(x + tv) . v, 
+n 
+h(t) = Lv;[gradfx;(x+tv) ·v], 
+;=1 
+Diese Werte in (4) eingetragen ergeben: 
+h(O) = f(x) , 
+h(O) = a./ (x) , 
+h(O) = a;f(x) , 
+etc.: h(l)(O) = a~f(x) . 
+
+
+--- PDF page 411 ---
+§3. Anwendungcn ocr Differentiation 
+395 
+Satz 3.1. Die Taylor-Formel fUr n Variable. 
+1st D ~ IRn ein konvexes Gebiet, 
+f E (6,+1 (D, IR), xED, dann gilt mit x + v EDdie Approximations{ormei 
+(5) 
+f(x + v) = f(x) + (\f(x) + ;! c;f(x) + ... + ~! ?~f(x) + Rdx, v) 
+mit dem Restglied 
+R ( 
+) -
+1 
+.,'+If( 
+J') 
+, x, v -
+(k + I)! (v 
+x + 'ok V 
+mit eiller Zahl ~, ::lI'ischen 0 lind 1 
+Die Taylor-Formel dient zur Approximation von f(x) in der Umgebung eines 
+fcsten Punktes Xo E D durch ein Polynom, das sog. Taylor-PolYllom 
+(mit v := x - xo). Der dabei auftretende Fehler Rdx, xo) := f(x) - p(x) geht 
+schneller gegen Null als Ix - xOlk; es gilt 
+(6) 
+f(x) = p(x) + o(lx - xol') . 
+Beweis 
+fUr k = 2: Fur den Fehler gilt (mit v = x - xo) nach der Taylor-Formel 
+11 
+R 
+1 "t' 
+, 
+1" 
+f 
+( 
+V) 
+2(X, xo) = ]Tc;. (x + ';2 V) = 3! ~ l'it'll'/ ',','1 X + s2 V . 
+i.j.'~1 
+1st f eine 'f,'-Funktion, so ist f"",,(x+~v) mit v -+ 0 beschrankt, ebenso I~I :<::: 1 
+R2(x, xo) 
+1". 
+"Vi Vj . 
+fur aile i (v =f 0). Daher strebt 
+Ivl" 
+=]T ~ i"x", (x + 'o2V) IVIIVI [/ gegen 0 
+(v -+ OJ. 
+D 
+Fur eine (6 k-Funktion (k 2 2) heit3t die nach Satz 2.2 symmetrische Matrix 
+.' 
+(f.\IX.l(X), ... , fXl~Il(X)) 
+HJ (x) .= (j x/x, (x)) =: 
+: 
+fXnXI (x) , 
+f XnXn (x) 
+die HESSE-Matrix von f im Punkt x. 
+Wegen i\j"(x) = gradf(x) . v und c;f(x) = vT Hf{x)v lautet die Taylorformel (5) 
+(mit x = Xo, v = x - xo) in den vielbenutzten Speziaiflillen k = 0, 1,2 wie folgt: 
+
+
+--- PDF page 412 ---
+396 
+7. Funktionen in mehreren Variablen. Teil I ' Differentiation 
+a) f{x) = f(xo) + grad f{x) . (x - xo) 
+mit x auf der trecke von Xo nach x 
+(Mill elwertsalz), 
+(7) 
+b) f (x) = f (xo) + grad f (xo) . (x -
+xo) + ~ (x -
+xo) T Hf (x')(x -
+xo) 
+mit x· auf der trecke von Xo nach x, 
+I 
+c) f(x) = f(xo) + gradf(xo)' (x -
+xo) + 2(x - xO)T Hf{xO)(x - xo) 
++o(J x - xoI2). 
+Die anschauliche Deutung von (7c) fUr n = 2,3. 
+n = 2: Der Graph Z = f(x,y) wird in einer Umgebung des Fliichenpunktes 
+(so. Yo. / (sn. yo» approximiert durch die Schrniegquadrik 
+: =/ (.\0, Yo) + /,('\0, Yo)(.\ -
+.\0) + J,(.\o, Yo )(Y - Yo)+ 
+I . 
+1 
+I 
+1 
++ 21,,('\0, Yo)(.\ -
+.\0)- + 1,,(xo, yo)(x -
+Xo)(y -
+Yo ) + 2 fry (Xo, yo)(y -
+Yo)- . 
+Dieses ist. falls H, (xo, Yo) =1= 0, ein Paraboloid oder ein parabolischer Zylinder. 
+Man nennt den Flachenpunkt i.iber (xo, Yo ) flach , wenn die Schmiegquadrik eine 
+Ebene ist (H, ('\0, yo) = 0), der Punkt heil3t elliptisch (hyperbolisch. parabolisch), 
+wenn die Schmiegquadrik ein elliptisches Paraboloid (bzw. ein hyperbolisches 
+Paraboloid, ein parabolischer Zylinder) ist. 
+-G 
+Abb. 180 - Elliptischer. hyperbolischer, parabolischer Fliichenpunkt 
+Beispiel. 
+Der Affensallel 
+z = x 3 - 3x/ 
+hat im Punkt (x,y) 
+= 
+(0,0) einen 
+Flachpunkt mit der (x, y)-Ebene als 
+Tangentialebene. 
+Die Hesse-Matrix 
+lautet 
+-6Y ) 
+-6x 
+' 
+z 
+Abb. 181 - Atfensattel 
+ihre Determinante -36(x2 + /) ist auBerhalb von (0,0) stets < 0, d.h. jeder 
+Punkt der Flache mit (x, 1') =1= (0,0) ist hyperbolisch. 
+0 
+
+
+--- PDF page 413 ---
+§3. Anwcndungen der Differentiation 
+397 
+n = 3: Die Niveauftiiche f(x,y,z) = c wird in der Niihe eines Fliichenpunktes 
+(xo, Yo, ':::0) approximiert durch die Quadrik 
+gradf(xo,Yo,':::o)' (~=~~) + ~ (~=~~)T Hr(xo,yo,zo) (~=~~) =0. 
+-
+-0 
+-
+-0 
+-
+"-0 
+Beispiel. 
+Ais Schmiegquadrik besitzt die Niveauftiiche 
+x cos Y + Y cos Z + .::: cos x = 2 
+im Fliichenpunkt (0,0,2) ein zweischaliges Hyperboloid 
+x + (cos 2).1 + (.::: - 2) -
+XC -
+(sin 2)y(.::: - 2) = 0 . 
+Bemerkung. 
+Wird (auf irgend eine Weise) eine Approximation der Form 
+fIx) = :XII + L :x,LXi -
+xo,) + L :Xii (Xi -
+XOi)(X; -
+XO;) + ... + o(lx -
+xol k ) 
+i.j 
+o 
+ermittelt. dann sieht man leicht durch Differenzenbildung mit der Taylor-
+Forme!' daB es sich hierbei bereits urn die Taylor-Approximation handelt. Diese 
+Beohachtung erlaubt dic Berechnung der Taylor-Approximation aus bekannten 
+Reihenentwicklungen (--> Kap. 5.4.3). 
+Beispiel. 
+I 
+, 
+I 
+1 
+I 
+1 
+C \ I, + sin (x.1) = I + x + y + 2. (x + y) - + 3 ' (x + y)' + xy -
+3! (xy) + 
+o 
+3.3 Implizite Funktionen. 
+Urn eine Funktion g : IR ;2 D --> IR mit den Me-
+thoden der Differentialrechnung zu diskutieren, war es bis hierher im konkreten 
+Fall stets notig. daB g durch einen ex-
+pliziten Formelausdruck .1 
+= g(x) mit 
+den elementaren Funktionen der Analy-
+sis (--> Kap. 2 u. 3) darstellbar ist. 
+Hat man dagegen den Zusammenhang 
+Y 
+K 
+zwischen x und J implizit durch eine re-
+Y=g(x-l-__ 
+--+-_--"'~ 
+die Gleichung f (x, y) = 0 gegeben, so ist 
+.,y als Funktion von x" noch nicht ein-
+deutig festgelegt. da es zu einem festen 
+Xo mchrcre Losungen y von f (xo, y) = 0 
+x 
+f(x,Y)=O 
+x 
+gebcn kann. 
+Abb. 182 -
+Implizitc Funktion 
+Definition. 
+Sei f : IRc :::J D --> IR. Man sagt, durch f(x,y) = 0 ist auf dem 
+Inten'all I s; IR eille implizite Funktion g : I --> K mit Waten ill K s; IR erkliirt, 
+lVenn es .:::u jedem x E I gellau eill y E K giht mit (x, y) E D !/lui f (x, y) = O. 
+Dieses y wirel mit g(x) bezeichllet. 
+Anschaulich: Der im Rechteck { (x, y) ; x E I, y E K } verlaufende Bogen der 
+Niveaulinie f (x, y) = 0 ist als Graph}' = g(x) darstellbar. 
+
+
+--- PDF page 414 ---
+398 
+7. Funktionen in mehreren Variablen. Teil I: Differentiation 
+Beispiele. 
+1. Durch f(x,y) = 3x + 2y - 1 = 0 
+(D = IR?) ist die implizite 
+Funktion g : JR ~ JR, g(x) = ~(1 - 3x) erklart. In diesem Fall ist f(x,y) = 0 
+explizit fUr jedes x E JR eindeutig nach y auflosbar. 
+2. Durch f(x,y) = eY + y3 + x3 + x 2 -1 = 0 
+(D = JR2) ist ebenfalls genau eine 
+implizite Funktion g : JR ~ JR erkliirt; denn zu jedem x E JR hat die Gleichung 
+eY + i = 1 - x 2 -
+x3 genau eine Losung y =: g(x) (h(y) := eY + i ist strikt 
+monoton wachsend und hat als Wertebereich JR). Durch formale Manipulation 
+kann die Gleichung eY + y3 + x3 + x 2 -I = 0 nicht nach y aufgelost werden. Ohne 
+eine explizite Darstellung zu besitzen, ist daher nur die Existenz einer (eindeutig 
+bestimmten) Funktion g gesichert mit 
+eg(x) + g(x)3 + x3 + x 2 -
+1 = 0 . 
+3. Durch x2 + / - 1 = 0 sind implizit zwei Funktionen g\ : [-1, 1] ~ [0,1], 
+gdx) = VI - x2 und g2 : [-I, 1] ~ [-1,0], g2(X) = -~ 
+erkliirt. 
+0 
+Satz 3.2 iiber implizite Funktionen. 
+Sei D S JR2 offen und f : D ~ JR stetig 
+partiell d!fferenzierbar. 1st (xo, Yo) E D ein Punkt der Niveaumenge f (x, y) = 0 mit 
+!.,(xo, Yo) 1- 0, dann gibt es Intervalle I s JR und K s JR mit Mittelpunkt Xo bzw. 
+Yo so dafJ gilt: 
+a) 
+R = [(x,y) ; x E I, y E K} s D und f,(x,y) 1- o for aile (x,y) E R. 
+b) 
+Durch f (x, y) = 0 ist auf I eindeutig eine difJerenzierbare implizite Funktion 
+g : I ~ K (mit Werten in K) erklart mit der Ableitung 
+(8) 
+g'(x) = 
+fx(x,g(x» = _fx(x,y) 
+for aile x E I . 
+fy(x,g(x)) 
+fy(x,y) 
+Beweis. 
+Wir gehen aus von (xo,Yo) = (0,0) und fy(O,O) > 0, was man durch 
+Koordinatenverschiebung und evtl. Ubergang zu -f stets erreichen kann. 
+a): Aufgrund der Stetigkeit von fy gilt fy(x,y) > 0 in einer ganzen Umgebung 
+U = [ (x, y) ; x 2 + / < c2 } 
+(c > 0) des Nullpunkts. 
+b): Wir betrachten nun f nur noch auf 
+Rechtecken {(x, y) ; -IX s X SIX, -p S 
+Y S P }, die ganz in U enthalten sind. Da 
+die Funktion y ~ f(O,y) (mit f(O,O) = 0) 
+echt monoton wachst (~ Kap. 3), gilt 
+Z 
+f (0, -p) < 0, f (0, p) > 0 und des-
+halb (wegen der Stetigkeit) f(x,-P) < 0, 
+f (x, f3) > 0 fUr ein hinreichend kleines In-
+tervall -IX S x S IX. 
+y 
+Abb. 183 - Zum Beweis 
+hO 
+f=O 
+x 
+Mit solchem IX wahlen wir I := (-IX, IX), K := (-P, Pl. FUr x E I ist (wieder 
+wegen fy(x,y) > 0) die Funktion y ~ f(x,y) echt mono ton wachsend und 
+deshalb gibt es genau ein y E K mit f(x,y) = O. 
+Das zu x E I eindeutig bestimmte y mit f(x,y) = 0 wird mit g(x) bezeichnet. 
+FUr jede Folge (xn)n<e:\ aus I mit Xn ~ x gilt g(xn) ~ g(x) (wegen f(xn,g(xn» ~ 
+
+
+--- PDF page 415 ---
+§3. Anwendungen der Differentiation 
+399 
+f(x,y)); also ist g stetig. Fiir x E I, Y = g(x), dy = g(x + dX) - g(x) und 
+Ax hinreichend klein gilt nach dem Mittelwertsatz (-4 (7a)) f(x + Ax,y + Ay)-
+f(x,y) = fx(~, I'/)dx + fy(~, I'/)dy mit ~ (bzw. 1'/) zwischen x und x + Ax (bzw. y 
+und y + dy). Aus f(x,g(x)) = f(x + dx,g(x + dX)) = 0 und der Stetigkeit der 
+partiellen Ableitungen ergibt sich 
+Ay = _fx(~, 1'/) -4 _fx('"'(, y) 
+(fUr dx -4 0) . 
+Ax 
+ll(~'I'/) 
+lr(.x,y) 
+o 
+Bemerkung. 
+Zu Teii b) des Satzes sagt man auch: 
+f(x,y) = 0 ist urn (xo,Yo) iokai eindeutig durch eine impiizite Funktion y = g(x) 
+auflosbar. Das Wort "iokai" bezieht sich stets auf eine nicht naher beschriebene 
+Umgebung eines Punktes, hier (xo, Yo). 
+Nachdem die Differenzierbarkeit bewiesen ist, berechnet man die Abieitung mit 
+der Kettenregei aus der Identitat f(x,g(x)) = 0 und fahrt auch fUr die hoheren 
+Abieitungen von g(x) so fort: 
+f(x,g(x)) = 0 = IJx,g(x)) + fr(.x,g(x))g'(x) = 0 
+= (Ix + lrg') x + (Ix + frg') r g' = 0 
+= (Iu + Ing') + lrg" + (Ixr + lrrg')g' = 0 
+etc. 
+Nach g' bzw. gil aufgeiost, erhait man 
+g'(x) = _fx 
+Ir 
+gil (x) = -fl (In + 2fxrg' + lrrg,2), 
+r 
+1 (2 
+2) 
+= -f3 Iu(fr) - 2fx1IJr + frr(fx) 
+. 
+r 
+Insbesondere gilt damit in Punkten mit g'(x) = 0 stets g"(X) = -jut'y;, d.h . 
+.\" x,y 
+Die durch f (x, y) = 0 bestimmte impiizite Funktion y = g(x) 
+hat in (x, y) eine horizontale Tangente, wenn 
+f(x,y) = 0, 
+fx(x,y) = 0, 
+fy(x,y) -=1= o. 
+x ist eine lokale Maximumstelle, wenn jut' y; > 0, 
+.\" x,y 
+lokale Minimumstelle, wenn jnt' y; < O. 
+y X,y 
+
+
+--- PDF page 416 ---
+400 
+7. Funktionen in mehreren Varia bien. Teil I: Differentiation 
+Beispiel. Fur die Funktion g(x) im obigen Beispiel 2 gilt 
+g'(x) = _f,(x,y) = _ 3x2 + 2x 
+!,(x,y) 
+eY +3y2 ' 
+wobei y durch f(x,y) = 0 aus x be-
+stimmt ist. Fur x = 0 und x = -~ ist 
+g'(x) = O. Mit f,,(x,y) = 6x + 2 hat 
+g(x) in 0 eine lokale Maximum- und 
+in -~ eine lokale Minimumstelle. 
+D 
+Abb. 184 - fIx,)") = e' +.\"3 +x3 +x2 = I 
+Satz 3.2 gilt allgemein fUr <gl-Funktionen f : IR" ;2 D ---+ IR in einer Umgebung 
+eines Punktes (al,a2, ... ,all ) ED mit 
+f(al,a2, ... ,all ) = 0, 
+f,.,(al, ... ,a,,) f. 0 : 
+Es gibt eine Umgebung U des Punktes (al, ... , a,,-Il und ein offenes Intervall 
+K <;; JR, das a" enthiilt, so daB gilt 
+a) R := ((XI, ... ,X,,_I,.\,,) ; (.\I, ... ,x,,-Il E U, x" E K} <;; D und f,"(x) f. 0 fUr 
+aile x E R. 
+b) Zu jedem Punkt (XI, ... , xlI-il E U gibt es genau eine Zahl x" E K mit 
+f (XI,···, .\,,-1, XII) = O. Durch .\" := g(XI, ... , '\11-1) ist eine partiell differenzier-
+bare Funktion g : U ---+ K erkliirt mit den Ableitungen 
+(9) 
+(I :S;i:s;n-I). 
+Geometrische Deutung fUr n = 3. 
+Die Niveaufliiche f(x,y,z) = 0 einer «;1_ 
+Funktion ist urn jeden Fliichenpunkt (a, h, c) mit f: (a, b, c) f. 0 (Tangentialebene 
+nicht parallel zur z-Achse) lokal darstellbar als Graph z = g(x, y) einer ((,1_ 
+Funktion g. 
+Beispiel. 
+Durch f(x,y,z) = xcosy + ycosz + zcosx - 2 = 0 ist implizit eine 
+Funktion z = g(x, y) erkliirt. Es gilt g(O,O) = 2 
+(0 0) = _f,(O, 0,2) = _ cos y - z sin x I 
+= _I 
+g" 
+f:(0,0,2) 
+-ysinz+cosx (0.0.2) 
+(00) __ !1,(0,0,2) __ -xsiny+coszl 
+-_ 
+2 
+g, 
+-
+-. 
+-
+cos 
+.' 
+f:(0,0,2) 
+-ysmz+cosx 002 
+. 
+(,' ) 
+D 
+3.4 Lokale Minima und Maxima. 
+Sei f : D ---+ IR eine Funktion von n 
+Varia bien. Ein Punkt a E D heiBt lokale (oder relative) Maximalstelle (bzw. 
+Minimalstelle) von f, wenn es eine r-Umgebung Urea) = {x E IR" ; Ix - al < r} 
+von a gibt, so daB fUr aile x E Ur n D gilt: 
+f (x) :s; f (a) 
+(bzw. f (a) :s; f (x» 
+Gelten diese Ungleichungen jeweils fUr aile xED, dann heiBt a eine globale 
+
+
+--- PDF page 417 ---
+§3. Anwendungen der Differentiation 
+401 
+(oder absolute) Maximal- bzw. Minimalstelle. Die Zahl f(a) heiBt (fallweise) 
+lokales oder globales Maximum oder Minimum. Ein Extremum oder Extremwert 
+(tokal oder global) ist ein Minimum oder ein Maximum. 
+10k ales Maxirrum 
+z 
+z=f(x,y) 
+Abb. 185 - Extremstelien von = = f(x. y) 
+Eine der Hauptaufgaben der angewandten Analysis ist die Bestimmung der Ex-
+tremalstellen einer Funktion fix) auf einem Bereich D. Man schreibt hierfiir 
+fix) = Extr! 
+(x E D) 
+(bzw. fix) = max! oder fix) = min!). 
+Je nachdem ob die Extremalstellen im Innern oder auf dem Rand von D liegen, 
+hat man unterschiedliche Charakterisierungen: 
+Satz 3.3. Lokale Extrema im Innern von D. 
+lSI f auf" Urea). a E JRIl. eille «(j I-Fullktioll. so gill 
+a iSI lokale £xlremslelle von f =-
+grad f (a) = O. 
+Beweis. 
+Nach Voraussetzung besitzt die reelle Funktion einer Variablen 
+hit) := f (a + te;) in t = 0 eine (innere) 10k ale Extremalstelle. 
+Also gilt 
+o = h(O) = C f (a) 
+(1 :s: i :s: 11). 
+0 
+eXi 
+Man nennt a E JR" einen statiolliirell PUllkt von f , wenn grad f (a) = 0 gilt. 
+Satz 3.3 besagt, daB man die inneren lokalen Extremalstellen unter den sta-
+tionaren Punk ten zu suchen hat. Einen stationaren Punkt, der keine Extremal-
+stelle ist, bezeichnen wir als Satlelpunkl. Zur Identifizierung eignet sich das 
+folgende Ergebnis. 
+Satz 3.4. Extremstellen-Test fUr n Variable. 
+lSI U <:; JR" of len. a E U eill sIal iOlliirer PUllkl einer Funktioll f E '62( U, JR) und 
+H,(a) = (fx,x, (a») E JR" X" die Hesse-Malrix vall f ill a. dann gilt: 
+a) 
+Hf (a) positiv definil = a iSI lokale M inimalslelle. 
+b) 
+Hf (a) Ilegaliv definil =- a iSI lokale Maximalslelle. 
+c) 
+Hf(a) indefinit = a ist Sattelpunkt . 
+. . 
+Beweis. 
+Mit gradf(a) = 0 und (7) gilt fUr aile x in einer r-Umgebung von a 
+(10) 
+f(x)-f(a)=!(x-a)THf(a')(x - a) 
+
+
+--- PDF page 418 ---
+402 
+7. Funktionen in mehreren Varia bien. Teil I: Differentiation 
+mit einem a' zwischen x und a . Hf(x) ist stetig und daher mit Hf(a) auch 
+in einer ganzen Umgebung von a positiv definit (bzw. negativ definit, bzw. 
+indefinit). In dieser Umgebung ist die rechte Seite von (10) im Fall a) stets 
+positiv, im Fall b) stets negativ, also f (x) ~ f (a) bzw. f (x) :s; f (a) . 1m Fall c) 
+ist f(x) - f(a) in jeder Umgebung von a sowohl positiv als auch negativ. 
+0 
+Spezialfall 0=2. Sei a = (ai, a2) stationarer Punkt einer ~2-Funktion f in 2 
+Variablen. Unter Berucksichtigung des Positivitats-Tests (-4 Kap. 6, 7.5) liefert 
+in diesem Fall Satz 3.4 mit der Hesse-Matrix 
+den Extremstelleo-Test fUr 2 Variable: 
+a = (al.a2) stationiirer Punkt , 
+a) 
+detHf(a) > 0 , f xx(a) > 0 
+b) 
+detHf(a) > 0 , fxAa) < 0 
+c) 
+det Hf(a) < 0 
+Beispiel 1. (n = 2). Die Funktion 
+f(x,y) = 2x4 + i - 2x2 - 2l, 
+(x, y) E lR2, hat 9 stationare Punkte 
+al = (0,0) , 
+a3=(0,-I), 
+1 
+a5 = (y'2' 1) , 
+1 
+a7 = (- y'2,0) , 
+1 
+a9 = (- y'2,-1) . 
+Fur diese Punkte gilt 
+a l 
+a2 
+33 
+f xAa;) 
+- 4 -4 -4 
+f yy(a;) 
+-4 
+8 
+8 
+fxy(aj) 
+0 
+0 
+0 
+d.h. 
+f x(a) = f y(a) = o. 
+=a lokale Minimalstelle, 
+=a lokale Maximalstelle, 
+=
+a ist Sattelpunkt. 
+- 1.25 
+- 1 
+Abb. 186 -
+Z = 2x4 + l- 2x2 - 2i 
+a4 as 
+a6 
+a7 a8 a9 
+8 
+8 
+8 
+8 
+8 
+8 
+-4 
+8 
+8 
+- 4 
+8 
+8 
+0 
+0 
+0 
+0 
+0 0 
+det Hf(a;) 
+16 - 32 -32 - 32 64 64 -32 64 64 
+Demnach hat f bei a, ein 10k ales Maximum, bei a5 , a6, a8, a9 lokale 
+Minima und Sattelpunkte in a2, 33, a4 , a7. 
+0 
+
+
+--- PDF page 419 ---
+§3. Anwendungen der Differentiation 
+403 
+Der Fall det HI (a) = o. Hier muB man direkt das Vorzeichenverhalten von 
+f (x) - f (a) entweder iangs Schnitten oder sogar in vollen Umgebungen von a 
+untersuchen. 
+Beispiel 2 (n = 2). Fur die Funktion f (x, y) = (y - 2x2)(y - x 2), (x, y) E .IR.2 , 
+ist (0,0) ein stationarer Punkt mit f (0, 0) = 0 und det HI (0, 0) = O. Obwohi 
+die Funktion iangs aller geraden Schnitte in (0,0) ein iokaies Minimum besitzt, 
+ist (0,0) ein Satteipunkt, da f(x,y) < 0 fUr alle (x,y) mit x2 < y < 2X2 und 
+f(x,y) > 0 fur y > 2X2 oder y < x2 . 
+0 
+Beispiel 3 (n = 3 ). 
+u(x, y, t) = sin x cos y cos(x+ y) cos(x - y) cos wt beschreibt 
+fUr t::::: 0 die Transversalschwingung einer biegeweichen Membran in dem Qua-
+drat D : Ixl + Iyl :s; ~ (~§2, Aufg. 8). Wann und wo die graBte Ausienkung 
+eintritt, ist bestimmt durch grad u(x, y, t) = O. Die Bedingung Ut = 0 fUhrt auf 
+sin x cos y cos(x + y) cos (x - y) sin wt = 0 , 
+d.h. t = ¥, 
+(k E Z) oder x = 0 oder y = ~ oder Ixl + Iyl = ~. Letzteres ist 
+der Rand, x = 0 ist eine Knotenlinie. Differentiation nach x bzw. y liefert 
+u, = 
+cos y cos x[cos(x + y) cos (x - y) - 2 sin2 x] cos wt , 
+uy = - sin x sin y[cos(x + y) cos(x - y) + 2 cos2 y] cos wt . 
+Da cos x und cos y nur im Rand verschwindcn, bieibt nur der Fall y = 0 und 
+cos2 x - 2 sin2 x = O. Das liefert die beiden Punkte (x, y) = (± arccos yl,O) . 
+Fur t = ¥, ist somit die maximaie Ausienkung u = ±~J3. 
+0 
+* 3.5 Ausgleichsrechnung. 
+Sind in der Praxis die Werte gewisser Konstanten 
+XI, ... , x" aus experimentellen Messungen zu bestimmen, so treten foigende Pro-
+bleme auf: 
+a) Jede Beobachtung birgt einen MeBfehier, daher werden zur Sicherheit stets 
+mehr Messungen durchgefUhrt, als zur eindeutigen Bestimmung der Xi natig 
+sind. 
+b) 1m allgemeinen sind die Werte Xi nicht unmittelbar meBbar, sondern nur 
+impiizit uber die (bekannten) GesetzmaBigkeiten des Versuchsaufbaus aus den 
+MeBgraBen YI, ... , Ym ableitbar. 
+Nach AbschluB der Messungen liegt somit ein uberbestimmtes Gleichungssystem 
+fUr die Xi vor: 
+(11 ) 
+m> n. 
+Ym =fm(XI,""XIl ). 
+Nimmt man an, daB jede der GraBen Yi mit derselben MeBunsicherheit be-
+haftet ist, so wendet man seit C. F. GAUSS die Methode der kleinsten Quadrate 
+an, urn eine "Lasung" x zu bestimmen, welche die unvermeidlichen Reste 
+
+
+--- PDF page 420 ---
+404 
+7. Funktionen in mehreren Variablen. Teil 1: Differentiation 
+Yi - li(Xl, ... ,Xn) gleichmaBig minimiert, d.h. fUr welche 
+m 
+F (x" ... , xn) := I (Yi - li(X" ... , Xn)) 2 = Min! 
+i=1 
+Man bezeichnet ein solches x als "im quadratischen Mittel beste" oder 
+"ausgleichende" Losung von (11) und unterscheidet zwischen linearen und nicht-
+linearen Ausgleichsproblemen, je nachdem ob aIle Funktionen Ii linear in den Xi 
+sind oder nieht. 
+CD Lineare Ausgleichsprobleme. In diesem FaIle stellt (11) ein iiberbestimmtes 
+lineares Gleichungssystem dar, 
+Ax = y, 
+A E IR. mxn, m > n , 
+es fUhrt auf das Minimalproblem 
+(12) 
+F(x) = lAx - yf = Min! 
+mit quadratischem Polynom 
+F (x) = (Ax - yf (Ax - y) = x T AT Ax - 2XT AT Y + yT Y . 
+Daher ist Satz 3.3 anwendbar und man erhalt als notwendige Bedingung fUr die 
+Losung von (12) mit Formel (11) aus §2 
+gradF(x)=2ATAx-2ATy=O; 
+das ist ein lineares n x n-Gleichungssystem 
+(13) 
+I AT Ax =AT y. 
+Man nennt (13) die Gauj3-Normalgleichung des linearen Ausgleichsproblems (12). 
+Beispiel. 
+Wird ein Fahrzeug aus der Geschwindigkeit v auf Stillstand herab-
+gebremst, so setzt man fUr den Bremsweg Y eine quadratische Abhangigkeit 
+von v an 
+Y = av2 + bv + c . 
+Zur Bestimmung von a, b, c werden 5 Messungen durchgefUhrt 
+Vi [km/h] 
+9 
+17 
+17 
+25 
+35 
+Yi[m] 
+3 
+9 
+5 
+14 
+23 
+Die Normalgleichung 
+
+
+--- PDF page 421 ---
+§3. Anwendungen der Differentiation 
+ergibt ohne MaBeinheiten das Gleiehungssystem mit Koeffizientenmatrix 
+(
+2064853 
+69055 
+2509 
+69055 
+2509 
+103 
+2509 
+103 
+5 
+und eindeutiger Lasung 
+41214) 
+1420 
+54 
+a;::::; 0.012, b;::::; 0.259, c;::::; -0.525. 0 
+25 
+14 
+!l 
+25 
+35 x 
+Abb. 187 - Ausgleichende Parabel 
+Allgemein gilt 
+Satz 3.5. 
+a) 
+Das lineare Ausgleichsproblem (12) ist immer !Osbar. 
+b) 
+Die Losungen von (12) und (13) stimmen uberein. 
+c) 
+Fur zwei Losungen x, Xo von (12) oder (13) gilt stets Ax = Axo . 
+1st RangA = n, so ist die Ausgleichs!Osung eindeutig. 
+405 
+Beweis. 
+a): Da F(x) ;;::: 0 fUr aIle x E lRn, muB jede Normalform des quadra-
+tisehen Polynoms F (x) die Gestalt 
+aiz~+ . +a;z;+y2 besitzen (--+ Kap. 6, 
+7.3). Der minimale quadratisehe Feh-
+ler ist also y2, er wird in den Punk-
+ten mit den z-Koordinaten Zl = ... = 
+Zr = 0 angenommen. 
+b): Mit Satz 3.3 erfUllt jede Minimal-
+stelle Xo die Normalgleiehung (13). 
+1st umgekehrt Xo eine Lasung von 
+(13), so gilt AT (Axo - y) = 0, d.h. das 
+Residuum r = Axo - y ist orthogo-
+nal zu allen Spalten von A und damit 
+orthogonal zu Ax fUr jedes x E lR n , 
+folglieh gilt 
+Abb. 188 - Lineare Ausgleichung 
+Daher nimmt lAx - yl2 sein Minimum y2 = r2 fUr x = Xo an. 
+e): 1st x eine weitere Lasung von (12), so muB mit (14) lAx - Axol = 0 sein. 
+Fur RangA = n folgt aus A(x - xo) = 0 sofort x = Xo . 
+0 
+Der Satz zeigt bereits zwei Wege auf, wie man im konkreten Fall die Aus-
+gleiehslasung bestimmen kann: 
+1. Weg (Direkte Lasung der Normalgleiehung). 
+Bereehne B = AT A, z = AT Y und lase Bx = z mit Gauss-Elimination. 
+2. Weg (Uber orthogonale Transformation). 
+Mittels ebener Drehungen, Spiegelungen oder uber das SCHMIDT-Orthogonali-
+
+
+--- PDF page 422 ---
+406 
+7. Funktionen in mehreren Variablen. Teil I: Differentiation 
+sierungsverfahren wird sukzessive eine orthogonale Matrix P berechnet, so 
+daB P A obere Dreiecksgestalt besitzt, d.h. 
+Mit b := Py = (:~), bl E JRn, b2 E JRm-n folgt damit (-4 Kap. 6, Satz 6.2) 
+lAx - yl2 = IP Ax - pyl2 = IDx - bd2 + Ib212. Das Minimum wird also erreicht, 
+wenn Dx = bl . Dieses n x n Gleichungssystem besitzt bereits Stufenform und 
+ist daher leicht aufzulOsen. 
+In der Anwendung ist der zweite Weg zwar aufwendiger, aber in den numeri-
+schen Ergebnissen daftir zuverHissiger. 
+In der folgenden Procedure Linfi t wird (nach Weg 2) Ax = y tiber sog. 
+HOUSEHOLDER-Spiegelungen auf Stufenform gebracht. (Zur Vereinfachung wird 
+die rechte Seite y als (n + 1)-te Spalte einer m x (n + I)-Matrix A (I, K) gespei-
+chert.) 
+Procedure Linfit 
+S=O 
+, ---- n Househo1der-Spiege1ungen 
+For J=I To M 
+For 1=1 To N 
+S=S+A(J,I)*A(J,K) 
+S=O 
+Next J 
+For J=I To M 
+S=S/F 
+S=S+A(J,I)*A(J,I) 
+For J=I To M 
+Next J 
+A(J,K)=A(J,K)-A(J,I)*S 
+If S=O Then 
+Next J 
+Print "Matrix singu1aer" 
+Next K 
+End 
+Next I 
+Endif 
+V=Sqr(S) 
+If A(I,I»O Then 
+V=-V 
+Endif 
+X(I)=V 
+F=S-V*A(I,I) 
+A(I,I)=A(I,I)-V 
+For K=I+1 To N+1 
+, ----- Auf10esung -------------
+X(N)=A(N,N+1)/X(N) 
+For I=N-1 To 1 Step -1 
+S=A(I,N+1) 
+For J=I+1 To N 
+S=S-A(I,J)d(J) 
+Next J 
+X(I)=S/X(I) 
+Next I 
+Return 
+CD Nicbtlineare Ausgleicbsprobleme. In diesem FaIle kann die "beste Losung" 
+von (11) meist nur angenahert bestimmt werden. 
+Das einfachste Verfahren 
+wurde bereits im Beispiel von 3.1 vorgestellt: Man wendet das Gradientenver-
+fahren auf die Funktion F(x) = Iy - f(x)1 2 an. In vielen Fallen ist es jedoch 
+vorteilhafter, fUr einen Naherungswert x, der verbessert werden solI, die lineare 
+Approximation bereits in den Gleichungen (11) durchzuftihren: 
+
+
+--- PDF page 423 ---
+§3. Anwendungen der Differentiation 
+407 
+Yl = fl(X) + gradfl(X) . (x - x) + o(lx - xi) , 
+Ym = fm(x) + gradfm(x)· (x - x) + o(lx - xi) . 
+Anstelle von Iy - f(x)1 = Min! wird somit das lineare Ausgleichsproblem 
+(15) 
+geiost, wobei die m x n-Matrix 
+die Funktional- oder Jacobi-Matrix von f : R.n -. R.m an der Stelle x bezeich-
+net (-. §4). Die Losung x - x von (15) liefert dann die Richtung, in welcher der 
+niichste verbesserte Niiherungswert x fUr die Ausgleichslosung zu suchen ist. 
+Genauso wie beim Gradientenverfahren wird x durch fortschreitende Halbie-
+rung von x - x so bestimmt, daB Iy - f(x)1 < Iy - f(x)1 . 
+'Programm NLSQ -----------------
+Dim F(6),X(3),A(6,4),T(6),Y(6) 
+M=6 
+N=3 
+For 1=1 to M 
+Input "t(i), y(i)= ",T(I),Y(I) 
+Next I 
+Input "a,b,c= ",A,B,C 
+Gosub F(A,B,C) 
+FO=F 
+L=O 
+Repeat 
+For 1=1 To M 
+A(I,l)=l 
+A(I,2)=Exp(C*T(I)) 
+A(I,3)=B*T(I)*Exp(C*T(I)) 
+A(I,4)=F(I) 
+Next I 
+Gosub Linfi t 
+Lambda=l 
+Repeat 
+Al=A+Lambda*X(l) 
+Bl=B+Lambda*X(2) 
+Cl=C+Lambda*X(3) 
+Gosub F(Al,Bl,Cl) 
+Exit If F<FO 
+Lambda=Lambda/2 
+Until Lambda<O.002 
+Exit If (Lambda<O.002) 
+If F<FO Then 
+A=Al 
+B=Bl 
+C=Cl 
+FO=F 
+Endif 
+L=L+l 
+Until L=30 
+Print "Steps, a, b, c= ", L, A, B, C 
+End 
+Procedure F(A,B,C) 
+F=O 
+For 1=1 To M 
+F(I)=Y(I)-A-B*Exp(C*T(I)) 
+F=F+F( I )d(I) 
+Next I 
+F=Sqr(F) 
+Return 
+Beispiel. 
+Die Temperatur y eines Korpers klingt als Funktion der Zeit t expo-
+nentiell auf einen asymptotischen Wert a abo FUr die nichtlineare Abhiingigkeit 
+y(t) = a + bect 
+
+
+--- PDF page 424 ---
+408 
+7. Funktionen in mehreren Variablen. Teil 1: Differentiation 
+soIlen die Konstanten a, b [0C] und c [Std-I] durch Ausgleichsrechnung aus 6 
+MeBwerten bestimmt werden: 
+ti 
+2 3 5 
+7 
+8 
+Yi 10 8 6 5.5 5.2 5 
+Mit gradfi(a,b,c)T = (l,ecti,btiecti) liefert das Programm NLSQ fUr die Start-
+werte a = 5, b = 1, c = -1 nach 8 Schritten die Ausgleichslosung 
+a ~ 5.00892, 
+b ~ 9.69136, 
+c ~ -0.64798 . 
+In jedem Naherungsschritt wird das lineare Ausgleichsproblem mit der Pro c e-
+dure LINFIT gelost. 
+0 
+3.6 Extremwertaufgaben mit Nebenbedingungen. 
+In zahlreichen Extrem-
+wertaufgaben f(XI, ... , x,,) = Extr! ist die Menge der zulassigen Punkte 
+x = (XI, ... , x,,) eingeschrankt durch eine oder mehrere Nebenbedingungen der 
+Form gdxl,""x,,) = O, ... ,gdxl, ... ,xn) = 0; d.h., die zulassigen x liegen auf 
+einer Hyperftache oder im Durchschnitt verschiedener Hyperftachen. 
+Wir behandeln zuerst den Fall k = 1. 
+Sei M := {x E JR" ; g(x) = O}. 
+Man 
+sagt, a E Mist eine M axirnalstelle (M in i-
+rnalstelle) von f unter der Nebenbedingung 
+g(x) = 0, wenn es eine Umgebung Ur(a) 
+gibt, so daB f(x) :s; f(a) 
+(f(a):s; f(x)) gilt 
+fUr aIle x E Ur(a) n M. Die entsprechende 
+Aufgabe kennzeichnen wir durch 
+f(x) = Extr! 
+NB. 
+g(x) = 0 . 
+l. Methode (Die explizite Methode). Man 
+lost, falls moglich, g(x) = 0 nach einer Va-
+ria bien auf, sagen wir x" = h(XI, ... , x,,-d, 
+und eliminiert tiber diese Substitution x" 
+aus f. 
+Es entsteht das Extremalproblem 
+ohne Nebenbedingungen: 
+f=-2 
+f=-1 
+f=O 
+f=1 
+gradf=O 
+f=-3 
+f=-4 
+f=O 
+-~-
+f=-1 
+f=-2 
+f=-3 
+2 globale 
+Maxima 
+gradg(x,Y)=O 
+lokales Minimum 
+Abb. 189 - f(x) = Extr'. g(x) = 0 
+f(XI, ... ,X,,-I,h(XI, ... ,x,,-d) = Extr! 
+Beispiel. 
+Gesucht sind die warmsten und die kaitesten Punkte auf der Sphare 
+x2+i+z2 = 1 bei einer Temperaturverteilung T(x,y,z) = xy+xz. Da in (x,y,z) 
+und (-x, -y, -z) dieselbe Temperatur herrscht, gentigt es, die Extremwerte auf 
+der Hemisphare x = Vi - y2 - z2 zu bestimmen. 
+F(y,z) := T(x(y,z),y,z) = (y + z)Vl - y2 - z2 = Extr! 
+Auf dem Kreis x = 0, i + z2 = 1 gibt es keine Punkte extremaler Temperatur, 
+dort ist T = O. Ftir i + z2 < 1 berechnen wir tiber Fy = Fz = 0 die stationaren 
+
+
+--- PDF page 425 ---
+§3. Anwendungen der Differentiation 
+409 
+Punkte. Fiir diese muB gelten 
+21 + z2 + yz = 1, l + 2z2 + yz = 1 . 
+Man erhalt also fUr l + z2 < 1 nur die Losungen y = z = ±4 und damit auf 
+der Sphare die moglichen Extremalpunkte 
+Die stetige Temperaturverteilung hat auf der Sphare Punkte minimaler und ma-
+ximaler Temperatur (--+ Satz 2.1), daher sind wegen T(a) = T(-a) = ~v'2, 
+T (b) = T ( -b) = 
+- ~ v'2 die Punkte a, -a die Maximalstellen, b, -b die 
+Minimalstellen. 
+o 
+2. Methode (Parametrisierung der Nebenbedingungen). 1m Fall zweier Variablen, 
+beispielsweise, bestimmt man eine Parameterdarstellung x = x(t), y = y(t), 
+tEl, der Kurve g(x,y) = 0 und lost fUr F(t) := f(x(t),y(t)) das gewohnliche 
+Extremalproblem F(t) = Extr! (--+ Kap. 3, §2, dabei sind die Randpunkte von 
+I nicht zu vergessen !). 
+Die 3. Methode (die Lagrange-Multiplikatorregel) basiert auf der folgenden Be-
+obachtung 
+Satz 3.6. Zu jeder Losung a des Extremalproblems 
+f(x) = Extr! 
+NB. 
+g(x) = 0 
+mit rcl-Funktionen f,g und grad g(a) 1- 0 gibt es eine Zahl Ao E JR, so daft gilt 
+grad f (a) + Ao grad g(a) = 0 . 
+Beweis. 
+Sei a = (al, ... , an). Wegen grad g(a) 1- 0 konnen wir (nach evtl. 
+Umnumerierung) gXn (a) 1- 0 annehmen. Dann ist nach dem Satz iiber impli-
+zite Funktionen die Nebenbedingung g(Xl, ... , xn) = 0 "lokal" (urn x = a) 
+nach Xn 
+aufiosbar, 
+Xn 
+= 
+h(Xl, ... , xn-d . 
+Die Voraussetzung besagt nun, 
+daB f(Xl, ... ,Xn-l,h(Xl, ... ,xn-d) in (al, ... ,an-d ein lokales Extremum besitzt. 
+Folglich gilt (--+ Satz 2.6 und Satz 3.2) 
+0= fx,(a) + fxJa)hx,(al"'" an-d 
+= fx,(a) - fxJa)gx, (a)gxn (a)-l 
+(1 :::; i :::; n - 1) . 
+Mit Ao := -fxn (a)gxn (a)-l folgt die Behauptung. 
+0 
+Geometrische Interpretation. Unter den Annahmen von Satz 3.6 miissen die 
+Gradienten von fund g in einem Extremalpunkt parallel sein. 
+
+
+--- PDF page 426 ---
+410 
+7. Funktionen in mehreren Variablen. Teil I: Differentiation 
+1m FaIle n = 2 bedeutet dies, 
+daB sich die Kurve g(x) = 0 und 
+die Niveaulinie f (x) = f (a) im 
+Extremalpunkt beriihren. 
+A.o 
+heiBt Lagrange-M ultiplikator 
+und das sich aus dem Satz er-
+gebende Losungsverfahren nennt 
+man die 
+f=5 
+f=4 
+f=3 
+f=2 
+f= 1 
+f=O 
+Abb. 190 - Lagrange-Multiplikator 
+Lagrange-Multiplikatorregel : 
+1. Schritt. Man bildet die Hilfsfunktion 
+L(Xl, ... , xn, A) = f(Xl, ... , xn) + Ag(Xl, ... , xn) 
+in n + 1 Variablen Xl, ... , x n, A und berechnet grad L. 
+2. Schritt. 
+Man bestimmt die Losungen (al, ... , an, ,10) des i.a. nichtlinearen 
+Gleichungssystems grad L(Xl, ... , X n , A) = 0, 
+d.h. 
+LXI = fXI (Xl, ... , Xn) + Agxl (Xl, ... , Xn) = 0 
+Lx, =fx,(Xl, ... ,Xn) +Agx,(Xl,""Xn) =0 
+LXn =fxn(xJ, ... ,xn) +Agxn(Xl, ... ,Xn) =0 
+LA = 
+g(xJ, ... , Xn) 
+= 0 
+3. Schritt. Man untersucht, we1che der gefundenen Werte (al, ... ,an) tatsachlich 
+Extremalstellen sind. A.o spielt keine Rolle mehr. Die Kriterien, ob ein Extre-
+mum vorliegt oder nicht, sind auBerst unhandlich. In den meisten praktischen 
+Problemen lassen sich die Extrema unter gefundenen Punkten "aus physikali-
+schen Griinden" oder durch direkten Vergleich der Funktionswerte erkennen. 
+SchlieBlich sind noch die Punkte b, in denen f, g nicht differenzierbar sind 
+oder fUr die grad g(b) = 0 ist, getrennt zu untersuchen (-+ Abb. 189). 
+Vollig analog verrahrt man bei k 
+(k < n) Nebenbedingungen: 
+Sind f,gl, ... ,gk ~l-Funktionen und gradgl(x), ... ,gradgdx) fUr aIle x EM, 
+M = {x E 1Rn ; gl (x) = ... = gk(X) = O}, linear unabhangig, dann findet man 
+die Losung des Extremalproblems mit den Nebenbedingungen 
+unter den stationaren Punkten der Lagrange-Hilfsfunktion 
+Beispiel L 
+Es ist das Volumen des groBten Quaders mit achsenparallelen Kan-
+x2 
+y2 
+z2 
+ten innerhalb des Ellipsoids 2" + b2 +"2 = 1 zu bestimmen. 
+a 
+c 
+
+
+--- PDF page 427 ---
+§3. Anwendungen der Differentiation 
+411 
+Das Problem 
+v = (2x)(2y)(2z) = 8xyz = max! 
+NB. 
+wird mit der Multiplikatorregel gelost. 
+1. Schritt. 
+Die Hilfsfunktion: 
+x 2 
+y2 
+z2 
+L(X,y,z,A) = 8xyz + A(2 + b2 + 2" -1). 
+a 
+c 
+2. Schritt. grad L = 0 : 
+2x 
+Lx = 8yz +A 2 a 
+2y 
+Ly = 8xz +), b2 
+2z 
+Lz = 8xy +)'2 
+c 
+=0 
+=0 
+=0 
+x 2 
+y2 
+z2 
+LA = 2 + b2 + 2" - 1 = 0 . 
+a 
+c 
+Multiplikation der ersten (2., 3.) Gleichung mit x (bzw. y, z) ergibt -4xyz = 
+. x2 
+• y2 
+. z2 
+= ), 2 = ), b2 =), 2" ' also ), i= 0 (A = 0 ftihrt auf die Minimallosung V = 0 ) 
+a 
+c 
+3x2 
+abc 
+und ~ 
+= 1 bzw. x = v'3' y = v'3' z = v'3' 
+Das maximale Volumen betragt Vrnax = ~J3abc. 
+D 
+Beispiel 2. 
+Es sind die Scheitelpunkte der Ellipse x2 + xy + y2 = 5 zu bestim-
+men, das sind die Punkte mit groBten oder kleinsten Abstand zum Nullpunkt: 
+f (x, y) = x2 + l = Extr! 
+NB. 
+x2 + xy + l - 5 = 0 . 
+L = f + Ag = x 2 + l + A(X2 + xy + l- 5) , 
+Lx = 2X+A(2x+y) =0 
+Ly = 2y + A(X + 2y) 
+= 0 
+LA = x 2 + xy + y2 - 5 = 0 . 
+Offenbar muB A 1= 0 sein. yLx -xLy = 0 ergibt x2 - y2 = 0, d.h. x = ±y. Aus 
+x = y folgt x = ±j"i und aus x = -y folgt x = ±0. Die Scheitelpunkte 
+sind also (j"i, j"i), (-j"i, -j"i) und (0, -0), (-0, 0) . 
+Beispiel 3. 
+f(Xl, ... ,Xn) =xix~"'x~ =max! 
+NB. 
+xi + ... + x~ - 1 = 0 . 
+Aus 
+2X1X~X~ ... x~ + A2xl = 0 
+2xix2x~ ... x~ + A2x2 = 0 
+2xr'" X~_IXn + A2xn = 0 
+xi + ... + x~ - 1 
+= 0 
+
+
+--- PDF page 428 ---
+412 
+7. Funktionen in mehreren Variablen. Teil I: Differentiation 
+folgt sofort -xix~'" x~ =.hi = AX~ = ... =.h~, also xf = ~. Wegen /(0) = 0 
+handelt es sich urn die laut Satz 2.1 vorhandenen MaximalsteIlen; d.h. fUr aIle 
+Punkte der Sphare xi + ... + x~ = 1 gilt 
+Sind at, ... , an beliebige positive reelle Zahlen und 
+b2 .= 
+aj 
+I' at + ... +an 
+Das geometrische Mittel ist nie grofier als das arithmetischen Mittel. 
+D 
+Beispiel 4. 
+Es werden die Extremwerte der quadratischen Form q(x) = xT Ax 
+auf der Sphare {x E 1R.n ; Ixl = 1} gesucht (A = AT E 1R.nxn): 
+x T Ax = Extr! 
+NB. 1- xT x = 0 . 
+Mit der Lagrange-Hilfsfunktion 
+L(x, A) = xT Ax + A(1 - xT x) 
+entsteht das Gleichungssystem (- §2, (11)) 
+LXi = 2eT Ax - 2.hi = 0 
+LA = 1 - x T X = 0 , 
+welches gleichbedeutend ist mit dem Eigenwertproblem 
+Ax = AX, 
+Ixl = 1 . 
+Die Extremwerte sind also unter q(x) = xT Ax = AxT X = A zu suchen. 
+Ergebnis. 
+Der kleinste Eigenwert von A ist das Minimum, der grofite Eigen-
+wert das Maximum der quadratischen Form q(x) = xT Ax auf der Sphare 
+{x E 1R.n ; Ixl = 1}. Diese Extrema werden fUr die zugehorigen Eigenvekto-
+ren der Lange 1 angenommen. 
+Anwendung in der Mechanik. Der maximale (minimale) Wert der Normalspan-
+nung 
+(J = nT Sn, Inl = 1, in einem Punkt eines elastisch belasteten Korpers 
+ist der grofite (kleinste) Eigenwert des Spannungstensors S. Die entsprechenden 
+Eigenvektoren bestimmen die Hauptspannungsrichtungen. (- Kap. 6, 6.1, Bsp.9 
+und §7, Aufg. 7). 
+D 
+Zusammen mit der Charakterisierung von Extremstellen im Innern eines Ge-
+biets (- 3.4) gilt fUr das Extremalproblem einer Funktion / auf dem durch 
+Hyperftachen gj(x) = 0 begrenzten Bereich 
+U = {x E 1R.n ; gt (x) ::;; 0, ... , gr(x) ::;; O} : 
+
+
+--- PDF page 429 ---
+§3. Anwendungen der Differentiation 
+413 
+Die Kandidaten fUr Extremstellen von I : V -4 ]R. sind 
+a) 
+die Ecken von V (falls vorhanden, eindeutige Losungen von mogli-
+chen Kombinationen gj(x) = gj(x) = ... = gdx) = 0, sonst g/(x) < 0); 
+b) 
+die Extremalstellen in den berandenden Kurven-, Fliichen- und Hy-
+perfliichenstucken von V, die man entweder 
+oder 
+mit der Lagrange-Multiplikatorregel 
+durch Parametrisierung bzw. Einsetzen der entsprechenden Ne-
+benbedingungen 
+bestimmt; 
+c) 
+die stationiiren Stellen von I im Innern von v: 
+[ x E ]R." ; g, (x) < 0, ... , g,.(x) < 0 }; 
+d) 
+die Punkte in V, in denen I nicht differenzierbar ist. 
+Der gro13te bzw. kleinste Funktionswert an den Stellen a), b), c), d) liefert das 
+globale Maximum bzw. Minimum von I auf U. 
+Die Bestimmung der Ecken und der Stucke, die V beranden, ist fUr II > 2 meist 
+sehr schwierig, im ]R.~ tiber eine Skizze von V zu erledigen. 
+Beispiel. 
+Gesucht sind die Extremwerte von I (x, y) = 3x~ - 2xy + r" auf der 
+Kreisscheibe XC + yC :-s; 1. Fall a) und d) treten nicht auf. 
+c) Lokale Extremstellen im Innern x 2 + / < 1. 
+I, = I, = 0; 
+d.h. 
+6x - 2.1' = 0, 
+2y - 2x = O. 
+Es gibt nur einen stationiiren Punkt (x, y) = (0,0) im Innern. Da HI (0, 0) = 
+= (_~ -~) positiv definit ist, besitzt f in (0,0) ein 10k ales Minimum. 
+b) Die Extremstellen auf dem Rand 
+f(x,y) = Extr! 
+NB. 
+x2 + / - 1 = 0 
+bestimmen wir mit der Multiplikatorregel: 
+L(x,y.i.) = 3x~ - 2xJ + / + ).(x2 + / -1) . 
+L, = 
+6x - 2 J + 2i.x = 0 , 
+L, = -2x + 2y + 2).y = 0 , 
+Li. = 
+x 2 + / - 1 
+= 0 . 
+Wie in Beispiel 4 ist ein Eigenwertproblem zu losen: Die Eigenwerte sind 
+)" 
+= 2 + J2, ).2 = 2 - J2, dazu die normierten Eigenvektoren 
+1 
+(1) 
+b-
+1 
+(1) 
+a= J4-2J2 I-v2 
+' 
+- J4+2J2 1+v2 
+Globales Maximum in a, -a: f(a) = f(-a) = )., = 2 + J2, 
+Globales Minimum in 0: 1(0) = 0 . 
+D 
+
+
+--- PDF page 430 ---
+414 
+7. Funktionen in mehreren Variablen. Teil I: Differentiation 
+Aufgaben 
+1. 
+Man bestimme fUr die Funktion 
+[(x, y) = x 1eY!l (y -
+3) -
+~/, (x,y) E JR.2 , 
+grad[ und die Hesse-Matrix Hi, 
+die Taylor-Annaherung 2.0rdnung im 
+Punkt (0,0), 
+den Typ der Flachenpunkte auf dem 
+Graphen z = [(x,y) langs x = 0, 
+die 
+Taylor-Reihe 
+von [(x,y) samt 
+Konvergenzbereich uber die Exponen-
+tialreihe. 
+2. 
+Fur die Funktion [(x, y) = l - 3x/ + x 3 bestimme man 
+~ = y =- .S 
+a) die lokalen und die globalen Extremstellen und die Sattelpunkte, 
+b) die Extremwerte auf {(x,y) : Ixl ::; ~, 1.1'1::; 2}. 
+c) 
+die Taylor-Reihe im Punkt (~ , ~). 
+3. 
+Fur die Funktion 
+{
+'2~ 
+Sin V x- + y-
+x . = 
+."., 
+f(· ,)) 
+vlx~+ y-
+bestimme man: 
+, (x, y) =1= (0,0) 
+, (x,y) = (0, 0) 
+a) die Tangentialebene an den Graphen :: = [(x,y) im Punkt (1,0,0). 
+b) die Taylor-Entwicklung bis zur 2.0rdnung in (0,0) und (1,0). 
+4. 
+Man entwickle nach der Taylorformel bis zur 2. Potenz von x, y: 
+f·( 
+) 
+,. xy 
+(I 
+a) 
+x, y = x - SIn:2 urn 
+,n), 
+b) [(x, y) = (x 2 - 2i) . (4 + xy) - 1/2 urn (0,0), 
+c) [(x,y) = x2 -
+cos(~) in (n, I). 
+S. 
+Man bestimme und skizziere den Bereich der Halbebene x > 0, in dem die Hesse-
+Matrix Hg(x,y) der Funktion g(x, y) = x y , x> 0, indefinit ist. 
+6. 
+Man bestatige, daB y + 2x = e2r/ ' fUr x > ° 
+zwei verschiedene Auflosungen y = [(x) 
+besitzt und bestimme deren gemeinsamen Definitionsbereich. 
+Man bestimme und diskutiere die Stellen mit f' (x) = ° 
+und skizziere beide Graphen. 
+Wie lauten die entsprechenden Antworten fUr die Aufiosung x = g(y)? 
+7. Gegeben ist die Kurve g(x, y) = 12i - 20xi + SX4 = 0, X > 0, y > 0. 
+a) In der Umgebung welcher Punkte ist implizit eine Funktion y = [(x) bestimmt? 
+Berechne dort f' = ~~ implizit. 
+b) In welchen Punkten der Kurve ist f' = O? Berechne fUr diese Kurvenpunkte den 
+Wert von [". 
+
+
+--- PDF page 431 ---
+§3. Anwendungen der Differentiation 
+8. Die Cassini-Kurven 
+Nk sind die Niveaulinien 
+(j(x,y) = k) der Funktion 
+415 
+f(x,y) = [(x+l)2+/J'[(x-l)2+/J , x,y E JR. 
+z=f(x,y) 
+a) Auf welcher Kurve T liegen die Punkte 
+mit Tangenten parallel zur x-Achse? 
+Fiir welche Werte von khat Nk genau 4 
+derartige Purikte? 
+b) Fiir den Fall k = 1 (Lemniskate) diskutiere 
+man die Aufiosungen nach y mit maxima-
+lem Definitionsbereich und bestimme man 
+die Tangenten in (x, y) = (0,0) . 
+c) Fiir welches 
+k > 
+1 verschwindet die 
+Kriimmung von Nk in den Punkten mit 
+x = 0 
+(Rennbahnkurve)? 
+Man skizziere die Kurve! 
+9. Die KEPLER-Gleichung 
+2n 
+. 
+T t = 1p -
+E sm 1p 
+bestimmt den Ort eines Planeten auf ei-
+ner Ellipsenbahn in Abhangigkeit von 
+x 
+der Zeit t nach dem 2. Kepler-Gesetz 
+A 
+( 0 < E < 1 numerische Exzentrizitat der 
+Ellipse, 1p = 1: AOQ, T Umlaufzeit). 
+Man zeige, daB implizit genau eine Funktion 1p = 1p(t) definiert ist und be stirn me 
+ihre Extremstellen (-> Band 2: Kap. 9, §3, Aufg. 11 und Kap. 11, 4.5). 
+10. Gilt fUr die <g'l-Funktion f : JR3 -> JR im Punkt x 
+f x =/= 0, fy =/= 0, fz =/= 0, 
+so kann in einer Umgebung nach x, y und z aufgelost werden: x = x(y,z), 
+y = y(x, z), z = z(x, y) . Man zeige, daB fUr die Ableitungen dieser Funktionen 
+ax . ay . az =-1 
+ay 
+az 
+ax 
+gilt und iiberpriife dies an der Van-der-Waals-Gleichung f(p, V, T) = pV - RT. 
+11. Wird eine Schraubenfeder belastet, so ruft dies 
+Torsion und Biegung im Werkstoff hervor. 1st 
+F 
+die Belastung in Richtung der Schrau-
+bachse, so sind folgende KenngroBen der Feder 
+~B! 
+Funktionen von F : Die Hohe H, der Radius 
+M 
+I 
+r, die Windungszahl n, die Torsion 
+T und 
+die Kriimmung K. Die Werte fUr F = 0 seien 
+F 
+Ho, ro, no, TO bzw. KO · Konstant bleiben bei 
+M 
+I 
+Belastung L: die Lange, GJ: die Torsions-
+T 
+~ 
+und EJ : die Biegesteifigkeit des Werkstoffes. 
+/ 
+Zerlegt man in jedem Punkt der Feder das Belastung~lllullH;llL 
+1V1 
+111 
+lV1B: das 
+Biege- und MT : das Torsionsmoment (-> Bsp. in 1.2), so erhalt man drei implizite 
+Gleichungen fUr H(F), r(F) und n(F) : 
+
+
+--- PDF page 432 ---
+416 
+7. Funktionen in mehreren Variablen. Teil I: Differentiation 
+Die Torsionsgleichung GJ(ro - r) = -mT liefert (-> §I (14)) 
+(*) 
+GJ· (Ho JU _H2 - !iJU -W) = F 'r' JU-W 
+Lro 
+0 
+Lr 
+Die Biegegleichun,g EJ(KO -1\) = -ma ergibt 
+L2 - HJ 
+L2 _ H2 
+(**) EJ'(--r-o--
+r 
+)=-F·r·L-H. 
+n = n(F) ist bestimmt durch die Beziehung 
+(* * *) 
+(2I11rr)2 + H2 = L2 . 
+a) Fiir welche Belastung F",a, ergibt sich aus (*) und (**) H(F",a,) = O? 
+b) Man berechne aus (*), (**), (* * *) H'(O), r'(O) und n'(O) und bestatige (mit 
+sin ::10 = ~o) die gebrauchlichen Naherungen: 
+, 
+. , 
+H - Ho::::: H'(O)' F = _Lr~(co~/o + Sl~-J::IO). F 
+1 
+. 
+2 
+cos 2::10 
+r-ro:::::r'(O)'F =rosIn::lo(GJ-EJ 
+' 
+)'F 
+cos- ::10 
+, 0 
+I. 
+[ I 
+I] 
+n - no ::::: n ( ). F = 2n roL SIn::lo COS::lo EJ -
+GJ . F 
+12. Man lose im IR 2 
+f(x,y) = x2 -xy+ / -x = Extr! 
+NB. g(x,y) = x2 +),2 -
+I -s; 0 . 
+1st hier auch ein Eigenwertproblem versteckt? 
+13. Gegeben ist die reelle Funktion f (x, y) = sin[n(x2 + y)] + cos(ny) tiber dem Bereich 
+(der reellen Ebene) A = {(x,y) ; 0 -s; y -s; 1- x2 }. 
+a) Man skizziere A. 
+b) Man bestimme die stationaren Punkte von z = f(x,y) im Innern von A. 
+c) 
+Man diskutiere die Funktion 
+g(x):= f (x, 0) 
+in 
+Ixl -s; 1. 
+Gefragt sind: g'(x), g"(X), die Symmetrie zu den Achsen, die Extrema, die Wen-
+depunkte, die Monotonie- und Konvexitatsbereiche sowie eine sorgfaltige Skizze. 
+(Hinweis: Fiir u::::: .6532712 ist cosu = 2u' sinu) 
+d) Wo liegen die lokalen Extremstellen von z = fix, y) auf y = 1- x2, y ;:;: O? 
+e) Man ermittle Lage und Wert der globalen Extrema von z = f(x,y) auf A und 
+trage die Punkte in die Skizze von A ein. 
+14. Die grij/Jte Raute in eillem Wiirfel. 
+Fiir welche Werte von a,b (-I -s; a,b -s; +1) 
+ist das ebene Viereck mit den vier Ecken 
+A = (I,a,-I), B = (b,I,-I), C = (-I,-a,I), 
+D = (-b, -I, I) ein gleichseitiges mit maximalem 
+Flachellillhalt ? 
+Tip: Lagrange-M ultiplikatorenregel verwenden! 
+IS. Von allen Vierecken mit gegebenen Sei-
+ten a, b, c, d (in der skizzierten Reihenfolge) 
+ist das flachengroJ3te stets ein Sehllellvier-
+eck. 
+Man zeige dies mittels Lagrange-
+M ul ti plik a torregel. 
+~
+' 
+c 
+: '1 , 
+'r 
+,l ___ x. ______ .. 
+,,' . 
+8 
+A 
+CJ
+t 
+y 
+a 
+b 
+a 
+
+
+--- PDF page 433 ---
+§3. Anwendungen der Differentiation 
+16. Fur eine Rilllle mit Trapez-QuersclJ/litt gebe 
+man den Zusammenhang f (h, ':I., A, V) = 0 fUr h 
+die Hohe h, den Neigungswinkel ':I., den Quer-
+schnittsinhalt A und V gemiiB Skizze. Man lose 
+damit fiir 
+V 
+rr 
+o :s; Iz :s; 2 sin ':I., 
+O:S; ':I. :s; "2 
+die Optimierullgsau/gahell: 
+a) Maximaler Inhalt A bei vorgegebenem Umfang V = Vo' 
+b) Minimaler Materialaufwand V bei festem Inhalt A = All' 
+In \wlchem Zusammenhang stehen die Losungen? 
+(Dlialitiit) 
+17. Ein KFZ-Radlager mit 14 Kligeill soil 
+so vorgespannt werden, daB sich bei ei-
+ner \ ertikalen Belastung des Innenrings 
+mit F = 3000N eine miigliclzst kleille /11({-
+.\illude KlIgelpresslIIlg einstellt: 
+Jede Kugel des Lagers wird radial bela-
+stet. gepreBt und elastiseh verformt: Die 
+Vorspannung driickt den Innenring kon-
+7entrisch urn e [JIm] gegen den AuBen-
+ring. 
+die Last F 
+verschiebt ihn urn 
+S [JIm] in s-Richtung nach unten. 
+Die radiale Verformung ,l, der i-ten Kugel lautet somit (in erster Niiherung) 
+,), = e + s cos 'p,. 
+i = 1,2, ... ,14 . 
+417 
+Der Zusammenhang zwischen Pref31ast F, und Vcrformung ,l, ist nach G. HERTZ: 
+. falls '), ;:0. 0 . 
+. falls ii, < 0 ' 
+i=1.2, ... ,14 . 
+N 3,c 
+Ie ist cine von der Form des Lagers, abhiingige Konstante, hier C = 10 11m 
+.) 1st 
+wie in der Skizze <PI = 0 und 'Pi.,.' = l~I, so erhiilt man: 
+14 
+(*) 
+I 
+rri 1.' 
+rri 
+F = F (e \) = C-
+(e + \ cos -). - . cos -
+. 
+. 
+. 
+7 + 
+7 ' 
+1=[ 
+(** ) 
+(Maximale Kugellast im Lager) 
+a) Krille Vorspall/lllllg: Setze r = 0 und berechne s aus F = 3000N. 
+Wie graB ist die maximale Kugellast FdO,s), wie viele Kugeln sind belastet? 
+b) Optimale Vorspallllwlg: Man lose die Extremwertaufgabe 
+File,s) = Min', 
+F(e,s) = 3000N. 
+co;:o. O. so> 0 
+mit der Lagrange-M ultiplikatorregel' 
+(Hilfe: Eliminiere den Multiplikator und leite eine Gleichung fUr f her; diese ist 
+mit dem Newton-Verfahren numerisch zu losen!) 
+Ergebnis: e = 8.1 82flm, s = 10.88pm. Die maximale Kugellast ist bei b) um 11.2% 
+kleiner als bei a). DafUr sind stets II Kugeln belastet. 
+
+
+--- PDF page 434 ---
+418 
+7. Funktionen in mehreren Variablen. Teil 1: Differentiation 
+§4. Vektorwertige Funktionen 
+4.1 Die Differentiation. 
+Wir betrachten Funktionen (Abbildungen), die je-
+dem Punkt (Ortsvektor) XED ~ IRn einen Vektor (x) E JRm zuordnen 
+hex) 
+h(xl,x2, ... ,xn) 
+(
+ft(X») 
+(ft(Xl,X2, ... ,xn») 
+(x) = 
+. 
+= 
+. 
+. 
+. 
+. 
+. 
+fm(x) 
+fm(Xl,X2, ... ,Xn) 
+und iibertragen samtliche Begriffe aus §2 iiber die Komponentenfunktionen fi 
+auf die vektorwertige Funktion f : 
+Definition. 
+Fur f : JRn ;2 D ~ JRm und x, Xo E D gilt 
+a) Der Grenzwert, die partielle Differentiation und die "klein-o" -Notation sind 
+jeweils komponentenweise erkliirt (~ 2.2-2.4): 
+[
+lim ft(x) 1 
+x-+xo 
+lim hex) 
+lim f(x):= 
+x-+xo 
+; 
+X--+Xo 
+: 
+lim f m(x) 
+X--+Xo 
+of 
+-(x) := 
+OXi 
+of~ (x) 
+OXi 
+f(x) = o(lx - xol) <=> hex) = o(lx - xol), k = 1,2, ... ,m . 
+b) fist genau dann stetig, partiell differenzierbar oder eine rcr -Funktion, wenn 
+siimtliche Komponentenfunktionen h von f, k = 1,2, ... , m, stetig, partiell 
+difJerenzierbar bzw. rcr -Funktionen sind. 
+c) f heij3t in Xo E D total differenzierbar oder linear approximierbar, wenn es 
+eine m x n-Matrix A und eine ganze r-Umgebung Ur(xo) = {x E JRn ; 
+Ix - xol < r} in D gibt, so daft for aile x E Ur(xo) gilt 
+(1) 
+f(x) = f(xo) + A (x - xo) + o(lx - xol) . 
+Aus (1) folgt die lineare Approximierbarkeit aller Komponentenfunktionen, d.h. 
+hex) = fk(XO) + grad h(xo) . (x - xo) + o(lx - xol), k = 1, ... , m . 
+Definiert man daher die 
+Funktional- oder Jacobi-Matrix von f in Xo 
+( 
+grad ft (XO)T ) 
+._ 
+gradh(xo)T 
+_ 
+of 
+of 
+_ 
+Ofi 
+fr(xo) .-
+. 
+- (-0 (xo),.··, -0 (xo») - (-0 . (xo») 
+, 
+: 
+Xl 
+Xn 
+Xl 
+mxn 
+grad f m (xo) T 
+so ist die Matrix A in (1) mit Satz 2.3 eindeutig bestimmt als A = fr(xo) . 
+
+
+--- PDF page 435 ---
+§4. Vektorwertige Funktionen 
+419 
+Merke. Die Zeilen der Jacobi-Matrix sind die Gradienten der Komponenten 
+von f (als Zeilenvektoren geschrieben), die Spalten der Jacobi-Matrix sind die 
+partiellen Ableitungen des Spaltenvektors f. 
+Satz 2.4 HiBt sich leicht auf den Fall m > 1 ubertragen. Dagegen gilt der 
+Mittelwertsatz und damit die Taylor-Formel 3.1 fUr m> 1 nicht! 
+Satz 4.1 
+Sei f : 1Rn :;2 D -+ 1Rm eine ~l-Abbildung, dann gilt: 
+a) fist fUr aile xED linear approximierbar. 
+b) 1st D konvex (-+ 3.2), dann gibt es ein ~, 0 < ~ < 1, so daft 
+If(x)-f(xo)l:s; Iff(XO+~(x-xo») (x-xo)l· 
+Man schreibt hierfUr kurz 
+(2) 
+f(x) ~ f(xo) + ff(XO) (x - xo) 
+mit einem Fehler o(lx - xol) . 
+Beispiel 1. 
+Jede lineare Abbildung f : 1Rn -+ 1Rm mit f(x) = Ax, A E 1Rmxn , ist 
+total differenzierbar. Die Jacobi-Matrix ist gerade ihre Abbildungsmatrix 
+(3) 
+ff(X) = A 
+fUr aIle x E 1Rn . 
+o 
+Beispiel 2. Polarkoordinaten. Der Streifen D der kartesischen (r, cp)-Ebene 
+D = {(r,cp) ; O:s; r < 00, O:s; cp < 2n} wird mittels 
+x(r, cp) = (~~~:: ) 
+so auf die kartesische x-Ebene abgebildet, daB zu jedem Punkt x =1= 0 genau 
+ein (r, cp) ED gehort. Die Jacobi-Matrix dieser Abbildung lautet 
+fx(r,cp) = (~:, ~;) = (~~~: -;~!~:). 
+Die Ableitungsregeln besHitigt man leicht mit (1): 
+Fur x E 1R n, v(x), w(x) E 1R m, f (x) E 1R und (1., fJ E 1R gilt 
+(4) 
+a) ffl.v+p .. (x) = (1.fv(x) + fJf .. (x) 
+(Linearitiit) , 
+b) fjv(x) = f(x)fv(x) + v(x)fj(x) = f(x)fv(x) + v(x) (gradf(x»T 
+(Produktregel fUr Multiplikation mit skalarer Funktion), 
+c) fvTw(x) = V(X)T f .. (x) + W(x)T fv(x) 
+(Produktregel fUr das Skalarprodukt) , 
+d) fvxw(x) = v(x) x fw(x) - w(x) x fv(x) 
+(Produktregel fUr das x-Produkt, m = 3). 
+o 
+
+
+--- PDF page 436 ---
+420 
+7. Funktionen in mehreren Varia bien. Teil I: Differentiation 
+Beachte. 
+In (4b) ist der zweite Summand kein Skalarprodukt, sondern eine 
+m x n-Matrix ("Spalte x Zeile"). 
+Das Produkt "Spaltenvektor x Matrix" in (4d) ist spaltenweise zu verstehen. 
+Beispiel 3. Die quasilineare Abbildung 
+f(x) = f(x)Ax mit der skalaren ~I­
+Funktion f : R.n ;2 D ~ R. und der konstanten Matrix A E R.mxn besitzt die 
+Jacobi-Matrix 
+fr(x) = f(x) A + (Ax)(grad qJ(X))T . 
+o 
+4.2 Die Kettenregel. 
+Zwei Abbildungen f : R.n ;2 D ~ R.m , g : R.m ;2 G ~ 
+R.q mit f(D) ~ G, nacheinander ausgeftihrt, ergeben das Kompositum 
+go f : D ~ R.q, 
+(g 0 f)(x) := g(f(x)) . 
+Satz 4.2. Die Kettenregel. 
+Sind f : R.n ;2 D ~ R.m in Xo E D und g : R.m ;2 
+G ~ R.q in f(xo) E G linear approximierbar, dann ist das Kompositum go f in 
+Xo ebenfalls linear approximierbar und es gilt 
+Beweis. 
+Dnter den Voraussetzungen folgt aus (1) 
+g(f(x)) = g(f(xo)) + fg(f(xo))(f(x) - f(xo)) + o(lf(x) - f(xo)I) 
+= g(f(xo)) + fg(f(xo))fr(xo)(x - xo) + o(lx - xol) . 
+Also ist go f in Xo linear approximierbar und es gilt (5). 
+o 
+Anwendung: BasiswechseI. 
+Wir legen im R.n ein neues Koordinatensystem 
+K = (P; b" b2, ... , bn) fest und wahlen auBerdem im R.m eine neue Basis 
+(w" ... , wm). Der Punkt x E R.n hat im Koordinatensystem K den Koordi-
+natenvektor y, der durch 
+(6) 
+x = By+p 
+----
+mit der orthogonalen n x n-Matrix B = (bl , ... , bn) und p = OP bestimmt ist 
+(~ Kap. 6, 6.6). Analog hat ein Vektor v E R.m beziiglich der BasIs (WI, ... , wm) 
+den Koordinatenvektor wE R.m , so daB 
+(7) 
+v= Ww 
+mit der invertierbaren m x m-Matrix W = (WI, ... , wm) . 
+Eine Funktion f : R.n ::> D ~ R.m besitzt nach diesem Koordinaten- und Basis-
+wechsel eine andere Darstellung g : R.n ::> D* ~ R.m : Setzt man v = f(x) , so ist 
+g aus (6) und (7) implizit bestimmt durch 
+v = f(x) = f(By + p) = Ww = Wg(y) . 
+
+
+--- PDF page 437 ---
+§4. Vektorwertige Funktionen 
+Diese Gleichung ist nach w = g(y) aufiosbar, so daB 
+(8) 
+y E D* <==> x = By + P ED, 
+g(y) = W-1f(By + p) . 
+Mit der Kettenregel (5) und (3) folgt sofort 
+(9) 
+fg(Yo) = W-1fdxo)B , 
+Xo = Byo + P . 
+421 
+Bemerkung. 
+Mit (8) und (9) lassen sich sehr leicht Eigenschaften einer Funk-
+tion f untcrsuchen. die unabhangig von den gewahlten Koordinatensystemen im 
+Argument- und im Bildraum sind. Hierzu gehoren die Stetigkeit. die Oifferen-
+zierbarkeit und geometrische Eigenschaften von Gradient und fr (-+ 4.3). 
+4.3 Raumliche Skalaren- und Vektorfelder. 
+Oer Anschauungsraum wird. 
+wie ublich. nach Wahl cines kartesischen Koordinatensystems 1 = (O;el.e2.e,) 
+durch 1R' und jeder r~lumliche Bereich durch cine Teilmenge D ~ 1R' dargcstellt. 
+wobci Punkte durch ihre Ortsvektoren charakterisiert werden. (-+ Vereinbarung 
+zu Beginn Kap. 7) 
+Ein Ska/arelljdd (eine Belegungsfunktion) f : 1R1 :2 D -+ IR ordnet jedem 
+Punkt xED cine Zahl f(x) zu. 
+Unter einem (raumlichen) Vektorjdd ver-
+stchcn wir cine Funktion v : D -+ 1R', die jedem Punkt XED eincn Vck-
+tor ~(x) zuordnet. Man stellt sich vor, daB in jedem Punkt XED der Vek-
+tor v(x) (ctwa ein Kraftvektor oder cin Geschwindigkeitsvektor) angcheftct ist. 
+Einc Kurvc in D heiBt Fe/dlillie des 
+Vcktorfeldcs v. wenn der Vektor v(x) 
+in jcdem Kurvenpunkt x parallel zur 
+Kurventangente ist. Wir sprechen von 
+cinem ((, r -Ska/arelljdd f bzw. 
+((, r_ 
+Vektorjdd \' auf D. wenn f bzw. 
+v 
+((, r -Funktion. d.h. r-mal stetig partiell 
+differenzierbar sind. 
+Beispiel 1. Die starre Drehung. 
+Eine Rechtsdrehung mit konstanter 
+Winkelgeschwindigkeit 
+(!) um eine 
+Achse durch den Nullpunkt mit Rich-
+tungsvektor a = 
+((/1,02,(/3)'. lal = 
+1. 
+wird nach Kap. 6, 6.4 dargestellt durch 
+xU) = (cos UJt) xo+ 
++ (1 - cos (l)t)(xo . a) a+ 
++ sin wt a x Xo • 
+Abb. 191 - Veklorfeld. Feldlinien 
+Abb. 192 - Slarre Drchung 
+
+
+--- PDF page 438 ---
+422 
+7. Funktionen in mehreren Variablen. Teil I: Differentiation 
+wobei xo die Lage zur Zeit t = 0 bezeichnet. 
+Flir die Geschwindigkeit v(t) = i(t) gilt demnach 
+v(t) = OJ (- sin OJt xo + sin OJt (xo . a) a + cos OJt a x xo) = OJ a x x(t) . 
+Man nennt w = OJa die vektorielle Winkelgeschwindigkeit. Damit hat das Ge-
+schwindigkeitsfeld einer gleichformigen Drehbewegung die Darstellung 
+(10) 
+v(x) = w x x = OJ a x x . 
+X f-+ v(x) = OJ a x x ist eine lineare Abbildung x f-+ V x mit konstanter Matrix 
+V E R 3x3 , daher gilt (-. (3) und Kap. 6, 6.1) 
+Offensichtlich ist V schiefsymmetrisch (V T = - V). Daher ist insbesondere 
+Spur fv(x) = 0 und damit divv = 0 fUr aIle x E R3 (-.4.4). 
+0 
+Beispiel 2. Das zentrale Kraftfeld. 
+Eine Punktmasse M 
+im Ursprung 
+zieht (nach NEWTON) die Punktmasse 
+--
+. 
+m in X = (X1.X2,X3), x = OX , mit 
+der Gravitationskraft 
+c 
+K(x) = jij3x, 
+x # 0, 
+an (c = -ymM, y > 0) . 
+Handelt es sich in 0 
+und X 
+urn 
+elektrische Ladungen der Starke Q 
+bzw. q , so gilt (nach COUWMB) fUr die 
+elektrische Anziehungskraft dieselbe 
+GesetzmaBigkeit mit c = kqQ, k > o. 
+Abb. 193 - Zentralfeld 
+Das zentrale Kraftfeld K(x) ist quasilinear (-. Bsp. 3, 4.1), daher ergibt sich 
+mit Ableitungsregel (4c) und der Einheitsmatrix E E R 3x3 fUr x # 0 
+(
+C) Tee [ T 
+T] 
+fK(X) = x grad jij3 
++ jij3E = JiT5 (x x)E - 3xx 
+( 
+x~ + x~ - 2xI 
+-3XIX2 
+-3XIX3) 
+c 
+2 
+2 
+2 
+= Ixl5 
+-3XIX2 
+Xl + X3 -
+2X2 
+2 -3~2X3 2 
+-3XIX3 
+-3X2X3 
+Xl + X2 -
+2X3 
+fK(X) ist stets eine symmetrische Matrix mit Spur fK(X) = 0 (-. 4.4). 
+0 
+
+
+--- PDF page 439 ---
+§4. Vektorwertige Funktionen 
+Beispiel 3. Der magnetische Wirbel. 
+Ein gerader stromdurchftossener Draht 
+hat die Richtung der e3-Achse. 
+Nach 
+AMPERE bildet sich das magnetische Feld 
+c 
+H(x) = Ixl2 _ (e3 . x)2 e3 x x 
+=~(-;~), 
+xl +X2 
+0 
+(x\, X2) =1= (0,0), c > 0 . 
+Abb. 194 - Magnetischer Wirbel 
+423 
+Dieses Feld ist wieder quasilinear (--+ Bsp. 3, 4.1) und mit der Ableitungsregel 
+(4c) ergibt sich 
+X~ -xi 0) 
+-2XIX2 0 
+. 
+o 
+0 
+Obwohl die Feldlinien wie in Bsp. 1 Kreise sind, ist fH(X) hier eine symmetri-
+sche Matrix, d.h. flir (Xl, X2) =1= (0,0) ist rot H(x) = 0 (--+ 4.4). AuBerdem ist flir 
+(x\, X2) =1= (0,0) Spur JH(x) = 0, d.h. div H(x) = O. 
+0 
+Beispiel 4. Die laminare Rohrstromung. 
+Eine zahe Fliissigkeit wird durch ein 
+zur x2-Achse koaxiales Rohr vom 
+Radius r mit geringer Geschwindig-
+keit gepreBt, so daB eine laminare 
+Stromung eintritt. Das Geschwindig-
+keitsfeld wurde unabhangig vonein-
+x 
+\ 
+J 
+/y(x) 
+ander urn 1850 von dem deutschen 
+Abb. 195 Rohrstromung 
+Ingenieur G. HAGEN und dem franzosischen Arzt PmSEUILLE bestimmt zu 
+Die J acobi-Matrix berechnen wir direkt: 
+f.(x) ist i.a. weder symmetrisch noch schiefsymmetrisch, jedoch ist mit 
+Spur f. = 0 auch hier div v = 0 (--+ 4.4). 
+0 
+
+
+--- PDF page 440 ---
+424 
+7. Funktionen in mehreren Variablen. Teil I: Differentiation 
+4.4 Gradient, Divergenz, Rotation, Laplace-Operator. 
+ledem lfil-Skalaren-
+feld f : JR.3 :2 D ~ JR. wird das Vektorfeld "Gradient" zugeordnet 
+gradf : D ~ JR.3, 
+gradf(x):= [~i: :::) , 
+.£L(x) 
+aX3 
+jedem ~2-Skalarenfeld f : JR.3 :2 D ~ JR. mit dem Laplace-Operator A, 
+I.S. LAPLACE (1749 - 1827), das Skalarenfeld Af: 
+a2f 
+a2f 
+a2f 
+Af :D~JR., 
+Af(x) = -a 
+2(x)+-a 2(x)+-a 
+2 (x) . 
+XI 
+X2 
+X3 
+ZU jedem f6 1-Vektorfeld v 
+JR.3:2 D ~ JR.3 definiert man ein Skalarenfeld 
+.. Divergenz" divv und ein Vektorfeld "Rotation" rotv: 
+div v : D ~ JR. , div v(x) = aaVI (x) + aav2 (x) + aav3 (x) 
+XI 
+X2 
+X3 
+(\ I) 
+( 
+aV3 (x) _ aV2 (x) ) 
+aX2 
+aX3 
+rot v : D ~ JR.3, rot v(x) = 
+~VI (x) -
+aav3 (x) 
+. 
+OX3 
+XI 
+aV2 (x) -
+~(x) 
+aXI 
+aX2 
+Mittels Volumen- und Oberflachenintegrale zeigt man (~ Kap. 8), daB div v die 
+.. Quelldichte von v" und rot v die "Wirbeldichte von v" beschreibt. 
+Beispiele. 
+Fur die Vektorfelder der 4 Beispiele aus 4.3 gilt 
+Starre Drehung 
+Zentrales Kraftfeld 
+v(x) 
+waxx 
+clxl-3x 
+,x+O 
+div v(x) 
+0 
+0 
+,x+O 
+rot v(x) 
+2wa 
+0 
+,x+O 
+Magnetischer Wirbel 
+Laminare Rohrstromung 
+v(x) 
+c 
+(-X2) 
+-2--2 
+Xl 
+XI +X2 
+0 
+, x~+x~ +0 c ( r2 - XJ - xj ) , x~ + x~ ~ r2 
+divv(x) 
+0 
+, X~+X~ +0 
+0 
+, xi + X~ ~ r2 
+rot v(x) 
+0 
+, X~ +X~ + 0 
+2C( ~ ) 
+x2 + x2 < r2 
+, 
+I 
+3-
+-Xl 
+
+
+--- PDF page 441 ---
+§4. Vektorwertige Funktionen 
+425 
+Samtliche 4 Vektorfelder sind in ihrem Definitionsbereich quell[rei (div v = 0). 
+Fur die starre Drehung hat rot v(x) in jedem x konstant die Richtung der Dreh-
+achse und den Betrag 2w. Der magnetische Wirbel und das zentrale Kraftfeld 
+sind in x i= 0, die Rohrstromung nur langs der Rohrachse wirbelfrei. 
+0 
+Ahh. 196a - Starre Drehung 1 rot rl = 2,·) 
+Abb. 196h - MagnWirhel 1 rot 1'1 = o. x f 0 
+Bereits die Darstellung der Felder f, v hangt yom gewahlten Koordinatensy-
+stem ab, aber noch vieimehr die durch partielle Ableitungen gewonnenen Felder 
+gradf, I1f, divv und rotv. 
+1m folgenden soli gezeigt werden, da13 in einem festen Punkt X der Wert 
+von div v und I1f sowie die durch grad fund rot v dargestellten Vektoren un-
+abhangig yom gewahlten kartesischen Koordinatensystem I sind. 
+Dazu die Darstellung mit der Jacobi-Matrix: 
+grad f (xol =.71 (xol T 
+(12) 
+div v(xol = Spur I, (xol 
+(rot v(xol 1 x (x - xo) = [I, (xol - J, (xo) 7] (x - xo). 
+Beweis. 
+Die beiden ersten Beziehungen liest man direkt aus den Definitionen 
+abo Die dritte folgt aus der Tatsache, da13 S = A -
+A T fur jede quadratische 
+Matrix A schiefsymmetrisch ist (Sf = -Sl und fUr jedes S E lRJxJ gilt 
+( 
+0 
+S12 
+Sf =-S -= S= 
+-S12 
+0 
+-SIJ 
+-S2.1 
+SIJ) 
+(-S2J ) 
+Sn 
+-= Sx = w x x mit w = 
+SiJ 
+o 
+-S12 
+Mit S = A - AT ist w = (:~~ = 
+:~~ ), so dal3 w = rot v(xo) fUr A = f v(xo) folgt. 
+a21 -
+U12 
+o 
+Wegen (10) beschreibt x f--+ Sx = W x x das Geschwindigkeitsfeld einer Drehung, 
+daher der Name "Rotation". 
+Da die Zerlegung A = 
+~ (A + A T) + ~ (A - A 7) einer Matrix in den symmetrischen 
+und den schiefsymmetrischen Anteil eindeutig ist, nennt man das Drehfeld 
+x f--+ ~ (rot v(xo)) x x 
+den "Rotationsanteil der linearen Approximation x f--+ fv(xo)x". 
+
+
+--- PDF page 442 ---
+426 
+7. Funktionen in mehreren Variablen. Teil 1: Differentiation 
+Satz 4.2. Transformationsformeln. 
+Sind I = (0; el, e2, e3), K = (P; bt. b2, b3) zwei kartesische Koordinatensysteme 
+im Raum und ist p = oF E JR.3, B = (bt, b2, b3) E JR.3x3 die Darstellung von K 
+beziiglich I, so gilt 
+System 
+Basis 
+Punkt X 
+--+ 
+Vektor XY 
+Skalare~d 
+f:D -+ 
+Gradient 
+Vektorfeld 
+v : D -+JR.3 
+Divergenz 
+Rotation 
+I 
+E = (et, e2, e3) 
+xT = (Xt, X2,X3) 
+v 
+f(x) 
+/f(x) 
+gradf(x) = /f(x)T 
+v(x) 
+/.(x) 
+divv(x) 
+rotv(x) 
+K 
+B = (b1, b2, b3), 
+BT =B-1 
+yT = (Yt,Y2,Y3) = (xT _pT)B 
+w=BTv 
+g(y) = f(By + p) 
+/g(Y) = /f(x)B 
+gradg(y) = BT gradf(x) 
+w(y) = BT v(By + p) 
+/ .. (y) = BT /.(x)B 
+div w(y) = div v(x) 
+rot w(y) = B Trot v(x) 
+Beweis. 
+Bis auf die Divergenz und Rotation folgt alles aus den Formeln (6) -
+(9). Dazu setze man beim Skalarfeld m = 1 und W = 1 und beim Vektorfeld 
+m=n und W =B. 
+divw(y) = Spur / .. (y) = Spur(BT /.(x)B) = Spur /.(x) = divv(x) . 
+( Spur A ist die Summe der Eigenwerte von A, B T AB und A haben die glei-
+chen Eigenwerte, -+ Kap. 6, 6.7.) 
+(rotw(y») x z = (/ .. (y) - / .. (y)T)Z = [BT (/.(x) - /.(x)T)B] z 
+= BT [rot v(x) x (Bz)] = (BT rot v(x») x (B T Bz) 
+= (BT rotv(x») x z . 
+(BT ist eine Drehmatrix, daher gilt BT(a x b) = (B T a) x (BTb).) 
+D 
+Foigerung: Koonlinateninvarianz. Der Wert von div v(x) ist unabhangig yom 
+Koordinatensystem, in dem man v darstellt und die partiellen Ableitungen 
+berechnet. Dasselbe gilt fUr die Richtung und die Lange von rot v(x) und 
+grad v(x). 
+Unter geeigneten Ditferenzierbarkeitsvoraussetzungen bestatigt man leicht durch 
+explizites Nachrechnen die 
+
+
+--- PDF page 443 ---
+§4. Vektorwertige Funktionen 
+Rechenregeln: 
+a) 
+rot(gradf) = 0 
+"Gradientenfeld ist wirbelfrei" , 
+b) 
+div(rot v) = 0 
+"Feld der Rotation ist quellfrei" , 
+c) 
+div(grad f) = I1f , 
+d) 
+div(fv) = (grad f) . v + f div v , 
+e) 
+rot(fv) = (grad f) x v + f rot v , 
+427 
+f) 
+rot(rot v) = grad(div v) -l1v (Laplace - Operator komponentenweise). 
+Beispiel. 
+Nach J.e. MAXWELL gilt im Vakuum fUr die (zeitabhangige) elektri-
+sche Feldstarke E(x, t) und die magnetische Feldstarke H(x, t) (SI-Einheiten 
+mit den Feldkonstanten flo = O.4n . 10-6 Him, EO = 8.854' 10- 12 F/m) 
+aH 
+110- = -rotE 
+t 
+?t 
+' 
+aE 
+EO--;1 = rotH, 
+ct 
+divE = 0, 
+divH = O. 
+Diese vier partiellen Differentialgleichungen beschreiben die zeitabhangige Kop-
+pelung zwischen den Feldern E und H. Sind E(x, t) und H(x, t) beide C{;2_ 
+Vektorfelder, so kann man mit Rechenregel f) und dem Satz von Schwarz je 
+eine Differentialgleichung fur E und H alleine herleiten: 
+flo rot (:H = rot( - rot E) = - (grad(div E) -I1E) = I1E , 
+ut 
+andererseits ist mit Co = ~ 
+(Lichtgeschwindigkeit im Vakuum) 
+v IloEO 
+(1 aE 
+1 a 
+1 
+aH 
+2 
+at ct = 
+EO ct rotH = EO rot at = col1E. 
+Analog ergibt sich fUr H: a:~ = c611H. D.h. jede Komponente von E und H 
+ct-
+erftillt die 3-dimensionale Wellengleichung (Elektromagnetische Wellen) 
+o 
+Mit dem symbolischen Vektor ("Nabla-Operator") 
+lassen sich die vier Felder formal als Produkte schreiben 
+grad f = V f, 
+11 f = V . V f , 
+div v = V . v, rot v = V x v . 
+Beim Umgang mit V ist jedoch Vorsicht geboten, man kann mit diesem forma-
+len Vektor wegen der Produktregel der Differentiation nicht immer so rechnen, 
+wie mit "echten" Vektoren (-+ Aufg. 5). 
+
+
+--- PDF page 444 ---
+428 
+7. Funktionen in mehreren Varia bien. Teil 1: Differentiation 
+Aufgaben 
+1. Gegeben ist die Abbildung f : R2 \ {O} ~ R2 
+f(x) = (u(X,y») = _1_ (X), 
+x oF o. 
+v(x,y) 
+x2 + y2 
+Y 
+a) Fiir welche Punkte x ist f(x) = x 
+(Fixpunkte)? 
+b) Man berechne die Jacobi-Matrix ,$£. In welchen Punkten x ist ,$£ invertier-
+bar. 
+2. Gegeben sind vier Geschwindigkeitsfelder im R2 (r = J x 2 + y2) 
+v(x) = (u(x, y), v(x, yW 
+(c, E, M konstant) 
+laminar, translatorisch 
+laminare Gegenstromung 
+isolierte QueUe 
+Dipolstromung 
+u=c 
+u = c· y 
+X 
+U=E--~ 
+x2 + y2 
+y2 ~ x2 
+u =M~~--oc~ 
+(x2 + y2)2 
+v=O; 
+v=O; 
+v = E -~y-
+(r > 0) ; 
+x2 + y2 
+V = ~M 
+2xy 
+(r > 0) 
+(x2 + y2)2 
+a) Man skizziere jeweils das Vektorfeld samt einigen Stromlinien. 
+b) Man berechne ,$ v, div v, rot v . 
+3. Gegeben sind die Vektorfelder im R3 
+a) v(x) = 2xyel + (3z 3 + x2)e2 + 9yz2e3 
+1 
+3x 
+b) v(x) = jXj3e1 ~ jXj5x 
+(x oF 0) . 
+Man berechne ,$ v, div v und rot v . 
+4. In kartesischen Koordinaten ist im R3 
+f(x) = (x2,i,~xZ)T, g(x) = (~y,x,O)T . 
+Man berechne V(f· g), V· (f x g) und V x (f x g) . 
+5. Fiir zwei «?l-Vektorfelder f, g im R3 hat man mit der "Nabla-Schreibweise" 
+div(f x g) = V . (f x g) . 
+Wendet man die Regeln fUr das Spatprodukt an, so hiitte man formal die Beziehung 
+d.h. 
+V . (f x g) = g . (V x f) = ~f . (V x g) , 
+div(f x g) = g . rot f = ~f . rot g . 
+Wie lautet die richtige Formel, die div(f x g) iiber die Rotation von fund g 
+ausdriickt? 
+6. Gegeben sind im R2 mit den kartesischen Koordinaten (x, y) 
+die Transformation von Polar- auf kartesische Koordinaten u : (r, cp) ...... (x, y), 
+die Kurve y(t) : R ~ R2 mit der Darstellung (r,cp) = (t2,wt) in Polarkoordinaten, 
+das Skalarenfeld s : R2 ~ R mit s(x,y) = x 2 ~ i. 
+Man berechne 
+-
+die Jacobi-Matrizen ,$y = y, ,$" und ,$s = (grads)T, 
+-
+die explizite Darstellung von sou 0 y und daraus direkt ~ sou 0 y , 
+-
+mittels Kettenregel die Jacobi-Matrix von (s 0 u) und ~ sou 0 y , 
+
+
+--- PDF page 445 ---
+§4. Vektorwertige Funktionen 
+429 
+die Richtungsableitung von s in Transversalrichtung v = e", = (-sinlp,coslp)T im 
+7r 
+Kurvenpunkt ;,( 4w)' 
+7. 
+Man berechne div grad U und rot grad U fUr die skalaren Felder im JR.3 
+, 
+a) U (x) = .::ecr, 
+p'x 
+b) U (x) = 
+Ix13 ' x oF 0 
+(Oipolpotential mit Achsenrichtung p E JR.3). 
+8. 
+Ein gerader prismatiscizer Stah der Lange L aus elastischem homogenen Werkstoff 
+hat als Querschnitt ein gieicilseitiges Dreieck A mit der Hohe Iz. Oer Schwerpunkt 
+des Stabes Iiegt im Koordinatenursprung (vgl. Skizze). Oer Stab wird liings z urn 
+den Winkel lp verdrillt. Ein Punk! (x,y . .::) mit 1.::1 ~ ~ hat nach der Torsion in gutcr 
+Niiherung die Koordinaten x' = F(x) mit 
+" 
+= ,- <£ 1'-
+. 
+. 
+L' -
+y' = y + if[ x.:: 
+-' = _ + ~ 
+(1 I·e, _ ,3) 
+-
+-
+2.Lh -.. 
+. 
+Den Verformungszustand beschreibt das 
+1 ('klOrldd del' 1 ('rschiehllllgell v = x' - x: 
+(I·) 
+v = v(x) = F(x) - x . 
+a) In welche Flachen verwolben sich die ebem:n Schnitte x = 0 bzw . .:: = 0 durch 
+die "Torsion" F (gefragt ist die Gleichung f(x·,y',.::') = 0 und der Name des 
+Fliichentyps)? Welche Punkte in den Schnitten bleiben fest? 
+b) Man berechne die Funktionalmatrizen l' Fix) und 1', (x) und div v(x), rot v(x). 
+c) 
+Man berechne (jeweils als Funktion von x): 
+d 
+I' 
+I.' 
+1 
+. 
+aT) 
+en • er.::erl"llllgstellsor 
+" = "2 (j' , + d , 
+den Rotatiollstellsor 
+R, = ~(1', - .I;) 
+den SpllllllllIIgstellsor 
+S, = 2.G V, 
+(G bezeichnet den Schubmodul) 
+die Spallllwlgs!'ektorell in A : 
+PA = S, ( ~) . 
+9. Man rechne explizit fUr zwei Vektorfelder v(x),w(x) E (6 1 (JR.3,JR.3) nach: 
+I grad(v' w) = .I; w + f~ v. I 

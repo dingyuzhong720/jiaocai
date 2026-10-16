@@ -1,0 +1,616 @@
+--- PDF page 1 ---
+Springer-Lehrbuch 
+
+
+--- PDF page 2 ---
+Springer 
+Berlin 
+Heidelberg 
+New York 
+Barcelona 
+Budapest 
+Hongkong 
+London 
+Mailand 
+Paris 
+Santa Clara 
+Singapur 
+Tokio 
+
+
+--- PDF page 3 ---
+Kurt Meyberg · Peter Vachenauer 
+Hohere 
+Mathematik 1 
+Differential- und Integralrechnung 
+Vektor- und Matrizenrechnung 
+Vierte, korrigierte Auflage 
+Mit 450 Abbildungen 
+Springer 
+
+
+--- PDF page 4 ---
+Professor Dr. Kurt Meyberg 
+Dr. Peter Vachenauer 
+Zentrum Mathematik 
+der Technischen Universitat Miinchen 
+ArcisstraBe 21 
+D-Bo333 Miinchen 
+e-mail: 
+(meyberglvach)@mathematik.tu-muenchen.de 
+Mathematics Subject Classification (1991): 
+ooAos, 00-01, ooA06 
+ISBN-13: 978-3-540-63688-5 
+DOl: 10.1007/978-3-642-97724-4 
+Die Deutsche Bibliothek - Clp· Einheitsaufnahme 
+Meyberg, Kurt: Hohere Mathematik/Kurt Meyberg; Peter Vachenauer. - Berlin; Heidelberg; New York; Barcelona; 
+Budapest; Hongkong; London; Mailand; Paris; Santa Clara; Singapur; Tokio: Springer 
+(Springer-Lehrbuch) 
+1. Differential- und Integralrechnung. Vektor- und Matrizenrechnung. - 4. Auf!. - 1997 
+ISBN-13: 978-3-540-63688-5 
+Dieses Werk ist urheberrechtlich geschiitzt. Die dadurch begriindeten Rechte. insbesondere die der Obersetzung. des 
+Nachdrucks. des Vortrags. der Entnahme von Abbildungen und Tabellen. der Funksendung. der Mikroverfilmung 
+oder der VervieWiltigung auf anderen Wegen und der Speicherung in Datenverarbeitungsanlagen. bleiben. auch bei 
+nur auszugsweiser Verwertung. vorbehalten. Eine Vervielfiiltigung dieses Werkes oder von Teilen dieses Werkes ist 
+auch im Einzelfall nur in den Grenzen der gesetzlichen Bestimmungen des Urheberrechtsgesetzes der Bundes-
+republik Deutschland yom 9. September 1965 in der jeweils geltenden Fassung zulassig. Sie ist grundsatzlich ver-
+giitungspf!ichtig. Zuwiderhandlungen unterliegen den Strafbestimmungen des Urheberrechtsgesetzes. 
+© Springer-Verlag Berlin Heidelberg 1991. 1993. '995. 1998 
+Datenkonvertierung: Universitatsdruckerei H. Stiirtz AG. Wiirzburg 
+SPIN: 10652532 
+44/3143 - 5 4 3 2 1 0 - Gedruckt auf saurefreiem Papier 
+
+
+--- PDF page 5 ---
+Vorwort zur vierten Auflage 
+Fiir diese Auflage haben wir nur geringe TexHinderungen vorgenommen und 
+vor allem weitere hartnackige Druckfehler beseitigt sowie den Text in mehreren 
+Passagen verstandlicher gestaltet. Auf viele dieser Stellen wurden wir wieder vor 
+allem durch die freundlichen Hinweise aufmerksam gemacht, fUr die wir uns 
+sehr herzlich bedanken mochten. 
+Auch in Zukunft werden wir uns iiber jeden wohlwollenden Verbesserungsvor-
+schlag freuen und ihn im gegebenen Rahmen beriicksichtigen. 
+Miinchen, im August 1997 
+Kurt Meyberg 
+Peter Vachenauer 
+Vorwort zur ersten Auflage 
+Dieses zweibandige Lehrbuch ist aus den Vorlesungen und Ubungen der Verfas-
+ser zur Hoheren Mathematik fUr Ingenieure der Fachrichtungen Maschinenbau 
+und Elektrotechnik an der Technischen Universitat Miinchen hervorgegangen. 
+Es ist in erster Linie als kompakter Begleittext zur viersemestrigen Grundvor-
+lesung fUr die Studenten der Ingenieurwissenschaften und anderer technisch-
+physikalischer Studienfacher (etwa Physik, Technomathematik und Informatik) 
+konzipiert. 
+Da die moderne Technik yom Ingenieur immer umfassendere und tiefere ma-
+thematische Kentnisse verlangt, gehen wir an einigen Stellen iiber den iiblichen 
+Vorlesungsstoff der Grundkurse hinaus oder stellen einige Themen griindlicher 
+dar, als es in den Vorlesungen moglich ist. Das betrifft im vorliegenden Band 
+insbesondere in Kapitel 6 den Ausftug in die abstrakte Welt der Vektorraume 
+und in allen Kapiteln die starkere Beriicksichtigung der wichtigsten numerischen 
+Aspekte. Damit ist dieses Buch auch fUr Studenten hoherer Semester zur Fort-
+bildung und fUr den Praktiker als Nachschlagewerk geeignet. 
+Die in Kapitel 1 dargestellte Vektorrechnung, insbesondere die Behandlung ge-
+bundener Vektoren, ist den Bediirfnissen der Technischen Mechanik angepaBt, 
+sie kann fUr andere Fachrichtungen abgekiirzt oder ausgelassen werden. Ande-
+rerseits besteht die Notwendigkeit, die algebraischen und numerischen Metho-
+den bereits in den Grundkursen starker zu beriicksichtigen. Die Lineare Algebra 
+in Kapitel 6 ist unabhangig yom Vorhergehenden und kann vorgezogen, even-
+tuell parallel mit den Kapiteln 2 - 5 behandelt werden. 
+Der Praktiker erwartet von der Mathematik nicht nur Erkenntnis, sondern Re-
+sultate. Wir beriicksichtigen die fUr ihn besonders wichtige algorithmische Seite 
+der Mathematik durch im Druck hervorgehobene Uberblicke mit detaillierten 
+Rechenschemata. Sie enthalten - in Schritten aufgegliedert - die Methoden 
+zum Losen konkreter Aufgaben und konnen nieht zuletzt als Repetitorium zur 
+Priifungsvorbereitung dienen. 
+
+
+--- PDF page 6 ---
+VI 
+Vorwort zur ersten Auflage 
+Ferner fUgen wir eine groBere Zahl von Programmen ein, die auf erprobten 
+numerischen Algorithmen fuBen. Wir haben uns zur Darstellung dieser Pro-
+gramme fUr die Programmiersprache GfA-Basic entschieden, da diese einerseits 
+die zugrundeliegenden Algorithmen besonders gut erkennen laBt, andererseits 
+aufgrund ihrer Strukturierung yom etwas geiibten Programmierer leicht in jede 
+hohere Sprache iibersetzt werden kann. In erster Linie ist aber an den Einsatz 
+der Programme auf studienbegleitenden Taschen- oder Kleinrechnern gedacht. 
+Fiir den versHindnisvollen Umgang mit den mathematischen Modellen der Phy-
+sik und der Technik reicht die Hihigkeit im Anwenden fertiger Rezepte natiirlich 
+nicht aus. UnerlaBlich ist auch die Kenntnis der mathematischen Grundlagen 
+und vielfaltigen Methoden, mit denen sie behandelt werden. Wir haben des-
+halb aIle wesentlichen Beweise ausgefUhrt. Der Studienanfanger kann einen Teil 
+dieser Beweise und die mit * gekennzeichneten Abschnitte beim ersten Durch-
+arbeiten auslassen; er sollte sich dafUr verstarkt mit den zahlreichen ausfUhrlich 
+vorgerechneten Beispielen und den einfacheren Ubungsaufgaben beschaftigen. 
+Der etwas geiibtere Leser wird die stratfe Darstellung der anspruchsvolleren Be-
+weise sicher schatzen. Fiir ihn sollten auch die schwierigeren Aufgaben eine 
+Herausforderung bedeuten. 
+Die Verfasser sind den Kollegen und Mitarbeitern an der Technischen Univer-
+sitat Miinchen sehr dank bar, die durch ihre Hilfe, manch guten Rat und viele 
+Gesprache iiber Inhalte und Darstellung der "Ingenieurmathematik" zum Ent-
+stehen dieses Buches beigetragen haben. Insbesondere danken wir Prof. Dr.CHR. 
+REINSCH, Prof. Dr. H.I. KROLL, Dr. S. WALCHER, Dipl. Math. M. BINDER, Dipl. 
+Math. H. GRADL, Dipl. Math. R. NIEMCZYK, Dipl. Math. Sr. SAUlTER und Dipl. 
+Math. A. HUNDEMER, sie haben die Teile des Manuskripts gelesen, zahlreiche 
+Druckfehler entdeckt und wertvolle Verbesserungsvorschlage beigetragen. 
+Die Druckqualitat sollte zur guten Verstandlichkeit bestmoglich, der Preis stu-
+dentenfreundlich sein, daher wurden die Druckvorlagen mit der hochauftosen-
+den TEX-Monotype-Variante der H. S'ruERTZ AG erzeugt. DaB sich dieser Ent-
+schluB trotz der anfangs zusatzlichen Pionierarbeit doch gelohnt hat, ist vor 
+allem das Verdienst von Frau cando math. I. ABOLD; sie hat den TEX-Quelltext 
+mit Prazision, Geschmack und viel Einfallsreichtum erstellt und dabei nie ihre 
+liebenswiirdige Geduld verloren. Ihr gilt unser besonderer Dank. 
+Ein Teil der Abbildungen konnte von cando ing. R. MATTUSCHAT auf einem 
+3D-CAD-Rechensytem am Lehrstuhl fUr Konstruktion im Maschinenbau er-
+stellt werden. Wir danken Prof. Dr. K. EHRLENSPIEL fUr das freundliche Ent-
+gegenkommen. Ebenso dankend erwahnen wir die Studentinnen und Studen-
+ten T. ERIs, K. MATTUSCHAT und Frau cando info A. SCHRAMM, die zusammen 
+mit CHR. VACHENAUER die Skizzen fUr die iibrigen Graphiken hingebungs- und 
+kunstvoll auf den Bildschirm des ATARI-ST umsetzten. 
+SchlieBlich gilt unser Dank auch dem Springer-Verlag fUr die stets vorbildli-
+che Zusammenarbeit, speziell Herrn Dr. I. HEINZE, der die verschiedenen Ent-
+stehungsphasen dieses Buches mit lebhaft fOrderndem Interesse, Geduld und 
+fachmannischem Rat verfolgt hat. 
+Miinchen, im September 1989 
+Kurt Meyberg 
+Peter Vachenauer 
+
+
+--- PDF page 7 ---
+Inhal tsverzeichnis 
+Kapitell. Zahlen ond Vektoren ........................................... . 
+§1. Mengen und Abbildungen ................................................ . 
+l.l Mengen - 1.2 Mengenoperationen - 1.3 Abbildungen 
+§2. Die reellen Zahlen......... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+3 
+2.1 Bezeichnungen - 2.2 U ngleichungen - 2.3 Intervalle - 2.4 Schran-
+ken - 2.5 Der Betrag - 2.6 Die vollstandige Induktion - 2.7 Binomial-
+koeffizienten und die binomische Formel - Aufgaben 
+§3. Die Ebene.. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+11 
+3.1 Kartesische Koordinatensysteme - 3.2 Winkel - 3.3 Sinus, Cosinus 
+- 3.4 Drehungen 
+§4. Vektoren........ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+17 
+4.1 Kartesische Koordinatensysteme im Raum - 4.2 Vektoren - 4.3 Die 
+Addition von Vektoren - 4.4 Die skalaren Vielfachen eines Vektors -
+4.5 Ocr Betrag - 4.6 Vektoren im Koordinatensystem 
+§s. Produkte. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+22 
+5.1 Der Winkel zwischen zwei Vektoren - 5.2 Das Skalarprodukt -
+5.3 Das Vektorprodukt - 5.4 Das Spatprodukt - Aufgaben 
+§6. Geraden und Ebenen . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+34 
+6.1 Parameterdarstellungen einer Geraden - 6.2 Die Koordinatenglei-
+chungen einer Geraden - 6.3 Die Momentengleichung der Geraden -
+6.4 Abstand Punkt-Gerade - 6.5 Abstand Gerade-Gerade - 6.6 Para-
+meterdarstellungen einer Ebene - 6.7 Parameterfreie Darstellungen ei-
+ner Ebene - 6.8 Die Gerade als Schnitt zweier Ebenen - 6.9 Die Winkel 
+zwischen zwei Ebenen und zwischen einer Ebene und einer Geraden -
+Aufgaben 
+§7. Gebundene Vektoren...................................................... 
+47 
+7.1 Gebundene Vektoren -
+7.2 Ein System gebundener Vektoren -
+7.3 Die Reduktion eines Systems gebundener Vektoren - Aufgaben 
+§8. Die komplexen Zahlen.................................................... 
+53 
+8.1 Die Menge der komplexen Zahlen - 8.2 Die vier Grundrechenar-
+ten in <C - 8.3 Die Konjugation und der Betrag komplexer Zahlen -
+8.4 Anwendungen 
+
+
+--- PDF page 8 ---
+VIII 
+Inhaltsverzeichnis 
+Kapitel 2. Funktionen, Grenzwerte, Stetigkeit . . . . . . . . . . . . . . . . . . . . . . . . . 
+58 
+§1. Funktionen (Grundbegriffe).............................................. 
+58 
+1.1 Funktionen - 1.2 Monotonie - 1.3 Das Rechnen mit Funktionen 
+§2. Polynome und rationale Funktionen . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+61 
+2.1 Polynome - 2.2 Polynomnullstellen - Faktorisierung - 2.3 Polynom-
+interpolation - 2.4 Der Graph - 2.5 Rationale Funktionen, Polynomdi-
+vision - 2.6 Der Definitionsbereich D - 2.7 Erganzung: Polynome iiber 
+([ - Aufgaben 
+§3. Die Kreisfunktionen....................................................... 
+75 
+3.1 Definition und einfache Eigenschaften - 3.2 Die Tangens- und 
+Cotangensfunktion -
+3.3 Die Polardarstellung komplexer Zahlen -
+3.4 Anwendungen der De Moivre-Formeln - 3.5 Harmonische Schwin-
+gungen - Aufgaben 
+§4. Zahlenfolgen und Grenzwerte............................................ 
+88 
+4.1 Folgen - 4.2 Definition des Grenzwerts; konvergente Zahlenfolgen 
+§S. Rechenregeln fUr Grenzwerte und Konvergenzkriterien.............. 
+93 
+5.1 Rechenregeln - 5.2 Grenzwertbestimmung durch Abschatzung -
+5.3 Monotone Folgen - 5.4 Die Exponentialfunktion - 5.5 Fiir Fortge-
+schrittene: Das Cauchy-Konvergenzkriterium - Aufgaben 
+§6. Funktionengrenzwerte, Stetigkeit......................... . . . . . . . . . . . . . .. 103 
+6.1 Definitionen - 6.2 Die 6 elementaren Methoden der Grenzwertbe-
+stimmung - 6.3 Asymptoten - 6.4 Stetigkeit - Aufgaben 
+Kapitel 3. Differentiation.................................................... 112 
+§1. Die Ableitung einer differenzierbaren Funktion....................... 112 
+1.1 Die Definition der Ableitung - 1.2 Die geometrische Deutung der 
+Ableitung: Tangentenanstieg - 1.3 Die analytische Deutung der Ab-
+leitung: Lineare Approximation - 1.4 Die physikalische Deutung der 
+Ableitung: Geschwindigkeit - 1.5 Stetigkeit ist notwendig fUr Differen-
+zierbarkeit -
+1.6 Differentiationsregeln -
+1.7 Die Differentiation der 
+Polynome und der rationalen Funktionen -
+1.8 Die Ableitung der 
+Kreisfunktionen -
+1.9 Die Kettenregel - 1.10 H6here Ableitungen -
+Aufgaben 
+§2. Anwendungen der Differentiation ........................................ 121 
+2.1 Maxima und Minima einer Funktion - 2.2 Der Mittelwertsatz -
+2.3 Wendepunkte - 2.4 Die Regeln von De L'Hospital - 2.5 Kurven-
+diskussion - 2.6 Nullstellen und Fixpunkte - 2.7 Kubische Splines -
+Aufgaben 
+
+
+--- PDF page 9 ---
+Inhaltsverzeichnis 
+IX 
+§3. Umkehrfunktionen ......................................................... 139 
+3.1 Grundlagen - 3.2 n-te Wurzel, rationale Exponenten - 3.3 Arcussi-
+nus, Arcuscosinus, Arcustangens - Aufgaben 
+§4. Die Exponential- und Logarithmusfunktion........................... 147 
+4.1 Die e-Funktion -
+4.2 Die Kurve y = eX 
+-
+4.3 Exponentiell 
+wachsende bzw. fallende Prozesse - 4.4 Der natiirliche Logarithmus -
+4.5 Allgemeine Exponentialfunktionen und Logarithmen - 4.6 Die Hy-
+perbelfunktionen sinh, cosh, tanh - Aufgaben 
+Kapitel 4. Integration ......................................................... 161 
+§ 1. Das bestimmte IntegraL.................................................. 161 
+1.1 Die Definition des bestimmten Integrals - 1.2 Die geometrische 
+Deutung - 1.3 Elementare Integrationsregeln und der Mittelwertsatz -
+1.4 Differentiation und Integration - Aufgaben 
+§2. Integrationsregeln............................... . . . . . . . . . . . . . . . . . . . . . . . . . .. 169 
+2.1 Linearitiit - 2.2 Partielle Integration - 2.3 Die Substitutionsmethode 
+- 2.4 Symmetrien beach ten - 2.5 Ausblicke - Aufgaben 
+§3. Die Integration der rationalen Funktionen............................. 179 
+3.1 Die Partialbruchzerlegung - 3.2 Die Integration - 3.3 Die Integra-
+tion von R(e') - 3.4 Die Integration von R (x, V 
+~~ ! ~) , ae-bc i= 0 
+- 3.5 Die Integration von R(sin x, cos x) - 3.6 Trigonometrische und 
+hyperbolische Substitutionen - Aufgaben 
+§4. Uneigentliche Integrale ................................................... 185 
+4.1 Die Definition der uneigentlichen Integrale - 4.2 Ein Konvergenz-
+Test - 4.3 Ein an beiden Grenzen uneigentliches Integral - 4.4 Ausnah-
+mestellen im Innern des Integrationsintervalls - Aufgaben 
+§S. Kurven, Langen- und Flachenmessung................ . . . . . . . . . . . . . . . . .. 190 
+5.1 Die Parameterdarstellung - 5.2 Tangente und Normale - 5.3 Kur-
+venliinge - 5.4 Kriimmung und Kriimmungskreis - 5.5 Die Polardar-
+stellung einer ebenen Kurve - 5.6 Fliicheninhalte - Aufgaben 
+§6. Weitere Anwendungen des Integrals ..................................... 204 
+6.1 Abkiirzende Redeweisen - 6.2 Das Volumen eines Rotationsk6rpers 
+- 6.3 Die Mantelfliiche - Aufgaben 
+§7. Numerische Integration ................................................... 206 
+Aufgaben 
+
+
+--- PDF page 10 ---
+x 
+Inhaltsverzeichnis 
+Kapitel 5. Potenzreihen . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .. 212 
+§1. Unendliche Reihen....... .................................................. 212 
+1.1 Grundbegriffe - 1.2 Absolute Konvergenz - Aufgaben 
+§2. Reihen von Funktionen.................................................... 221 
+2.1 GleiehmaBige Konvergenz - 2.2 GleiehmaBig konvergente Funktio-
+nenreihen - Aufgaben 
+§3. Potenzreihen. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .. 226 
+3.1 Der Konvergenzradius - 3.2 Bereehnung des Konvergenzradius -
+3.3 Die Differentiation und Integration von Potenzreihen - 3.4 Die 
+Potenzreihendarstellung einiger Funktionen - 3.5 Die Binomialreihe -
+3.6 Potenzreihen mit dem Zentrum a i= 0 - 3.7 Koeffizientenvergleieh 
+- Aufgaben 
+§4. Der Satz von Taylor; Taylor-Reihen .................................... 237 
+4.1 Die Taylor-Formel - 4.2 Die Taylor-Reihe - 4.3 Methoden der 
+Reihenentwieklung - Aufgaben 
+§5. Anwendungen (an Beispielen) ............................................ 244 
+5.1 Grenzwertbereehnungen - 5.2 Naherungsformeln (Approximation) 
+- 5.3 Die Reihendarstellung und Bereehnung einer Integralfunktion mit 
+nieht elementar integrierbarem Integranden - 5.4 Potenzreihenansatz 
+zur Losung einfaeher Differentialgleiehungen - Aufgaben 
+Kapitel 6. Lineare Algebra. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .. 250 
+§1. Lineare Gleichungssysteme und Matrizen .............................. 250 
+1.1 Was ist eine Matrix? -
+1.2 Addition, Subtraktion und Multipli-
+kation mit einem Zahlenfaktor - 1.3 Lineare Gleiehungssysteme und 
+Matrizen - 1.4 Das GauBsehe Losungsverfahren - Aufgaben 
+§2. Die Matrizenmultiplikation.............................................. 265 
+2.1 "Zeile mal Spalte" - 2.2 Die Multiplikation zweier Matrizen -
+2.3 Reehenregeln - 2.4 Die Transponierte einer Matrix - 2.5 Invertier-
+bare Matrizen - 2.6 Diagonal- und Dreieeksmatrizen - Aufgaben 
+§3. Vektorraume ........ ........................................................ 274 
+3.1 Der "abstrakte" Vektorraum - 3.2 Unterraume, Linearkombinatio-
+nen, lineare Hiille - 3.3 Basis und Dimension - Aufgaben 
+§4. Elementarmatrizen und elementare Umformungen ................... 286 
+4.1 Zeilenraum und Spaltenraum - 4.2 Elementarmatrizen - 4.3 Der 
+Rang und die P-Q-Normalform - 4.4 Reehenverfahren - Aufgaben 
+
+
+--- PDF page 11 ---
+Inhaltsverzeichnis 
+XI 
+§s. Determinanten......... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .. 299 
+5.1 Einfiihrung - 5.2 Definition der Determinante einer n x n -Matrix -
+5.3 Rechenregeln fiir Determinanten - 5.4 Die Entwicklung von det A 
+nach einer beliebigen Zeile oder Spalte - 5.5 Beispiele - 5.6 Anwen-
+dungen - Aufgaben 
+§6. Lineare Abbildungen und Eigenwerte .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ... 311 
+6.1 Lineare Abbildungen - 6.2 V = W = lRn - 6.3 Langen und Winkel 
+im lR"; Orthogonalitat - 6.4 Speziell: Spiegelungen und Drehungen 
+- 6.5 Das Schmidtsche Orthonormierungsverfahren - 6.6 Basiswechsel, 
+Koordinatentransformation - 6.7 Eigenwerte, Eigenvektoren - 6.8 Die 
+orthogonale Gruppe - Aufgaben 
+§7. Symmetrische Matrizen und quadratische Formen ................... 339 
+7.1 Quadratische Formen -
+7.2 Die Hauptachsentransformation -
+7.3 Quadriken - 7.4 Die nichtorthogonale Diagonalisierung einer sym-
+metrischen Matrix - 7.5 Positiv definite Matrizen - Aufgaben 
+Kapitel 7. Funktionen in mehreren Variablen: Differentiation ...... 359 
+§ 1. Kurven im lR" .............................................................. 360 
+1.1 Parameterdarstellungen - 1.2 Das begleitende Dreibein, Kriimmung, 
+Torsion -
+1.3 Erganzung: Der natiirliche Parameter und die Frenet-
+schen Formeln - Aufgaben 
+§2. Reellwertige Funktionen mehrerer reeller Veranderlicher ............ 370 
+2.1 Grundlagen - 2.2 Grenzwerte und Stetigkeit - 2.3 Partielle Ablei-
+tungen, der Gradient - 2.4 Die tot ale Ableitung und lineare Approxi-
+mation - 2.5 Einfache Anwendungen - 2.6 Die Richtungsableitung, der 
+Anstieg und die Kettenregel - Aufgaben 
+§3. Anwendungen der Differentiation.... . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .. 391 
+3.1 Die Bedeutung des Gradienten - 3.2 Approximation h6herer Ord-
+nung; die Taylor-Formel - 3.3 Implizite Funktionen - 3.4 Lokale Mi-
+nima und Maxima - 3.5 Ausgleichsrechnung - 3.6 Extremwertaufgaben 
+mit Nebenbedingungen - Aufgaben 
+§4. Vektorwertige Funktionen ................................................ 418 
+4.1 Die Differentiation - 4.2 Die Kettenregel - 4.3 Raumliche Skalaren-
+und Vektorfelder -
+4.4 Gradient, Divergenz, Rotation, Laplace-
+Operator - Aufgaben 
+
+
+--- PDF page 12 ---
+XII 
+Verzeichnis der Programme 
+Kapitel 8. Funktionen in mehreren Variablen: Integration. . . . . . . . .. 430 
+§1. Parameterintegrale ........................................................ 430 
+1.1 Parameterintegrale - Aufgaben 
+§2. Kurvenintegrale............................................................ 435 
+2.1 Das Kurvenintegral einer skalaren Funktion - 2.2 Anwendungen 
+- 2.3 Die Integration eines Vektorfeldes Iangs einer Kurve - 2.4 An-
+wendungen und Beispiele - 2.5 Das Potential eines Gradientenfeldes -
+2.6 Die praktische Bestimmung eines Potentials (n = 3) - Aufgaben 
+§3. Die Integration iiber ebene Bereiche.................................... 454 
+3.1 Der FIacheninhalt - 3.2 Definition und einfache Eigenschaften des 
+Doppelintegrals - 3.3 Die Berechnung des Doppelintegrals in kartesi-
+schen Koordinaten - 3.4 Weitere Anwendungen und Beispiele - 3.5 Der 
+Satz von Green - Aufgaben 
+§4. Die Integration iiber FUichen im Raum............ . . . . . . . . . . . . . . . . . . .. 467 
+4.1 Parameterdarstellungen - 4.2 Beispiele - 4.3 Der Fliicheninhalt -
+4.4 Das Oberfiiichenintegral einer skalaren Funktion - 4.5 Die Trans-
+formationsformel fUr Gebietsintegrale - 4.6 Das Oberfiiichenintegral 
+eines Vektorfeldes - 4.7 Der Satz von Stokes - Aufgaben 
+§5. Die Integration iiber dreidimensionale Bereiche............. . . . . . . . . .. 488 
+5.1 Definition und einfache Eigenschaften des Dreifachintegrals -
+5.2 Einfache Anwendungsbeispiele - 5.3 Die Transformationsformel fUr 
+Volumenintegrale - 5.4 Der Divergenzsatz - 5.5 Einige Anwendungen 
+der Integralsiitze - 5.6 Orthogonale krummlinige Koordinaten - Auf-
+gab en 
+Literaturverzeichnis ........................................................... 505 
+Anhang: Pascal-Programme ............................................... 507 
+N amen- und Sachverzeichnis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .. 517 
+Verzeichnis der Programme 
+1. 
+Programm HORNER......... ................................. ...... ........ 
+63 
+Auswertung eines Polynoms mit dem Horner-Schema 
+2. 
+Programm HORNER vollstaendig..................................... 
+63 
+Entwicklung eines Polynoms nach Potenzen von x - b 
+
+
+--- PDF page 13 ---
+Verzeichnis der Programme 
+XIII 
+3. 
+Programm NEWTON Interpolation................................... 
+68 
+Berechnung und Auswertung des Newton Interpolationspolynoms 
+4. 
+Programm BISECTION .................................................... 109 
+NulIstelIenbestimmung (j (x) = 0, x E R.) 
+5. 
+Programm NEWTON Verfahren......................................... 134 
+NulIstelIenbestimmung (j(x) = 0, x E R.) 
+6. 
+Programm KUBISCHE SPLINE........................................... 136 
+Interpolation mit kubischer Spline-Funktion 
+7. 
+Programm ROMBERG Integration ..................................... 209 
+Berechnung von J~ f(x)dx mittels Romberg-Extrapolation 
+8. 
+Programm Vollst. Ellipt. Integrale ............................ 211 
+Berechnung der vollstandigen elliptischen Integrale E(k) und K(k) 
+mit arithmetisch-geometrischem Mittel 
+9. 
+Programm GAUSS.......................................................... 296 
+Lasung des linearen Gleichungssystems Ax = b mit verbesserter LR-
+Zerlegung, Berechnung der Determinante von A 
+to. Programm LEVERRIER .................................................... 333 
+Berechnung der Koeffizienten des Polynoms p(A) = det(AE - A) 
+11. Programm .JACOBI........................................................ 354 
+Berechnung aller Eigenwerte und Eigenvektoren einer symmetrischen 
+Matrix 
+12. Programm BAIRSTOW ..................................................... 384 
+Berechnung aller komplexen NulIstelIen eines reellen Polynoms 
+13. Procedure LINFIT ....................................................... 406 
+Bestimmung der Ausgleichslasung eines iiberbestimmten linearen Glei-
+chungssystems 
+14. Programm NLSQ ............................................................ 407 
+Bestimmung der AusgleichslOsung eines iiberbestimmten nichtlinearen 
+Gleichungssystems 
+
+
+--- PDF page 14 ---
+Inhalt von Band 2 
+Kapitel 9. Gewohnliche Differentialgleichungen 
+§ 1. EinfUhrung 
+§2. Spezielle Differentialgleichungen 1. Ordnung 
+§3. Spezielle Differentialgleichungen 2. Ordnung 
+§4. Existenzsatze 
+§5. Numerische Losung des Anfangswertproblems 1. Ordnung 
+§6. Die Laplace-Transformation 
+§7. Losung mittels Potenzreihenansatz 
+§8. DGL-Systeme und DGLn hoherer Ordnung 
+§9. Lineare DGL-Systeme mit konstanten Koeffizienten 
+§1O. Stabilitat, periodische Losungen 
+§11. Rand- und Eigenwertprobleme 
+Kapitel 10. Funktionentheorie 
+§1. Punktmengen in der komplexen Ebene 
+§2. Einige elementare Funktionen 
+§3. Gebrochen-lineare Funktionen 
+§4. Potenzreihen 
+§5. Differentiation, analytische Funktionen 
+§6. Integration 
+§7. Anwendungen der Cauchy-Integralformel 
+§8. Harmonische Funktionen und das Dirichlet-Problem 
+§9. Laurent-Reihen und Singularitaten 
+§1O. Residuentheorie 
+Kapitel 11. Fourier-Analysis 
+§1. Trigonometrische Polynome und Reihen 
+§2. Fourier-Reihen 
+§3. Konvergenz der Fourier-Reihe 
+§4. Anwendungen (an Beispielen) 
+§5. Diskrete Fourier-Analysis 
+§6. Die Fourier-Transformation 
+Kapitel 12. Partielle Differentialgleichungen 
+§1. EinfUhrung 
+§2. Partielle Differentialgleichungen 1. Ordnung 
+§3. Lineare und quasilineare PDGn 2. Ordnung 
+§4. Trennung der Variablen 
+§5. Losungen mit Laplace- und Fourier-Transformation 
+§6. Losungen mit Green-Funktion 
+
+
+--- PDF page 15 ---
+Kapitel 13. Variationsrechnung 
+§l. Funktionale und Variation 
+Inhalt von Band 2 
+§2. Die Euler-Differentialgleichung flir I(y) = J~F(x, y, y') dx 
+§3. Natiirliche Randbedingungen, Transversalitatsbedingung 
+§4. Variationsaufgaben mit allgemeineren Funktionalen 
+§5. Variation mit Nebenbedingungen 
+§6. Variationsrechnung mit Funktionen in mehreren Variablen 
+§7. Das Wechselspiel Variationsaufgaben - Differentialgleichungen 
+§8. Direkte Methoden 
+XV 
+
+
+--- PDF page 16 ---
+Bezeichn ungen 
+1. Die griechischen Buchstaben. 
+Alpha 
+IX 
+A 
+Beta 
+f3 
+B 
+Gamma y r 
+Delta 
+c5 
+d 
+Epsilon 
+G 
+E 
+Zeta , Z 
+2. Wichtige Mengen. 
+N = {1,2,3,4, ... } 
+No = Nu {a}, 
+Eta 
+Theta 
+Iota 
+Kappa 
+Lambda 
+My 
+7L = {a, 1, -1, 2, -2, ... } 
+m 
+<Q = { n ; m, n E 7L , n # o} 
+IR 
+IRn 
+<C = {x + iy ; x, Y E IR} 
+lPn 
+~(D,IR) 
+'1 
+H 
+Ny 
+v 
+N 
+Tau 
+r 
+9 e 
+Xi 
+~ 
+.:::. 
+Ypsilon 
+v 
+I 
+Omikron 
+0 
+0 
+Phi 
+qJ 
+K 
+K 
+Pi 
+1C 
+II 
+Chi 
+X 
+A. 
+A 
+Rho 
+p 
+P 
+Psi 
+tp 
+fl 
+M 
+Sigma 
+(J 
+L 
+Omega 
+ill 
+Menge der natiirlichen Zahlen (--+ S. 3), 
+Menge der ganzen Zahlen (--+ S. 3), 
+Menge der rationalen Zahlen (--+ S. 3), 
+Menge der reellen Zahlen (--+ S. 3), 
+Menge der reellen Spaltenvektoren mit n 
+Komponenten (--+ S. 251), 
+Menge der reellen Zeilenvektoren mit n 
+Komponenten (--+ S. 251), 
+Menge der reellen Matrizen mit m Zeilen 
+und n Spalten (--+ S. 251), 
+Menge der komplexen Zahlen (--+ S. 53), 
+Menge der reellen Polynome vom Grad :::;; n 
+(--+ S. 276), 
+Menge der auf D <;; IRn stetigen reellen 
+Funktionen (--+ S. 377), 
+T 
+Y 
+<l> 
+X 
+'P 
+Q 
+Menge der auf D <;; IRn k-mal stetig partiell 
+differenzierbaren reellen Funktionen (--+ S. 377). 

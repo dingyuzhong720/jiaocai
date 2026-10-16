@@ -1,0 +1,4470 @@
+--- PDF page 446 ---
+Kapitei 8 
+Funktionen in mehreren Variablen. 
+Teil 2: Integration 
+§ 1. Parameterintegrale 
+1.1 Parameterintegrale. 
+Die meisten hoheren Funktionen der Analysis treten 
+entweder als Integralfunktionen G(x) = JX g(t)dt auf (-> Kap. 4) oder sie 
+(/ 
+besitzen eine Integraldarstellung der Form 
+J" 
+F(x) = 
+c f(x,y)dy, 
+worin der Integrand vom Parameter x abhangt. 
+Typische Beispiele hierfiir sind: 
+Die Gammafunktion 
+r(x) := foX t,-Ie-t dt 
+(x> 0), 
+(-> Kap. 4, §4) , 
+die Besselfunktionen 
+Ii" . 
+In(x) := ~ 
+cos(x sm t - nt) dt 
+J[ 
+0 
+(n E Z) , 
+die Laplace-Transformierte F(x) := fox f(t)e- xt dt . 
+Die Differentiation und Integration dieser Darstellungen gelingt mit der Theorie 
+von Funktionen im 1R2 (-> Kap. 7, §2). 
+o Eigentliche Parameterintegrale. 
+Satz 1. 1. Grenzwertvertauschung mit bestimmtem Parameterintegral. 
+Sei D = [a,b] x [c,d] = {(x,y) ; a ~ x ~ b, c ~ y ~ d} ein abgeschlossenes 
+Rechteck in 1R 2 und f : D -> 1R stetig. Dann gilt fur die I ntegralfunktion 
+d 
+F(x) := 1 f(x,y)dy, 
+a~x~b, 
+a) 
+Fist in [a, b] stetig. 
+b) 
+Satz von FUBINI. 
+b 
+b( d 
+) 
+d( b 
+) 
+1 F(x)dx= 1 1 f(x,y)dy 
+dx= 1 1 f(x,y)dx 
+dy, 
+K. Meyberg et al., Höhere Mathematik
+© Springer-Verlag Berlin Heidelberg 1998
+
+
+--- PDF page 447 ---
+§ l. Parameterintegrale 
+431 
+c) 
+ist zusiitzlich f auf [a, b] stetig partiell nach x dijferenzierbar. dann ist F 
+dijferenzierbar mit der Ableitung 
+(I) 
+I 
+d jd 
+jd of 
+F (x) = dx 
+c f(x,y)dy = 
+c ox(x,y)dy 
+Beweis. 
+a): Aufgrund der gleichmaBigen Stetigkeit (~ Kap. 7, Satz 2.1) von f 
+auf D gibt es zu e > 0 ein c5 > 0, so daB gilt: 
+If(x,y) - f(xo,)')1 < I; flir aIle y, sofern nur Ix - xol :s; c5 
+j t! 
+Fur diese x gilt dann IF(x)-F(xo)l:s; 
+If(x,y)-f(xo,y)ldy:s;e(d-c). 
+Also ist F stetig. 
+c 
+c): 1st daruberhinaus f, stetig, dann folgt mit dem Mittelwertsatz 
+~[F(X + il) - F(x)] = jt! fIx + il';h - f(x,y) dy = jt! f,(~,y)dy 
+mit s zwischen x und x + II. Nach a) (mit I, statt f) strebt die rechte Seite 
+bei il ~ 0 gegen jt! IJx, y)dy . 
+b): Die Funktion H(x) := jt! (1' fIt,}') elt) ely erflillt die Voraussetzung 
+t! 
+von c). Mit (1) und Satz 1.3 von Kap. 4 folgt H'(X) = j f(x,y)dy und damit 
+lh (jt! f(x,y) dY) dx = lb H'(x)dx = H(b) - H(a) = H(b). 
+0 
+Beispiel 1. 
+F(x) = 1" sin~tx) dt, 
+F'(x) = 1" cos(tx) dt, 
+F"(x) = -1" tsin(tx) dt . 
+o 
+Beispiel 2. Die BESsEL-Funktionen 
+11" 
+. 
+In(x) := -
+cos(x Sill t - nt)elt 
+7r. 
+0 
+(n = 0,±1,±2, ... ) 
+gehoren zu den besonders wichtigen Funktionen der angewandten Analysis. Sie 
+wurden zuerst von F. W. BESSEL (1784-1846) zur Berechnung der Planetenbah-
+nen verwendet. In der Folge kamen zahlreiche Anwendungen in den Ingenieur-
+wissenschaften hinzu. Sie treten beispielsweise auf bei der Amplitudenberech-
+nung der harmonischen Oberwellen in einer frequenzmodulierten Schwingung. 
+
+
+--- PDF page 448 ---
+432 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+FUr y(x) := Io" cos(x sin t - nt)dt , d.h. y(x) = nJ,,(x) , gilt nach Satz 1.1 
+y' (x) = - Io" sin(x sin t - nt) . sin t dt 
+= -x Io" cos2 t cos(x sin t - nt)dt + n Io" cos t cos(x sin t - nt)dt 
+(partielle Integration mit u = sin t, v = sin(x sin t - nt) ). 
+Ferner gilt (ebenfalls mit (1)) 
+y" (x) = - Io" cos(x sin t - nt) sin2 t dt , 
+und somit 
+x 2y"(x) + xy'(x) + (x2 - n2)y(x) = 0 . 
+D.h., die Besselfunktion JIl ist eine Losung der Bessel-Differentialgleichung 
+(-+ Bd. 2) 
+J (xl 
+n 
+5 
+10 
+n 
+Abb. 197 - Bessel-Funktion, abhangig von x und n 
+D 
+Hangen im Parameterintegral auch die Integrationsgrenzen vom Parameter x 
+ab, dann gilt statt (1) fUr stetig differenzierbare Funktionen g, h die 
+LEIBNIZ-Regel 
+(2) 
+d 
+h(x) 
+h(x) 
+d 1 
+f(x,y)dy = 1 
+fAx,y)dy + f(x,h(x»h'(x) - f(x,g(x»g'(x). 
+x 
+g(x) 
+g(x) 
+Beweis. 
+Man wende auf F(x, u, v) := 1v f(x,y)dy mit u = g(x), v = h(x) die 
+Kettenregel an (-+ Kap. 7, Satz 2.6): 
+:xF (x, g(x), h(x)) = Fx + Fuu' + Fvv' . 
+o 
+
+
+--- PDF page 449 ---
+§l. Parameterintegrale 
+433 
+Beispiel 1. 
+D 
+Beispiel 2. 
+Fur 
+11t 
+x(t) := k 
+0 f (u) sin kIt - u)du 
+(mit f : IR -+ IR stetig) gilt 
+x(t) = it f (u) cos kIt - u)du , 
+.x(t) = f (t) - k it f (u) sin k(t - u)du . 
+Folglich ist x = x(t) eine Losung der Schwingungsgleichung (-+ Bd. 2) 
+.x + k2x = f(t) mit den Anfangswerten x(O) = .x(O) = 0 . 
+D 
+® Uneigentliche Parameterintegrale. Ein dem Satz 1.1 entsprechendes Ergebnis 
+fUr uneigentliche Integrale, also fUr Integrale der Form 
+1" f(x,y)dy = ~;~ 1"~1: f(x,y)dy , 
+x 
+d 
+1 f(x,y)dy = J~n; 1 f(x,y)dy, 
+gilt nur unter der zusatzlichen Voraussetzung. dafi einige der vorkommenden 
+Integrale .. gleichmafiig konvergieren". Wir gehen hier auf diesen Begriff nicht 
+naher ein, sondern formulieren den entsprechenden Satz (ohne Beweis) in einer 
+speziellen Form, die fUr die meisten Anwendungen ausreicht. 
+Satz 1.2. 
+1st f auf dem einseitig offenen "Rechteck" 
+D = {(x,y) ; a ~ x ~ b, c ~ y < d} 
+(dEIRU{OO}) 
+stetig und stetig partiell nach x dijferenzierbar und gibt es Funktionen 
+g, h : [c, d) -+ IR . fur die gilt 
+1. 
+If(x,y)1 ~ g(y) und If,(x,y)1 ~ h(y) for aile (x,y) ED. 
+2. 
+die uneigentlichen Integrale 
+d 
+d 
+1 g(y)dy, 1 h(y)dy 
+konvergieren. 
+dann konvergiert fur jedes x E [a, b] 
+d 
+F(x) := 1 f(x,y)dy 
+und die dadurch definierte Funktion 
+d 
+F'(x) = 1 fx(x,y)dy 
+(3) 
+bzw. 
+1
+X g(y)dy, 1'£ h(y)dy 
+das uneigentliche Integral 
+bzw. 
+F(x) := 1'£ /(~:y)dy 
+Fist dijferenzierbar mit der Ableitung 
+bzw. 
+F'(x) = 1'£ fAx,y)dy . 
+
+
+--- PDF page 450 ---
+434 
+8. Funktionen in mehreren Varia bien. Teil 2: Integration 
+Beispiel 1. 
+F(x) := 10
+00 e-t2 COS(xt) dt 
+ist fUr jedes x E R. konvergent und besitzt die Ableitung 
+F'(x) = 10
+00 _te-t2 sin(xt)dt = -~F(x) 
+(mit partieller Integration; it = te-t2 , v = sin(xt) ). 
+Denn f(x,t) := e-t2 cos(xt) ist eine CCI-Funktion; es gelten die Abschatzungen 
+2 
+2 
+2 
+If(x,t)l::5:e-t
+, 
+Ifx(x,t)I=-te-t sin(xt)::5:te-t ; 
+und f;;" e-t2 dt, f;;" te-t2 dt konvergieren wegen e-t2 < e-t fUr t > 1 . 
+(--+ Satz 1.2 mit g(t) = e-t2, h(t) = te-t2 .) 
+o 
+Beispiel 2. 
+Die Ableitung der Gammafunktion r(x) = 10
+00 e-ttX-ldt (x > 0) 
+laBt sich ebenfalls mit (3) berechnen. Die Abschatzungen, mit denen die Kon-
+vergenz des an beiden Integralgrenzen uneigentlichen Integrals nachgewiesen 
+wurde, zeigen, daB die Voraussetzungen aus Satz 1.2 erfUllt sind. 
+r'(x) = 10
+00 e-ttX-1lntdt , 
+r"(x) = 10
+00 e-ttX- 1(lnt)2dt. 
+0 
+Gegenbeispiel. Das uneigentliche Integral 1
+00 e-st cos t dt konvergiert nicht 
+gleichmaBig fUr s ~ 0 : 
+0 
+Einerseits liefert zweimalige partielle Integration 
+lim·1
+OO e-st costdt = lim -1 
+s 2 = 0, 
+s....o 
+0 
+s....o + s 
+andererseits hatte man mit Satz 1.2 - falsch angewendet -
+lim 1
+00 e-st cos t dt = 1
+00 lim e-st cos t dt = 1
+00 cos t dt = lim sin t ; 
+s .... o 
+0 
+0 
+s .... o 
+0 
+t .... oo 
+d.h. lim sin t = 0, das ist ein Widerspruch. 
+t .... oo 
+o 
+Aufgaben 
+1. Fur 0::5: x ::5: 1, y ~ 0 ist die Funktion f (x, y) = xye-xy 
+gegeben. 
+a) Man diskutiere und skizziere x 1-+ f(x,y) fUr festes y. 
+b) Man berechne g(x) := lim f(x,y) fUr jedes x E [0,1]. Gilt 
+y-+oo 
+1 
+1 
+lim 1 f(x,y)dx = 1 g(x)dx ? 
+y-+oo 
+0 
+0 
+
+
+--- PDF page 451 ---
+§2. Kurvenintegrale 
+x2 
+2. Man wiederhole Aufgabe 1 mit f(x,y) = 2e-x/y, 0:::;; x < 00, 0 < y < 00. 
+Y 
+3. Man berechne 
+J:
+x 2 
+e'x 
+a) F'(l) flir F(x) = 
+-+ ds. 
+l/x x 
+s 
+b) F(e), F'(e), F"(e) flir F(x) = IX In(xlny)dy, x> 1. 
+4. Man rechne direkt nach: Flir die Funktion f(x,y) = (2-xy)xye-xy ist 
+11 (1"' f(X,Y)dY) dx of 1>: (11 
+f(X,Y)dX) dy . 
+5. a) Man bestatige flir die BESSEL-Funktionen In(x) 
+-
+durch partielle Integration die Rekursionsformel: 
+(i) 
+2n 
+I n+1 (x) + I n- 1 (x) = X-Jn(x) 
+, x of 0 , 
+-
+durch die Substitution t = 7r - r 
+(ii) 
+Ln(x) = (-I)nJn(x) . 
+b) Mitte1s (i) und (ii) berechne man I n(3) flir -5:::;; n :::;; 5 rekursiv aus 
+Jo(3) = -0.2600519549 ... und J 1 (3) = 0.3390589585 .... 
+§2. Kurvenintegrale 
+435 
+2.1 Das Kurvenintegral einer skalaren Funktion. 
+Das bestimmte Integral 
+S~ g(t)dt einer reellen Funktion g : [0, a] -+ lR stellt den einfachsten Fall ei-
+nes Kurvenintegrals dar. Es ist interpretierbar als Integral iiber ein Skalarenfeld 
+liings der Strecke x(t) = tel, 0 ~ t ~ a. Die Verallgemeinerung auf beliebige 
+Kurven im lRn liefert ein Mittel, urn in der Physik die Masse und den Schwer-
+punkt von krummen Stiiben, die Arbeit in Kraftfeldern und die Zirkulation in 
+Stromungsfeldern zu berechnen und in der Theorie von Vektorfeldern zu einem 
+Gradientenfeld das Potential zu bestimmen. 
+Definition. 
+Sei D ~ lRn offen, w : [a, b] -+ D ein KurvenstUck und f 
+eine 
+skalare Belegungsfunktion auf dem KurvenstUck, so dajJ t f-4 f(w(t)) stetig ist. 
+Dann heijJt 
+(1) 
+b 
+lf dS := 1 f(w(t))lw(t)ldt 
+das Kurvenintegral von filings w. 
+
+
+--- PDF page 452 ---
+436 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+Das Kurvenintegral besitzt im Fall 
+n = 3 folgende anschauliche Deu-
+tung, aus der sich auch die Anwen-
+dungen ergeben. 
+Das Kurvensttick 
+besitze im Kurvenpunkt 
+w(t) 
+die 
+Belegung mit der skalaren GroBe 
+(Masse, Ladung, ... ) f (w(t». Zur Be-
+rechnung der Gesamtbelegung wird 
+das Kurvensttick durch Aufteilung 
+Abb. 198 - Kurvenintegral 
+des Parameterintervalls a = to < tl < ... < tm = b in Bogen tiber [t;_I, til 
+(I :5: i :5: m) der Lange 1\s; = J::_1 !w(t)!dt = !W(L;)!1\t; mit einem Zwischenwert 
+L; (t;_1 :5: L; :5: t;, --+ Kap. 4, §1(1O» zerlegt. Durch das Produkt 
+f(W(L;»1\S; = f(W(L;»)!W(L;)!M; 
+wird die Belegung des i-ten Bogens approximiert, die Gesamtbelegung durch 
+" 
+Zn = Lf(w(L;»!W(L;)!1\t; . 
+;=1 
+Dieses ist eine RIEMANN-Summe, die aufgrund der geforderten Stetigkeit mit 
+n --+ 00 und M; --+ 0 gegen das Integral J~ f (w(t») !w(t) !dt konvergiert. 
+Berechnung des Kurvenintegrals I = if 
+ds im JR.3. 
+1. Schritt: Das Kurvensttick parametrisieren, 
+w(t) = (x(t), y(t), z(t») T 
+, a :5: t :5: b . 
+2. Schritt: Das Bogenelement durch Differentiation bestimmen, 
+ds = !w(t)!dt = J x2(t) + y2(t) + z2(t) dt . 
+3. Schritt: Eintragen: w(t) im Integranden: f = f(w(t», 
+das Bogenelement ds = !w(t)!dt, 
+a, b als Integrationsgrenzen. 
+b 
+I = 1 f (x(t), y(t), z(t» J x2(t) + y2(t) + z2(t)dt 
+als bestimmtes Integral ausrechnen (--+ Kap. 4). 
+Mit der Sprechweise von Kap. 4, 6.1 lautet der Sachverhalt anschaulich: 
+Das 
+Bogenelement 
+ds 
+1m 
+Kurvenpunkt 
+w(t) 
+tdigt 
+die 
+Belegung 
+dm = f(w(t»ds = f(w(t))lw(t)!dt; die "kontinuierliche Summation" - also die 
+Integration - ergibt die Gesamtbelegung 
+b 
+M = i 
+dm = i 
+fds = 1 f(w(t»!w(t)!dt. 
+
+
+--- PDF page 453 ---
+§2. Kurvenintegrale 
+437 
+Bemerkung. 
+Was durch diese anschauliche Deutung unmittelbar einleuchtet, 
+HiBt sich auch explizit leicht beweisen: 
+Durchlaufen zwei Kurvenstucke w : [a,b] --+ IRn und u : [c,d] --+ IRn dieselbe Spur 
+{w(t) ; a ::;; t ::;; b} = {u(t) ; c ::;; t ::;; d} genau gleich oft, dann gilt 
+b 
+d 
+1 f(w(t») Iw(t)1 dt = 1 f(u(t») liI(t) I dt. 
+Die Schreibweise J 
+w f ds symbolisiert diese Unabhangigkeit von einer speziellen 
+Parameterdarstellung. 
+Beispiel. Es ist die Masse M = J 
+w pds der 
+abgebildeten Schraubenfeder mit linearer 
+Massendichte p(x,y,z) = x2i+z2 zu be-
+rechnen. 
+1. Schritt: Das Kurvenstiick darstellen: 
+x = 2 cos t, Y = 2 sin t, z = ! t, 0::;; t ::;; 4n . 
+2. Schritt: Das Bogenelement berechnen: 
+ds = v'x2 + y2 + z2dt = !mdt. 
+3. Schritt: Einsetzen und ausrechnen: 
+x 
+Abb. 199 - Schraublinie 
+M = i 
+pds = i 
+(x2i + z2)ds = .£47< [(2 cos t)2(2 sin t)2 + ! t2H v'f7 dt 
+Beispiele fUr spezielle Integrationswege. 
+1. Das Integrallangs einer zur z-Achse parallelen Strecke. 
+1. Schritt: Die Strecke w(t) = (xo, Yo, t) T, zo::;; t ::;; Zt . 
+2. Schritt: Das Bogenelement ds = dt . 
+3. Schritt: Einsetzen (und ausrechnen) 1 f ds = JZI f (xo, Yo, t)dt. 
+w 
+Zo 
+2. Das Integrallangs eines Graphen y = g(x) in der Ebene z = Zo. 
+1. Schritt: Das Kurvenstiick w(x) = (x, g(x), zo) T, a::;; x ::;; b. 
+2. Schritt: Das Bogenelement ds = v'I + g'(x)2dx. 
+b 
+3. Schritt: Das Integral if 
+ds = 1 f (x, g(x), zo) v'I + g' (x)2 dx . 
+Es ist zweckmaBig, den Begriff des 
+Kurvenintegrals auf Integrationswege 
+zu erweitern, die aus (stetig differen-
+zierbaren) Kurvenstiicken zusammen-
+gesetzt werden. 
+Abb. 200 - Kurve 
+o 
+
+
+--- PDF page 454 ---
+438 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+Definition. 
+a) Unter einer Kurve W in D <:; IRn 
+verstehen wir eine endliche 
+Folge WI, ... , Wk von (stetig difJerenzierbaren) Kurvenstiicken Wi : [ai, b;] ---+ D 
+(i = 1, ... ,k) mit wi(bi) = Wi+1(ai+d (1 ~ i ~ k -1). 
+b) Fur eine aus den Kurvenstiicken WI, ... , Wk bestehende Kurve und fur jede 
+stetige Funktion f : Spur W ---+ IR ist das Kurvenintegral von f llings W definiert 
+durch 
+(2) 
+1 f ds := 1 f ds + ... + 1 f ds . 
+W 
+"'I 
+Wk 
+Beispiel. Die Kurve W fUhrt, wie skiz-
+ziert, auf achsenparallelen Strecken vom 
+Ursprung 0 zum Punkt (Xo, Yo, zo) , Be-
+legungsfunktion sei f(x) = Ixl2 : 
+i Ixl2ds = lXO (t2 + 0 + O)dH 
++ lYO (x6 + t2 + O)dt+ 
++ lZO (x6 + Y6 + t2)dt 
+132 
+132 
+2 
+13 
+= 3Xo + xoYo + 3Yo + xozo + Yozo + 3 zo . 
+Z 
+Zo 
+Abb. 201 - Streckenzug 
+D 
+Durch die Anordnung auf IR ergibt sich eine Orientierung (Durchlaufrichtung) 
+eines Kurvenstucks W : [a, b] ---+ IRn bzw. der Spur vom Anfangspunkt hin zum 
+Endpunkt. In der graphischen Darstellung wird das durch einen entsprechenden 
+Pfeil gekennzeichnet. Eine aus Stucken Wi : [ai,b;] ---+ IRn (1 ~ i ~ k) bestehende 
+Kurve wird vom Anfangspunkt WI (ad uber die "Verbindungspunkte" wi(bi) = 
+Wi+l (ai+d (1 ~ i ~ k - 1) zum Endpunkt wk(bk) durchlaufen. 
+Das zum Kurvenstuck W : [a, b] ---+ IRn definierte Kurvenstuck 
+(3) 
+w· : [a, b] ---+ IRn, 
+w'(t):= w(a + b - t) , 
+hat die gleiche Spur wie w, sie wird jedoch von w· (a) = w(b) (Endpunkt von 
+w) nach w· (b) = w(a) (Anfangspunkt von w) durchlaufen. Die zur Kurve w, 
+bestehend aus den Stucken WI, ... , Wk, 
+entgegengesetzt durchlaufenen Kurve w· 
+besteht (der Reihe nach) aus wZ, ... , 
+w;. Da in der Integraldefinition (1) die 
+Durchlaufrichtung nicht eingeht, gilt of-
+fen bar 
+(4) 
+I fds = 1 fds. 
+w 
+w· 
+Abb. 202 - Durchlaufsinn 
+Aus der Definition ergeben sich fUr aIle Kurven w in D, f,g E «fl(D,IR), 
+11. E IR, folgende Rechenregeln: 
+
+
+--- PDF page 455 ---
+§2. Kurvenintegrale 
+439 
+.£ rxf ds = rx .£ f ds , 
+(5) 
+.£ (f + g)ds = .£ f ds + .£ g ds . 
+(Linearitiit des Kurvenintegrals) 
+Ferner gilt fUr jedes Kurvenstuck w : [a, b] -+ lR n der M ittelwertsatz : 
+(6) 
+mit einem Kurvenpunkt x und der Kurvenlange L. 
+Beweis. 
+Der Mittelwertsatz fUr bestimmte Integrale (-+ Kap. 4, Satz 1.2) gibt 
+h 
+h 
+.£ f ds = 1 f (w(t)) Iw(t)ldt = f (x) llw(t),dt 
+= f(x)' L. 
+D 
+2.2 Anwendungen. 
+8 Bogenliinge. Die Lange L(w) eines Kurvenstucks w 
+[a, b] -+ lR3 betragt 
+nach Kap. 7, §1 
+h 
+b 
+(7) 
+L(w) = .£ ds = lIW(t)'dt = 1 vx(t)2 + y(t)2 + z(t)2dt 
+Eine aus den Kurvenstucken 
+WI, ... , Wk 
+bestehende Kurve hat die Lange 
+L = L(wd + ... + L(Wk) , wobei mehrfach durchlaufene Stucke entsprechend 
+oft gezahlt werden. 
+® Masse (oder Ladung, bzw. 
+irgendeine Belegung). 
+Stellt p(x, y, z) die 
+Massendichte einer Kurve w (eines Seiles oder Drahtes) dar, so nennt man 
+dm = p(x, y, z)ds ein Massenelement. Die Gesamtmasse betragt 
+(8) 
+M = .£ dm = .£ p(x,y,z)ds. 
+o Momente und Massenmittelpunkt. Die k-ten Momente (bezuglich der Ko-
+ordinatenebenen) eines in (x, y, z) befindlichen Massenpunktes der Masse dm 
+sind xkdm, /dm, zkdm. Demzufoige berechnen sich die k-ten Momente der 
+Kurve w wie foIgt: 
+
+
+--- PDF page 456 ---
+440 
+(9) 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+Mx.k = i xkdm = i xkp(x,y,z)ds , 
+My.k = i /dm = i /p(x,y,z)ds, 
+Mz.k = i zkdm = i Zkp(X, y, z)ds . 
+Fur k = 1 sind das die statischen Momente, fUr k = 2 die Tragheitsmomente. 
+Der Punkt S = (xs,ys,zs) , in dem eine Punktmasse der GroBe M (--+ (8)) 
+dasselbe statische Moment wie w besitzt, bezeichnet man als Massenmittelpunkt 
+(Schwerpunkt). 
+(10) 
+Schwerpunkt S = (xs, Ys, zs) zur Massendichte p, 
+Gesamtmasse M = i pds : 
+Xs = ~ iXP(X,Y,Z)dS, Ys = ~ iYP(X,Y,Z)dS, Zs = ~ jZP(X,Y,Z)dS. 
+1m Fall homogener Massenverteilung, p(x,y,z) = const, rallt der Massenmittel-
+punkt der Kurve w mit ihrem geometrischen Schwerpunkt zusammen. 
+(11 ) 
+Der (geometrische) Schwerpunkt S = (x,y,z) bei 
+einer Gesamtliinge L = i ds : 
+x = ± 
+i 
+x ds, y = ± 
+i 
+y ds, z = ± 
+i 
+z ds . 
+Man beachte: Sowohl der Massenmittelpunkt als auch der Schwerpunkt sind 
+i.a. keine Kurvenpunkte. 
+Beispiel. 
+Die Schraubenlinie (--+ Abb. 199) 
+w(t) = (rcost,rsint,ht)T, ° 
+~ t ~ 2nn, 
+hat die Bogenliinge 
+L = fo 2"n Jr2 + h2dt = Jr2 + h2 . 2nn = 2nnR , 
+R = Jr2 +h2 . 
+Fur ganzzahliges n ist x = y = ° und mit der Hohe H = 2nnh ist 
+_ 
+1 12"n 
+4n2n2hR 
+H 
+z = 2nnR 
+0 
+htRdt = 2. 2nnR = nnh = "2 ' 
+d.h. S = (0,0, ! H) liegt nicht auf w. 
+
+
+--- PDF page 457 ---
+§2. Kurvenintegrale 
+441 
+Mit der Massenbelegung p = z ergibt sich 
+M = 121111 ht . Rdt = 2n 2n2hR . 
+Wieder ist Xs = Ys = 0, und es ergibt sich mit 
+I 121[" 
+Zs = 2 ., 'J 
+ht·ht·Rdt= ~hnn = ~H 
+n~w JR 
+0 
+. . 
+als MassenmitteIpunkt S = (0. 0, ~ H) . 
+o 
+2.3 Die Integration eines Vektorfeldes langs einer Kurve. 
+Fiir Vektoren 
+x = (XI •.. .. x,,)T, Y = (YI •...• y,,)T E JR" ist das Skalarprodukt X· Y definiert 
+durch (---> Kap. 6. 6.3) X· Y = f XiYi. Die Zahl Ixl = (f x1) 1/2 heiSt Betrag 
+i~l 
+i~l 
+des Vektors x und zu einem Einheitsvektor e (d.h. lei = I ) nennt man X· e 
+die skalarc Komponcntc von x in e-Richtung. Offenbar gilt x = (x' e)e + n mit 
+dem zu e orthogonalen Vektor n = x - (x' e)e (---> Kap. I, §5(6) fiir n = 3). 
+Definition. 
+Sci D ~ JR" offcn. 
+w: [a, b] 
+---> D cinc rcgularc Kurvc und 
+v : D ---> JR" cill stctigcs Vcktor(cld. Man ncnnt 
+h 
+i v . dx := 1 v(w(t))· w(t)dt 
+( 12) 
+das K lIrrcllintcgral ['Oil v Iangs w. 
+Bemerkungen. 
+I. Mit T(t) := Iw;t)1 w(t) 
+(---> Kap. 7, 
+§I) lautet (12) 
+w(b) 
+J~ V· £Ix = 1" [v (w(t)) . T(t)] Iw(t)ldt 
+= f (v·T)ds. 
+Abh. 203 - Integral eines Vcktorfeldcs 
+Es handelt sich also urn das Kurvenintegral J" f £Is der skalaren Tangential-
+komponente f = v . T des Vektorfeldes langs der Kurve w . 
+2. Offen bar geIten fUr stetige Vektorfelder u, v und :x E JR folgende Rechenre-
+geln (die Linearitat): 
+(13) 
+1 
+(u + v) . dx = 1 u . dx + 1 v . dx , 
+~' 
+w 
+w 
+i :xv· £Ix = :x f v . £Ix . 
+3. Bei einer A.nderung der "Integrationsrichtung", d.h. beim Ubergang von w 
+
+
+--- PDF page 458 ---
+442 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+zur entgegengesetzt durchlaufenen Kurve w· (-+ (3)) geht der Tangentialvektor 
+T in - T iiber. Deshalb gilt 
+(14) 
+1 V· dx = -1 v . dx . 
+w' 
+w 
+4. SinngemiiB zu (2) ist das Kurvenintegral von Vektorfeldem liings stiickweise 
+reguliirer Kurven erkliirt. 
+5. Man nennt eine Kurve w geschlossen, wenn der Anfangspunkt mit dem 
+Endpunkt zusammenfallt. In diesem Fall schreiben wir 
+t fdS 
+bzw. t v·dx. 
+6. Die linke Seite von (12) wird mit dx = (dXI, ... ,dxn)T gem "explizit" in 
+folgender Form angegeben: 
+i V· dx = i vldxl + v2dx2 + ... + vndxn . 
+Mit indexfreier Schreibweise im 1R3 , d.h. mit x = XI, Y = X2, Z = X3 : 
+Berechnung des Kurvenintegrals im 1R3. 
+A = i v . dx = i VI dx + v2dy + V3dz . 
+1. Schritt: Das Kurvenstiick parametrisieren, 
+wet) = (x(t), yet), z(t)) T , a ~ t ~ b . 
+2. Schritt: Das vektorielle Bogenelement berechnen, 
+dx = w(t)dt = (x(t),y(t),z(t)) T dt . 
+3. Schritt: Parameterdarstellung, vektorielles Bogenelement, 
+Parametergrenzen ein tragen, 
+b 
+A = 1 [VI (w(t))x(t) + V2(W(t))y(t) + v3(w(t))z(t)]dt 
+als bestimmtes Integral ausrechnen (-+ Kap. 4). 
+Beispiel 1. 
+A = i x2y dx + (x - z)dy + (xyz)dz 
+liings des Graphen y = x3 
+(0 ~ X ~ 2) in der Ebene z = 2. 
+1. Schritt: Die Kurve x = t, Y = t3, z = 2, 0 ~ t ~ 2 . 
+2. Schritt: dx = dt, dy = 3t2dt, dz = O. 
+
+
+--- PDF page 459 ---
+§2. Kurvenintegrale 
+443 
+D 
+Beispiel 2. 
+Das Integral tiber den isolierten Wirbel im lR 2 (---+ Kap. 7, 4.3) 
+v(x, y) = -2-1-2 (-y) 
+x + y 
+x 
+, (x, y) =1= (0,0) , 
+langs des einmal positiv durchlaufenen Einheitskreises w urn (0,0). 
+A = 1 v1dx + v2dy = 1_7_1_7 (-ydx + xdy) 
+w 
+w x~ + y~ 
+J. Schritt: x = cos t, Y = sin t, 0:::; t :::; 2n . 
+2. Schritt: dx = - sin t dt, dy = cos t dt . 
+3. Schritt: A = 1,2IT [sin2 t + cos2 tJdt = 2n. (---+ 2.5, letztes Beispiel) 
+D 
+2.4 Anwendungen und Beispiele. 
+(0 Arbeit. 
+Die von einer Kraft K im Kurvenpunkt wIt) langs des Weges 
+dx = w(t)dt geleistete Arbeit betragt dA = K . dx = (K . T)ds. Demnach betragt 
+die von K langs w geleistete Arbeit 
+A = f K ·dx. 
+In einem elektrischen Feld E liefert das (negative) "Arbeitsintegral" den Span-
+Illlllgsab/clillangs w (---+ Kap. 7, 3.1): 
+U = - f E·dx. 
+Beispiel. 
+Gefiihrte Bewegung. 
+Gleitet ein 
+Teilchen der Masse 111 im vertikalen Schwe-
+refeld K = (0,0, -l1lg) T Ilicht fi'ei, sondern 
+reibungsfrei liings einer Leitkurve w, so 
+sind im Bewegungsgesetz die von der Mas-
+sentragheit herrtihrenden Scheinkrii/te zu 
+berticksichtigen. Rechnet man im begleiten-
+den Dreibein (T, N, B) von w (---+ Kap. 7, 
+1.2), so lautet die Bewegungsgleichung: 
+K 
+mx = K + Fv N + F B B . 
+Abb. 204 - Gefiihrte Bewegung 
+Das Kurvenintegral tiber dieses Kraftegleichgewicht zeigt in der Energiebilanz 
+der Bewegung, daB FN und F 
+B keinen Energiebeitrag leisten: 
+f m(x . dx) = i K . dx + FN f N . dx + FBi B . dx , 
+1 mIx . x)dt = 1 K . dx + fv 1 (N . T)ds + F B 1 
+(B . T)ds . 
+l\! 
+W 
+\\" 
+W 
+
+
+--- PDF page 460 ---
+444 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+Integration der linken Seite ergibt mit vet) = li(t)1 und N· T = B . T = 0 : 
+m Ib (xx + yy + zz)dt = 1m(X2 + l + z2)lb
+= = 1m(v2(b) - v2(a») = 1 K· dx . 
+a 
+t a w 
+Mit X = bT + V2KN (-+ Kap. 7, §1(9» erhalt man nach skalarer Multiplikation 
+der Bewegungsgleichung mit N bzw. B: 
+o 
+® Zirkulation und Flu8. In der Stromungslehre heiBt das Integral eines Ge-
+schwindigkeitsfeldes v liings einer geschlossenen Kurve w, 
+~ 
+v . dx = ~ 
+(v . T)ds , 
+T 
+Tangential-
+kornponente 
+die Zirkulation des Feldes v Hings w. 
+Es wird die skalare Tangentialkomponente 
+von v liings w aufintegriert. 
+n 
+Liegt w in einer Ebene, so bezeichnet man 
+das Integral tiber die Normalkomponente 
+von v als FlujJ des Feldes v durch w: 
+komponente 
+~ 
+v . dn := ~ 
+(v . n)ds . 
+Abb. 205 - FluB, Zirkulation 
+o bezeichnet dabei in jedem Kurvenpunkt 
+den QujJeren Normalenvektor, der aus T durch eine Drehung urn -900 ensteht. 
+Er hat fUr wet) = (X((t») die Darstellung net) = h ( 
+y~t(») und 
+Y t 
+x2 + y2 
+-x t 
+weist bei positivem Umlauf stets ins AuBere von w (-+ 3.5, Bsp.2). 
+Der Mittelwertsatz (6) gibt die Deutung fUr die physikalische Anwendung: 
+~ 
+v . dx = (v(t) . T(t»L 
+; ~ 
+v . do = (v(i) . o(t»L . 
+Zirkulation liings w = (mittlere skalare Tangentialkomponente von v 
+langs w)· (Lange von w) , 
+FluB durch w = (mittlere skalare Normalkomponente von v 
+liings w)· (Lange von w). 
+Beispiel. Ebeoe Gegeostromung. 
+V =(CoY) 
+, C > O. 
+Ftir den positiv durchlaufenen Kreis 
+w(t)=(cost,l+sint)T , 0~t~2n, 
+ist 
+_wCE:'_ 
+~-x 
+/ 
+I 
+/~ 
+Abb. 206 - Gegenstromung 
+
+
+--- PDF page 461 ---
+§2. Kurvenintegrale 
+445 
+die Zirkulation: 
+A:. v . dx = 12" (C(1 + sin t)) . (- sin t) dt = -nc 
+Y.. 
+° 
+0 
+cos t 
+' 
+der FluB: 
+~ 
+v' dn = 1
+2
+" ( c(1 +Osin t)) . ( ~~~:) dt = 0 . 
+Liings w hat v die mittlere skalare Tangentialkomponente - ;~ = -~ . Nega-
+tive Zirkulation bedeutet, daB die Stromung liings w uberwiegend im Uhrzei-
+gersinn verlauft. FluB=O bedeutet, es f1ieBt genausoviel in das Kreisinnere hinein 
+wie heraus (die Gegenstromung ist quellfrei: div v = 0). 
+0 
+2.5 Das Potential eines Gradientenfeldes. 
+In volliger Analogie zu den 
+Verhiiltnissen bei Funktionen in einer reellen Variablen (-> Kap. 4, 1.4) Jie-
+fert das Kurvenintegral das geeignete Mittel, zur "Ableitung" grad f einer 
+Funktion f : lR" :2 D -> lR von n Veriinderlichen eine Stammfunktion zu 
+rekonstruieren. Anstelle eines zusammenhangenden Intervalles ist hier als Defi-
+nitionsbereich einer Funktion ein Gebiet im lR" zu wahlen. 
+Definition. 
+Eine Teilmenge G ~ lR" heij3t Gebiet, wenn gilt: 
+1. 
+Gist offen, d.h. 
+zu jedem 
+Xo 
+E G liegt eine ganze E-Umgebung 
+U,(xo) = {x ; Ix - xol < E} ganz in G. 
+2. 
+Gist zusammenhiingend, d.h. zu je zwei Punkten xo, Yo aus G gibt es eine 
+reguliire Kurve w : [a, b] -> G mit w(a) = xo, w(b) = Yo. 
+Definition. 
+Sei G ~ lR" ein Gebiet. Man nennt ein Vektorfeld v E (6'°(G,lR") 
+konservativ oder ein Potential-, bzw. ein Gradientenfeld, wenn es eine Funktion 
+f E '6'1 (G, lR) gibt mit 
+v(x) = grad f (x) 
+(x E G) . 
+In diesem Fall heij3t f Stammfunktion und U := -f eine Potentialfunktion 
+( oder ein Potential) von v. 
+Bemerkungen. 
+1. In einem konservativen Kraftfeld repriisentiert das Potential 
+die potentielle Energie. Das Vorzeichen ist so gewiihlt, daB v = - grad U in 
+Richtung des stiirksten Potentialabfalls zeigt (-> Kap. 7, 3.1). 
+2. Fur jede durch ein konservatives Kraftfeld K = - grad U hervorgerufene 
+Bewegung x = x(t) leitet man aus dem Gesetz von NEWTON den Energieerhal-
+tungssatz ab (daher die Bezeichnung "konservativ"): 
+o = mx - K = mx + grad U , 
+0= mx· x + grad U· x = :t [~x(t). x(t) + U(x(t))] , 
+const. = ~ Ix(t) 12 + U (x(t)) = "kinetische Energie + potentielle Energie" 
+
+
+--- PDF page 462 ---
+446 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+Satz 2.1. 1. Hauptsatz fur Kurvenintegrale. 
+1st v : G -. 1Rn ein stetiges Gradi-
+enterifeld auf dem Gebiet G 5; 1Rn mit einer Stammfunktion f ' dann gilt fur jede 
+stUckweise reguliire Kurve w in G mit Arifangspunkt w(a) und Endpunkt w(b) 
+(15) 
+i 
+v· dx = f(w(b» - f(w(a» . 
+Beweis. 
+Zunachst nehmen wir an, daB w aus einem reguliiren Kurvenstiick 
+w : [a, b] -. G besteht. Daftir gilt (-. Kap. 7, §2(12» 
+b 
+i
+V • dx = igradf·dx= 1 gradf(w(t»)·w(t)dt 
+j
+b d 
+= 
+a [d/(w(t»)]dt=f(w(b»)-f(w(a»). 
+Bei mehreren aneinanderhangenden Kurvenstiicken Wi : [ai, bi] -. G (1:s i :S k) 
+ist dieses stiickweise anzuwenden. Mit wi(bi) = Wi+l (ai+d (1:s i :S k - 1) folgt 
+die Behauptung. 
+0 
+a 
+Beispiel 1. Die von der Zentralkraft K = Iij3x (x 1- 0) mit dem Potential 
+U = 1:1 liings einer nicht durch den Nullpunkt gehenden reguliiren Kurve 
+w : [a, b] -.1R3 geleistete Arbeit betragt 
+i 
+K· dx = - i 
+grad U . dx = U(w(a» - U(w(b» . 
+o 
+Beispiel 2. 
+Das elektrische Feld (unrealistisch, daftir leicht zu rechnen) 
+E : 1R3 -.1R3, 
+E(x,y,z) = ( 2:/ :3:3 ) 
+3z2x + 3y 
+besitzt das Potential 
+U (x,y, z) = _(x2y + xz3 + 3zy) . 
+Der Spannungsabfall zwischen den Punkten P = (1,1,1) und Q = (3,4,5) liings 
+einer (stiickweise) reguliiren Kurve wist wegunabhiingig: 
+i 
+E· dx = - i 
+grad U· dx = U(P) - U(Q) = 466 
+(Einheiten wurden weggelassen). Ganz allgemein ist die Spannung in einem 
+konservativen elektrischen Feld zwischen zwei Punkten P und Q gleich der 
+entsprechenden Potentialdifferenz. 
+o 
+Bemerkung. Aus dem 1. Haupsatz folgt auch die bereits bekannte Tatsache 
+(-. Kap. 7, Satz 2.3), daB sich zwei Stammfunktionen eines konservativen Vek-
+torfeldes nur urn eine additive Konstante unterscheiden. 
+
+
+--- PDF page 463 ---
+§2. Kurvenintegrale 
+447 
+Satz 2.2. 
+FUr ein stetiges Vektorfeld v E <f,°(G,lR") auf einem Gebiet G c:; lR" 
+sind folgende Aussagen iiquiralent: 
+a) v ist ein Potentialfeld. 
+b) FUr aile reguliiren Kurven w in G hiingt 1 
+v . dx nur vom Anfangs- und 
+Endpunkt ['on w abo (Man sagt. das Integral ist wegunabhangig.) 
+c) Fiir aile geschlossellen reguliirell Kurrell w ill G gilt 
+P,. V· dx = 0 . 
+Beweis. 
+a) =- b): ---> Satz 2.1. 
+b) =- c): Eine geschlossene Kurve w 
+wird in Kurvenstucke w" 
+W2 unter-
+teilt. Nach Voraussetzung gilt 
+J \. dx = J, v . dx 
+und deshalb 
+"" 
+we 
+Abb. 207 - Wcgzerlcgung 
+J V· dx = J V· dx + J V· dx = J V· dx - J ' v . dx = 0 . 
+W 
+W, 
+w2 
+W, 
+w 2 
+c) =- b): wird ebenso bewiesen. Man bildet aus zwei verschiedenen Kurven mit 
+densclben Anfangs- und Endpunkten eine geschlossene Kurve. 
+b) =- a): Zu x. Xo E G (xo fest) wird f : G ---> lR definiert durch 
+fix) := JX V· dx:= 1 
+V· dx 
+Xo 
+w 
+mit einer beliebigen Xo mit x verbindenden regularen Kurve in G. Aufgrund 
+der Voraussetzung ist diese Definition sinnvoll (wegunabhangig). Zu zeigen ist, 
+daB gradf = v. 
+Fur kleinc h E lR liegt mit x die 
+ganze x 
+mit x + he, 
+verbindende 
+Strecke in G und es gilt 
+J
+X+hC1 
+f(x+hed-f(x)= 
+x 
+v'dx 
+= 1" [', (x + tel )dt 
+=r,(x+t'e,)h 
+N 
+Abb. 208 - Weg fUr 
+tXl 
+mit einem t' zwischen 0 und h (---> Kap. 4, §l{lO)). Damit folgt 
+C 
+1 
+~ 
+fix) = lim -h If(x + hell - fix)] = [:, (x) . 
+ex, 
+,,~o 
+. 
+t: 
+Ebenso zelgt man '" f (x) = Vi(X), i = 2, ... , n. 
+UXi 
+o 
+
+
+--- PDF page 464 ---
+448 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+Ob ein (gl-Vektorfeld V 
+: G -+ 1R" ein Potential besitzt, kann in der Umge-
+bung eines Punktes direkt an der JAcoBI-Matrix ".(x) = (~Vi (x)) 
+abge-
+uXJ 
+/lxn 
+lesen werden. Urn diese Kennzeichnung auf ganz G zu iibertragen, muB eine 
+Zusatzforderung getroffen werden: 
+Definition. 
+Ein Gebiet G ~ IR/I heijJt einfach zusammenhiingend, wenn jede ge-
+schlossene, doppelpunktfreie Kurve in G stetig auf einen Punkt in G zusammen-
+gezogen werden kann, ohne daj3 G verlassen wird. 
+Beispiele im IR 2 • 
+a) Einfach zusammenhangend im 1R2 ist (anschaulich) jedes Gebiet ohne Loch; 
+etwa 1R2 , das Innere eines Kreises, eine Halbebene. 
+b) Nicht einfach zusammenhangend ist jedes Gebiet mit Lochern, etwa die 
+,.punktierte" Ebene 1R2 \ {O}, das Gebiet zwischen zwei ineinanderliegenden 
+Kreisen. 
+• 
+Abb. 209 - einfach zusammenhangend 
+- nicht einfach zusammenhangend im 1R2 
+o 
+Beispiele im IRJ. 
+a) Einfach zusammenhangend ist jedes Gebiet ohne Henkel, etwa IRJ, das In-
+nere eines Quaders oder einer Kugel, ein von zwei konzentrischen Kugeln be-
+grenztes Gebiet. Diese Gebiete bleiben einfach zusammenhangend, wenn jeweils 
+endlich viele Punkte entfernt werden. Insbesondere ist der punktierte Raum 
+IRJ \ {O} einfach zusammenhangend. 
+b) Nicht einfach zusammenhangend ist jedes Gebiet mit Henkeln; ein Torus, 
+der IRJ ohne eine Gerade oder ohne einen Kreis ist ebenfalls nicht einfach 
+zusammenhangend. 
+Abb. 210 - einfach zusammenhangend 
+- nicht einfach zusammenhangend im 1R3 
+o 
+
+
+--- PDF page 465 ---
+§2. Kurvenintegrale 
+449 
+Satz 2.3. 2. Hauptsatz fUr Kurvenintegrale. 
+Ein q;l_ Vektorfeld v : G -4 lRn auf 
+einem ein{ach zusammenhiingenden Gebiet G s; IR" ist genau dann ein Potential-
+fe/d. wenn die" Integrabilitatsbedingung" 
+f,(x) = f,(x)T fur aile x E G 
+CVi 
+at', . 
+erfullt ist (d.h. -,- = -,-. I,k = 1, ... ,n). 
+ex, 
+eXi 
+Beweis. 
+Aus v = grad f mit einer <6 2-Funktion f : G -4 IR folgt mit dem Satz 
+Cl;i 
+i' 
+0 
+0 
+(1 
+Ol) 
+von Schwarz (---> Kap. 7, Satz 2.2) ~ 
+= ~-",-.f = ~(x:f) = ~. 
+LX) 
+ex, ex, 
+ex,,) 
+ex, 
+Weiter zeigen wir, daB aus j',(x) = j',(x)T fur aile x E G die ,Jokale Integra-
+bilitat" folgt, indem wir zu jedem Xo E G und jeder r-Umgebung Ur(xo) S; G 
+ein Potential f zu v auf Ur(xo) explizit als Kurvenintegral (uber die Xo mit 
+x E Ur(xo) verbindenden Strecke) angeben: 
+I 
+f(x) := .£ v(xo + t(x - xo)) . (x - xo)dt . 
+H ierfur gilt 
+1 
+gradf(x) = .£ grad [v(w(t)) . (x-xo)]dt 
+(komponentenweise Satz 1.1) 
+1 
+= .£ [1j',(w(t))T(X-xo)+v(w(t))]dt 
+= .£ 1 [tel ,(w(t))(x -
+xo) + v(w(t))] dt 
+1
+1 d 
+= 
+0 Ji [tv(w(t)))dt 
+= tV(w(t))I~ = v(x) . 
+Fur ein beliebiges x E G wahlt man 
+als Integrationsweg w einen Strecken-
+zug. Da G einfach zusammenhangend 
+ist, hangt f (x) nicht vom gewahlten 
+Steckenzug abo (Das zeigen wir nicht!) 
+(---> Aufg. 9, Kap. 7, §4) 
+(nach Voraussetzung) 
+(---> Kettenregel) 
+Abb. 211 - Integrationsweg 
+o 
+Bemerkungen. 1. 1st G nicht einfach zusammenhangend, dann ist Satz 2.3 nur 
+auf einfach zusammenhangende Teilgebiete G' S; G anwendbar. Die jeweils 
+auf den Teilgebieten G' existierenden Potentiale lassen sich i.a. nicht zu einem 
+Potential auf G fortsetzen. 
+Gegenbeispiel. 
+Oer auf G = IR2 \ {O} definierte isolierte Wirbel 
+1 (-y) 
+v(x,y) = -2--' 
+x + y~ 
+x 
+
+
+--- PDF page 466 ---
+450 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+erfUlit die Integrabilitatsbedingung ~VI = 
+~1V2. Er besitzt aber kein Potential 
+uy 
+ex 
+auf ganz G: Mit Satz 2.2 muBte A = ~ 
+v . dx = 0 sein auf dem Kreis 
+w(t) = (cos t, sin t), 0 ~ t ~ 2n. Mit Bsp. 2 aus 2.3 ist aber A = 2n . 
+0 
+2. Fur Vektorfelder im 1R3 ist die Integrabilitatsbedingung ",(x) 
+gleichbedeutend mit rot v(x) = 0 (-+ Kap. 7, 4.4). Deshalb lautet 
+der zweite Hauptsatz im 1R3 : 
+G 5; 1R3 einfach zusammenhangendes Gebiet, v E ~I (G, 1R3) : 
+v Potentialfeld in G 
+-==> 
+rot v = 0 fUr aile x E G . 
+3. 
+Neben dem skalaren Potential eines Vektorfe1des im 1R3 ist auch noch 
+em vektorwertiges Potential, das sog. Vektorpotential fUr Vektorfelder definiert 
+(-+ 5.4). 
+2.6 Die praktische Bestimmung eines Potentials (n = 3) . 
+Die Beweise der 
+Satze 2.2, 2.3 sind konstruktiv, da jeweils eine Stammfunktion angegeben wird. 
+Man hat damit bereits als erste Moglichkeit: 
+o Methode mit Kurvenintegral. 
+1. Schritt: Besitzt das ~I-Vektorfeld v : G -+ 1R3 ein Potential? 
+rot v 1= 0 fUr ein x E G => kein Potentialfeld. 
+2. Schritt: rot v = 0 und G einfach zusammenhangend, dann wahlt 
+man Xo E G fest und zu x E G eine geeignete Kurve w 
+in G, die Xo mit x verbindet. 
+f : G -+ 1R, f (x) := i v . dx ist eine Stammfunktion. 
+Die bevorzugten Wege von Xo nach x, sofern sie in G verlaufen, sind 
+die Strecke w(t) = Xo + t(x - xo), 0 ~ t ~ 1 ; in diesem Fall gilt 
+1 
+f (x) = 1 V(Xo + t(x - Xo)) . (x - xo)dt ; 
+ein Streckenzug, stuckweise parallel zu den Koordinatenachsen, etwa von 
+(xo, Yo, zo) uber (x, Yo, zo) und (x, y, zo) nach (x, y, z). Die Stammfunktion 
+stellt sich dar als sogenanntes Hakenintegral 
+
+
+--- PDF page 467 ---
+§2. Kurvemintegrale 
+451 
+® Ansatzmethode. 
+Man lOst die drei partiellen Differentialgleichungen grad f = v zur Bestimmung 
+von f durch dreimaliges unbestimmtes Integrieren; dazwischen muG zweimal 
+partiell differenziert werden: 
+1. Schritt: Der Ansatz fx = v" 
+fy = V2, fz = V3· 
+1st G einfach zusammenhangend? 
+2. Schritt : Durch unbestimmte Integration nach x (bei konstant 
+gehaltenem y und z) fx(x,y,z) = v,(x,y,z) lasen: 
+f(x,y,z) = J 
+v,(x,y,z)dx+c(y,z). 
+Die "Integrationskonstante" c hangt von y und z abo 
+3. Schritt: Durch partielle Differentiation von f nach y und An-
+satz fy = V2 eine Gleichung fUr ;yC(y,Z) herleiten: 
+;y J vl(x,y,z)dx+cy(Y,z) =fy =V2· 
+Tritt in dieser Gleichung noch x auf, so ist rot v =1= 0, 
+d.h. die Integrabilitatsbedingung verletzt =-
+fertig! 
+4. Schritt: Durch unbestimmte Integration nach y das c(y, z) aus 
+cy(Y, z) = h(y, z) := V2 - I V'ydx bestimmen, 
+c(y,z) = J h(y,z)dy +d(z) , 
+und oben eintragen: 
+f(x,y,z) = J 
+v,(x,y,z)dx + J 
+h(y,z)dy +d(z) . 
+Die "Integrationskonstante" d hangt von z abo 
+5. Schritt: Durch partielle Differentiation von f nach z und An-
+satz fz = V3 eine Gleichung fUr d'(z) bestimmen. 
+Tritt hierin noch y auf, ist rot v =1= 0 =-
+fertig! 
+6. Schritt: d(z) durch unbestimmte Integration nach z bestimmen. 
+Beispiel 1. Zentralfelder 
+besitzen die Form 
+v(x) = cp(lx - zl)(x - z) 
+mit einer Funktion cp E C6" (1R \ {O}, JR.), die meist einen Pol in 0 besitzt. z ist 
+das Zentrum und v ist auf JR.3 \ {z} ein C6"-Vektorfeld. Wir setzen zur Kiirze 
+z = 0, d.h. v(x) = cp(lxl)x . 
+v ist ein Potentialfeld, 
+da G = JR.3 \ {O} einfach zusammenhangend ist und 
+
+
+--- PDF page 468 ---
+452 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+(-> Kap. 7, §4(4a), A = E) 
+)' ,(x) = I!I q/ (Ixl)xx T + cp(lxl)E = )' ,(x) T . 
+Berechnung von I mit Methode 0: Wir wahlen einen Integrationsweg W 
+von Xo + 0 nach x + 0, der aus zwei Kurvenstucken WI, 
+W2 besteht: 
+WI 
+ist ein beJiebiges regulares Kur-
+venstuck auf der Sphare urn 0 mit 
+Radius IXol, das Xo mit dem Punkt 
+IXol 
+. 
+XI 
+= 
+~x verbmdet. 
+W2 
+ist die 
+1 
+Strecke W2(t) = tlilx, IXol :s; t :s; Ixl . 
+Wegen V(WI (t)) . WI (t) = 0 gilt 
+Abb. 212 - Integrationsweg 
+I(x) = J V· dx = r V· dx = l
+ixi cp(t)tdt . 
+" 
+J W2 
+Ix,,1 
+Fur das Gravitationsfeld ist cp(t) = ~ , d.h. das Newton-Potential, gilt 
+t· 
+l
+ixi tIl 
+U(x) = -I (x) = -
+3 dt = -I I - -I I' 
+Ix,,1 t 
+x 
+Xo 
+Beispiel 2. 
+V(x, y, z) = (2Y 
+~i2nc~S; e2:) , 
+2ye2: 
+G = JR.3 ist einfach zusammenhangend! Rechnung mit Methode @: 
+1. Schritt : Ix = / cos x, I, = 2y sin x + e2: , I: = 2ye2: . 
+2. Schritt: Die erste Gleichung zeigt I(x,y,z) = / sinx + c(y,z). 
+3. Schritt: I, = 2y sin x + c,(y, z) = 2y sin x + e2: = c,(y, z) = e2: . 
+4. Schritt: cry, z) = ye2: + d(z) = I (x, y, z) = / sin x + ye2: + d(z) . 
+5. Schritt: I: = 2ye2: + d' (z) = 2ye2: = d' (z) = o. 
+6. Schritt: d(z) = const. 
+o 
+Eine Stammfunktion lautet demnach I (x, y, z) = / sin x + ye2: + const. 
+0 
+Aufgaben 
+I. Man berechne Lange und geometrischen Mitteipunkt der Kurven 
+2 2 3 T 
+a) w(t) = (t, t , "3 t) , 0:0; t :0; 1 , 
+b) w(t)=e-'(cost,sint,I)T, O<t<:xJ (Spiraie), 
+c) 
+w(t) = aft - sin t, 1 - cos t, 0) T, 0:0; t :0; 2n (Zykioide), 
+d) r = a(1 + cos rp), 0:0; rp :0; 2n (Kardioide). 
+
+
+--- PDF page 469 ---
+§2. Kurvenintegrale 
+453 
+2. Linienladung. 
+Die Strecke w von -~ bis 
+~ auf der x-Achse ist elektrisch 
+homogen gel aden. Man berechne das Coulomb-Potential im Raumpunkt y als 
+U (y) = llY ~ xl 
+' Y E JR.\ w . 
+Was geschieht fUr Y -> Yo, falls Yo E W ? 
+3. Man berechne die ebenen Kurvenintegrale 1 v' dx fUr die drei Wege 
+", 
+WI Verbindungsstrecke von (0,1) und (1,2), 
+W2 wie skizziert, 
+w, (t) = (t. t" + 1), 0::;; t ::;; 1 , 
+fUr die beiden Vektorfelder 
+a) 
+v = (x2 _ y,y" +X)T, 
+b) v = (x' - 3X.l'2,/ -
+3.1'X2)T . 
+4. Fur die Raumkurve (Virialli-Fellster) 
+W(t) := ( 
+~r::t) 
+2sm 2" 
+y 
+(1,2) 
+(0,1) _---c--
+x 
+0::;; t ::;; 4n , 
+deute und berechne man 1 
+k . dx fUr das Vektorfeld k(x) = -Ixl-' x . 
+5. 
+Fur das Vektorfeld des magnetischen Wirbels 
+v(x) = _,_1_, (-Y) , 
+x- + y-
+x 
+x ~ 0, 
+berechne man 1 
+v' £Ix langs der drei skizzier-
+ten Wege W von (5,0) nach (-3,4). 
+6. Gegeben ist das raumliche Vektorfeld 
+v(x) = [In(1 + Ixl")]x, 
+x E JR.' . 
+a) Man bestimme rot v(x). Besitzt v(x) ein Potential in JR.3? 
+(5,0) 
+X 
+b) Man berechne Uta) = 1 
+v' dx fUr die Verbindungsstrecke w von 0 nach a. 
+7. 
+Fur welche Werte von a liegt ein Potentialfeld vor? 
+v(x)=(-( 
+ay ),,_( 
+2X), +I,.:)T, 
+xEIR', 
+x~y. 
+x-y-
+x-y-
+Welche maximalen Definitionsbereiche sind moglich? 
+8. Fur welche Werte a, b, C, 0(, p,;' besitzt das Vektorfeld v(x) ein Potential U (x) ? 
+1 
+v(x) = 
+( 
+)3(x+ y -3.:,ax+bl'+cz,O(X+{JY+i'Z)T 
+x+Y+z 
+. 
+Man berechne U (x) und ein maxim ales einfach zusammenhangendes Definitionsge-
+biet G fUr U (x) . 
+
+
+--- PDF page 470 ---
+454 
+8. Funktionen in mehreren Varia bien. Teil 2: Integration 
+13. Die Integration iiber ebene Bereiche 
+3.1 Der Flacheninhalt. 
+Der FHicheninhalt eines Rechtecks mit den Sei-
+tenHingen Ax, Ay betdigt AxAy; daraus werden bekanntlich die FUichen-
+inhaltsformeln fUr Dreiecke, n-Ecke und elementarer Figuren abgeleitet. Wir 
+befassen uns hier zunachst mit der Frage, welchen ebenen Bereichen iiberhaupt 
+ein FHicheninhalt zugeordnet werden kann. 
+Sei kEN. Durch das Gitter achsenparalleler Koordinatenlinien x = n . 2- k , 
+Y = n· rk 
+(n = O, ±1,±2, ... ) wird die (x,y)-Ebene in Quadrate mit dem 
+FHicheninhalt r2k zerlegt. 
+'J 
+x 
+Sei M ~]R.2 eine beliebige beschrankte 
+Punktmenge der 
+(x, y)-Ebene, 
+sk(M) 
+der FHicheninhalt aller Quadrate, die 
+einschlieBlich ihres Randes ganz in M 
+liegen (Anzahl . r2k), und Sk(M) der 
+gesamte FHicheninhalt der (abgeschlos-
+senen) Quadrate, die mindestens einen 
+Punkt von M enthalten. Offen bar gilt 
+Abb. 213 - Fliichenausschopfung 
+sk(M) ::; Sk(M); 
+sdM)::; Sk+l (M) 
+Also existieren (-+ Kap. 2, Satz 5.4) 
+Fj(M) := lim sk(M) 
+k-+oo 
+"der innere Inhalt" , 
+Fa(M) := lim SdM) 
+k-+oo 
+"der auBere Inhalt" . 
+Man nennt M Riemann-meftbar, wenn Fa(M) = Fj(M) =: F(M) ; in diesem Fall 
+heiBt F(M) der Fliicheninhalt von M . 
+Standardbeispiel einer nicht Riemann-meBbaren Menge ist 
+M = { (x, y) ; 0 ::; x ::; 1, 0::; y ::; 1 und x, y E <Q } 
+mit Fj(M) = 0 , Fa(M) = 1 . 
+Andererseits gilt (ohne Beweis) fUr (-+ 2.5) Gebiete G c R2 : 
+Ein beschriinktes Gebiet G ~ ]R. 2 mit stUck weise reguliirem Rand 
+besitzt einen Fliicheninhalt F = lim Sk(G) = lim SdG) . 
+k->«> 
+k->«> 
+o 
+Fiir jede Riemann-meBbare Menge M zusammen mit einer Menge N, die nur 
+aus endlich vielen Punkten und endlich vielen regularen Kurvenstiicken besteht, 
+gilt 
+(1) 
+F(M) = F(M UN) = F(M \ N) ; 
+insbesondere F(N) = O. Man nennt deshalb N eine Nul/menge. 
+
+
+--- PDF page 471 ---
+§3. Die Integration tiber ebene Bereiche 
+455 
+3.2 Definition und einfache Eigenschaften des Doppelintegrals. 
+1m Hin-
+blick auf die technischen Anwendungen beschriinken wir uns bei den Integrati-
+onsbereichen fUr Doppelintegrale auf einfach zu charakterisierende Mengen: 
+Definition. 
+Ein Bereich B s; lR2 heijJt regular, wenn 
+1. der Rand oB aus endlich vie len reguliiren Kurvenstiicken besteht, 
+2. das 1I1nere B \ oB ein nicht leeres, beschriinktes Gebiet im IR2 ist (-4 2.5), 
+3. B abgeschlossel1 ist. d.h. oB s; B. 
+Es wird manchmal erforderlich sein, daB einzelne Punkte oder Kurvenstiicke -
+als Ausnahmemengen - herauszunehmen sind. Aus diesem Grunde lassen wir 
+als 1I1tegratiol1sbereich auch B \ N zu, wobei B ein reguliirer Bereich und N 
+eine Nullmenge darstelIt, die aus hochstens endlich vielen Punkten undjoder 
+reguliiren (glatten) Kurvenstiicken besteht. 
+Abb. 214 - B 
+N mit /II = : (0.0): U: (x.O) : ! :0; x:O; I : U [x: IX! = I. x:o; O}. B = [!X!:o; I } 
+Ferner sei f : B -4 IR eine beschriinkte Funktion (d.h. m::; f (x, y) ::; M fUr 
+aIle (x. y) E B). die auf B \ N stetig ist. 
+Durch ein Netz reguliirer Kurven wird 
+B in 
+11 Teilbereiche B I, ... , BII zer-
+legt. 
+Jeder Bereich 
+B; 
+hat einen 
+Durchmesser () (B;), definiert als In-
+fimum der Durchmesser aller Kreise, 
+die B; ganz iiberdecken. AuBerdem 
+besitzt B; gem. 3.1 einen Fliichenin-
+halt L1F;. 
+x 
+Abb. 215 - Zerlegung von B 
+Wir wiihlen nun fUr jedes i = 1,2, ... , n einen beliebigen Punkt 
+(x~, yn E B; 
+und bilden die RIEMANN-Summe 
+(2) 
+II 
+ZII := If(x~,y;')L1F; . 
+;=1 
+Unter den gegebenen Voraussetzungen an fund B liiBt sich - iihnlich wie 
+beim Einfachintegral (-4 Kap. 4, §1) - zeigen, daB bei stiindiger Verfeinerung des 
+Netzes die Riemann-Summen ZII gegen einen festen Grenzwert konvergieren, 
+der unabhiingig ist von den einzelnen Zerlegungsfolgen und den ausgewiihlten 
+Punk ten (x~, Y;") E B; , sofern nur der maximale Durchmesser 
+()max := max { b (B;) ; 1 ::; i ::; n} 
+gegen Null strebt. Dieser fUr aIle Teilungsfolgen gemeinsame Grenzwert wird 
+
+
+--- PDF page 472 ---
+456 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+mit 
+11 f(x,y)dF 
+oder 11 f dF 
+B 
+B 
+bezeichnet und heil3t Doppelintegral (oder Gebietsintegral, kurz: Integral) von f 
+aber B. Das Symbol dF heil3t Fliichenelement. 
+(3) 
+Wegen (1) ist der Einftul3 der Nullmenge N auf die Riemann-Summen unwe-
+sentlich, also gilt 
+(4) 
+11 f dF = 11 f dF . 
+B 
+BIN 
+Das hier eingefUhrte Integral ist "eigentlich" im Gegensatz zu den "uneigentli-
+chen" Integralen, in denen der Integrationsbereich nicht beschrankt oder der 
+Integrand auf dem Rand nicht definiert ist. 
+Die geometrische Deutung. 
+o Fliicheninhalt. Mit f(x,y) 
+FIacheninhalt von B. Also gilt 
+1 ist jede Riemann-Summe (2) gleich dem 
+(5) 
+F = 11 dF 
+FIacheninhalt von B . 
+B 
+G) Volumen. 1st f(x,y) ~ 0 fUr aIle (x,y) E B, dann stellt 
+(6) 
+v = 11 fdF 
+B 
+das Volumen des senkrecht auf der 
+(x,y)-Ebene stehenden Zylinderabschnitts 
+mit Grundftache B und der Deckftache 
+z = f(x,y) dar. 
+Denn das Volumen des auf B; stehen-
+den Zylinders der H6he f (x;, y;J betragt 
+AV; = f(x;,y;JAF;. Das Gesamtvolumen 
+V wird durch 
+n 
+Zn = I f (x;, Y7)AF; approximiert, d.h. 
+;=\ 
+V = lim " f (x;, y;)AF; . 
+Il-+'X i..J 
+x 
+Abb. 216 - Volumen unter Graph f 
+
+
+--- PDF page 473 ---
+§3. Die Integration tiber ebene Bereiche 
+Die Rechenregeln 
+ergeben sich direkt aus der Definition: 
+(7) f f (af + bg) dF = a f f f dF + b f f g dF, 
+a, b E lR. . 
+B 
+B 
+B 
+(Linearitiit ) 
+(8) 
+f(x,y):::;; g(x,y) fUr aile (x,y) E B => ff f dF:::;; ff gdF . 
+(Monotonie) 
+(9) f f f dF = f f f dF + f f f dF . 
+B 
+BJ 
+B, 
+(Additivitiit ), 
+falls B durch eine stuckweise 
+reguliire Kurve in zwei Teilbe-
+reiche B1 , B2 zerlegt wird. 
+B 
+B 
+Abb. 217 - Additivitiit 
+457 
+Ais Mittelwert oder Integralmittel der Funktion f auf B bezeichnet man die 
+Zahl 
+fr ff fdF 
+B 
+mit dem Fliicheninhalt F = f f dF von B. Wie 1m Fall ciner Variablen 
+B 
+(~ Kap. 4, Satz 1.2) beweist man den 
+Satz 3.1. Mittelwertsatz. 1st B zusammenhiingend und abgeschlossen. dann gibt 
+es zu jeder stetigen Funktion f : B ~ lR. einen Punkt (x", yO) in B mit 
+(to) 
+ff f dF = f(x",y*)· F . 
+B 
+3.3 Die Berechnung des Doppelintegrals in kartesischen Koordinaten. 
+Bei 
+der Zerlegung der (x, y)-Ebene durch ein achsenparalleles Gitter entstehen 
+Rechtecke mit Seitenlangen L1x, L1y und Flacheninhalt L1F = L1xL1y. Versteht 
+man das Integral J J 
+B f dF als Grenzwert von Riemann-Summen bezuglich der-
+artiger Teilungen, dann schreibt man 
+ff f(x,y)dxdy := ff f(x,y)dF 
+B 
+B 
+und nennt dF = dxdy das Fliichenelement in kartesischen Koordinaten. 
+Fur eine grof3e Klasse von Integrationsbereichen liif3t sich die Berechnung des 
+Gebietsintegrals auf zwei nacheinander auszufUhrende "Einfachintegrationen" 
+zuruckfUhren. 
+
+
+--- PDF page 474 ---
+458 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+Definition. 
+Wir nennen B 1 
+S; IR 2 einen 
+Normalbereich vom Typ I, wenn es a, bE IR 
+und CCI-Funktionen g, h : [a, b] -
+IR gibt 
+mit g(x) :;::; h(x) und 
+y 
+y=h(x) 
+BI = { (x, y) ; a :;::; x :;::; b, g(x) :;::; y :;::; h(x) } . 
+Ein Normalbereich vom Typ I I hat die Form 
+B2={(X,y) ;l(y):;::;x:;::;r(y), c:;::;y:;::;d} 
+mit c, d E IR und CC 1-F unktionen 
+y=g(x) 
+a 
+x b x 
+dIY~~ 
+x=r(y) 
+t, r : [c, d] -IR mit l(y):;::; r(y) . 
+Abb. 218 - Normalbereiche 
+Satz 3.2. Die Integration iiber Normalbereiche. 
+a) 
+Fur jede stetige Funktion f : BI -
+IR auf einem Normalbereich BI S; 1R2 
+Dom Typ I gilt 
+(11 ) 
+h (h(X) 
+) 
+J~r f(x,y)dxdy = 1 1 f(x,y)dy 
+dx. 
+J 
+a 
+g(x) 
+8, 
+b) 
+Fur jede stetige Funktion f : B2 -
+IR auf einem Normalbereich Dam Typ II 
+gilt 
+( 12) 
+J~ r f(x,y) dxdy = jd (l r(Y) f(x,y) dX) dy. 
+J 
+c 
+l(r) 
+B2 
+. 
+Beweis. 
+a): Wir legen auf B = BI ein Netz aquidistanter x- und y-Linien irn 
+Abstand L1x bzw. 
+L1y und indizieren 
+die B ganz iiberdeckenden Rechtecke 
+streifenweise (- Abb. 219). 
+Blk' B2k,"" Bnkk seien die Rechtecke 
+des 
+k-ten Vertikalstreifens der Breite 
+L1x, k = 1, ... ,m. Mit (xZ,yik) E Bik 
+bilden wir die Riernann-Surnrne 
+8 49 
+~~ 
+'<: 
+/ 
+y 
+r---~ 
+I I 
+~ 
+l-
+S 
+I I 
+~:s:1;:?': 
+" 
+~ 
+I l ~ 
+a 
+Llx 
+b x 
+Abb. 219 - Streifeniiberdeckung 
+die sich von Zn aus (2) nur urn die Anteile der in Abb. 219 schraffierten Rand-
+bereiche unterscheidet. 
+Beirn Grenziibergang (L1x)2 + (L1y)2 _ 0 strebt die-
+ser Unterschied gegen Null. Die innere Surnrne fUhrt in der Grenze L1y -
+0 
+
+
+--- PDF page 475 ---
+§3. Die Integration iiber ebene Bereiche 
+459 
+l
+ill';) 
+auf 
+. 
+f(x~,y)dy und man erkennt, da/3 die gesamte Doppelsumme beim 
+gl',) 
+h (ill') 
+) 
+Grenziibergang (L1x)2 + (L1y)2 ---* 0 gegen 1 1 f (x, y) dy 
+dx strebl. 
+a 
+glx) 
+b) analog mit Summation langs Horizontalstreifen. 
+D 
+Ein beliebigeL stiickweisc durch Graphen 
+Integrationsbereich B wird durch ach-
+scnparallele Schnittc in Normalberciche 
+BJ.B2 ....• BI1 
+vom Typ I oder II zer-
+legt. 
+Die Integration gelingt dann mit 
+(9). (II). (12): 
+y = g(x) bzw. x = r(y) berandeter 
+.II f dF = If f dF + ... + 11 f elF . 
+B 
+B, 
+Ahh. 220 - Zerlegung in Normalhereiche 
+Man beachte: Die Zerlegung von B in Normalbereiche ist keineswegs eindeutig. 
+Meist ist eine spezicllc Aufteilunge fiir die Integration am giinstigsten. 
+Besitzt B sowohl eine Darstellung als Nor-
+mal bereich vom Typ I als auch vom Typ II 
+B = 
+~ (x. Y) : (f S x s h. g(x) s y s h(x) ) 
+= : (x, y) : c s y s d, i(y) s x S r(y) } , 
+dann gilt 
+d~ 
+c ~ 
+a 
+b 
+Ahh. 221 - Normalbereich Typ 1 u. II 
+II 
+J
+h (fill') 
+) 
+Jil (11"11'1 
+) 
+fdF= 
+f(x,y)dy dx= 
+f(x,y)dx 
+dy. 
+B 
+"gl\) 
+c 
+/(rl 
+Speziell erhalt man fUr Rechtecke 
+R = [ (x, y) : a S x S h, C s y s d} 
+den bekannten Satz von FCBINI iiber die Vertauschung der Integrationsreihen-
+folge (---* * 
+I) : 
+11 f dF = lh (fil f(x,y) ely) dx = fil (lh 
+f(x,y) dX) dy. 
+R 
+Ferner ist erwahnenswert, da/3 sich aus (5) und (11) die bekannte Formel fiir den 
+Flacheninhalt des Normalbereichs B = [ (x, y) ; a S x S b, g(x) s y s h(x) } 
+ergibt (---* Kap. 4, §5(\ 2)) 
+II Jh (l ill')) 
+Ih 
+F = 
+dF =" 
+glx) dy 
+dx = 
+(/ (h(x) - g(x)) dx . 
+B 
+' 
+
+
+--- PDF page 476 ---
+460 
+8. Funktionen in mehreren Yariablen. Teil 2: Integration 
+Berechnung des Doppelintegrals I = J J f (x, y) dxdy . 
+B 
+J. Schritt: Man stellt B als Normalbereich dar, bzw. zerlegt 
+B durch achsenparallele Schnitte in Normalbereiche, 
+B = B I U B2 U ... U Bm . 
+2. Schritt: 1st Bk yom Typ I, so berechnet man zuerst das Para-
+j
+h(X) 
+meterintegral F(x) 
+f(x, y) dy und damit 
+g(x) 
+h 
+h := J F(x)dx; 
+(/ 
+d 
+fUr Bk yom Typ II ist h := f G(y) dy mit 
+1
+r1r) 
+G(y):= 
+f(x,y)dx. 
+fly) 
+3. Schritt: J = II + h + ... + 1m. 
+Beispiel 1. 
+B sei berandet yon y = x , 
+a) den Fliicheninhalt F = J J dxdy, 
+xy = 1 und y = 2. Wir bestimmen 
+B 
+b) 
+V 
+= J J ~~ dxdy, das Volu-
+B 
+men des auf B stehenden Zylinderab-
+J 
+y=-x 
+schnitts mit Deckfliiche z = y~ . 
+x 
+X 
+"----+------
+Abb. 222 - Bereich B 
+1. Schritt: Die Darstellung als Normalbereich yom Typ II, 
+1 
+B = { (x, y) ; 1 :s; Y :s; 2, Y :s; x :s; y} . 
+2. Schritt : 
+J
+2 (JI') 
+J2 
+1 
+3 
+a) F = 
+dx 
+dy = 
+(y - -) dy = 2: -In 2 . 
+I 
+1/.1' 
+I 
+Y 
+2 ( 
+\' 2) 
+2 [ 2] x~y 
+2 
+9 
+b) V = J 
+J. Y 2 dx 
+dy = J 
+-~ 
+dy = J 
+(-y + y3) dy = 4 . 
+1 
+1/.1' X 
+1 
+x~ I / y 
+I 
+Alternatiy: Zerlegt man B liings des Schnittes x = 1 in zwei Normalbereiche 
+yom Typ I, so ergibt sich 
+V = J)f dxdy = JI (J2 y~ dy ) dx + J2 (J2 y~ dY) dx 
+1/2 
+I/x X 
+I 
+x 
+X 
+B 
+
+
+--- PDF page 477 ---
+§3. Die Integration tiber ebene Bereiche 
+461 
+J
+I 
+8 
+1 
+J2 8 
+X 
+9 
+= 
+. (-3 
+2 - -3 
+5 )dx + 
+(-3 
+2 -
+"3 )dx = 4 
+1/2 
+X 
+X 
+I 
+X 
+Beispiel 2. 
+Oer Ourchdringungskorper der 
+beiden Zylinder x 2+/ = 1 und X2+Z2 = 1 
+besitzt aus Symmetriegriinden das Volumen 
+V = 8 VI mit dem Volumen 
+VI des auf 
+dem Viertelkreis 
+B = { (x. y) ; 0:::; x :::; 1,0:::; y :::; \!J - x 2 } 
+stehenden Zylinderabschnitts mit Deck-
+ftache : 
+= V1-x2 . 
+Mit (6) und (11) 
+erhalt man 
+z 
+~ 
+lj~ 
+X 
+.....• 
+p 
+...... ~y 
+Abb. 223 - Schnitt zweier Zylinder 
+If 
+11 (1/1-" 
+) 
+11 
+2 
+, 
+VI - x 2 dxdy = 
+0 
+0 
+VI - x 2 dy 
+dx = 
+0 (1 - x 2) dx = "3 . 
+R 
+Also gilt V = 8VI = 136 . 
+D 
+D 
+3.4 Weitere Anwendungen und Beispiele. 
+Wir stellen uns f : B ---> IR als eine 
+Bclegungsfunktion des ebenen Flachenstiicks B VO[, etwa die Flachendichte der 
+Masse einer inhomogenen Platte, oder die Ladungs- oder Temperaturverteilung 
+auf B. Fiir die sich standig wiederholenden vier Schritte 
+1. Zerlegung von B in n Teilbereiche mit Flacheninhalt f...Fi , 
+2. Approximation der Belegung eines solchen Bereichs durch 
+f...Mi := f (x~, y;lf...Fi . 
+3. Approximation der Gesamtbelegung durch die Riemann-Summe 
+11 
+11 
+Lf...Mi = Lf(x~,y;)f...Fi' 
+4. Grenziibergang, 
+verwenden wir wieder die bereits fUr Einfachintegrale und Kurvenintegrale als 
+zweckmal3ig erkannte, abkiirzende Sprechweise (---> Kap. 4, 6.1): 
+- B ist in Fliichenelemente dF zerlegt. 
+- das Fliichenelement im Punkt (x, y) triigt die Belegung dM = f (x, y) dF , 
+- Gesamtbelegung roll B ist M = 11 dM = 11 f (x, y) dF . 
+B 
+B 
+(0 Masse, Ladung. 
+(13) 
+M = 11 p(x,y)dF 
+B 
+ist die Masse der Platte B mit ebener Massendichteverteilung p : B ---> IR ; bzw. 
+
+
+--- PDF page 478 ---
+462 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+Q = 11 E(X, y) dF die Ladung auf B mit Ladungsdichte E : B -> IR. 
+B 
+® Momente und Massenmittelpunkt. Ein FHichenelement dF besitzt bei der 
+Massendichte .u(x, y) die Masse dm = .u(x, y)dF und demnach die k-ten axia-
+len M omente x'dm = x' .u(x, y)dF, l dm = l.u(x, y)dF. Es ergeben sich die 
+Gesamtmomente: 
+(14) 
+M,., := 11 x' .u(x,y)dF, 
+Mr.k:= 11 l.u(x,y)dF . 
+B 
+B 
+Das k-te polare Moment ist definiert durch 
+( 15) 
+If ~, 
+Mo., := 
+y x· + r 
+.u(x, y) dF . 
+B 
+Als Massenmittelpunkt (oder Schwerpunkt) der FUiche (Platte) B bezeichnet 
+man denjenigen Punkt S = (xs,Ys), in dem eine Punktmasse der GroBe M 
+diesel ben statischen (= ersten) Momente besitzt wie B : 
+(16) 
+Xs = ~ 11 x.u(x,y)dF, 
+Ys = ~ 11 y.u(x,y)dF 
+B 
+B 
+(mit M aus (13)). 
+Beispiel. 
+Es soli der Schwerpunkt 
+(Massenmittelpunkt) der zwischen den 
+Geraden x = 2, y = lund dem Pa-
+rabelbogen y = x2 eingespannten in-
+homogenen Platte B mit ebener Mas-
+sendichte .u(x, y) = x2 + y2 bestimmt 
+werden. 
+a) B ist Normalbereich, 
+2 
+B = { (x, y) ; 1 :s x :s 2, 1 :s y :s x2 } . 
+b) Die Masse (-> (13), (11)): 
+Abb. 224 - Massenschwerpunkt 
+M = 11 (x2 + /) dxdy = f2 (f
+X
+' (x2 
++ /) dY) dx 
+B 
+J2 [ 2 
+1 3] .r~x' 
+J2 1 6 
+4 
+2 
+1 
+1006 
+= 
+yx + 3" y 
+dx = 
+( 3" x + x - x -
+3" )dx = 
+105 . 
+I 
+J~I 
+I 
+
+
+--- PDF page 479 ---
+§3. Die Integration liber ebene Bereiche 
+c) Die ersten axialen Momente (-4 (14), (11)): 
+J 2 (J-<2 
+) 
+135 
+Mx = 
+I 
+I 
+X (x2 + l) dy 
+dx = 8 
+J
+2 (JX2 2 2) 
+2753 
+My = 
+I 
+I 
+Y (x + y ) dy 
+dx = 126 . 
+d) Der Schwerpunkt (-4 (16)): 
+1 
+Xs = MM, = 1.761307 ... , 
+1 
+Ys = M My = 2.280484 ... 
+463 
+D 
+o Der geometrische Schwerpunkt S = (x, y) des ebenen Fliichenstiicks ergibt 
+sich aus (16) mit /-1(X,y) = flo (= const). Man erhiilt 
+x=frIIXdF, 
+mit F = 11 dF. 
+B 
+B 
+Beispiel. 
+Der geometrische Schwerpunkt des Normalbereichs 
+B = { (x, y) : a :::;; x :::;; b, 0:::;; y :::;; g(x) } 
+hat die Koordinaten 
+1 l~r 
+1 jh (l g(XI) 
+1 jh 
+X = F J x dxdy = F 
+u 
+0 
+x dy 
+dx = F 
+u x g(x) dx 
+B 
+1 1~ r 
+1 jb (l g(XI) 
+1 Ib 1 
+Y = F J y dxdy = F 
+u 
+0 
+y dy 
+dx = F 
+a 2g(x)2 dx 
+B 
+h 
+mit F = 1 g(x) dx. Speziell erhiilt 
+man fUr g(x) = vi r2 - x2 iiber dem 
+Intervall -r :::;; x :::;; r den Schwer-
+punkt S = (x, y) = (0 4r) des skiz-
+, 3n 
+zierten Halbkreises. 
+y 
+r x 
+Abb. 225 - Geometrischer Schwerpunkt 
+D 
+3.5 Der Satz von GREEN. 
+1m folgenden behandeln wir eine wichtige Bezie-
+hung zwischen dem Doppelintegral iiber ein Gebiet und dem Kurvenintegral 
+liings dessen Randkurve. Damit ist neben 3.3 eine zweite Methode zur Berech-
+nung von Doppelintegralen gegeben: 
+Sei B ~ IR2 ein reguliirer Bereich, des sen Rand oB aus endlich vielen geschlos-
+senen, stiickweise glatten Kurven WI, W2, ... , Wn besteht. Die Parametrisierung 
+
+
+--- PDF page 480 ---
+464 
+8. Funktionen in mehreren Varia bien. Teil 2: Integration 
+sei SO, daB B stets links zur Durchlaufrichtung liegt (positiver Umlauf). 
+aB = Wj UW2 
+Abb. 226 - Gebiete, positiv urnlaufen 
+Unter dem Integral eines Vektorfeldes v Iangs aB verstehen wir die Summe 
+J v . dx := J v . dx + ... + J 
+V· dx . 
+PB 
+w" 
+Satz 3.3. Satz von GREEN (1793-1841). 
+Seien B, aB wie oben beschrieben und 
+D c:;: lR2 eine offene Menge mit B c:;: D, dann gilt fur jedes ebene C(il-Vektorfeld 
+v:D--*lR2 
+J 
+v . dx = J J ( 
+~; ~ ~~ ) dxdy . 
+PB 
+B 
+Beweis. 
+1. Spezialfall: V2 (x, y) == 0 und 
+B = {(x,y); a:O;; x:O;; h,g(x):o;; y:o;; h(x)} 
+Normalbereich vom Typ 1. aB besteht aus 
+WI (x) = (g~X))' a:o;; x :0;; b , 
+W2(y) = (~), g(b):o;; y :0;; h(b) , 
+Abb. 227 - Norrnalbereich, Typ I 
+und wi, w; mit den entgegengesetzt durchlaufenen Kurven 
+W3(X) = (h~)) , a:o;; x :0;; h; 
+W4(y) = (~) , g(a) :0;; y :0;; h(a) . 
+Mit V2 = 0 gilt 
+1 v'dx=J Vldx+J Vldx~J vldx~J vldx 
+cB 
+WI 
+W2 
+W3 
+W4 
+b 
+b 
+= 1 
+VI (x,g(x)) dx + 0 ~ 1 
+VI (x,h(x)) dx ~ 0 
+J
+b (lh(X) a 
+) 
+if a 
+= ~ 
+aVI (x,y)dy 
+dx = ~ 
+aVI dxdy . 
+a 
+g(x) 
+y 
+y 
+B 
+2. Spezialfall: 
+VI (x, y) == 0 und B Normalbereich vom Typ II: Eine anloge 
+Rechnung gibt 1B V· dx = J J ~; dxdy . 
+B 
+
+
+--- PDF page 481 ---
+§3. Die Integration tiber ebene Bereiche 
+Jeder Normalbereich I laSt sich in 
+Normalbereiche vom Typ II zerlegen 
+und umgekehrt, ebenso allgemeine Be-
+reiche; daher ist alles durch Addition 
+der beiden Spezialf<ille zu beweisen. 
+Die Kurvenintegrale tiber die (stets 
+zweimal in entgegengesetzter Richtung 
+durchlaufenen) Hilfslinien heben sich 
+465 
+x 
+weg. 
+o 
+Abb. 228 - Zerlegung Typ I in Typ II 
+Mit 1'1 = 0, 1'2 = X bzw. 
+1'1 = -y, 1'2 = 0 etc. ergeben sich einige wichtige 
+Sondcrfalle: 
+o Oer Flacheninhalt von B, 
+F = 11 dxdy = 1 xdy = - 1 ydx = ~ 1 -ydx + xdy . 
+B 
+,'B 
+,'B 
+I'B 
+® Ftir die 2. Momente der homogenen Platte B mit pix, y) 
+mit v = (-x"y,O)T bzw. v = (0, iX3)T 
+1 ergibt sich 
+M,.:. = - 1 
+x 2y dx = i 1 
+x3 dy 
+und analog 
+iB 
+iB 
+1 
+0 
+11 ' 
+M1.2= 
+xydY=-3 
+.v dx . 
+(0 Oer geometrische Schwerpunkt von B ist 
+- 11 
+11
+0 
+x = - F 
+xy dx = 2F 
+x" dy , 
+y = * 1 xy dy = - 2~ 1 l dx . 
+I'B 
+Beispiel 
+1. 
+Oer geometrische Schwer-
+punkt des Bereiches, der von der Zykloide 
+( ) 
+( 2n - t + sin t ) 
+W1 t = a 
+1 _ cos t 
+o ~ t ~ 2n , 
+und der Strecke 
+o ~ t ~ 2na, 
+,'B 
+,'B 
+a 
+7ta 
+Abb. 229 - Zykloide 
+begrenzt wird, hat die Koordinaten 
+x = na und y = 
+~ L'Bidx __ ~ s~rr(1-cost)3dt+0 __ _ 5a 
+L'Bydx 
+a2 s~rr(1-cost)2dt+0 
+6' 
+x 
+o 
+
+
+--- PDF page 482 ---
+466 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+Beispiel 2. Ebener Satz von Gauss. 
+Ist u : D -4 IR eine ~2-Funktion, so ergibt 
+OU 
+OU 
+OV2 
+OVI 
+o2u 
+o2u 
+sich mit VI = - oy und V2 = ox so fort ox - ay = ox2 + oy2 = Au. Der Satz 
+von Green Iiefert somit 
+J J Au dxdy = J -u, dx + u, dy 
+B 
+rB 
+= J grad u . n ds 
+i'B 
+= J 
+onuds . 
+r'B 
+y 
+n 
+v 
+aB 
+Abb. 230 - Satz von Gauss 
+Hierbei ist n 
+( _~) der stets nach au13en weisende Normalenvektor mit 
+Inl = I, wenn s ....... (x(s),y(s)) die Parametrisierung von oB mit der Bogenliinge 
+s darstellt. Liegt eine harmonische Funktion u mit Au = 0 vor, so ist das 
+Integralmittel iiber die Normalableitung OnU liings oB stets Null (-4 5.4). 
+0 
+Aufgaben 
+I. Man skizziere den Integrationsbereich, 
+berechne das Integral und vertausche 
+die Integrationsreihenfolge: 
+I 
+)'2 + 1 
+r J 
+x 2y dxd)' . 
+J O 
+y 
+2. 
+Man berechne den geometrischen Schwerpunkt: 
+a) Skizzierter ebener Bereich A, 
+b) 
+T={(X,Y)ElR;i ~ 2px, J' ~ O, O ~ x~xo, p,xo>O}. 
+3. Man berechne den Fliicheninhalt des von der Astroide (-> Abb. 114) 
+x = cos3 t, 
+Y = sin3 t, 
+0 ~ t ~ 2rr , begrenzten Bereichs. 
+4. Man skizziere die Bereiche und berechne die Schwerpunktkoordinaten: 
+a) {(x, y) ; Xl + i ~ 20, Y ~ x + 2} 
+b) Berandung ist .jX + JY = via, a > 0 , x = 0, Y = O. 
+5. Aus der Kugel x2 + i + z2 ~ 4a2 wird 
+das zylindrische Loch x2 + i 
+~ 2ax 
+ausgebohrt. Wie groB ist das Restvo-
+lumen? 
+6. Man berechne den Inhalt der Fliiche, 
+die von der Hypozykloide mit 3 Spit-
+zen berandet wird: 
+x=a(2cost+cos2t); 
+y=a(2sint-sin2t). 
+x 
+
+
+--- PDF page 483 ---
+§4. Die Integration iiber FIachen im Raum 
+467 
+7. 
+Man berechne das Kurvenintegral 
+mit Hilfe des Greenschen Satzes. 
+:fi. :cdy - ydx iiber eine geschlossene Kurve w 
+" 
+x2 + y2 
+8. 
+Man berechne mit dem Satz von Green den geometrischen Schwerpunkt des Be-
+reichs im I. Quadranten, der von y = x , y = I Ix und y = ~ berandet wird. 
+9. 
+Das Tragheitsmoment eines ebenen Bereiches B beziiglich einer Achse ist 
+I" = J J 
+b2(x,y)dxdy , 
+B 
+wobei (S 2(x • .1') das Abstandsquadrat des Punktes (X, y) von der Achse bezeichnet. 
+Man berechne die Tragheitsmomente beziiglich der x- und y-Achse fUr die Bereiche 
+mit den Berandungen 
+. 
+.\ ~ 
+\' ~ 
+a) Ellipse 
+---c;- + ~
+/
+' = 1. 
+{/ -
+,-
+bl Quadrat Ix + .1'1 + Ix - .1'1 = 2 , 
+cl 
+.\'~ + .I' ~ = .\'2 + .1'2 . 
+10. Bei der Torsioll von Korpern mit nicht kreisfOrmigem Querschnitt bleiben die Quer-
+schnitte nicht eben (Theorie von ST. VENANT): 
+Anstelle des polaren Tragheitsmomen-
+tes I" tritt der Drillllllgs\\'iders(alld r. 
+Am Beispiel eines prismatischen Stabes 
+(Querschnitt: Gleichseitiges Dreieck mit 
+Hohe 
+It I ergibt sich aus dem Span-
+nungsvektor fl.1 
+(-> Kap. 7. ~4, Aufg. 9) 
+y 
+( 
+31'2 + 3x2 - 2hr ) 
+6xl' + 2hx 
+dF . 
+o 
+a) Man bestimme den Drillungswiderstand r . 
+bl Man berechne I" = J J 
+(x 2 + .1'2) dF und bestiitige, daf3 r 
+A 
+Querschnitt-Verwolbung reduziert den Torsioll.m-iders(alld I 
+§4. Die Integration tiber FHichen im Raum 
+4.1 Parameterdarstellungen. 
+Neben die explizite Flachendarstellung als 
+Graph :: = l1(x, y ) , (x, y) ED, und die implizite Darstellung als NiyeaufHiche 
+f (x,), ,:: ) = const tritt nun die fUr Detailuntersuchungen besonders yorteilhafte 
+Parameterdarstellung. 
+Wir stellen uns Yor, da/3 eine Flache im Raum durch stetige Verformung 
+aus einer ebenen Flache heryorgeht. Da unter stetigen Funktionen aber sehr 
+" pathologische" Bilder entstehen konnen, machen wir fUr unsere Zwecke ange-
+messene Einschrankungen. 
+
+
+--- PDF page 484 ---
+468 
+8. Funktionen in mehreren Varia bien. Teil 2: Integration 
+Definition. 
+Sei D ein regularer Bereich in einem Gebiet G der (u, v)-Ebene. 
+Unter der Parameterdarstellung eines reguliren Flicbenstiicks verstehen wir die 
+Einschrankung einer rcl-Funktion x : G -+ R3. x(u, v) = (x(u, v), y(u, v), z(u, v)) T 
+auf D mit den Eigenschaften: 
+1. Fur beliebige Punkte (u, v) =1= (u', v') aus D ist stets x(u, v) =1= x(u', v') • 
+2. xu(u, v) x xv(u, v) =1= 0 fUr aile (u, v) ED. 
+Die Punktmenge S = {(x(u, v), y(u, v), z(u, v)) ; (u, v) ED} ist das dargestellte 
+regulare Flachenstlick. 
+Nach Voraussetzung 1. gibt es zu jedem Punkt (x,y,z) E S genau einen Punkt 
+(u, v) des Parameterbereichs D mit x = x(u, v), y = y(u, v), z = z(u, v) . 
+Variiert man nur einen Parameter und halt den anderen fest, dann entstehen die 
+beiden Kurvenscharen auf S 
+U 1---+ x(u, v) 
+V 1---+ x(u, v) 
+(v = const) , 
+(u = const) , 
+die man als Parameterlinien v = const bzw. u = const bezeichnet. Mit der 
+Voraussetzung 2. wird gefordert, daB die Tangentialvektoren 
+ou(u,v) 
+ov (u, v) 
+(
+OX 
+) 
+xu(u, v) = 
+i~ (u, v) 
+, 
+ou (u, v) 
+(
+OX 
+) 
+xv(u, v) = ii (u, v) 
+ov (u, v) 
+an die Parameterlinien in allen Punkten (u, v) ED linear unabhangig sind. 
+v 
+u 
+uo 
+uo 
+x 
+Abb. 231 - Parameterlinien auf Fliichenstiick 
++du 
+Die von Xu und Xv aufgespannte Ebene durch den Flachenpunkt x(u, v) ist 
+die Tangentialebene mit der Parameterdarstellung 
+V(A, J.I.) = x(u, v) + AXu(U, v) + J.l.xv(u, v), 
+A, J.I. E R . 
+Der auf der Tangentialebene durch x(u, v) senkrecht stehende Einheitsvektor 
+(1) 
+1 
+n := I 
+IXu x Xv 
+Xu XXv 
+heiBt Flachennormale (im betreffenden Punkt). 
+Flir ein regulares Kurvenstlick t 1---+ ( ~~:~ ), to ~ t ~ tl , im Parameterbereich 
+
+
+--- PDF page 485 ---
+§4. Die Integration iiber Flachen im Raum 
+469 
+D ist das Bild W(t) := X(U(t), V(t)) eine regulare Flachenkurve, deren Tangenti-
+alvektor w = XIIU + XIV (--+ Kettenregel, Kap. 7, §2(12)) eben falls in der Tangen-
+tialebene (durch x(u, v)) liegt. Die Bogenlange S(l) = JI Iw(t)1 dt ergibt sich 
+10 
+wegen 
+Iwl2 = W . W = (XII' xlI)u2 + 2(xli . xl)uv + (Xl ' x,)v2 
+aus den metrisc/Jen Fundamentaigroflen 
+(2) 
+E := XII' XII; 
+F:= XII . XI! 
+G := X v ' Xv . 
+Diese bestimmen nicht nur die Langenmessung auf 5 , sondern auch die Mes-
+sung von Winkeln (--+ Aufg. 5,6) und FIacheninhalte (--+ (6)). Aus der IdentiHit 
+la x blc = la lcl blc - (a' b)2 (--+ Kap. I, §5) folgt 
+(3) 
+Bilden die Parameterlinien ein ort/Jogonaies Netz, d.h. schneiden sich in jedem 
+FI ~ichenpunkt x(lIo, co) die Parameterlinien II = Uo , v = Vo unter einem rechten 
+Winkel, dann gilt iiberall F = O. 
+Als Rand des Flachenstiicks 5 wird das x-Bild des Randes von D bezeichnet: 
+c5 := { x(lI, v) ; (u, v ) E cD} . 
+Die Oberflache der in den technischen Anwendungen auftretenden dreidimensio-
+nalen Karper kann in der Regel nicht durch ein einziges regulares Flachenstiick 
+dargestellt werden. Man denke etwa an einen Wiirfel oder Zylinderstumpf mit 
+Ecken und Kanten. 
+Wir verstehen deshalb unter einer stuckweise reguliiren 
+Fiiiche 5 die Vereinigung endlich vieIer regularer Flachenstiicke 5;, von denen 
+je zwei langs einem oder mehrerer gemeinsamer Randstiicke aneinanderstol3en, 
+aber sonst keine anderen Punkte gemeinsam haben. Der Rand as von 5 wird 
+aus allen Randstiicken gebildet, die nur zu einem der regularen Flachenstiicke 
+5; geharen. Man nennt 5 geschlossen, wenn c5 leer ist. 
+~ 
+~ aS=0 
+as= 0 
+Abb. 232 - stlickweise regulare Flachen 
+4.2 Beispiele. 
+CD Ebenen. Fiir a, b E IR3 mit a x b 
+=1= 0 stellt x(u, v) = Xo + ua + vb , (u, v) ED, 
+ein Ebenenstiick dar. Die Parameterlinien u = const, v = const sind Geraden 
+parallel zu b bzw. a. Xu = a , Xl = b. E = lal 2 , F = a . b, G = Ibl 2 . 
+
+
+--- PDF page 486 ---
+470 
+8. Funktionen in mehreren Va riablen. Teil 2: Integration 
+CD Graphen. Aus der expliziten Darstellung eines FHichenstiicks als Graph 
+z = h(x, y), h E ({,I (D, JR.) , erhalt man so fort die Parameterdarstellung 
+(4) x(x,y) = ( 
+; 
+), (x,y) ED. 
+h(x,y) 
+Parameterlinien sind die Schnitte mit den 
+Ebenen x = const bzw. y = const . 
+x., = ( ~), Xy = ( ~) , 
+hx 
+hy 
+( -h,) 
+Xx x x, = -;y 
+,
+E = 1 + h~ , 
+Abb. 233 -
+z = h(x, y) 
+F = h,h" 
+G = 1 + h; . 
+0) DrehfHichen. Aus einem regularen Kurvenstiick t t---+ (xg»), to ::;; t ::;; t 
+1 , 
+Z (t) 
+ohnc Doppelpunkte mit x(t) > 0 entsteht nach Kap. 6, §6, bei Drehung urn die 
+.:-Achse mit dem Winkel tpo (0::;; tpo < 2rr ) ein regulares Flachenstiick mit der 
+Parameterdarstellung 
+(5) 
+(
+COS tp 
+x(t,tp) = 
+Si~tp 
+-sin tp 0) (X(t») 
+(X(t) C?S tp) 
+cos (P 
+0 
+0 
+= 
+x(t) Sill tp 
+, 
+o 
+1 
+z(t) 
+z(t) 
+definiert auf D = {(t, tp) ; to ::;; t ::;; t1, 0 ::;; tp ::;; tpo}. Die Parameterlinien 
+t = const sind die Breitenkreise, tp = const die Meridiane. 
+( 
+.x(t) cos tp) 
+( -X(t) sin tp) 
+x, = 
+.x(t) sin tp 
+, x'P = 
+x(t) cos tp 
+z(t) 
+0 
+x, x Xcp = (=.:~ ~~~ :) , 
+xx 
+E = x2 + z2, F = 0, G = x 2 . 
+Da iiberall F = 0 gilt, bilden die Parame-
+terlinien ein orthogonales Netz. 
+z= 
+y 
+x(t)( c<?s 'P ) 
+sin 'P 
+Abb. 234 - DrehHiiche 
+(x(t) > 0 wurde vorausgesetzt, damit die Regularitatsbedingung Ixc x xcpl 
+VX2(X2 + z2) i= 0 erfiillt ist.) 
+Da bei einer vollen Umdrehung die Meridiane tp = 0 und tp = 2rr aufein-
+anderfallen, ist die gesamte Drehflache S (d.h. 0::;; qJ ::;; 2rr) nur stiickweise 
+regular (man nehme etwa die beiden zu 0::;; qJ ::;; rr und rr::;; qJ ::;; 2rr gehorigen 
+Flachenstiicke). Der Rand as der gesamten Drehflache besteht aus den beiden 
+Breitenkreisen tp t---+ (x(tj) cos tp, x(tj) sin qJ, z(tj)) T, i = 0, I . 
+
+
+--- PDF page 487 ---
+§4. Die Integration tiber Flachen im Raum 
+471 
+Sonderfalle. 
+o Der Kegelstumpf (nur die Mantelfiache) (--+ Abb. 235). 
+( 
+t cos qJ ) 
+. 
+b 
+b 
+X(t,qJ) = 
+tSlll~ 
+,ao~t~a, 0~qJ~2n, XtXXrp= (atcosqJ'atsinqJ,t). 
+b(l - a) 
+® Der Zylinderstumpf (die Mantelfiache) (--+ Abb. 236). 
+X(z,qJ)= (~~~::), ZO~Z~Zl, 0~qJ~2n, xzxxrp=(-rcosqJ,-rsinqJ,O). 
+CD Die Sphare (Kugeloberfiache) mit Zentrum 0 und Radius r (--+ Abb. 237). 
+( 
+r sin tp cos qJ ) 
+x(tp, qJ) = 
+r sin tp sin qJ 
+, 
+0 ~ tp ~ n, 
+0 ~ qJ ~ 2n . 
+r cos tp 
+1m Nord- und Siidpol (tp = 0, n) ist xlp X xrp = 0, liings des Halbkreises qJ = 0 
+ist die Darstellung nicht eineindeutig. Diese Ausnahmepunkte spielen aber als 
+Nullmenge fUr das Oberfiachenintegral keine Rolle. 
+xlp x xrp = (r2 sin2 tp cos qJ, r2 sin2 tp sin qJ, r2 sin tp cos tp)T = (r sin tp)x(tp, qJ) . 
+E = xlp . xlp = r2, 
+F = xlp . xrp = 0, 
+G = xrp . xrp = r2 sin2 tp . 
+AZ 
+xl> 
+Abb. 235 - Kegelstumpf 
+Abb. 236 - Zylinderstumpf 
+Abb. 237 - Sphiire 
+@ Der Torus (die Ringfiache) T entsteht durch Drehung des Kreises 
+x = R + r sin tp, 
+Z = r cos tp , 
+o ~ tp ~ 2n mit festem "inneren" und 
+"auf3eren" Radius r bzw. R, r < R, 
+( 
+(R + r sin tp) cos qJ) 
+x(tp, qJ) = 
+(R + r sin tp) sin qJ 
+. 
+r cos tp 
+(Nur stiickweise regular, Rand aT leer) 
+E = r2, F = 0, G = (R + r sin tp)2 . 
+z 
+Abb. 238 - Torus 
+o Die Wendelflache entsteht durch Schraubung einer Geraden, die die Schraub-
+achse senkrecht schneidet; die Parameterdarstellung eines Flachenstiicks ist mit 
+a = const > 0 : 
+
+
+--- PDF page 488 ---
+472 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+. 
+rO < r < rl 
+( rcos qJ) 
+x(r,qJ)= 
+rSInqJ, 
+~ 
+~ 
+. 
+aqJ 
+qJO -
+qJ -
+qJl 
+( COSqJ) 
+Xr = 
+Sl~ qJ 
+, 
+( -rSinqJ) 
+X", = 
+rc~sqJ 
+, 
+(
+a sin qJ ) 
+Xr X x'" = 
+-a ~os qJ 
+. 
+4.3 Der Flacheninhalt. 
+Sei X : 1R2 2 D -41R3 , 
+x(u, v) = (x(u, v), y(u, v), z(u, v» T , 
+die Parameterdarstellung eines regu-
+Hiren FIachenstticks S. 
+Ein kleines 
+Teilsttick AS, berandet von den Pa-
+rameterlinien u = Uo, u = Uo + Au, 
+v = Vo, v = Vo + Av, Hil3t sich tiber 
+die lineare Approximation (-4 Kap. 7, 
+§4(2» 
+Abb. 239 - Wendelflache mit ro = -rl 
+und 'Po = 0, 'PI = 411: 
+x X X L'.U L'.V 6 
+u 
+v 
+Abb. 240 - Flachenelement 
+niiherungsweise darstellen als Parallelogramm, das von den im FIachenpunkt 
+x(uo, vo) angetragenen Vektoren xu(uo, vo)Au, xv(uo, vo)Av aufgespannt wird 
+und den FIacheninhalt 
+besitzt (-4 Kap. 1, §3). 
+Wird nun S durch ein Netz von Parameterlinien in n Teilstticke AS"oo.,ASn 
+zerlegt und jedes Teilsttick ASj durch das entsprechende Parallelogramm mit 
+dem FIacheninhalt AOj = Ixu(uj, Vj) x Xv(uj, vj)IAuAv approximiert, dann ergibt 
+bei stets feiner werdender Teilung der Grenzwert (-4 §3, (3» 
+n 
+~~ 
+I IXu(Uj, Vj) x Xv(Uj, Vj)IAuAv = J J Ixu x xvldu dv 
+(~u)2+(~v)2-+0 1=1 
+D 
+den FHicheninhalt von S. 
+Genau genommen ist dieses die Definition des Fliicheninhalts von S; aufgrund 
+der Voraussetzungen tiber S existiert der Grenzwert. 
+
+
+--- PDF page 489 ---
+(6) 
+§4. Die Integration tiber Flachen im Raum 
+Der FIacheninhalt O(S) eines regularen FIachenstiicks 
+X : D ~ 1R3 ist 
+O(S) = 11 Ixu X xvldudv . 
+D 
+473 
+In der bewahrten Kurzform (~ 3.4): Das von den benachbarten Parameterlinien 
+u = uo, u = Uo + du, v = Vo, v = Vo + dv berandete Flachenstiick bestimmt das 
+skalare Fliichenelement (Oberflachenelement) 
+(7) 
+I dO = Ixu x x,ldudv. I 
+Der gesamte Flacheninhalt ergibt sich durch "Summation" iiber aIle Elemente. 
+Mit den metrischen Fundamentalgro13en E, F, 
+G 
+(~ (3)) lautet die 
+Oberfiachenformel (6) 
+(8) 
+O(S) = 11 VEG-F 2dudv 
+D 
+mit den Sonderfallen (~ 4.2 CD, CD) : 
+o Oberfiacheninhalt des Graphen z = h(x, y) , (x, y) ED, 
+(9) 
+U = 11 viI + h~ + h~dxdy . 
+D 
+® Oberfiacheninhalt der Drehfiache (5) - mit CPo = 2n -
+t, 
+(10) 
+o = 11 V x2(.X2 + z2)dtdcp = 2n 1 xV x2 + z2dt . 
+D 
+to 
+Beispiel 1. 
+Die Oberfiache der Kugel mit dem Radius r. Mit E = r2, F = 0, 
+G = r2 sin2 tp und D = { (ti', cp) ; 0 ~ tp ~ n, 0 ~ cp ~ 2n} (~4.2c) ergibt sich 
+aus (8) oder (10) 
+rr 
+0= 11 r21 sin tpldtpdcp = 2nr2 1 sin tp dtp = 4nr2 . 
+o 
+D 
+0 
+Beispiel 2. 
+Die Torusoberfiache. Mit E = r2, F = 0, G = (R + r sin tp)2 und 
+D = {(tp, cp) ; 0 ~ tp ~ 2n, 0 ~ cp ~ 2n} (~4.2) erhalt man 
+2rr 
+0= 11 r(R + r sin tp)dtpdcp = 2nr 1 
+(R + r sin tp)dtp = 4n2rR . 
+0 
+D 
+0 
+
+
+--- PDF page 490 ---
+474 
+8. Funktionen in mehreren Varia bIen. Teil 2: Integration 
+Beispiel 3. 
+Der Graph z = xy stellt ein hyperbolisches Paraboloid dar. Der 
+Oberftiicheninhalt fUr x2 + y2 ~ 1 ergibt sich zu 
+0= 
+J~r 
+Vl+X2+y2dXdy=jl (jVI-X
+2 Vl+X2+y2dY)dX 
+J 
+-I 
+-v'\=X2 
+Osx2+y2S1 
+2 
+~3 
+= 3n(v2 -1). 
+Mit (10) bestiitigt man die 1. Regel von GULDIN (1577 - 1643): 
+Der Obeifliicheninhalt einer Drehfliiche betriigt 2nrol mit der Liinge I 
+und dem Drehachsenabstand ro des Schwerpunkts eines Meridianschnitts. 
+o 
+Beweis. 
+Bei entsprechender Lage des Koordinatensystems gilt nach (10) 
+II 
+o = 2n f xds mit ds = V x2 + 5'2 dt, bzw. 0 = 2nlx mit der Schwerpunktsko-
+10 
+1 fll 
+ordinate x = T 
+xds . 
+0 
+to 
+4.4 Das Oberfiachenintegral einer skalaren Funktion. 
+1st auf einem re-
+guliiren Fliichensttick mit der Parameterdarstellung x : IR2 
+;2 D -+ JR.3 
+eine skalare Belegungsfunktion gegeben, so "triigt" ein (von Parameterlinien 
+eingeschlossenes) Fliichenelement dO = Ixu x xvldudv (-+ (7)) die Belegung 
+f (x(u, v), y(u, v), z(u, v))lxu x xvldudv. Die Gesamtbelegung erhiilt man durch In-
+tegration tiber D. 
+Definition. 1st x : JR.2 ;2 D -+ JR.3 eine Parameterdarstellung des reguliiren 
+Fliichenstilcks S und f ein auf S stetiges Skalarenfeld. dann nennt man 
+(11) ff fdO := ff f(x(u,v),y(u,v),z(u, v)) Ixu(u,v) x xv(u,v)1 dudv 
+s 
+D 
+das Oberfliichenintegral von f iiber S. 
+F iir eine aus reguliiren F liichenstilcken S I, ... ,Sn bestehende stilckweise reguliire 
+Fliiche S definiert man das Oberfliichenintegral durch 
+ff fdO:= ff fdO+···+ ff fdO. 
+s 
+~ 
+~ 
+Ftir das Oberftiichenintegral gelten offen bar die tiblichen Rechenregeln: Li-
+nearitiit, Monotonie, Additivitiit und der Mittelwertsatz: 
+Das Integralmittel wird in einem Fliichenpunkt angenommen; d.h. es gibt einen 
+Punkt x(u·, v·) auf dem reguliiren Fliichensttick S mit 
+
+
+--- PDF page 491 ---
+§4. Die Integration iiber Flachen im Raum 
+475 
+(12) 
+f(x(u',v'» = O:S) J J fdO. 
+s 
+Berechnung des Oberfliichenintegrals I = J J f dO . 
+s 
+1. Schritt: Die Parameterdarstellung und den Parameterbereich angeben 
+x : D -+R3 (evtl. sttickweise). 
+2. Schritt: Die partiellen Ableitungen xu, 
+Xv 
+und das OberfUichen-
+element dO = Ixu x xvi dudv = VEG - F2 dudv berechnen. 
+3. Schritt: Eintragen und ebenes Doppelintegral tiber D ausrechnen: 
+J J fdO = J J f (x(u, v), y(u, v),z(u, v») Ixu(u,v)xxv(u,v)ldudv. 
+s 
+D 
+Beispiel 1. Das axiale Triigheitsmoment der Kugelschale x2 + y2 + z2 = R2 mit 
+homogener Dichte und Gesamtmasse m urn die z-Achse ist (-+ 4.2c) 
+I = J J (x2 + l) . 4~2 dO 
+s 
+2" 
+" 
+= 4~2 J J R2 sin21p • R2 sin 1p d1p dqJ = imR2 . 
+0 
+o 
+0 
+Beispiel 2. 
+Ftir den geometrischen Schwerpunkt (x, ji, z) des Teils der Flache 
+3z = 2(x3/2 + l/2) , der von den Ebenen x = 0, y = 0, x + y = 1 ausgeschnitten 
+wird, gilt ji = x mit 
+und 
+I 
+I-x 
+I ( I xv1 + x + ydy) dx 
+_ 
+x=O 
+y=o 
+x=-----''----------
+I 
+I-x 
+I ( I v1 + x + ydy) dx 
+x=O 
+y=o 
+I 
+I-x 
+26 -15V2 
+14 
+I ( I ~(X2/3 + y2/3)V1 +x + ydy)dx 
+z = x=O 
+y=O 
+= 61V2 -151n(1 +V2) 
+0 
+20 (I: v1 +x + ydy)dx 
+96(V2 + 1) 
+
+
+--- PDF page 492 ---
+476 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+Beispiel 3. 
+Das elektrostatische Potential U (a) einer homogenen mit Dichte p 
+geladenen Flache S im Punkt a f/: S ist nach COULOMB 
+U(a) = II'x~a,dO. 
+s 
+1st S der Kegelmantel (---+ Abb. 235) x2 + l = z2, 0:0;; Z :0;; 1 , und a = (0,0, 1) , 
+so ergibt sich (---+ 4.2a) mit x(t) = (t cos qJ, t sin qJ, t), 0:0;; t :0;; 1, 0:0;; qJ :0;; 2n, 
+I 
+2IT 
+I 
+U(a) = I 
+I 
+P 
+J2tdqJdt = 2J2pn I 
+tdt 
+Jt 2 +(t-l)2 
+}2t2 -2t+l 
+1=0 <1'=0 
+0 
+= pn ·In (3 + 2J2) . 
+o 
+Die eingangs angegebene Motivation fUr die Definition zeigt auch wesentliche 
+Anwendungsbereiche des Oberfiachenintegrals auf. 
+o Der Fliicheninhalt 
+0 = I I dO 
+(---+ 4.3). 
+s 
+® Masse, Ladung, Momente, Massenmittelpunkt. 
+Bei gegebener Flachendichte p der Masse bzw. E der Ladung stellen 
+M = II p(x,y,z)dO 
+die Gesamtmasse , 
+s 
+Q = II E(x,y,z)dO 
+die Gesamtladung 
+s 
+der Flache S dar. Die k-ten Momente von S sind definiert als 
+Md = II x'p(x,y,z)dO ; 
+s 
+Mo., = II zkp(x,y,z)dO . 
+s 
+Mr., = II/p(X,y,Z)dO 
+s 
+Der Massenmittelpunkt hat die Koordinaten 
+Fur den geometrischen Schwerpunkt (x, y, z) von S ergibt sich mit p = const 
+x= b II xdO 
+z = b II zdO. 
+s 
+s 
+
+
+--- PDF page 493 ---
+§4. Die Integration tiber Fllichen im Raum 
+477 
+4.5 Die Transformationsformel fUr Gebietsintegrale. 
+Definition. 
+Eine Parameterdarstellung x : D ---+ S, x = x(u, v), y = y(u, v) , eines 
+ebenen reguliiren FliichenstUcks S heij3t auch Koordinatentransformation; d.h. 
+1. 
+x = x(u, v), y = y(u, v) sind rt"-Funktionen, 
+2. 
+aus x(u, v) = x(u', Vi) und y(u, v) = y(u', Vi) folgt (u, v) = (u', Vi) , 
+3. 
+IxuYv - xvYul =1= 0 fur aile (u, v) ED. 
+Die Parameterlinien heij3en dann Koordinatenlinien und man nennt das Netz der 
+Koordinatenlinien ein (krummliniges) Koordinatensystem auf S . 
+Viele praktische Probleme auf S , insbesondere auch die Integration, lassen sich 
+durch die Wahl eines dem Problem oder der Geometrie von S angepaJ3ten Ko-
+ordinatensystems vereinfachen. 
+Wird nun ein Gebietsintegral I Is f dF als Grenzwert von Riemann-Summen 
+berechnet, dann ist der Wert unabhiingig von den speziellen Zerlegungen von S 
+(---+ §3.2). Bei der Zerlegung durch die kartesischen Koordinatenlinien entsteht 
+einerseits I Is f dF = I Is f (x, y)dxdy (---+ §3.3). Andererseits fUhrt die Zerle-
+gung liings der neuen Koordinatenlinien auf I Is f dF = IID f IxuYv - XvYu I dudv 
+(---+ 4.4). Mit der Funktional- oder JAcoBI-Determinante 
+o(x, y) ._ det (xu(U, v) 
+xv(u, V)) 
+o(u, v) .-
+Yu(u, v) 
+Yv(u, v) 
+ergibt sich deshalb 
+Satz 4.1. Die Transformationsformel. 
+Entsteht der reguliire Bereich S ~ R.2 
+unter der Koordinatentransformation x = x(u, v), y = y(u, v) aus D, dann gilt 
+for jedes auf S stetige Skalarenfeld f die Transformationsformel 
+(13) 
+J J f(x,y)dxdy = J J f(x(u, v),y(u, v)): ~~~:~j: dudv . 
+s 
+D 
+Die Integration durch Substitution (Transformationsformel): 
+In J J f(x,y)dxdy ersetzt man 
+s 
+• 
+die Variablen x, y durch die Funktion x(u, v), y(u, v) , 
+• 
+das Fliichenelement dxdy durch : ~~~: ~j : dudv, 
+• 
+den Integrationsbereich S durch den Parameterbereich D. 
+Zusatz. Wegen §3 (4) darf man in (13) die Bereiche S und D durch S \ N 
+bzw. D \ M mit Nullmengen M, N (gemiiJ3 3.1) ersetzen. Insbesondere bleibt 
+(13) giiltig fUr rt"-Transformationen x: D ---+S, die nur auf D \ M (mit einer 
+
+
+--- PDF page 494 ---
+478 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+Nullmenge M) beide Regularitatsbedingngen erfiillen. 
+Sonderfalle. 
+CD Affine Koordinaten. 
+x = au + bv + Xo, Y = eu + dv + Yo 
+mit ad - be oF 0, 
+dF = lad - heldudr . 
+(14) f f f(x,y)dxdy = f f f(au + bv + xo,eu + dv + yo)lad - beldudv . 
+S 
+D 
+CD Polarkoordinaten. 
+x = r cos cp, y = r Sill cp, 
+dF = rdrdcp . 
+(15) 
+ff f(x,y)dxdy = ff f(rcoscp,rsincp)rdrdcp. 
+S 
+D 
+(3) Elliptische Koordinaten. 
+x = a cosh u cos v , 
+y = a sinh u sin~', 
+a > 0 , 
+dF = a2(cosh2 u - cos2 r)dudr; . 
+Beispiel 1. 
+Ellipsenflache. 
+U nter 
+der linearen Transformation x = au, 
+y = hv, a > 0, h > 0 entsteht 
+Abb. 241 - Elliptische Koordinaten 
+. x 2 
+y2 
+1 
+1 
+E . a2 + b2 ::;; 1 aus K : u" + v" ::;; 1. Also gilt (--> (14)) 
+F(E) = ff dxdy = ff abdudr = abn . 
+E 
+K 
+o 
+Beispiel 2. 
+Das Tragheitsmoment der homogenen Kreisscheibe K : x2 + / ::;; 1 
+beziiglich der y-Achse betragt 
+M = Po ff x 2dxdy. 
+K 
+InPolarkoordinaten x=rcoscp, y=rsincp wird K\{O,O} durch D={(r,cp); 
+0< r ::;; 1, 0 < cp ::;; 2n} dargestellt. Also gilt (--> (15)) 
+M2 = Po f f r2 cos" cprdrdcp = Po 12
+l[ cos2 cpdcp 11 r3dr = poi. 
+0 
+D 
+
+
+--- PDF page 495 ---
+§4. Die Integration liber Fhichen im Raum 
+479 
+Beispiel 3. 
+Fur die GAUSS- oder Normalverteilung F (x) := Jrr J e _t2 dt gilt 
+lim F(x) = 1 ; d.h. 
+-J. 
+\-----l-Z 
+R 
+Beweis. 
+Fur f (R) := 1a e-x'dx 
+gilt 
+1 
+I' 
+2J = R~ fiR) 
+und 
+mit dem Quadrat Q(R) (-> Abb. 242). Fur die Viertelkreisflachen K(R) und 
+K (V2R) (-> Abb. 242) gilt nach Transformation auf Polarkoordinaten 
+If e-I"TI\/xdy = 1ITi
+C C£R e-r'rdr) dcp = i(l - e-R') 
+};IRI 
+Also hat man 
+7[ 
+R' 
+,7[ 
+'R' 
+4(1-1' 
+) s f(R)- S 4(1-1'--
+), 
+und mit R -> Y.. folgt die Behauptung. 
+Beispiel 4. 
+ment 
+Das polare Tragheitsmo-
+T = If 
+(x 2 + y:!)dxdy (p = I) 
+s 
+der in der Abb. 243 skizzierten Platte S 
+wird mit der Transformation 
+1 
+, 
+x- - y- = u 
+xy 
+= 
+t' 
+(I sus 9) 
+(2 S r S 4) 
+auf .. Hyperbelkoordinaten" bestimmt: 
+y 
+Abb. 242 - Intcgrationsbereich 
+y 
+v=4 
+u=1 
+u=9 
+3 
+x 
+Abb. 243 - Platte 
+x = x(u, v) = ~ J 
+u + J u2 + 4u2 , 
+Y = y(u, v) = ~ J -u + J u2 + 4v2 
+D 
+
+
+--- PDF page 496 ---
+480 
+8. Funktionen in mehreren Varia bien. Teil 2: Integration 
+a(x,y) 
+mit a(u, v) 
+2Ju2 +4v2 
+Aus der Transformationsformel (13) erhalt man 
+dann 
+T = 1
+9 (1
+4 .J u2 + 4v2 . 
+1 
+dV) du = 8 . 
+1 
+2 
+2Ju2 + 4v2 
+o 
+4.6 Das Oberfiachenintegral eines Vektorfeldes. 
+Definition. 
+1st S ein durch die Parameterdarstellung x : JR2 ;2 D --+ JR3 gege-
+benes reguliires Fliichenstiick mit der Normalenrichtung n = I 
+1 
+I Xu x Xv in 
+Xu x Xv 
+jedem Fliichenpunkt und vein auf S stetiges Vektorfeld, dann nennt man das 
+Fliichenintegral der skalaren Normalkomponente V· n, also 
+(16) 
+ff V· dO := ff (v' n)dO = ff [v, Xu, xv]dudv , 
+s 
+S 
+D 
+den Flu8 von v durch S. 
+dO = ndO = Xu x Xv dudv nennt man vektorielles Oberfliichenelement von S 
+(--+ (7)). Der Integrand auf der rechten Seite von (16) ist das Spatprodukt 
+[v,xu,xv] = det (~~ ~: ~:) (--+ (11) und Kap. 1,5.4). 
+V3 
+Zu 
+Zv 
+Physikalische Deutung. Fur das Geschwindigkeitsfeld v einer stationaren 
+Fliissigkeitsstromung stellt das Spatprodukt 
+[v, xudu, xvdv] = [v, Xu, xv]dudv 
+das Volumen der Flussigkeitsmenge dar, 
+die pro Zeiteinheit durch das Oberfla-
+chenelement dO 
+stromt. 
+Also gibt 
+der FluB f f v . dO das Gesamtvolu-
+S 
+men der Fliissigkeitsmenge an, die pro 
+Zeiteinheit durch S zu der durch n 
+ausgezeichneten Seite hindurchstromt. 
+Abb. 244 - FluB durch S 
+Beachte. Wird der FluB zur anderen "FIachenseite" gesucht, dann ist n durch 
+-n zu ersetzen. 
+
+
+--- PDF page 497 ---
+§4. Die Integration liber Fliichen im Raum 
+Sooderfall: 
+Der FluB des Vektorfeldes v durch den Graphen z 
+(x,y) ED, betragt 
+(17) 
+[f' dO ~ .{f det (:: ,~ D 
+dxdy 
+= 11 (-V\Z, -
+V2 2 , + l73)dxdy 
+D 
+(mit t'i := ["i(X, y, h(x, y)) im Integranden, i = I, 2, 3 ). 
+481 
+h(x, y), 
+cq 
+Beispiel 1. 
+Der FluB des elektrischen Feldes E = ~x einer Punktladung q 
+im Ursprung durch die Sphare S : Ixl = R (von innen nach auBen) betragt 
+wegen E· 0 = cq auf S 
+R2 
+II(E' o)dO = 11 ~~dO = ~~ 11 dO = 4ncq. 
+s 
+s 
+s 
+Beispiel 2. 
+Wir berechnen den FluB 11 v . dO des Geschwindigkeitsfeldes 
+s 
+v(x.y,z) = (x~y) 
+o 
+a) durch das Flachensti.ick S der Ebene x + 2y + 3z = 4 im ersten Ok tan ten 
+(zu der Seite hin. die den Nullpunkt nicht enthalt), 
+b) durch die Sphare S : x2 + / + z2 =,.2 (von innen nach auBen). 
+a): Ober D = [(x, y) : 0 :s; x :s; 4, 0 :s; y :s; ~(4 - x)} ist S der Graph von 
+:: = ~(4-X-2Y). Mit (17) ergibt sich 
+Jf 
+1
+4 (1~(4-X) (2 
+2) ) 
+v·dO= 
+0 
+0 
+9(4-x-2Y)+3(x+y) dy 
+dx 
+s 
+4 1 1 
+1 
+176 
+= 
+36 (80 + 8x -
+7x~)dx = n . 
+o 
+b): In der Parameterdarstellung (-> 4.2c) 
+( 
+,. sin 11' cos q> ) 
+X(lp, q» = 
+,. sin lJ! sin q> 
+, 
+r cos lJ! 
+O:S;tp:s;n 
+o :s; q> :s; 2n ' 
+
+
+--- PDF page 498 ---
+482 
+8. Funktionen in mehreren variablen. Teil 2: Integration 
+Das Oberflachenelement ist dO = r2 sin tpdtpdqJ , der Fluf3 betragt daher 
+n 
+2n ( 
+2r cos tp 
+) 
+( sin tp cos qJ ) 
+ff(v ' n)dO= f(f rsintp(sinqJ+cosqJ) 
+. 
+sintpsinqJ 
+r2 sintpdqJ)dtp 
+s 
+0 
+0 
+0 
+cos tp 
+o 
+4.7 Der Satz von STOKES. 
+Der Satz von GREEN besitzt eine Verallgemeinerung 
+fUr raumliche zweiseitige Fliichen, bei denen man eindeutig von einer unteren 
+und oberen (bzw. inneren und auf3eren) Seite reden kann. 
+Ein regulares Flachenstiick x : IR2 2 D ~ S ist stets zweiseitig. Wahlt man das 
+Vorzeichen fUr n = ± I 
+I 
+I Xu X xI' einheitlich fUr aile Punkte auf S , so wird 
+XII X XI' 
+die Oberseite von S bestimmt: n im Fliichenpunkt angetragen weist aus der 
+Oberseite heraus. (~ Abb. 245). 
+Eine stiickweise regulare Flache ist zweiseitig oder orientierbar, wenn sich die 
+Oberseiten der Flachenstiicke Sk so wahlen lassen, daf3 sich der Umlaufsinn 
+iiber die .. Kanten" Sk n Sj hinweg "stetig fortsetzt" (~ Abb. 245). 
+Das Mobius-Band ist nicht zweiseitig (~ Abb. 246). 
+I 
+Abb. 245 - Zweiseitige Flachen 
+Abb. 246 - Mobius-Band 
+Das folgende bedeutende Ergebnis laf3t sich iiber die Projektionen in die Koor-
+dinatenebenen auf den Satz von GREEN zuriickfUhren (ohne Beweis). 
+Wir wahlen eine fUr die Praxis ausreichende, anschauliche Sprechweise; die 
+prazise Formulierung wiirde diesen Rahmen sprengen. 
+Satz 4.2. Satz von STOKES (1819- 1903) 
+Sei Seine zweiseitige. stiickweise re-
+guliire Fliiche mit iiberschneidungsfreier und geschlossener Randkurve as. die so 
+durchlaufen wird, daft S "links" liegt und der Umlaufsinn zusammen mit der Nor-
+malenrichtung n von Seine Rechts-
+schraubung ergibt 
+(~ Abb. 247). 
+Ferner sei U <;; IR3 eine offene Menge. 
+die S enthiilt. Dann gilt fiir aile ~I­
+Vektor{elder v : U ~ IR3 
+(18) 
+~s v . dx = f f (rot v . n)dO . 
+s 
+x 
+Abb. 247 - Satz von Stokes 
+
+
+--- PDF page 499 ---
+§4. Die Integration iiber Flachen im Raum 
+483 
+Beispiell. 1st S ein ebener Bereich in der (x,y)-Ebene und v = (Vt,V2,O)T em 
+ebenes Vektorfeld, so folgt aus (18) der Satz von Green in der Ebene, da 
+mit n=(O,O,l)T .. 
+GVo 
+OVI 
+rot v . n = -- - -
+ax 
+oy 
+o 
+( _y3 ) 
+Beispiel 2. 
+Sei v(x, y, z) = 
+_;~ 
+das Geschwindigkeitsfeld einer turbulenten 
+Stromung im Zylinder x2 + y2 = I. 
+z 
+Wir bestimmen die Zirkulation von v 
+liings der Schnittkurve i'S des Zylin-
+ders mit der Ebene x + y + z = 1 bzgl. 
+der in der Abb. 248 angegebenen Um-
+laufrichtung. 
+Abb. 248 - Zylinderstromung 
+1. Methode: Mit der Parameterdarstellung 
+(
+COS t 
+) 
+t f-4 
+sin t 
+, 
+I - sin t - cos t 
+° 
+:0:; t :0:; 2rr , 
+von ?S die Zirkulation ,+, V· dx gemiiB (2.3) ausrechnen. 
+J',s 
+2. Methode: Mit der Integralformel 
+~s V· dx = ff(rotv. n)dO , 
+s 
+der Parametrisierung x(x, y) = ( 
+.~ 
+) , (x, Y) E K (Einheitskreisscheibe), 
+I-x-y 
+und rot v = V x v = (O,O,3(x2 + y2))T. Der Normalenvektor Xx X XI = (I, I, l)T 
+weist in die richtige Richtung. Also gilt (nach Obergang zu Polarkoordinaten) 
+:fi v . dx = f f [rot v, Xx, xy]dxdy = 3 f f (x 2 + i)dxdy = ~rr . 
+,s 
+K. 
+K. 
+Man beachte, daB in (18) die Fliiche 
+S durch jede andere in i'S einge-
+spannte Fliiche (mit entsprechender 
+"Oberseite") ersetzt werden kann: 
+f f rot v . dO = f f rot v . dO . 
+s, 
+Abb. 249 - Gleicher Rand (oS 
+o 
+
+
+--- PDF page 500 ---
+484 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+Beispiel. 
+Fur die obere Hemisphiire S : x2 + / + z2 = 1, z 
+;:::: 0 und die 
+Einheitskreisscheibe K (Normalenrichtungen "nach oben") ergibt sich mit dem 
+Vektorfeld v = (x,x + y,x + y + Z)T : 
+11 (rot v . n)dO = 11 (rot v . e3)dxdy = 11 (-~) . (~) dxdy = IT. 
+0 
+S 
+K 
+K 
+1 
+1 
+Die vordergrundige Bedeutung von (18) ist, daB sich die schwierige Berechnung 
+einer Zirkulation ~S v . dx moglicherweise auf ein einfacheres Fliichenintegral 
+zuruckfUhren IaBt oder umgekehrt. Der wahre Nutzen der Formel zeigt sich 
+aber erst in den theoretischen Anwendungen, insbesondere in der Hydrodyna-
+mik und der Elektrizitatslehre (--+ 5.5). 
+Koordinatenunabhiingige Interpretation der Rotation: Mit dem Integralsatz von 
+STOKES erhiilt man fUr jedes ~I-Vektorfeld v: 
+Sei 
+S 
+ein regulares Flachenstuck 
+im Definitionsbereich von v, x ein 
+FIachenpunkt und CS,. die Randkurve 
+der Flache S,., die von einer Ku-
+Sr 
+n 
+gel urn 
+x 
+mit Radius 
+r 
+aus 
+S 
+ausgeschnitten wird (mit entsprechen-
+der Orientierung). 
+Nach (18) und 
+dem Mittelwertsatz fUr Fliicheninte-
+grale gilt 
+Abb. 250 - Deutung von rotv 
+1> V· dx = 11 (rot V· n)dO = (rot V· n)(x) ·O(S,.) 
+ts, 
+s," 
+mit einem Punkt x auf S,. und der Oberfliiche O(Sr)' Also gilt 
+(rot v . n)(x) = ~.~ O(~r) 1> v . dx . 
+(1Sr 
+Auf der rechten Seite steht die "Zirkulation pro FIacheneinheit" auf S in Form 
+eines Differentialquotienten. Diese GroBe heiBt Wirbelstiirke von v urn n: 
+(rot V· n)(x) gibt irn Punkt x die Zirkulation des Vektorfeldes v pro 
+Fliicheneinheit an, fur jedes reguliire Fliichenstiick senkrecht zu n. 
+Die Wirbelstiirke (der Rotationseffekt) ist am groBten, wenn n in Richtung 
+rot v zeigt. 
+
+
+--- PDF page 501 ---
+§4. Die Integration jjber Flachen im Raum 
+Aufgaben 
+I. Das Paraboloid P hat die Parameterdarstel-
+lung 
+(U+V) 
+x(u,v) = ~ 
+u-v 
+2uv 
+(u, V) E 1R2 . 
+a) Man berechne Xu, XI" 
+Xu X X, 
+und da-
+mit die metrischen FundamentalgroBen 
+E , Fund G. We1che Raumkurven wer-
+den durch u = 
+C0I15t. 
+und v = 
+C0I151. 
+dargestellt? In we1chen Punkten von P 
+schneiden sich 
+u-
+lind 
+l'-Linien senk-
+recht ') 
+b) We1che Bogenlange hat die Kurve C auf P mit der Parameterdarstellung 
+u = 2t, 
+l' = 3t , 
+0 S t S 1 ') 
+c) 
+We1chen Oberflacheninhalt hat das Flachenstiick auf P mit x2 + ;-" s 4 ') 
+') 
+Der Membranmantel eines Kiihlturms hat 
+die Form eines eillschaligel1 Rotatiollshyper-
+bvloids: Das Hyperbelstiick 
+\~ 
+: 2 
+372 -
+672 = 1,-114szs32 x>O, 
+wird lim die z-Achse gedreht. Wie groB ist 
+X 
+die Oberfli:iche (Langeneinheit m) ') 
+3. 
+Die Kuppel der Reaktorstation in Garching 
+hat die Form eines hal ben Rotationsellip-
+soids (in m) 
+, 
+, 
+, 
+x-
+r-
+z-
+152 + i 52 + 302 = 1 
+z ;:0: 0 . 
+We1chen Flacheninhalt hat das Blechdach? 
+H i/j'e: Man verwende als Flachenparameter 
+Polarkoordinaten r , !p in der (x, y)-Ebene. 
+4. Wie groB ist die Oberftache des DlIrchdrin-
+gungskorpers der beiden Zylinder X 2+y2 = 1 
+lind x 2 + 2 2 = 1 ') 
+5. 
+MERCATOR-Projektion der Sphare. 
+Die Sphare ohne Nord- und Siidpol besitzt 
+die Parametrisierung 
+x(u, v) = _ I-h-
+sin u 
+( COSU) 
+cos v 
+sinh v 
+-11 S u < 11 
+I: E IR 
+T 
+1 
+80 
+~ 
+o 
+a) Man stelle 
+U lind v durch die geogra-
+-80 
+phische Lange lind Breite der Sphare dar, 
+d.h. durch !p und ~ - If' in Kugelkoor-
+dinaten. 
+I--
+30m --l 
+485 
+
+
+--- PDF page 502 ---
+486 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+b) Man berechne x"' X, und zeige, daB (u, v) f-> x(u, v) winkeltrell ist, d.h. E = G 
+und F = O. 
+Die Winkel in der (II, v)-Karte stimmen mit den Winkeln auf der Sphare Uberein. 
+c) 
+Die Kurve ! auf der Sphare, die durch den Punkt X = (1,0, 0) geht und jeden 
+Meridian unter 60° schneidet, hat in der (II, v)-Karte die Gleichung 
+u = J3 v , 
+-Cf) < v < Cf) • 
+Wie oft trifft ! auf den Nullmeridian? Berechne die Bogenlange von! (Kugel-
+Loxodrome). 
+d) Man drUcke das Integral fUr die Kugeloberflache in dieser Parameterdarstellung 
+aus. 
+6. 
+Projiziert man die Sphare S : x2 + / + Z2 = R2 
+von der z-Achse aus horizontal auf den berUhren-
+den Zylinder Z : x 2 + / = R2 , so erhalt man die 
+LAMBERT -Parametrisierung der Sphare 
+( V R2 -
+1'2 cos.!:'.. ) 
+(L) 
+X = 
+VR2 - tu2Sin R ' o ~ u < 2Rrr , -R ~ v ~ R . 
+a) Man berechne x"' X .. , X" X x ... In welchen Punkten von S ist die Darstellung 
+regular') 
+b) Man bestatige, daB die Parametrisierung f1achentreu ist, d.h. in jedem regularen 
+Punkt gilt Ix" x x, 1 = I , und berechne damit die Kugeloberflache. 
+c) 
+Man setze 
+R 
+= 
+und in 
+(L) 
+der Reihe nach y = 0; 
+z = 0 ; 
+x = y ; 
+x = z. 
+Die vier resul-
+tierenden 
+(II, u)-Gleichungen bestim-
+men den Rand des Parameterberei-
+ches U in der (u, v)-Ebene, der das 
+skizzierte FlachenstUck B auf S be-
+stimmt. 
+Man skizziere U 
+und be-
+rechne dam it den Flacheninhalt von 
+B. 
+7. 
+Welchen FIacheninhalt hat das Viviani-Fenster S, U S2 : 
+S, 
+x2 + i + z2 = I; x ~ 0; x2 + / ~ x ; 
+S2 
+x 2 + / = x; 
+Izl ~ I; x 2 + / + Z2 ~ 1 ? 
+Vergleiche mit dem Flacheninhalt der Halbsphare und 
+des Zylinders. 
+(Hilfe : S, : Lambert-Koordinaten; S2 : Zylinderkoordi-
+naten.) 
+8. BEzIER-FIachenstUcke. 
+Beim rechnerischen Entwurf (CAD) ei-
+ner Autokarosserie setzt man die Blech-
+haut naherungsweise aus FlachenstUcken 
+S zusammen, die jeweils durch 16 Punkte 
+rkj, 0 ~ j, k ~ 3 Uber die Formel 
+( 
+
+
+--- PDF page 503 ---
+§4. Die Integration iiber FUichen im Raum 
+487 
+3 
+3 
+X = LLfkj G) (D tI(l-u)3-V(l- V)3-k, 
+0 ~ U,v ~ 1, 
+j~O k~O 
+bestimmt sind (bikubische Splines). 
+Man bestatige: 
+a) 
+fOO, f03, f30, f33 liegen auf S . 
+b) FUr die FIachennormale in fOO gilt: 
+Xu x Xv = 9 • (flO -
+fOO) x (fOI -
+fOO) . 
+c) FUr die gemischte partielle Ableitung 
+gilt 
+xuv(O,O) = 9(fOO -
+fOI -
+flO + fll) . 
+9. Gegeben ist die Flache 
+3 
+S : z = 8 - J x 2 + y2 
+; 
+x 2 + i ~ 4 . 
+Das Vektorfeld v lautet in kartesischen Koordinaten v = (i, 0, 0) T . 
+a) Man skizziere S. 
+b) Mit dem Satz von STOKES berechne man mit einer zur z-Achse weisenden Nor-
+male n 
+J J 
+rot v . n dO . 
+s 
+11. Eine Parkhausauffahrt hat die Gestalt eines WendelflachenstUcks: 
+X(t) = (r cos t, r sin t, t) T, 5m ~ r ~ 9m, 0 ~ t ~ 2n . 
+Man berechne den Flacheninhalt und vergleiche ihn mit dem Inhalt des Kreisringes, 
+der den GrundriB der FIache bestimmt. 
+12. Gegeben ist das Mobius-Band M 
+( 
+(2 + u cos v) cos 2v ) 
+x(u,v) = 
+(2+ucosv)sin2v 
+, 
+usmv 
+O~u~1 
+o ~ v < 2n ' 
+und das Vektorfeld des 
+magnetischen Wirbels 
+(--. Kap. 7, 4.1) 
+-y 
+X 
+T 
+2 
+2 
+V = (~+ 
+2' ~+ 
+2' 0) 
+, 
+x + Y > 0 . 
+x 
+y 
+x 
+y 
+Man berechne 
+a) J J 
+rot v . dO = J J 
+[rot v, Xu, xvldudv , 
+M 
+M 
+b) J 
+V· dx fUr die durch Xu x Xv bestimmte Rich-
+aM 
+tung auf aM . Warum ist (18) nicht anwendbar? 
+
+
+--- PDF page 504 ---
+488 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+§s. Die Integration iiber dreidimensionale Bereiche 
+5.1 Definition nnd einfache Eigenschaften des Dreifachintegrals. 
+Die Ideen 
+und Methoden aus §3 werden nun auf die Behandlung entsprechender raumli-
+cher Probleme ubertragen. 
+o Das VolumeD. Der (x,Y,z)-Raum wird durch die zu den Koordinatenebenen 
+parallelen Ebenen 
+x = n . 2-k , 
+Y = n . 2-k , 
+Z = n . 2-k 
+(n = 0, ±1, ±2, ... ) 
+in Wurfel mit dem Volumen r
+3k zerlegt. Fur eine beschrankte Menge M 5; JR.3 
+bezeichne sdM) bzw. Sk(M) das Gesamtvolumen aller ganz in M enthaltenen 
+Wurfel, bzw. aller Wurfel, die mit M wenigstens einen Punkt gemeinsam haben. 
+Man nennt M Riemann-mejJbar (im JR.3) und V(M) das Volumen (oder den 
+Inhalt) von M ,wenn V (M) = lim sk(M) = lim Sk(M) . 
+k-+oo 
+k-+oo 
+Besteht eine Menge N 5; JR.3 nur aus jeweils endlich vielen Punkten, reguliiren 
+Kurvenstucken und reguliiren Fliichenstucken, so bezeichnet man sie wegen 
+V (N) = 0 als (dreidimensionale) Nullmenge. Fur jede meBbare Menge M 5; JR.3 
+mit Volumen V (M) und jede Nullmenge N gilt 
+(1) 
+V (M) = V (M UN) = V (M \ N) . 
+Vollig ausreichend fUr die Anwendung ist die Beschrankung auf reguliire Berei-
+che B 5; JR.3 mit den Eigenschaften: 
+1. Der Rand oB (die "Oberflache" von B) besteht aus endlich vielen 
+stuckweise reguliiren Flachen. 
+2. B \ oB (das "Innere" von B) ist ein nicht leeres, beschranktes Gebiet im 
+JR.3 (offen und zusammenhangend). 
+3. B ist abgeschlossen, d.h. oB 5; B. 
+Es laBt sich zeigen (ohne Beweis): 
+Jeder reguliire Bereich B 5; JR.3 ist Riemann-mejJbar 
+mit einem Volumen V (B) =f. O. 
+® Das VolumeDiDtegral. 
+B 
+5; JR.3 
+sei ein reguliirer raumlicher Bereich 
+und f ein auf B stetiges Skalaren-
+feld (eine Belegungsfunktion). Zur Be-
+rechnung der "Gesamtbelegung" von 
+B wird der Bereich durch reguliire 
+Schnittflachen in reguliire Teilbereiche 
+B1, ••• , Bn 
+mit den jeweiligen Volu-
+men A VI, ... , A Vn zerlegt. Fur jedes 
+i = 1,2, ... , n wird die Belegung von Vi 
+xp~~ y 
+Abb. 251 - Bereichzerlegung 
+durch f (Xi, Yi, Zi)A Vi (mit beliebigem 
+
+
+--- PDF page 505 ---
+§s. Die Integration liber dreidimensionale Bereiche 
+489 
+Punkt (Xi, Yi, Zi) E Vi) approximiert, die Gesamtbelegung durch die Riemann-
+II 
+Summe ZII = If(Xi'Yi,Zi)~Vi' 
+;=1 
+Da B regular ist und f stetig, lal3t sich zeigen, dal3 die Riemann-Summen bei 
+stets feiner werdender Unterteilung gegen einen festen Grenzwert konvergieren, 
+sofern der maximale Durchmesser ()In'" 
+der Teilbereiche dabei gegen Null geht. 
+Aul3erdem ist der Grenzwert unabhangig von der speziellen Form der Schnitte. 
+Der Grenzwert 
+JJJ fdV := lim ~ 
+f(Xi,j'i,Zi)~Vi 
+l1~X ~ 
+B 
+()m<l-'~O i=! 
+heil3t Dreif(/('hintegrai oder Voiwnellintegrai von f iiber B. Das Symbol d V 
+heil3t Voiumelleicmellt. 
+Fiir das Volumenintcgral gel ten die iiblichen Rcchenregeln: Linearitat, Monoto-
+nie, Additivitiit und der Mittelwertsatz (--> 3.2). 
+Bildet man die Riemann-Summen beziiglich Schnittebenen parallel zu den drei 
+Koordinatenebenen, dann bezeichnet man das Volumenintegral mit 
+J J J fdxdydz 
+oder J J J f(x,)"z)dxdydz 
+B 
+B 
+und man sagt, dV = dxdydz sei die Darstellung des Volumenelements beziiglich 
+kartesischer Koordinaten. 
+Uil3t sich B als Abschnitt eines gera-
+den Zylinders darstellen mit dem re-
+gularen Bereich D der (x, y)-Ebene 
+als Querschnitt, unten und oben be-
+grenzt von den Graphen z = g (x, y) 
+bzw. 
+z = 
+h(x, .r), d.h. 
+B = 
+: (x, y, z) 
+: (x, y) ED, g(x, y) 
+:c; 
+z :c; h(x,y)} (D c;: JR" regular, g,h 
+(6 1-Funktionen) und fal3t man in der 
+Riemann-Summe die Summanden so 
+zusammen, dal3 "saulenformig" zuerst 
+iiber aile in z-Richtung iibereinander 
+liegenden Teilbereiche summiert wird, 
+so erhalt man die Darstellung iiber ein 
+Doppelintegral: 
+(2) 
+b 
+x P 
+y= u(x) 
+y=v(x) 
+Abb. 252 - Saulenintegral 
+Analoge Formeln erhalt man fiir Zylinderabschnitte "iiber" den anderen Koor-
+dinatenebenen. 1st zusiitzlich D ein ebener Normalbereich, etwa 
+B = { (x, y, z) ; a :c; x :c; b, u(x) :c; y :c; ~·(x). g(x, y) :c; z :c; h(x, y) } , 
+
+
+--- PDF page 506 ---
+490 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+dann folgt aus (2) und §3, (11) 
+b 
+v(x) h(x.y) 
+(3) 
+J J J 
+Jdxdydz = J(J( J J(x,y,z)dz)dy)dx. 
+B 
+a 
+u(x) g(x.y) 
+Fur den Sonderfall des Quaders 
+B = { (x, y, z) ; Xo ::; x ::; XI, Yo ::; Y ::; YI, Zo ::; z ::; Zl } 
+ergibt sich der Satz von FUBINI: Die Integrationsreihenfolge ist beliebig, d.h. 
+(4) 
+J! J Jdxdydz ~ I (l (l J(X'P)d}+X 
+~ I (l (l J(X,y'Z)d+}Z ~ 
+5.2 Einfache Anwendungsbeispiele 
+des Volumenintegrals ergeben sich aus 
+den der Definition vorausgehenden Bemerkungen. 
+CD Volumen. 
+Das Volumen eines reguliiren diumlichen Bereiches B s; lR.3 
+betragt 
+(5) 
+V(B) = JJJ dV. 
+B 
+Speziell: 
+V (B) = J J 
+(h(x, y) - g(x, y))dxdy 
+D 
+fUr den oben durch z = h(x,y) und un ten durch z = g(x,y) begrenzten Ab-
+schnitt des geraden Zylinders mit Querschnitt D (-+ §3(6)). 
+CD Masse, Momente, Schwerpunkt. 
+o Masse: M = J J J pdV , Massendichte p. 
+B 
+® k-te Momente: Myz.k = J J J xkp(x,y,z)dV ; M zx.k , Mx.r.k analog. 
+B 
+o Axiales Triigheitsmoment: 
+T = J J J 
+r2pdV mit dem Achsenabstand 
+r(x,y,z) des Punktes (x,y,z) E B. 
+B 
+@ Der Schwerpunkt (Massenmittelpunkt) von B (variable Massendichte p): 
+1 
+1 
+1 
+Xs = MMF.l; Ys = MMzx•l ; Zs 
+MMx.r.I' Der geometrische Schwerpunkt 
+wird ebenso mit p == 1 bestimmt. 
+
+
+--- PDF page 507 ---
+§s. Die Integration liber dreidimensionale Bereiche 
+491 
+o Gesamtbelegung Q = 111 q(x,y,z)dV bei spezifischer (auf die Yolu-
+B 
+meneinheit bezogener) 8elegung q (etwa elektrische Ladung, Warme, etc.). 
+Beispiel I. Das axiale Tragheitsmoment des Wiirfels -1 :$ x, y, Z :$ 1 urn die 
+.:-Achse lautet 
+Beispiel 2. 
+x2 
+y2 
+_2 
+Der Bereich B. der von dem Ellipsoid :.., + b' + ~ = 1 und dem 
+a-
+-
+c-
+, berandet wird und in Z ~ 0 liegt, ist darstellbar in der 
+c-
+Form 
+~
+X2 
+\"2 
+.: V x2 
+)'2 
+-
+'--<-< 1--
+-
+, + b' -
+(. -
+, - b' 
+a-
+-
+a--
+x2 
+\"2 
+1 
+mit (x.y) aus dem Normalbereich :.., + "b' :$ -2 (der Kegel und das Ellipsoid 
+a-
+-
+x2 
+\"2 
+1 
+.. 
+schneiden sich langs der Ellipse 0" + "b' = -2)' Damlt erglbt sich fUr das 
+a-
+-
+Volumen von B 
+c VI - ~ - f, 
+V(B) = 111 dxdyd.: ~ 11 ( 1 
+IdZ)dXdY . 
+B 
+x' 
+r' 
+I 
+~ 
+~ + h' :$ 2: 
+c 
+~ + ~hr~ 
+£1-
+-
+Nach Ubergang zu elliptischen Koordinaten x = pa cos <p, 
+Y 
+1 
+o :$ p :$ v2' 0:$ <p :$ 2rr : 
+2" II/"2 ,VI=P' 
+V(B) = 1 1 ( 1 Idz)abpdpd<p 
+cp~O I'~O 
+'I' 
+I/vi 
+= 2rrabc 1 
+(PVl - p2 - p2)dp = ~rrabc(2 - h) . 
+I'~O 
+pb sin <p, 
+Fiir die .:-Koordinate des geometrischen Schwerpunkts erhait man (unabhangig 
+von a und b) 
+-
+1 Iff 
+6+3v2 
+z = V(B) 
+zdxdydz = 
+16 
+c. 
+o 
+B 
+
+
+--- PDF page 508 ---
+492 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+5.3 Die Transformationsformel fUr Volumenintegrale. 
+Sei B ~ IR3 em 
+dreidimensionaler regularer Bereich. Vnter einer KoordinatentransJormation auf 
+( X(U'V,W)) 
+B verstehen wir eine <&'-Abbildung (u, v, w)T 1-+ x(u, V, w) = 
+y(u, v, w) 
+eines 
+z(u, v, w) 
+regularen Bereiches U des (u, v, w)-Raumes auf B mit den Eigenschaften 
+1. 
+Fur beliebige Punkte (u, v, w) 
+=1= (u', Vi, Wi) aus U ist stets x(u, v, w) 
+=1= 
+x(u', v', \-V') . 
+2. 
+Fur aile (u, v, w) E U sind die Vektoren xu(u, v, w), X,.(u, v, w), xw(u, v, w) 
+linear unabhangig. 
+Zu festem u = Uo stellt (v, w) 1-+ x(ua, v, w) die Koordinatenjliiche u = Ua dar; 
+ebenso sind die anderen Koordinatenflachen v = Va, w = Wa erklart. Der 
+von "benachbarten" Koordinatenflachen ausgeschnittene Bereich, also das Bild 
+des Quaders Ua :s; u :s; Ua + ~u, Va :s; v :s; Va + ~v, Wa :s; w :s; Wa + ~ w , 
+wird mittels linearer Approximation angenahert durch einen Spat dargestellt, 
+der von den drei im Punkt x(uo, Va, wa) angetragenen Vektoren xu(ua, Vo, wa)~u, 
+X,.(uo, Co. wo)~v, xw(uo, Vo. IVo)~W aufgespannt wird. Das Volumen dieses Spats 
+betragt 
+~ V = I [x,,, x,., xw] l~u~v~IV = I ~ix, y, z~ I ~u~v~w 
+U,V, w 
+mit der JACOBJ-Determinante (oder Funktionaldeterminante) 
+y,. 
+'( 
+) 
+(XII 
+C x,y,z ._ d 
+' 
+:l( 
+) .-
+et 
+}11 
+v U,V, W 
+Zu 
+X,. 
+Z,. 
+Analog wie im ebenen Fall beweist man 
+Satz 5.1. 
+Die Transformationsformel fUr Volumenintegrale. 
+Entsteht der re-
+guliire Bereich B ~ IR3 unter der KoordinatentransJormation 
+X = x(u, v, w) , 
+y = y(u, V, IV), Z = z(u, V, IV) aus dem reguliiren Bereich U ~ IR3 , dann gilt 
+fiir jedes auf B stetige Skalarenfeld f die TransformationsJormel 
+J J J 
+f(x,y,z)dxdydz = 
+(6) 
+B 
+Man nennt 
+= J J J f(x(u,v,w),y(u,v,w),z(u,v,w)) l~i::~:~~ldUdVdW. 
+u 
+dV = I 8(x,y,z) I dudvdw 
+8(u, v, w) 
+das Volumenelement m B bezuglich der (u, v, w)-Koordinaten. 
+
+
+--- PDF page 509 ---
+§5. Die Integration tiber dreidimensionale Bereiche 
+493 
+Zusatz. Wegen HSBfdV = SHB\NfdV fUr jede (dreidimensionale) Null-
+menge N 
+gilt die Formel (6) auch fUr Transformationen, welche obige 
+"Regularitatsbedingungen" 1. 
+und 2. 
+nur auf Bereichen der Form U \ M 
+mit Nullmengen M erfUllen. 
+Sonderfalle. 
+CD Affine Koordinaten. 
+x = Au + Xo, A E IR3x3 mit detA 1= O. dV = I detAldudvdw. 
+J J J f (x)dxdydz = J J J f (Au + xo) I det A Idudvdw . 
+B 
+U 
+CD Zylinderkoordinaten. 
+x = r cos cp, y = r sin cp, z = z , 
+dV = rdrdcpdz . 
+J J J 
+fdxdydz = 
+B 
+= J J J 
+f (r cos cp, r sin cp, z )rdrdcpdz . 
+U 
+0) Kugelkoordinaten. 
+x = r sin tp cos cp , 
+y = r sin tp sin cp , 
+z = rcostp (-44.2). 
+dV = r2 sin tpdrdtpdcp . 
+J J J 
+fdxdydz = 
+B J J J 
+1(r, tp, cp)r2 sin tpdrdtpdcp 
+mit 
+U 
+1 (r, tp, cp) = f (r sin tp cos cp, r sin tp sin cp, r cos tp) . 
+o Abgeflachte Drehellipsoid-Koordinaten. 
+x = a cosh 1'/ sin tp cos cp , 
+y = a cosh 1'/ sin tp sin cp 
+z = a sinh 1'/ cos tp 
+O~1'/, a>O, 
+O~tp~n, 
+o ~ cp ~ 2n . 
+z 
+rdrp 
+dz 
+Abb. 253 - Zylinderkoordinaten 
+x 
+Abb. 254 - Kugeikoordinaten 
+z 
+Abb.255 - Abgeflachte Drehellipsoid 
+-Koordina ten 
+
+
+--- PDF page 510 ---
+494 
+8. Funktionen in mehreren Variableo. Teil 2: Integration 
+Beispiel 1. Die 2. Regel von GULDIN. 
+Das Volumen eines Drehkorpers betragt V = 2nroF mit dem Fliicheninhalt 
+F des (aul einer Seite der Drehachse gelegenen reguliiren) Meridianschnitts 
+und dem Drehachsenabstand ro des Fliichenschwerpunkts. 
+Beweis. 
+Wir drehen urn die z-Achse 
+und wahlen einen Meridianschnitt S in der 
+(x,z)-Ebene. Vereinfachend nehmen wir an, 
+daB S ein Normalbereich ist: 
+S = : (x, z) ; Zo S; z S; Zl, g(z) S; x S; h(z) } . 
+In Zylinderkoordinaten besitzt die Drehfi-
+gur B die Koordinaten 
+Zo 
+S; z 
+S; Zl, 
+g(z) 
+S; 
+r 
+S; 
+h(z), 
+0 
+S; 
+cp 
+S; 
+2n; 
+2n 
+=1 
+hl=) 
+Abb. 256 - 2. Guldin-Regel 
+also giltV = J J J dV = J (J (J rdr)dz )dCP 
+B 
+0 
+=" 
+gl=) 
+= 2n J J xdxdz = 2nF . * 
+J J xdF . 
+0 
+s 
+5 
+)[ 
+K = : (r. !fl.l!') ; 0 :s; r :s; 1,0 :s; !fl :s; 2)[,0 :s; ll' :s; T2 }. ~ 
+/ ... -. 
+y 
+xy~~ 
+Beispiel 2. 
+Der abgebildete Kugelausschnitt hat 
+in Kugelkoordinaten die Darstellung 
+Also gilt 
+Abb. 257 - Kugelausschnitt 
+1 
+2n 
+n/12 
+J J J f dxdydz = J (J ( J 1(r, cP, lp)r2 sin IpdlJ,)dCP )dr . 
+0 
+K 
+o 
+o 
+o 
+Beispiel 3. 
+Das axiale Tragheitsmoment der vollen Kugel K vom Radius R 
+mit homogener Dichte der Gesamtmasse 1 urn die z-Achse betragt 
+I = J J J (x2 + /)dxdydz . 
+K 
+In Kugelkoordinaten ergibt sich 
+2n 
+n 
+R 
+1= J 
+J 
+J(r2Sin21p)r2sinlpdrdlpdcp=2n'~R5.;= 18SnR5 . 
+0 
+000 
+
+
+--- PDF page 511 ---
+§S. Die Integration tiber dreidimensionale Bereiche 
+495 
+5.4 Der Divergenzsatz 
+gibt eine wichtige Beziehung zwischen dem Vo-
+lumenintegral tiber einen Bereich und dem OberfIachenintegral tiber dessen 
+RandfUiche. Mit ihm wird deutlich, daB div v tatsachlich eine Quelldichte ist. 
+Satz 5.2. Der Divergenzsatz von GAUSS. 
+Sei B ein reguliirer riiumlicher Bereich mit einer Oberfliiche aB, die aus end-
+lich vielen geschlossenen, stUckweise reguliiren orientierbaren Fliichen besteht, die 
+sich hOchstens in Randpunkten treffen. 
+Bezeichnet n die aus allen reguliiren 
+OberfliichenstUcken aus B nach auj3en weisende Einheitsnormale, dann gilt for 
+aile in einer Umgebung von B erkliirten q;'-Vektorfelder v die Integralformel 
+111 (divv)dV = 11 (v . n)dO . 
+B 
+oB 
+Beweisskizze. Zunachst sei B ein ach-
+sen paralleler Quader: B = { (x, y, z) ; 
+0::::; x ::::; a, 0 ::::; y ::::; b, 0::::; z ::::; c}. 
+v ist die Summe der drei Vektorfelder 
+M · d' ( 
+) 
+aV3 
+v, e" 
+V2e3, V3e3· 
+It 
+IV V3e3 = az 
+bestatigt man 
+Jt-
+e2 
+e3 
+-e 
+~t
+. 
+1 
+X 
+: D2 
+LJ" 
+• 
+"'"'cl 
+e1 
+•••••••• _- - __ . 
+e2 
+.' 
+D1 
+..... 
+J 
+-e3 
+Abb. 258 - Satz von Gauss 
+= II[V3(X,y,C)-V3(X,y,O)]dxdy . 
+D, 
+Die Grundflache D, (mit n = -e3) bzw. die Deckflache D2 (mit n = e3 ) sind 
+explizit darstellbar als Graph z = 0 bzw. z = c, deshalb gelten (~ §4(17» 
+II(V3e3 'e3)dO = 11 v3(x,y,c)dxdy, 
+Die jeweilige Normale n der anderen 4 Seitenflachen D3, ... , D6 ist orthogonal 
+zu e3,d.h. n'e3 =0, also gilt fJD,(v3e3'n)dO=O (i=3, ... ,6)unddamit 
+111 ~; dxdydz = 11 (V3e3 . n)dO . 
+B 
+oB 
+Ebenso zeigt man 
+111 ~~ dxdydz = 11 (V2e2 . n)dO , 111 ~; dxdydz = 11 (v,e, . n)dO . 
+B 
+oB 
+B 
+oB 
+Die Addition dieser Ergebnisse liefert die angegebene Integralformel flir Qua-
+
+
+--- PDF page 512 ---
+496 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+der. Beliebige Bereiche werden dann durch Quader "ausgeschopft", wobei sich 
+die Integrale iiber die "Zwischenwiinde" autbeben, da die zugehorigen Norma-
+lenvektoren entgegengesetzt gerichtet sind. 
+0 
+Koordinatenunabhiingige Interpretation der Divergenz: 
+Nach dem Divergenzsatz 
+ist der FluB des Vektorfeldes v durch die Korperoberfliiche (von innen nach 
+auBen) gleich dem Volumenintegral der Divergenz div v. 1st P = (x, y, z) E B 
+und Kr eine Kugel urn P mit dem Radius r, die ganz in B liegt, dann gilt 
+fUr den FluB durch die Kugeloberfliiche Sr mit dem Divergenzsatz und dem 
+Mittelwertsatz 
+11 (v . n)dO = 11 l(diVV)dV = divv(x·,y·,z·)· V(Kr) 
+s, 
+K, 
+mit einem Punkt (x*,y*,z*) in Kr und dem Volumen V(Kr) = SSSK, dV. Da-
+mit ergibt sich 
+div v(x, y, z) = ~iI;J V (~r) 11 (v· n)dO 
+s, 
+("FluB pro Volumeneinheit" im Sinne eines Differentialquotienten). Die Di-
+vergenz miBt also den aus der Volumeneinheit heraustretenden FluB; d.h. 
+(div v)(x, y, z) ist die Quelldichte von v im Punkt (x, y, z) . Man nennt den Punkt 
+(x,y,z) eine Quelle bzw. Senke, wenn divv(x,y,Z) > 0 bzw. divv(x,y,z) < O. 
+Das Vektorfeld v heiBt quellenfrei, wenn iiberall div v(x, y, z) = 0 gilt. 
+Beispiel 1. 
+Der FluB des Feldes v(x, y, z) = (x;- y) durch die Oberfliiche der 
+Kugel K : x2 + l + z2 :s; r2 (von innen nach auBen) betriigt 
+II(v.n)do= 111 divvdV = 111 dV = ~nr3. 
+o 
+S 
+K 
+K 
+Be"O;.1 2. De, FluB de> Felde> ,~ (;:~) du"h die Obe"",he de> Zylin· 
+derabschnitts B = {(x,y,z) ; x 2 + l 
+:s; 1, -1 :s; z :s; I} betriigt 
+11 (v· n)dO = 111 (divv)dV = 111 (x 2 + l)dxdydz = n 
+S 
+B 
+B 
+(nach Ubergang zu Zylinderkoordinaten). 
+In diesem Beispiel ist wegen div v = x2 + l 1= 0 fUr (x, y) 1= (0,0) jeder Punkt 
+auBerhalb der z-Achse ein Quellpunkt. 
+0 
+
+
+--- PDF page 513 ---
+§5. Die Integration iiber dreidimcnsionale Bereiche 
+497 
+Fur jedes Vektorfeld v mit div v = I laBt sich das Volumen V (B) durch ein 
+Oberflachenintegral berechnen; etwa mit v = xel : 
+V(B) = 111 dV = IIcxel' n)dO. 
+B 
+S 
+Speziell ergibt sich fUr die obere Halfte der Einheitskugc1 
+I 
+V(B) = 11 
+x 2 
+1 r3dr 
+2 
+-----;==~===dxdr = IT 
+= -IT . 
+J I - x 2 - )'2' 
+J I -
+,.2 
+3 
+() 
+Bemerkung. 
+1st div \ = 0 in cinem Bereich B, erfUllt B die Voraussetzungcn 
+des Divergenzsatzes und laBt sich die Oberflache von B stetig auf einen Punkt 
+in B zusammenziehen. ohne da/3 dabei B verlassen wird, dann gibt es ein 
+Vektorfeld ". das sag. r'ektofpotential 1"On \'. so daB rot w = \' (--> Band 2). 
+* 5.5 Einige Anwendungen der Integralsatze. 
+CD Die Kontinuitatsgleichung der Hydrodynamik. 
+Sei 
+, 
+das Geschwindigkeitsfeld ei-
+ner stromenden Flussigkeit der (auch 
+zeitlich variablen) Massendichte 
+p. 
+Ferner sei 
+B 
+ein regularer Testbe-
+reich (im Stromungsgebiet) mit der 
+Oberflache S. 
+Abb. 259 - Stromung 
+Durch das Oberflachenelement dO tritt pro Zeiteinheit das Flussigkeitsvolumen 
+(v'n)dO hindurch. Die gesamte durch S aus B herausstromende Masse betragt 
+demnach S S s pv . ndO . 
+Wird in B keine Masse erzeugt oder vernichtet, so ist die zeitliche A.nderung 
+dcr Masse auch durch - ;t S S S 
+B pd V gegeben (mit dem Minuszeichen, da dcr 
+Massenflu/3 aus B heraus betrachtet wird), d.h. es gilt (mit den notigen Voraus-
+setzungen fUr § I. Satz 1.1) 
+II(Pv' n)dO + 111 ~~dV = o. 
+S 
+B 
+Mit dem Divergenzsatz ergibt das 
+111 ldiV(PV) + ~~ J dV = O. 
+B 
+Da diese Gleichung fUr beliebige Testbereiche B gilt, folgt mit den Regula-
+ritatsvoraussetzungen fur jeden Punkt x die KOlltinuitiitsgieichung 
+(lp 
+div(pv) + -;;- = 0 , 
+ct 
+die in der Hydrodynamik eine wichtige Rolle spielt. 
+
+
+--- PDF page 514 ---
+498 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+Fur eine stationiire (zeitunabhangige) Strornung gilt insbesondere Pt = 0, also 
+div(pv) = O. 1st die Fiussigkeit inkornpressibel (d.h. 
+p = const), dann gilt 
+Pt = 0, div(pv) = p div v und somit div v = 0 ; d.h. das Geschwindigkeitsfeld 
+einer inkompressiblen Flussigkeit ist quellenfrei. 
+CD Die Wiirmeleitungsgleichung. 
+In einem homogenen, erwarmten Karper der konstanten Massendichte p und 
+konstanter spezifischer Warme a herrsche zur Zeit t im Punkt (x, y, z) die 
+Temperatur U = U (x, y, z, t). Dann speichert ein Volumenelement dV die 
+Warmemenge dW = aU pdV und die Gesamtwarme W in einem (regularen) 
+Teilbereich B mit Oberflache S betragt 
+W= 111 apUdV. 
+B 
+Der mit fortschreitender Zeit stattfindende Wiirmeaustausch d;;' 
+wird als 
+WiirmefluB durch die Oberfliiche S gedeutet und berechnet sich nach einem 
+Gesetz von FOURIER aus 
+d;;' = 11 k(grad u· n)dO 
+s 
+mit emer Konstanten k, der Wiirmeleitnihigkeit des Materials. 
+(Hierin ist 
+grad U nur bezuglich der Ortskoordinaten x, y, z zu bilden.) 
+Mit dem Di-
+vergenzsatz und Satz 1.1 aus §1 folgt nun 
+111 paaa~ dV = d;;' = 11 k(grad u· n)dO 
+B 
+S 
+= 111 k(div grad U)dV 
+B 
+fur jedes Testvolumen B. Damit ergibt sich die Wiirrneleitungsgleichung 
+au 
+k (a2U 
+a2u 
+a2U) 
+k 
+(it = ap 
+ax2 + ay2 + az2 
+= ap!1U . 
+0) Die MAXWELL-Gleichungen. 
+In einer zu CD und CD analogen Weise kann man aus den experimentell 
+entdeckten Grundgesetzen der Elektrizitiitslehre die nach J.e. MAXWELL (1831-
+1879) benannten Hauptgleichungen des elektromagnetischen Feldes herleiten. 
+(Heute werden diese Gleichungen meist an den Beginn der Elektrodynamik ge-
+stellt und daraus aile anderen Gesetze abgeleitet.) Das elektromagnetische Feld 
+wird - in der Regel - durch 5 vom Ort x und von der Zeit t abhangige 
+Vektorfelder beschrieben, 
+die elektrische Feldstiirke E, 
+die rnagnetische Feldstiirke H, 
+die elektrische Fluj3dichte (Verschiebungsdichte) D, 
+die rnagnetische Induktion B 
+und die elektrische Strorndichte J. 
+
+
+--- PDF page 515 ---
+§s. Die Integration tiber dreidimensionale Bereiche 
+499 
+In SI-Einheiten lautet das FARADAYSche Induktionsgesetz (flir jeden geschlosse-
+nen Weg C) 
+(7) 
+~ 
+E . dx = - :t j B . odO 
+c 
+s 
+und die Formel von BIOT-SAVART-AMPERE in der von MAXWELL 1865 korrigier-
+ten Form 
+(8) 
+~ 
+H . dx = j J . odO + j :t D . odO . 
+c 
+s 
+s 
+Hierbei stellt S ein regulares FHichenstiick dar, das von C (im Sinne des Sat-
+zes von STOKES) berandet wird. Der zweite Summand der rechten Seite, der 
+im Gesetz von Ampere flir stationiire Felder fehlt, wird seit MAXWELL Verschie-
+bungsstrom genannt. 
+J 
+Abb. ]60 "- Faraday-Gesetz 
+Abb. 261 - Ampere-Gesetz 
+Wendet man den Satz von STOKES auf die Kurvenintegrale in (7) und (8) an, so 
+hat man flir aIle zuliissigen Testbereiche S 
+j rot E . odO = -~ j B . odO 
+at 
+' 
+s 
+s 
+j rotH· odO = j(J + :tD). odO . 
+s 
+s 
+Mit den notigen Voraussetzungen flir Satz 1.1 von §t kann :t unter das Inte-
+gral gezogen werden, und es folgen flir jeden Punkt 
+(9) 
+iJ 
+rotE+ -B = 0 . 
+at 
+' 
+iJ 
+rot H = J + otD . 
+Da div rot v = 0 flir aIle '6'2_ Vektorfelder v gilt, folgt hieraus 
+div(J + :tD) = 0 . 
+Damit gelangt man mit den physikalischen Gesetzen flir elektrische und magne-
+tische Ladungen, 
+divD = p 
+divB = 0 
+(COULOMB-Gesetz, p Ladungsdichte), 
+(keine freie magnetische Ladung), 
+
+
+--- PDF page 516 ---
+500 
+8. Funktionen in mehreren Variablen. Teil 2: Integration 
+zu den Kontinuitiitsgleichungen: 
+(10) 
+divJ + ~~ = 0 
+divB = 0 . 
+(9), (to) heiBen MAxwELL-Gleichungen der Elektrodynamik. 
+In homogenen Medien gel ten die Stoffgleichungen 
+J = aE; 
+D = eE; 
+B = pH 
+(Elektrische Leitfahigkeit a, PermitivWit e, Permeabilitat p); damit reduzieren 
+sich (9) und (10) zu vier Bestimmungsgleichungen fUr E und H: 
+div(aE+e:tE)=0 ; 
+divH = O. 
+1st die Ladungsdichte p = 0, d. h. div E = 0, so folgen die allgemeinen Wellen-
+gleichungen (--+ Kap. 7, §4, letztes Beispiel, in dem a = 0) 
+pcHtt + apHt = ~H und peEtt + apEt = ~E . 
+* 5.6 Orthogonale krummlinige Koordinaten 
+Jiegen vor, wenn fUr eine Koor-
+dinatentransformation (--+ 5.3) 
+x(u, v, w) = x(u, v, w)el + y(u, v, w)e2 + z(u, v, w)e3 
+in jedem Punkt die Tangentialvektoren xu, Xv und X", paarweise orthogonal 
+sind (el' e2, e3 bezeichnen die Basisvektoren des kartesischen Koordinatensy-
+stems). Mit den MajJstabsfaktoren 
+hi := Ixul, 
+h2 := lxvi, 
+h3 := Ixwl 
+erhait man mit 
+(11 ) 
+in jedem Punkt ein orthogonales Dreibein (eu , ev , e",); dieses ist rechtsorien-
+tiert, wenn man die Reihenfolge von u, V, w geeignet wahlt: 
+(12) 
+Beispiel 1. Zylinderkoordinaten. 
+u = r, 
+v = cP, 
+w = z; 
+hi = 1, 
+h2 = r, 
+h3 = 1, 
+und in bezug auf die kartesische Basis 
+Der Ortsvektor eines Punktes hat in seiner (en erp, ez)-Basis die Darstellung 
+X = rer + zez (--+ Abb. 262). 
+0 
+
+
+--- PDF page 517 ---
+§5. Die Integration Uber dreidimensionale Bereiche 
+Beispiel 2. Kugelkoordinaten. 
+U = r, 
+v = II', 
+W = qJ; 
+hi = 1, 
+h2 = r, 
+h, = r sin lp, 
+und in bezug auf die kartesische Basis 
+(
+COS qJ sin lp ) 
+( cos qJ cos II' ) 
+er = 
+Sill qJ Sill If' 
+; 
+e~, = 
+Sill qJ .cos If' 
+cos II' 
+-
+Sill II' 
+Der Ortsvektor hat die Darstellung x = reI' (---> Abb. 263), 
+z 
+Abb. 262 - Zylinderkoordinaten 
+Abb. 263 - Kugelkoordinaten 
+Wegen (11) und (12) ist 
+f(x,y,,::) = hi' h}' h, , 
+?(u,t',w) 
+d.h. fUr das VolulIlt!Ilt!lement gilt 
+dV = hlh2h, dudl'dl\' . 
+501 
+D 
+Bezogen auf (e", e/" ell) hat das DifFerential dx die Komponenten hi du, h2 dt' , 
+h, dt' ; denn mit der Kettenregel ist 
+Damit ist das Bogellelement wegen (12) 
+ds = J dx . dx = J 
+hrdu2 + h~dv2 + h~dw2 . 
+Ein reguliires Fliichenstiick S hat im (u, 1" w)-Koordinatensystem die Darstel-
+lung 
+u = u(s, f), 
+l' = 1'(s, f), 
+I\' = w(s, f) 
+mit 
+(s, f) 
+E 
+D s 
+JR.2 . 
+Mit der Kettenregel und (11) ergibt sich aus 
+x = x(u(s, f), 1'(s, f), lI'(s, f)) : 
+Man hat damit als l'ekforielles Obel:fliichenelemenf auf S 
+( 
+e(v, w) 
+c(w, u) 
+c(u, v) 
+) 
+x., X XI dsdf = 
+h2hr ;;,-(-) ell + h,hl ----;;---( 
+) e,. + hi hr'i-(-----) ell' 
+dsdf 
+C s, f 
+l 
+S, f 
+C s, f 
+
+
+--- PDF page 518 ---
+502 
+R. Funktioncn in mehreren Variablcn. Teil 2: Integration 
+und als skalares Ober{lachenelernent auf S 
+dO = 
+Fur die Koordinatenftachen u = const, v = const bzw. w = const erhalt man 
+als OberftacheneIemente 
+dAI = dAle" = (h2h3dvdw)e" , 
+dA 2 = dA2e, = (h3hldwdu)e, , 
+dA3 = dA3ell = (hlh 2dudv)ew • 
+Fur eine skalare Funktion f = F(u, v, w) und ein Vektorfeld 
+v = VI (u, v, w)eu + V2 (u, v, w)e,. + V3(u, v, w)ell· 
+gelten die Formeln: 
+Beweis. 
+Ergeben sich die Formeln fUr div v und rot v aus den Satzen von 
+GAUSS und STOKES, indem man die Integrale auf (u, v, w)-Koordinaten trans for-
+miert, so sieht man unmittelbar mit 
+of 
+of 
+of 
+df = gradf· dx = audu + aD dv + owdw 
+und dx aus (13) und Komponentenvergleich die Darstellung fUr grad f . 
+0 
+Beispiel. 
+In kartesischen Koordinaten ist das Vektorfeld v = (y, -x, 1) T und 
+der Zylindermantel S : x 2 + / = 1 ,Os z s 1 , gegeben. Als Komponenten von 
+v in Kugelkoordinaten ergeben sich 
+( r sin 11' sin ({J) 
+( cos ({J sin 1p ) 
+VI = V • er = 
+-r sin 11' cos ({J 
+. 
+sin ({J sin 11' 
+= cos 1p 
+1 
+cos 1p 
+und analog V2 = v . e~, = - sin 11' und V3 = v . e<p = -r sin 1p ; 
+v = cos 1p er -
+sin 1p e~, - r sin 1p e<p . 
+
+
+--- PDF page 519 ---
+§5. Die Integration liber dreidimensionale Bereiche 
+Aus den Formeln (14) folgt 
+div v = -2-~ -
+[(r2 sin lp Vd, + (r sin lp V2)tp + (r V3)<p] = 0 . 
+r sm lp 
+503 
+Urn den FluB von v durch S in Kugelkoordinaten zu berechnen, benotigt man 
+die Darstellung von S in Kugelkoordinaten: 
+x2 + l = r2 sin2lp = 
+ergibt r = _._1_ und aus 0 :-;:; z :-;:; 1 erhiilt man 
+smlp 
+i :-;:; lp :-;:; ~, so daB S = { (r,lp,cp) = (si~s,s,t) 
+Damit ist in Kugelkoordinaten 
+n 
+n 
+} 
+; "4 :-;:; s :-;:; "2' 0:-;:; t < 2n 
+. 
+2" 
+,,/2 
+J J v' dO = J J (Vlh2h3 - V2h3h, ~:)dsdt 
+s 
+t=O s=,,/4 
+,,/2 
+2 J ( 
+1. 
+. 
+cos s ) d 
+0 
+= 
+n 
+coss· -'-2-' sms -sms' -'-2-
+s =. 
+D 
+sm s 
+sm s 
+,,/4 
+Aufgaben 
+1. Man berechne den geometrischen Schwerpunkt 
+a) des Tetraeders {(x,y,z)ER3 ;0:<;;x, O:<;;y, O:<;;z, x+y+z:<;;l}, 
+b) des Kegels {(X,y,Z)EIR3 ;0:<;;x2+y2:<;;a2z2, O:<;;z:<;;h}, O:<;;a,h. 
+2. Man berechne J J J sinzdV 
+tiber 
+v 
+das Tetraeder mit den Seitenflachen 
+x=O, y=O, z=O, x+y+2z=1. 
+3. Aus der Kugel x2 + y2 + Z2 :<;; 4a2 wird das 
+zylindrische Loch x2 + i :<;; 2ax ausgebohrt. 
+Wie groB ist das Restvolumen? 
+z 
+1/2 
+y 
+4. Welcher Korper besitzt als axiales Tragheitsmoment zur z-Achse (0( > 0) 
+h 
+Z tan 0( vi z2 tan2 0( -
+y2 
+I z = J J 
+J 
+(x2 + il dxdydz ? 
+o -z tan 0( vi 2 t 
+2 
+2 
+-
+Z anO(-y 
+Man berechne Iz mittels Zylinderkoordinaten. 
+5. Man berechne das Volumen des Korpers K, der durch die drei FIachen x = i+z2 ; 
+x = y; z = 0 begrenzt wird. 
+
+
+--- PDF page 520 ---
+504 
+8. Funklionen in mehreren Variablen. Teil 2: Imegralion 
+6. 
+Man berechne das axiale Triigheitsmoment I: = J J J 
+(x2 + i)dV fUr 
+,. 
+a) die obere Halbkugel yom Radius a und Mittelpunkt 0 (Kugelkoordinaten !), 
+b) den Torus aus 4.2d (Toruskoordinaten, -+ §4, Aufgabe 2). 
+7. 
+Die Kugelschale H = {Y E R3 ; R, ~ Iyl ~ R2 }, 0 < R, < R2 , ist elektrisch 
+homogen geladen. Fur das Potential im Raumpunkt x gilt dann 
+<l>(x) = Jlf dy, dY2 dY3 . 
+Ix-YI 
+H 
+a) Mit I' = lxi , p = lyl und Obergang zu Kugelkoordinaten zeige man, daB <l>(x) = 
+Vir) mit 
+Vir) = 
+p 
+V 
+dpdq>dv' . 
+1" 12" JR~ 
+2 sin ) 
+o 
+0 
+R, 
+Jp2+r2-2rpcOSII' 
+b) Man berechne V (r) und skizziere V (r) fur R, = 2, R2 = 4 . 
+(Fallunterscheidung: 0 ~ r ~ R" 
+R, ~ r ~ R2, R2 ~ r .) 
+8. 
+Gegeben ist der gerade Kreiskegel S aus 4.2a und das Vektorfeld v = (xz , xy,_=)T . 
+Man berechne und vergleiche die Ergebnisse (Divergenzsatz!): 
+a) J J J 
+div v dV , 
+b) J J 
+V· dO 
+(dO weist ins Aul3ere von S). 
+s 
+,5 
+9. Gilt der Satz von GauB auch fUr ein Vektorfeld mit Singularitiit, wenn man an 
+dieser Stelle das Volumenintegral als uneigentlich interpretiert? 
+Man berechne dazu explizit fUr die Kugel x 2 + i + z2 ~ I 
+J J 
+V· odO 
+(0 iiuBere Normale) 
+und 
+~i~ J J J divvdV fUr 
+a) 
+b) 
+Knobelecke 
+x 
+v= --
+lxi' 
+f'<lxl< 1 
+(Gravitationsfeld). 
+Wieviele Kanten und FHichenstiicke beranden den abgebildeten "Mobius-
+Ring"'? 1st er zweiseitig, d.h. orientierbar? 

@@ -1,0 +1,648 @@
+--- PDF page 523 ---
+Anhang: Pascal-Programme 
+program Horner(input,output); 
+const maxgrad 
+var 
+N, I 
+50; 
+integer; 
+A,C 
+B 
+array[O .. maxgrad] of real; 
+real; 
+begin 
+write('Polynomgrad = '); read(N); 
+for 
+I: =N downto 0 
+do 
+begin write(I:2, '.Koeffizient 
+write('b = '); read(B); 
+C[N]: =A[N]; 
+'); read(A[I]); end; 
+for I:=N-l downto 0 do C[I]:=C[I+l]*B+A[I]; 
+wri teln(' f(', b, , ) 
+end. 
+',C[O] ); 
+program HORNERvollstaendig(input,output); 
+const maxgrad 
+50; 
+var 
+N, I, K 
+C,A 
+integer; 
+B 
+array[O .. maxgrad] 
+of real; 
+real; 
+begin 
+write('Polynomgrad = '); read(N); 
+for I:=N downto 0 do 
+begin write(I:2,'.Koeffizient 
+write('b = '); read(B); 
+for 
+K: =0 to N do 
+C[K]:=A[K]; 
+wri teln(' f(x) = '); 
+for K:= 0 to N-l do 
+begin C[N]:=A[N]; 
+'); read(A[I]); end; 
+for I: = N-l downto K do C[I]: =C[I+l]*B+C[I]; 
+writeln (C[K],'*(x-b)",K:2,' +'); 
+end; 
+writeln(A[N], '*(x-b)", N:2); 
+end. 
+program NEWTONinter(input,output); 
+const 
+maxgrad = 50; 
+var 
+I,K,N 
+P,X,H,Z,U 
+F 
+integer; 
+real; 
+array[l .. maxgrad] of real; 
+begin 
+write('Grad 
+, ); read(N); write (' Step = '); read(H); 
+write('XO = '); read(Z); 
+for 1:=0 to N do 
+begin write('F',I:2,' = '); read(F[I]); end; 
+for 1:=1 to N do 
+for K:=N downto I do 
+F[K]:=(F[K]-F[K-l])jljH; 
+write('p(x) for x 
+'); read(X); P: =F[N]; U: =X-Z; 
+for I:=N-l downto 0 do 
+P:=P*(U-I*H)+F[I]; 
+writeln(P); 
+end. 
+
+
+--- PDF page 524 ---
+508 
+Anhang: Pascal-Programme 
+program Bisektion(input, output); 
+const EPS = 1.OE-06; 
+var 
+A,B,Fa,Fb: real; 
+function Fn(x: real): real; begin Fn:=x*(x*x*x*x+l)+l; end; 
+procedure Bisect(var A,B,Fa,Fb: real); 
+var C,Fc: 
+real; 
+begin 
+C: =(A+B)*O. 5; Fc:=Fn(C); 
+if Fc*Fa<=O then begin 
+B:=C; Fb:=Fc; end 
+else begin 
+A:=C; Fa:=Fc; end; 
+end; 
+begin 
+write('A 
+'); read(A); writeln; write('B = '); read(B); writeln; 
+Fa:=Fn(A); Fb:=Fn(B); 
+if Fa*Fb>O then 
+begin writeln('f(a)*f(b) positiv!'); halt; end; 
+while abs(A-B»=EPS do Bisect(A,B,Fa,Fb); 
+wri teln(' Nullstelle im 1ntervall: [' ,A, ' , ' ,B, ' ]' ); 
+end. 
+program NEWTONverf(input,output); 
+const EPS = 1.OE-5; 
+var 
+DX,X,Xa,Fl: 
+real; 
+function F(x: real): real; begin 
+F:=((x+l)*x+2)*x+l; end; 
+begin 
+repeat 
+begin 
+Dx: =EPS; 
+if abs(X»EPS then Dx:=X*EPS; 
+Fl:=F(X); X:=X+Dx; Dx:=-F(X)*Dx/(F(X)-Fl); 
+X:=X+Dx; Xa:=abs(X); 
+if Xa<=l then Xa:=l; 
+end; 
+until (abs(Dx)«EPS*Xa)) or (abs(F(X))<EPS); 
+wri teln(X); 
+end. 
+program KubischeSpline(input,output); 
+const 
+max = 50; 
+var 
+M,N,1,K 
+X,Y,B,C,D 
+R,S,Q,Z,T 
+: integer; 
+:array[O .. max] of real; 
+: real; 
+begin 
+write('Punktezahl = '); read(N); writeln; 
+N: =N-l; 
+for 1:=0 to N do 
+begin 
+wri te ( , X' , I: 2, ' 
+wri te ( 'Y' , I: 2, ' 
+'); read(X[1]); writeln; 
+'); read(Y[1]); writeln; 
+
+
+--- PDF page 525 ---
+end; 
+M: =N-l; S: =0; 
+for I: =0 to M do 
+begin 
+Anhang: Pascal-Programme 
+D[I]:=X[I+l]-X[I]; R:=(Y[I+l]-Y[I])jD[I]; C[I]:=R-S; S:=R; 
+end; 
+S:=O; R:=O; C[O]:=O; C[N]:=O; 
+for 1:=1 to M do 
+begin 
+C[I]: =C[I]+R*C[I-l]; B[I]: =(X[I-l]-X[I+l] )*2-R*S; 
+S: =D[I]; R: =SjB[I]; 
+end; 
+for I:=M downto 1 do C[I]:=(D[I]*C(I+l]-C[I])jB[I]; 
+for 1:=1 to M do 
+begin 
+S: =D[I]; R: =C[I+l]-C[I]; D[I]: =RjS; C[I]: =C[I]*3; 
+B[I]: = (Y[I+l]-Y[I] )jS-(C[I]+R)*S; 
+end; 
+write('S(x) for x = ');read(Z); writeln; 
+if (X[N]-X[O])=O then Q:=O 
+else Q:=(X[N]-X[O])jabs(X[N]-X[O]); 
+K: =-1; 
+repeat I: =K; K: =K+l; 
+until (Q*Z<Q*X[K]) or (K=N) ; 
+Q: =Z-X[I]; T: =( (D[I]*Q+C[I] )*Q+B[I] )*Q+Y[I]; wri teln(T); 
+end. 
+program ROMBERG(input,output); 
+const EPS = 1.OE-7; 
+var 
+Ia,S,Fl,A,B,H,X,Q 
+K,J,N 
+array[O .. 7] of real; 
+real; 
+integer; 
+function F(x:real) 
+real; 
+begin 
+F: = In(x)jx; end; 
+begin 
+write('Grenze A = '); read(A); writeln; 
+write('Grenze B = '); read(B); writeln; 
+H:=B-A; N:=l; X:=l; Fl:=F(X); X:=B; I[O]:=H*(Fl+F(X»j2; 
+for K:=l to 7 do 
+begin 
+S:=O; H: =Hj2; N:=2*N; Q:=l; J:=l; 
+while J<N do 
+begin X:=A+J*H; S:=S+F(X); J: =J+2; end; 
+I[K]: =I[K-l]j2+S*H; 
+for J:=K-l downto ° do 
+begin Q:=4*Q; I[J]:=I[J+l]+(I[J+l]-I[J])j(Q-l); end; 
+writeln(I[O]); Ia:=abs(I[O]); 
+if Ia<l then Ia:=l; 
+509 
+if abs(I[l]-I[O])<EPS*Ia then 
+begin writeln(I[O]); halt; end; 
+end; 
+writeln(I[OJ); 
+end. 
+
+
+--- PDF page 526 ---
+510 
+Anhang: Pascal-Programme 
+program VollstElliptlnt(input,output); 
+const pi 
+3.14159265359; 
+EPS = 1. OE~9; 
+var 
+Al,Bl,E,K,A,B,C,D: real; 
+begin 
+wri te (' K= '); read(K); wri teln; 
+if K<l then 
+begin 
+A: =1; 
+B:=sqrt(l~K*K); 
+C: =K; D:=2; E: =C*C; 
+repeat 
+begin 
+AI: =(A+B)/2; Bl: =sqrt(A*B); 
+C:=(A~B)/2; 
+E: =E+D*C*C; A:=Al; B:=Bl;D:=2*D; 
+end; 
+until C<EPS; 
+writeln('K(k)= ',pi/2/A); 
+writeln('E(k)= ',pi/2/A*(1~E/2)); 
+end 
+else writeln('fail'); 
+end. 
+program GAUSS(input,output); 
+const maxdim 
+= 50; 
+EPS = 1. OE~09; 
+type 
+Typl 
+array[O .. maxdim,O .. maxdim) of real; 
+Typ2 = array[O .. maxdim) of real; 
+var 
+Typ3 = array[O .. maxdim) of integer; 
+L,K,I,J,N,M,S,V,U,P 
+A 
+B,C 
+F 
+Y,X,D 
+E 
+integer; 
+Typl; 
+Typ2; 
+Typ3; 
+real; 
+char; 
+procedure Scalarl(U,V,I: integer; A: Typl; B:Typ2; X: real; var Y:real); 
+begin 
+Y: =X; 
+while U<=V do begin 
+Y:=Y+A[I,U)*B[U); U:=U+l; end; 
+end; 
+procedure Scalar2(K,U,V: integer; A: Typl; X: real; var Y: real); 
+begin 
+Y: =X; 
+while K>O do begin K:=K~l; Y: =Y+A[U,K)*A[K,V); end; 
+end; 
+begin 
+write('DIMENSION N = '); read(N); writeln; 
+M: =N~l; 
+wri teln(' A ZEILENWEISE' ); 
+for 1:= 1 to N do 
+begin 
+for J:=l to N do 
+begin write('A',I:2,J:2,' 
+'); 
+read(A[I~l, J~l)); end; 
+
+
+--- PDF page 527 ---
+wri teln; 
+end; 
+Anhang: Pascal-Programme 
+for I: =0 to M do 
+begin 
+Y: =0; 
+for S: =0 to M do Y:=A[1,S]*A[1,S]+Y; 
+if Y=O then writeln('A singulaer') else C[1]:=l/sqrt(Y); 
+end; 
+D: =1; 
+for K: =0 to M do 
+begin 
+L: =K; 
+X: =0; 
+for 1:=K to M do 
+begin 
+Scalar2(K,1,K,A,-A[I,K],Y); 
+A[I, K]: =-Y; Y: =abs(Y*C[I]); 
+if Y>X then 
+begin X: =Y; L:=1; end; 
+end; 
+if L<>K then 
+begin 
+D: =-D; 
+for J:=O to M do 
+end; 
+begin Y:=A[K,J]; A[K,J]: =A[L,J]; A[L,J]: =Y; end; 
+F[L]: =F[K]; 
+F[K]:=L; D: =D*A[K,K]; 
+if X<EPS then exit; 
+if K<M then for J:=K+l to M do 
+begin Scalar2(K,K,J,A,-A[K,J],Y); A[K,J]:=-Y/A[K,K]; end; 
+end; 
+if abs(D)<EPS then begin writeln('A singulaer'); halt; end; 
+writeln('D=',D); 
+repeat 
+writeln('RECHTE SEITE'); 
+for 1:=1 to N do 
+begin write('B',1:2,' 
+for 1:=0 to M do 
+begin 
+P: =F[I]; 
+'); read(B[1-l]); writeln; end; 
+if 1<>P then begin X:=B[1]; B[I]:=B[P]; B[P]:=X; end; 
+end; 
+for 1:=0 to M do 
+begin Scalarl(O,I-l,I,A,B,B[I],Y); B[I]:=-Y/A[1,1]; end; 
+for 1:=M downto 0 do 
+begin Scalarl(I+l,M,I,A,B,B[1],Y); B[1]:=-Y; end; 
+writeln('ERGEBN1S:' ); 
+for 1:=1 to N do 
+writeln('X',1:2, '=',B[I-l]); 
+writeln('Neue rechte Seite (j/n) ");read(E); 
+until E=' n' ; 
+end. 
+program LEVERRIER(input,output); 
+const 
+type 
+max 
+50; 
+Typl = array[O .. max, O .. max] of real; 
+511 
+
+
+--- PDF page 528 ---
+512 
+var 
+I,J,K,L,N 
+A,B 
+X,S 
+Anhang: Pascal-Programme 
+integer; 
+Typl; 
+real; 
+procedure Shift; 
+var 
+I 
+integer; 
+begin 
+S:=O; 
+for 1:=1 to N do 
+S:=S+B[I,I]; 
+S: =S/K; wri teln(' C' , K: 2,' = ',-S); K: =K+l; 
+for I: =1 to N do 
+B[I, I]: =B[I, I]-S; 
+end; 
+begin 
+write('DIMENSION N = '); read(N); writeln; 
+wri teln(' A ZEILENWEISE' ); 
+for 1:=1 to N do 
+begin 
+for J:=l to N do 
+begin 
+wri te (' A' , I: 2, J: 2, , 
+end; 
+'); read(A[I, J]); B[I, J]: =A[I, J]; 
+end; 
+writeln('C',0:2, , 
+while K<=N-2 do 
+',1:2); K:=l; 
+begin 
+Shift; 
+for J:=l to N do 
+begin 
+for I: =1 to N do B[I, 0]: =B[I, J]; 
+for 1:=1 to N do 
+end; 
+end; 
+Shift; S:=O; 
+begin 
+X: =0; 
+for L:=l to N do X:=X+A[I,L]*B[L,O]; 
+B[I, J]: =X; 
+end; 
+for L: =1 to N do S: =S+A[l,L]*B[L,l]; 
+writeln ('C',K:2,' = ',-S); 
+end. 
+program Jacobi(input,output); 
+const maxgrad = 50; 
+type 
+Typl 
+= array[l .. maxgrad,l .. maxgrad] of real; 
+var 
+K,W,U,N,M,I,J,P,Q,V,X 
+A,B 
+integer; 
+Typl; 
+S,R,F,G,E,C,D 
+real; 
+procedure Rot(C,D: real; U,V,W,X: integer; var A: Typl); 
+var 
+F,G: real; 
+begin G: =A[U,V]; F: =A[W,X]; A[W,X]: =C*F-D*G; A[U,V]: =D*F+C*G; end; 
+
+
+--- PDF page 529 ---
+Anhang: Pascal-Programme 
+begin 
+write('D1MENS10N N 
+for 1:=0 to M do 
+, ); read(N); M: =N-l; 
+begin 
+for J:=1 to M do 
+begin 
+if I=J then B[I, I]: =1 
+else begin B[I,J]:=O; B[J,I]:=O; end; 
+write('A',1+l:2,J+l:2,' = '); read(A[I,J]); 
+end; 
+end; 
+repeat 
+S: =0; 
+for P:=O to M-l do 
+begin 
+for Q:=P+l to M do 
+begin 
+R: =A[P,Q]; F: =A[P,P]; G: =A[Q,Q]; A[P,Q]: =0; 
+if (abs(R)+abs(F)<=abs(F)) and 
+(abs(R)+abs(G)<=abs(G)) then R: =0 
+else 
+begin 
+E: = (G-F)j2jR; 
+if E=O then E: =1 
+else 
+if E>O then E: =lj(E+sqrt(l+E*E)) 
+else 
+E:=lj(E-sqrt(l+E*E)); 
+C: =ljsqrt(l+E*E); D: =C*E; 
+A[P,P]: =F-E*R; A[Q,Q]:=G+E*R; 
+if P>O then 
+for I: =0 to P-l do Rot(C,D,I,Q,I,P,A); 
+if Q<>P+l then 
+for K: =P+l to Q-l do Rot(C,D,K,Q,P,K,A); 
+if Q<>M then 
+for J: =Q+l to M do Rot(C,D,Q,J,P,J,A); 
+for J:=O to M do Rot(C,D,Q,J,P,J,B); 
+end; 
+S: =S+abs(R); 
+end; 
+end; 
+until S=O; 
+for I: =0 to M do writeln('X',I+l:2,' 
+for 1:=0 to M do 
+end. 
+begin 
+wri teln( 1+1: 2, '. Eigenvektor: ' ); 
+for J: =0 to M do writeln(B[I,J]); 
+end; 
+program BAIRSTOW(input,output); 
+label 
+Start; 
+const 
+maxgrad = 50; 
+EPS=l. OE-07; 
+',A[I,I]); 
+513 
+
+
+--- PDF page 530 ---
+514 
+var 
+Anhang: Pascal-Programme 
+Steps=30; 
+N,M,1,K 
+B,C 
+U,V,S,BK,BK1,BK2,CK,CK1,CK2,Det 
+integer; 
+array[O .. maxgrad] of real; 
+real; 
+procedure Quadr_gleichg(var U,V: real); 
+var 
+X,Y,W 
+: real; 
+begin 
+X:=U/2; Y:=X*X+V; W:=sqrt(abs(Y)); 
+if Y=O then writeln('doppelte Wurzel: ',X) 
+else 
+end; 
+begin 
+write('2 Wurzeln:'); 
+if Y>O then 
+begin 
+end 
+if X>=O then writeln(X+W, ',',-V/(X+W)) 
+else writeln(X-W,', ',-V/(X-W)); 
+else writeln(X, '+-i*',W); 
+end; 
+begin 
+write('Polynomgrad = '); read(N); writeln;M:=N; 
+for 1:=0 to N do 
+begin write('a',1:2,' = '); read(B[1]); writeln; end; 
+while M>2 do 
+Start: begin 
+end. 
+write('Startwert UO 
+write('Startwert VO 
+S: =0; 
+, ); read(U); wri teln; 
+, ); read(V); wri teln; 
+repeat 
+BK:=O; BK1:=0; CK: =0; CK1:=0; 
+for K:=O to M-l do 
+begin 
+CK2:=CK1; CK1:=CK; BK2:=BK1; BK1:=BK; 
+BK:=B[K]+U*BK1+V*BK2; 
+C[K]: =BK; 
+CK:=BK+U*CK1+V*CK2; 
+end; 
+BK2:=BK1; BK1:=BK; BK:=B[M]+U*BK1+V*BK2; C[M]:=BK; 
+Det:=CK1*CKI-CK2*CK; 
+if Det=O then 
+begin writeln('Neue Startwerte!'); goto Start; end; 
+U:=U+(BK*CK2-BK1*CK1)/Det; V:=V+(BK1*CK-BK*CK1)/Det; 
+S: =S+l; 
+if S=Steps then 
+begin writeln('Neue Startwerte!'); goto Start; end; 
+until abs(BK1)+abs(BK)<EPS; 
+Quadr_gleichg(U,V); M:=M-2; 
+for K:=O to M do B[K]:=C[K]; 
+end; 
+if M=l then wri teln(' reelle Wurzel: ',-B[l]/B[O]) 
+else begin U:=-B[l]/B[O]; V:=-B[2]/B[0]; Quadr_gleichg(U,V); end; 
+
+
+--- PDF page 531 ---
+Anhang: Pascal-Programme 
+program NLSQ(input,output); 
+const 
+M 
+6; 
+N = 3; 
+F = 4; 
+type 
+Typl 
+Typ2 
+Typ3 
+array[O .. N] of real; 
+array[O .. M] of real; 
+array[O .. M,O .. F] of real; 
+var 
+X 
+F,T,Y 
+A 
+I, L, J 
+Lambda,FO,FK,D,B,C,Dl,Bl,Cl 
+Typl; 
+Typ2; 
+Typ3; 
+integer; 
+real; 
+function Fn(D,B,C: real;T: Typ2;Y: Typ2;var F: Typ2): real; 
+var 
+I 
+integer; 
+Q : real; 
+begin 
+Q: =0; 
+for I: =1 to M do 
+begin F[I]:=Y[I]-D-B*exp(C*T[I]); Q:=Q+F[I]*F[I]; end; 
+Fn: =sqrt(Q); 
+end; 
+procedure Linfit(var X: Typl; var A: 
+Typ3); 
+var 
+I,J,K 
+S,F, V 
+integer; 
+real; 
+begin 
+for 1:=1 to N do 
+begin 
+S: =0; 
+for J: =1 to M do S: =S+A[J, I]*A[J, I]; 
+if S=O then 
+begin writeln('Matrix singulaer'); halt; end; 
+V: =sqrt(S); 
+if A[I,I]>O then V: =-V; 
+X[I]:=V; F:=S-V*A[I,I]; A[I,I]:=A[I,I]-V; 
+for K: =1+1 to N+l do 
+begin 
+S: =0; 
+for J: =1 to M do S: =S+A[J,I]*A[J,K]; 
+S: =S/F; 
+for J:=I to M do A[J,K]:=A[J,K]-A[J,I]*S; 
+end; 
+end; 
+X[N]: =A[N,N+l]/X[N]; 
+for I:=N-l downto 1 do 
+end; 
+begin 
+S: =A[I,N+l]; 
+for J: =1+1 to N do S: =S-A[I,J]*X[J]; 
+XCI]: =S/X[I]; 
+end; 
+515 
+
+
+--- PDF page 532 ---
+516 
+begin 
+forI:=ltoMdo 
+Anhang: Pascal-Programme 
+begin write('t(i)= '); read(T[I]); write('y(i)= '); read(Y[I]); 
+end; 
+write('a,b,c 
+='); read(D,B,C); 
+FK: =Fn(D,B,C,T,Y,F); FO:=FK; L:=O; 
+repeat 
+for I: =1 to M do 
+begin 
+A[I,l]:=l; A[I,2]:=exp(C*T[I]); 
+A[I, 3]: =B*T[I]*exp(C*T[I]); A[I, 4]: =F[I]; 
+end; 
+Linfit(X,A); Lambda: =1; 
+repeat 
+Dl: =D+Lambda*X[l); Bl:=B+Lambda*X[2); 
+Cl: =C+Lambda*X[3); FK: =Fn(Dl,Bl,Cl ,T,Y,F); 
+if FK<FO then exit; 
+Lambda: =Lambdaj2; 
+until Lambda<O.002; 
+if Lambda<O.002 then exit; 
+if FK<FO then begin D:=Dl; B: =Bl; C: =Cl; FO: =FK; end; 
+L: =L+l; 
+until L=30; 
+writeln('Steps,a,b,c =',L,D,B,C); 
+end. 
