@@ -1,0 +1,5281 @@
+{
+  "pages": [
+    {
+      "page_idx": 452,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.236,
+            0.119,
+            0.761,
+            0.15
+          ],
+          "level": 2,
+          "content": "第12章 高级数据结构及其实现"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.183,
+            0.922,
+            0.246
+          ],
+          "content": "本章讨论 6 种重点在于实用的数据结构。首先考查第 4 章讨论过的 AVL 树的一些变种，包括优化的伸展树，红黑树，以及 treap 树。我们还要考察后缀树 (suffix tree)，它能够在大文本中对一个模式 (pattern) 进行搜索。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.249,
+            0.922,
+            0.29
+          ],
+          "content": "然后，我们考查一种可以用于多维数据的数据结构。在这种情况下，每一项均可有多个关键字。k-d树对任何相关的关键字都能够进行查找。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.293,
+            0.862,
+            0.312
+          ],
+          "content": "最后，我们考查配对堆(pairing heap)，它似乎是对斐波那契堆一种最实用的变种。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.315,
+            0.272,
+            0.334
+          ],
+          "content": "复议的论题包括:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.111,
+            0.346,
+            0.845,
+            0.384
+          ],
+          "sub_type": "text",
+          "content": "- 在适当的时候，非递归的自顶向下(而不是自底向上)查找树的一些实现方法。\n- 此外，主要就是一些利用标记节点的程序实现。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.073,
+            0.41,
+            0.351,
+            0.433
+          ],
+          "level": 2,
+          "content": "12.1 自顶向下伸展树"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.461,
+            0.922,
+            0.546
+          ],
+          "content": "在第 4 章，我们讨论了基本的伸展树操作。当一项 X 作为树叶被插入时，一系列的树旋转使得 X 成为树的新根，我们称这一系列的树旋转为展开(splay)。展开操作也在查找期间执行，而且如果一项没有找到，那么就要对访问路径上最后的节点实施一次展开。在第 11 章我们证明了，一次展开树操作的摊还时间为  $O(\\log N)$ 。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.549,
+            0.921,
+            0.657
+          ],
+          "content": "这种策略的直接实现需要从根沿树向下的一次遍历，以及而后从底向上的一次遍历以实现展开的步骤。这或者可以通过保存一些父链来完成，或者通过将访问路径存储到一个栈中来完成。但遗憾的是，这两种方法均需要大量的系统开销，而且二者都必须处理许多特殊的情形。在这一节，我们指出如何对初始访问路径施行一些旋转，结果得到在实践中更快的过程，它只用到 $O(1)$ 的附加空间，但却保持了 $O(\\log N)$ 的摊还时间界。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.069,
+            0.66,
+            0.92,
+            0.768
+          ],
+          "content": "图 12.1 列出单旋转、一字形旋转和之字形旋转这三种情形旋转。(按照惯例，这里忽略 3 种对称的旋转。)在访问的任一时刻，我们都有一个当前节点 X，它是其子树的根，在我们的图中它被表示成“中间”的树。 $^{①}$  树 L 存储那些在树 T 中，但不在 X 子树中的小于 X 的节点；类似地，树 R 存储那些在树 T 中，但不在 X 子树中的大于 X 的节点。初始时 X 为 T 的根，而 L 和 R 是空树。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.069,
+            0.771,
+            0.922,
+            0.856
+          ],
+          "content": "如果旋转是一次单旋转，那么根在 $Y$ 的树变成中间树的新根。$X$ 和子树 $B$ 作为 $R$ 中最小项的左儿子而附接到 $R$ 上；$X$ 的左儿子逻辑上成为 nullptr。② 结果，$X$ 成为 $R$ 中新的最小项。特别要注意，为使单旋转情形适用，$Y$ 不一定必须是树叶。如果查找小于 $Y$ 的一项，而 $Y$ 没有左儿子(但确有一个右儿子)，那么这种单旋转情形将是适用的。"
+        },
+        {
+          "type": "page_footnote",
+          "bbox": [
+            0.065,
+            0.885,
+            0.917,
+            0.932
+          ],
+          "content": "① 为简单起见，我们不区分一个“节点”和该节点中的项。\n② 在程序中，R 的最小节点没有 nullptr 左链，因为没有必要。这意味着，printTree(r) 将包含某些项，这些项逻辑上不在 R 中。"
+        }
+      ]
+    },
+    {
+      "page_idx": 453,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.097,
+            0.047,
+            0.135,
+            0.061
+          ],
+          "content": "440"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.281,
+            0.042,
+            0.717,
+            0.059
+          ],
+          "content": "数据结构与算法分析——C++语言描述(第四版)"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.197,
+            0.068,
+            0.805,
+            0.356
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"L\"] --> B[\"X\"]\n  B --> C[\"R\"]\n  D[\"Y\"] --> E[\"A\"]\n  E --> F[\"B\"]\n  G[\"Z\"] --> H[\"Y\"]\n  H --> I[\"C\"]\n  J[\"L\"] --> K[\"X\"]\n  L[\"Z\"] --> M[\"A\"]\n  M --> N[\"B\"]\n  O[\"Y\"] --> P[\"X\"]\n  Q[\"Z\"] --> R[\"C\"]\n  R --> S[\"R\"]\n  T[\"L\"] --> U[\"Y\"]\n  U --> V[\"A\"]\n  W[\"Z\"] --> X[\"B\"]\n  X --> Y[\"R\"]\n  Z[\"X\"] --> AA[\"C\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.24,
+                0.359,
+                0.752,
+                0.375
+              ],
+              "content": "图 12.1 自顶向下展开旋转:单旋转、一字形旋转及之字形旋转"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_453_image_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.069,
+            0.388,
+            0.926,
+            0.451
+          ],
+          "content": "对于一字形情形，我们有类似的剖析。关键是要在 $X$ 和 $Y$ 之间施行一次旋转。之字形情形的旋转把底部节点 $Z$ 带到中间树的顶部，并把子树 $X$ 和 $Y$ 分别附接到 $R$ 和 $L$ 上。注意，$Y$ 被附接后从而成为 $L$ 中的最大项。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.068,
+            0.455,
+            0.923,
+            0.54
+          ],
+          "content": "之字形旋转这一步多少可以得到简化，因为没有旋转要执行，我们不再让 $Z$ 成为中间树的根，而是让 $Y$ 成为其根，如图12.2所示。因为之字形情形的动作变成与单旋转情形相同，所以编程得到简化。看起来这是有利的，因为对大量情形的测试是要耗时的。其缺点在于，为了仅仅降低一层，我们在展开过程中却要进行更多的迭代。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.195,
+            0.547,
+            0.8,
+            0.631
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  L[\"L\"] --> Y[\"Y\"]\n  A[\"A\"] --> Y[\"Y\"]\n  B[\"B\"] --> Z[\"Z\"]\n  C[\"C\"] --> X[\"X\"]\n  Y --> R[\"R\"]\n  Z --> R\n  X --> R\n  R --> L[\"L\"]\n  L --> Y[\"Y\"]\n  Y --> Z[\"Z\"]\n  Z --> B[\"B\"]\n  B --> R[\"R\"]\n  R --> X[\"X\"]\n  X --> C[\"C\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.337,
+                0.636,
+                0.653,
+                0.653
+              ],
+              "content": "图 12.2 简化的自顶向下的之字形旋转"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_453_image_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.066,
+            0.667,
+            0.924,
+            0.729
+          ],
+          "content": "图 12.3 指出，一旦执行完最后一步展开，我们将如何处理 L、R 和中间树以形成单一的一棵树。特别要注意，这里的结果不同于从底部向上的展开。关键的问题在于，它保持了  $O(\\log N)$  的摊还界（练习 12.1）。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.199,
+            0.737,
+            0.791,
+            0.835
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"L\"] --> C[\"X\"]\n  C --> D[\"R\"]\n  E[\"A\"] --> C\n  F[\"B\"] --> C\n  D --> G[\"X\"]\n  G --> H[\"L\"]\n  G --> I[\"R\"]\n  J[\"A\"] --> G\n  K[\"B\"] --> G\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.353,
+                0.84,
+                0.633,
+                0.857
+              ],
+              "content": "图 12.3 自顶向下展开的最后整理"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_453_image_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.87,
+            0.921,
+            0.933
+          ],
+          "content": "顶部向下展开算法的一个例子如图 12.4 所示。我们想要访问树中的 19。第一步是一个之字形旋转。根据图 12.2(的对称形式)，我们把根在 25 的子树带到中间树的根处，并把 12 和它的左子树接到 L 上。"
+        }
+      ]
+    },
+    {
+      "page_idx": 454,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.34,
+            0.042,
+            0.649,
+            0.06
+          ],
+          "content": "第 12 章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.86,
+            0.047,
+            0.895,
+            0.062
+          ],
+          "content": "441"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.182,
+            0.068,
+            0.8,
+            0.691
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  subgraph Initial[\"空\"]\n  A[\"12\\n5\"] --> B[\"15\\n13\\n18\\n16\"]\n  B --> C[\"20\\n24\\n25\\n30\"]\n  end\n  \n  subgraph Simplified[\"简化的之字形旋转\"]\n  D[\"5\\n12\"] --> E[\"15\\n13\\n18\\n16\"]\n  E --> F[\"20\\n24\\n25\\n30\"]\n  end\n  \n  subgraph OneF[\"一字形旋转\"]\n  G[\"5\\n12\"] --> H[\"15\\n13\\n18\\n16\"]\n  end\n  \n  subgraph Reassembly[\"单旋转\"]\n    I[\"5\\n12\\n15\\n13\"]\n    J[\"20\\n25\\n24\\n30\"]\n    K[\"18\\n16\"]\n  end\n  \n  subgraph Reprocess[\"重新组装\"]\n    L[\"20\\n25\\n24\\n30\"]\n    M[\"18\\n20\\n25\\n24\\n30\"]\n  end\n  \n  A -->|\"简化之字形旋转\"| E\n  E -->|\"一字形旋转\"| H\n  H -->|\"单旋转\"| K\n  K -->|\"重新组装\"| M\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.275,
+                0.695,
+                0.703,
+                0.713
+              ],
+              "content": "图 12.4 （访问上面树中的 19）自顶向下展开中的各步"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_454_image_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.061,
+            0.726,
+            0.916,
+            0.789
+          ],
+          "content": "下一步是一字形旋转:15 被提升到中间树的根处，并在 20 和 25 之间进行一次旋转，所得到的子树被附接到 R 上。此时查找 19 导致最后的单旋转。中间树的新根为 18，而 15 和它的左子树作为 L 的最大节点的右儿子被接到 L 上。根据图 12.3 重新组装则结束该步展开。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.06,
+            0.793,
+            0.916,
+            0.877
+          ],
+          "content": "我们将使用带有左链和右链的一个头节点最终包含左树的根和右树的根。由于这两棵树初始为空，因此使用一个头节点分别对应初始状态右树或左树的最小节点或最大节点。这种方法可以使得程序避免检测空树。左树第一次变成非空时，右指针将被初始化并在以后保持不变。这样，在自顶向下查找的最后它将包含左树的根。类似地，左指针最终将包含右树的根。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.06,
+            0.881,
+            0.916,
+            0.922
+          ],
+          "content": "SplayTree 类接口连同一个构造函数和一个析构函数如图 12.5 所示。构造函数用到 nullNode 标记。我们使用标记 nullNode 逻辑上表示一个 nullptr 指针；在调用"
+        }
+      ]
+    },
+    {
+      "page_idx": 455,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.105,
+            0.046,
+            0.143,
+            0.06
+          ],
+          "content": "442"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.29,
+            0.04,
+            0.724,
+            0.058
+          ],
+          "content": "数据结构与算法分析——C++语言描述(第四版)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.073,
+            0.934,
+            0.157
+          ],
+          "continues_prev": true,
+          "content": "makeEmpty 之后, 析构函数再将其 delete(删)掉。我们将反复使用这种技术来简化代码(因而使得程序多少要快一些)。图 12.6 给出展开过程的代码。这里的 header 节点使我们肯定能够把 $X$ 附接到 $R$ 的最大节点上, 而不必担心 $R$ 可能为空(对于处理 $L$ 的对称的情形可类似地进行)。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.241,
+            0.157,
+            0.767,
+            0.768
+          ],
+          "sub_type": "code",
+          "content": "```cpp\ntemplate <typename Comparable>\nclass SplayTree\n{\n    public:\n        SplayTree( )\n        {\n            nullNode = new BinaryNode;\n            nullNode->left = nullNode->right = nullNode;\n            root = nullNode;\n        }\n\n        ~SplayTree( )\n        {\n            makeEmpty( );\n            delete nullNode;\n        }\n\n        // 一些与 BinarySearchTree 相同的方法（省略）\n        SplayTree( const SplayTree & rhs );\n        SplayTree( SplayTree && rhs );\n        SplayTree & operator=( const SplayTree & rhs );\n        SplayTree & operator=( SplayTree && rhs )\n\n    private:\n        struct BinaryNode\n        { /* 二叉查找树节点通常的代码 */ };\n\n        BinaryNode *root;\n        BinaryNode *nullNode;\n\n        // 一些与 BinarySearchTree 相同的方法（省略）\n\n        // 树操作\n        void rotateWithLeftChild( BinaryNode * & k2 );\n        void rotateWithRightChild( BinaryNode * & k1 );\n        void splay( const Comparable & x, BinaryNode * & t );\n};\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.312,
+                0.774,
+                0.697,
+                0.791
+              ],
+              "content": "图 12.5 伸展树:类接口、构造函数和析构函数"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.805,
+            0.929,
+            0.867
+          ],
+          "content": "正如上面提到的，在展开到最后的重新组装之前，header.left 和 header.right 分别指向 R 和 L 的根(这不是一个排印错误——而是遵守链的指向)。除了这个细节之外，该程序是相对简单的。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.871,
+            0.928,
+            0.934
+          ],
+          "content": "图 12.7 显示将一项插入到树中的方法。分配一个新的节点(如果需要)，且如果树是空的，那么就建立一棵单节点树。否则，我们围绕被插入的值 x 展开 root。若新根上的数据等于 x，则有一个重复元；我们不是再次插入 x，而是为将来的插入保留 newNode 并立即返回。如果"
+        }
+      ]
+    },
+    {
+      "page_idx": 456,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.346,
+            0.045,
+            0.654,
+            0.063
+          ],
+          "content": "第 12 章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.865,
+            0.05,
+            0.903,
+            0.064
+          ],
+          "content": "443"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.077,
+            0.926,
+            0.141
+          ],
+          "continues_prev": true,
+          "content": "新根包含的值大于 x，那么新根和它的右子树变成 newNode 的一棵右子树，而 root 的左子树则成为 newNode 的左子树。如果 root 的新根包含的值小于 x，那么类似的做法仍然适用。在这两种情况下，newNode 均成为新的根。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.261,
+            0.143,
+            0.736,
+            0.914
+          ],
+          "sub_type": "code",
+          "content": "```c\n/**\n * 执行自顶向下展开的内部方法.\n * 最后访问的节点成为新的根.\n * 为了使用不同的展开算法，可以覆盖这个方法\n * 不过，展开树代码依赖于所访问的\n * 通向根的项.\n * x 是要在其展开的目标项.\n * t 是要展开的子树的根.\n */\nvoid splay( const Comparable & x, BinaryNode * & t )\n{\n    BinaryNode *leftTreeMax, *rightTreeMin;\n    static BinaryNode header;\n\n    header.left = header.right = nullNode;\n    leftTreeMax = rightTreeMin = &header;\n\n    nullNode->element = x;   // 保证比较时匹配\n\n    for( ; ; )\n        if( x < t->element )\n        {\n            if( x < t->left->element )\n                rotateWithLeftChild( t );\n            if( t->left == nullNode )\n                break;\n            // 链接右侧\n            rightTreeMin->left = t;\n            rightTreeMin = t;\n            t = t->left;\n        }\n        else if( t->element < x )\n        {\n            if( t->right->element < x )\n                rotateWithRightChild( t );\n            if( t->right == nullNode )\n                break;\n            // 链接左侧\n            leftTreeMax->right = t;\n            leftTreeMax = t;\n            t = t->right;\n        }\n        else\n            break;\n\n        leftTreeMax->right = t->left;\n        rightTreeMin->left = t->right;\n        t->left = header.right;\n        t->right = header.left;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.38,
+                0.921,
+                0.604,
+                0.938
+              ],
+              "content": "图 12.6 自顶向下展开方法"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 457,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.105,
+            0.048,
+            0.143,
+            0.062
+          ],
+          "content": "444"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.29,
+            0.043,
+            0.724,
+            0.06
+          ],
+          "content": "数据结构与算法分析——C++语言描述(第四版)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.272,
+            0.068,
+            0.74,
+            0.666
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid insert( const Comparable & x )\n{\n    static BinaryNode *newNode = nullptr;\n\n    if( newNode == nullptr )\n        newNode = new BinaryNode;\n    newNode->element = x;\n\n    if( root == nullNode )\n    {\n        newNode->left = newNode->right = nullNode;\n        root = newNode;\n    }\n    else\n    {\n        splay( x, root );\n        if( x < root->element )\n        {\n            newNode->left = root->left;\n            newNode->right = root;\n            root->left = nullNode;\n            root = newNode;\n        }\n        else\n        if( root->element < x )\n        {\n            newNode->right = root->right;\n            newNode->left = root;\n            root->right = nullNode;\n            root = newNode;\n        }\n        else\n            return;\n    }\n    newNode = nullptr;   // 故下一次插入将调用 new\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.338,
+                0.673,
+                0.672,
+                0.69
+              ],
+              "content": "图12.7 自顶向下伸展树的insert函数"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.704,
+            0.932,
+            0.833
+          ],
+          "content": "在第 4 章，我们证明了伸展树中的删除是容易的，因为一次展开将把删除目标置于根处。最后我们列出图 12.8 中的删除例程。删除过程比对应的插入过程还要短，确实罕见。图 12.8 还展示了 makeEmpty。简单递归的后序遍历回收树节点是不安全的，因为伸展树很可能是不平衡的，即使它给出良好的性能。在这种情况下，递归可能会用尽栈空间。我们使用一种简单的替代方法，它耗时仍然还是 $O(N)$（不过就远没有那么显然了）。对于 operator=需要类似的考虑。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.294,
+            0.841,
+            0.688,
+            0.907
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid remove( const Comparable & x )\n{\n    if( !contains( x ) )\n        return;  // 没找到项 x; 什么也不做\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.322,
+                0.917,
+                0.684,
+                0.934
+              ],
+              "content": "图 12.8 自顶向下的删除过程和 makeEmpty"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 458,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.359,
+            0.039,
+            0.666,
+            0.057
+          ],
+          "content": "第 12 章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.878,
+            0.044,
+            0.916,
+            0.057
+          ],
+          "content": "445"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.293,
+            0.07,
+            0.728,
+            0.35
+          ],
+          "sub_type": "code",
+          "content": "```txt\n// 如果找到 x，则将通过 contains 向根处展开\n        BinaryNode *newTree;\n\n        if( root->left == nullNode )\n            newTree = root->right;\n        else\n        {\n            // 找到左子树的最大值\n            // 向根节点展开；然后附接上右儿子\n            newTree = root->left;\n            splay( x, newTree );\n            newTree->right = root->right;\n        }\n        delete root;\n        root = newTree;\n    }\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.31,
+                0.356,
+                0.707,
+                0.373
+              ],
+              "content": "图 12.8(续) 自顶向下的删除过程和 makeEmpty"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.084,
+            0.405,
+            0.254,
+            0.427
+          ],
+          "level": 2,
+          "content": "12.2 红黑树"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.452,
+            0.934,
+            0.515
+          ],
+          "content": "从历史上看，对 AVL 树另一种流行的选择是红黑树(red black tree)。对红黑树的操作在最坏情形下花费  $O(\\log N)$  时间，而且我们将看到，(对于插入操作的)一种审慎的非递归实现（与 AVL 树相比）可以相对容易地完成。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.123,
+            0.52,
+            0.516,
+            0.538
+          ],
+          "content": "红黑树是具有下列着色性质的二叉查找树:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.121,
+            0.55,
+            0.818,
+            0.633
+          ],
+          "sub_type": "text",
+          "content": "1. 每一个节点或者着成红色，或者着成黑色。\n2. 根是黑色的。\n3. 如果一个节点是红色的，那么它的子节点必须是黑色的。\n4. 从一个节点到一个 null 指针的每一条路径必须包含相同数目的黑色节点。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.646,
+            0.931,
+            0.687
+          ],
+          "content": "着色法则的一个结论是，红黑树的高最多是  $2 \\log (N + 1)$ 。因此，查找操作保证是一种对数的操作。图 12.9 显示了一棵红黑树，其中的红色节点用双圆圈表示。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.248,
+            0.696,
+            0.767,
+            0.834
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"5\"] --> B[\"10\"]\n  B --> C[\"15\"]\n  C --> D[\"20\"]\n  E[\"30\"] --> F[\"70\"]\n  F --> G[\"85\"]\n  G --> H[\"90\"]\n  I[\"40\"] --> J[\"50\"]\n  J --> K[\"60\"]\n  K --> L[\"65\"]\n  M[\"55\"] --> N[\"50\"]\n  O[\"80\"] --> P[\"70\"]\n  Q[\"90\"] --> R[\"85\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.168,
+                0.839,
+                0.84,
+                0.856
+              ],
+              "content": "图 12.9 红黑树的例子(插入序列为:10,85,15,70,20,60,30,50,65,80,90,40,5,55)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_458_image_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.866,
+            0.932,
+            0.93
+          ],
+          "content": "和通常一样，困难在于将一个新项插入到树中。通常把新项作为树叶放到树中。如果我们把该项涂成黑色，则肯定违反条件4，因为那将会建立一条更长的黑节点的路径。因此，这一项必须涂成红色。如果它的父节点是黑的，则插入完成。如果它的父节点已经是红色的，"
+        }
+      ]
+    },
+    {
+      "page_idx": 459,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.091,
+            0.044,
+            0.129,
+            0.057
+          ],
+          "content": "446"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.277,
+            0.038,
+            0.71,
+            0.055
+          ],
+          "content": "数据结构与算法分析——C++语言描述(第四版)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.071,
+            0.92,
+            0.112
+          ],
+          "content": "则得到连续红色的节点，这就违反了条件3。在这种情况下，我们必须调整该树以确保条件3满足(且又不引起条件4被破坏)。用于完成这项任务的基本操作是颜色的改变和树的旋转。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.073,
+            0.124,
+            0.332,
+            0.145
+          ],
+          "level": 2,
+          "content": "12.2.1 自底向上的插入"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.159,
+            0.919,
+            0.2
+          ],
+          "content": "我们已经提到，如果新插入的项的父节点是黑色的，那么插入完成。因此，将 25 插入到图 12.9 的树中是简单的操作。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.069,
+            0.203,
+            0.92,
+            0.377
+          ],
+          "content": "如果父节点是红色的，那么有几种情形(每种都有一个镜像对称)需要考虑。首先，假设这个父节点的兄弟是黑的(我们采纳约定:null 节点都是黑色的)。这种情形对于插入 3 或 8 是适用的，但对插入 99 不适用。令 $X$ 是新添加的树叶，$P$ 是它的父节点，$S$ 是该父节点的兄弟(若存在)，$G$ 是祖父节点。在这种情形只有 $X$ 和 $P$ 是红的；$G$ 是黑的，因为否则就会在插入前有两个相连的红色节点，违反了红黑树的法则。采用伸展树的术语，$X$、$P$ 和 $G$ 可以形成一个一字形链或之字形链(两个方向中的任一个方向)。图 12.10 指出当 $P$ 是一个左儿子时(注意有一个对称情形)我们如何旋转该树。即使 $X$ 是一片树叶，我们还是画出更一般的情形，使得 $X$ 在树的中间。后面我们将用到这个更一般的旋转。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.202,
+            0.382,
+            0.782,
+            0.591
+          ],
+          "sub_type": "flowchart",
+          "content": "This image displays a hierarchical tree structure diagram (a type of flowchart) showing the relationships between nodes labeled with letters and numbers, likely representing a system or data processing workflow.",
+          "captions": [
+            {
+              "bbox": [
+                0.278,
+                0.595,
+                0.707,
+                0.612
+              ],
+              "content": "图12.10 如果 $S$ 是黑的，则单旋转和之字形旋转有效"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_459_image_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.067,
+            0.623,
+            0.916,
+            0.685
+          ],
+          "content": "第一种情形对应 $P$ 和 $G$ 之间的单旋转，而第二种情形对应双旋转，该双旋转首先在 $X$ 和 $P$ 间进行，然后在 $X$ 和 $G$ 之间进行。当编写程序的时候，我们必须记录父节点、祖父节点，以及为了重新连接还要记录曾祖节点。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.067,
+            0.689,
+            0.916,
+            0.753
+          ],
+          "content": "在这两种情形下，子树的新根均被涂成黑色，因此，即使原来的曾祖是红的，我们也排除了两个相邻红色节点的可能性。同样重要的是，这些旋转的结果是通向 $A$ 、 $B$ 和 $C$ 诸路径上黑色节点的个数仍然保持不变。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.756,
+            0.917,
+            0.929
+          ],
+          "content": "到现在为止一切顺利。但是，正如我们企图将79插入到图12.9树中的情况那样，如果 $S$ 是红色的，那么会发生什么情况呢？在这种情况下，初始时从子树的根到 $C$ 的路径上有一个黑色节点。在旋转之后，一定仍然还是只有一个黑色节点。但在这两种情况下，在通向 $C$ 的路径上都有3个节点(新的根、 $G$ 和 $S$ )。由于只有一个可能是黑的，又由于不能有连续的红色节点，于是我们必须把 $S$ 和子树的新根都涂成红色，而把 $G$ (以及第四个节点)涂成黑色。这很好，可是，如果曾祖节点也是红色的那么又会怎样呢？此时，我们可以将这个过程朝着根的方向上滤(percolate)，就像对B树和二叉堆所做的那样，直到我们不再有两个相连的红色节点，或者到达根(它将被重新涂成黑色)处为止。"
+        }
+      ]
+    },
+    {
+      "page_idx": 460,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.348,
+            0.038,
+            0.656,
+            0.056
+          ],
+          "content": "第12章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.867,
+            0.044,
+            0.903,
+            0.057
+          ],
+          "content": "447"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.077,
+            0.08,
+            0.339,
+            0.101
+          ],
+          "level": 2,
+          "content": "12.2.2 自顶向下红黑树"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.075,
+            0.115,
+            0.925,
+            0.178
+          ],
+          "content": "上滤的实现需要用一个栈或用一些父链保存路径。我们看到，如果使用一个自顶向下的过程，则伸展树会更有效，事实上我们可以对红黑树应用自顶向下的过程而保证 $S$ 将不会是红色的。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.18,
+            0.926,
+            0.377
+          ],
+          "content": "这个过程从概念上讲是容易的。在向下的过程中，当我们看到一个节点 $X$ 有两个红儿子的时候，我们让 $X$ 呈红色而让它的两个儿子是黑的。（如果 $X$ 是根，则在颜色翻转后它将是红的，但是为恢复性质2可以直接着成黑色。）图12.11给出了这种颜色翻转的现象，只有当 $X$ 的父节点 $P$ 也是红的时候这种翻转将破坏红黑的法则。但是此时我们可以应用图12.10中适当的旋转。如果 $X$ 的父节点的兄弟是红的会如何呢？这种可能已经被从顶向下过程中的行动所排除，因此 $X$ 的父节点的兄弟不可能是红的。特别地，如果在沿树向下的过程中我们看到一个节点 $Y$ 有两个红儿子，那么我们知道 $Y$ 的孙子必然是黑的，由于 $Y$ 的儿子也要变成黑的，甚至在可能发生的旋转之后，因此我们将不会看到两层上另外的红节点。这样，当我们看到 $X$ 若 $X$ 的父节点是红的，则 $X$ 的父节点的兄弟不可能也是红色的。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.231,
+            0.382,
+            0.765,
+            0.436
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"X\"] --> B[\"c1\"]\n  A --> C[\"c2\"]\n  B --> D[\"X\"]\n  C --> D\n  D --> E[\"c1\"]\n  D --> F[\"c2\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.192,
+                0.442,
+                0.804,
+                0.46
+              ],
+              "content": "图12.11 颜色翻转:只有当 $X$ 的父节点是红的时候我们才继续执行一次旋转"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_460_image_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.473,
+            0.924,
+            0.603
+          ],
+          "content": "例如，假设我们要将 45 插入到图 12.9 所示的树中。在沿树向下的过程中，我们看到节点 50 有两个红儿子。因此，我们执行一次颜色翻转，使 50 为红的，40 和 55 是黑的。现在 50 和 60 都是红的。我们在 60 和 70 之间执行单旋转，使得 60 是 30 的右子树的黑根，而 70 和 50 都是红的。如果我们在路径上看到另外的含有两个红儿子的节点，则继续，执行同样的操作。当我们到达树叶时，把 45 作为红节点插入，由于父节点是黑的，因此插入完成。最后得到的树如图 12.12 所示。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.203,
+            0.607,
+            0.789,
+            0.745
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"5\"] --> B[\"10\"]\n  B --> C[\"15\"]\n  C --> D[\"20\"]\n  E[\"30\"] --> F[\"60\"]\n  G[\"40\"] --> H[\"50\"]\n  H --> I[\"55\"]\n  J[\"60\"] --> K[\"70\"]\n  K --> L[\"85\"]\n  M[\"80\"] --> N[\"90\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.364,
+                0.749,
+                0.626,
+                0.767
+              ],
+              "content": "图12.12 将45插入到图12.9中"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_460_image_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.777,
+            0.921,
+            0.84
+          ],
+          "content": "如图12.12所示，所得到的红黑树常常平衡得很好。经验指出，平均红黑树大约与平均AVL树一样深，从而查找时间一般接近最优。红黑树的优点是执行插入所需要的开销相对较低，再有就是实践中发生的旋转相对较少。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.843,
+            0.921,
+            0.93
+          ],
+          "content": "红黑树的具体实现是很复杂的，这不仅因为有大量可能的旋转，而且还因为一些子树可能是空的(如10的右子树)，以及处理根的特殊的情况(尤其是根没有父亲)。因此，我们使用两个标记节点(sentinel node): 一个是对根的，一个是 nullNode，其作用像在伸展树中那样是指示一个 nullptr 指针。根标记将存储关键字-∞和一个指向真正的根的右链。正因为如"
+        }
+      ]
+    },
+    {
+      "page_idx": 461,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.099,
+            0.048,
+            0.136,
+            0.062
+          ],
+          "content": "448"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.283,
+            0.043,
+            0.719,
+            0.06
+          ],
+          "content": "数据结构与算法分析——C++语言描述(第四版)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.075,
+            0.93,
+            0.205
+          ],
+          "continues_prev": true,
+          "content": "此，查找和输出过程均需要调整。递归的例程都很巧妙。图 12.13 指出如何重新编写中序遍历。printTree 诸例程都很简单。测试 t!=t->left 可以写成 t!=nullNode。然而，在一个执行深度拷贝的类似例程中存在一个陷阱。这也显示在图 12.13 中。此处的拷贝构造函数 (copy constructor) 在其他初始化完成之后调用 clone。但在 clone 中，测试 t==nullNode 并不可行，因为 nullNode 是目标的 nullNode，而不是源 (即不是 rhs) 的。因此，我们使用一个更复杂的测试。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.211,
+            0.211,
+            0.788,
+            0.81
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nvoid printTree( ) const\n{\n    if( header->right == nullNode )\n        cout << \"Empty tree\" << endl;\n    else\n        printTree( header->right );\n}\n\nvoid printTree( RedBlackNode *t ) const\n{\n    if( t != t->left )\n    {\n        printTree( t->left );\n        cout << t->element << endl;\n        printTree( t->right );\n    }\n}\n\nRedBlackTree( const RedBlackTree & rhs )\n{\n    nullNode      = new RedBlackNode;\n    nullNode->left = nullNode->right = nullNode;\n\n    header       = new RedBlackNode{ rhs.header->element };\n    header->left  = nullNode;\n    header->right  = clone( rhs.header->right );\n}\n\nRedBlackNode * clone( RedBlackNode * t ) const\n{\n    if( t == t->left )  // 不能对 nullNode 测试 !!!\n        return nullNode;\n    else\n        return new RedBlackNode{ t->element, clone( t->left ),\n                          clone( t->right ), t->color };\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.214,
+                0.819,
+                0.782,
+                0.835
+              ],
+              "content": "图 12.13 使用两个警戒标记对树的遍历:printTree 和拷贝构造函数"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.854,
+            0.579,
+            0.871
+          ],
+          "content": "图 12.14 显示 RedBlackTree 架构以及构造函数。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.875,
+            0.926,
+            0.917
+          ],
+          "content": "另外, 图 12.15 显示执行一次单旋转的例程。因为所得到的树必须要附接到一个父节点上, 所以 rotate 把父节点作为一个参数。我们不是在沿树下行时记录旋转的类型, 而是把 item"
+        }
+      ]
+    },
+    {
+      "page_idx": 462,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.357,
+            0.044,
+            0.666,
+            0.061
+          ],
+          "content": "第 12 章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.877,
+            0.049,
+            0.915,
+            0.063
+          ],
+          "content": "449"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.076,
+            0.936,
+            0.117
+          ],
+          "continues_prev": true,
+          "content": "作为一个参数传递。由于我们期望在插入过程中进行很少的旋转，因此，使用这种方式实际上不仅更简单，而且还更快。rotate 直接返回执行一次适当单旋转的结果。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.143,
+            0.124,
+            0.87,
+            0.9
+          ],
+          "sub_type": "code",
+          "content": "```cpp\ntemplate <typename Comparable>\nclass RedBlackTree\n{\n    public:\n        explicit RedBlackTree( const Comparable & negInf );\n        RedBlackTree( const RedBlackTree & rhs );\n        RedBlackTree( RedBlackTree && rhs );\n        ~RedBlackTree( );\n\n        const Comparable & findMin( ) const;\n        const Comparable & findMax( ) const;\n        bool contains( const Comparable & x ) const;\n        bool isEmpty( ) const;\n        void printTree( ) const;\n\n        void makeEmpty( );\n        void insert( const Comparable & x );\n        void remove( const Comparable & x );\n\n        enum { RED, BLACK };\n\n        RedBlackTree & operator=( const RedBlackTree & rhs );\n        RedBlackTree & operator=( RedBlackTree && rhs );\n\nprivate:\n    struct RedBlackNode\n    {\n        Comparable element;\n        RedBlackNode *left;\n        RedBlackNode *right;\n        int color;\n\n        RedBlackNode( const Comparable & theElement = Comparable{ },\n            RedBlackNode *lt = nullptr, RedBlackNode *rt = nullptr,\n            int c = BLACK )\n        : element{ theElement }, left{ lt }, right{ rt }, color{ c } { }\n\n        RedBlackNode( Comparable && theElement, RedBlackNode *lt = nullptr,\n            RedBlackNode *rt = nullptr, int c = BLACK )\n        : element{ std::move( theElement ) }, left{ lt }, right{ rt }, color{ c } { }\n    };\n\n    RedBlackNode *header; // 树的头节点 (包含 negInf )\n    RedBlackNode *nullNode;\n\n    // 用于 insert例程及其辅助对象 (逻辑上是 static型的)\n    RedBlackNode *current;\n    RedBlackNode *parent;\n    RedBlackNode *grand;\n    RedBlackNode *great;\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.388,
+                0.912,
+                0.62,
+                0.928
+              ],
+              "content": "图 12.14 类接口和构造函数"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 463,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.09,
+            0.044,
+            0.128,
+            0.057
+          ],
+          "content": "450"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.275,
+            0.04,
+            0.709,
+            0.057
+          ],
+          "content": "数据结构与算法分析——C++语言描述(第四版)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.137,
+            0.068,
+            0.845,
+            0.482
+          ],
+          "sub_type": "code",
+          "content": "```c\n// 通常是递归的过程\n    void reclaimMemory( RedBlackNode *t );\n    void printTree( RedBlackNode *t ) const;\n\n    RedBlackNode * clone( RedBlackNode * t ) const;\n\n    // 红黑树操作\n    void handleReorient( const Comparable & item );\n    RedBlackNode * rotate( const Comparable & item, RedBlackNode *theParent );\n    void rotateWithLeftChild( RedBlackNode * & k2 );\n    void rotateWithRightChild( RedBlackNode * & k1 );\n};\n\n    /**\n     * 树的构建 .\n     * negInf 是小于或等于所有其余项的一个值.\n     */\n    explicit RedBlackTree( const Comparable & negInf )\n    {\n        nullNode = new RedBlackNode;\n        nullNode->left = nullNode->right = nullNode;\n\n        header = new RedBlackNode{ negInf };\n        header->left = header->right = nullNode;\n    }\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.171,
+            0.514,
+            0.805,
+            0.91
+          ],
+          "sub_type": "code",
+          "content": "```cs\n/**\n * 执行单旋转或双旋转的内部例程.\n * 因为结果被附接到父节点上，所以有四种情形.\n * 通过 handleReorient 而被调用.\n * item 是 handleReorient中的 item.\n * theParent 为所旋转子树的根的父节点.\n * 返回旋转子树的根.\n */\nRedBlackNode * rotate( const Comparable & item, RedBlackNode *theParent )\n{\n    if( item < theParent->element )\n    {\n        item < theParent->left->element ?\n            rotateWithLeftChild( theParent->left ) : // LL\n            rotateWithRightChild( theParent->left ); // LR\n        return theParent->left;\n    }\n    else\n    {\n        item < theParent->right->element ?\n            rotateWithLeftChild( theParent->right ) : // RL\n            rotateWithRightChild( theParent->right ); // RR\n        return theParent->right;\n    }\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.356,
+                0.49,
+                0.621,
+                0.506
+              ],
+              "content": "图 12.14(续) 类接口和构造函数"
+            },
+            {
+              "bbox": [
+                0.389,
+                0.914,
+                0.581,
+                0.93
+              ],
+              "content": "图 12.15 rotate 方法"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 464,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.361,
+            0.035,
+            0.667,
+            0.052
+          ],
+          "content": "第 12 章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.88,
+            0.04,
+            0.914,
+            0.053
+          ],
+          "content": "451"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.088,
+            0.068,
+            0.938,
+            0.218
+          ],
+          "content": "最后，我们在图 12.16 中给出插入过程。例程 handleReorient 当我们遇到带有两个红儿子的节点时被调用，在插入一片树叶时它也被调用。最为复杂的部分是，一个双旋转实际上是两个单旋转，而且只有当通向 X 的分支(在 insert 方法中由 current 表示)取相反方向时才进行。正如我们在较早的讨论中提到的，当沿树向下进行的时候，insert 必须记录父亲、祖父和曾祖。由于这些量要由 handleReorient 共享，因此我们让它们是类的成员。注意，在一次旋转之后，存储在祖父和曾祖节点中的值将不再正确。不过，我们肯定到下一次需要它们的时候它们将被修复。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.202,
+            0.221,
+            0.816,
+            0.899
+          ],
+          "sub_type": "code",
+          "content": "```c\n/**\n * 内部例程。如果一个节点有两个红儿子，那么该例程在插入期\n * 间被调用。执行颜色翻转和旋转，item是要被插入的项。\n */\nvoid handleReorient( const Comparable & item )\n{\n    // 进行颜色翻转\n    current->color = RED;\n    current->left->color = BLACK;\n    current->right->color = BLACK;\n\n    if( parent->color == RED )  // 必须旋转\n    {\n        grand->color = RED;\n        if( item < grand->element != item < parent->element )\n            parent = rotate( item, grand ); // 开始双旋转\n        current = rotate( item, great );\n        current->color = BLACK;\n    }\n    header->right->color = BLACK; // 使根呈黑色\n}\n\nvoid insert( const Comparable & x )\n{\n    current = parent = grand = header;\n    nullNode->element = x;\n\n    while( current->element != x )\n    {\n        great = grand; grand = parent; parent = current;\n        current = x < current->element ? current->left : current->right;\n\n        // 检测是否两个红儿子；若是，则调整之\n        if( current->left->color == RED && current->right->color == RED )\n            handleReorient( x );\n    }\n\n    // 如果已经存在，则插入失败\n    if( current != nullNode )\n        return;\n    current = new RedBlackNode{ x, nullNode, nullNode };\n\n    // 附接到父节点上\n    if( x < parent->element )\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.431,
+                0.905,
+                0.586,
+                0.921
+              ],
+              "content": "图12.16 插入过程"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 465,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.088,
+            0.042,
+            0.127,
+            0.057
+          ],
+          "content": "452"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.273,
+            0.037,
+            0.709,
+            0.055
+          ],
+          "content": "数据结构与算法分析——C++语言描述(第四版)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.174,
+            0.067,
+            0.477,
+            0.145
+          ],
+          "sub_type": "code",
+          "content": "```txt\nparent->left = current;\n        else\n            parent->right = current;\n        handleReorient( x );\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.393,
+                0.146,
+                0.59,
+                0.162
+              ],
+              "content": "图 12.16(续) 插入过程"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.065,
+            0.174,
+            0.304,
+            0.194
+          ],
+          "level": 2,
+          "content": "12.2.3 自顶向下删除"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.062,
+            0.209,
+            0.917,
+            0.339
+          ],
+          "content": "红黑树中的删除也可以自顶向下进行。每一件工作都归结于能够删除一片树叶。这是因为，要删除一个带有两个儿子的节点，我们先用右子树上的最小节点替换它。此时待删节点必然最多有一个儿子，然后将待删节点删除。只有一个右儿子的节点可以用相同的方式删除，而只有一个左儿子的节点通过用其左子树上最大节点替换，然后再将该节点删除。注意，对于红黑树，我们不要使用绕开带有一个儿子的节点的情形的办法，因为这可能在树的中部连接两个红色节点，增加红黑条件实现的困难。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.062,
+            0.342,
+            0.915,
+            0.383
+          ],
+          "content": "当然，红色树叶的删除很简单。然而，如果树叶是黑的，那么删除操作会复杂得多，因为黑色节点的删除将破坏红黑树的条件4。解决方法是保证从上到下删除期间树叶是红的。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.061,
+            0.386,
+            0.915,
+            0.472
+          ],
+          "content": "在整个讨论中，令 X 为当前节点，T 是它的兄弟，而 P 是它们的父亲。开始时我们把树的根标记节点涂成红色。当沿树向下遍历时，设法保证 X 是红色的。当到达一个新的节点时，我们要确保 P 是红的（归纳地，通过我们试图保持的这种不变性），并且 X 和 T 是黑的（因为我们不能有两个相连的红色节点）。有两种主要的情形要考虑。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.06,
+            0.475,
+            0.915,
+            0.56
+          ],
+          "content": "首先，设 X 有两个黑儿子。此时有 3 种子情况，如图 12.17 所示。如果 T 也有两个黑儿子，那么我们可以翻转 X、T 和 P 的颜色以保持这种不变性。否则，T 的儿子之一是红的。根据这个子节点是哪一个， $^{①}$  我们可以应用图 12.17 所示的第二种和第三种情形表示的旋转。特别要注意，这种情形对于树叶将是适用的，因为 nullNode 被认为是黑的。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.219,
+            0.563,
+            0.755,
+            0.859
+          ],
+          "sub_type": "flowchart",
+          "content": "This image displays a hierarchical tree structure diagram (a type of flowchart) showing the relationships and branching paths between nodes labeled with letters such as P, T, R, A, C1, R2, and R1.",
+          "captions": [
+            {
+              "bbox": [
+                0.25,
+                0.861,
+                0.72,
+                0.878
+              ],
+              "content": "图 12.17 当 X 是一个左儿子并有两个黑儿子时的 3 种情形"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_465_image_9.jpg"
+        },
+        {
+          "type": "page_footnote",
+          "bbox": [
+            0.058,
+            0.901,
+            0.913,
+            0.932
+          ],
+          "content": "① 如果两个儿子都是红的，那么我们可以应用两种旋转中的任一种。通常，在 $X$ 是一个右儿子的情形下存在一些对称的旋转，不过这里没有表示出来。"
+        }
+      ]
+    },
+    {
+      "page_idx": 466,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.351,
+            0.038,
+            0.66,
+            0.055
+          ],
+          "content": "第 12 章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.871,
+            0.042,
+            0.908,
+            0.056
+          ],
+          "content": "453"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.07,
+            0.932,
+            0.157
+          ],
+          "content": "其次，设 $X$ 的儿子之一是红的。在这种情形下，我们落到下一层上，得到新的 $X 、 T$ 和 $P$ 。如果幸运，$X$ 落在红儿子上，则我们可以继续向前进行。如果不是这样，那么我们知道 $T$ 将是红的，而 $X$ 和 $P$ 将是黑的。我们可以旋转 $T$ 和 $P$ ，使得 $X$ 的新父亲是红的。当然，$X$ 和它的祖父将是黑的。此时我们可以回到第一种主情形。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.079,
+            0.178,
+            0.266,
+            0.202
+          ],
+          "level": 2,
+          "content": "12.3 treap 树"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.075,
+            0.224,
+            0.929,
+            0.31
+          ],
+          "content": "最后一种类型的二叉查找树可能是最简单的一种，叫作 treap 树 (treap)。它像跳跃表一样使用随机数，并且对任意的输入给出的是  $O(\\log N)$  期望时间的性能。查找时间等同于非平衡二叉查找树（从而比平衡查找树要慢），而插入时间只比递归非平衡二叉查找树的实现稍慢。虽然删除操作要慢得多，但仍然是  $O(\\log N)$  的期望时间。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.074,
+            0.313,
+            0.929,
+            0.398
+          ],
+          "content": "treap 树是如此简单，以至我们不用画图就可描述它。树中的每个节点存储一项，一个左指针和一个右指针，以及一个优先级，这个优先级是建立节点时随机指定的。一个 treap 树就是一棵二叉查找树，但其节点优先级满足堆序性质:任意节点的优先级必须至少和它父节点的优先级一样大。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.074,
+            0.401,
+            0.93,
+            0.487
+          ],
+          "content": "其每一项都有不同优先级的不同项的集合只能由一棵 treap 树表示。这很容易由归纳法推导，因为具有最低优先级的节点必然是根。因此，树是根据优先级的 N! 种可能的排列而不是根据项的 N! 种排序形成的。节点的声明很简单，只要求添加 priority 数据成员。标记 nullNode 的优先级为  $\\infty$ ，如图 12.18 所示。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.137,
+            0.49,
+            0.635,
+            0.902
+          ],
+          "sub_type": "code",
+          "content": "```cpp\ntemplate <typename Comparable>\nclass Treap\n{\n    public:\n        Treap( )\n        {\n            nullNode = new TreapNode;\n            nullNode->left = nullNode->right = nullNode;\n            nullNode->priority = INT_MAX;\n            root = nullNode;\n        }\n\n        Treap( const Treap & rhs );\n        Treap( Treap && rhs );\n        ~Trep( );\n        Treap & operator=( const Treap & rhs );\n        Treap & operator=( Treap && rhs );\n\n        // 另外一些 public 型的成员函数（未示出）\n\nprivate:\n    struct TreapNode\n    {\n        Comparable element;\n        TreapNode *left;\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.353,
+                0.911,
+                0.645,
+                0.928
+              ],
+              "content": "图 12.18 Treap 类接口和构造函数"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 467,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.097,
+            0.046,
+            0.135,
+            0.06
+          ],
+          "content": "454"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.283,
+            0.04,
+            0.717,
+            0.058
+          ],
+          "content": "数据结构与算法分析——C++语言描述(第四版)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.134,
+            0.07,
+            0.864,
+            0.417
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nTleapNode *right;\nint     priority;\n\nTleapNode( ) : left{ nullptr }, right{ nullptr }, priority{ INT_MAX }\n    { }\n\nTleapNode( const Comparable & e, TreapNode *lt, TreapNode *rt, int pr )\n    : element{ e }, left{ lt }, right{ rt }, priority{ pr }\n    { }\n\nTleapNode( Comparable && e, TreapNode *lt, TreapNode *rt, int pr )\n    : element{ std::move( e ) }, left{ lt }, right{ rt }, priority{ pr }\n    { }\n};\n\nTleapNode *root;\nTreapNode *nullNode;\nUniformRandom randomNums;\n\n// 另外一些 private 型的成员函数（未示出）\n};\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.334,
+                0.424,
+                0.66,
+                0.441
+              ],
+              "content": "图 12.18(续) Treap 类接口和构造函数"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.454,
+            0.925,
+            0.629
+          ],
+          "content": "到 treap 树的插入操作也简单:在一项作为树叶被添加之后，我们将它沿着该 treap 树向上旋转，直到它的优先级满足堆序为止。可以证明，旋转的期望次数小于 2。在要被删除的项找到以后，通过把它的优先级增加到  $\\infty$  并沿着低优先级子节点的路径向下旋转而可将其删除。一旦它成为树叶，就可以把它除去。图 12.19 和图 12.20 中的例程利用递归实现这些做法。一种非递归的实现方法留给读者作为练习（练习 12.14）。对于删除，注意当节点逻辑上是树叶时，它仍然有 nullNode 作为它的左儿子和右儿子。因此，它与右儿子旋转。在旋转后，t 为 nullNode，而左儿子可以释放，因为它现在存储的是要被删除的项。还要注意我们的实现是假设没有重复元；如果这个假设不成立，那么 remove 可能失败（为什么？）。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.163,
+            0.637,
+            0.831,
+            0.901
+          ],
+          "sub_type": "code",
+          "content": "```c\n/**\n * 向一棵子树进行插入的内部方法.\n * x 是要被插入的项.\n * t 为该树的根节点.\n * 建立该子树的新根.\n * (randomNums 是 UniformRandom 类的对象, 是 Treap 类的数据成员.)\n */\nvoid insert( const Comparable & x, TreapNode* & t )\n{\n    if( t == nullNode )\n        t = new TreapNode{ x, nullNode, nullNode, randomNums.nextInt( ) };\n    else if( x < t->element )\n    {\n        insert( x, t->left );\n        if( t->left->priority < t->priority )\n            rotateWithLeftChild( t );\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.376,
+                0.911,
+                0.612,
+                0.928
+              ],
+              "content": "图 12.19 treap 树:插入例程"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 468,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.356,
+            0.042,
+            0.663,
+            0.06
+          ],
+          "content": "第 12 章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.875,
+            0.047,
+            0.913,
+            0.062
+          ],
+          "content": "455"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.171,
+            0.071,
+            0.606,
+            0.219
+          ],
+          "sub_type": "code",
+          "content": "```txt\n}\n    else if( t->element < x )\n    {\n        insert( x, t->right );\n        if( t->right->priority < t->priority )\n            rotateRightChild( t );\n    }\n    // 否则是重复元，什么也不做\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.37,
+                0.228,
+                0.643,
+                0.244
+              ],
+              "content": "图 12.19(续) treap 树:插入例程"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.241,
+            0.262,
+            0.763,
+            0.793
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n/**\n * 从子树进行删除的内部方法.\n * x 是要被删除的项.\n * t 是该树的根节点.\n * 建立子树新的根.\n */\nvoid remove( const Comparable & x, TreapNode * & t )\n{\n    if( t != nullNode )\n    {\n        if( x < t->element )\n            remove( x, t->left );\n        else if( t->element < x )\n            remove( x, t->right );\n        else\n        {\n            // 找到匹配\n            if( t->left->priority < t->right->priority )\n                rotateWithLeftChild( t );\n            else\n                rotateWithRightChild( t );\n\n            if( t != nullNode )      // 继续下行\n                remove( x, t );\n            else\n            {\n                delete t->left;\n                t->left = nullNode;  // 在叶节点上\n            }\n        }\n    }\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.382,
+                0.802,
+                0.62,
+                0.819
+              ],
+              "content": "图 12.20 treap 树:删除过程"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.834,
+            0.926,
+            0.898
+          ],
+          "content": "treap 树的实现绝对不必担心调整 priority 数据成员。平衡树处理方法的困难之一是很难查出由于未能更新操作过程中的信息而导致的错误。从合理的插入和删除包的全部程序行来看，treap 树，特别是非递归的实现，似乎才是不费力的赢家。"
+        }
+      ]
+    },
+    {
+      "page_idx": 469,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.09,
+            0.048,
+            0.127,
+            0.061
+          ],
+          "content": "456"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.275,
+            0.043,
+            0.709,
+            0.059
+          ],
+          "content": "数据结构与算法分析——C++语言描述(第四版)"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.071,
+            0.093,
+            0.379,
+            0.117
+          ],
+          "level": 2,
+          "content": "12.4 后缀数组和后缀树"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.068,
+            0.141,
+            0.918,
+            0.182
+          ],
+          "content": "数据处理中最基本的问题之一是找出模式(pattern) $P$ 在文本 $T$ 中的位置。例如，我们可能对回答下述这样一些问题有兴趣:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.107,
+            0.194,
+            0.429,
+            0.255
+          ],
+          "sub_type": "text",
+          "content": "- 是否存在 $T$ 的子串与 $P$ 匹配？\n- 模式 $P$ 在 $T$ 中出现多少次？\n- 在 $T$ 中 $P$ 全都出现在哪些地方？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.067,
+            0.267,
+            0.919,
+            0.331
+          ],
+          "content": "设 $P$ 的大小小于(并且通常要显著地小于) $T$, 此时, 我们有理由期望, 对于所给定的 $P$ 和 $T$, 求解该类问题所用的时间至少是 $T$ 的长度的线性量, 而事实上也确实存在若干 $O(|T|)$ 的算法。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.066,
+            0.333,
+            0.918,
+            0.441
+          ],
+          "content": "然而，我们的兴趣是在更常见的问题上，其中，T 是固定的，而对于不同的 P 的查询是经常发生的。例如，T 可能是 email 信息的巨型文档，我们的兴趣是要反复搜索不同模式的 email 信息。在这种情况下，我们愿意把 T 预处理成理想的形式，使得每一次的搜索更加高效，花费的时间显著小于 T 大小的线性量——或者是 T 大小的对数，或者甚至更好，与 T 无关而只依赖于 P 的长度。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.067,
+            0.444,
+            0.917,
+            0.485
+          ],
+          "content": "这样一种数据结构就是后缀数组 (suffix array) 和后缀树 (suffix tree) (听起来像是两种数据结构，不过我们将会看到，它们基本上是等价的，并且可以进行时空交换)。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.069,
+            0.497,
+            0.256,
+            0.518
+          ],
+          "level": 2,
+          "content": "12.4.1 后缀数组"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.067,
+            0.532,
+            0.914,
+            0.574
+          ],
+          "content": "文本 $T$ 的后缀数组就是 $T$ 的依序排列的所有后缀的数组。例如，假设我们的文本(字符)串是banana，则banana的后缀数组如图12.21所示。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.576,
+            0.918,
+            0.729
+          ],
+          "content": "后缀数组显式地存储这些后缀，看似需要二次的空间，因为它存储着从1到 $N$ 每个长度的字符串(其中 $N$ 是 $T$ 的长度)。但在 $\\mathrm{C}++$ 中这么说并不完全准确，因为在 $\\mathrm{C}++$ 中，我们可以使用以null作为字符串结束符的原始的字符数组表示方法，在这种情况下，后缀由指向子(字符)串第一个字符的char\\*指针指定。于是，相同的字符数组是共享的，而附加的内存需求只是新子串的一个char\\*指针。不过，char\\*的使用是与C和 $\\mathrm{C}++$ 高度相关的。这样，在具体实现时通常只存储后缀数组中各个后缀的起始下标，从而紧密依赖于语言。图12.22所示为需要存储的下标。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.186,
+            0.739,
+            0.303,
+            0.854
+          ],
+          "sub_type": "text_image",
+          "content": "0\na\n1\nana\n2\nanana\n3\nbanana\n4\nna\n5\nnana",
+          "captions": [
+            {
+              "bbox": [
+                0.099,
+                0.861,
+                0.353,
+                0.878
+              ],
+              "content": "图 12.21 “banana” 的各个后缀"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_469_image_14.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.561,
+            0.722,
+            0.756,
+            0.854
+          ],
+          "sub_type": "text_image",
+          "content": "下标\n所表示的子串\n0 5 a\n1 3 ana\n2 1 anana\n3 0 banana\n4 4 na\n5 2 nana",
+          "captions": [
+            {
+              "bbox": [
+                0.413,
+                0.862,
+                0.892,
+                0.879
+              ],
+              "content": "图12.22 只存储下标的后缀数组(显示全部子串以便于参考)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_469_image_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.891,
+            0.917,
+            0.933
+          ],
+          "content": "后缀数组本身功能极为强大。例如，如果模式 $P$ 在文本中出现，那么，它必然是某个后缀的一个前缀。对这个后缀数组的折半查找足以确定模式 $P$ 是否存在于文本中:折半查找或"
+        }
+      ]
+    },
+    {
+      "page_idx": 470,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.346,
+            0.041,
+            0.656,
+            0.059
+          ],
+          "content": "第 12 章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.865,
+            0.046,
+            0.903,
+            0.06
+          ],
+          "content": "457"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.074,
+            0.926,
+            0.137
+          ],
+          "continues_prev": true,
+          "content": "者落在 $P$ 上, 或者 $P$ 在两个值之间, 其中一个小于 $P$, 而另一个大于 $P$ 。如果 $P$ 是某个子串的一个前缀, 那么它就是折半查找终止时发现的较大值的一个前缀。这立刻将查询时间缩减到 $O(|P|\\log|T|)$, 其中, $\\log|T|$ 是折半查找的开销, 而 $|P|$ 是在每一步比较的开销。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.14,
+            0.926,
+            0.248
+          ],
+          "content": "我们也可以使用后缀数组来找出 $P$ 出现的次数:这些 $P$ 将被顺序地存储在后缀数组中，这样，两次折半查找足以找出这些后缀的范围，它们将保证都是从 $P$ 开始的后缀。加速这种查找的一种方法是计算每对相邻子串的最长公共前缀(longest common prefix, LCP)。如果这种计算在后缀数组建立时完成，那么寻找 $P$ 出现次数的每次查询都能够被加速到 $O(|P| + \\log |T|)$，不过这个结果不是那么明显。图12.23显示对每个子串相对于前面子串所算出的LCP。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.251,
+            0.564,
+            0.335
+          ],
+          "content": "最长公共前缀还提供了关于文本中出现两次的最长模式的信息:查找最大的 LCP 值，并提取对应子串该值这么多的字符。在图 12.23 中，这个值是 3，而最长的重复模式为 ana。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.339,
+            0.564,
+            0.423
+          ],
+          "content": "图 12.24 显示出对任意字符串计算后缀数组和最长公共前缀信息的简单代码。第 26 行从 str 得到一个原始(char\\*)串，第 28～31 行利用指针运算(第 31 行)通过计算并存储这些指针而得到各个后缀。第 33"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.599,
+            0.254,
+            0.906,
+            0.387
+          ],
+          "sub_type": "text_image",
+          "content": "下标\nLCP\n所表示的子串\n0 5\n- a\n1 3\n1 1\nana\n2 1\n3 3\nanana\n3 0\n0 banana\n4 4\n0 na\n5 2\n2 nana",
+          "captions": [
+            {
+              "bbox": [
+                0.604,
+                0.395,
+                0.887,
+                0.412
+              ],
+              "content": "图 12.23 关于 “banana” 的后缀数"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_470_image_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.069,
+            0.427,
+            0.923,
+            0.513
+          ],
+          "content": "行和第 34 行将后缀排序；第 34 行上的代码代表 C++11 的 lambda 特性 (lambda feature)，其中，两个 char\\* 类型所需要的“小于”函数作为 sort 的第 3 个参数被传递过来，此时不需要编写一个命名的函数。第 36 行和第 37 行使用指针运算计算后缀的起始下标，而第 39～41 行通过调用第 4～12 行所编写的 computeLCP 例程计算相邻项的最长公共前缀。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.139,
+            0.519,
+            0.851,
+            0.9
+          ],
+          "sub_type": "code",
+          "content": "```c\n/*\n * 返回任意两个字符串的 LCP\n */\nint computeLCP( const string & s1, const string & s2 )\n{\n    int i = 0;\n\n    while( i < s1.length( ) && i < s2.length( ) && s1[ i ] == s2[ i ] )\n        ++i;\n\n    return i;\n}\n\n/*\n * 填入String str的后缀数组和LCP信息\n * str 为输入的 String 类的对象\n * SA 是一个已存在的数组，将放置后缀数组\n * LCP 是一个已存在的将要放置LCP信息的数组\n */\nvoid createSuffixArraySlow( const string & str, vector<int> & SA, vector<int> & LCP )\n{\n    if( SA.size( ) != str.length( ) || LCP.size( ) != str.length( ) )\n        throw invalid_argument{ \"Mismatched vector sizes\" };\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.301,
+                0.909,
+                0.684,
+                0.925
+              ],
+              "content": "图 12.24 创建后缀数组和 LCP 数组的简单算法"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 471,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.104,
+            0.047,
+            0.141,
+            0.061
+          ],
+          "content": "458"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.289,
+            0.042,
+            0.724,
+            0.059
+          ],
+          "content": "数据结构与算法分析——C++语言描述(第四版)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.148,
+            0.072,
+            0.816,
+            0.384
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nsize_t N = str.length( );\nconst char *cstr = str.c_str( );\n\nvector<const char *> suffixes( N );\n\nfor( int i = 0; i < N; ++i )\n    suffixes[ i ] = cstr + i;\n\nstd::sort( begin( suffixes ), end( suffixes ),\n    [] ( const char *s1, const char *s2 ) { return strcmp( s1, s2 ) < 0; } );\n\nfor( int i = 0; i < N; ++i )\n    SA[ i ] = suffixes[ i ] - cstr;\n\nLCP[ 0 ] = 0;\nfor( int i = 1; i < N; ++i )\n    LCP[ i ] = computeLCP( suffixes[ i - 1 ], suffixes[ i ] );\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.293,
+                0.395,
+                0.713,
+                0.412
+              ],
+              "content": "图 12.24(续) 创建后缀数组和 LCP 数组的简单算法"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.074,
+            0.429,
+            0.93,
+            0.669
+          ],
+          "content": "计算后缀数组的运行时间受排序操作控制，后者用到 $O(\\mathrm{M}\\log N)$ 次比较。在许多场合这个性能都是可以接受的。例如，一本3000000字符的英语小说的一个后缀数组用几秒就可以建成。然而，这个基于比较次数的 $O(\\mathrm{M}\\log N)$ 的开销隐藏了如下的事实:在s1和s2之间的一次String类的比较花费的时间依赖于LCP(s1,s2)。因此，虽然当对自然语言处理中所发现的后缀运行时，几乎所有这些比较结束都很快，但是，在存在许多长的公共子串的应用中这些比较还是代价高昂的。如在DNA的模式搜索中就有这样的一个例子出现，其字母表由4个字符(A,C,G,T)组成，但它们的字符串可以非常巨大。例如，人的染色体22的DNA字符串大致有3500万个字符，其最大LCP大约为200000而平均LCP差不多为2000。甚至JDK1.3的HTML/Java分布(比当前的分布小得多)几乎达到7000万个字符，其LCP的最大值大致为37000，而平均LCP约为14000。在只包含一个字符但重复 $N$ 次的String类对象的退化情形，容易看到，每次比较花费 $O(N)$ 时间，而总的开销为 $O(N^{2}\\log N)$ 。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.116,
+            0.672,
+            0.678,
+            0.69
+          ],
+          "content": "在 12.4.3 节，我们将讨论构建后缀数组的一个线性时间算法。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.076,
+            0.706,
+            0.242,
+            0.725
+          ],
+          "level": 2,
+          "content": "12.4.2 后缀树"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.744,
+            0.927,
+            0.806
+          ],
+          "content": "后缀数组通过折半查找可以很容易搜索，但是，折半查找本身就意味着 $\\log T$ 的开销。我们想要做的是更有效地找出匹配的后缀。一个想法是把后缀都存储到一棵 trie 树中。二叉 trie 树 (trie tree) 见于本书 10.1.2 节关于哈夫曼代码的讨论。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.81,
+            0.926,
+            0.894
+          ],
+          "content": "trie 树的基本想法是将后缀都存储到一棵树中。在根处，对于每个可能的首字符，我们不是让它有两个分支，而是让它有一个分支。然后在下一层上，对于下一个字符还是有一个分支，如此等等。在每一层上我们都做出多路分支，很像是基数排序(radix sort)，这样，我们可以以只依赖于匹配长度的时间找到一个匹配。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.114,
+            0.898,
+            0.924,
+            0.917
+          ],
+          "content": "在图 12.25 中, 我们在左边看到存储字符串 deed 的后缀的一棵基本 trie 树。这些后缀是 d、"
+        }
+      ]
+    },
+    {
+      "page_idx": 472,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.346,
+            0.038,
+            0.653,
+            0.055
+          ],
+          "content": "第 12 章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.864,
+            0.043,
+            0.901,
+            0.056
+          ],
+          "content": "459"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.072,
+            0.07,
+            0.923,
+            0.111
+          ],
+          "continues_prev": true,
+          "content": "deed、ed 和 eed，其中，内部分支节点画成圆圈，而达到的后缀被画入矩形。每个分支用所选择的字符标示，但在建成的后缀前面的分支无任何标示。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.242,
+            0.119,
+            0.752,
+            0.315
+          ],
+          "sub_type": "flowchart",
+          "content": "This diagram illustrates a transformation process where an initial state with multiple nodes (d, e, ed) is transformed into a final state with three nodes (deed, deed, eed), showing the flow of data from these nodes to the final output.",
+          "captions": [
+            {
+              "bbox": [
+                0.097,
+                0.322,
+                0.896,
+                0.339
+              ],
+              "content": "图12.25 左:deed后缀的trie树表示:{d，deed，ed，eed}；右:压缩trie树，它将单节点分支叠缩"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_472_image_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.352,
+            0.922,
+            0.504
+          ],
+          "content": "如果存在许多只有一个子节点的节点，那么这种表示方法可能会明显地浪费空间。于是，在图 12.25 中我们看到右边一个等价的表示结果，叫作压缩 trie 树 (compressed trie)。这里，单分支节点叠缩成一个节点。注意，虽然现在这些分支有了多字符的标示，但是任何给定节点其各分支上所有的标示都必然有唯一的首字符。于是，选择采用哪个分支还是和以前一样容易。这样，我们可以看到，模式 P 的查找只依赖模式 P 的长度，这正是我们所希望的。（我们假设，字母表的字母都用数字 1, 2, …表示。此时，每个节点存储一个数组，表示每个可能的分支，而且我们能够以常数时间确定合适的分支。空边的标示可以用 0 来表示。）"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.507,
+            0.922,
+            0.615
+          ],
+          "content": "如果原始字符串长度为 $N$，则总的分支数小于 $2N$。然而，这本身并不意味着压缩的 trie 树使用线性的空间量:树的边上的标示也要占用空间。在图 12.25 所示压缩 trie 树上的所有标示的总长度恰好比图 12.25 中的原始 trie 树内部节点个数少 1。当然，将所有的后缀记在树叶上可能占用二次空间。因此，如果原 trie 树使用二次空间，那么压缩 trie 树也使用二次空间。所幸的是，我们可以使用线性的空间量简化 trie 树的表示，做法如下:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.108,
+            0.627,
+            0.917,
+            0.688
+          ],
+          "sub_type": "text",
+          "content": "1. 在叶节点上，使用后缀开始处的下标(就像后缀数组中那样)。\n2. 在内部节点上，存储从根直到该内部节点所匹配的公共字符数。这个数字代表字母深度(letter depth)。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.701,
+            0.918,
+            0.742
+          ],
+          "content": "图 12.26 显示如何存储 banana 后缀的压缩 trie 树。树叶就是每个后缀起始点的下标。字母深度为 1 的内部节点表示其下方所有节点的共同的串 “a”。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.179,
+            0.749,
+            0.808,
+            0.873
+          ],
+          "sub_type": "flowchart",
+          "content": "This image displays a hierarchical tree structure comparing two different data processing or model configurations, showing how nodes are merged into intermediate nodes before branching into specific sub-classes.",
+          "captions": [
+            {
+              "bbox": [
+                0.154,
+                0.879,
+                0.838,
+                0.916
+              ],
+              "content": "图 12.26 表示 banana 后缀 {a, ana, anana, banana, na, nana} 的压缩 trie 树。左:显式表示；右:隐式表示，对每个节点它只存储一个整数 (外加节点的分支)"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_472_image_11.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 473,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.098,
+            0.043,
+            0.136,
+            0.057
+          ],
+          "content": "460"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.283,
+            0.039,
+            0.718,
+            0.055
+          ],
+          "content": "数据结构与算法分析——C++语言描述(第四版)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.071,
+            0.926,
+            0.134
+          ],
+          "content": "字母深度为 3 的内部节点表示其下方所有节点的共同的串 “ana”。而字母深度为 2 的内部节点表示其下方所有节点的共同的串 “na”。实际上，这个分析明确了后缀树等价于后缀数组再加上一个 LCP 数组。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.075,
+            0.137,
+            0.926,
+            0.244
+          ],
+          "content": "如果我们有一棵后缀树，那么就可以通过执行对树的一次中序遍历而计算出后缀数组和LCP数组(将图12.23和图12.26中的后缀树进行比较)。这时可以计算LCP如下:如果后缀节点的值加上其父节点的字母深度等于 $N$ ，那么使用其祖父节点的字母深度作为LCP；否则使用其父节点的字母深度作为LCP。在图12.26中，如果进行中序遍历，那么就得到我们的后缀和LCP的值"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.259,
+            0.727,
+            0.277
+          ],
+          "content": "后缀=5，相应 LCP=0（祖父节点的字母深度），因为  $5+1$  等于 6"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.282,
+            0.725,
+            0.298
+          ],
+          "content": "后缀=3，相应 LCP=1(祖父节点的字母深度)，因为  $3+3$  等于 6"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.304,
+            0.725,
+            0.32
+          ],
+          "content": "后缀=1，相应 LCP=3（父节点的字母深度），因为  $1+3$  不等于 6"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.326,
+            0.729,
+            0.342
+          ],
+          "content": "后缀=0，相应 LCP=0（父节点的字母深度），因为  $0+0$  不等于 6"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.347,
+            0.725,
+            0.364
+          ],
+          "content": "后缀=4，相应 LCP=0(祖父节点的字母深度)，因为  $4+2$  等于 6"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.37,
+            0.725,
+            0.386
+          ],
+          "content": "后缀=2，相应 LCP=2（父节点的字母深度），因为  $2+2$  不等于 6"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.074,
+            0.402,
+            0.401,
+            0.42
+          ],
+          "content": "这个变换显然可以以线性时间完成。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.424,
+            0.923,
+            0.575
+          ],
+          "content": "后缀数组和 LCP 数组也唯一确定了后缀树。首先，用字母深度 0 建立一个根节点。然后，搜索 LCP 数组（忽略位置 0, LCP 对它并无定义）找出发现的所有最小值（在这个阶段它们将是些 0）。一旦这些最小值被找到，则数组将被它们分割（把 LCP 看作位于相邻元素之间）。例如，在我们的例子里，LCP 中存在两个 0，这两个 0 把后缀数组分成 3 部分:一部分包含后缀  $\\{5, 3, 1\\}$ ，另一部分包含后缀  $\\{0\\}$ ，而第 3 部分包含后缀  $\\{4, 2\\}$ 。这 3 部分的内部节点可以递归地建立，然后，后缀叶节点可以通过一次中序遍历都被附接到树上。虽然并不明显，但仔细观察还是能够看出，后缀树可以以线性时间由后缀数组和 LCP 数组生成。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.579,
+            0.921,
+            0.62
+          ],
+          "content": "后缀树能够有效地解决许多的问题。特别是当我们增强每个内部节点，让它们也保留存储在其下方后缀的个数的情况。兹列举后缀树一小部分应用如下:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.109,
+            0.631,
+            0.922,
+            0.893
+          ],
+          "sub_type": "text",
+          "content": "1. 找出 T 中最长重复子串:遍历该树，找出具有最大字母深度的内部节点，它表示最大的 LCP。运行时间为  $O(|T|)$ 。这可以推广到至少重复 k 次的最长子串。\n2. 在两个字符串 $T_{1}$ 和 $T_{2}$ 中找出最长公共子串: 构建一个字符串 $T_{1} \\# T_{2}$, 其中 $\\#$ 为在这两个字符串中都没有的一个字符。然后, 建立这个新字符串的后缀树, 并找出这样的最深的内部节点: 它至少有一个后缀是在 $\\#$ 前开始, 一个后缀在 $\\#$ 后开始。这可以以正比于这两个字符串总长度的时间完成, 并可推广到总长为 $N$ 的 $k$ 个字符串的 $O(kN)$ 算法。\n3. 找出模式 P 的出现次数:设后缀树强化到让每个节点都记录其下方的后缀的个数，直接沿着树向下的路径行进，作为 P 的前缀的第一个内部节点则给出问题的答案；如果不存在这样的节点，那么答案不是 0 就是 1，并通过检测搜索终止处的后缀来确定。所花费的时间正比于模式 P 的长度，而与  $|T|$  的大小无关。\n4. 找出指定公共长度 L>1 的最长子串:返回字母深度至少为 L 的那些节点中具有最大大小的内部节点。这要花费  $O(T)$  时间。"
+        }
+      ]
+    },
+    {
+      "page_idx": 474,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.356,
+            0.041,
+            0.663,
+            0.058
+          ],
+          "content": "第 12 章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.875,
+            0.046,
+            0.912,
+            0.06
+          ],
+          "content": "461"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.086,
+            0.082,
+            0.539,
+            0.102
+          ],
+          "level": 2,
+          "content": "12.4.3 后缀数组和后缀树的线性时间构建"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.084,
+            0.117,
+            0.934,
+            0.246
+          ],
+          "content": "我们在 12.4.1 节讨论了构建后缀数组和 LCP 数组的最简单的算法，但是，这个算法对 N 个字符的字符串最坏情形运行时间为  $O(N^{2}\\log N)$ ，并且可能发生在字符串的一些后缀具有长的公共前缀的情况。本小节描述一个计算后缀数组的  $O(N)$  最坏情形时间的算法，这个算法还可以强化到以线性时间计算 LCP 数组，不过，还有一个从后缀数组来计算 LCP 数组的非常简单的线性时间算法（见练习 12.9，并完成图 12.49 中的程序）。不管使用哪种方法，我们都可以以线性时间建立后缀树。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.125,
+            0.25,
+            0.535,
+            0.268
+          ],
+          "content": "这个算法利用到分治策略，其基本想法如下:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.121,
+            0.281,
+            0.695,
+            0.363
+          ],
+          "sub_type": "text",
+          "content": "1. 从后缀中选出一个样本 A。\n2. 通过递归将样本 A 排序。\n3. 通过使用此时已排序的后缀样本 A，将其余的后缀 B 排序。\n4. 合并 A 与 B。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.081,
+            0.376,
+            0.932,
+            0.616
+          ],
+          "content": "为了获得直觉, 理解第 3 步可能是怎样进行的, 假设后缀的样本 A 是所有在奇数下标开始的后缀。此时, 其余的后缀 B 则是那些以偶数下标开始的后缀。假设我们已经计算完后缀 A 的排序的集合。为了计算后缀 B 的排序集合, 我们实际上需要将所有从偶数下标开始的后缀排序。但是, 这些后缀每个都由在偶数位置上的单个首字符, 以及后接从第 2 个字符 (从而必然是一个奇数位置) 开始的字符串组成。这样, 从第 2 个字符开始的字符串恰好是 A 中的字符串。因此, 要想将所有的后缀 B 排序, 我们可以做类似于基数排序 (radix sort) 的某些工作: 首先将 B 中从第 2 个字符开始的那些字符串排序。这应该花费线性时间, 因为 A 的排序顺序已经知道。然后, 再平稳地按照 B 中字符串的首字符排序。这样, 在 A 被递归地排序以后, B 可以以线性时间排序。如果 A 和 B 此时能够以线性时间合并, 那么我们就得到一个线性时间算法。我们要展示的这个算法用到的取样步骤稍有不同, 它能够以简单的线性时间进行合并。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.619,
+            0.931,
+            0.66
+          ],
+          "content": "在描述这个算法的时候，我们还将演示该算法如何计算字符串 ABRACADABRA 的后缀数组。后面采用如下约定:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.119,
+            0.672,
+            0.521,
+            0.735
+          ],
+          "content": "\\begin{array}{l} S [ i ] \\quad \\text {表示字符串} S \\text {的第} i \\text {个字符} \\\\ S | i \\rightarrow | \\quad \\text {表示} S \\text {的从下标} i \\text {开始的后缀} \\\\ <   > \\quad \\text {表示一个数组} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0449-0480/images/page_474_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.747,
+            0.929,
+            0.832
+          ],
+          "content": "第 1 步:将原字符串中的字符排序，从 1 开始顺序地给这些字符分配数字。此后，对算法的其余部分使用这些数字。注意，所分配的数字是依赖于文本的。因此，如果文本只包含 DNA 字符 A、C、G 和 T，那么只有 4 个数字。此时，用三个 0 填充数组以避免出界的情形。若假设字母表有固定大小，则排序花费某个常数的时间量。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.122,
+            0.845,
+            0.153,
+            0.861
+          ],
+          "content": "例:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.866,
+            0.926,
+            0.906
+          ],
+          "content": "在我们的例子中，上述映射为 A=1，B=2，C=3，D=4，而 R=5，该变换可在图 12.27 中直观地看到。"
+        }
+      ]
+    },
+    {
+      "page_idx": 475,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.088,
+            0.042,
+            0.124,
+            0.055
+          ],
+          "content": "462"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.273,
+            0.037,
+            0.705,
+            0.053
+          ],
+          "content": "数据结构与算法分析——C++语言描述(第四版)"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.093,
+            0.065,
+            0.889,
+            0.125
+          ],
+          "content": "| 输入的字符串S | A | B | R | A | C | A | D | A | B | R | A |  |  |  |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| 新的问题 | 1 | 2 | 5 | 1 | 3 | 1 | 4 | 1 | 2 | 5 | 1 | 0 | 0 | 0 |\n| 下标 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 |",
+          "captions": [
+            {
+              "bbox": [
+                0.321,
+                0.133,
+                0.659,
+                0.149
+              ],
+              "content": "图 12.27 字符串中字符到整数数组的映射"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_475_table_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.164,
+            0.349,
+            0.181
+          ],
+          "content": "第 2 步:把文本分成 3 组:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.257,
+            0.19,
+            0.72,
+            0.261
+          ],
+          "content": "\\begin{array}{l} S _ {0} = <   S [ 3 i ] S [ 3 i + 1 ] S [ 3 i + 2 ], \\quad i = 0, 1, 2, \\dots > \\\\ S _ {1} = <   S [ 3 i + 1 ] S [ 3 i + 2 ] S [ 3 i + 3 ], \\quad i = 0, 1, 2, \\dots > \\\\ S _ {2} = <   S [ 3 i + 2 ] S [ 3 i + 3 ] S [ 3 i + 4 ], \\quad i = 0, 1, 2, \\dots > \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0449-0480/images/page_475_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.062,
+            0.267,
+            0.915,
+            0.419
+          ],
+          "content": "其想法是， $S_{0}$ 、 $S_{1}$ 、 $S_{2}$ 中的每一个都大约包含N/3个符号，但是，这些符号不再属于原来的字母表，而是每个新符号均为从原始字母表中得到的某3个符号构成。我们把它们叫作三元字符(tri-characters)。最重要的是，我们要把 $S_{0}$ 、 $S_{1}$ 、 $S_{2}$ 的这些后缀联合以形成S的后缀。于是，一个想法是递归地计算 $S_{0}$ 、 $S_{1}$ 、 $S_{2}$ 的后缀(根据定义，它们隐式地表示排序后的那些字符串)，然后以线性时间将计算结果合并。可是，由于这是对1/3原始大小的问题的3次递归调用，这样会导致 $O(M\\log N)$ 的算法。因此，我们的想法是要避免3次递归调用中的1次调用，做法是递归地计算这三组后缀中的两组，并利用这两组的信息再计算第3个后缀组。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.431,
+            0.136,
+            0.448
+          ],
+          "content": "例:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.453,
+            0.685,
+            0.471
+          ],
+          "content": "本例中，如果查看原始字符集，并用\\$表示填充的字符，则得到"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.341,
+            0.481,
+            0.647,
+            0.553
+          ],
+          "content": "\\begin{array}{l} S _ {0} = [ \\mathrm{ABR} ], [ \\mathrm{ACA} ], [ \\mathrm{DAB} ], [ \\mathrm{RA} \\mathbb {S} ] \\\\ S _ {1} = [ \\text {BRA} ], [ \\text {CAD} ], [ \\text {ABR} ], [ \\mathrm{A} \\\\ S _ {2} = [ \\mathrm{RAC} ], [ \\mathrm{ADA} ], [ \\mathrm{BRA} ] \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0449-0480/images/page_475_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.06,
+            0.558,
+            0.915,
+            0.688
+          ],
+          "content": "可以看出，在 $S_0$、$S_1$、$S_2$ 中，每个三元字符都是原始字母表中字符的三元组。使用这个新的字母表，$S_0$ 和 $S_1$ 都是长度为 4 的数组，而 $S_2$ 是一个长度为 3 的数组。于是，$S_0$、$S_1$ 和 $S_2$ 分别有 4 个、4 个和 3 个后缀。$S_0$ 的后缀是 [ABR][ACA][DAB][RA\\$]、[ACA][DAB][RA\\$]、[DAB][RA\\$]、[RA\\$]，显然它们对应原始字符串 $S$ 中的后缀 ABRACADABRA、ACADABRA、DABRA 和 RA。在原始字符串 $S$ 中，这些后缀分别位于下标 0, 3, 6, 9 处，于是，观察所有 3 个 $S_0$、$S_1$ 和 $S_2$，我们可以看到，每个 $S_i$ 代表那些位于 $S$ 中下标 $i \\bmod 3$ 处的后缀。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.06,
+            0.699,
+            0.912,
+            0.807
+          ],
+          "content": "第3步:把 $S_{1}$ 和 $S_{2}$ 连接起来并递归地计算后缀数组。为了计算这个后缀数组，我们将需要把三元字符的新字母表排序。这可以通过三趟基数排序以线性时间完成，因为那些老字符都在第1步排过序了。如果新字母表中的所有三元字符都是唯一的，那么我们甚至不需要考虑递归调用。进行三趟基数排序需要花费线性时间。若 $T(N)$ 为后缀数组构建算法的运行时间，则递归调用花费 $T(2N / 3)$ 的时间。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.819,
+            0.133,
+            0.835
+          ],
+          "content": "例:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.84,
+            0.259,
+            0.857
+          ],
+          "content": "在我们的例子中，"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.223,
+            0.868,
+            0.745,
+            0.887
+          ],
+          "content": "S _ {1} S _ {2} = [ \\text {BRA} ], [ \\text {CAD} ], [ \\text {ABR} ], [ \\mathrm{A} \\$\\$ ], [ \\text {RAC} ], [ \\text {ADA} ], [ \\text {BRA} ]",
+          "image_source": "../../raw/pages_0449-0480/images/page_475_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.06,
+            0.892,
+            0.736,
+            0.91
+          ],
+          "content": "将被递归算出的那些排序后的后缀代表一些三元字符串，如图 12.28 所示。"
+        }
+      ]
+    },
+    {
+      "page_idx": 476,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.337,
+            0.041,
+            0.646,
+            0.059
+          ],
+          "content": "第 12 章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.858,
+            0.046,
+            0.896,
+            0.06
+          ],
+          "content": "463"
+        },
+        {
+          "type": "aside_text",
+          "bbox": [
+            0.268,
+            0.094,
+            0.284,
+            0.216
+          ],
+          "content": "0\n1\n2\n3\n4\n5\n6"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.3,
+            0.07,
+            0.735,
+            0.221
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"下标\"] --> B[\"所代表的子串\"]\n  C[\"3\"] --> D[\"[A$$] [RAC] [ADA] [BRA]\"]\n  E[\"2\"] --> F[\"[ABR] [A$$] [RAC] [ADA] [BRA]\"]\n  G[\"5\"] --> H[\"[ADA] [BRA]\"]\n  I[\"6\"] --> J[\"[BRA]\"]\n  K[\"0\"] --> L[\"[BRA] [CAD] [ABR] [A$$] [RAC] [ADA] [BRA]\"]\n  M[\"1\"] --> N[\"[CAD] [ABR] [A$$] [RAC] [ADA] [BRA]\"]\n  O[\"4\"] --> P[\"[RAC] [ADA] [BRA]\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.309,
+                0.232,
+                0.67,
+                0.248
+              ],
+              "content": "图12.28 $S_{1}S_{2}$ 以三元字符集表示的后缀数组"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_476_image_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.061,
+            0.267,
+            0.922,
+            0.397
+          ],
+          "content": "注意,这些字符串不完全与 $S$ 中对应的那些后缀相同;可是,要是去除那些在第一个\\$处开始的字符,则我们确实得到与原始后缀匹配的后缀。还要注意,递归调用所返回的下标并不直接对应 $S$ 中的下标,不过把它们映射回去也很简单。因此,为了看出算法如何具体形成递归调用,我们细心观察,三趟基数排序将对字母表进行下述赋值:$[A\\$\\$] = 1, [ABR] = 2, [ADA] = 3, [BRA] = 4, [CAD] = 5, [RAC] = 6$。图 12.29 显示三元字符的映射,由 $S_1$、$S_2$ 形成的数组,以及递归计算得到的后缀数组。"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.068,
+            0.406,
+            0.911,
+            0.484
+          ],
+          "content": "| S1S2 | [BRA] | [CAD] | [ABR] | [A$$] | [RAC] | [ADA] | [BRA] |  |  |  |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| 整数 | 4 | 5 | 2 | 1 | 6 | 3 | 4 | 0 | 0 | 0 |\n| SA[S1S2] | 3 | 2 | 5 | 6 | 0 | 1 | 4 | 0 | 0 | 0 |\n| 下标 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |",
+          "captions": [
+            {
+              "bbox": [
+                0.163,
+                0.495,
+                0.812,
+                0.512
+              ],
+              "content": "图 12.29 三元字符的映射，由  $S_{1}$ 、 $S_{2}$  形成的数组，以及递归计算得到的后缀数组"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_476_table_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.53,
+            0.18,
+            0.547
+          ],
+          "content": "第4步:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.552,
+            0.514,
+            0.57
+          ],
+          "content": "计算 $S_{0}$ 的后缀数组。这做起来很容易，因为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.416,
+            0.578,
+            0.66,
+            0.677
+          ],
+          "content": "\\begin{array}{l} S _ {0} [ i \\rightarrow ] = S [ 3 i \\rightarrow ] \\\\ = S [ 3 i ] S [ 3 i + 1 \\rightarrow ] \\\\ = S [ 3 i ] S _ {1} [ i \\rightarrow ] \\\\ = S _ {0} [ i ] S _ {1} [ i \\rightarrow ] \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0449-0480/images/page_476_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.06,
+            0.683,
+            0.913,
+            0.725
+          ],
+          "content": "由于递归调用已经将所有的 $S_{1}[i\\rightarrow ]$ 排了序，因此可以直接用两趟基数排序完成第4步:第1趟是对 $S_{1}[i\\to ]$ 进行，而第2趟则对 $S_0[i]$ 进行。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.737,
+            0.138,
+            0.754
+          ],
+          "content": "例:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.759,
+            0.263,
+            0.776
+          ],
+          "content": "在我们的例子中，"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.331,
+            0.789,
+            0.639,
+            0.808
+          ],
+          "content": "S _ {0} = [ \\mathrm{ABR} ], [ \\mathrm{ACA} ], [ \\mathrm{DAB} ], [ \\mathrm{RA}",
+          "image_source": "../../raw/pages_0449-0480/images/page_476_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.06,
+            0.815,
+            0.914,
+            0.9
+          ],
+          "content": "由第3步的递归调用，我们可以给 $S_{1}$ 和 $S_{2}$ 中的后缀排名次(rank)。图12.30显示原始字符串中的下标如何能够被递归算出的后缀数组引用，并显示图12.29中的后缀数组怎样解决 $S_{1} + S_{2}$ 中后缀的排名。倒数第2行上的各项容易从前面的两行得到。在最后一行上，第 $i$ 项由在标记为 $\\mathrm{SA}[S_1S_2]$ 的行上 $i$ 的位置给出。"
+        }
+      ]
+    },
+    {
+      "page_idx": 477,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.102,
+            0.044,
+            0.138,
+            0.057
+          ],
+          "content": "464"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.287,
+            0.038,
+            0.722,
+            0.055
+          ],
+          "content": "数据结构与算法分析——C++语言描述(第四版)"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.085,
+            0.066,
+            0.925,
+            0.169
+          ],
+          "content": "<table><tr><td></td><td colspan=\"4\"> $S_1$ </td><td colspan=\"3\"> $S_2$ </td></tr><tr><td></td><td>[BRA]</td><td>[CAD]</td><td>[ABR]</td><td>[A$$]</td><td>[RAC]</td><td>[ADA]</td><td>[BRA]</td></tr><tr><td>S中的下标</td><td>1</td><td>4</td><td>7</td><td>10</td><td>2</td><td>5</td><td>8</td></tr><tr><td>SA[ $S_1S_2$ ]</td><td>3</td><td>2</td><td>5</td><td>6</td><td>0</td><td>1</td><td>4</td></tr><tr><td>使用S的下标的SA</td><td>10</td><td>7</td><td>5</td><td>8</td><td>1</td><td>4</td><td>2</td></tr><tr><td>组中的排名</td><td>5</td><td>6</td><td>2</td><td>1</td><td>7</td><td>3</td><td>4</td></tr></table>",
+          "captions": [
+            {
+              "bbox": [
+                0.31,
+                0.178,
+                0.698,
+                0.194
+              ],
+              "content": "图12.30 基于图12.29所示后缀数组的后缀排名"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_477_table_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.208,
+            0.931,
+            0.273
+          ],
+          "content": "在 $S_{1}$ 中建立的排名可以直接用在 $S_{0}$ 的第1趟基数排序上。然后，对 $S$ 中单个字符的第2趟排序，使用前面的基数排序以处理字符匹配的情形。注意，如果 $S_{1}$ 的元素个数恰好与 $S_{0}$ 的元素个数相同，那么操作是很方便的。图12.31指出如何计算 $S_{0}$ 的后缀数组。"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.152,
+            0.282,
+            0.665,
+            0.417
+          ],
+          "content": "<table><tr><td></td><td colspan=\"4\"> $S_0$ </td></tr><tr><td></td><td>[ABR]</td><td>[ACA]</td><td>[DAB]</td><td>[RA$]</td></tr><tr><td>下标</td><td>0</td><td>3</td><td>6</td><td>9</td></tr><tr><td>第2个元素的下标</td><td>1</td><td>4</td><td>7</td><td>10</td></tr><tr><td>第1趟基数排序</td><td>5</td><td>6</td><td>2</td><td>1</td></tr><tr><td>第2趟基数排序</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td>组中名次</td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td>使用S的下标表示的SA</td><td>0</td><td>3</td><td>6</td><td>9</td></tr></table>",
+          "captions": [
+            {
+              "bbox": [
+                0.386,
+                0.426,
+                0.62,
+                0.442
+              ],
+              "content": "图12.31 计算 $S_0$ 的后缀数组"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_477_table_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.704,
+            0.33,
+            0.824,
+            0.344
+          ],
+          "content": "上一行各下标加1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.704,
+            0.348,
+            0.839,
+            0.362
+          ],
+          "content": "图12.30的最后一行"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.704,
+            0.366,
+            0.872,
+            0.38
+          ],
+          "content": "首字符的稳定的基数排序"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.704,
+            0.384,
+            0.842,
+            0.398
+          ],
+          "content": "使用前面一行的结果"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.704,
+            0.402,
+            0.842,
+            0.416
+          ],
+          "content": "使用前面一行的结果"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.456,
+            0.928,
+            0.497
+          ],
+          "content": "这时，我们现在有了 $S_0$ 的后缀数组，以及组合 $S_{1}$ 和 $S_{2}$ 的后缀数组。由于这是一个两趟的基数排序，因此这一步花费时间 $O(N)$ 。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.501,
+            0.916,
+            0.542
+          ],
+          "content": "第 5 步:使用合并两个排序的表的标准算法合并两个后缀数组。这里唯一的问题在于，我们必须能够以常数时间比较每一对后缀。存在如下两种情形。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.553,
+            0.927,
+            0.616
+          ],
+          "content": "情形1:将 $S_{0}$ 的一个元素与 $S_{1}$ 的一个元素进行比较:比较第1个字母；若它们不匹配，则比较完成；否则，将 $S_{0}$ 的其余元素(它们为 $S_{1}$ 的一个后缀)与 $S_{1}$ 的其余元素(它们为 $S_{2}$ 的一个后缀)进行比较；它们都已经被排序，因此比较完成。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.627,
+            0.929,
+            0.713
+          ],
+          "content": "情形 2: 将 $S_{0}$ 的一个元素与 $S_{2}$ 的一个元素进行比较: 最多比较前两个字母; 若仍然匹配, 则此时将 $S_{0}$ 的其余元素 (在跳过这两个字母后它们就成了 $S_{2}$ 的一个后缀) 与 $S_{2}$ 的其余元素 (在跳过两个字母后它们就成了 $S_{1}$ 的一个后缀) 进行比较; 如同情形 1, 这些后缀已经由 SA12 排序, 于是比较完成。"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.122,
+            0.773,
+            0.472,
+            0.833
+          ],
+          "content": "|  | A | A | D | R |\n| --- | --- | --- | --- | --- |\n| S0的SA | 0 | 3 | 6 | 9 |",
+          "captions": [
+            {
+              "bbox": [
+                0.119,
+                0.726,
+                0.151,
+                0.742
+              ],
+              "content": "例:"
+            },
+            {
+              "bbox": [
+                0.119,
+                0.748,
+                0.312,
+                0.765
+              ],
+              "content": "本例中，我们必须将"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_477_table_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.844,
+            0.142,
+            0.86
+          ],
+          "content": "与"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.122,
+            0.866,
+            0.61,
+            0.927
+          ],
+          "content": "|  | A | A | A | B | B | C | R |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| S1和S2的SA | 10 | 7 | 5 | 8 | 1 | 4 | 2 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_477_table_20.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 478,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.35,
+            0.039,
+            0.657,
+            0.057
+          ],
+          "content": "第 12 章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.869,
+            0.044,
+            0.907,
+            0.057
+          ],
+          "content": "465"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.075,
+            0.071,
+            0.932,
+            0.179
+          ],
+          "content": "合并。第 1 次比较是在下标 0 (一个 A) 与下标 10 (也是一个 A) 之间进行, 其中, 0 是一个 $S_{0}$ 元素, 而 10 是一个 $S_{1}$ 元素。由于它们均对应 A, 因此现在我们必须再比较下标 1 和下标 11。通常这已经被计算过了, 因为下标 1 在 $S_{1}$ 中, 而下标 11 在 $S_{2}$ 中。可是, 这里有些特殊, 因为下标 11 已经越过该字符串的终点。因此, 它总是以字典序代表较前的后缀, 从而最终的后缀数组中第 1 个元素是 10 。我们在第 2 组中向前推进, 推进结果如下。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.121,
+            0.185,
+            0.695,
+            0.375
+          ],
+          "sub_type": "text_image",
+          "content": "A\tA\tD\tR\nS₀的SA\t0\t3\t6\t9\n↑\nA\tA\tA\tB\tB\tC\tR\nS₁和S₂的SA\t10\t7\t5\t8\t1\t4\t2\n↑\n最后的SA\t10\t\t\t\t\t\t\t\t\t\t\t\t\t\t<nl>输入S\tA\tB\tR\tA\tC\tA\tD\tA\tB\tR\tA\n下标\t0\t1\t2\t3\t4\t5\t6\t7\t8\t9\t10",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_478_image_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.385,
+            0.926,
+            0.427
+          ],
+          "content": "两个首字符还是匹配，因此，我们比较下标 1 和下标 8，而这已经算过了，下标 8 对应的字符串更小。这意味着，现在 7 进入到最终的后缀数组，而我们继续向前推进第 2 组，得到"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.119,
+            0.433,
+            0.692,
+            0.624
+          ],
+          "sub_type": "text_image",
+          "content": "A\tA\tD\tR\nS₀的SA\t0\t3\t6\t9\n↑\nA\tA\tA\tB\tB\tC\tR\nS₁和S₂的SA\t10\t7\t5\t8\t1\t4\t2\n↑\n最后的SA\t10\t7\t\n输入S\tA\tB\tR\tA\tC\tA\tD\tA\tB\tR\tA\n下标\t0\t1\t2\t3\t4\t5\t6\t7\t8\t9\t10",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_478_image_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.633,
+            0.926,
+            0.719
+          ],
+          "content": "两个首字符又是匹配的，因此现在必须比较下标1和下标6。由于这是 $S_{1}$ 的一个元素和 $S_{0}$ 一个元素之间的一次比较，因此我们不能查阅结果。这样，我们必须直接比较字符。下标1包含B，下标6包含的是D，所以下标1胜出。于是，0进入到最终的后缀数组，我们向前推进第1个数组。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.117,
+            0.726,
+            0.691,
+            0.915
+          ],
+          "sub_type": "text_image",
+          "content": "A\tA\tD\tR\nS₀的SA\t0\t3\t6\t9\n↑\nA\tA\tA\tB\tB\tC\tR\nS₁和S₂的SA\t10\t7\t5\t8\t1\t4\t2\n↑\n最后的SA\t10\t7\t0\t\n输入S\tA\tB\tR\tA\tC\tA\tD\tA\tB\tR\tA\n下标\t0\t1\t2\t3\t4\t5\t6\t7\t8\t9\t10",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_478_image_7.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 479,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.093,
+            0.044,
+            0.131,
+            0.058
+          ],
+          "content": "466"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.279,
+            0.039,
+            0.711,
+            0.056
+          ],
+          "content": "数据结构与算法分析——C++语言描述(第四版)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.071,
+            0.922,
+            0.112
+          ],
+          "content": "下一次比较发生同样的情况, 又是在一对 A 之间进行; 第 2 次比较是在 4(一个 C) 和下标 6(一个 D) 之间进行, 因此, 第 1 组的元素向前推进。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.116,
+            0.119,
+            0.689,
+            0.308
+          ],
+          "sub_type": "text_image",
+          "content": "A\tA\tD\tR\nS₀的SA\t0\t3\t6\t9\n↑\nA\tA\tA\tB\tB\tC\tR\nS₁和S₂的SA\t10\t7\t5\t8\t1\t4\t2\n↑\n最后的SA\t10\t7\t0\t3\t\n输入S\tA\tB\tR\tA\tC\tA\tD\tA\tB\tR\tA\n下标\t0\t1\t2\t3\t4\t5\t6\t7\t8\t9\t10",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_479_image_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.069,
+            0.319,
+            0.711,
+            0.337
+          ],
+          "content": "这一刻不存在相同的情形，于是我们很快推进到每组的最后一个字符:"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.114,
+            0.345,
+            0.687,
+            0.535
+          ],
+          "sub_type": "text_image",
+          "content": "A\tA\tD\tR\nS₀的SA\t0\t3\t6\t9\n↑\nA\tA\tA\tB\tB\tC\tR\nS₁和S₂的SA\t10\t7\t5\t8\t1\t4\t2\n↑\n最后的SA\t10\t7\t0\t3\t5\t8\t1\t4\t6\t\n输入S\tA\tB\tR\tA\tC\tA\tD\tA\tB\tR\tA\n下标\t0\t1\t2\t3\t4\t5\t6\t7\t8\t9\t10",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_479_image_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.068,
+            0.545,
+            0.92,
+            0.675
+          ],
+          "content": "最后，我们到达终点。两个 R 之间的比较要求我们比较其下一字符，它们位于下标 10 和下标 3。由于这次比较是在一个 $S_{1}$ 元素和一个 $S_{0}$ 元素之间进行，我们前面看到，此时不能通过查看结果决定，而必须直接进行比较。情况还是一样，因此我们必须比较下标 11 和下标 4，于是 11 自动胜出（因为它越过了字符串的终点）。这样，下标为 9 处的 R 向前推进，此时合并结束。注意，假如我们不是处在字符串的终点，那么就会面对在一个 $S_{2}$ 元素和一个 $S_{1}$ 元素之间进行比较的现实，而这意味着，我们的排序可从 $S_{1}+S_{2}$ 的后缀数组得到。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.113,
+            0.682,
+            0.687,
+            0.871
+          ],
+          "sub_type": "text_image",
+          "content": "A\tA\tD\tR\nS₀的SA\t0\t3\t6\t9\n↑\nA\tA\tA\tB\tB\tC\tR\nS₁和S₂的SA\t10\t7\t5\t8\t1\t4\t2\n最后的SA\t10\t7\t0\t3\t5\t8\t1\t4\t6\t9\t2\n输入S\tA\tB\tR\tA\tC\tA\tD\tA\tB\tR\tA\n下标\t0\t1\t2\t3\t4\t5\t6\t7\t8\t9\t10",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0449-0480/images/page_479_image_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.067,
+            0.882,
+            0.918,
+            0.923
+          ],
+          "content": "由于这是一种标准的合并，每对后缀最多进行两次比较，因此这一步花费线性时间。这样，整个算法满足 $T(N) = T(2N / 3) + O(N)$，从而花费线性时间。虽然我们只计算了后缀数组，"
+        }
+      ]
+    },
+    {
+      "page_idx": 480,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.35,
+            0.043,
+            0.657,
+            0.06
+          ],
+          "content": "第12章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.87,
+            0.048,
+            0.908,
+            0.062
+          ],
+          "content": "467"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.076,
+            0.928,
+            0.116
+          ],
+          "content": "但是LCP信息也可以在算法运行时算出，不过，这里涉及到一些复杂的细节，而LCP信息常常通过另外的线性时间算法去计算。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.12,
+            0.928,
+            0.203
+          ],
+          "content": "下面通过提供一个计算后缀数组实用的实现方法结束本小节。我们并不全面实现第1步对原始字符的排序，而是假设只有一小部分(其值在1～255之间的)ASCⅡI字符出现在字符串中。在图12.32中，我们建立具有3个附加填充槽的数组，并调用函数makeSuffixArray，它是基本的线性时间算法。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.161,
+            0.211,
+            0.845,
+            0.64
+          ],
+          "sub_type": "code",
+          "content": "```c\n/*\n * 填入 String str 的后缀数组信息\n * str 为输入的 String 类对象\n * sa 是一个已存在的数组，将要放置后缀数组\n * LCP 是一个已存在的数组，将要放置 LCP 的信息\n */\nvoid createSuffixArray( const string & str, vector<int> & sa, vector<int> & LCP )\n{\n    if( sa.size( ) != str.length( ) || LCP.size( ) != str.length( ) )\n        throw invalid_argument{ \"Mismatched vector sizes\" };\n\n    int N = str.length( );\n\n    vector<int> s( N + 3 );\n    vector<int> SA( N + 3 );\n\n    for( int i = 0; i < N; ++i )\n        s[ i ] = str[ i ];\n\n    makeSuffixArray( s, SA, N, 250 );\n\n    for( int i = 0; i < N; ++i )\n        sa[ i ] = SA[ i ];\n\n    makeLCPArray( s, sa, LCP );\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.238,
+                0.648,
+                0.765,
+                0.685
+              ],
+              "content": "图12.32 建立首次调用makeSuffixArray的代码；创建大小适宜的数组；为使事情简化，只使用256个ASCII字符编码"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.699,
+            0.92,
+            0.761
+          ],
+          "content": "图12.33显示了makeSuffixArray函数。在第11\\~15行，它分配了所有需要的数组，并确保 $S _ { 0 }$ 和 $S_{1}$ 有相同个数的元素(第16\\~21行)；然后，把工作转移到assignNames、computeSl2、computes0和merge。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.766,
+            0.925,
+            0.916
+          ],
+          "content": "图12.34所示的assignName开始时执行三趟基数排序。然后，如果当前项与前一项具有不同的字符三元组(我们回忆，三元字符已经由三趟基数排序完成排序，还要记住， $S_{0}$ 和 $S_{1}$大小相同，因此，在第32行上把n0加到 $S_{1}$ 的元素个数上)，那么，它将顺序使用下一现有数字指派名字(即数字)。我们可以使用第7章的基本计数基数排序(counting radix sort)以得到一个线性时间排序。这个程序如图12.35所示。其中数组in表示进入s的那些下标；基数排序的结果在于，这些下标的排序使得s中的字符在这些下标上是排序的(这里的下标是所指定的offset)。"
+        }
+      ]
+    },
+    {
+      "page_idx": 481,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.09,
+            0.045,
+            0.129,
+            0.06
+          ],
+          "content": "468"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.275,
+            0.04,
+            0.71,
+            0.058
+          ],
+          "content": "数据结构与算法分析—C++语言描述(第四版)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.143,
+            0.065,
+            0.845,
+            0.53
+          ],
+          "sub_type": "code",
+          "content": "```c\n// 找出{1..K}^n 中 s[0..n-1] 的后缀数组SA\n// 要求 s[n]=s[n+1]=s[n+2]=0, n>=2\nvoid makeSuffixArray( const vector<int> & s, vector<int> & SA, int n, int K )\n{\n    int n0 = ( n + 2 ) / 3;\n    int n1 = ( n + 1 ) / 3;\n    int n2 = n / 3;\n    int t = n0 - n1; // 1 当且仅当 n%3 == 1\n    int n12 = n1 + n2 + t;\n\n    vector<int> s12( n12 + 3 );\n    vector<int> SA12( n12 + 3 );\n    vector<int> s0( n0 );\n    vector<int> SA0( n0 );\n\n    // 为 s12 的项生成 s 中的位置\n    // 若 n%3 == 1, 则 \"+t\" 加上一个取 mod 1 的哑值后缀\n    // 此刻, s12 的大小为 n12\n    for( int i = 0, j = 0; i < n + t; ++i )\n        if( i % 3 != 0 )\n            s12[ j++ ] = i;\n\n    int K12 = assignNames( s, s12, SA12, n0, n12, K );\n\n    computeS12( s12, SA12, n12, K12 );\n    computeSO( s, s0, SA0, SA12, n0, n12, K );\n    merge( s, s12, SA, SA0, SA12, n, n0, n12, t );\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.31,
+                0.537,
+                0.669,
+                0.554
+              ],
+              "content": "图12.33 以线性时间构建后缀数组的主例程"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.139,
+            0.572,
+            0.842,
+            0.887
+          ],
+          "sub_type": "code",
+          "content": "```c\n// 分配一些新的超字符名\n// 在程序的最后，SA 将以排序的顺序持有 s 的下标\n// 而s12将取得成员新的字符名\n// 返回所分配名字的个数；注意，如果\n// 该值与n12相同，则SA 是s12的一个后缀数组\nint assignNames( const vector<int> & s, vector<int> & s12, vector<int> & SA12,\n                    int n0, int n12, int K )\n{\n    // 对新的字符三元组进行基数排序\n    radixPass( s12 , SA12, s, 2, n12, K );\n    radixPass( SA12, s12 , s, 1, n12, K );\n    radixPass( s12 , SA12, s, 0, n12, K );\n\n    // 找出各三元组的字典序名字\n    int name = 0;\n    int c0 = -1, c1 = -1, c2 = -1;\n\n    for( int i = 0; i < n12; ++i )\n    {\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.316,
+                0.898,
+                0.657,
+                0.914
+              ],
+              "content": "图12.34 计算并分派三元字符名字的例程"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 482,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.342,
+            0.041,
+            0.65,
+            0.059
+          ],
+          "content": "第12章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.862,
+            0.046,
+            0.901,
+            0.06
+          ],
+          "content": "469"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.142,
+            0.07,
+            0.714,
+            0.352
+          ],
+          "sub_type": "code",
+          "content": "```lisp\nif( s[ SA12[ i ] ] != c0 || s[ SA12[ i ] + 1 ] != c1\n                                      || s[ SA12[ i ] + 2 ] != c2 )\n{\n    ++name;\n    c0 = s[ SA12[ i ] ];\n    c1 = s[ SA12[ i ] + 1 ];\n    c2 = s[ SA12[ i ] + 2 ];\n}\n\nif( SA12[ i ] % 3 == 1 )\n    s12[ SA12[ i ] / 3 ]      = name;   // S1\nelse\n    s12[ SA12[ i ] / 3 + n0 ] = name;   // S2\n}\n\nreturn name;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.304,
+                0.359,
+                0.68,
+                0.376
+              ],
+              "content": "图12.34(续) 计算并分派三元字符名字的例程"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.167,
+            0.393,
+            0.816,
+            0.825
+          ],
+          "sub_type": "code",
+          "content": "```txt\n// 对 in[0..n-1]进行稳定排序，下标在其关键字位于 0..K 间的 s 中\n// 结果放入out[0..n-1]；排序是相对于进入s 的offset的\n// 使用计数基数排序\nvoid radixPass( const vector<int> & in, vector<int> & out,\n                    const vector<int> & s, int offset, int n, int K )\n{\n    vector<int> count( K + 2 );          // 计数器数组\n\n    for( int i = 0; i < n; ++i )\n        ++count[ s[ in[ i ] + offset ] + 1 ];   // 计算出现次数\n\n    for( int i = 1; i <= K + 1; ++i )         // 计算独有的和\n        count[ i ] += count[ i - 1 ];\n\n    for( int i = 0; i < n; ++i )\n        out[ count[ s[ in[ i ] + offset ] ]++ ] = in[ i ];     // 排序\n}\n\n// 对in[0..n-1]进行稳定排序，下标在其关键字位于0..K间的s中\n// 结果放入out[0..n-1]\n// 使用计数基数排序\nvoid radixPass( const vector<int> & in, vector<int> & out,\n                    const vector<int> & s, int n, int K )\n{\n    radixPass( in, out, s, 0, n, K );\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.268,
+                0.832,
+                0.707,
+                0.849
+              ],
+              "content": "图12.35后缀数组的计数基数排序(counting radix sort)"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.863,
+            0.787,
+            0.881
+          ],
+          "content": "图12.36包括计算s12的后缀数组、然后计算s0的后缀数组的两个例程。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.062,
+            0.885,
+            0.916,
+            0.925
+          ],
+          "content": "最后，merge例程如图12.37所示，一些支撑例程放在图12.38中。这里的合并例程和图7.12中见到的标准合并算法外观和感觉基本相同。"
+        }
+      ]
+    },
+    {
+      "page_idx": 483,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.101,
+            0.045,
+            0.138,
+            0.059
+          ],
+          "content": "470"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.286,
+            0.04,
+            0.721,
+            0.057
+          ],
+          "content": "数据结构与算法分析—C++语言描述(第四版)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.226,
+            0.066,
+            0.78,
+            0.497
+          ],
+          "sub_type": "code",
+          "content": "```txt\n// 计算s12的后缀数组, 把结果放到SA12中\nvoid computeS12( vector<int> & s12, vector<int> & SA12,\n                    int n12, int K12 )\n{\n    if( K12 == n12 ) // 若名字都是唯一的, 则不需要递归\n        for( int i = 0; i < n12; ++i )\n            SA12[ s12[i] - 1 ] = i;\n    else\n    {\n        makeSuffixArray( s12, SA12, n12, K12 );\n        // 使用后缀数组将这些唯一的名字存入s12中\n        for( int i = 0; i < n12; ++i )\n            s12[ SA12[ i ] ] = i + 1;\n    }\n}\n\nvoid computeS0( const vector<int> & s, vector<int> & s0,\n                   vector<int> & SA0, const vector<int> & SA12,\n                   int n0, int n12, int K )\n{\n    for( int i = 0, j = 0; i < n12; ++i )\n        if( SA12[ i ] < n0 )\n            s0[ j++ ] = 3 * SA12[ i ];\n\n    radixPass( s0, SA0, s, n0, K );\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.241,
+                0.505,
+                0.761,
+                0.521
+              ],
+              "content": "图12.36 计算s12的后缀数组(可能是递归地)和 s0的后缀数组"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.145,
+            0.54,
+            0.859,
+            0.905
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n// 将已排序的SAO 的后缀与已排序的 SA12 的后缀合并\nvoid merge( const vector<int> & s, const vector<int> & s12,\n              vector<int> & SA, const vector<int> & SA0, const vector<int> & SA12,\n              int n, int n0, int n12, int t )\n{\n    int p = 0, k = 0;\n\n    while( t != n12 && p != n0 )\n    {\n        int i = getIndexIntoS( SA12, t, n0 ); // S12\n        int j = SA0[ p ];                  // S0\n\n        if( suffix12IsSmaller( s, s12, SA12, n0, i, j, t ) )\n        {\n            SA[ k++ ] = i;\n            ++t;\n        }\n        else\n        {\n            SA[ k++ ] = j;\n            ++p;\n        }\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.348,
+                0.913,
+                0.65,
+                0.928
+              ],
+              "content": "图 12.37 合并后缀数组SA0 和 SA12"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 484,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.346,
+            0.04,
+            0.654,
+            0.058
+          ],
+          "content": "第12章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.865,
+            0.045,
+            0.901,
+            0.059
+          ],
+          "content": "471"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.142,
+            0.07,
+            0.613,
+            0.184
+          ],
+          "sub_type": "code",
+          "content": "```txt\n}\n\n    while( p < n0 )\n        SA[ k++ ] = SAO[ p++ ];\n    while( t < n12 )\n        SA[ k++ ] = getIndexIntoS( SA12, t++, n0 );\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.328,
+                0.191,
+                0.668,
+                0.208
+              ],
+              "content": "图12.37(续) 合并后缀数组 SA0和SA12"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.142,
+            0.224,
+            0.854,
+            0.657
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint getIndexIntoS( const vector<int> & SA12, int t, int n0 )\n{\n    if( SA12[ t ] < n0 )\n        return SA12[ t ] * 3 + 1;\n    else\n        return ( SA12[ t ] - n0 ) * 3 + 2;\n}\n\n// 若[a1 a2] <= [b1 b2]则为True\nbool leq( int a1, int a2, int b1, int b2 )\n{ return a1 < b1 || a1 == b1 && a2 <= b2; }\n\n// 若[a1 a2] <= [b1 b2 b3]则为True\nbool leq( int a1, int a2, int a3, int b1, int b2, int b3 )\n{ return a1 < b1 || a1 == b1 && leq( a2, a3, b2, b3 ); }\n\nbool suffix12IsSmaller( const vector<int> & s, const vector<int> & s12,\n                    const vector<int> & SA12, int n0, int i, int j, int t )\n{\n    if( SA12[ t ] < n0 ) // s1 对s0; 在一个字符之后可能打破平衡\n        return leq( s[ i ], s12[ SA12[ t ] + n0 ],\n            s[ j ], s12[ j / 3 ] );\n    else\n        return leq( s[ i ], s[ i + 1 ], s12[ SA12[ t ] - n0 + 1 ],\n            s[ j ], s[ j + 1 ], s12[ j / 3 + n0 ] );\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.278,
+                0.663,
+                0.713,
+                0.68
+              ],
+              "content": "图12.38 合并后缀数组 SA0 和 SA12的几个支撑例程"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.07,
+            0.706,
+            0.233,
+            0.729
+          ],
+          "level": 2,
+          "content": "12.5 k-d 树"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.067,
+            0.753,
+            0.923,
+            0.861
+          ],
+          "content": "设一广告公司拥有一个数据库并需要为某些客户生成邮寄标签。典型的要求可能是需要散发邮件给那些年龄在34到49之间且年收入在\\$100000和\\$150000之间的人们。这个问题叫作二维范围查询(two-dimensional range query)。在一维情况下，该问题可以借助于简单的递归算法通过遍历预先构造的二叉查找树以O(M+logN)平均时间解决。这里，M是由查询所报告的匹配的个数。我们希望对二维或更高维的情况得到类似的界。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.067,
+            0.864,
+            0.924,
+            0.927
+          ],
+          "content": "二维查找树(two-dimensionalsearchtree)具有简单的性质:在奇数层上按照第一个关键字进行分支，而在偶数层上的分支按照第二个关键字进行。根是任意选取的，位于奇数层。图12.39表示一棵2-d树。向一棵2-d树进行的插入操作是向一棵二叉查找树插入操作的简单"
+        }
+      ]
+    },
+    {
+      "page_idx": 485,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.097,
+            0.043,
+            0.134,
+            0.057
+          ],
+          "content": "472"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.282,
+            0.038,
+            0.717,
+            0.055
+          ],
+          "content": "数据结构与算法分析—C++语言描述(第四版)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.07,
+            0.927,
+            0.179
+          ],
+          "continues_prev": true,
+          "content": "扩展:在沿树下行时，我们需要保留当前的层。为保持程序代码简单，假设基本项是两个元素的数组。此时我们需要把层限制在0和1之间切换。图12.40显示的是执行一次插入的程序。在这一节我们使用递归。用于实践中的非递归实现思路简单，我们把它留作练习12.17。特别是由于若干项在一个关键字上可能相同，因此困难之一是重复元问题。我们的程序允许重复元，并且总是把它们放在右分支上。显然，如果有太多的重复元，那么这可能就是一个问题。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.141,
+            0.187,
+            0.86,
+            0.356
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"29, 16\"] --> B[\"30, 11\"]\n  B --> C[\"40, 26\"]\n  C --> D[\"38, 23\"]\n  B --> E[\"27, 28\"]\n  E --> F[\"53, 14\"]\n  E --> G[\"31, 85\"]\n  G --> H[\"7, 39\"]\n  G --> I[\"15, 61\"]\n  E --> J[\"32, 29\"]\n  F --> K[\"67, 51\"]\n  K --> L[\"70, 3\"]\n  K --> M[\"99, 90\"]\n  M --> N[\"82, 64\"]\n  M --> O[\"73, 75\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.413,
+                0.362,
+                0.585,
+                0.378
+              ],
+              "content": "图 12.39 2-d 树示例"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0481-0511/images/page_485_image_3.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.18,
+            0.385,
+            0.816,
+            0.651
+          ],
+          "sub_type": "code",
+          "content": "```cpp\npublic:\n    void insert( const vector<Comparable> & x )\n    {\n        insert( x, root, 0 );\n    }\n\nprivate:\n    void insert( const vector<Comparable> & x, KdNode * & t, int level )\n    {\n        if( t == nullptr )\n            t = new KdNode{ x };\n        else if( x[ level ] < t->data[ level ] )\n            insert( x, t->left, 1 - level );\n        else\n            insert( x, t->right, 1 - level );\n    }\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.391,
+                0.658,
+                0.602,
+                0.674
+              ],
+              "content": "图 12.40 对 2-d 树的插入"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.689,
+            0.92,
+            0.73
+          ],
+          "content": "稍加思索便可确信，一棵随机构造的2-d树与一棵随机二叉查找树具有相同的结构性质:高度平均为O(logN)，但最坏情形则是O(N)。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.069,
+            0.733,
+            0.924,
+            0.863
+          ],
+          "content": "不像二叉查找树有精巧的O(logN)最坏情形的变种存在，这里没有已知的方案能够保证一棵平衡的2-d树。问题在于，这样一种方案很可能基于树的旋转，而树旋转在2-d树中是行不通的。我们能够做的最好的选择是通过重新构造子树来定期地对树进行平衡，具体描述可见练习。类似地，也不存在超越明显的懒惰删除方法的删除算法。如果在需要处理查询之前所有的项都已得到，那么我们就能够以O(N logN)时间构造一棵理想平衡2-d树(perfectly balanced 2-d tree)，这就是练习 12.15(c)。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.865,
+            0.924,
+            0.929
+          ],
+          "content": "有几种类型的查询可以在2-d树上进行。我们可以要求精确的匹配，或者基于两个关键字中一个关键字的匹配，后者的查询类型称为部分匹配查询(partialmatchquery)。这两种都是(正交)范围查询(range query)的特殊情形。"
+        }
+      ]
+    },
+    {
+      "page_idx": 486,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.35,
+            0.042,
+            0.659,
+            0.059
+          ],
+          "content": "第12章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.87,
+            0.046,
+            0.908,
+            0.06
+          ],
+          "content": "473"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.075,
+            0.075,
+            0.932,
+            0.16
+          ],
+          "content": "正交范围查询(orthogonalrangequery)给出其第一个关键字在一个特殊的值集合之间且第二个关键字在另一个特殊的值集合之间的所有项。这正是我们在本节介绍中所描述的问题。如图12.41所示，范围查询容易通过一次递归的树遍历解出。通过在递归调用之前进行测试，可以避免对所有节点的不必要的访问。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.182,
+            0.166,
+            0.825,
+            0.662
+          ],
+          "sub_type": "code",
+          "content": "```cpp\npublic:\n    /**\n     * 打印满足\n     * low[ 0 ] <= x[ 0 ] <= high[ 0 ] 和\n     * low[ 1 ] <= x[ 1 ] <= high[ 1 ] 的项\n     */\n    void printRange( const vector<Comparable> & low,\n                          const vector<Comparable> & high ) const\n    {\n        printRange( low, high, root, 0 );\n    }\n\nprivate:\n    void printRange( const vector<Comparable> & low,\n                          const vector<Comparable> & high,\n                          KdNode *t, int level ) const\n    {\n        if( t != nullptr )\n        {\n            if( low[ 0 ] <= t->data[ 0 ] && high[ 0 ] >= t->data[ 0 ] &&\n                low[ 1 ] <= t->data[ 1 ] && high[ 1 ] >= t->data[ 1 ] )\n                cout << \"(\" << t->data[ 0 ] << \",\"\n                    << t->data[ 1 ] << \")\" << endl;\n\n            if( low[ level ] <= t->data[ level ] )\n                printRange( low, high, t->left, 1 - level );\n            if( high[ level ] >= t->data[ level ] )\n                printRange( low, high, t->right, 1 - level );\n        }\n    }\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.387,
+                0.669,
+                0.614,
+                0.686
+              ],
+              "content": "图12.41 2-d树:范围查找"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.7,
+            0.926,
+            0.763
+          ],
+          "content": "为找出特定的项，我们可以令low等于high等于我们要查找的项。为了执行一次部分匹配查询，我们让在这次匹配中涉及不到的关键字的范围为-∞到∞，而另一个的范围则设置为使低点和高点等于匹配中所涉及到的关键字的值。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.072,
+            0.767,
+            0.926,
+            0.829
+          ],
+          "content": "在2-d树中的插入或准确匹配查找花费的时间正比于树的深度，即平均为O(1ogN)，而在最坏情形下为O(N)。一次范围查找的运行时间依赖于如何将树平衡，是否要求部分匹配，以及实际上有多少项被找到。我们提出3个结果，它们已经得到证明。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.832,
+            0.926,
+            0.919
+          ],
+          "content": "对于理想平衡树(perfectly balanced tree)，一次范围查询在最坏情形下可能花费O(M+√N)时间报告M次匹配。在任一节点，我们可能必须要访问4个孙子中的两个，这导致方程T(N)= 2T(N/4)+O(1)成立。然而在实践中，这些搜索趋向于非常有效，甚至最坏情形都不是那么差，因为对于典型的N，在√N和logN之间的差被隐藏于大O记号中更小的常数所补偿。"
+        }
+      ]
+    },
+    {
+      "page_idx": 487,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.091,
+            0.047,
+            0.129,
+            0.062
+          ],
+          "content": "474"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.277,
+            0.043,
+            0.71,
+            0.06
+          ],
+          "content": "数据结构与算法分析—C++语言描述(第四版)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.074,
+            0.922,
+            0.138
+          ],
+          "content": "对于随机构造的树，部分匹配查询的平均运行时间为 $O(M + N^{\\alpha})$ ，其中 $\\alpha = ( - 3 + \\sqrt{17} ) / 2$ (见下面)。最近的结果是，它基本上描述了随机2-d树的一次范围查找的平均运行时间，多少有些令人震惊。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.069,
+            0.141,
+            0.92,
+            0.248
+          ],
+          "content": "对于k维的情况，同样的算法仍然成立，我们通过每层上的那些关键字进行循环。不过，在实践中平衡开始变得越来越差，因为重复元和非随机输入的影响一般变得更为明显。我们把编程的细节留给读者作为练习而这里只叙述解析结果:对于理想平衡树，一次范围查询的最坏情形运行时间为 $O(M + kN^{1 - 1/k})$ 。在随机构造的 $k - d$ 树中，涉及 $k$ 个关键字中 $p$ 个的部分匹配查询花费 $O\\left(M+N^{\\alpha}\\right)$ ，其中 $\\alpha _ { 1 }$ 是方程"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.39,
+            0.254,
+            0.602,
+            0.274
+          ],
+          "content": "(2 + \\alpha) ^ {p} (1 + \\alpha) ^ {k - p} = 2 ^ {k}",
+          "image_source": "../../raw/pages_0481-0511/images/page_487_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.068,
+            0.281,
+            0.917,
+            0.322
+          ],
+          "content": "的(唯一)正根。对各种p和k，我们将 $\\alpha$ 的计算留作练习。 $k = 2$ 和 $p = 1$ 的值反映在上面对于随机2-d树的部分匹配所叙述的结果中。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.068,
+            0.326,
+            0.917,
+            0.366
+          ],
+          "content": "虽然有几种新奇的结构支持范围搜索，但k-d树恐怕是达到可接受的运行时间最简单的结构。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.07,
+            0.389,
+            0.238,
+            0.411
+          ],
+          "level": 2,
+          "content": "12.6 配对堆"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.067,
+            0.436,
+            0.918,
+            0.5
+          ],
+          "content": "我们考查的最后一个数据结构是配对堆(pairingheap)。对配对堆的分析仍然未解决，不过，当需要decreaseKey操作的时候，它似乎胜过其他的堆结构。其高效率的最可能的原因是它的简单性。配对堆被表示成堆序树。图12.42显示了一个配对堆示例。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.185,
+            0.504,
+            0.797,
+            0.638
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"6\"] --> B[\"3\"]\n  B --> C[\"4\"]\n  C --> D[\"5\"]\n  D --> E[\"9\"]\n  E --> F[\"7\"]\n  F --> G[\"19\"]\n  H[\"10\"] --> I[\"13\"]\n  J[\"8\"] --> K[\"11\"]\n  L[\"15\"] --> M[\"14\"]\n  N[\"16\"] --> O[\"18\"]\n  P[\"12\"] --> Q[\"17\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.349,
+                0.643,
+                0.634,
+                0.66
+              ],
+              "content": "图12.42 配对堆示例:抽象表示法"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0481-0511/images/page_487_image_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.67,
+            0.918,
+            0.779
+          ],
+          "content": "配对堆的具体实现用到第4章中所讨论的左儿子、右兄弟表示方法。我们将看到，decreaseKey操作要求每个节点包含一个附加的链。作为最左儿子的节点含有一个指向其父亲的链；若不在最左，则子节点就是一个右兄弟，并含有一个指向它的左兄弟的链。我们将把这个数据成员叫作 $\\mathsf { P } \\mathsf { T } \\mathsf { e } \\mathsf { V } \\circ$ 为了简洁我们省去类架构和配对堆节点声明，它们完全是直观的。图12.43指出图12.42中配对堆的具体表示。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.195,
+            0.783,
+            0.784,
+            0.911
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  6[\"6\"] --> 3[\"3\"]\n  2[\"2\"] --> n6[\"6\"]\n  10[\"10\"] --> n3[\"3\"]\n  13[\"13\"] --> n3\n  4[\"4\"] --> n4[\"4\"]\n  8[\"8\"] --> n4\n  5[\"5\"] --> n5[\"5\"]\n  11[\"11\"] --> n5\n  15[\"15\"] --> n5\n  16[\"16\"] --> n5\n  9[\"9\"] --> n9[\"9\"]\n  14[\"14\"] --> n9\n  12[\"12\"] --> n9\n  17[\"17\"] --> n9\n  18[\"18\"] --> n9\n  7[\"7\"] --> n7[\"7\"]\n  19[\"19\"] --> n7\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.331,
+                0.915,
+                0.648,
+                0.932
+              ],
+              "content": "图 12.43图12.42 中配对堆的具体表示"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0481-0511/images/page_487_image_12.jpg"
+        }
+      ]
+    },
+    {
+      "page_idx": 488,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.344,
+            0.038,
+            0.653,
+            0.055
+          ],
+          "content": "第12章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.864,
+            0.043,
+            0.901,
+            0.057
+          ],
+          "content": "475"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.068,
+            0.071,
+            0.923,
+            0.221
+          ],
+          "content": "我们以概述基本操作开始。为了合并两个配对堆，我们使具有较大根的堆成为具有较小根的堆的左儿子。当然，插入是合并的特殊情形。为执行一次decreaseKey，我们降低相应的节点的值。因为对于所有的节点都不保存父指针，所以我们不知道这是否会破坏堆序。于是，我们将调整后的节点从它的父节点切除，并通过合并所得到的两个堆而完成decreaseKey操作。为了执行deleteMin，我们将根除去，得到堆的一个集合。如果根有c个儿子，那么对合并过程进行c-1次调用将重建该堆。这里，最重要的细节就是用于执行合并的方法以及如何应用c-1次合并。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.068,
+            0.225,
+            0.923,
+            0.333
+          ],
+          "content": "图12.44显示如何将两个子堆合并。这个过程可被推广到允许第二个子堆有兄弟的情形。我们早先提到过，可以让具有较大根的子堆成为另一个子堆的最左的儿子。程序很简单，如图12.45所示。注意，我们有几个例子，在这些例子中，一个节点的指针被赋予prev数据成员之前要测试它是否是nullptr。这使我们想到，有一个nullNode警戒标记或许会是有用的，它习惯上放在这一章查找树的实现中。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.189,
+            0.34,
+            0.806,
+            0.522
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  Start[\"\"] --> Path1[\"F\"]\n  Path1 --> End1[\"\"]\n  Path2[\"\"] --> Path3[\"S\"]\n  Path3 --> End2[\"\"]\n  Path4[\"\"] --> Path5[\"F\"]\n  Path5 --> End3[\"\"]\n  Path6[\"\"] --> Path7[\"S\"]\n  Path7 --> End4[\"\"]\n  Path7 --> End5[\"\"]\n  Path8[\"\"] --> End6[\"\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.318,
+                0.527,
+                0.67,
+                0.544
+              ],
+              "content": "图12.44 compareAndLink 合并两个子堆"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0481-0511/images/page_488_image_4.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.221,
+            0.562,
+            0.766,
+            0.894
+          ],
+          "sub_type": "code",
+          "content": "```c\n/**\n * 保持序的基本操作的内部方法.\n * 将first和second链接在一起以满足堆序.\n * first 是树1 的根，它可以不是nullptr.\n * first->nextSibling 在接入时必须是 nullptr.\n * second 是树2 的根，它可以是nullptr.\n * first 成为树合并的结果.\n */\nvoid compareAndLink( PairNode * & first, PairNode *second )\n{\n    if( second == nullptr )\n        return;\n\n    if( second->element < first->element )\n    {\n        // 将first作为second 最左的儿子附接上\n        second->prev = first->prev;\n        first->prev = second;\n        first->nextSibling = second->leftChild;\n        if( first->nextSibling != nullptr )\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.33,
+                0.904,
+                0.653,
+                0.921
+              ],
+              "content": "图12.45配对堆:合并两个子堆的例程"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 489,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.095,
+            0.042,
+            0.132,
+            0.056
+          ],
+          "content": "476"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.281,
+            0.037,
+            0.713,
+            0.053
+          ],
+          "content": "数据结构与算法分析—C++语言描述(第四版)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.224,
+            0.066,
+            0.683,
+            0.346
+          ],
+          "sub_type": "code",
+          "content": "```txt\nfirst->nextSibling->prev = first;\n        second->leftChild = first;\n        first = second;\n    }\nelse\n{\n    // 将second 作为first 最左的儿子附接上\n    second->prev = first;\n    first->nextSibling = second->nextSibling;\n    if( first->nextSibling != nullptr )\n        first->nextSibling->prev = first;\n    second->nextSibling = first->leftChild;\n    if( second->nextSibling != nullptr )\n        second->nextSibling->prev = second;\n    first->leftChild = second;\n}\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.318,
+                0.354,
+                0.674,
+                0.37
+              ],
+              "content": "图12.45(续) 配对堆:合并两个子堆的例程"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.385,
+            0.922,
+            0.491
+          ],
+          "content": "此时，insert操作和decreaseKey操作是抽象描述的简单实现。decreaseKey需要一个position对象，它就是PairNode\\*型指针。由于这是当一项首次被插入时所确定的(不可改变)，因此，insert返回指向PairNode的指针，并被指派给调用者。程序如图12.46所示。如果新的值不小于老值，那么这个decreaseKey例程将抛出一个异常；否则，所得到的结构可能不遵守堆序。基本的deleteMin过程直接由抽象描述得到，如图12.47所示。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.231,
+            0.499,
+            0.699,
+            0.895
+          ],
+          "sub_type": "code",
+          "content": "```c\nstruct PairNode;\ntypedef PairNode * Position;\n\n/**\n * 将 x 插入到优先队列中，保持堆序。\n * 返回含有新项的 Position 型对象（指向该节点的指针）.\n */\nPosition insert( const Comparable & x )\n{\n    PairNode *newNode = new PairNode{ x };\n\n    if( root == nullptr )\n        root = newNode;\n    else\n        compareAndLink( root, newNode );\n    return newNode;\n}\n\n/**\n * 改变存储在配对堆中的项的值.\n * 如果 newVal 大于当前存储的值\n * 则抛出 invalid_argument 异常.\n * p 是由 insert 返回的一个 Position 型对象.\n * newVal 是新值，它必须小于\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.309,
+                0.904,
+                0.676,
+                0.92
+              ],
+              "content": "图12.46 配对堆:insert 和decreaseKey"
+            }
+          ],
+          "footnotes": []
+        }
+      ]
+    },
+    {
+      "page_idx": 490,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.341,
+            0.037,
+            0.65,
+            0.055
+          ],
+          "content": "第12章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.861,
+            0.042,
+            0.9,
+            0.057
+          ],
+          "content": "477"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.229,
+            0.066,
+            0.759,
+            0.395
+          ],
+          "sub_type": "code",
+          "content": "```c\n* 当前存储的值.\n*/\nvoid decreaseKey( Position p, const Comparable & newVal )\n{\n    if( p->element < newVal )\n        throw invalid_argument{ \"newVal too large\" };\n    p->element = newVal;\n    if( p != root )\n    {\n        if( p->nextSibling != nullptr )\n            p->nextSibling->prev = p->prev;\n        if( p->prev->leftChild == p )\n            p->prev->leftChild = p->nextSibling;\n        else\n            p->prev->nextSibling = p->nextSibling;\n\n        p->nextSibling = nullptr;\n        compareAndLink( root, p );\n    }\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.259,
+            0.428,
+            0.725,
+            0.659
+          ],
+          "sub_type": "code",
+          "content": "```txt\nvoid deleteMin{ }\n{\n    if( isEmpty( ) )\n        throw UnderflowException{ };\n\n    PairNode *oldRoot = root;\n\n    if( root->leftChild == nullptr )\n        root = nullptr;\n    else\n        root = combineSiblings( root->leftChild );\n\n    delete oldRoot;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.289,
+                0.403,
+                0.696,
+                0.42
+              ],
+              "content": "图12.46(续) 配对堆:insert和decreaseKey"
+            },
+            {
+              "bbox": [
+                0.373,
+                0.664,
+                0.606,
+                0.68
+              ],
+              "content": "图12.47 配对堆deletMin"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.062,
+            0.69,
+            0.918,
+            0.797
+          ],
+          "content": "当然，麻烦在于一些细节上:combineSiblings如何实现？已经提出几种方案，但是都不能证明它们能够提供如斐波那契堆那样相同的摊还界。最近已经证明，事实上几乎所有提出的方法在理论上都不如斐波那契堆有效。即使这样，对于涉及大量decreaseKey操作的一般图论应用来说，图12.48中编码的方法似乎总是和其他堆结构一样运行甚至比它们(包括二叉堆)还好。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.062,
+            0.8,
+            0.919,
+            0.886
+          ],
+          "content": "这种方法是已经提出的许多方法中最简单和最实际的方法，我们称之为两趟合并法(two-passmerging)。首先，我们从左到右扫描，合并诸子节点对。①在第一次扫描之后，我们还有一半数量的树要合并。然后执行第二趟扫描，从右到左进行。在每一步，我们将第一次扫描剩下的最右边的树和当前合并的结果合并。例如，如果有8个儿子 $c _ { 1 } { { \\sim } } c _ { 8 }$ ，那么第一次"
+        },
+        {
+          "type": "page_footnote",
+          "bbox": [
+            0.061,
+            0.916,
+            0.803,
+            0.932
+          ],
+          "content": "①如果有奇数个儿子，那么我们必须仔细。此时，将最后一个儿子与最右边的合并结果合并以完成第一趟扫描。"
+        }
+      ]
+    },
+    {
+      "page_idx": 491,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.095,
+            0.04,
+            0.132,
+            0.053
+          ],
+          "content": "478"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.281,
+            0.034,
+            0.715,
+            0.051
+          ],
+          "content": "数据结构与算法分析—C++语言描述(第四版)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.068,
+            0.926,
+            0.108
+          ],
+          "continues_prev": true,
+          "content": "扫描执行 $c _ { 1 }$ 和 $c _ { 2 }$ $c _ { 3 }$ 和 $c _ { 4 }$ $c _ { 5 }$ 和 $c_{6}$ $c _ { 7 }$ 和 $c _ { 8 }$ 的合并。结果得到 $d_{1}$ $d_{2}.$ $d _ { 3 }$ 和 $d_{4}$ 。我们通过合并 $d _ { 3 }$ 和 $d_{4}$ 执行第二趟扫描；然后 $d _ { 2 }$ 和这个结果合并，最后 $d_{1}$ 再和前面合并的结果合并。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.207,
+            0.116,
+            0.786,
+            0.844
+          ],
+          "sub_type": "code",
+          "content": "```txt\n/**\n * 实现两趟合并的内部方法.\n * firstSibling 合并后的树的根，并假设不是 nullptr.\n */\nPairNode * combineSiblings( PairNode *firstSibling )\n{\n    if( firstSibling->nextSibling == nullptr )\n        return firstSibling;\n\n    // 配置数组\n    static vector<PairNode *> treeArray( 5 );\n\n    // 将各子树存储在一个数组中\n    int numSiblings = 0;\n    for( ; firstSibling != nullptr; ++numSiblings )\n    {\n        if( numSiblings == treeArray.size( ) )\n            treeArray.resize( numSiblings * 2 );\n        treeArray[ numSiblings ] = firstSibling;\n        firstSibling->prev->nextSibling = nullptr;  // 断开链接\n        firstSibling = firstSibling->nextSibling;\n    }\n    if( numSiblings == treeArray.size( ) )\n        treeArray.resize( numSiblings + 1 );\n        treeArray[ numSiblings ] = nullptr;\n\n        // 从左到右，一次合并两棵子树\n    int i = 0;\n    for( ; i + 1 < numSiblings; i += 2 )\n        compareAndLink( treeArray[ i ], treeArray[ i + 1 ] );\n\n    int j = i - 2;\n\n    // j 有最新 compareAndLink 的结果。\n    // 如果是奇数棵树，则获取最后一棵。\n    if( j == numSiblings - 3 )\n        compareAndLink( treeArray[ j ], treeArray[ j + 2 ] );\n\n    // 现在从右到左，将最后一棵树与\n    // 倒数第二棵合并。结果成为新的最终的树。\n    for( ; j >= 2; j -= 2 )\n        compareAndLink( treeArray[ j - 2 ], treeArray[ j ] );\n    return treeArray[ 0 ];\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.37,
+                0.851,
+                0.62,
+                0.867
+              ],
+              "content": "图12.48配对堆:两趟合并法"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.881,
+            0.923,
+            0.922
+          ],
+          "content": "这里的实现方法要求一个数组存储各子树。在最坏情形下，可能有N-1项都是根的子节点，但是在combineSiblings函数的内部声明一个大小为N的(非static型)数组将给出"
+        }
+      ]
+    },
+    {
+      "page_idx": 492,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.346,
+            0.043,
+            0.654,
+            0.06
+          ],
+          "content": "第12章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.865,
+            0.048,
+            0.903,
+            0.062
+          ],
+          "content": "479"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.076,
+            0.923,
+            0.117
+          ],
+          "continues_prev": true,
+          "content": "一个O(N)算法。因此，我们用一个扩大的数组来代替。因为它是static的，所以在每次调用中被重用，从而避免了重新初始化的开销。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.121,
+            0.923,
+            0.183
+          ],
+          "content": "其他一些合并思路在练习中讨论。唯一简单但容易看出不足的合并策略是从左到右单趟合并(练习12.29)。配对堆是“简单即更好”的一个好例子，似乎是要求decreaseKey或merge操作的一些重大应用所首选的方法。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.073,
+            0.206,
+            0.131,
+            0.227
+          ],
+          "level": 2,
+          "content": "小结"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.072,
+            0.253,
+            0.923,
+            0.403
+          ],
+          "content": "在这一章，我们看到二叉查找树的几种有效的变种。自顶向下伸展树提供了O(logN)的摊还性能，treap树给出O(logN)随机化的性能，而红黑树则给出对于一些基本操作的O(logN)最坏情形性能。在各种结构之间的权衡涉及代码复杂性、删除的简易性以及不同的查找和插入的开销。很难说哪种结构是明显的赢家。复现的论题包括树的旋转以及警戒节点的使用，以消除对nul1ptr许多恼人的测试，若不是用警戒节点则这些测试原本是必不可少的。后缀数组和后缀树是强大的数据结构，它们能够对固定的文本进行快速重复的搜索。即使理论的界不是最优的，k-d树还是提供了执行范围查找的实际方法。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.407,
+            0.919,
+            0.448
+          ],
+          "content": "最后，我们描述配对堆并将配对堆进行编程实现，它似乎是最实际的可合并的优先队列，特别是当需要decreaseKey操作的时候。然而，在理论上它的效率却不如斐波那契堆。"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.071,
+            0.47,
+            0.127,
+            0.491
+          ],
+          "level": 2,
+          "content": "练习"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.09,
+            0.518,
+            0.922,
+            0.713
+          ],
+          "sub_type": "text",
+          "content": "12.1 证明自顶向下展开的摊还时间为O(logN)。\n\\*\\*12.2 证明，对于自底向上展开存在每次访问需要21ogN次旋转的访问序列。证明，类似的结果对于自顶向下的展开也成立。\n12.3 修改伸展树以支持对第k个最小项的查询。\n12.4 从经验上将简化的自顶向下展开和原始描述的自顶向下展开进行比较。\n12.5编写关于红黑树的删除过程。\n12.6证明红黑树的高最多为2logN，并证明这个界实质上不能再降低。\n12.7 证明每一棵AVL树都可以被涂成红黑树。所有的红黑树都是AVL树吗?\n12.8画出后缀树，并指出下列输入字符串的后缀数组和LCP数组。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.168,
+            0.718,
+            0.334,
+            0.756
+          ],
+          "sub_type": "text",
+          "content": "a. ABCABCABC\nb. MISSISSIPPI"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.111,
+            0.761,
+            0.918,
+            0.801
+          ],
+          "content": "12.9一旦构建了后缀数组，图12.49所示的短例程则可被图12.32的程序调用，以创建最长公共前缀数组。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.166,
+            0.806,
+            0.713,
+            0.888
+          ],
+          "sub_type": "text",
+          "content": "a. 在程序中，renk[i]表示什么？\nb. 设LCP[rank[i]]=h,证明LCP[rank[i+1]]≥h-1。\nc. 证明:图12.49中的算法正确地算出LCP数组。\nd. 证明图12.49中的算法以线性时间运行。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.101,
+            0.893,
+            0.916,
+            0.933
+          ],
+          "content": "12.10 设在后缀数组的线性时间构建算法中，我们不构造3组三元字符组，而是使用k=0，1，2，3，4，5，6构建7组如下:"
+        }
+      ]
+    },
+    {
+      "page_idx": 493,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.098,
+            0.052,
+            0.135,
+            0.066
+          ],
+          "content": "480"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.283,
+            0.047,
+            0.718,
+            0.063
+          ],
+          "content": "数据结构与算法分析—C++语言描述(第四版)"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.173,
+            0.08,
+            0.831,
+            0.1
+          ],
+          "content": "S _ {k} = <   S [ 7 i + k ] S [ 7 i + k + 1 ] S [ 7 i + k + 2 ] \\dots S [ 7 i + k + 6 ], i = 0, 1, 2, \\dots >",
+          "image_source": "../../raw/pages_0481-0511/images/page_493_equation_2.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.173,
+            0.106,
+            0.916,
+            0.169
+          ],
+          "sub_type": "text",
+          "content": "a. 证明:通过对 $S_{3}S_{5}S_{6}$ 的递归调用，我们有足够的信息将其余4组 $S_{0} 、 S_{1} 、 S_{2}$ $S_{4}$ 排序。\nb. 证明:这种划分将导致线性时间算法。"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.148,
+            0.176,
+            0.859,
+            0.657
+          ],
+          "sub_type": "code",
+          "content": "```txt\n/*\n * 由后缀数组创建 LCP 数组\n * s 为输入数组, 数组元素从 0..N-1 填充, 其位置 N 也是可用的\n * sa 是一个已经算出的后缀数组 0..N-1\n * LCP 是最后得到的 LCP 数组 0..N-1\n */\nvoid makeLCPArray( vector<int> & s, const vector<int> & sa, vector<int> & LCP )\n{\n    int N = sa.size( );\n    vector<int> rank( N );\n\n    s[ N ] = -1;\n    for( int i = 0; i < N; ++i )\n        rank[ sa[ i ] ] = i;\n\n    int h = 0;\n    for( int i = 0; i < N; ++i )\n        if( rank[ i ] > 0 )\n        {\n            int j = sa[ rank[ i ] - 1 ];\n\n\n            while( s[ i + h ] == s[ j + h ] )\n                ++h;\n\n            LCP[ rank[ i ] ] = h;\n            if( h > 0 )\n                --h;\n        }\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.352,
+                0.663,
+                0.645,
+                0.679
+              ],
+              "content": "图 12.49从后缀数组构建LCP数组"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.105,
+            0.694,
+            0.926,
+            0.8
+          ],
+          "sub_type": "text",
+          "content": "12.11 通过保留一个栈来非递归地实现treap树的插入例程。此种尝试是否值得？\n12.12我们可以使treap树成为自调整的，办法是使用访问次数作为优先级，并在每次访问后必要时执行树的旋转。将这种方法与随机化方法进行比较。或者这样，每次在一项X被访问时生成一个随机数。如果这个数小于X的当前优先级，那么就用它作为X的新的优先级(执行适当的旋转)。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.804,
+            0.926,
+            0.844
+          ],
+          "content": "\\*\\*12.13证明:如果各项已经被排序，那么treap树能够以线性时间构建，即使优先级是无序的也不受影响。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.103,
+            0.848,
+            0.926,
+            0.932
+          ],
+          "sub_type": "text",
+          "content": "12.14 不用nul1Node警戒标记实现某些树结构。使用标记可以节省多少编程工作?\n12.15假设对于每个节点我们存储它的子树中的nullptr链的个数，称之为节点的权(node's weight)。采用如下做法:如果左子树和右子树的权彼此相差超出因子2，那么彻底重建根在该节点的子树。证明下列结论:"
+        }
+      ]
+    },
+    {
+      "page_idx": 494,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.344,
+            0.039,
+            0.652,
+            0.057
+          ],
+          "content": "第12章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.863,
+            0.044,
+            0.9,
+            0.059
+          ],
+          "content": "481"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.168,
+            0.072,
+            0.89,
+            0.157
+          ],
+          "sub_type": "text",
+          "content": "a. 能够以O(S)重建一个节点，其中S是该节点的权。\nb. 该算法每次插入操作的摊还时间为 $O \\left( \\log N \\right)$ C\nc. 我们能够以 O(S logS)时间在 k-d树中重建一个节点，其中S是该节点的权。\nd. 我们可以将该算法用于k-d树，其每次插入的开销为 $O \\left( \\log ^ { 2 } N \\right)$"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.102,
+            0.161,
+            0.921,
+            0.4
+          ],
+          "sub_type": "text",
+          "content": "12.16假设我们对任意一棵2-d树调用rotateWithLeftChild。详细解释其结果不再是一棵可用的2-d树的全部原因。\n12.17实现对于k-d树的插入和范围查询。不要使用递归。\n12.18 对于对应于k=3,4,5的p的值，确定部分匹配查询的时间。\n12.19对于一棵理想平衡k-d树，求出正文中引用的一次范围查询(见p473)的最坏情形运行时间。\n12.202-d堆(2-d heap)是允许每一项拥有两个单独关键字的一种数据结构。deleteMin可以对于这两个关键字中的任一个执行。2-d堆是具有下述序性质的完全二叉树(cpmplete binary tree):对于偶数深度上的任一节点 X，存储在 X上的项拥有它的子树上最小的1号关键字，而对于奇数深度上的任一节点X，存储在X上的项具有它的子树上最小的2号关键字。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.167,
+            0.404,
+            0.831,
+            0.533
+          ],
+          "sub_type": "text",
+          "content": "a. 画出关于(1,10),(2,9),(3,8),(4,7),(5,6)诸项的一个可能的2-d堆。\nb. 如何找出具有最小1号关键字的项？\nc. 如何找出具有最小2号关键字的项？\nd. 给出一个将一新的项插入到2-d堆中的算法。\ne. 给出一个对于任一关键字执行deleteMin操作的算法。\nf.给出一个以线性时间实施buildHeap的算法。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.099,
+            0.537,
+            0.916,
+            0.665
+          ],
+          "sub_type": "text",
+          "content": "12.21 将前面的练习推广以得出一个k-d堆(k-d heap)，在这个堆中每一项都可有k个单独的关键字。你应该能够得到下列的界:以O(logN)实施insert，以 $O \\left( 2 ^ { k } \\log N \\right)$实施deleteMin，以及以O(kN)完成 buildHeap。\n12.22 证明k-d堆可以用于实现双端优先队列。\n12.23 抽象地推广k-d堆，使得只有那些按照1号关键字分支的层有两个儿子(所有其他层都有一个儿子)。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.67,
+            0.713,
+            0.71
+          ],
+          "sub_type": "text",
+          "content": "a. 我们需要指针吗？\nb. 显然，那些基本算法仍然有效。它们新的时间界是多少？"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.099,
+            0.714,
+            0.861,
+            0.777
+          ],
+          "sub_type": "text",
+          "content": "12.24 使用k-d树实现deleteMin。对于随机树，你期望其平均运行时间是多少?\n12.25 使用k-d堆实现双端队列，该队列也支持deleteMin操作。\n12.26使用nullNode警戒标记实现配对堆。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.781,
+            0.791,
+            0.799
+          ],
+          "content": "\\*\\*12.27证明:对于正文中的配对堆算法，每次操作的摊还开销为O(1ogN)。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.097,
+            0.803,
+            0.915,
+            0.909
+          ],
+          "sub_type": "text",
+          "content": "12.28combineSiblings的另一种方法是把所有的兄弟都放到一个队列中，并反复dequeue及合并队列中的前两项，把结果放到队尾。实现这种方法。\n12.29在前面的练习中不用队列而改用栈是个坏主意，通过给出一个序列导致每次操作花费Ω(N)来给出论证。这就是从左到右单趟合并(left-to-right single-pass merge)。\n12.30 不用decreaseKey，我们也可以除去父链。使用斜堆的结果会如何？"
+        }
+      ]
+    },
+    {
+      "page_idx": 495,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.1,
+            0.044,
+            0.136,
+            0.057
+          ],
+          "content": "482"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.284,
+            0.039,
+            0.718,
+            0.055
+          ],
+          "content": "数据结构与算法分析—C++语言描述(第四版)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.071,
+            0.929,
+            0.113
+          ],
+          "content": "12.31 设下列每一问都可以表示成一棵具有儿子指针和父亲指针的树。解释如何实现decreaseKey操作。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.175,
+            0.117,
+            0.27,
+            0.156
+          ],
+          "sub_type": "text",
+          "content": "a. 二叉堆\nb. 伸展树"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.16,
+            0.929,
+            0.222
+          ],
+          "content": "12.32当用图形观察时，2-d树上的每个节点都把平面划分成一些区域。例如，图12.50显示对图12.39中的2-d树的前5次插入。第一次插入p1把平面分成左右两部分。第二次插入p2又将左部分分成上下两部分，等等。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.173,
+            0.226,
+            0.826,
+            0.31
+          ],
+          "sub_type": "text",
+          "content": "a. 给定N项，它们插入的顺序是否影响最后的划分?\nb. 如果两个不同的插入序列得到相同的树，那么对应的划分是否相同？\nc. 给出经过N次插入之后所划分的区域个数的公式。\nd. 指出图12.39 中 2-d树的最终的划分。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.136,
+            0.319,
+            0.865,
+            0.41
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.085,
+                0.418,
+                0.917,
+                0.435
+              ],
+              "content": "图12.50 由2-d树在插入p1=(53,14),p2=(27,28),p3 =(30,11),p4=(67,51),p5=(70,3)后所划分的平面"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0481-0511/images/page_495_image_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.448,
+            0.926,
+            0.577
+          ],
+          "content": "12.332-d树的一种变化是四叉树(quadtree)。图12-51 显示平面是如何被一棵四叉树划分的。开始时我们有一个区域(它常常是一个方块，但不是必需的)。每个区域可存储一个点。如果将第2个点插入到区域中，那么区域就被划分成4块相等大小的象限(右上，右下，左下，左上)。如果能够把点放在不同的象限中(如在p2插入时的情形)，那么插入完成；否则，我们继续递归地分裂区域(就像插入p5时所做的那样)。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.172,
+            0.582,
+            0.922,
+            0.622
+          ],
+          "sub_type": "text",
+          "content": "a. 给定N项，插入的顺序是否影响最终的划分？\nb. 如果把在图12.39的2-d树中那些相同的元素插入到四叉树中，指出最终的划分。"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.133,
+            0.631,
+            0.866,
+            0.721
+          ],
+          "content": "",
+          "captions": [
+            {
+              "bbox": [
+                0.081,
+                0.729,
+                0.917,
+                0.747
+              ],
+              "content": "图 12.51 由四叉树在插入p1=(53,14),p2=(27,28),p3 =(30,11),p4=(67,51),p5=(70,3)后所划分的平面"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0481-0511/images/page_495_image_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.76,
+            0.924,
+            0.845
+          ],
+          "content": "12.34 树数据结构可以存储四叉树。我们保留原始区域的边界。树的根代表原来的区域。每个节点或者是一片树叶，存放一个插入项，或者刚好有4个儿子，代表4个象限。为了进行查找，我们从根处开始并反复分支到相应的象限，直到到达一片树叶(或是 $\\mathtt { n u l l p t r } )$ 为止。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.17,
+            0.849,
+            0.914,
+            0.912
+          ],
+          "sub_type": "text",
+          "content": "a. 画出对应图12.51的四叉树。\nb. 哪些因素影响(四叉)树的深度?\nc. 描述一种在四叉树中执行一次正交范围查寻(orthogonal range query)的算法。"
+        }
+      ]
+    },
+    {
+      "page_idx": 496,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.354,
+            0.039,
+            0.66,
+            0.056
+          ],
+          "content": "第12章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.872,
+            0.044,
+            0.908,
+            0.057
+          ],
+          "content": "483"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.082,
+            0.09,
+            0.195,
+            0.113
+          ],
+          "level": 2,
+          "content": "参考文献"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.137,
+            0.929,
+            0.244
+          ],
+          "content": "自顶向下伸展树在原始伸展树论文[36]中做了描述。类似的方法被描述于文献[38]中，但没有使用至关重要的旋转。自顶向下红黑树算法取自文献[18]，更易于理解的描述可以见于文献[35]。自顶向下红黑树一种不用警戒节点的实现在文献[15]中给出，它提供了nul1Node实用性令人信服的论证。Treaps树[3]是基于文献[40]中描述的笛卡儿树(Cartesian tree)。相关的数据结构是优先查找树(priority search tree)[21]。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.247,
+            0.929,
+            0.333
+          ],
+          "content": "后缀树首先由Weiner在文献[41]中作为位置树(position tree)被描述，他提供了一种线性时间构建算法，该算法被McCreight[28]所简化，此后又被Ukkonen[39]简化，后者提供了第1个在线时间算法。Farach提供了另一个算法[13]，该算法是许多后缀数组线性时间构建算法的基础。后缀树的大量应用可以在Gusfield的书[19]中找到。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.335,
+            0.926,
+            0.399
+          ],
+          "content": "后缀数组首先由Manber和Myers描述[25]，文中展示的算法属于Kärkkäinen和Myers[21];另一线性时间算法属于Ko和Aluru[23]。由练习12.9中后缀数组构建LCP数组的线性时间算法在文献[22]给出。后缀数组构建算法的综述可在文献[32]中找到。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.401,
+            0.928,
+            0.532
+          ],
+          "content": "文献[1]指出，任何通过后缀树可解的问题都可由后缀数组以等价的时间求解。因为实际应用的输入太大，所以空间很重要，从而最近的许多工作都集中在后缀数组和LCP数组的构建上。特别是，对于许多算法，在实践中稍微缓存友好(chache-friendly)些的非线性算法要比非缓存友好的线性算法更可取[33]。对于确实巨大的输入，在内存中构建上述数组不总是可行的。论文[6]是一个算法的例子，该算法可以一天内在RAM只有2GB的单台机器上生成12GB的DNA序列的后缀数组；关于外存后缀数组一些构建算法的综述还可参阅文献[5]。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.534,
+            0.926,
+            0.577
+          ],
+          "content": "k-d树首先出现于文献[7]。另外一些范围-查询算法在文献[8]中描述。平衡k-d树上范围查询的最坏情形在文献[24]中得到，而本书中引用的平均情形结果取自文献[14]和[10]。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.578,
+            0.928,
+            0.756
+          ],
+          "content": "配对堆及在练习中提出的一些变化在文献[17]中描述。论文[20]提出伸展树是在不需要decreaseKey操作时选择的优先队列。另外一篇论文[37]提出配对堆达到与斐波那契堆相同的渐近界，但在实践中性能更好。然而，一篇使用优先队列实现最小生成树算法的相关研究论文[29]提出，decreaseKey的摊还开销不是O(1)。M. Fredman[16]通过证明存在使decreaseKey操作的摊还开销为次最优(事实上最少为Ω(loglogN))的序列而解决了最优性问题。不过，他还证明了，当用来实现Prim最小生成树算法时，如果图稍微稠密(即图中边的条数为 $O \\left( N^{(1 + \\varepsilon)} \\right)$ ，其中 $\\varepsilon > 0$ 是任意的)，那么配对堆则是最优的。Petty[32]已经证明decreaseKey的一个上界 $O(2^{2\\sqrt{\\log\\log N}})$ 。然而，配对堆的完整的分析仍然尚未解决。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.76,
+            0.926,
+            0.868
+          ],
+          "content": "大部分练习的解可以在原始参考文献中找到。练习12.15代表多少有些流行的一种“懒惰”平衡方法。文献[26]、[4]、[11]和[9]描述了一些特殊的方法；文献[2]指出在一种框架内如何实现所有这些方法。满足练习12.15中性质的树是加权平衡(weight-balanced)的。这些树也可通过旋转保持其特性[30]。该练习的(d)部分取自文献[31]。练习12.20\\~练习12.22的解可以在文献[12]中找到。对四叉树的描述见于文献[34]。"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.119,
+            0.871,
+            0.837,
+            0.926
+          ],
+          "sub_type": "ref_text",
+          "content": "1. M. I. Abouelhoda, S. Kurtz, and E. Ohlebush, \"Replacing Suffix Trees with Suffix Arrays,' Journal of Discrete Algorithms, 2 (2004), 53–86.\n2. A. Andersson, \"General Balanced Trees,\" Journal of Algorithms, 30 (1991), 1–28"
+        }
+      ]
+    },
+    {
+      "page_idx": 497,
+      "blocks": [
+        {
+          "type": "page_number",
+          "bbox": [
+            0.092,
+            0.048,
+            0.129,
+            0.062
+          ],
+          "content": "484"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.277,
+            0.043,
+            0.711,
+            0.06
+          ],
+          "content": "数据结构与算法分析—C++语言描述(第四版)"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.106,
+            0.071,
+            0.836,
+            0.915
+          ],
+          "sub_type": "ref_text",
+          "continues_prev": true,
+          "content": "3. C. Aragon and R. Seidel, \"Randomized Search Trees,\" Proceedings of the Thirtieth Annual Symposium on Foundations of Computer Science (1989), 540–545.\n4. J. L. Baer and B. Schwab, \"A Comparison of Tree-Balancing Algorithms,\" Communications of the ACM, 20 (1977), 322–330.\n5. M. Barsky, U. Stege, and A. Thomo, “A Survey of Practical Algorithms for Suffix Tree Construction in External Memory,\" Software: Practice and Experience, 40 (2010) 965–988.\n6. M. Barsky, U. Stege, A. Thomo, and C. Upton, \"Suffix Trees for Very Large Genomic Sequences,\" Proceedings of theEighteenth ACM Conference on Information and Knowledge Management (2009), 1417–1420.\n7. J. L. Bentley, \"Multidimensional Binary Search Trees Used for Associative Searching, Communications of the ACM, 18(1975), 509–517.\n8. J. L. Bentley and J. H. Friedman, “Data Structures for Range Searching,” Computing Surveys, 11 (1979), 397–409.\n9. H. Chang and S. S. Iyengar, “Efficient Algorithms to Globally Balance a Binary Search Tree,\" Communications ofthe ACM,27 (1984), 695–702.\n10. P. Chanzy, “Range Search and Nearest Neighbor Search,\" Master's Thesis, McGill University, 1993.\n11. A. C. Day, \"Balancing a Binary Tree,\" Computer Journal, 19 (1976), 360–361\n12. Y. Ding and M. A. Weiss, “The k-d Heap: An Efficient Multi-Dimensional Priority Queue,\" Proceedings of the Third Workshop on Algorithms and Data Structures (1993), 302–313.\n13. M. Farach, \"Optimal Suffix Tree Construction with Large Alphabets,\" Proceedings of the Thirty-eighth Annual IEEE Symposium on Foundations of Computer Science (1997), 137–143.\n14. P. Flajolet and C. Puech, \"Partial Match Retrieval of Multidimensional Data,\" Journal of the ACM, 33 (1986), 371–407.\n15. B. Flamig, Practical Data Structures in C++, John Wiley, New York, 1994.\n16. M. Fredman, \"Information Theoretic Implications for Pairing Heaps,\" Proceedings of the Thirtieth Annual ACM Symposium on theTheory of Computing (1998), 319–326.\n17. M. L Fredman, R. Sedgewick, D. D. Sleator, and R. E. Tarjan, \"The Pairing Heap: A New Form of Self-AdjustingHeap,\" Algorithmica, 1 (1986), 111–129.\n18. L. J. Guibas and R. Sedgewick, “A Dichromatic Framework for Balanced Trees,\" Proceedings of the Nineteenth Annual Symposium on Foundations of Computer Science (1978), 8–21.\n19. D. Gusfield, Algorithms on Strings, Trees and Sequences: Computer Science and Computational Biology, Cambridge University Press, Cambridge, U.K., 1997.\n20. D. W. Jones, \"An Empirical Comparison of Priority-Queue and Event-Set Implementations,\" Communications of the ACM, 29 (1986), 300–311.\n21. J. Kärkkäinen and P. Sanders, \"Simple Linear Work Suffix Array Construction,\" Proceedings of the Thirtieth International Colloquium on Automata, Languages and Programming (2003), 943-955.\n22. T. Kasai, G. Lee, H. Arimura, S. Arikawa, and K. Park, \"Linear-Time Longest Common-Prefix Computation in Suffix Arrays and Its Applications,\"Proceedings of the Twelfth Annual Symposium on Combinatorial Pattern Matching (2001), 181–192.\n23. P. Ko and S. Aluru, \"Space Efficient Linear Time Construction of Suffix Arrays,\"Proceedings of the Fourteenth Annual Symposium on Combinatorial Pattern Matching (2003), 203-210.\n24. D. T. Lee and C. K. Wong,\"Worst-Case Analysis for Region and Partial Region Searches in Multidimensional Binary Search Trees and Balanced Quad Trees,\" Acta Informatica, 9 (1977), 23-29.\n25. U. Manber and G. Myers, \"Suffix Arrays: A New Method for On-Line String Searches,\"SIAM Journal on Computing, 22(1993), 935–948.\n26. W. A. Martin and D. N. Ness, “Optimizing Binary Trees Grown with a Sorting Algorithm,’ Communications of the ACM, 15 (1972), 88–93."
+        }
+      ]
+    },
+    {
+      "page_idx": 498,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.344,
+            0.041,
+            0.653,
+            0.059
+          ],
+          "content": "第12章 高级数据结构及其实现"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.864,
+            0.046,
+            0.901,
+            0.06
+          ],
+          "content": "485"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.107,
+            0.067,
+            0.84,
+            0.564
+          ],
+          "sub_type": "ref_text",
+          "continues_prev": true,
+          "content": "27. E. McCreight, \"Priority Search Trees,\" SIAM Journal of Computing, 14 (1985), 257–276.\n28. E. M. McCreight, “A Space-Economical Suffix Tree Construction Algorithm,\" Journal of the ACM, 23 (1976), 262–272.\n29. B. M. E. Moret and H. D. Shapiro, “An Empirical Analysis of Algorithms for Constructing a Minimum Spanning Tree,\" Proceedings of the Second Workshop on Algorithms and Data Structures (1991), 400–411.\n30. J. Nievergelt and E. M. Reingold, “Binary Search Trees of Bounded Balance,\"SIAM Journal on Computing, 2 (1973), 33–43.\n31. M. H. Overmars and J. van Leeuwen, \"Dynamic Multidimensional Data Structures Based on Quad and K-D Trees,\" Acta Informatica, 17 (1982), 267–285.\n32. S. Pettie, \"Towards a Final Analysis of Pairing Heaps,\" Proceedings of the Forty-sixth Annual IEEE Symposium on Foundations of Computer Science (2005), 174–183.\n33. S. J. Puglisi, W. F Smyth, and A. Turpin, “A Taxonomy of Suffix Array Construction Algorithms,\"ACM Computing Surveys, 39 (2007), 1–31.\n34. A. H. Samet, “The Quadtree and Related Hierarchical Data Structures,\" Computing Surveys, 16 (1984), 187–260.\n35. R. Sedgewick and K. Wayne, Algorithms, 4th ed., Addison-Wesley Professional, Boston, Mass, 2011.\n36. D. D. Sleator and R. E. Tarjan, “Self-Adjusting Binary Search Trees,\" Journal of the ACM, 32 (1985), 652–686.\n37. J. T. Stasko and J. S. Vitter, \"Pairing Heaps: Experiments and Analysis,\" Communications of the ACM, 30 (1987), 234–249.\n38. C. J. Stephenson, “A Method for Constructing Binary Search Trees by Making Insertions at the Root,\" International Journal of Computer and Information Science, 9 (1980), 15–29.\n39. E. Ukkonen, \"On-Line Construction of Suffix Trees,\" Algorithmica, 14 (1995), 249–260.\n40. J. Vuillemin, “A Unifying Look at Data Structures,\"Communications of the ACM, 23 (1980), 229-239.\n41. P. Weiner, \"Linear Pattern Matching Algorithm,\" Proceedings of the Fourteenth AnnualIEEE Symposium on Switching and AutomataTheory, (1973), 1-11."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "created_at": "2023-12-16T11:58:13Z",
+      "modified_at": "2023-12-16T11:58:13Z",
+      "creator_application": "DuXiu/SuperStar",
+      "producer_application": "AnnasArchive",
+      "page_count": 511,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "ocr"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 452,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 453,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 454,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 455,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 456,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 457,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 458,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 459,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 460,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 461,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 462,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 463,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 464,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 465,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 466,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 467,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 468,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 469,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 470,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 471,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 472,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 473,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 474,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 475,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 476,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 477,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 478,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 479,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 480,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 481,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 482,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 483,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 484,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 485,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 486,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 487,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 488,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 489,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 490,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 491,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 492,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 493,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 494,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 495,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 496,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 497,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        },
+        {
+          "page_idx": 498,
+          "width_pt": 595.2755737304688,
+          "height_pt": 842.076416015625
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}
