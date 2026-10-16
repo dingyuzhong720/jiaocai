@@ -1,0 +1,1075 @@
+--- PDF page 316 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+11. Techniken zum Algorithmenentwurf
+11.1 Rekursion und Iteration
+11.2 Backtracking
+11.3 Kombinatorische Optimierung
+11.4 Schwierige Probleme und Heuristiken
+11.5 Dynamische Programmierung
+11.6 Branch and Bound
+316
+
+
+--- PDF page 317 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Rekursion und Iteration
+• Rekursion: lat. recurrere (zurücklaufen)
+– Definition einer Funktion f mittels f selbst
+– Im Programm: Berechnung von f durch erneuten Aufruf von f
+(mit anderen Parametern)
+– Häufig elegante und kompakte Funktionsdefinition
+– Nachteile: Höherer Speicherbedarf durch Laufzeit-Stack sowie 
+evtl. Gefahr von Endlosschleifen 
+• Iteration: lat. iterare (wiederholen)
+– Berechnung einer Funktion f durch einzelne Schritte auf 
+bestimmter Datenstruktur
+– Typischerweise als Schleife (z.B. for) realisiert
+– Vor- und Nachteile komplementär zur Rekursion
+317
+
+
+--- PDF page 318 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Fakultätsfunktion
+• Siehe auch Kap. 3
+• 𝐟𝐟𝐟𝐟𝐟𝐟𝐟𝐟𝒏𝒏= 𝟏𝟏× 𝟐𝟐× … × 𝒏𝒏
+• Laufzeit für beide Algorithmen 
+𝓞𝓞(𝒏𝒏)
+• Rekursive Variante ist 
+kompakter
+• Wird mittels Laufzeit-Stack
+abgearbeitet (s. Kap. 8)
+• D.h. Zusatzaufwand für Stack-
+Bereitstellung und „Aufräumen“
+• Daneben: Compiler können 
+Schleifen oft gut optimieren
+• Iterative Variante daher 
+praktisch meist schneller
+Iterativ
+Rekursiv
+int factorial(int n)
+{
+int i, fact;
+fact = 1;
+for (i = 2; i <= n; i++) {
+fact *= i;
+}
+return fact;
+}
+int factorial(int n)
+{
+if (n <= 1)
+return 1;
+else return
+n * factorial(n-1);
+}
+318
+
+
+--- PDF page 319 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Fibonacci-Zahlen
+• 𝐟𝐟𝐟𝐟𝐟𝐟𝒏𝒏= ቊ𝑛𝑛,
+für 𝑛𝑛≤1
+fib 𝑛𝑛−1 + fib 𝑛𝑛−2 ,
+für 𝑛𝑛> 1
+(d.h. fib(0) = 0, fib(1) = 1)
+• Fibonacci-Folge:
+(0, 1, 1, 2, 3, 5, 8, 13, 21, 34, … )
+• Viele Anwendungen in der Mathematik
+• Auch in der Natur zu beobachten
+• Siehe http://www.youtube.com/watch?v=iPKUe-69PdA
+„Naive“ Rekursion:
+int fib(int n)
+{
+if (n <= 1)
+return 1;
+else
+return fib(n-1) + fib(n-2);
+}
+319
+
+
+--- PDF page 320 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Laufzeitanalyse
+• Aufruf von fib erfordert i.a. zwei rekursive Aufrufe von fib
+• Rekursionsbaum wächst exponentiell!
+• Zeitbedarf für Aufruf fib(n):
+– 𝒪𝒪(1) für 𝑛𝑛≤1
+– Zeit für fib(n-1) + Zeit für fib(n-2) + 1 für Addition
+fib(5)
+fib(4)
+fib(3)
+fib(2)
+fib(3)
+fib(2)
+fib(1)
+1
+fib(1)
+fib(0)
+1
+0
+fib(1)
+fib(0)
+1
+0
+fib(2)
+fib(1)
+fib(1)
+fib(0)
+1
+1
+0
+320
+
+
+--- PDF page 321 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Laufzeitanalyse
+• 𝑻𝑻(𝒏𝒏) = 𝑻𝑻(𝒏𝒏−𝟏𝟏) + 𝑻𝑻(𝒏𝒏−𝟐𝟐) + 𝟏𝟏
+• Grobe Abschätzung:
+𝑇𝑇𝑛𝑛≥fib 𝑛𝑛= fib 𝑛𝑛−1 + fib 𝑛𝑛−2
+≥2 × fib 𝑛𝑛−2
+= 2 × fib 𝑛𝑛−3 + fib 𝑛𝑛−4
+= 2 × fib 𝑛𝑛−3 + 2 × fib 𝑛𝑛−4
+≥4 × fib 𝑛𝑛−4
+…
+≥2𝑘𝑘−1 × fib 𝑛𝑛– 2 𝑘𝑘−1
+setze 𝑛𝑛= 2𝑘𝑘
+= 2𝑘𝑘−1 × fib 𝑛𝑛– 2 ½𝑛𝑛– 1
+= 2𝑘𝑘−1 × fib 2
+= 2𝑘𝑘−1
+= 2 ⁄
+𝑛𝑛2−1 =
+⁄
+1 2 × 2 ⁄
+𝑛𝑛2
+• Also 𝑇𝑇(𝑛𝑛) = 𝓞𝓞(𝟐𝟐𝒏𝒏) (mindestens)
+• Zusätzlicher Overhead für Stackverwaltung (konst. Faktor)
+321
+
+
+--- PDF page 322 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Iterative Berechnung der Fibonacci-Folge
+• Problem der rekursiven Version: Bei Berechnung von fib(𝑛𝑛) wird 
+Teilfolge fib(𝑛𝑛−2) stets unnötig doppelt berechnet
+• Iterative Version:
+• Laufzeit 𝓞𝓞(𝟏𝟏) für 𝑛𝑛≤1
+• Laufzeit 𝓞𝓞(𝒏𝒏) sonst
+int fib(int n)
+{
+int f1, f2, f;
+if (n <= 1) return 1;
+f1 = 1;
+f2 = 0;
+for (i=2; i<=n; i++) {
+f = f1 + f2;
+f2 = f1;
+f1 = f;
+} 
+return f;
+}
+322
+
+
+--- PDF page 323 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+11. Techniken zum Algorithmenentwurf
+11.1 Rekursion und Iteration
+11.2 Backtracking
+11.3 Kombinatorische Optimierung
+11.4 Schwierige Probleme und Heuristiken
+11.5 Dynamische Programmierung
+11.6 Branch and Bound
+323
+
+
+--- PDF page 324 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Backtracking
+• „Rücksetzverfahren“
+• Grundprinzip:
+– Ausbau von Teillösung zu Gesamtlösung
+– „Raten“, falls Weg zur Gesamtlösung nicht feststeht
+– Rücknahme früherer Entscheidungen, falls keine Gesamtlösung 
+erreichbar
+• Eigenschaften:
+– Existierende Lösung wird garantiert gefunden, indem notfalls 
+alle Möglichkeiten ausprobiert werden
+– Dieser Fall führt jedoch zu schlechtem Laufzeitverhalten
+TL1
+TL2
+TL3
+TL4
+TL5
+TL6
+TL7
+Analogie:
+• DFS in Graphen
+• TL = Teillösung
+324
+
+
+--- PDF page 325 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel aus der technischen Informatik
+• Schaltkreise für Boolesche Funktionen
+• Boolesche Funktion ist eine Abbildung 𝑓𝑓∶
+0,1 2 →{0,1}
+• Schaltkreis = Hardware-Implementierung einer Booleschen 
+Funktion
+• Einfache Funktionen (𝑓𝑓∶{0,1} × {0,1} →{0,1}) werden durch 
+Logikgatter realisiert, z.B. AND, OR, NOR
+• Komplexe Funktionen durch Zusammensetzen von Gattern
+𝑎𝑎
+𝑏𝑏
+𝑓𝑓
+AND: 𝑓𝑓= 1 ⟺𝑎𝑎= 1 UND 𝑏𝑏= 1
+𝑎𝑎
+𝑏𝑏
+𝑓𝑓
+OR: 𝑓𝑓= 1 ⟺𝑎𝑎= 1 ODER 𝑏𝑏= 1
+𝑎𝑎
+𝑏𝑏
+𝑓𝑓
+NOR: 𝑓𝑓= 1 ⟺NICHT(𝑎𝑎= 1 ODER 𝑏𝑏= 1)
+325
+
+
+--- PDF page 326 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Testen von Schaltkreisen
+• Bei der Herstellung von integrierten Schaltkreisen (integrated
+circuit, IC) als Silizium-Chips können Fehler auftreten
+• Fehlermodell: eine beliebige Leitung im Schaltkreis ist (z.B. durch 
+Kurzschluss) immer konstant 0 oder 1
+• Beispiel:
+𝒇𝒇(𝑨𝑨, … , 𝑭𝑭)
+𝑨𝑨
+𝑩𝑩
+𝑪𝑪
+𝑬𝑬
+𝑫𝑫
+𝑭𝑭
+𝑮𝑮
+𝑱𝑱
+𝑯𝑯
+𝑰𝑰
+𝑲𝑲
+𝑱𝑱immer = 1?
+326
+
+
+--- PDF page 327 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Testen von Schaltkreisen
+• Nur Ein- und Ausgänge der Schaltung können gesetzt bzw. 
+gemessen werden, jedoch keine internen Leitungen
+• Wie kann 𝑱𝑱= 𝟏𝟏getestet werden?
+• Geeigneten binären Eingabevektor (𝐴𝐴−𝐹𝐹) wählen, so dass im 
+korrekten Fall 𝐽𝐽= 0
+• Beobachten der Ausgabe 𝐿𝐿
+Eingänge
+Ausgang
+Chip
+𝑨𝑨
+𝑩𝑩
+𝑪𝑪
+𝑬𝑬
+𝑫𝑫
+𝑭𝑭
+𝑮𝑮
+𝑱𝑱
+𝑯𝑯
+𝑰𝑰
+𝑲𝑲
+𝑳𝑳
+327
+
+
+--- PDF page 328 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Bestimmung des Eingabevektors
+• Setze 𝑱𝑱= 𝟎𝟎, sonst Fehler nicht messbar
+• 𝐽𝐽= 𝐺𝐺NOR 𝐼𝐼, also z.B. 𝐺𝐺= 1, 𝐼𝐼= 1
+• 𝐺𝐺= 𝐴𝐴AND 𝐵𝐵, also 𝐴𝐴= 1, 𝐵𝐵= 1
+• 𝐼𝐼= 𝐻𝐻OR 𝐸𝐸, also z.B. 𝐻𝐻= 1, 𝐸𝐸= 0
+• 𝐻𝐻= 𝐶𝐶AND 𝐷𝐷, also 𝐶𝐶= 1, 𝐷𝐷= 1
+• Dieser Vektor 𝐴𝐴−𝐸𝐸erzwingt 𝐽𝐽= 0, falls Schaltkreis korrekt
+0
+1
+1
+1
+1
+1
+0
+1
+1
+𝑳𝑳
+𝑨𝑨
+𝑩𝑩
+𝑪𝑪
+𝑬𝑬
+𝑫𝑫
+𝑭𝑭
+𝑮𝑮
+𝑱𝑱
+𝑯𝑯
+𝑰𝑰
+𝑲𝑲
+328
+
+
+--- PDF page 329 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beobachtung der Ausgabe
+• 𝐾𝐾= 1 impliziert 𝐿𝐿= 1, unabhängig von 𝐽𝐽
+• Also 𝐾𝐾= 0 zu setzen
+• 𝐾𝐾= 𝐼𝐼OR 𝐹𝐹, also 𝐹𝐹= 0, 𝐼𝐼= 0 (Widerspruch zu 𝐼𝐼= 1)
+• Backtracking:
+𝐼𝐼= 0, 𝐻𝐻= 0, 𝐶𝐶= 0
+• Dann ist 𝑳𝑳= 𝟎𝟎⇔Fehler 𝑱𝑱= 𝟏𝟏liegt nicht vor
+0
+0
+0
+0
+0
+0
+1
+1
+1
+1
+1
+0
+1
+1
+𝑳𝑳
+𝑨𝑨
+𝑩𝑩
+𝑪𝑪
+𝑬𝑬
+𝑫𝑫
+𝑭𝑭
+𝑮𝑮
+𝑱𝑱
+𝑯𝑯
+𝑰𝑰
+𝑲𝑲
+329
+
+
+--- PDF page 330 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+11. Techniken zum Algorithmenentwurf
+11.1 Rekursion und Iteration
+11.2 Backtracking
+11.3 Kombinatorische Optimierung
+11.4 Schwierige Probleme und Heuristiken
+11.5 Dynamische Programmierung
+11.6 Branch and Bound
+330
+
+
+--- PDF page 331 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Kombinatorische Optimierung
+• Konstruktion einer Lösung eines Problems durch Auswahl einer 
+Teilmenge einer Menge von diskreten Elementen
+• Jede gültige Lösung muss einer Menge von Randbedingungen
+genügen
+• Gesucht: Lösung, die bzgl. einer Zielfunktion optimal ist (d.h. 
+minimal oder maximal, je nach Problemstellung)
+• Beispiel: minimaler Spannbaum in einem Graphen
+– Menge der diskreten Elemente: 
+• alle Graphkanten
+– Gültige Lösung:
+• Alle Knoten werden genau einmal erfasst
+• Zusammenhängend und keine Zyklen
+– Zielfunktion: 
+• Summe der Kantengewichte → min
+331
+
+
+--- PDF page 332 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Optimierung durch Greedy-Algorithmen
+• Greedy = gierig
+• Ausgehend von Teillösung wähle 
+Fortsetzung, welche zum aktuellen 
+Zeitpunkt den größten Gewinn 
+verspricht
+• Eigenschaften:
+– Meist geringe Laufzeit
+– Optimale Lösung evtl. nicht 
+gefunden
+• Beispiel: Kruskal-Algorithmus
+– Greedy: wähle stets nächst-
+billigste Kante
+– Laufzeit 𝒪𝒪( 𝐸𝐸log 𝐸𝐸)
+– Optimum garantiert gefunden
+Graph MinSpanningTree(Graph G = (V,E))
+{ 
+Graph T; List L; Edge e;
+T = {};
+L = Sort(E); 
+while (#Kanten in T < #Knoten in G–1 
+&& !IsEmpty(L)) {
+e = FirstElem(L); 
+Delete(e,L);
+if (!Cycle(e,T)) {
+T = T ∪{e};
+}
+}
+}
+332
+
+
+--- PDF page 333 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Münzwechselproblem
+• Landeswährung enthält Münzen zu 
+𝒏𝒏𝟏𝟏, … , 𝒏𝒏𝒌𝒌Einheiten
+• 𝑛𝑛1 > 𝑛𝑛2 … > 𝑛𝑛𝑘𝑘
+• Stets 𝒏𝒏𝒌𝒌= 𝟏𝟏, sonst nicht alle Beträge 
+wechselbar
+• Z.B. Euro/Cent:
+𝑛𝑛1 = 200, 𝑛𝑛2 = 100, 𝑛𝑛3 = 50,
+𝑛𝑛4 = 20, 𝑛𝑛5 = 10, 𝑛𝑛6 = 5,
+𝑛𝑛7 = 2, 𝑛𝑛8 = 1
+• Problem: Auszahlung von Betrag 𝑁𝑁mit 
+verfügbaren Münzen
+• Diskrete Elemente: Münzen
+• Gültige Lösung: 
+Menge von Münzen mit Gesamtwert 𝑁𝑁
+• Zielfunktion: 
+möglichst wenige Münzen verwenden
+333
+
+
+--- PDF page 334 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Greedy-Algorithmus
+• Strategie: immer möglichst viele „große“ Münzen wählen, bevor 
+man zu „kleineren“ greift
+• „Untere Gaußklammerfunktion“: 𝐟𝐟𝐟𝐟𝐟𝐟𝐟𝐟𝐟𝐟(𝒙𝒙) = größte ganze Zahl, 
+die nicht größer ist als 𝑥𝑥
+• Führt bei „guten“ Stückelungen immer zum Optimum
+• Schlechte Stückelung: z.B. 𝑛𝑛1 = 2𝑛𝑛2 + 1, 𝑛𝑛2 > 1, 𝑛𝑛3 = 1
+Greedy-Münzwechsel
+Schlechter Fall, z.B. 𝑁𝑁= 3𝑛𝑛2
+z.B. 𝑛𝑛2 = 10, 𝑁𝑁= 30, 𝑛𝑛1 = 21
+1 Münze zu Wert 21
+dann 𝑊𝑊= 30 – 21 = 9
+9 Münzen zu Wert 1
+Zusammen 10 Münzen
+Ausreichend wären 3 Münzen Wert 10
+void change(int N)
+{ 
+int W, i;
+W = N;
+for (i=1; i<=k; i++) { 
+f = floor(W/ni);
+wähle f Münzen
+der Einheit ni;
+W -= ni * f;
+}
+}
+334
+
+
+--- PDF page 335 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+11. Techniken zum Algorithmenentwurf
+11.1 Rekursion und Iteration
+11.2 Backtracking
+11.3 Kombinatorische Optimierung
+11.4 Schwierige Probleme und Heuristiken
+11.5 Dynamische Programmierung
+11.6 Branch and Bound
+335
+
+
+--- PDF page 336 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Komplexität von Optimierungsproblemen
+•
+Für viele wichtige kombinatorische Optimierungsprobleme ist 
+bekannt, dass sie nicht in akzeptabler Zeit optimal lösbar sind, da 
+ihre Laufzeit (höchstwahrscheinlich) mindestens in 𝒪𝒪(2𝑛𝑛) liegt
+•
+Sog. NP-vollständige Probleme
+•
+Rechenbeispiel: Problemgröße 𝑛𝑛= 64, schneller Rechner führt 
+232 Operationen/sec aus
+•
+Rechenzeit: 232 sec ≈ 136 Jahre
+•
+Prinzipielle Möglichkeiten:
+1. Optimale Lösung (brute force) für kleine Werte von n
+2. Optimale Lösung, und dafür sorgen, dass worst case möglichst 
+selten eintritt
+3. Gute, aber nicht notwendig optimale Lösung berechnen
+336
+
+
+--- PDF page 337 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiele NP-vollständiger Probleme
+• Traveling salesman problem: 
+– Modell: Graph mit Kantengewichten
+– Gesucht: Kürzester Rundweg 
+(Zyklus), der alle Knoten genau 
+einmal enthält
+• Graph-Färbung:
+– Modell: ungerichteter Graph
+– Gesucht: Färbung der Knoten mit 
+min. Anzahl Farben, so dass 
+benachbarte Knoten 
+unterschiedliche Farben haben
+• Erfüllbarkeit Boolescher Funktionen:
+– Gibt es für Funktion 𝑓𝑓eine Eingabe 𝑥𝑥
+mit 𝑓𝑓(𝑥𝑥) = 1?
+Kürzester Rundweg über
+die 15 größten Städte
+Deutschlands (von > 43 * 109
+möglichen)   [Wikipedia]
+337
+
+
+--- PDF page 338 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Komplexität von Optimierungsproblemen
+• Zur Kategorie 3 gehören heuristische Algorithmen
+• Heuristik: 
+– Kompromiss zwischen Rechenaufwand und Lösungsqualität
+– Basierend auf problemspezifischem Wissen und 
+„Daumenregeln“
+– Greedy-Algorithmen sind oft Heuristiken
+– Gewünscht: möglichst oft sehr gute Lösung
+– Nachteil: Lösung kann auch beliebig schlecht sein
+• Außerdem möglich: Approximationsalgorithmen
+– Garantie, dass Lösungsqualität nicht um mehr als bestimmten 
+Faktor vom Optimum abweicht
+– Faktor = „Güte“ des Approximationsalgorithmus
+338
+
+
+--- PDF page 339 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel für Heuristik
+• Gegeben: kantengewichteter vollständiger
+Graph 𝐺𝐺= (𝑉𝑉, 𝐸𝐸, 𝑤𝑤), d.h. für alle Knoten 𝑢𝑢, 𝑣𝑣gilt {𝑢𝑢, 𝑣𝑣} ∈𝐸𝐸
+• Gesucht: Pfad 𝑃𝑃= (𝑣𝑣1, … , 𝑣𝑣𝑛𝑛) in 𝐺𝐺, der
+– jeden Knoten in 𝑉𝑉genau einmal enthält und
+– eine maximale Kantengewichtssumme besitzt
+• Vergleiche minimaler (bzw. maximaler) Spannbaum:
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+1
+2
+3
+2
+1
+2
+1
+2
+4
+3
+1
+2
+339
+
+
+--- PDF page 340 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Maximal gewichteter Pfad
+• Man kann zeigen: Problem ist NP-vollständig
+• Ausnutzung der Ähnlichkeit zum Spannbaumproblem
+– Pfad = „entarteter“ (d.h. linearer) Spannbaum
+– Modifikation des Kruskal-Algorithmus: nächste Kante 𝑒𝑒nur 
+gültig, falls
+• Kein Zyklus entsteht
+• Keine Verzweigungen entstehen (d.h. kein „echter“ Baum)
+– Erzeugt heuristisch gute Lösungen in kurzer Zeit
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+0
+1
+3
+2
+4
+5
+1
+2
+4
+4
+3
+5
+0
+2
+3
+2
+2
+1
+2
+1
+340
+
+
+--- PDF page 341 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+11. Techniken zum Algorithmenentwurf
+11.1 Rekursion und Iteration
+11.2 Backtracking
+11.3 Kombinatorische Optimierung
+11.4 Schwierige Probleme und Heuristiken
+11.5 Dynamische Programmierung
+11.6 Branch and Bound
+341
+
+
+--- PDF page 342 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Dynamische Programmierung
+• Effizientes exaktes Lösen von Optimierungsproblemen mit 
+folgender Eigenschaft:
+– Die optimale Lösung des Gesamtproblems kann effizient aus 
+optimalen Lösungen von Teilproblemen berechnet werden
+• Beispiel aus dem Compilerbau:
+– Rechner besitzt elementare Maschinenbefehle
+(Assemblerbefehle, s. Kap. 1), z.B. Addition oder Multiplikation 
+zweier Zahlen
+– Optimale Befehlsauswahl: Wie kann ein komplexer 
+arithmetischer Ausdruck in der Programmiersprache C am 
+schnellsten mit den verfügbaren Assemblerbefehlen berechnet 
+werden?
+342
+
+
+--- PDF page 343 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Befehlsauswahl
+• Ausdruck: (a * b) + (c * d)
+• Befehle:
+– Modell: 
+• Rechner lädt Variablen (var) aus dem Speicher 
+(load) und speichert Werte in Registern (r1, r2, 
+r3)
+• Jeder Befehl besitzt ein Kostenmaß (z.B. Zeit zur 
+Ausführung)
+– load:   r1 = var,            Kosten 1
+– add:    r1 = +(r1,r2),       Kosten 2
+– mul:    r1 = *(r1,r2),       Kosten 2
+– copy:   ri = rj,             Kosten 1
+– muladd: r1 = +(*(r1,r2),r3), Kosten 3
+var
+var
+*
+var
+var
+*
++
+Abstrakte 
+Darstellung des 
+Ausdrucks als 
+Baum
+343
+
+
+--- PDF page 344 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Befehlsauswahl
+• Ansatz:
+– Ausdrucksbaum mit möglichst 
+„billiger“ Menge von Befehlen 
+überdecken
+– Lösung für den gesamten 
+Ausdrucksbaum aus optimalen 
+Lösungen für seine Teilbäume 
+bestimmen
+• Für jeden Teilbaum merken:
+– Welcher Befehl an dessen Wurzel 
+passt (z.B. „+“ mittels „add“ zu 
+überdecken, „*“ mittels „mul“)
+– In welchem Register das Ergebnis des 
+Teilbaums gespeichert wird
+– Welche Gesamtkosten hierbei 
+entstehen
+load
+mul
+add
+muladd
+var-Knoten:
+Überdeckung mit „load“
+Ergebnis dann in Register r1
+Kosten: 1
+Überdeckung mit „copy r1, r2“
+Ergebnis dann in Register r2
+Kosten: 2
+var
+var
+*
+var
+var
+*
++
+344
+
+
+--- PDF page 345 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Befehlsauswahl
+var
+var
+*
+var
+var
+*
++
+Billigste Lösung
+Überdeckung des Ausdrucksbaums
+Befehle
+• Aus dieser Lösung kann die optimale Assembler-
+Befehlsfolge unmittelbar konstruiert werden
+• Laufzeit: 𝒪𝒪(𝑛𝑛) bei n Baumknoten
+load:
+r1  var
+→Kosten 1
+add:
+r1  +(r1,r2)
+→Kosten 2
+mul:
+r1  *(r1,r2)
+→Kosten 2
+copy: 
+ri rj
+Kosten 1
+muladd: 
+r1  +(*(r1,r2), r3) 
+→Kosten 3
+load: r1,1
+copy: r1,r2,2
+copy: r3,r2,2
+load: r1,1
+copy: r1,r2,2
+copy: r1,r3,2
+load:r1,1
+copy:r1,r2,2
+copy:r1,r3,2
+load: r1,1
+copy: r1,r2,2
+copy: r1,r3,2
+mul: r1,r2,1+2+2=5
+copy: r1,r2,5+1=6
+copy: r1,r3,5+1=6
+mul: r1,r2,1+2+2=5
+copy: r2,   5+1=6
+copy: r3,   5+1=6
+add:    r1, 5+6+1+2=14
+muladd: r1, 1+2+6+3=12
+345
+
+
+--- PDF page 346 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+11. Techniken zum Algorithmenentwurf
+11.1 Rekursion und Iteration
+11.2 Backtracking
+11.3 Kombinatorische Optimierung
+11.4 Schwierige Probleme und Heuristiken
+11.5 Dynamische Programmierung
+11.6 Branch and Bound
+346
+
+
+--- PDF page 347 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Branch and Bound
+• „Verzweigung und Schranke“
+• Exaktes Lösen schwieriger (NP-vollständiger) 
+Optimierungsprobleme
+• Idee:
+– Lösen eines „schwierigen“ kombinatorischen 
+Optimierungsproblems entspricht Durchlauf eines 
+Entscheidungsbaumes
+– Entscheidungsbaum typischerweise exponentiell groß 
+– „Beschneidung“ des Baumes verringert Laufzeit ohne Verlust 
+an Optimalität
+• Ähnliches Konzept auch bei Spielbäumen (TicTacToe, Dame, 
+Schach, …)
+• Charakteristik:
+– Im worst case exponentielle Laufzeit
+– Im average case wesentlich schneller
+347
+
+
+--- PDF page 348 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Entscheidungsbaum
+• Annahme: Vektor 𝑉𝑉= (𝑥𝑥1, … , 𝑥𝑥𝑛𝑛) von 0/1-Variablen so zu wählen, 
+dass eine Kostenfunktion 𝑓𝑓(𝑉𝑉) minimiert wird
+• Entscheidungsbaum: Festlegen jeweils einer Variable
+(𝒙𝒙𝟏𝟏, … , 𝒙𝒙𝒏𝒏)
+(𝒙𝒙𝟏𝟏, … , 𝒙𝒙𝒊𝒊−𝟏𝟏, 𝟎𝟎, 𝒙𝒙𝒊𝒊+𝟏𝟏, … , 𝒙𝒙𝒏𝒏)
+𝒙𝒙𝒊𝒊= 𝟎𝟎
+(𝒙𝒙𝟏𝟏, … , 𝒙𝒙𝒊𝒊−𝟏𝟏, 𝟏𝟏, 𝒙𝒙𝒊𝒊+𝟏𝟏, … , 𝒙𝒙𝒏𝒏)
+𝒙𝒙𝒊𝒊= 𝟏𝟏
+(𝒙𝒙𝟏𝟏, … , 𝒙𝒙𝒊𝒊−𝟏𝟏, 𝟎𝟎, 𝟎𝟎, 𝒙𝒙𝒊𝒊+𝟐𝟐, … , 𝒙𝒙𝒏𝒏)
+𝒙𝒙𝒊𝒊+𝟏𝟏= 𝟎𝟎
+(𝒙𝒙𝟏𝟏, … , 𝒙𝒙𝒊𝒊−𝟏𝟏, 𝟎𝟎, 𝟏𝟏, 𝒙𝒙𝒊𝒊+𝟐𝟐, … , 𝒙𝒙𝒏𝒏)
+𝒙𝒙𝒊𝒊+𝟏𝟏= 𝟏𝟏
+((𝒙𝒙𝟏𝟏, … , 𝒙𝒙𝒊𝒊−𝟏𝟏, 𝟎𝟎, 𝟏𝟏, 𝟏𝟏, 𝒙𝒙𝒊𝒊+𝟑𝟑, … , 𝒙𝒙𝒏𝒏))
+𝒙𝒙𝒊𝒊+𝟐𝟐= 𝟏𝟏
+(𝒙𝒙𝟏𝟏, … , 𝒙𝒙𝒊𝒊−𝟏𝟏, 𝟎𝟎, 𝟏𝟏, 𝟎𝟎, 𝒙𝒙𝒊𝒊+𝟑𝟑, … , 𝒙𝒙𝒏𝒏)
+𝒙𝒙𝒊𝒊+𝟐𝟐= 𝟎𝟎
+348
+
+
+--- PDF page 349 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Schranken
+• Während der Verzweigung: Berechnung von oberen (upper bound, 
+𝑈𝑈) und unteren Schranken (lower bound, 𝐿𝐿) für die Kostenfunktion 
+𝑓𝑓an jedem Knoten 𝐾𝐾, so dass im Teilbaum unterhalb von 𝐾𝐾
+– in jedem Fall mindestens Kosten 𝑳𝑳entstehen
+– garantiert eine Lösung mit Kosten höchstens 𝑼𝑼existiert
+• Bound: Besitzt Knoten 𝐾𝐾eine untere Schranke 𝑳𝑳, welche größer 
+ist als das kleinste bisher bekannte U, dann kann der Teilbaum 
+unterhalb von 𝐾𝐾von der Suche ausgeschlossen werden, ohne dass 
+eine optimale Lösung verloren geht
+• Wichtig:
+– Schranken sind schnell zu berechnen (sonst zu aufwendig)
+– Schranken sind „scharf“ (sonst kein effektives Bound)
+349
+
+
+--- PDF page 350 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel für Bound
+L = 30
+U = 40
+L = 11
+U = 20
+L = 25
+U = 30
+L = 10
+U = 50
+(𝒙𝒙𝟏𝟏, … , 𝒙𝒙𝒏𝒏)
+(𝒙𝒙𝟏𝟏, … , 𝒙𝒙𝒊𝒊−𝟏𝟏, 𝟎𝟎, 𝒙𝒙𝒊𝒊+𝟏𝟏, … , 𝒙𝒙𝒏𝒏)
+𝒙𝒙𝒊𝒊= 𝟎𝟎
+(𝒙𝒙𝟏𝟏, … , 𝒙𝒙𝒊𝒊−𝟏𝟏, 𝟏𝟏, 𝒙𝒙𝒊𝒊+𝟏𝟏, … , 𝒙𝒙𝒏𝒏)
+𝒙𝒙𝒊𝒊= 𝟏𝟏
+(𝒙𝒙𝟏𝟏, … , 𝒙𝒙𝒊𝒊−𝟏𝟏, 𝟎𝟎, 𝟎𝟎, 𝒙𝒙𝒊𝒊+𝟐𝟐, … , 𝒙𝒙𝒏𝒏)
+𝒙𝒙𝒊𝒊+𝟏𝟏= 𝟎𝟎
+(𝒙𝒙𝟏𝟏, … , 𝒙𝒙𝒊𝒊−𝟏𝟏, 𝟎𝟎, 𝟏𝟏, 𝒙𝒙𝒊𝒊+𝟐𝟐, … , 𝒙𝒙𝒏𝒏)
+𝒙𝒙𝒊𝒊+𝟏𝟏= 𝟏𝟏
+((𝒙𝒙𝟏𝟏, … , 𝒙𝒙𝒊𝒊−𝟏𝟏, 𝟎𝟎, 𝟏𝟏, 𝟏𝟏, 𝒙𝒙𝒊𝒊+𝟑𝟑, … , 𝒙𝒙𝒏𝒏))
+𝒙𝒙𝒊𝒊+𝟐𝟐= 𝟏𝟏
+(𝒙𝒙𝟏𝟏, … , 𝒙𝒙𝒊𝒊−𝟏𝟏, 𝟎𝟎, 𝟏𝟏, 𝟎𝟎, 𝒙𝒙𝒊𝒊+𝟑𝟑, … , 𝒙𝒙𝒏𝒏)
+𝒙𝒙𝒊𝒊+𝟐𝟐= 𝟎𝟎×
+×
+350
+
+
+--- PDF page 351 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: max. gewichteter Pfad in Graphen
+• Branch: bestimmte Kante wird in den Pfad aufgenommen (sofern 
+gültig) oder aber explizit ausgeschlossen
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+0
+Verwenden?
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+5
+1
+0
+1
+2
+3
+3
+2
+4
+5
+2
+1
+2
+1
+2
+4
+2
+4
+3
+1
+0
+351
+
+
+--- PDF page 352 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: max. gewichteter Pfad in Graphen
+• Effiziente Berechnung der Schranken?
+• Gegeben: Graph mit 𝑛𝑛Knoten und Teillösung mit 𝑘𝑘bereits fest 
+gewählten Kanten
+• Obere Schranke 𝑼𝑼:
+– Im besten Falle könnten noch die 𝑛𝑛−𝑘𝑘−1 „schwersten“ 
+unter den noch nicht betrachteten Kanten hinzugefügt werden
+– Optimale Lösung kann höchstens schlechter sein
+• Untere Schranke 𝑳𝑳:
+– Setze Teillösung mittels Heuristik durch Hinzunahme von 
+𝑛𝑛−𝑘𝑘−1 Kanten zu Gesamtlösung fort
+– Optimale Lösung kann höchstens besser werden
+• Maximierungsproblem: Falls für einen Knoten der Wert von 𝑈𝑈
+kleiner ist als bisher bestes 𝐿𝐿, so kann der Teilbaum entfallen
+352
+
+
+--- PDF page 353 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Bildnachweise
+#20 
+Petr Kratochvil , „frau-sitzt-mit-laptop “, publicdomainpictures.net
+„PC-CPU-Feld-Vektor-Bild“, publicdomainvectors.org
+#23
+Ldorfman - According to a work of Johanna Pung made for Wikimedia Deutschland – 
+ 
+Own work, CC BY-SA 3.0, 
+ 
+commons.wikimedia.org/w/index.php?curid=21837408
+#32 
+Max Pixel, “Medical Cold Fever Thermometer Temperature Digital“, maxpixel.net
+#143 Tim Reckmann, „Kreditkarte“, CC-BY 2.0, ccnull.de
+#163 MartinStr, „blasen-wasser-sprudelnd-lufblasen-230014“, pixabay.com
+#213 ACBahn, „Warteschlange Eisdiele“, commons.wikimedia.org, CC GNU 1.2
+#245 „gps-navigation-garmin-gerät-304842“, pixabay.com
+openstreetmap.de, Open Database Licence (ODbL) 1.0
+#270 „Grundsätzliche Informationen zum Netzausbau”, www.buergerdialog-stromnetz.de
+#280 wirestock, „closeup-bee-sunflower-field-sunligh”, freepik.com
+#294 „money_coins_loose_change_euro_cent_specie_metal_money_finance”, pxhere.com
+353
+
+
+--- PDF page 354 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Literaturnachweise
+• B.W. Kernighan, D.M. Ritchie: Programmieren in C, 
+2. Auflage, Hanser, 1990, ISBN 3-446-15497-3 
+• R. Sedgewick: Algorithmen in C++, Teil 1-4, Addison-Wesley, 2002, 
+ISBN 3-8273-7026-4
+• K. Loudon: Mastering Algorithms with C, 1. Auflage, O‘Reilly, 1999, 
+ISBN 978-1-56592-453-6
+354
+
+
+--- PDF page 355 ---
+© T. Gemmeke, IDS, RWTH
+• Abstrakte Datentypen
+• Ausgabe 
+• Funktionen
+– Lambda 
+– Overloading
+• Klassen
+– (De)Constructor
+– Public vs. Private 
+– Inheritance
+• Libraries 
+– Using & namespace
+• Loops
+– Iterators 
+• Polymorphie
+– Statisch 
+– Dynamisch 
+• Smart Pointer 
+– Unique 
+– Shared
+– Weak 
+• Streams 
+,
+• Template 
+Stichwortregister zu C++ Sprachelementen
+39
+113
+149
+117
+355
+140
+142
+144
+147
+40
+34
+70
+71
+72
+129
+153
+119
+138
+155
+39
+73

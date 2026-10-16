@@ -1,0 +1,2755 @@
+{
+  "pages": [
+    {
+      "page_idx": 158,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.242,
+            0.256,
+            0.756,
+            0.317
+          ],
+          "level": 2,
+          "content": "6. Analyse von Algorithmen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.156,
+            0.479,
+            0.427,
+            0.526
+          ],
+          "level": 2,
+          "content": "6.1 Laufzeitanalyse"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.156,
+            0.543,
+            0.726,
+            0.719
+          ],
+          "sub_type": "text",
+          "content": "6.2 𝒪𝒪-Notation für Wachstumsordnungen\n6.3 Beispiel: Exponentialfunktion\n6.4 Beispiel: Suchen in Arrays"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "159"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 159,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.022,
+            0.024,
+            0.378,
+            0.072
+          ],
+          "level": 2,
+          "content": "Analyse von Algorithmen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.133,
+            0.482,
+            0.519
+          ],
+          "sub_type": "text",
+          "content": "Für jedes Problem gibt es **viele mögliche** Algorithmen und Implementierungen\nHäufig gesucht: **effizienteste/schnellste** Implementierung\n• Wie wird diese bestimmt?"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.07,
+            0.54,
+            0.531,
+            0.81
+          ],
+          "sub_type": "text",
+          "content": "– Algorithmenentwicklung ist ein **kreativer** Prozess\n– **Analyse** eines gegebenen Algorithmus mittels **Wachstumsordnungen**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.829,
+            0.377,
+            0.873
+          ],
+          "content": "• Bsp.: Fakultätsfunktion"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.072,
+            0.889,
+            0.595,
+            0.943
+          ],
+          "content": "Factorial: $\\textstyle n ! \\; = \\; 1   \\cdot   2 \\cdot \\ldots \\cdot n = \\prod _ { i = 1 } ^ { n } i$"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.494,
+            0.111,
+            0.966,
+            0.52
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define n 10\n\n/* ... */\n\n    int fact, count;\n\n    fact = 1;\n\n    for (count = 1; count <= n; count++) {\n        fact *= count;\n    }\n\n    printf(\"factorial(%d) = %d\", n, fact);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "160"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 160,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.024,
+            0.378,
+            0.072
+          ],
+          "content": "Analyse von Algorithmen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.135,
+            0.596,
+            0.912
+          ],
+          "sub_type": "text",
+          "content": "• Beispiel-Ablauf für 𝑛𝑛 = 5\n• Welche **Laufzeit** ergibt sich?\n– 19 Einzelschritte (= Statements)\n• **Probleme**:\n– Welche Laufzeit hat ein Schritt?\n– Z.B. ist „++“ teurer als „\\*=“ ?\n– **Rechnerabhängig**!\n• Daher: **abstrakte** Analyse\n– Wie viele Einzelschritte werden ausgeführt?\n– Unabhängig von Rechnergeschwindigkeit (MIPS) und Kosten der Einzelschritte"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.65,
+            0.148,
+            0.728,
+            0.178
+          ],
+          "level": 2,
+          "content": "count"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.689,
+            0.221,
+            0.705,
+            0.25
+          ],
+          "content": "1"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.744,
+            0.181,
+            0.922,
+            0.858
+          ],
+          "sub_type": "text",
+          "content": "fact = 1\ncount = 1\ncount <= n?\nfact \\*= count\ncount++\ncount <= n?\nfact \\*= count\ncount++\ncount <= n?\nfact \\*= count\ncount++\ncount <= n?\nfact \\*= count\ncount++\ncount <= n?\nfact \\*= count\ncount++\ncount <= n?\nprintf(...)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.69,
+            0.332,
+            0.707,
+            0.361
+          ],
+          "content": "2"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.69,
+            0.438,
+            0.707,
+            0.466
+          ],
+          "content": "3"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.69,
+            0.544,
+            0.707,
+            0.572
+          ],
+          "content": "4"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.69,
+            0.649,
+            0.707,
+            0.677
+          ],
+          "content": "5"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.69,
+            0.754,
+            0.707,
+            0.782
+          ],
+          "content": "6"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.036,
+            0.988
+          ],
+          "content": "161"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 161,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.024,
+            0.378,
+            0.072
+          ],
+          "content": "Analyse von Algorithmen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.135,
+            0.509,
+            0.178
+          ],
+          "content": "• Einzelschritte bei Funktion fact:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.069,
+            0.199,
+            0.435,
+            0.475
+          ],
+          "sub_type": "text",
+          "content": "– **Initialisierung** von fact und count: 2 Schritte\n– Pro **Schleifeniteration**: 3 Schritte $\\left( <=, \\ddot{ } =, ++ \\right)$\n– **Schleifenende**: 1 Schritt"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.498,
+            0.29,
+            0.543
+          ],
+          "content": "• Für beliebiges 𝑛𝑛:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.081,
+            0.55,
+            0.445,
+            0.645
+          ],
+          "content": "\\begin{array}{l} T _ {\\mathrm{fact}} (n) = 2 + 3 \\cdot n + 1 \\\\ = 3 n + 3 \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_161_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.668,
+            0.502,
+            0.768
+          ],
+          "content": "**Lineare Laufzeit** in Abhängigkeit der Eingabegröße 𝑛𝑛"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.479,
+            0.235,
+            0.942,
+            0.843
+          ],
+          "sub_type": "line",
+          "content": "| n | T fact |\n| --- | --- |\n| 0 | ~3 |\n| 2 | ~9 |\n| 4 | ~15 |\n| 6 | ~21 |\n| 8 | ~27 |\n| 10 | ~33 |\n| 12 | ~40 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_161_chart_9.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "162"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 162,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.024,
+            0.378,
+            0.072
+          ],
+          "content": "Analyse von Algorithmen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.136,
+            0.374,
+            0.282
+          ],
+          "content": "**Annahme**: ein anderer Algorithmus fact2 hat Laufzeit"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.102,
+            0.292,
+            0.393,
+            0.345
+          ],
+          "content": "T _ {\\mathrm{fact2}} (n) = n ^ {2} + 1",
+          "image_source": "../../raw/pages_0161-0192/images/page_162_equation_2.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.104,
+            0.413,
+            0.206,
+            0.456
+          ],
+          "content": "n \\leq 3",
+          "image_source": "../../raw/pages_0161-0192/images/page_162_equation_4.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.358,
+            0.427,
+            0.918
+          ],
+          "sub_type": "text",
+          "content": "• fact2 ist schneller für\n• Ab $n \\; = \\; 4$ benötigt fact2 stets höhere Laufzeit\nDifferenz steigt mit 𝑛𝑛\n**Ergebnis**: fact2 ist für fast alle 𝑛𝑛 langsamer als fact (d.h. die **asymptotische** Laufzeit von fact2 ist größer als von fact)"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.469,
+            0.231,
+            0.934,
+            0.843
+          ],
+          "sub_type": "line",
+          "content": "| n | T_fact | T_fact2 |\n| --- | --- | --- |\n| 0 | ~3 | ~1 |\n| 2 | ~9 | ~5 |\n| 4 | ~15 | ~15 |\n| 6 | ~21 | ~35 |\n| 8 | ~27 | — |\n| 10 | ~33 | — |\n| 12 | ~40 | — |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_162_chart_9.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "163"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 163,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.378,
+            0.072
+          ],
+          "content": "Analyse von Algorithmen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.129,
+            0.418,
+            0.844
+          ],
+          "sub_type": "text",
+          "content": "Konstante Faktoren und **Konstanten** vernachlässigen!\nAnalyse unabhängig von **Rechnerdetails**\nFrage: wie **wächst die Laufzeit** bei Erhöhung der Eingabegröße 𝑛𝑛?\n• **Näherung**:\nBeeinflusst den **Vergleich** der Algorithmen nur unwesentlich"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.106,
+            0.593,
+            0.289,
+            0.642
+          ],
+          "content": "T _ {\\mathrm{fact}} (n) \\approx n",
+          "image_source": "../../raw/pages_0161-0192/images/page_163_equation_7.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.106,
+            0.641,
+            0.309,
+            0.691
+          ],
+          "content": "T _ {\\mathrm{fact2}} (n) \\approx n ^ {2}",
+          "image_source": "../../raw/pages_0161-0192/images/page_163_equation_8.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.47,
+            0.231,
+            0.934,
+            0.843
+          ],
+          "sub_type": "line",
+          "content": "| n | T_fact | T_fact2 | n |\n| --- | --- | --- | --- |\n| 0 | ~3 | ~1 | 0 |\n| 2 | ~9 | ~5 | ~2 |\n| 4 | ~15 | ~15 | ~4 |\n| 6 | ~21 | ~35 | ~6 |\n| 8 | ~27 | — | ~8 |\n| 10 | ~33 | — | ~10 |\n| 12 | ~40 | — | ~12 |\n| 14 | — | — | ~14 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_163_chart_10.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "164"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 164,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.242,
+            0.256,
+            0.756,
+            0.317
+          ],
+          "level": 2,
+          "content": "6. Analyse von Algorithmen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.156,
+            0.479,
+            0.737,
+            0.719
+          ],
+          "sub_type": "text",
+          "content": "6.1 Laufzeitanalyse\n**6.2** 𝓞𝓞**-Notation für Wachstumsordnungen**\n6.3 Beispiel: Exponentialfunktion\n6.4 Beispiel: Suchen in Arrays"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.036,
+            0.988
+          ],
+          "content": "165"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 165,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.024,
+            0.025,
+            0.186,
+            0.064
+          ],
+          "content": "𝓞𝓞-Notation"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.021,
+            0.133,
+            0.899,
+            0.297
+          ],
+          "sub_type": "text",
+          "content": "𝒪𝒪-Notation $( \\mathcal { O } = o r d e r )$ ist das gebräuchlichste Hilfsmittel zur **Wachstumsanalyse** von Algorithmen\n• ℕ und ℝ seien die Menge der natürlichen bzw. reellen Zahlen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.033,
+            0.342,
+            0.884,
+            0.393
+          ],
+          "content": "**Def**.: Sind $f : \\mathbb { N } \\to \\mathbb { N }$ und $g : \\mathbb { N } \\; \\rightarrow \\; \\mathbb { N }$ zwei Funktionen, so ist"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.133,
+            0.397,
+            0.35,
+            0.446
+          ],
+          "content": "f \\in \\mathcal {O} (g), \\text {falls}",
+          "image_source": "../../raw/pages_0161-0192/images/page_165_equation_5.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.235,
+            0.451,
+            0.609,
+            0.5
+          ],
+          "content": "\\exists n _ {0} \\in \\mathbb {N}, \\exists c \\in \\mathbb {R}, \\text {so dass}",
+          "image_source": "../../raw/pages_0161-0192/images/page_165_equation_6.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.236,
+            0.505,
+            0.58,
+            0.554
+          ],
+          "content": "\\forall n \\geq n _ {0} \\colon f (n) \\leq c \\cdot g (n)",
+          "image_source": "../../raw/pages_0161-0192/images/page_165_equation_7.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.019,
+            0.601,
+            0.655,
+            0.954
+          ],
+          "sub_type": "text",
+          "content": "$f \\in { \\mathcal { O } } ( g )$ heißt:\n$\\nu ^ { f }$ wächst nicht schneller als $\\mathfrak { g } ^ { \\prime \\prime }$\n𝒪𝒪-Notation **eliminiert Konstanten** aus der Laufzeitberechnung\n• $\\mathrm { Z . B . : }   f ( n ) =   1 0 n ^ { 3 }   +   2 0 n ^ { 2 }   +   1 6 \\in \\mathcal { O } ( n ^ { 3 } )$ da $f ( n ) \\; \\leq \\; 1 1 n ^ { 3 }   ( \\mathrm { d . h . } \\; c \\; = \\; 1   1 )$ sicherlich für alle $n   \\geq   3 0$"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.671,
+            0.575,
+            0.987,
+            0.974
+          ],
+          "content": "| n | f(n) | c·g(n) |\n| --- | --- | --- |\n| 0 | 16 | 0 |\n| 10 | 12016 | 11000 |\n| 20 | 88016 | 88000 |\n| 30 | 288016 | 297000 |\n| 40 | 672016 | 704000 |\n| 50 | 1300016 | 1375000 |\n| 60 | 2232016 | 2376000 |\n| 70 | 3528016 | 3773000 |\n| 80 | 5248016 | 5632000 |\n| 90 | 7452016 | 8019000 |\n| 100 | 10200016 | 11000000 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_165_table_13.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "166"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 166,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.025,
+            0.188,
+            0.065
+          ],
+          "content": "𝓞𝓞-Notation"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.133,
+            0.888,
+            0.247
+          ],
+          "sub_type": "text",
+          "content": "• 𝓞𝓞-Notation gibt Wachstumsordnung nur **näherungsweise** an\n• Nach **Definition** gilt z.B. auch"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.106,
+            0.258,
+            0.448,
+            0.311
+          ],
+          "content": "1 0 ^ {2 0} n ^ {2} \\in \\mathcal {O} (1 / 1 0 0 \\cdot n ^ {3})",
+          "image_source": "../../raw/pages_0161-0192/images/page_166_equation_4.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.025,
+            0.323,
+            0.953,
+            0.608
+          ],
+          "sub_type": "text",
+          "content": "• Jedoch gilt $1 0 ^ { 2 0 }   n ^ { 2 }   \\leq   1 / 1 0 0   n ^ { 3 }$ erst ab $n _ { 0 } \\; = \\; 1 0 ^ { 2 2 }$\nEingabegröße von $1 0 ^ { 2 2 }$ **unrealistisch**, daher wäre die obige Wachstumsordnung wenig sinnvoll\nIn der Praxis kommen jedoch eher **kleine konstante** Faktoren vor, daher ermöglicht die O-Notation"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.624,
+            0.913,
+            0.788
+          ],
+          "sub_type": "text",
+          "content": "– Die ungefähre **Abschätzung** der Laufzeit eines Algorithmus\n– Den näherungsweisen **Vergleich** der Laufzeit verschiedener Algorithmen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.806,
+            0.839,
+            0.856
+          ],
+          "content": "• Vor allem: sinnvoll **vor** der detaillierten Implementierung"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "167"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 167,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.025,
+            0.186,
+            0.065
+          ],
+          "content": "𝓞𝓞-Notation"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.023,
+            0.133,
+            0.946,
+            0.405
+          ],
+          "sub_type": "text",
+          "content": "Mittels 𝒪𝒪-Notation können auch **andere Maße** für die Qualität eines Algorithmus im Vergleich zu anderen abgeschätzt werden, z.B. **Speicherbedarf**\nAußerdem kann die 𝒪𝒪-Notation aussagen, ob sich die Suche nach einem **besseren Algorithmus** für ein Problem lohnt:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.068,
+            0.421,
+            0.955,
+            0.882
+          ],
+          "sub_type": "text",
+          "content": "– Für viele praktisch relevante Probleme ist bekannt, dass ihre optimale Lösung **mindestens Zeit** 𝓞𝓞(𝟐𝟐<sup>𝒏𝒏</sup>) benötigt\n– Daher ist die Suche nach einem effizienten Algorithmus **Zeitverschwendung**\n– Für andere Probleme sind bessere **untere Schranken** bekannt\n– Z.B. 𝒪𝒪(𝑛𝑛 log 𝑛𝑛) für das **Sortieren** von 𝑛𝑛 Zahlen\n– Solche Algorithmen **wurden bereits gefunden**, daher lohnt die Suche nach besseren Verfahren kaum"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "168"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 168,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.025,
+            0.402,
+            0.065
+          ],
+          "content": "Rechnen mit 𝓞𝓞-Notationen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.133,
+            0.911,
+            0.352
+          ],
+          "sub_type": "text",
+          "content": "Häufig wird die **Gesamtlaufzeit** eines Algorithmus als mathematischer Ausdruck der **Laufzeiten von Teilalgorithmen** bestimmt\n• **Rechenregeln**:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.073,
+            0.368,
+            0.858,
+            0.543
+          ],
+          "sub_type": "text",
+          "content": "$\\mathcal { N } ^ { \\prime \\prime }$ im Ausdruck vernachlässigen\n– Umformen des Ausdrucks wie gewohnt\n– Nur den führenden Term (höchster Exponent) behalten"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.558,
+            0.961,
+            0.672
+          ],
+          "sub_type": "text",
+          "content": "• Z.B. $g ( n ) =   2 n \\cdot \\mathcal { O } ( n ) \\in \\mathcal { O } ( n ^ { 2 } )$\n$\\mathcal { O } ( n )$ repräsentiert alle Funktionen f mit **linearem Wachstum**, d.h."
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.061,
+            0.68,
+            0.514,
+            0.728
+          ],
+          "content": "f (n) = c _ {1} n + c _ {2} \\text {mit} c _ {1}, c _ {2} \\in \\mathbb {R}",
+          "image_source": "../../raw/pages_0161-0192/images/page_168_equation_11.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.062,
+            0.731,
+            0.64,
+            0.782
+          ],
+          "content": "g (n) = 2 n \\cdot (c _ {1} n + c _ {2}) = 2 c _ {1} n ^ {2} + 2 c _ {2} n",
+          "image_source": "../../raw/pages_0161-0192/images/page_168_equation_12.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.141,
+            0.786,
+            0.236,
+            0.82
+          ],
+          "content": "c _ {3} := 2 c _ {1}",
+          "image_source": "../../raw/pages_0161-0192/images/page_168_equation_13.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.142,
+            0.826,
+            0.239,
+            0.859
+          ],
+          "content": "c _ {4} := 2 c _ {2}",
+          "image_source": "../../raw/pages_0161-0192/images/page_168_equation_14.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.156,
+            0.848,
+            0.778,
+            0.951
+          ],
+          "content": "\\begin{array}{l} \\Longleftrightarrow c _ {3} n ^ {2} + c _ {4} n \\quad \\text {mit} \\mathrm{c} _ {3}, \\mathrm{c} _ {4} \\in \\mathbb {R} \\\\ \\in \\mathcal {O} (n ^ {2}) + \\mathcal {O} (n) \\in \\mathcal {O} (n ^ {2}) \\text {gemäß Definition} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_168_equation_15.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.036,
+            0.987
+          ],
+          "content": "169"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 169,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.025,
+            0.402,
+            0.065
+          ],
+          "content": "Rechnen mit 𝓞𝓞-Notationen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.135,
+            0.36,
+            0.18
+          ],
+          "content": "• Komplexeres Beispiel:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.048,
+            0.251,
+            0.966,
+            0.838
+          ],
+          "content": "\\begin{array}{l} \\big (\\boldsymbol {n} + \\mathcal {O} (\\boldsymbol {1}) \\big) \\big (\\boldsymbol {n} + \\mathcal {O} (\\log \\boldsymbol {n}) + \\mathcal {O} (\\boldsymbol {1}) \\big) \\\\ = n ^ {2} + n \\cdot \\mathcal {O} (\\log n) + n \\cdot \\mathcal {O} (1) + \\\\ \\mathcal {O} (1) \\cdot n + \\mathcal {O} (1) \\cdot \\mathcal {O} (\\log n) + \\mathcal {O} (1) \\cdot \\mathcal {O} (1) \\\\ = n ^ {2} + \\mathcal {O} (n \\log n) + \\mathcal {O} (n \\cdot 1) + \\mathcal {O} (1 \\cdot n) + \\mathcal {O} (1 \\cdot \\log n) + \\mathcal {O} (1 \\cdot 1) \\\\ = \\mathcal {O} (n ^ {2}) + \\mathcal {O} (n \\log n) + \\mathcal {O} (n) + \\mathcal {O} (n) + \\mathcal {O} (\\log n) + \\mathcal {O} (1) \\\\ = \\mathcal {O} (n ^ {2}) + \\mathcal {O} (n \\log n) + \\mathcal {O} (2 \\cdot n) + \\mathcal {O} (\\log n) + \\mathcal {O} (1) \\\\ = \\mathcal {O} (n ^ {2}) + \\mathcal {O} (n \\log n) + \\mathcal {O} (n) + \\mathcal {O} (\\log n) + \\mathcal {O} (1) \\\\ = \\mathcal {O} (n ^ {2} + n \\log n + n + \\log n + 1) \\\\ = \\mathcal {O} (n ^ {2}) \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_169_equation_2.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.968,
+            0.036,
+            0.987
+          ],
+          "content": "170"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 170,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.471,
+            0.071
+          ],
+          "content": "Wichtige Wachstumsordnungen"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.22,
+            0.224,
+            0.764,
+            0.844
+          ],
+          "sub_type": "line",
+          "content": "| Eingabegröße (n) | O(n) | \\(O(\\sqrt{n})\\) | \\(O(log_{2} n)\\) | O(1) |\n| --- | --- | --- | --- | --- |\n| 0 | 0 | 0 | — | 1 |\n| 2 | ~2.5 | ~1.3 | ~1.1 | 1 |\n| 4 | ~5.0 | ~2.0 | ~2.0 | 1 |\n| 6 | ~7.5 | ~2.6 | ~2.6 | 1 |\n| 8 | ~9.5 | ~3.1 | ~3.1 | 1 |\n| 10 | >10 | ~3.5 | ~3.5 | 1 |\n| 12 | N/A | ~3.8 | ~3.8 | 1 |\n| 14 | N/A | ~4.0 | ~4.0 | 1 |\n| 16 | N/A | ~4.2 | ~4.2 | 1 |\n| 18 | N/A | ~4.3 | ~4.3 | 1 |\n| 20 | N/A | ~4.4 | ~4.4 | 1 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_170_chart_1.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.036,
+            0.988
+          ],
+          "content": "171"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 171,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.471,
+            0.071
+          ],
+          "content": "Wichtige Wachstumsordnungen"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.197,
+            0.104,
+            0.987,
+            0.873
+          ],
+          "sub_type": "line",
+          "content": "| n | O(2^n) | O(n^3) | O(n^2) | O(n log_2 n) |\n|---|---|---|---|---|\n| 0 | 0 | 0 | 0 | 0 |\n| 2 | ~10 | ~10 | ~5 | ~2 |\n| 4 | ~60 | ~60 | ~15 | ~4 |\n| 6 | ~250 | ~250 | ~30 | ~6 |\n| 8 | ~700 | ~700 | ~50 | ~8 |\n| 10 | ~1400 | ~1400 | ~70 | ~10 |\n| 12 | >2000 | >2000 | ~90 | ~12 |\n| 14 | N/A | N/A | ~120 | ~14 |\n| 16 | N/A | N/A | ~160 | ~16 |\n| 18 | N/A | N/A | ~220 | ~18 |\n| 20 | N/A | N/A | ~300 | ~20 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_171_chart_1.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "172"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 172,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.023,
+            0.024,
+            0.472,
+            0.072
+          ],
+          "level": 2,
+          "content": "Wichtige Wachstumsordnungen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.133,
+            0.841,
+            0.363
+          ],
+          "sub_type": "text",
+          "content": "• Annahme: Rechner kann **1000 Operationen pro Sekunde** ausführen\n• Welche **Eingabegröße** kann in Zeit t bearbeitet werden ?\nKleine konstante Faktoren spielen nur **geringe Rolle**!"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.039,
+            0.406,
+            0.95,
+            0.968
+          ],
+          "content": "| T(n) | t = 1sec (1000 Op) | t = 1 min (60.000 Op) | t = 1h (3.600.000 Op) |\n| --- | --- | --- | --- |\n| log2 n | 21000 | 260.000 | 23.600.000 |\n| $\\sqrt{n}$ | 1.000.000 | 3.600.000.000 | 12.960.000.000.000 |\n| n | 1000 | 60.000 | 3.600.000 |\n| n log2 n | 140 | 4.895 | 204.094 |\n| n2 | 31 | 244 | 1.897 |\n| n3 | 10 | 39 | 153 |\n| 2n | 9 | 15 | 21 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_172_table_5.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.036,
+            0.988
+          ],
+          "content": "173"
+        }
+      ]
+    },
+    {
+      "page_idx": 173,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.024,
+            0.472,
+            0.072
+          ],
+          "content": "Wichtige Wachstumsordnungen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.023,
+            0.129,
+            0.92,
+            0.44
+          ],
+          "sub_type": "text",
+          "content": "• Was ändert sich, wenn der Rechner **10x schneller** wird?\nBetrachte max. Eingabegröße 𝑚𝑚, die in vorgegebener Zeit bearbeitet werden kann\nBei exponentieller Laufzeit $\\mathcal { O } ( 2 ^ { n } )$ lässt auch eine **Vertausendfachung** der Rechenleistung die max. Eingabegröße nur um $\\approx 1 0$ wachsen (da $\\log _ { 2 } 1 0 0 0 \\approx 1 0 )$"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.045,
+            0.463,
+            0.758,
+            0.97
+          ],
+          "content": "| T(n) | vorher | nachher |\n| --- | --- | --- |\n| $\\log_2 n$ | m | $m^{10}$ |\n| $\\sqrt{n}$ | m | 100 m |\n| n | m | 10 m |\n| $n \\log_2 n$ | m | $\\approx 8 \\, m$ |\n| $n^2$ | m | 3,16 m |\n| $n^3$ | m | 2,15 m |\n| $2^n$ | m | m + 3,3 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_173_table_5.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.765,
+            0.548,
+            0.951,
+            0.588
+          ],
+          "content": "\\log m ^ {1 0} = 1 0 \\log m",
+          "image_source": "../../raw/pages_0161-0192/images/page_173_equation_6.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.768,
+            0.611,
+            0.877,
+            0.649
+          ],
+          "content": "1 0 = \\sqrt {1 0 0}",
+          "image_source": "../../raw/pages_0161-0192/images/page_173_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.76,
+            0.73,
+            0.99,
+            0.768
+          ],
+          "content": "Faktor hängt von 𝑚𝑚 ab"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.767,
+            0.799,
+            0.875,
+            0.835
+          ],
+          "content": "1 0 \\approx 3, 1 6 ^ {2}",
+          "image_source": "../../raw/pages_0161-0192/images/page_173_equation_9.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.768,
+            0.86,
+            0.875,
+            0.896
+          ],
+          "content": "1 0 \\approx 2, 1 5 ^ {3}",
+          "image_source": "../../raw/pages_0161-0192/images/page_173_equation_10.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.768,
+            0.922,
+            0.859,
+            0.956
+          ],
+          "content": "1 0 \\approx 2 ^ {3, 3}",
+          "image_source": "../../raw/pages_0161-0192/images/page_173_equation_11.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "174"
+        }
+      ]
+    },
+    {
+      "page_idx": 174,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.242,
+            0.256,
+            0.756,
+            0.317
+          ],
+          "level": 2,
+          "content": "6. Analyse von Algorithmen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.156,
+            0.479,
+            0.727,
+            0.719
+          ],
+          "sub_type": "text",
+          "content": "6.1 Laufzeitanalyse\n6.2 𝒪𝒪-Notation für Wachstumsordnungen\n**6.3 Beispiel: Exponentialfunktion**\n6.4 Beispiel: Suchen in Arrays"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.036,
+            0.988
+          ],
+          "content": "175"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 175,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.023,
+            0.437,
+            0.072
+          ],
+          "content": "Beispiel: Exponentialfunktion"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.133,
+            0.528,
+            0.243
+          ],
+          "sub_type": "text",
+          "content": "• Berechne $b ^ { n }$ für $b \\in \\mathbb { R }$ und $n \\in \\mathbb { N }$\nEs gilt:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.258,
+            0.435,
+            0.369
+          ],
+          "sub_type": "text",
+          "content": "– 𝑏𝑏<sup>0</sup> = 1, und für 𝑛𝑛 > 0:\n– 𝑏𝑏<sup>𝑛𝑛</sup> = 𝑏𝑏 ⋅ 𝑏𝑏<sup>𝑛𝑛−1</sup>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.39,
+            0.455,
+            0.436
+          ],
+          "content": "• **Rekursiver** Algorithmus (d.h."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.06,
+            0.444,
+            0.496,
+            0.491
+          ],
+          "content": "Algorithmus ruft sich selbst auf)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.509,
+            0.272,
+            0.554
+          ],
+          "content": "• Z.B. pow(10,5)"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.074,
+            0.566,
+            0.509,
+            0.925
+          ],
+          "content": "\\begin{array}{l} = 1 0 ^ {*} \\text {pow} (1 0, 4) \\\\ = 1 0 * 1 0 * \\text {pow} (1 0, 3) \\\\ = 1 0 * 1 0 * 1 0 * \\text {pow} (1 0, 2) \\\\ = 1 0 * 1 0 * 1 0 * 1 0 * \\text {pow} (1 0, 1) \\\\ = 1 0 * 1 0 * 1 0 * 1 0 * 1 0 * \\text {pow} (1 0, 0) \\\\ = 1 0 * 1 0 * 1 0 * 1 0 * 1 0 * 1 \\\\ = 1 0 0. 0 0 0 \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_175_equation_10.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.572,
+            0.188,
+            0.892,
+            0.822
+          ],
+          "sub_type": "code",
+          "content": "```c\nfloat pow(float b, int n)\n{\n    if (n == 0) {\n        return 1;\n    } else {\n        return b * pow(b, n-1);\n    }\n}\n\nint main(void)\n{\n    float b, int n;\n    scanf(\"%f,%d\", &b, &n);\n    printf(\"%f\", pow(b, n));\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "176"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 176,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.437,
+            0.072
+          ],
+          "content": "Beispiel: Exponentialfunktion"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.024,
+            0.135,
+            0.29,
+            0.182
+          ],
+          "level": 2,
+          "content": "• Laufzeitanalyse:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.069,
+            0.197,
+            0.562,
+            0.509
+          ],
+          "sub_type": "text",
+          "content": "– Funktion pow wird aufgerufen für n, n−1, n−2, …, 1, 0, d.h. (𝑛𝑛 + 1)-mal und unabhängig von Eingabe b\n– Schritte innerhalb jedes pow-Aufrufs:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.124,
+            0.526,
+            0.48,
+            0.617
+          ],
+          "sub_type": "text",
+          "content": "• 2 Schritte (falls n = 0) oder\n• 5 Schritte"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.072,
+            0.64,
+            0.223,
+            0.678
+          ],
+          "content": "– Gesamt:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.104,
+            0.69,
+            0.541,
+            0.741
+          ],
+          "content": "5 n + 2 = \\mathcal {O} (n) + \\mathcal {O} (1) = \\mathcal {O} (n)",
+          "image_source": "../../raw/pages_0161-0192/images/page_176_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.757,
+            0.341,
+            0.798
+          ],
+          "content": "• **Lineare** Laufzeit in 𝑛𝑛"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.82,
+            0.386,
+            0.861
+          ],
+          "content": "• Geht es auch schneller?"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "177"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.572,
+            0.188,
+            0.892,
+            0.822
+          ],
+          "sub_type": "code",
+          "content": "```c\nfloat pow(float b, int n)\n{\n    if (n == 0) {\n        return 1;\n    } else {\n        return b * pow(b, n-1);\n    }\n}\n\nint main(void)\n{\n    float b, int n;\n    scanf(\"%f,%d\", &b, &n);\n    printf(\"%f\", pow(b, n));\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 177,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.023,
+            0.437,
+            0.072
+          ],
+          "content": "Beispiel: Exponentialfunktion"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.132,
+            0.495,
+            0.79
+          ],
+          "sub_type": "text",
+          "content": "• n **gerade**: b<sup>n</sup> = (bn/2)2\n• n **ungerade**: b<sup>n</sup> = b \\* b<sup>n-1</sup>\nfastpow(10,5)\n• Asymptotisch schneller als pow?"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.024,
+            0.309,
+            0.325,
+            0.353
+          ],
+          "content": "= 1 0 ^ {*} \\text {fastpow} (1 0, 4)",
+          "image_source": "../../raw/pages_0161-0192/images/page_177_equation_6.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.024,
+            0.362,
+            0.339,
+            0.407
+          ],
+          "content": "= 1 0 * \\text {fastpow} (1 0, 2) ^ {2}",
+          "image_source": "../../raw/pages_0161-0192/images/page_177_equation_7.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.024,
+            0.416,
+            0.384,
+            0.461
+          ],
+          "content": "= 1 0 ^ {*} (\\text {fastpow} (1 0, 1) ^ {2}) ^ {2}",
+          "image_source": "../../raw/pages_0161-0192/images/page_177_equation_8.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.024,
+            0.469,
+            0.466,
+            0.513
+          ],
+          "content": "= 1 0 ^ {*} \\left(\\left(1 0 ^ {*} \\text {fastpow} (1 0, 0)\\right) ^ {2}\\right) ^ {2}",
+          "image_source": "../../raw/pages_0161-0192/images/page_177_equation_9.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.024,
+            0.523,
+            0.266,
+            0.565
+          ],
+          "content": "= 1 0 ^ {*} ((1 0 ^ {*} 1) ^ {2}) ^ {2}",
+          "image_source": "../../raw/pages_0161-0192/images/page_177_equation_10.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.024,
+            0.576,
+            0.2,
+            0.619
+          ],
+          "content": "= 1 0 ^ {*} (1 0 ^ {2}) ^ {2}",
+          "image_source": "../../raw/pages_0161-0192/images/page_177_equation_11.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.024,
+            0.63,
+            0.172,
+            0.668
+          ],
+          "content": "= 10*100^2",
+          "image_source": "../../raw/pages_0161-0192/images/page_177_equation_12.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.024,
+            0.684,
+            0.177,
+            0.721
+          ],
+          "content": "= 1 0 0. 0 0 0",
+          "image_source": "../../raw/pages_0161-0192/images/page_177_equation_13.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.572,
+            0.158,
+            0.951,
+            0.848
+          ],
+          "sub_type": "code",
+          "content": "```lisp\nfloat sqr(float x)\n{\n    return x*x;\n}\nfloat fastpow(float b, int n)\n{\n    if (n == 0) {\n        return 1;\n    } else if (n % 2 == 0) {\n        // gerade!\n        return sqr(fastpow(b, n/2));\n    } else { // n ungerade\n        return b * fastpow(b,n-1);\n    }\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "178"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 178,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.023,
+            0.437,
+            0.072
+          ],
+          "content": "Beispiel: Exponentialfunktion"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.129,
+            0.538,
+            0.226
+          ],
+          "content": "Jeder Aufruf von fastpow benötigt 𝓞𝓞(𝟏𝟏) Schritte"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.237,
+            0.452,
+            0.4
+          ],
+          "sub_type": "text",
+          "content": "– n = 0: sofortiges return\n– n gerade: „/“ und \\*“ „\n– n ungerade: „\\*“ und „-“"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.413,
+            0.45,
+            0.458
+          ],
+          "content": "• Anzahl Aufrufe von fastpow:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.471,
+            0.516,
+            0.624
+          ],
+          "sub_type": "text",
+          "content": "n gerade: n wird halbiert, danach gerade oder ungerade\n– n **ungerade**: n-1 ist gerade"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.636,
+            0.5,
+            0.725
+          ],
+          "content": "**Spätestens** alle 2 Aufrufe wird n **halbiert**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.742,
+            0.413,
+            0.791
+          ],
+          "content": "• Max. 2 ⋅ 𝒪𝒪(log 𝑛𝑛) Aufrufe"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.802,
+            0.283,
+            0.843
+          ],
+          "content": "• **Gesamtlaufzeit**:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.061,
+            0.848,
+            0.438,
+            0.947
+          ],
+          "content": "\\begin{array}{c} \\mathcal {O} (1) \\cdot \\mathcal {O} (\\log n) = \\mathcal {O} (\\log n) \\\\ (\\text {hier:} \\log = \\log_ {2}) \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_178_equation_13.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.572,
+            0.247,
+            0.95,
+            0.75
+          ],
+          "sub_type": "code",
+          "content": "```lisp\nfloat fastpow(float b, int n)\n{\n    if (n == 0) {\n        return 1;\n    } else if (n % 2 == 0) {\n        // gerade!\n        return sqr(fastpow(b, n/2));\n    } else { // n ungerade\n        return b * fastpow(b,n-1);\n    }\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "179"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 179,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.242,
+            0.256,
+            0.756,
+            0.317
+          ],
+          "level": 2,
+          "content": "6. Analyse von Algorithmen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.156,
+            0.479,
+            0.727,
+            0.719
+          ],
+          "sub_type": "text",
+          "content": "6.1 Laufzeitanalyse\n6.2 𝒪𝒪-Notation für Wachstumsordnungen\n6.3 Beispiel: Exponentialfunktion\n**6.4 Beispiel: Suchen in Arrays**"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.968,
+            0.037,
+            0.988
+          ],
+          "content": "180"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 180,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.024,
+            0.024,
+            0.137,
+            0.072
+          ],
+          "content": "Beispiel"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.024,
+            0.135,
+            0.3,
+            0.182
+          ],
+          "level": 2,
+          "content": "• Problemstellung:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.059,
+            0.189,
+            0.641,
+            0.341
+          ],
+          "content": "Kreditkartenunternehmen möchte prüfen, ob Transaktionen mit gestohlenen Karten durchgeführt wurden"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.024,
+            0.359,
+            0.172,
+            0.4
+          ],
+          "level": 2,
+          "content": "• Modell:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.422,
+            0.625,
+            0.692
+          ],
+          "sub_type": "text",
+          "content": "– 𝑁𝑁 „verdächtige“ Kartennummern sind gespeichert\n– 𝑀𝑀 Transaktionen sind zu prüfen, jede bezieht sich auf eine bestimmte Kartennummer"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.074,
+            0.707,
+            0.23,
+            0.818
+          ],
+          "content": "\\begin{array}{l} - N \\approx 10^6 \\\\ - M \\approx 10^9 \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0161-0192/images/page_180_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.839,
+            0.436,
+            0.885
+          ],
+          "content": "• Anwendung ist **zeitkritisch**!"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.68,
+            0.126,
+            0.982,
+            0.384
+          ],
+          "sub_type": "text_image",
+          "content": "GLOBAL BANK\n4321 1234 0000 1234\nMAX MUSTERMANN\n1234567890\nKarteninhaber\n12/22\ngültig bis",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_180_image_9.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.529,
+            0.735,
+            0.703,
+            0.963
+          ],
+          "sub_type": "text_image",
+          "content": "12348574845749282\n58390217827532753\n01829495275838688\n...\nListe von M\nTransaktionen",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_180_image_10.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.723,
+            0.466,
+            0.984,
+            0.958
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"8372004822348545\\n2285449902572639\\n4820567396929388\\n...\\nDatenbank mit N verdächtigen Nummern\"] --> B[\"Output\"]\n  B --> C[\"vorhanden?\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_180_image_11.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.036,
+            0.988
+          ],
+          "content": "181"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 181,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.025,
+            0.221,
+            0.065
+          ],
+          "content": "Lineare Suche"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.102,
+            0.961,
+            0.511
+          ],
+          "sub_type": "text",
+          "content": "Verdächtige Nummern in **Array** A in beliebiger Reihenfolge gespeichert\nFür jede Transaktionsnummer m: prüfe ob **Suchschlüssel** (key) m in Array A enthalten ist\n– **Ja**: Index zurückgeben\n– **Nein**: Speziellen Wert zurückgeben (NOT\\_FOUND)\n– Aufruf aus main: search(A,m,0,N-1);"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.109,
+            0.541,
+            0.606,
+            0.95
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define NOT_FOUND -1\nint search(int A[], int key, int l, int r)\n{\n    int i;\n    for (i = l; i <= r; i++) {\n        if (key == A[i]) return i;\n    }\n    return NOT_FOUND;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "182"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 182,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.243,
+            0.072
+          ],
+          "content": "Laufzeitanalyse"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.133,
+            0.818,
+            0.309
+          ],
+          "sub_type": "text",
+          "content": "• **Bester** Fall: k $( \\mathsf { e } \\mathsf { y } = 4 5$ , sofort gefunden, 𝒪𝒪 1 Schritte\nDurchschnittlicher Fall: z.B. k $\\mathrm{e}y = 76,   \\mathcal{O}(N/2)$ Schritte\n• **Schlechtester** Fall: z.B. $\\mathrm{Key} = 99, \\mathcal{O}(N)$ Schritte"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.328,
+            0.567,
+            0.402
+          ],
+          "content": "Wegen $\\mathcal { O } \\big ( N / 2 \\big ) = \\frac { 1 } { 2 } \\cdot \\mathcal { O } \\big ( N \\big ) = \\mathcal { O } \\big ( N \\big ) ;$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.06,
+            0.406,
+            0.866,
+            0.453
+          ],
+          "content": "Laufzeit schlimmstenfalls **linear**, aber auch im Durchschnitt"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.469,
+            0.724,
+            0.517
+          ],
+          "content": "• **Gesamtlaufzeit** für alle Transaktionen: $\\mathcal { O } ( N \\cdot M )$"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.144,
+            0.522,
+            0.725,
+            0.925
+          ],
+          "sub_type": "funnel",
+          "content": "| Stage | Start Value | End Value |\n| --- | --- | --- |\n| A | 0 | N-1 |\n| Bester Fall | 45 | — |\n| Durchschnittlicher Fall | 12 | — |\n| Schlechtester Fall | 77 | — |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_182_chart_8.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "183"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 183,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.208,
+            0.063
+          ],
+          "content": "Binäre Suche"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.136,
+            0.938,
+            0.298
+          ],
+          "sub_type": "text",
+          "content": "• Annahme: Array A ist **aufsteigend sortiert**\nSchnelle Prüfung, ob key (falls vorhanden) in **linker** oder **rechter** Hälfte des Arrays liegen müsste:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.068,
+            0.314,
+            0.924,
+            0.555
+          ],
+          "sub_type": "text",
+          "content": "– Sei $k   =   N / 2   -   1$ falls 𝑁𝑁 gerade, sonst $( N - 1 ) / 2$\n– Betrachte „**mittleres**“ Arrayelement $\\mathbb { A } \\left[ \\mathbb { k } \\right]$\n– key <= A[k]: key in **linker** Hälfte $\\to \\mathsf { A } ^ { \\intercal } : = \\mathsf { A } [ 0 \\dots \\mathsf { k } ]$\n– key > A[k]: key in **rechter** Hälfte $\\to \\mathsf { A } ^ { \\mathsf { H } } \\mathrel { \\mathop : } = \\mathsf { A } \\left[ \\mathsf { k } \\mathord { + } \\mathsf { 1 } \\mathbin { \\ldots } \\mathbin { \\mathsf { N } } \\mathord { - } \\mathsf { 1 } \\right]$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.572,
+            0.769,
+            0.62
+          ],
+          "content": "Dann: suche key in Array **halber Größe** $( \\mathsf { A } ^ { \\textsf { I } }$ oder $\\mathsf { A } ^ { \\top } \\Big )$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.637,
+            0.5,
+            0.683
+          ],
+          "content": "• Z.B. key = 83, k = 8/2-1 = 3:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.7,
+            0.665,
+            0.746
+          ],
+          "content": "– key > A[3] = 45, also key in $\\mathsf { A } ^ { \\textsf { H } }$ suchen"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.184,
+            0.767,
+            0.748,
+            0.967
+          ],
+          "sub_type": "heatmap",
+          "content": "| Segment | Value |\n| --- | --- |\n| Left (0) | 11 |\n| Left (k) | 12 |\n| Left (k) | 23 |\n| Center | 45 |\n| Right (N-1) | 66 |\n| Right (N-1) | 76 |\n| Right (N-1) | 77 |\n| Right (N-1) | 83 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_183_chart_12.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "184"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 184,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.025,
+            0.208,
+            0.064
+          ],
+          "content": "Binäre Suche"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.129,
+            0.887,
+            0.459
+          ],
+          "sub_type": "text",
+          "content": "• **Vorheriges** Teilarray $\\textsf { A } ^ { \\intercal }$ nicht mehr relevant\n• Ausnutzen, dass Array $\\mathsf { A } ^ { \\textsf { H } }$ **ebenfalls sortiert** ist\n• Setze $\\mathrm { A } = \\mathrm { A } ^ { \\mathfrak { n } }$ , wende o.g. Verfahren **erneut** an\n• $k = 4/2 - 1 = 1$\n• $\\mathrm{key} > \\mathrm{A[k]} = 76$ , daher in $\\mathsf { A } ^ { \\textsf { m } }$ (neu) weitersuchen\n• **Fortsetzen**, bis key gefunden, oder Array nicht weiter teilbar"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.017,
+            0.555,
+            0.96,
+            0.89
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_184_image_8.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.036,
+            0.988
+          ],
+          "content": "185"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 185,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.025,
+            0.208,
+            0.063
+          ],
+          "content": "Binäre Suche"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.129,
+            0.938,
+            0.282
+          ],
+          "sub_type": "text",
+          "content": "Implementierung: Array A nicht tatsächlich in A' und A\" teilen, sondern nur Index-Zeiger l und r umsetzen\n• Aufruf: binsearch(A,m,0,N-1);"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.207,
+            0.354,
+            0.739,
+            0.906
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define NOT_FOUND -1\nint binsearch(int A[], int key, int l, int r)\n{\n    int k;\n    while (r >= l) {\n        k = (l+r)/2;\n        if (key == A[k]) return k;\n        if (key < A[k]) r = k-1;\n        else l = k+1;\n    }\n    return NOT_FOUND;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "186"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 186,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.025,
+            0.024,
+            0.137,
+            0.072
+          ],
+          "content": "Beispiel"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.156,
+            0.37,
+            0.202
+          ],
+          "content": "• Suche nach key = 23:"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.053,
+            0.223,
+            0.911,
+            0.936
+          ],
+          "sub_type": "treemap",
+          "content": "| Category | Schritt 1 | Schritt 2 | Schritt 3 | Erfolglose Suche, z.B. key = 25 |\n| --- | --- | --- | --- | --- |\n| A | 11 | 11 | 11 | 11 |\n| k | — | k | k | r |\n| r | 12 | 12 | 12 | 12 |\n| 23 | 23 | 23 | 23 | 23 |\n| 45 | 45 | 45 | 45 | 45 |\n| 66 | 66 | 66 | 66 | 66 |\n| 76 | 76 | 76 | 76 | 76 |\n| 77 | 77 | 77 | 77 | 77 |\n| 83 | 83 | 83 | 83 | 83 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0161-0192/images/page_186_chart_2.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "187"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 187,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.241,
+            0.069
+          ],
+          "content": "Laufzeitanalyse"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.133,
+            0.972,
+            0.298
+          ],
+          "sub_type": "text",
+          "content": "• **Bester** Fall: key == A[k] im 1. Schritt: 𝒪𝒪 1\n• **Schlechtester** Fall: key erst nach 𝑡𝑡 Teilungsschritten gefunden bzw. gar nicht gefunden"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.068,
+            0.314,
+            0.813,
+            0.429
+          ],
+          "sub_type": "text",
+          "content": "– Wie oft kann 𝑁𝑁-elementiges Array halbiert werden?\n– 𝒪𝒪 log 𝑁𝑁 mal (vgl. Bsp. Exponentialfunktion)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.443,
+            0.643,
+            0.492
+          ],
+          "content": "• **Durchschnittlicher** Fall: Ebenfalls 𝒪𝒪 log 𝑁𝑁"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.506,
+            0.747,
+            0.557
+          ],
+          "content": "• Gesamtlaufzeit für 𝑀𝑀 Transaktionen: 𝒪𝒪 𝑀𝑀 ⋅ log 𝑁𝑁"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.572,
+            0.56,
+            0.618
+          ],
+          "content": "• Abschätzung der **absoluten** Laufzeit:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.068,
+            0.634,
+            0.898,
+            0.956
+          ],
+          "sub_type": "text",
+          "content": "– Annahme: Rechner mit 10<sup>9</sup> Operationen pro Sekunde\n– 𝒪𝒪 𝑀𝑀 ⋅ 𝑁𝑁 ≈ 1015/109 sec ≈ 278 h ≈ 12 Tage\n– 𝒪𝒪 𝑀𝑀 ⋅ log 𝑁𝑁 ≈ 109 ⋅ 109 20 sec = 20 sec\n– **Zusatzaufwand**: Sortierung des Arrays A, jedoch hierdurch keine signifikante Zunahme der Laufzeit (< 1 sec)"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.036,
+            0.987
+          ],
+          "content": "188"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "PowerPoint-Präsentation",
+      "authors": [
+        "Tobias Gemmeke"
+      ],
+      "created_at": "2026-10-06T18:07:32+02:00",
+      "modified_at": "2026-10-06T18:08:54+02:00",
+      "creator_application": "Acrobat PDFMaker 20 für PowerPoint",
+      "producer_application": "Adobe PDF Library 20.9.95",
+      "page_count": 355,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 158,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 159,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 160,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 161,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 162,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 163,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 164,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 165,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 166,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 167,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 168,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 169,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 170,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 171,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 172,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 173,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 174,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 175,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 176,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 177,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 178,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 179,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 180,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 181,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 182,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 183,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 184,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 185,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 186,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 187,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

@@ -1,0 +1,2793 @@
+{
+  "pages": [
+    {
+      "page_idx": 228,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.292,
+            0.258,
+            0.706,
+            0.317
+          ],
+          "level": 2,
+          "content": "8. Lineare Datentypen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.156,
+            0.479,
+            0.314,
+            0.65
+          ],
+          "sub_type": "text",
+          "content": "**8.1 Listen**\n8.2 Stacks\n8.3 Queues"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.036,
+            0.988
+          ],
+          "content": "229"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 229,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.023,
+            0.024,
+            0.301,
+            0.072
+          ],
+          "level": 2,
+          "content": "Mengendarstellung"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.095,
+            0.837,
+            0.202
+          ],
+          "sub_type": "text",
+          "content": "• **Problemstellung**: Verwaltung einer Menge von Objekten $A   =   \\{ a _ { 1 } , \\ldots , a _ { n } \\}$ vom Typ T"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.216,
+            0.429,
+            0.262
+          ],
+          "content": "• Gewünschte **Operationen**:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.068,
+            0.279,
+            0.851,
+            0.393
+          ],
+          "sub_type": "text",
+          "content": "– Suchen, Einfügen und Entfernen von Elementen\n– Vereinigung und Durchschnitt zweier Mengen 𝐴𝐴 und 𝐵𝐵"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.407,
+            0.775,
+            0.513
+          ],
+          "sub_type": "text",
+          "content": "• Prinzipiell wäre ein **Array** als Datenstruktur geeignet\n• Jedoch zwei Probleme:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.068,
+            0.535,
+            0.961,
+            0.752
+          ],
+          "sub_type": "text",
+          "content": "– **Einfügen** eines neuen Elementes an einer bestimmten Position erfordert aufwendige **Umordnung**\n– **Größe** der Menge muss **statisch** feststehen (Bspw. Deklaration: T A[100]; erlaubt max. 100 Elemente)"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.204,
+            0.799,
+            0.778,
+            0.967
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  Input[\"Input\"] -->|\"Verschieben\"| Output[\"Output\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_229_image_13.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "230"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 230,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.025,
+            0.268,
+            0.065
+          ],
+          "content": "Verkettete Listen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.033,
+            0.116,
+            0.884,
+            0.269
+          ],
+          "content": "**Def**.: Eine **(verkettete) Liste** ist entweder leer oder besteht aus einer Referenz auf einen **Knoten**, der ein Element und eine Referenz auf eine verkettete Liste enthält."
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.031,
+            0.303,
+            0.83,
+            0.652
+          ],
+          "sub_type": "text",
+          "content": "• Verwendung von **Zeigern** (siehe Kap. 3)\n• Modellierung eines **Knotens** für ein Element vom Typ T:\ntypedef struct node {T\\* data; struct node\\* next; } \\*nodeptr;\n• data ist Zeiger auf Listenelement vom Typ T\nnext ist Zeiger auf Nachfolgerknoten"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.064,
+            0.668,
+            0.945,
+            0.954
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"nodeptr\"] --> B[\"Next\"]\n  B --> C[\"Object vom Typ T\"]\n  C --> D[\"Data\"]\n  D --> E[\"Next\"]\n  E --> F[\"Rest-Liste\"]\n  F -.-> G[\"Final Output\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_230_image_9.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "231"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 231,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.025,
+            0.267,
+            0.064
+          ],
+          "content": "Verkettete Listen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.133,
+            0.641,
+            0.652
+          ],
+          "sub_type": "text",
+          "content": "• Liste im **Speicher** (vgl. Kap. 3)\n• Liste = 1. Element + Restliste\nDarstellung einer leeren Liste: #define NULL 0\nZeigerwert NULL bedeutet, dass der Zeiger „nirgendwohin“ zeigt\nSpeicherzugriff per NULL-Zeiger ist **unzulässig**, führt i.A. zum Programmabsturz"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.064,
+            0.776,
+            0.569,
+            0.919
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Input\"] --> B[\"Block 1\"]\n  B --> C[\"Block 2\"]\n  C --> D[\"NULL\"]\n  D --> E[\"Final Output\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_231_image_7.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.673,
+            0.138,
+            0.942,
+            0.956
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Data\"] --> B[\"Next\"]\n  B --> C[\"Data\"]\n  C --> D[\"Next\"]\n  D --> E[\"T\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.908,
+                0.094,
+                0.955,
+                0.124
+              ],
+              "content": "Adr."
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_231_image_9.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "232"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 232,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.025,
+            0.283,
+            0.071
+          ],
+          "content": "Listenoperationen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.114,
+            0.766,
+            0.16
+          ],
+          "content": "• Definition des Datentyps **Liste**, Elemente vom Typ T"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.257,
+            0.196,
+            0.725,
+            0.389
+          ],
+          "sub_type": "code",
+          "content": "```c\ntypedef struct node {\n    T* data;\n    struct node* next; } Node, *nodeptr;\n\ntypedef struct list {\n    nodeptr first, last; } List, *listptr;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.109,
+            0.428,
+            0.731,
+            0.564
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"L.first\"] --> B[\"Step 1\"]\n  B --> C[\"Step 2\"]\n  C --> D[\"NULL\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_232_image_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.021,
+            0.583,
+            0.698,
+            0.628
+          ],
+          "content": "• Erzeugung einer **leeren Liste** und **Leerheitstest**"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.231,
+            0.64,
+            0.76,
+            0.954
+          ],
+          "sub_type": "code",
+          "content": "```c\nList L;\nvoid Init(listptr L)\n{\n    L->first = NULL; L->last = NULL;\n}\n\nint IsEmpty(List L)\n{\n    return (L.first == NULL && L.last == NULL);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "233"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 233,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.025,
+            0.283,
+            0.071
+          ],
+          "content": "Listenoperationen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.109,
+            0.951,
+            0.156
+          ],
+          "content": "• **Einfügen** eines neuen Listenelements vom Typ T am Listenanfang"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.084,
+            0.174,
+            0.905,
+            0.366
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Input Block\"] --> B[\"Output Block\"]\n  B --> C[\"Input Block\"]\n  C --> D[\"Output Block\"]\n  D --> E[\"Result Output\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_233_image_2.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.019,
+            0.391,
+            0.935,
+            0.611
+          ],
+          "sub_type": "text",
+          "content": "Funktion „malloc“ (siehe Kap. 3) stellt dynamisch Speicherplatz auf dem Heap bereit\nFunktion „sizeof“ berechnet die erforderliche Anzahl von Bytes (hier z.B. insges. 8 Bytes bei 32-Bit-Zeigern)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.241,
+            0.634,
+            0.681,
+            0.948
+          ],
+          "sub_type": "code",
+          "content": "```c\nnodeptr newnode(T* item)\n{\n    nodeptr np;\n\n    np = (nodeptr)malloc(sizeof(Node));\n    np->data = item;\n    np->next = NULL;\n\n    return np;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "234"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.992
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 234,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.388,
+            0.072
+          ],
+          "content": "Einfügen am Listenanfang"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.234,
+            0.138,
+            0.66,
+            0.458
+          ],
+          "sub_type": "code",
+          "content": "```txt\nvoid AppendFirst(T* item, listptr L)\n{\n    nodeptr np = newnode(item);\n    if (IsEmpty(*L)) {\n        L->first = np; L->last = np;\n    } else {\n        np->next = L->first;\n        L->first = np;\n    }\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.028,
+            0.494,
+            0.877,
+            0.944
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_234_image_2.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "235"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 235,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.361,
+            0.072
+          ],
+          "content": "Einfügen am Listenende"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.224,
+            0.149,
+            0.637,
+            0.464
+          ],
+          "sub_type": "code",
+          "content": "```txt\nvoid AppendLast(T* item, listptr L)\n{\n    nodeptr np = newnode(item);\n    if (IsEmpty(*L)) {\n        L->first = np; L->last = np;\n    } else {\n        L->last->next = np;\n        L->last = np;\n    }\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.071,
+            0.526,
+            0.918,
+            0.948
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_235_image_2.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "236"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 236,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.536,
+            0.065
+          ],
+          "content": "Prüfen ob Element in Liste enthalten"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.182,
+            0.118,
+            0.758,
+            0.47
+          ],
+          "sub_type": "code",
+          "content": "```cpp\nint IsIn(T* item, List L)\n{\n    nodeptr np;\n    if (IsEmpty(L)) return 0; // false\n    np = L.first;\n    while (np != NULL) {\n        if (Equal(np->data, item)) return 1; // true\n        np = np->next;\n    }\n    return 0; // false\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.203,
+            0.505,
+            0.734,
+            0.684
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  Input[\"Input\"] --> Block1[\"Block 1\"]\n  Block1 --> Block2[\"Block 2\"]\n  Block2 --> Output[\"NULL\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_236_image_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.702,
+            0.508,
+            0.748
+          ],
+          "content": "• **Laufzeit** bei N-elementiger Liste:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.069,
+            0.766,
+            0.493,
+            0.941
+          ],
+          "sub_type": "text",
+          "content": "– Best case: O(1)\n– Worst case: O(N)\n– Average case: O(N/2) = O(N)"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "237"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 237,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.669,
+            0.069
+          ],
+          "content": "Einfügen hinter ein bestimmtes Listenelement"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.03,
+            0.159,
+            0.415,
+            0.91
+          ],
+          "sub_type": "code",
+          "content": "```c\n// item2 hinter item1 einfügen\nvoid InsertBehind(T* item1,\n  T* item2, listptr L)\n{\n  nodeptr np, newnp;\n\n  if (!IsIn(item1,*L)) {\n    printf(„Fehler!“); return;\n  }\n\n  np = L->first;\n  while (np != NULL) {\n    if (Equal(np->data,item1)) {\n      newnp = newnode(item2);\n      newnp->next = np->next;\n      np->next = newnp;\n      if (np == L->last) {\n        L->last = newnp;\n      }\n      break;\n    }\n    np = np->next;\n  }\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.479,
+            0.306,
+            0.984,
+            0.802
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_237_image_2.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "238"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 238,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.023,
+            0.024,
+            0.455,
+            0.065
+          ],
+          "level": 2,
+          "content": "Löschen eines Listenelementes"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.024,
+            0.119,
+            0.406,
+            0.932
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid Delete(T* item, listptr L)\n{\n    nodeptr np1, np2;\n\n    if (IsEmpty(*L)) return;\n    np1 = L->first;\n    if (Equal(np1->data,item)) {\n        L->first = np1->next;\n        if (L->first == NULL)\n            L->last = NULL;\n        free(np1);\n        return;\n    }\n    np2 = np1->next;\n    while (np2 != NULL) {\n        if (Equal(np2->data,item)) {\n            np1->next = np2->next;\n            if (np2 == L->last)\n                L->last = np1;\n            free(np2);\n            break;\n        }\n        np1 = np2;\n        np2 = np2->next;\n    }\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.439,
+            0.337,
+            0.98,
+            0.465
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"np1\"] --> B[\"Block 1\"]\n  B --> C[\"np2\"]\n  C --> D[\"Block 2\"]\n  D --> E[\"NULL\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_238_image_2.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.441,
+            0.608,
+            0.98,
+            0.765
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"np1\"] --> B[\"Block 1\"]\n  B --> C[\"np2\"]\n  C --> D[\"Block 2\"]\n  D --> E[\"NULL\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_238_image_3.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.036,
+            0.988
+          ],
+          "content": "239"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 239,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.025,
+            0.448,
+            0.069
+          ],
+          "content": "Zusammenfügen zweier Listen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.135,
+            0.841,
+            0.242
+          ],
+          "sub_type": "text",
+          "content": "• Falls Liste als Mengendarstellung: entspricht **Vereinigung**\n• Evtl. **Mehrfachvorkommen** von Elementen ausschließen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.267,
+            0.068,
+            0.297
+          ],
+          "content": "L1:"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.03,
+            0.301,
+            0.974,
+            0.525
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Stage 1\"] --> B[\"Stage 2\"]\n  B --> C[\"Stage 3\"]\n  C --> D[\"L2:\"]\n  D --> E[\"Stage 4\"]\n  E --> F[\"NULL\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_239_image_5.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.176,
+            0.593,
+            0.615,
+            0.909
+          ],
+          "sub_type": "code",
+          "content": "```c\nlistptr Union(listptr L1, listptr L2)\n{\n    if (IsEmpty(*L2)) return L1;\n    if (IsEmpty(*L1)) return L2;\n\n    L1->last->next = L2->first;\n    L1->last = L2->last;\n\n    return L1;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "240"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 240,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.024,
+            0.595,
+            0.069
+          ],
+          "content": "Schnittmengenberechnung mittels Listen"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.214,
+            0.152,
+            0.837,
+            0.53
+          ],
+          "sub_type": "code",
+          "content": "```c\nlistptr Intersect(listptr L1, listptr L2)\n{\n    nodeptr np;\n    listptr L = (listptr)malloc(sizeof(List));\n    Init(L);\n    np = L1->first;\n    while (np != NULL) {\n        if (IsIn(np->data, *L2)) AppendLast(np->data, L);\n        np = np->next;\n    }\n    return L;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.558,
+            0.145,
+            0.588
+          ],
+          "content": "L1:"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.111,
+            0.594,
+            0.924,
+            0.678
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"A\"] --> B[\"B\"]\n  B --> C[\"C\"]\n  C --> D[\"D\"]\n  D --> E[\"E\"]\n  E --> NULL[\"NULL\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_240_image_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.277,
+            0.696,
+            0.319,
+            0.727
+          ],
+          "content": "L2:"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.281,
+            0.734,
+            0.923,
+            0.817
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"B\"] --> B[\"D\"]\n  B --> C[\"E\"]\n  C --> D[\"G\"]\n  D --> E[\"NULL\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_240_image_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.445,
+            0.831,
+            0.472,
+            0.857
+          ],
+          "content": "L:"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.448,
+            0.865,
+            0.922,
+            0.947
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"B\"] --> B[\"D\"]\n  B --> C[\"E\"]\n  C --> D[\"NULL\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_240_image_7.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.036,
+            0.987
+          ],
+          "content": "241"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 241,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.292,
+            0.258,
+            0.706,
+            0.317
+          ],
+          "level": 2,
+          "content": "8. Lineare Datentypen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.156,
+            0.48,
+            0.314,
+            0.65
+          ],
+          "sub_type": "text",
+          "content": "8.1 Listen\n**8.2 Stacks**\n8.3 Queues"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.037,
+            0.988
+          ],
+          "content": "242"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 242,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.025,
+            0.118,
+            0.065
+          ],
+          "content": "Stacks"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.033,
+            0.116,
+            0.682,
+            0.216
+          ],
+          "content": "**Def**.: Ein **Stack** (Stapel) ist ein ADT, der folgende Grundoperationen unterstützt:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.033,
+            0.221,
+            0.801,
+            0.329
+          ],
+          "sub_type": "text",
+          "content": "1. Einfügen eines neuen Elementes $( , \\mathsf { P u s h } ^ { n } )$\n2. Entfernen des zuletzt eingefügten Elementes $( , P o p ^ { n } )$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.364,
+            0.804,
+            0.466
+          ],
+          "content": "• Stacks sind eine **grundlegende Datenstruktur** in vielen Anwendungen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.069,
+            0.481,
+            0.792,
+            0.658
+          ],
+          "sub_type": "text",
+          "content": "– Ablagesystem auf Professorenschreibtisch\n– Compiler-Frontend (Analyse des Quellprogramms)\n– Abarbeitung von C-Funktionsaufrufen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.674,
+            0.845,
+            0.776
+          ],
+          "content": "Aufgrund der Pop-Operation auch als **LIFO-Datenstruktur** bezeichnet (last in, first out)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.791,
+            0.967,
+            0.894
+          ],
+          "content": "Stack als ADT, d.h. **verschiedene Implementierungen** möglich (z.B. Listen und Arrays)"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "243"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 243,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.025,
+            0.025,
+            0.217,
+            0.071
+          ],
+          "content": "Push und Pop"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.234,
+            0.379,
+            0.322,
+            0.42
+          ],
+          "content": "push D"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.236,
+            0.496,
+            0.322,
+            0.534
+          ],
+          "content": "push EC"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.236,
+            0.611,
+            0.322,
+            0.65
+          ],
+          "content": "push B"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.239,
+            0.728,
+            0.325,
+            0.765
+          ],
+          "content": "push A"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.459,
+            0.205,
+            0.519,
+            0.24
+          ],
+          "content": "**stack**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.4,
+            0.344,
+            0.58,
+            0.808
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_243_image_6.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "244"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 244,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.023,
+            0.669,
+            0.069
+          ],
+          "content": "Beispiel: Laufzeit-Stack für C-Funktionsaufrufe"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.135,
+            0.442,
+            0.821
+          ],
+          "sub_type": "text",
+          "content": "• Siehe auch Kap. 5\nFunktion f wird durch Aufruf von g **unterbrochen** und später **fortgesetzt**\ng kann ihrerseits **weitere Funktionen** aufrufen\nUmgebung zur Programmausführung muss einen **Stack noch aktiver Funktionen** verwalten\n• **Funktionsaufruf** = Push\n• **Funktionsende** = Pop"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.499,
+            0.158,
+            0.938,
+            0.802
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Statement f₁\"] --> B[\"Statement f₂\"]\n  B --> C[\"Aufruf\"]\n  C --> D[\"Statement g₁\"]\n  D --> E[\"Statement g₂\"]\n  E --> F[\"Statement f₃\"]\n  F --> G[\"Statement f₄\"]\n  E --> H[\"Rücksprung\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_244_image_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.931,
+            0.835,
+            0.976,
+            0.866
+          ],
+          "content": "**Zeit**"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.036,
+            0.988
+          ],
+          "content": "245"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 245,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.023,
+            0.023,
+            0.668,
+            0.069
+          ],
+          "level": 2,
+          "content": "Beispiel: Laufzeit-Stack für C-Funktionsaufrufe"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.037,
+            0.113,
+            0.212,
+            0.963
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid f(void)\n{\n    g();\n}\n\nvoid g(void)\n{\n    h();\n}\n\nvoid h(void)\n{\n    i();\n}\n\nvoid i(void)\n{\n}\n\nint main(void)\n{\n    f();\n    g();\n    h();\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.298,
+            0.349,
+            0.369,
+            0.419
+          ],
+          "content": "<strong><u>main</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.403,
+            0.286,
+            0.471,
+            0.418
+          ],
+          "content": "f <strong><u>main</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.511,
+            0.223,
+            0.582,
+            0.418
+          ],
+          "content": "g f <strong><u>main</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.622,
+            0.159,
+            0.692,
+            0.418
+          ],
+          "content": "h g f <strong><u>main</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.734,
+            0.097,
+            0.803,
+            0.419
+          ],
+          "content": "i h g f <strong><u>main</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.843,
+            0.159,
+            0.913,
+            0.419
+          ],
+          "content": "h g f <strong><u>main</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.298,
+            0.506,
+            0.369,
+            0.702
+          ],
+          "content": "g f <strong><u>main</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.402,
+            0.569,
+            0.471,
+            0.702
+          ],
+          "content": "f <strong><u>main</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.511,
+            0.633,
+            0.582,
+            0.702
+          ],
+          "continues_prev": true,
+          "content": "<strong><u>main</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.622,
+            0.569,
+            0.692,
+            0.702
+          ],
+          "content": "g <strong><u>main</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.734,
+            0.506,
+            0.803,
+            0.702
+          ],
+          "content": "h g <strong><u>main</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.843,
+            0.443,
+            0.913,
+            0.702
+          ],
+          "content": "i h g <strong><u>main</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.298,
+            0.748,
+            0.369,
+            0.943
+          ],
+          "content": "h g <strong><u>main</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.402,
+            0.811,
+            0.471,
+            0.943
+          ],
+          "content": "g <strong><u>main</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.511,
+            0.873,
+            0.582,
+            0.943
+          ],
+          "continues_prev": true,
+          "content": "<strong><u>main</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.622,
+            0.811,
+            0.692,
+            0.943
+          ],
+          "content": "h <strong><u>main</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.734,
+            0.748,
+            0.803,
+            0.943
+          ],
+          "content": "i h <strong><u>main</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.843,
+            0.896,
+            0.975,
+            0.943
+          ],
+          "continues_prev": true,
+          "content": "<strong><u>main</u></strong>"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "246"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 246,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.024,
+            0.53,
+            0.072
+          ],
+          "content": "Stack-Implementierung durch Listen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.135,
+            0.581,
+            0.374
+          ],
+          "sub_type": "text",
+          "content": "Elemente auf Stack = Listenelemente\n• Push = Einfügen am Listenanfang\n• Pop = Entfernen des ersten Elementes\n• Stack für beliebigen Elementtyp T:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.131,
+            0.405,
+            0.504,
+            0.92
+          ],
+          "sub_type": "code",
+          "content": "```c\nList L;\n\nvoid Push(T* item,listptr L)\n{\n    AppendFirst(item, L);\n}\n\nT* Pop(listptr L)\n{\n    T* item;\n    if (IsEmpty(*L)) return NULL;\n\n    item = L->first->data;\n    Delete(item, L);\n    return item;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.793,
+            0.137,
+            0.861,
+            0.91
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Stage 1\"] --> B[\"Intermediate 1\"]\n  B --> C[\"Intermediate 2\"]\n  C --> D[\"Intermediate 3\"]\n  D --> E[\"Final Stage\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_246_image_7.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "247"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.992
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 247,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.024,
+            0.538,
+            0.072
+          ],
+          "content": "Stack-Implementierung durch Arrays"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.135,
+            0.451,
+            0.877
+          ],
+          "sub_type": "text",
+          "content": "• Vorgabe der **max. Stack-Größe** notwendig\nElemente auf Stack = Arrayelemente\n„**top**“ verweist stets auf das nächste freie Element (top = „**Stack-Pointer**“)\nPush = Einfügen und Erhöhen von top um 1\nPop = Entfernen und Erniedrigen von top um 1\nPrüfen auf **Überlauf** (im Gegensatz zu Listen!)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.518,
+            0.155,
+            0.921,
+            0.906
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define MAX 100\ntypedef struct stk\n{ T* elems[MAX]; int top; } stack;\n\nvoid Init(stack* s)\n{ s->top = 0; }\n\nint IsEmpty(stack s)\n{ return (s.top == 0); }\n\nvoid Push(T* item,stack* s)\n{\n    if (s->top == MAX)\n        printf(„Stack voll!“);\n    s->elems[s->top] = item;\n    s->top++;\n}\n\nT* Pop(stack* s)\n{\n    if (IsEmpty(*s)) return NULL;\n    s->top--;\n    return s->elems[s->top];\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "248"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 248,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.313,
+            0.072
+          ],
+          "content": "Beispiel-Anwendung"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.133,
+            0.797,
+            0.246
+          ],
+          "sub_type": "text",
+          "content": "• Auswertung geklammerter **arithmetischer Ausdrücke**\n– z.B. (( 6 \\* ( 4 \\* 28)) + ( 9 - (( 12 / 4) \\* 2)))"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.263,
+            0.664,
+            0.306
+          ],
+          "content": "**Innere Ausdrücke** vor äußeren auszuwerten"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.326,
+            0.741,
+            0.373
+          ],
+          "content": "• Speicherung von Zwischenergebnissen notwendig"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.39,
+            0.668,
+            0.436
+          ],
+          "content": "• **Zwei Stacks**: Operanden- und Operatorstack"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.455,
+            0.763,
+            0.501
+          ],
+          "content": "Abarbeitung eines Ausdrucks **von links nach rechts**:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.516,
+            0.895,
+            0.864
+          ],
+          "sub_type": "text",
+          "content": "$\\mathcal { N } ^ { ( 1 ) } ;$ keine Aktion\n– Operand: Push auf Operandenstack\n– Operator: Push auf Operatorstack\n– „)“: Pop des obersten Operators, Pop der obersten beiden Operanden, Ausdruck auswerten, Push Ergebnis auf Operandenstack"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "249"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 249,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.025,
+            0.024,
+            0.137,
+            0.072
+          ],
+          "content": "Beispiel"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.184,
+            0.102,
+            0.755,
+            0.16
+          ],
+          "content": "((6 * (4 * 2 8)) + (9 - ((1 2 / 4) * 2)))",
+          "image_source": "../../raw/pages_0225-0256/images/page_249_equation_1.jpg"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.094,
+            0.264,
+            0.313,
+            0.964
+          ],
+          "content": "| 6 |\n| --- |\n| 6 4 |\n| 6 4 28 |\n| 6 112 |\n| 672 |\n| 672 9 |\n| 672 9 12 |\n| 672 9 12 4 |\n| 672 9 3 |\n| 672 9 3 2 |\n| 672 9 6 |\n| 672 3 |\n| 675 |",
+          "captions": [
+            {
+              "bbox": [
+                0.09,
+                0.196,
+                0.284,
+                0.234
+              ],
+              "content": "Operandenstack"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_249_table_3.jpg"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.56,
+            0.264,
+            0.714,
+            0.964
+          ],
+          "content": "| * |\n| --- |\n| ** |\n| * |\n| (leer) |\n| + |\n| +- |\n| +-/ |\n| +- |\n| +-* |\n| +- |\n| +(leer) |",
+          "captions": [
+            {
+              "bbox": [
+                0.539,
+                0.196,
+                0.708,
+                0.234
+              ],
+              "content": "Operatorstack"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_249_table_5.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "250"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 250,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.292,
+            0.258,
+            0.706,
+            0.317
+          ],
+          "level": 2,
+          "content": "8. Lineare Datentypen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.156,
+            0.479,
+            0.317,
+            0.65
+          ],
+          "sub_type": "text",
+          "content": "8.1 Listen\n8.2 Stacks\n**8.3 Queues**"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.036,
+            0.988
+          ],
+          "content": "251"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 251,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.024,
+            0.027,
+            0.136,
+            0.069
+          ],
+          "content": "Queues"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.033,
+            0.116,
+            0.834,
+            0.216
+          ],
+          "level": 2,
+          "content": "Def.: Eine Queue (Warteschlange) ist ein ADT, der folgende Grundoperationen unterstützt:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.033,
+            0.223,
+            0.79,
+            0.325
+          ],
+          "sub_type": "text",
+          "content": "1. Einfügen eines neuen Elementes $( , P u t ^ { n } )$\n2. Entfernen des zuerst eingefügten Elementes $( \\mathrm { { , } } \\mathrm { { G e t } } ^ { n } )$"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.377,
+            0.966,
+            0.615
+          ],
+          "sub_type": "text",
+          "content": "• Verbreitete Datenstruktur, z.B.\n– Warteschlange von auszuführenden Prozessen\n– Kommunikationspuffer z.B. für Druckaufträge\n• **FIFO-Prinzip**: first in, first out („zuerst gekommen, zuerst bedient“)"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.0,
+            0.65,
+            0.999,
+            0.926
+          ],
+          "sub_type": "text_image",
+          "content": "DELZER\nnach Originalrezept\nGelo!\nE's",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_251_image_11.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "252"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 252,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.025,
+            0.025,
+            0.194,
+            0.063
+          ],
+          "content": "Put und Get"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.234,
+            0.414,
+            0.31,
+            0.45
+          ],
+          "content": "put D"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.236,
+            0.53,
+            0.31,
+            0.565
+          ],
+          "content": "put C"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.236,
+            0.646,
+            0.308,
+            0.681
+          ],
+          "content": "put B"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.239,
+            0.762,
+            0.312,
+            0.795
+          ],
+          "content": "put A"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.379,
+            0.214,
+            0.604,
+            0.89
+          ],
+          "sub_type": "text_image",
+          "content": "queue\nD\nC\nB\nA",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_252_image_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.672,
+            0.762,
+            0.768,
+            0.795
+          ],
+          "content": "get → A"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.036,
+            0.987
+          ],
+          "content": "253"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 253,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.025,
+            0.025,
+            0.194,
+            0.063
+          ],
+          "content": "Put und Get"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.459,
+            0.241,
+            0.53,
+            0.274
+          ],
+          "content": "**queue**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.4,
+            0.496,
+            0.58,
+            0.838
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_253_image_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.672,
+            0.762,
+            0.766,
+            0.795
+          ],
+          "content": "get → B"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.037,
+            0.987
+          ],
+          "content": "254"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 254,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.025,
+            0.025,
+            0.194,
+            0.063
+          ],
+          "content": "Put und Get"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.379,
+            0.214,
+            0.604,
+            0.89
+          ],
+          "sub_type": "text_image",
+          "content": "queue\nD\nC",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_254_image_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.672,
+            0.762,
+            0.768,
+            0.795
+          ],
+          "content": "get → C"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.036,
+            0.988
+          ],
+          "content": "255"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 255,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.549,
+            0.072
+          ],
+          "content": "Queue-Implementierung durch Listen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.136,
+            0.581,
+            0.374
+          ],
+          "sub_type": "text",
+          "content": "• Queue-Elemente = Listenelemente\n• Put = Einfügen am Listenende\n• Get = Entfernen des ersten Elementes\n• Queue für beliebigen Elementtyp T:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.162,
+            0.396,
+            0.532,
+            0.966
+          ],
+          "sub_type": "code",
+          "content": "```c\nList L;\n\nvoid Put(T* item,listptr L)\n{\n    AppendLast(item, L);\n}\n\nT* Get(listptr L)\n{\n    T* item;\n\n    if (IsEmpty(*L)) return NULL;\n\n    item = L->first->data;\n    Delete(item, L);\n\n    return item;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.805,
+            0.149,
+            0.87,
+            0.918
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Stage 1\"] --> B[\"Intermediate 1\"]\n  B --> C[\"Intermediate 2\"]\n  C --> D[\"Intermediate 3\"]\n  D --> E[\"Final Stage\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0225-0256/images/page_255_image_7.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "256"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 256,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.023,
+            0.024,
+            0.559,
+            0.072
+          ],
+          "level": 2,
+          "content": "Queue-Implementierung durch Arrays"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.129,
+            0.928,
+            0.224
+          ],
+          "content": "Betrachte **Dynamik** von Queues im Vergleich zu Stacks in Array-Implementierung:"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.047,
+            0.233,
+            0.684,
+            0.589
+          ],
+          "sub_type": "bar_stacked",
+          "content": "| Category | Value 1 | Value 2 | Value 3 | Value 4 | Value 5 | Value 6 | Value 7 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| Row 1 | Blue | Light Green | Light Green | Light Green | Light Green | Light Green | Light Green |\n| Row 2 | Blue | Blue | Light Green | Light Green | Light Green | Light Green | Light Green |\n| Row 3 | Blue | Light Green | Light Green | Light Green | Light Green | Light Green | Light Green |\n| Row 4 | Blue | Blue | Blue | Light Green | Light Green | Light Green | Light Green |\n| Row 5 | Blue | Blue | Light Green | Light Green | Light Green | Light Green | Light Green |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_256_chart_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.726,
+            0.272,
+            0.942,
+            0.452
+          ],
+          "content": "**Stack**: verwendet tendenziell immer den gleichen Speicherbereich"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.047,
+            0.622,
+            0.684,
+            0.976
+          ],
+          "sub_type": "bar_stacked",
+          "content": "| Category | Segment 1 (Dark Blue) | Segment 2 (Light Blue) |\n| --- | --- | --- |\n| Row 1 | ~30% | ~70% |\n| Row 2 | ~35% | ~65% |\n| Row 3 | ~40% | ~60% |\n| Row 4 | ~45% | ~55% |\n| Row 5 | ~50% | ~50% |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_256_chart_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.71,
+            0.66,
+            0.945,
+            0.883
+          ],
+          "content": "**Queue**: „wandert“tendenziell immer weiter nach rechts, daher schlechte Speicherausnutzung"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "257"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 257,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.559,
+            0.072
+          ],
+          "content": "Queue-Implementierung durch Arrays"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.136,
+            0.821,
+            0.183
+          ],
+          "content": "• Lösung: **ringförmiges** Array bzw. **zyklische** Adressierung"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.212,
+            0.231,
+            0.764,
+            0.935
+          ],
+          "sub_type": "donut",
+          "content": "| Category | Value |\n| --- | --- |\n| 1 | Blue dot |\n| 2 | Blue dot |\n| 3 | Blue dot |\n| 4 | Blue dot |\n| 5 | Blue dot |\n| 6 | Blue dot |\n| 7 | Blue dot |\n| 8 | Blue dot |\n| 9 | Blue dot |\n| 10 | Blue dot |\n| 11 | Blue dot |\n| 12 | Blue dot |\n| 13 | Blue dot |\n| 14 | Blue dot |\n| 15 | Blue dot |\n| 16 | Blue dot |\n| 17 | Blue dot |\n| 18 | Blue dot |\n| 19 | Blue dot |\n| 20 | Blue dot |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_257_chart_2.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "258"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 258,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.023,
+            0.024,
+            0.559,
+            0.072
+          ],
+          "level": 2,
+          "content": "Queue-Implementierung durch Arrays"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.135,
+            0.399,
+            0.79
+          ],
+          "sub_type": "text",
+          "content": "Zwei **Zeiger** (Array-Indizes) first und last verweisen auf aktuellen Anfang (-1) und Ende (+1) der Queue\nVerwendung des Modulo-Operators (%) zur **zyklischen Adressierung**\nPrüfung auf **Über- und Unterlauf** (overflow, underflow) erforderlich"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.443,
+            0.109,
+            0.907,
+            0.953
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define MAX 100\n\ntypedef struct q\n{ T* elems[MAX];\n  int first, last; } queue;\n\nvoid Init(queue* q)\n{\n  q->first = 0;\n  q->last = 1;\n}\n\nvoid Put(T* item,queue* q)\n{\n  if (q->last == q->first) overflow();\n  else {\n    q->elems[q->last] = item;\n    q->last = (q->last+1) % MAX;\n  }\n}\n\nT* Get(queue* q)\n{\n  q->first = (q->first+1) % MAX;\n  if (q->first == q->last) underflow();\n  else return q->elems[q->first];\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "259"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 259,
+      "blocks": [
+        {
+          "type": "image",
+          "bbox": [
+            0.043,
+            0.104,
+            0.689,
+            0.999
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Top Bar\"] --> B[\"Second Bar\"]\n  B --> C[\"Third Bar\"]\n  C --> D[\"Fourth Bar\"]\n  D --> E[\"Bottom Bar\"]\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.025,
+                0.024,
+                0.239,
+                0.069
+              ],
+              "content": "Beispiel-Ablauf"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_259_image_1.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.759,
+            0.104,
+            0.964,
+            0.495
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"first\"] --> B[\"last\"]\n  B --> C[\"frei\"]\n  C --> D[\"verwendet\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_259_image_2.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.036,
+            0.988
+          ],
+          "content": "260"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "PowerPoint-Präsentation",
+      "authors": [
+        "Tobias Gemmeke"
+      ],
+      "created_at": "2026-10-06T18:07:32+02:00",
+      "modified_at": "2026-10-06T18:08:54+02:00",
+      "creator_application": "Acrobat PDFMaker 20 für PowerPoint",
+      "producer_application": "Adobe PDF Library 20.9.95",
+      "page_count": 355,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 228,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 229,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 230,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 231,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 232,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 233,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 234,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 235,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 236,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 237,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 238,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 239,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 240,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 241,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 242,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 243,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 244,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 245,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 246,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 247,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 248,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 249,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 250,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 251,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 252,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 253,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 254,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 255,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 256,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 257,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 258,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 259,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

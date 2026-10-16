@@ -1,0 +1,357 @@
+--- PDF page 1 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Grundgebiete der Informatik 1
+Programmierung, Algorithmen und 
+Datenstrukturen
+Prof. Dr.-Ing. Tobias Gemmeke
+Integrierte Digitale Systeme und Schaltungsentwurf (IDS)
+gemmeke@ids.rwth-aachen.de
+WS 2026/2027
+
+
+--- PDF page 2 ---
+Inhalt
+1.
+Einleitung
+1.1 Thematische Einordnung
+1.2 Hardware und Software
+1.3 Programmiersprachen
+1.4 Algorithmen und Programme
+2.
+Einführendes Beispiel
+2.1 Temperaturumrechnung
+2.2 Analyse des Beispiels
+2.3 Ausführung und Fehlersuche
+3.
+Elementare Datentypen und Anweisungen
+3.1 Einführung
+3.2 Variablen und Konstanten
+3.3 Arithmetische und logische Operationen und Zuweisungen
+3.4 Kontrollanweisungen
+3.5 Zeiger
+16
+19
+22
+26
+31
+35
+42
+47
+53
+74
+81
+59
+2
+
+
+--- PDF page 3 ---
+Inhalt
+4.
+Funktionen und Programmaufbau
+4.1 Funktionen
+4.2 Parameterübergabe
+4.3 Polymorphie
+4.4 Templates
+4.5 Lambda Funktionen
+4.6 Module und Programme
+5.
+Datentypen
+5.1 Arrays
+5.2 Strukturen
+5.3 Abstrakte Datentypen
+5.4 Klassen
+(De)Konstruktor
+Public vs. private
+Vererbung
+Abstrakte Klassen
+Überladen von Operatoren
+97
+107
+123
+133
+112
+116
+118
+120
+137
+139
+3
+152
+150
+146
+143
+141
+
+
+--- PDF page 4 ---
+Inhalt
+6.
+Analyse von Algorithmen
+6.1 Laufzeitanalyse
+6.2 O-Notation für Wachstumsordnungen
+6.3 Beispiel: Exponentialfunktion
+6.4 Beispiel: Suchen in Arrays
+7.
+Sortieralgorithmen
+7.1 Einfache Verfahren (Selection/Insertion/Bubblesort)
+7.2 Quicksort
+7.3 Heapsort
+8.
+Lineare Datentypen
+8.1 Listen
+8.2 Stacks
+8.3 Queues
+9.
+Bäume
+9.1 Definition und Darstellung
+9.2 Baumdurchläufe
+9.3 Suchbäume
+189
+205
+215
+242
+251
+265
+269
+229
+261
+4
+159
+175
+180
+165
+
+
+--- PDF page 5 ---
+Inhalt
+10. Graphen
+10.1 Definition und Grapheigenschaften
+10.2 Berechnung kürzester Pfade
+10.3 Datenstrukturen zur Graphrepräsentation
+10.4 Graphdurchläufe
+10.5 Spannbäume
+11. Techniken zum Algorithmenentwurf
+11.1 Rekursion und Iteration
+11.2 Backtracking
+11.3 Kombinatorische Optimierung
+11.4 Schwierige Probleme und Heuristiken
+11.5 Dynamische Programmierung
+11.6 Branch and Bound
+277
+283
+294
+300
+316
+323
+335
+341
+346
+308
+330
+5
+
+
+--- PDF page 6 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+RWTH-Studiengänge
+• B.Sc. Elektrotechnik und Informationstechnik
+• B.Sc. Computer Engineering
+• B.Sc. Wirtschaftsingenieurwesen EET
+6
+
+
+--- PDF page 7 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Übungsbetrieb
+• Koordination / Fachstudienbetreuung
+– Dipl.-Inform. Tatjana Eiden 
+• Gemeinsame Globalübung 
+– Do 12:15-13:15
+– Vor allem: c/C++-Programmierkurs
+– Michael Gansen
+• Kleingruppenübungen: 
+– Interaktive Vertiefung und Ergänzung des Vorlesungsstoffes
+– Tutoren: studentische Hilfskräfte 
+– Ca. 16 wöchentliche Termine zur Auswahl
+– Vorauss. ab 2. Vorlesungswoche (siehe RWTHonline)
+7
+
+
+--- PDF page 8 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Kleingruppenübungen
+• Teilnahme nicht obligatorisch aber dringend empfohlen
+• Anmeldungsinfo: siehe RWTHonline
+• Anmeldeschluss beachten!
+• Gruppeneinteilung: Benachrichtigung per email
+• Übungsaufgaben: jeweils am Fr online über Moodle
+• Vorbereitungsaufgaben, Präsenzaufgaben und 
+Nachbereitungsaufgaben
+Alle Studierende mit 100 von 200 Punkten in den Hausübungen haben in 21/22 bestanden.
+Teilnahme an der Probeklausur führte in 21/22 zu folgender Verbesserung:
+2 
+𝟓𝟓𝟎𝟎𝟎1          3 
+𝟗𝟗𝟎𝟎𝟎<3          4 
+𝟗𝟗𝟎𝟎𝟎<4          5 
+𝟖𝟖𝟎𝟎𝟎<5
+8
+
+
+--- PDF page 9 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Organisatorisches
+• Klausur
+– 1. Versuch: siehe RWTHonline
+– 2. Versuch: siehe RWTHonline
+• Fragestunde GGI1 bei Fr. Eiden
+– Di 12:15-13:45 (UMIC, ab 20.10.)
+– Do 13:15-14:00 (H02, ab 15.10.) im Anschluss an die Globalübung
+– sowie nach vorheriger Absprache per E-Mail
+• Aktuelle Nachrichten
+– Siehe RWTHonline
+– Sprechstunden bei Prof. Gemmeke n.V. per Email:
+info@ids.rwth-aachen.de 
+9
+
+
+--- PDF page 10 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Literatur
+• B.W. Kernighan, D.M. Ritchie: 
+Programmieren in C, 
+2. Auflage, Hanser, 1990, ISBN 3-446-15497-3
+• R. Sedgewick: Algorithmen in C++,
+Addison-Wesley, 2002, ISBN 3-8273-7026-4
+• In der Lehrbuchsammlung
+• Kommentierte Vorlesungsfolien
+• Grundsätzlich auch andere Einführungen 
+in die Programmierung als Hilfsmittel 
+geeignet
+10
+
+
+--- PDF page 11 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Über das IDS (www.ids.rwth-aachen.de)
+•
+Lehrstuhl für Integrierte Digitale Systeme und 
+Schaltungsentwurf (IDS)
+•
+Schwerpunkte: 
+– Entwurfsmethodik integrierte digitale Schaltungen
+– Beschleuniger für verschiedene Anwendungen:
+• Simulation biologischer neuronaler Netzwerke
+• Inferenz in künstlichen neuronalen Netzen
+• Kryptographie
+• …
+– Testmethoden
+•
+Standort: UMIC Gebäude
+– Mies-van-der-Rohe Str. 15, RWTH Hörn Campus
+7
+11
+
+
+--- PDF page 12 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Forschungsgebiete am Lehrstuhl IDS
+• Comp. NS
+• Acceleration
+• Training
+BioNN
+• Embedded
+• Efficiency
+• Approximation
+ANN
+• PQ Crypto
+• Trojans
+• Info Leakage
+Security
+• Novel Devices
+• Modelling
+• Self-X
+Test & 
+Realibility
+DSP Applications
+• ECG
+• Beam-Forming
+• Photogrammetry
+• LiDAR
+• Filtering
+Design Methodology
+• Algorithm
+• FPGA
+• Technology
+12
+
+
+--- PDF page 13 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Entwurfsablauf
+oscilloscope
+testboard
+SMU
+PC
+multimeter
+vom Layout zum Bring-Up
+Chip-Entwurf
+P&R
+13
+
+
+--- PDF page 14 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Kooperationsprojekte (Auswahl)
+Advanced 
+ 
+Computing 
+ 
+ 
+Architectures (ACA)
+towards multi-scale natural-density 
+Neuromorphic Computing
+I&II
+14
+
+
+--- PDF page 15 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+IDS-Lehrveranstaltungen
+•
+Bachelor:
+–
+Grundgebiete der Informatik 1 (GGI1)   1. Sem
+–
+*Projekt PETIT ("MATLAB meets LEGO Mindstorms„)   1. Sem
+–
+*Praktikum Informatik   2 Teile
+–
+VLSI Schaltungen & Architekturen (VLSI-CA)   4. Sem Pflicht CE bzw. 6. Sem Wahl ET&IT
+–
+*Grundlagen Integrierter Schaltungen und Systeme (GISS)   5. Sem Wahl ME
+–
+Institutsprojekt „Anwendung von künstlichen neuronalen Netzen zur Linienverfolgung mit 
+Braitenberg-Vehikeln“   4. Sem
+–
+*Praktikum Mikroelektronik   5. Sem Pflicht in ME
+–
+Bachelor-Arbeiten zu aktuellen Forschungsthemen
+•
+Master
+–
+VLSI Design for Digital Signal Processing – Fundamentals (VLSI-DF) 
+–
+VLSI Design for Digital Signal Processing – Architecturs (VLSI-DA)
+–
+Computer Arithmetic – Fundamentals (CAR-F)
+–
+Computer Arithmetic – Advanced Topics (CAR-A)
+–
+Laboratory: VLSI Design
+–
+Laboratory: FPGA Design
+–
+Master-Arbeiten zu aktuellen Forschungsthemen
+*  Mehrere Lehrstühle tragen zur 
+Durchführung der Veranstaltung bei
+15

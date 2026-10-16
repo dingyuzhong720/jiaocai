@@ -1,0 +1,751 @@
+--- PDF page 229 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+8. Lineare Datentypen
+8.1 Listen
+8.2 Stacks
+8.3 Queues
+229
+
+
+--- PDF page 230 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Mengendarstellung
+• Problemstellung: Verwaltung einer Menge von Objekten   
+𝐴𝐴= {𝑎𝑎1, … , 𝑎𝑎𝑛𝑛} vom Typ T
+• Gewünschte Operationen:
+– Suchen, Einfügen und Entfernen von Elementen
+– Vereinigung und Durchschnitt zweier Mengen 𝐴𝐴und 𝐵𝐵
+• Prinzipiell wäre ein Array als Datenstruktur geeignet
+• Jedoch zwei Probleme:
+– Einfügen eines neuen Elementes an einer bestimmten Position 
+erfordert aufwendige Umordnung
+– Größe der Menge muss statisch feststehen
+(Bspw. Deklaration: T A[100]; erlaubt max. 100 Elemente)
+Verschieben
+230
+
+
+--- PDF page 231 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Verkettete Listen
+• Verwendung von Zeigern (siehe Kap. 3)
+• Modellierung eines Knotens für ein Element vom Typ T:
+typedef struct node { 
+T* data; struct node* next; } *nodeptr;
+• data ist Zeiger auf Listenelement vom Typ T
+• next ist Zeiger auf Nachfolgerknoten
+Def.: Eine (verkettete) Liste ist entweder leer oder besteht aus 
+einer Referenz auf einen Knoten, der ein Element und eine 
+Referenz auf eine verkettete Liste enthält.
+nodeptr
+Rest-Liste
+Objekt vom
+Typ T
+data
+next
+231
+
+
+--- PDF page 232 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Verkettete Listen
+• Liste im Speicher (vgl. Kap. 3)
+• Liste = 1. Element + Restliste
+• Darstellung einer leeren Liste:
+#define NULL 0
+• Zeigerwert NULL bedeutet, dass der Zeiger 
+„nirgendwohin“ zeigt
+• Speicherzugriff per NULL-Zeiger ist 
+unzulässig, führt i.A. zum 
+Programmabsturz
+data
+next
+data
+next
+T
+Adr.
+0
+NULL
+Listenende
+232
+
+
+--- PDF page 233 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Listenoperationen
+• Definition des Datentyps Liste, Elemente vom Typ T
+• Erzeugung einer leeren Liste und Leerheitstest
+NULL
+L.first
+L.last
+typedef struct node { 
+T* data; 
+struct node* next; } Node, *nodeptr;
+typedef struct list {
+nodeptr first, last; } List, *listptr;
+List L;
+void Init(listptr L)
+{ 
+L->first = NULL; L->last = NULL; 
+}
+int IsEmpty(List L)
+{ 
+return (L.first == NULL && L.last == NULL); 
+}
+233
+
+
+--- PDF page 234 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Listenoperationen
+• Einfügen eines neuen Listenelements vom Typ T am Listenanfang
+NULL
+vorher
+NULL
+nachher
+• Funktion „malloc“ (siehe Kap. 3) stellt dynamisch Speicherplatz 
+auf dem Heap bereit 
+• Funktion „sizeof“ berechnet die erforderliche Anzahl von Bytes 
+(hier z.B. insges. 8 Bytes bei 32-Bit-Zeigern)
+nodeptr newnode(T* item)
+{ 
+nodeptr np;
+np = (nodeptr)malloc(sizeof(Node));
+np->data = item;
+np->next = NULL;
+return np;
+}
+234
+
+
+--- PDF page 235 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Einfügen am Listenanfang
+void AppendFirst(T* item, listptr L)
+{ 
+nodeptr np = newnode(item);
+if (IsEmpty(*L)) { 
+L->first = np; L->last = np;
+} else {
+np->next = L->first;
+L->first = np;
+}
+}
+NULL
+NULL
+L->first
+L->last
+np
+NULL
+L->first
+L->last
+np
+NULL
+L->first
+L->last
+235
+
+
+--- PDF page 236 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Einfügen am Listenende
+void AppendLast(T* item, listptr L)
+{ 
+nodeptr np = newnode(item);
+if (IsEmpty(*L)) { 
+L->first = np; L->last = np;
+} else { 
+L->last->next = np;
+L->last = np;
+}
+}
+NULL
+NULL
+L->first
+np
+L->last
+NULL
+L->first
+np
+L->last
+NULL
+L->first
+L->last
+236
+
+
+--- PDF page 237 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Prüfen ob Element in Liste enthalten
+• Laufzeit bei N-elementiger Liste:
+– Best case: O(1)
+– Worst case: O(N)
+– Average case: O(N/2) = O(N)
+int IsIn(T* item, List L)
+{ 
+nodeptr np;
+if (IsEmpty(L)) return 0; // false
+np = L.first;
+while (np != NULL) { 
+if (Equal(np->data, item)) return 1; // true
+np = np->next;
+}
+return 0; // false
+}
+Sequentielle Suche
+NULL
+237
+
+
+--- PDF page 238 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Einfügen hinter ein bestimmtes Listenelement
+// item2 hinter item1 einfügen
+void InsertBehind(T* item1, 
+T* item2, listptr L)
+{ 
+nodeptr np, newnp;
+if (!IsIn(item1,*L)) { 
+printf(„Fehler!“); return;
+}
+np = L->first;
+while (np != NULL) {
+if (Equal(np->data,item1)) {
+newnp = newnode(item2);
+newnp->next = np->next;
+np->next = newnp;
+if (np == L->last) {
+L->last = newnp; 
+}
+break;
+}
+np = np->next;
+}
+}
+NULL
+NULL
+np
+newnp
+NULL
+np
+newnp
+238
+
+
+--- PDF page 239 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Löschen eines Listenelementes
+void Delete(T* item, listptr L)
+{ 
+nodeptr np1, np2;
+if (IsEmpty(*L)) return;
+np1 = L->first;
+if (Equal(np1->data,item)) {
+L->first = np1->next;
+if (L->first == NULL)
+L->last = NULL;
+free(np1);
+return;
+}
+np2 = np1->next;
+while (np2 != NULL) {
+if (Equal(np2->data,item)) { 
+np1->next = np2->next;
+if (np2 == L->last)
+L->last = np1; 
+free(np2);
+break;
+}
+np1 = np2;
+np2 = np2->next;
+}
+}
+NULL
+np2
+np1
+NULL
+np2
+np1
+239
+
+
+--- PDF page 240 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Zusammenfügen zweier Listen
+• Falls Liste als Mengendarstellung: entspricht Vereinigung
+• Evtl. Mehrfachvorkommen von Elementen ausschließen
+listptr Union(listptr L1, listptr L2)
+{ 
+if (IsEmpty(*L2)) return L1;
+if (IsEmpty(*L1)) return L2;
+L1->last->next = L2->first;
+L1->last = L2->last;
+return L1;
+}
+L1:
+NULL
+L2:
+240
+
+
+--- PDF page 241 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Schnittmengenberechnung mittels Listen
+listptr Intersect(listptr L1, listptr L2)
+{ 
+nodeptr np;
+listptr L = (listptr)malloc(sizeof(List));
+Init(L);
+np = L1->first;
+while (np != NULL) {
+if (IsIn(np->data, *L2)) AppendLast(np->data, L);
+np = np->next;
+}
+return L;
+}
+B
+C
+L1:
+A
+E
+NULL
+D
+B
+D
+L2:
+G
+NULL
+E
+B
+L:
+E
+NULL
+D
+241
+
+
+--- PDF page 242 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+8. Lineare Datentypen
+8.1 Listen
+8.2 Stacks
+8.3 Queues
+242
+
+
+--- PDF page 243 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Stacks
+• Stacks sind eine grundlegende Datenstruktur in vielen 
+Anwendungen
+– Ablagesystem auf Professorenschreibtisch
+– Compiler-Frontend (Analyse des Quellprogramms)
+– Abarbeitung von C-Funktionsaufrufen
+• Aufgrund der Pop-Operation auch als LIFO-Datenstruktur
+bezeichnet (last in, first out)
+• Stack als ADT, d.h. verschiedene Implementierungen möglich (z.B. 
+Listen und Arrays)
+Def.: Ein Stack (Stapel) ist ein ADT, der folgende 
+Grundoperationen unterstützt:
+1. Einfügen eines neuen Elementes („Push“)
+2. Entfernen des zuletzt eingefügten Elementes („Pop“)
+243
+
+
+--- PDF page 244 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+stack
+EC
+pop →E
+push E
+push C
+Push und Pop
+push A
+push B
+push D
+pop →A
+pop →C
+pop →D
+pop →B
+A
+B
+D
+244
+
+
+--- PDF page 245 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Laufzeit-Stack für C-Funktionsaufrufe
+• Siehe auch Kap. 5
+• Funktion f wird durch 
+Aufruf von g unterbrochen
+und später fortgesetzt
+• g kann ihrerseits weitere
+Funktionen aufrufen
+• Umgebung zur 
+Programmausführung muss 
+einen Stack noch aktiver
+Funktionen verwalten
+• Funktionsaufruf = Push
+• Funktionsende = Pop
+Statement f1
+Statement f2
+Statement f3
+Statement f4
+Statement g1
+Statement g2
+Funktion f
+Funktion g
+Zeit
+Aufruf
+Rücksprung
+245
+
+
+--- PDF page 246 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Laufzeit-Stack für C-Funktionsaufrufe
+main
+main
+f
+main
+f
+g
+main
+f
+g
+h
+main
+f
+g
+h
+i
+main
+f
+g
+h
+main
+f
+g
+main
+f
+main
+main
+g
+main
+g
+h
+main
+g
+h
+i
+main
+g
+h
+main
+g
+main
+main
+h
+main
+h
+i
+...
+main
+void f(void)
+{ 
+g(); 
+}
+void g(void)
+{ 
+h(); 
+}
+void h(void)
+{ 
+i(); 
+}
+void i(void)
+{ 
+}
+int main(void)
+{
+f();
+g();
+h();
+return 0;
+}
+246
+
+
+--- PDF page 247 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Stack-Implementierung durch Listen
+• Elemente auf Stack = Listenelemente
+• Push = Einfügen am Listenanfang
+• Pop = Entfernen des ersten Elementes
+• Stack für beliebigen Elementtyp T:
+List L;
+void Push(T* item,listptr L)
+{ 
+AppendFirst(item, L); 
+}
+T* Pop(listptr L)
+{ 
+T* item;
+if (IsEmpty(*L)) return NULL;
+item = L->first->data;
+Delete(item, L);
+return item;
+}
+247
+
+
+--- PDF page 248 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Stack-Implementierung durch Arrays
+• Vorgabe der max. Stack-
+Größe notwendig
+• Elemente auf Stack = 
+Arrayelemente
+• „top“ verweist stets auf das 
+nächste freie Element (top = 
+„Stack-Pointer“)
+• Push = Einfügen und 
+Erhöhen von top um 1
+• Pop = Entfernen und 
+Erniedrigen von top um 1
+• Prüfen auf Überlauf (im 
+Gegensatz zu Listen!)
+#define MAX 100
+typedef struct stk 
+{ T* elems[MAX]; int top; } stack;
+void Init(stack* s)
+{ s->top = 0; }
+int IsEmpty(stack s)
+{ return (s.top == 0); }
+void Push(T* item,stack* s)
+{ 
+if (s->top == MAX)
+printf(„Stack voll!“);
+s->elems[s->top] = item;
+s->top++;
+}
+T* Pop(stack* s)
+{ 
+if (IsEmpty(*s)) return NULL;
+s->top--;
+return s->elems[s->top];
+}
+248
+
+
+--- PDF page 249 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel-Anwendung
+• Auswertung geklammerter arithmetischer Ausdrücke
+– z.B. (( 6 * ( 4 * 28)) + ( 9 - (( 12 / 4) * 2)))
+• Innere Ausdrücke vor äußeren auszuwerten
+• Speicherung von Zwischenergebnissen notwendig 
+• Zwei Stacks: Operanden- und Operatorstack
+• Abarbeitung eines Ausdrucks von links nach rechts:
+– „(“: keine Aktion
+– Operand: Push auf Operandenstack
+– Operator: Push auf Operatorstack
+– „)“: Pop des obersten Operators, Pop der obersten beiden 
+Operanden, Ausdruck auswerten, Push Ergebnis auf 
+Operandenstack
+249
+
+
+--- PDF page 250 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel
+(( 6 * ( 4 * 28)) + ( 9 - (( 12 / 4) * 2)))
+Operandenstack
+Operatorstack
+6
+6 4
+6 4 28
+6 112
+672
+672 9
+672 9 12
+672 9 12 4
+672 9 3
+672 9 3 2
+672 9 6
+672 3
+675
+*
+* *
+*
+(leer)
++
++ -
++ - /
++ -
++ - *
++ -
++
+(leer)
+250
+
+
+--- PDF page 251 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+8. Lineare Datentypen
+8.1 Listen
+8.2 Stacks
+8.3 Queues
+251
+
+
+--- PDF page 252 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Queues
+• Verbreitete Datenstruktur, z.B.
+– Warteschlange von auszuführenden Prozessen
+– Kommunikationspuffer z.B. für Druckaufträge
+• FIFO-Prinzip: first in, first out („zuerst gekommen, zuerst bedient“)
+Def.: Eine Queue (Warteschlange) ist ein ADT, der folgende 
+Grundoperationen unterstützt:
+1. Einfügen eines neuen Elementes („Put“)
+2. Entfernen des zuerst eingefügten Elementes („Get“)
+252
+
+
+--- PDF page 253 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+queue
+C
+put C
+Put und Get
+put A
+put B
+put D
+get →A
+A
+B
+D
+253
+
+
+--- PDF page 254 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Put und Get
+D
+queue
+get →B
+B
+C
+254
+
+
+--- PDF page 255 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Put und Get
+queue
+get →C
+C
+D
+255
+
+
+--- PDF page 256 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Queue-Implementierung durch Listen
+• Queue-Elemente = Listenelemente
+• Put = Einfügen am Listenende
+• Get = Entfernen des ersten Elementes
+• Queue für beliebigen Elementtyp T:
+List L;
+void Put(T* item,listptr L)
+{ 
+AppendLast(item, L); 
+}
+T* Get(listptr L)
+{ 
+T* item;
+if (IsEmpty(*L)) return NULL;
+item = L->first->data;
+Delete(item, L);
+return item;
+}
+256
+
+
+--- PDF page 257 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Queue-Implementierung durch Arrays
+• Betrachte Dynamik von Queues im Vergleich zu Stacks in Array-
+Implementierung:
+Stack: verwendet 
+tendenziell immer 
+den gleichen 
+Speicherbereich
+Queue: „wandert“ 
+tendenziell immer 
+weiter nach rechts, 
+daher schlechte 
+Speicherausnutzung
+257
+
+
+--- PDF page 258 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Queue-Implementierung durch Arrays
+• Lösung: ringförmiges Array bzw. zyklische Adressierung
+A[0]
+A[N-1]
+258
+
+
+--- PDF page 259 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Queue-Implementierung durch Arrays
+• Zwei Zeiger (Array-
+Indizes) first und last
+verweisen auf aktuellen 
+Anfang (-1) und Ende 
+(+1) der Queue
+• Verwendung des 
+Modulo-Operators (%) 
+zur zyklischen
+Adressierung
+• Prüfung auf Über- und 
+Unterlauf (overflow, 
+underflow) erforderlich
+#define MAX 100
+typedef struct q 
+{ T* elems[MAX]; 
+int first, last; } queue;
+void Init(queue* q)
+{ 
+q->first = 0; 
+q->last = 1; 
+}
+void Put(T* item,queue* q)
+{ 
+if (q->last == q->first) overflow();
+else { 
+q->elems[q->last] = item;
+q->last = (q->last+1) % MAX;
+}
+}
+T* Get(queue* q)
+{ 
+q->first = (q->first+1) % MAX;
+if (q->first == q->last) underflow();  
+else return q->elems[q->first];
+}
+259
+
+
+--- PDF page 260 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel-Ablauf
+first
+last
+frei
+verwendet
+260

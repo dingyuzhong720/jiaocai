@@ -1,0 +1,1409 @@
+{
+  "pages": [
+    {
+      "page_idx": 30,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.275,
+            0.254,
+            0.723,
+            0.317
+          ],
+          "level": 2,
+          "content": "2. Einführendes Beispiel"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.479,
+            0.606,
+            0.653
+          ],
+          "sub_type": "text",
+          "content": "**2.1 Temperaturumrechnung**\n2.2 Analyse des Beispiels\n2.3 Ausführung und Fehlersuche"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.988
+          ],
+          "content": "31"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 31,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.023,
+            0.5,
+            0.071
+          ],
+          "content": "Einführendes C-Programmbeispiel"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.135,
+            0.741,
+            0.28
+          ],
+          "sub_type": "text",
+          "content": "• Umwandlung von Grad Fahrenheit in Grad Celsius\n•𝑦𝑦℃ = (5/9) ×𝑥𝑥℉ – 32"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.053,
+            0.324,
+            0.601,
+            0.918
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n\n/* Umwandlung von Fahrenheit in Celsius\n    fuer fahr = 0, 20, ..., 300   */\nint main()\n{\n    int fahr, celsius;\n    int lower, upper, step;\n\n    lower = 0; // untere Grenze der Temperaturtabelle\n    upper = 300; // obere Grenze\n    step  = 20; // Schrittweite\n\n    fahr  = lower;\n    while (fahr <= upper)  {\n        celsius = 5  *  (fahr-32) / 9;\n        printf(\"%d\\t%d\\n\", fahr, celsius);\n        fahr = fahr + step;\n    }\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.729,
+            0.341,
+            0.952,
+            0.439
+          ],
+          "sub_type": "natural_image",
+          "content": "Medical thermometer with digital display showing 36.2°C (no text or symbols on device body)",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0001-0032/images/page_31_image_5.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.685,
+            0.59,
+            0.954,
+            0.852
+          ],
+          "sub_type": "line",
+          "content": "| \\({}^{\\circ}F\\) | \\({}^{\\circ}C\\) |\n| --- | --- |\n| 0 | ~-1.5 |\n| ~1.5 | 0 |\n| ~3.0 | ~1.5 |\n| ~4.5 | ~3.0 |\n| ~6.0 | ~4.5 |\n| ~7.5 | ~6.0 |\n| ~9.0 | ~7.5 |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0001-0032/images/page_31_chart_6.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.029,
+            0.988
+          ],
+          "content": "32"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 32,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.025,
+            0.148,
+            0.064
+          ],
+          "content": "Libraries"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.123,
+            0.949,
+            0.844
+          ],
+          "sub_type": "text",
+          "content": "Von vielen Programmen häufig wiederverwendeter Code wird in Bibliotheken (Libraries) abgelegt\nLibrary-Code wird nur einmal compiliert und kann dann von allen Programmen eingebunden werden\n• Dies erfolgt nach der Assemblierung durch den Linker\nC besitzt insges. 29 Standard-Libraries, z.B.:\n– stdio: Ein- und Ausgabe\n– math: Mathematische Funktionen\n– string: String-Manipulation\nDurch Einbinden einer Header-Datei (z.B. „stdio.h“) werden die Library-Funktionen dem benutzenden Programm bekannt gemacht\nProgrammierer können (und sollten) auch eigene, benutzerspezifische Libraries anlegen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.028,
+            0.988
+          ],
+          "content": "33"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 33,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.024,
+            0.502,
+            0.069
+          ],
+          "content": "Standardbibliothek C++ - Beispiele"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.92,
+            0.028,
+            0.966,
+            0.057
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.109,
+            0.447,
+            0.152
+          ],
+          "content": "• **Zeichenketten und Streams**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.072,
+            0.168,
+            0.545,
+            0.212
+          ],
+          "content": "– string, iomanip, iostream, cstdio"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.226,
+            0.526,
+            0.272
+          ],
+          "content": "• **Abtrakte Datentypen / Container**"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.284,
+            0.67,
+            0.443
+          ],
+          "sub_type": "text",
+          "content": "– vector, array, (forward\\_)list, queue, stack\n– (unordered\\_)set, (unordered\\_) map\n– iteratoren"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.462,
+            0.259,
+            0.501
+          ],
+          "content": "• **Smart Pointer**"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.072,
+            0.521,
+            0.261,
+            0.684
+          ],
+          "sub_type": "text",
+          "content": "– unique\\_prt\n– shared\\_prt\n– weak\\_ptr"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.696,
+            0.239,
+            0.741
+          ],
+          "content": "• **Algorithmen**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.072,
+            0.753,
+            0.724,
+            0.8
+          ],
+          "content": "– for\\_each, sort, copy, find & search, transform"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.814,
+            0.208,
+            0.853
+          ],
+          "content": "• **Funktoren**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.871,
+            0.39,
+            0.917
+          ],
+          "content": "– multiplies, negate, …"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.028,
+            0.987
+          ],
+          "content": "34"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 34,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.275,
+            0.254,
+            0.723,
+            0.317
+          ],
+          "level": 2,
+          "content": "2. Einführendes Beispiel"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.164,
+            0.479,
+            0.609,
+            0.653
+          ],
+          "sub_type": "text",
+          "content": "2.1 Temperaturumrechnung\n**2.2 Analyse des Beispiels**\n2.3 Ausführung und Fehlersuche"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.988
+          ],
+          "content": "35"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 35,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.025,
+            0.389,
+            0.071
+          ],
+          "content": "Analyse des C-Programms"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.095,
+            0.72,
+            0.144
+          ],
+          "content": "• **Einbinden** der Standard-Library zur Ein/Ausgabe"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.07,
+            0.151,
+            0.957,
+            0.358
+          ],
+          "sub_type": "text",
+          "content": "– #include &lt;stdio.h&gt;\n– Ermöglicht Kommunikation des Programms mit der Außenwelt (z.B. Benutzer)\n– Siehe C-Präprozessor"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.374,
+            0.248,
+            0.412
+          ],
+          "content": "• **Kommentare**"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.07,
+            0.423,
+            0.915,
+            0.68
+          ],
+          "sub_type": "text",
+          "content": "– /\\* Umwandlung … \\*/\n– // untere Grenze …\n– Erläuterung der Programmfunktion für Entwickler\n– Text innerhalb /\\* … \\*/ und in einer Zeile nach // wird vom Compiler ignoriert"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.691,
+            0.356,
+            0.738
+          ],
+          "content": "• **Hauptfunktion** main"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.07,
+            0.746,
+            0.869,
+            0.962
+          ],
+          "sub_type": "text",
+          "content": "– int main() { … }\n– Alle Anweisungen innerhalb { … } gehören zu main\n– main wird nach Programmstart immer direkt aufgerufen\n– Im Allg. ruft main dann weitere Funktionen auf"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.028,
+            0.988
+          ],
+          "content": "36"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 36,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.025,
+            0.389,
+            0.071
+          ],
+          "content": "Analyse des C-Programms"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.027,
+            0.108,
+            0.436,
+            0.153
+          ],
+          "level": 2,
+          "content": "• Variablen-Vereinbarungen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.159,
+            0.861,
+            0.44
+          ],
+          "sub_type": "text",
+          "content": "– int fahr, celsius;\n– Variablen sind benannte Speicherplätze für Werte\n– Können lesend und schreibend zugegriffen werden\n– Variablen müssen vor Verwendung vereinbart werden\n– Hier: Verwendung von ganzzahligen (integer) Variablen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.027,
+            0.452,
+            0.252,
+            0.496
+          ],
+          "level": 2,
+          "content": "• Zuweisungen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.075,
+            0.503,
+            0.635,
+            0.65
+          ],
+          "sub_type": "text",
+          "content": "– lower = 0;\n– upper = 300;\n– Schreiben von Werten in die Variablen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.027,
+            0.666,
+            0.178,
+            0.706
+          ],
+          "level": 2,
+          "content": "• Schleife"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.072,
+            0.716,
+            0.961,
+            0.923
+          ],
+          "sub_type": "text",
+          "content": "– while (fahr <= upper) { /\\* ... \\*/ }\n– while ist (wie auch int) ein **C-Schlüsselwort**\n– Code innerhalb { … } wird solange wiederholt, bis Bedingung nicht mehr erfüllt"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.988
+          ],
+          "content": "37"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 37,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.025,
+            0.389,
+            0.071
+          ],
+          "content": "Analyse des C-Programms"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.025,
+            0.136,
+            0.246,
+            0.182
+          ],
+          "level": 2,
+          "content": "• Umrechnung"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.19,
+            0.574,
+            0.297
+          ],
+          "sub_type": "text",
+          "content": "– celsius = 5 \\* (fahr-32) / 9;\n– Rechenoperationen auf Variablen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.025,
+            0.317,
+            0.184,
+            0.362
+          ],
+          "level": 2,
+          "content": "• Ausgabe"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.372,
+            0.674,
+            0.48
+          ],
+          "sub_type": "text",
+          "content": "– printf(\"%d\\t%d\\n\", fahr, celsius);\n– Formatierte Ausgabe:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.123,
+            0.493,
+            0.748,
+            0.692
+          ],
+          "sub_type": "text",
+          "content": "• fahr als Integer-Zahl (erstes %d als Platzhalter)\n• Tabulator \\t\n• celsius als Integer-Zahl (zweites %d als Platzhalter)\n• Zeilenumbruch \\n"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.025,
+            0.711,
+            0.715,
+            0.755
+          ],
+          "level": 2,
+          "content": "• Vorbereitung des nächsten Schleifendurchlaufs"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.768,
+            0.805,
+            0.876
+          ],
+          "sub_type": "text",
+          "content": "– fahr = fahr + step;\n– fahr wird um step erhöht, bis upper überschritten"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.028,
+            0.988
+          ],
+          "content": "38"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 38,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.026,
+            0.145,
+            0.069
+          ],
+          "content": "Ausgabe"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.92,
+            0.028,
+            0.967,
+            0.057
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.025,
+            0.109,
+            0.358,
+            0.153
+          ],
+          "level": 2,
+          "content": "• Formatierte Ausgabe"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.085,
+            0.197,
+            0.749,
+            0.58
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <iostream>  // std::cout, std::right, std::endl\n#include <iomanip>   // std::setw\n\nint main() {\n    int val = 65;\n\n    std::cout << \"Formatted output using C++\" << std::endl;\n    std::cout << \"-start-\" << std::endl;\n    std::cout << std::right;  // right-adjusted (manipulator)\n    std::cout << ''' << std::setw(10) << val << ''' << std::endl;\n    std::cout << \"-end-\" << std::endl;\n\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.09,
+                0.161,
+                0.217,
+                0.192
+              ],
+              "content": "Classic C++"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.085,
+            0.65,
+            0.798,
+            0.954
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <cstdio> // printf; for c library: <stdio.h>, no \"using ...\"\nusing namespace std;\n\nint main() {\n    int val = 65;\n\n    printf(\"Now using C++11:\\n\");\n    printf(\"-start-\\n'%10d'\\n-end-\\n\", val);\n\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.09,
+                0.615,
+                0.242,
+                0.647
+              ],
+              "content": "C++11 oder c"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.987
+          ],
+          "content": "39"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.823,
+            0.974,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        }
+      ]
+    },
+    {
+      "page_idx": 39,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.025,
+            0.025,
+            0.148,
+            0.063
+          ],
+          "content": "Libraries"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.92,
+            0.027,
+            0.967,
+            0.058
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.085,
+            0.178,
+            0.466,
+            0.476
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <string>\n#include <iostream>\n\nint main( void ) {\n\n    std::string msg = \"Hello world!\";\n\n    std::cout << msg << std::endl;\n\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.026,
+                0.118,
+                0.369,
+                0.163
+              ],
+              "content": "• Using und namespace"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.085,
+            0.562,
+            0.495,
+            0.939
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <string>\n#include <iostream>\n\nusing std::cout, std::endl, std::string;\n// using namespace std;\n\nint main( void ) {\n\n    string msg = \"Hello world!\";\n\n    cout << msg << endl;\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.549,
+            0.545,
+            0.831,
+            0.58
+          ],
+          "content": "std::cout ⭢ cout"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.029,
+            0.987
+          ],
+          "content": "40"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.823,
+            0.974,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        }
+      ]
+    },
+    {
+      "page_idx": 40,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.025,
+            0.238,
+            0.071
+          ],
+          "content": "C-Präprozessor"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.128,
+            0.95,
+            0.4
+          ],
+          "sub_type": "text",
+          "content": "C-Präprozessor (cpp) läuft **vor dem Compiler** über den Quellcode (C-nach-C-Übersetzung)\n• cpp-Anweisungen beginnen mit Zeichen #\n• cpp-Verwendung erhöht **Lesbarkeit** der Programme\n• Vor allem folgende Anwendungen:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.412,
+            0.888,
+            0.458
+          ],
+          "content": "– **Symbolische Definitionen** (Konvention: Großbuchstaben)"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.125,
+            0.463,
+            0.759,
+            0.543
+          ],
+          "sub_type": "text",
+          "content": "• #define UPPER 300\n• Alle Vorkommen von UPPER werden durch 300 ersetzt"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.072,
+            0.56,
+            0.215,
+            0.599
+          ],
+          "content": "– **Makros**"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.126,
+            0.609,
+            0.755,
+            0.691
+          ],
+          "sub_type": "text",
+          "content": "• #define $\\mathsf { M A X ( a , b ) ~ ( a > b ) ~ ? ~ a : b }$\n• Alle Vorkommen von $\\operatorname { M A X } ( \\ldots , \\ldots )$ werden ersetzt"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.705,
+            0.89,
+            0.799
+          ],
+          "content": "**Einbinden** von Standard-Libraries (und allgemein Header-Dateien mit Deklarationen)"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.126,
+            0.805,
+            0.825,
+            0.888
+          ],
+          "sub_type": "text",
+          "content": "• #include &lt;stdio.h&gt;\n• Datei stdio.h wird an dieser Stelle ins Programm eingefügt"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.987
+          ],
+          "content": "41"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 41,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.275,
+            0.254,
+            0.723,
+            0.317
+          ],
+          "level": 2,
+          "content": "2. Einführendes Beispiel"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.156,
+            0.479,
+            0.609,
+            0.653
+          ],
+          "sub_type": "text",
+          "content": "2.1 Temperaturumrechnung\n2.2 Analyse des Beispiels\n**2.3 Ausführung und Fehlersuche**"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.986
+          ],
+          "content": "42"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 42,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.019,
+            0.39,
+            0.071
+          ],
+          "content": "Übersetzung und Ausgabe"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.133,
+            0.511,
+            0.352
+          ],
+          "sub_type": "text",
+          "content": "Programm in **Textdatei** „temp.c“gespeichert\nAufruf des **C-Compilers** (z.B. aus Linux shell)"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.072,
+            0.369,
+            0.527,
+            0.768
+          ],
+          "sub_type": "text",
+          "content": "– cc temp.c (je nach Compiler)\n– **Präprozessor** und **Assembler** werden implizit aufgerufen\n– **Zielprogramm** „a.out“ wird erzeugt\n– **Ausführung** von „a.out“generiert die gezeigte Ausgabe"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.642,
+            0.161,
+            0.932,
+            0.93
+          ],
+          "content": "| 0 | -17 |\n| --- | --- |\n| 20 | -6 |\n| 40 | 4 |\n| 60 | 15 |\n| 80 | 26 |\n| 100 | 37 |\n| 120 | 48 |\n| 140 | 60 |\n| 160 | 71 |\n| 180 | 82 |\n| 200 | 93 |\n| 220 | 104 |\n| 240 | 115 |\n| 260 | 126 |\n| 280 | 137 |\n| 300 | 148 |",
+          "captions": [
+            {
+              "bbox": [
+                0.727,
+                0.111,
+                0.821,
+                0.147
+              ],
+              "content": "Ausgabe"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0033-0064/images/page_42_table_10.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.987
+          ],
+          "content": "43"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 43,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.361,
+            0.072
+          ],
+          "content": "Fehlerhafte Programme"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.113,
+            0.972,
+            0.278
+          ],
+          "sub_type": "text",
+          "content": "• **Möglichkeit 1**: Programm entspricht nicht dem C-Standard\nDerartige Fehler werden vom Compiler (oder auch Linker) bemerkt und dem Programmierer mitgeteilt"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.219,
+            0.309,
+            0.87,
+            0.933
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  #include <stdio.h>\n\n  /* Umwandlung von Fahrenheit in Celsius\n    fuer fahr = 0, 20, ..., 300 */\n  int mein()\n  {\n    int fahr /* , celsius */;\n    int lower, upper, step;\n\n    lower = 0; // untere Grenze der Temperaturtabelle\n    upper = 300; // obere Grenze\n    step = 20; // Schrittweite\n\n    fahr = lower\n    while (fahr <= upper) {\n      celsius = 5 * (fahr-32) ** 9;\n      printf(\"%d\\t%d\\n\", fahr, celsius);\n      fahr = fahr + step;\n    }\n\n    return 0;\n  }\n  FehlendeMainFunktion[\"Fehlende main-Funktion\"] --> VariableNichtDeklariert[\"Variable nicht deklariert\"]\n  UnbekannterOperator[\"Unbekannter Operator\"] --> SemikolonVergessen[\"Semikolon vergessen\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0033-0064/images/page_43_image_4.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.029,
+            0.987
+          ],
+          "content": "44"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 44,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.361,
+            0.072
+          ],
+          "content": "Fehlerhafte Programme"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.113,
+            0.951,
+            0.278
+          ],
+          "sub_type": "text",
+          "content": "**Möglichkeit 2**: Programm ist gültig (d.h. compilierbar), führt aber nicht die gewünschte Funktion aus (es hat „Bugs“)\n• Wesentlich schwieriger zu finden und zu beheben!"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.219,
+            0.319,
+            0.77,
+            0.938
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n\n/* Umwandlung von Fahrenheit in Celsius\n    fuer fahr = 0, 20, ..., 300   */\nint main()\n{\n    int fahr, celsius;\n    int lower, upper, step;\n\n    lower = 0; // untere Grenze der Temperaturtabelle\n    upper = 300; // obere Grenze\n    step  = 20; // Schrittweite\n\n    fahr = lower;\n    while (fahr <= upper) {\n        celsius = 5 * (fahr+32) / 9;\n        printf(\"%d\\t%d\\n\", fahr, celsius);\n        fahr = fahr + step;\n    }\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.029,
+            0.988
+          ],
+          "content": "45"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.992
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 45,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.024,
+            0.024,
+            0.36,
+            0.072
+          ],
+          "level": 2,
+          "content": "Fehlerhafte Programme"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.138,
+            0.361,
+            0.907
+          ],
+          "sub_type": "text",
+          "content": "Programm unter Kontrolle eines **Debuggers** ausführen\nErmöglicht **Einzelschrittmodus**, Beobachtung von **Variablen** u.v.m.\nHilfreich vor allem bei **Endlosschleifen** und **Programmabstürzen**\nDebugger kann Programmverhalten beeinflussen („**Heisenbugs**“)"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.419,
+            0.115,
+            0.984,
+            0.944
+          ],
+          "sub_type": "text_image",
+          "content": "File Edit View Program Commands Status Source Data Help\n(): upper1\nLookup Find-Break Watch Print Display Plot Hide-Potise Set Undisp\n1: celsius -6 5: step 20 2: fahr 40 3: lower 0 4: upper 300\nAusgabefenster\n/* Umwandlung von Fahrenheit in Celsius\n    fuer fahr = 0, 20, ., 300 */\nmain()\n{\n    int fahr, celsius;\n    int lower, upper, step;\n\n    lower = 0; /* untere Grenze der Temperaturtabelle */\n    upper = 300; /* obere Grenze */\n    step = 20; /* Schrittweite */\n\n    fahr = lower;\n    while (fahr <= upper) {\n        celsius = 5 * (fahr-32) / 9;\n        printf(\"%d\\t%d\\n\", fahr, celsius);\n        fahr = fahr + step;\n    }\n}\nQuellcode\nDDD Run Interrupt Step Stepi Next Nexti Until Finish Cont Kill Up Down Undo Redo Edit Make\n(gdb) graph display celsius\n(gdb) cont\n0 -17\nKommandofenster\nBreakpoint 1, main () at celsius.c:16\n(gdb) graph display fahr\n(gdb) graph display lower\n(gdb) graph display upper\n(gdb) graph display step\n(gdb) cont\n20 -6\nBreakpoint 1, main () at celsius.c:16\n(gdb)",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0033-0064/images/page_45_image_6.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.968,
+            0.028,
+            0.987
+          ],
+          "content": "46"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "PowerPoint-Präsentation",
+      "authors": [
+        "Tobias Gemmeke"
+      ],
+      "created_at": "2026-10-06T18:07:32+02:00",
+      "modified_at": "2026-10-06T18:08:54+02:00",
+      "creator_application": "Acrobat PDFMaker 20 für PowerPoint",
+      "producer_application": "Adobe PDF Library 20.9.95",
+      "page_count": 355,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 30,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 31,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 32,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 33,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 34,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 35,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 36,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 37,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 38,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 39,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 40,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 41,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 42,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 43,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 44,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 45,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

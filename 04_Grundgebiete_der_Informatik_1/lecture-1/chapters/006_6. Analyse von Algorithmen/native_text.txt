@@ -1,0 +1,916 @@
+--- PDF page 159 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+6. Analyse von Algorithmen
+6.1 Laufzeitanalyse
+6.2 𝒪𝒪-Notation für Wachstumsordnungen
+6.3 Beispiel: Exponentialfunktion
+6.4 Beispiel: Suchen in Arrays
+159
+
+
+--- PDF page 160 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Analyse von Algorithmen
+• Für jedes Problem gibt es viele 
+mögliche Algorithmen und 
+Implementierungen
+• Häufig gesucht: 
+effizienteste/schnellste 
+Implementierung
+• Wie wird diese bestimmt?
+– Algorithmenentwicklung ist ein 
+kreativer Prozess
+– Analyse eines gegebenen 
+Algorithmus mittels 
+Wachstumsordnungen
+• Bsp.: Fakultätsfunktion
+Factorial: 𝑛𝑛! = 1 ⋅2 ⋅… ⋅𝑛𝑛= ∏𝑖𝑖=1
+𝑛𝑛
+𝑖𝑖
+#define n 10
+/* ... */
+int fact, count;
+fact = 1;
+for (count = 1; count <= n; count++) {    
+fact *= count;
+}
+printf("factorial(%d) = %d", n, fact);
+160
+
+
+--- PDF page 161 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Analyse von Algorithmen
+• Beispiel-Ablauf für 𝑛𝑛= 5
+• Welche Laufzeit ergibt sich?
+– 19 Einzelschritte (= Statements)
+• Probleme:
+– Welche Laufzeit hat ein Schritt?
+– Z.B. ist „++“ teurer als „*=“ ?
+– Rechnerabhängig!
+• Daher: abstrakte Analyse
+– Wie viele Einzelschritte werden 
+ausgeführt?
+– Unabhängig von 
+Rechnergeschwindigkeit (MIPS) und 
+Kosten der Einzelschritte 
+1
+2
+3
+4
+5
+6
+count
+fact = 1
+count = 1
+count <= n?
+fact *= count
+count++
+count <= n?
+fact *= count
+count++
+count <= n?
+fact *= count
+count++
+count <= n?
+fact *= count
+count++
+count <= n?
+fact *= count
+count++
+count <= n?
+printf(...)
+161
+
+
+--- PDF page 162 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Analyse von Algorithmen
+• Einzelschritte bei Funktion fact:
+– Initialisierung von fact
+und count: 2 Schritte
+– Pro Schleifeniteration:
+3 Schritte (<=, *=, ++)
+– Schleifenende: 1 Schritt
+• Für beliebiges 𝑛𝑛: 
+𝑇𝑇fact 𝑛𝑛= 2 + 3 ⋅𝑛𝑛+ 1
+= 3𝑛𝑛+ 3
+• Lineare Laufzeit in Abhängigkeit 
+der Eingabegröße 𝑛𝑛
+0
+5
+10
+15
+20
+25
+30
+35
+40
+0
+2
+4
+6
+8
+10
+12
+14
+𝑇𝑇fact
+𝑛𝑛
+𝑇𝑇
+162
+
+
+--- PDF page 163 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Analyse von Algorithmen
+• Annahme: ein anderer 
+Algorithmus fact2 hat 
+Laufzeit
+𝑇𝑇fact2(𝑛𝑛) = 𝑛𝑛2 + 1
+• fact2 ist schneller für
+𝑛𝑛≤3
+• Ab 𝑛𝑛= 4 benötigt fact2
+stets höhere Laufzeit
+• Differenz steigt mit 𝑛𝑛
+• Ergebnis: fact2 ist für fast 
+alle 𝑛𝑛langsamer als fact
+(d.h. die asymptotische 
+Laufzeit von fact2 ist 
+größer als von fact)
+0
+5
+10
+15
+20
+25
+30
+35
+40
+0
+2
+4
+6
+8
+10
+12
+14
+𝑇𝑇fact
+𝑇𝑇fact2
+𝑛𝑛
+𝑇𝑇
+163
+
+
+--- PDF page 164 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Analyse von Algorithmen
+• Konstante Faktoren und 
+Konstanten
+vernachlässigen!
+• Analyse unabhängig von 
+Rechnerdetails
+• Frage: wie wächst die 
+Laufzeit bei Erhöhung der 
+Eingabegröße 𝑛𝑛?
+• Näherung:
+𝑇𝑇fact 𝑛𝑛≈𝑛𝑛
+𝑇𝑇fact2 𝑛𝑛≈𝑛𝑛2
+• Beeinflusst den Vergleich
+der Algorithmen nur 
+unwesentlich
+0
+5
+10
+15
+20
+25
+30
+35
+40
+0
+2
+4
+6
+8
+10
+12
+14
+𝑇𝑇fact
+𝑇𝑇fact2
+𝑛𝑛2
+𝑛𝑛
+𝑛𝑛
+𝑇𝑇
+164
+
+
+--- PDF page 165 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+6. Analyse von Algorithmen
+6.1 Laufzeitanalyse
+6.2 𝓞𝓞-Notation für Wachstumsordnungen
+6.3 Beispiel: Exponentialfunktion
+6.4 Beispiel: Suchen in Arrays
+165
+
+
+--- PDF page 166 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+𝓞𝓞-Notation
+• 𝒪𝒪-Notation (𝒪𝒪= order) ist das gebräuchlichste Hilfsmittel zur 
+Wachstumsanalyse von Algorithmen
+• ℕund ℝseien die Menge der natürlichen bzw. reellen Zahlen
+Def.: Sind 𝑓𝑓∶ℕ→ℕund  𝑔𝑔∶ℕ→ℕzwei Funktionen, so ist        
+𝑓𝑓∈𝒪𝒪(𝑔𝑔), falls
+∃𝑛𝑛0 ∈ℕ, ∃𝑐𝑐∈ℝ, so dass
+∀𝑛𝑛≥𝑛𝑛0: 𝑓𝑓(𝑛𝑛) ≤𝑐𝑐⋅𝑔𝑔(𝑛𝑛) 
+• 𝑓𝑓∈𝒪𝒪(𝑔𝑔) heißt: 
+„f wächst nicht schneller als g“
+• 𝒪𝒪-Notation eliminiert Konstanten aus der 
+Laufzeitberechnung
+• Z.B.: 𝑓𝑓𝑛𝑛= 10𝑛𝑛3 + 20𝑛𝑛2 + 16 ∈𝒪𝒪(𝑛𝑛3),
+da 𝑓𝑓(𝑛𝑛) ≤11𝑛𝑛3 (d.h. 𝑐𝑐= 11) 
+sicherlich für alle 𝑛𝑛≥30
+𝑛𝑛
+𝑓𝑓(𝑛𝑛)
+𝑐𝑐⋅𝑔𝑔(𝑛𝑛)
+0
+16
+0
+10
+12016
+11000
+20
+88016
+88000
+30
+288016
+297000
+40
+672016
+704000
+50
+1300016
+1375000
+60
+2232016
+2376000
+70
+3528016
+3773000
+80
+5248016
+5632000
+90
+7452016
+8019000
+100
+10200016
+11000000
+166
+
+
+--- PDF page 167 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+𝓞𝓞-Notation
+• 𝓞𝓞-Notation gibt Wachstumsordnung nur näherungsweise an
+• Nach Definition gilt z.B. auch
+1020 𝑛𝑛2 ∈𝒪𝒪1/100 ⋅𝑛𝑛3
+• Jedoch gilt 1020 𝑛𝑛2 ≤1/100 𝑛𝑛3 erst ab 𝑛𝑛0 = 1022
+• Eingabegröße von 1022 unrealistisch, daher wäre die obige 
+Wachstumsordnung wenig sinnvoll
+• In der Praxis kommen jedoch eher kleine konstante Faktoren vor, 
+daher ermöglicht die O-Notation
+– Die ungefähre Abschätzung der Laufzeit eines Algorithmus
+– Den näherungsweisen Vergleich der Laufzeit verschiedener 
+Algorithmen
+• Vor allem: sinnvoll vor der detaillierten Implementierung
+167
+
+
+--- PDF page 168 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+𝓞𝓞-Notation
+• Mittels 𝒪𝒪-Notation können auch andere Maße für die Qualität 
+eines Algorithmus im Vergleich zu anderen abgeschätzt werden, 
+z.B. Speicherbedarf
+• Außerdem kann die 𝒪𝒪-Notation aussagen, ob sich die Suche nach 
+einem besseren Algorithmus für ein Problem lohnt:
+– Für viele praktisch relevante Probleme ist bekannt, dass ihre 
+optimale Lösung mindestens Zeit 𝓞𝓞(𝟐𝟐𝒏𝒏) benötigt
+– Daher ist die Suche nach einem effizienten Algorithmus 
+Zeitverschwendung
+– Für andere Probleme sind bessere untere Schranken bekannt
+– Z.B. 𝒪𝒪(𝑛𝑛log 𝑛𝑛) für das Sortieren von 𝑛𝑛Zahlen
+– Solche Algorithmen wurden bereits gefunden, daher lohnt die 
+Suche nach besseren Verfahren kaum
+168
+
+
+--- PDF page 169 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Rechnen mit 𝓞𝓞-Notationen
+• Häufig wird die Gesamtlaufzeit eines Algorithmus als 
+mathematischer Ausdruck der Laufzeiten von Teilalgorithmen 
+bestimmt
+• Rechenregeln:
+– „𝓞𝓞“ im Ausdruck vernachlässigen
+– Umformen des Ausdrucks wie gewohnt
+– Nur den führenden Term (höchster Exponent) behalten
+• Z.B. 𝑔𝑔𝑛𝑛= 2𝑛𝑛⋅𝒪𝒪𝑛𝑛∈𝒪𝒪(𝑛𝑛2)
+• 𝒪𝒪(𝑛𝑛) repräsentiert alle Funktionen f mit linearem Wachstum, d.h. 
+𝑓𝑓𝑛𝑛= 𝑐𝑐1𝑛𝑛+ 𝑐𝑐2 mit c1, c2 ∈ℝ
+𝑔𝑔𝑛𝑛= 2𝑛𝑛⋅𝑐𝑐1𝑛𝑛+ 𝑐𝑐2 = 2𝑐𝑐1𝑛𝑛2 + 2𝑐𝑐2𝑛𝑛
+𝑐𝑐3𝑛𝑛2 + 𝑐𝑐4𝑛𝑛
+mit c3, c4 ∈ℝ
+∈𝒪𝒪𝑛𝑛2 + 𝒪𝒪𝑛𝑛∈𝒪𝒪(𝑛𝑛2) gemäß Definition
+𝑐𝑐3 ≔2𝑐𝑐1
+𝑐𝑐4 ≔2𝑐𝑐2
+169
+
+
+--- PDF page 170 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Rechnen mit 𝓞𝓞-Notationen
+𝒏𝒏+ 𝓞𝓞𝟏𝟏
+𝒏𝒏+ 𝓞𝓞𝐥𝐥𝐥𝐥𝐥𝐥𝒏𝒏+ 𝓞𝓞𝟏𝟏
+= 𝑛𝑛2 + 𝑛𝑛⋅𝒪𝒪log 𝑛𝑛+ 𝑛𝑛⋅𝒪𝒪1 +
+𝒪𝒪1 ⋅𝑛𝑛+ 𝒪𝒪1 ⋅𝒪𝒪log 𝑛𝑛+ 𝒪𝒪1 ⋅𝒪𝒪1
+= 𝑛𝑛2 + 𝒪𝒪𝑛𝑛log 𝑛𝑛+ 𝒪𝒪𝑛𝑛⋅1 + 𝒪𝒪1 ⋅𝑛𝑛+ 𝒪𝒪1 ⋅log 𝑛𝑛+ 𝒪𝒪1 ⋅1
+= 𝒪𝒪𝑛𝑛2 + 𝒪𝒪𝑛𝑛log 𝑛𝑛+ 𝒪𝒪𝑛𝑛+ 𝒪𝒪𝑛𝑛+ 𝒪𝒪log 𝑛𝑛+ 𝒪𝒪1
+= 𝒪𝒪𝑛𝑛2 + 𝒪𝒪𝑛𝑛log 𝑛𝑛+ 𝒪𝒪2 ⋅𝑛𝑛+ 𝒪𝒪log 𝑛𝑛+ 𝒪𝒪1
+= 𝒪𝒪𝑛𝑛2 + 𝒪𝒪𝑛𝑛log 𝑛𝑛+ 𝒪𝒪𝑛𝑛+ 𝒪𝒪log 𝑛𝑛+ 𝒪𝒪1
+= 𝒪𝒪𝑛𝑛2 + 𝑛𝑛log 𝑛𝑛+ 𝑛𝑛+ log 𝑛𝑛+ 1
+= 𝓞𝓞𝒏𝒏𝟐𝟐
+• Komplexeres Beispiel:
+170
+
+
+--- PDF page 171 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Wichtige Wachstumsordnungen
+Eingabegröße
+Laufzeit
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+𝒪𝒪(𝑛𝑛)
+𝒪𝒪(1)
+𝒪𝒪( 𝑛𝑛)
+𝒪𝒪(log2 𝑛𝑛)
+𝑛𝑛
+𝑇𝑇
+171
+
+
+--- PDF page 172 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Wichtige Wachstumsordnungen
+0
+200
+400
+600
+800
+1000
+1200
+1400
+1600
+1800
+2000
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+Eingabegröße
+Laufzeit
+𝒪𝒪(2𝑛𝑛)
+𝒪𝒪(𝑛𝑛log2 𝑛𝑛)
+𝒪𝒪(𝑛𝑛3)
+𝒪𝒪(𝑛𝑛2)
+𝑛𝑛
+𝑇𝑇
+0
+5
+10
+15
+20
+25
+30
+0
+1
+2
+3
+4
+5
+172
+
+
+--- PDF page 173 ---
+Wichtige Wachstumsordnungen
+• Annahme: Rechner kann 1000 Operationen pro Sekunde 
+ausführen
+• Welche Eingabegröße kann in Zeit t bearbeitet werden ?
+• Kleine konstante Faktoren spielen nur geringe Rolle!
+21
+15
+9
+2𝑛𝑛
+153
+39
+10
+𝑛𝑛3
+1.897
+244
+31
+𝑛𝑛2
+204.094
+4.895
+140
+𝑛𝑛log2 𝑛𝑛
+3.600.000
+60.000
+1000
+𝑛𝑛
+12.960.000.000.000
+3.600.000.000
+1.000.000
+𝑛𝑛
+23.600.000
+260.000
+21000
+log2 𝑛𝑛
+𝑡𝑡= 1h (3.600.000 Op)
+𝑡𝑡= 1 min (60.000 Op)
+𝑡𝑡= 1sec (1000 Op)
+𝑇𝑇(𝑛𝑛)
+173
+
+
+--- PDF page 174 ---
+Wichtige Wachstumsordnungen
+• Was ändert sich, wenn der Rechner 10x schneller wird?
+• Betrachte max. Eingabegröße 𝑚𝑚, die in vorgegebener Zeit 
+bearbeitet werden kann
+• Bei exponentieller Laufzeit 𝒪𝒪2𝑛𝑛lässt auch eine 
+Vertausendfachung der Rechenleistung die max. Eingabegröße 
+nur um ≈10 wachsen (da log2 1000 ≈10)
+nachher
+vorher
+𝑇𝑇(𝑛𝑛)
+𝑛𝑛
+𝑚𝑚
+10 𝑚𝑚
+𝑚𝑚
+log2 𝑛𝑛
+𝑚𝑚10
+log 𝑚𝑚10 = 10 log 𝑚𝑚
+𝑛𝑛
+𝑚𝑚
+100 𝑚𝑚
+10 =
+100
+𝑛𝑛2
+𝑚𝑚
+3,16 𝑚𝑚
+10 ≈3,162
+𝑛𝑛3
+𝑚𝑚
+2,15 𝑚𝑚
+10 ≈2,153
+2𝑛𝑛
+𝑚𝑚
+𝑚𝑚+ 3,3
+10 ≈23,3
+𝑛𝑛log2 𝑛𝑛
+𝑚𝑚
+≈8 𝑚𝑚
+Faktor hängt von 𝑚𝑚ab
+174
+
+
+--- PDF page 175 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+6. Analyse von Algorithmen
+6.1 Laufzeitanalyse
+6.2 𝒪𝒪-Notation für Wachstumsordnungen
+6.3 Beispiel: Exponentialfunktion
+6.4 Beispiel: Suchen in Arrays
+175
+
+
+--- PDF page 176 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Exponentialfunktion
+• Berechne 𝑏𝑏𝑛𝑛für 𝑏𝑏∈ℝund 𝑛𝑛∈ℕ
+• Es gilt: 
+– 𝑏𝑏0 = 1, und für 𝑛𝑛> 0:
+– 𝑏𝑏𝑛𝑛= 𝑏𝑏⋅𝑏𝑏𝑛𝑛−1
+• Rekursiver Algorithmus (d.h. 
+Algorithmus ruft sich selbst auf)
+• Z.B. pow(10,5)
+= 10*pow(10,4)
+= 10*10*pow(10,3)
+= 10*10*10*pow(10,2)
+= 10*10*10*10*pow(10,1)
+= 10*10*10*10*10*pow(10,0)
+= 10*10*10*10*10*1 
+= 100.000
+float pow(float b, int n)
+{
+if (n == 0) { 
+return 1;
+} else { 
+return b * pow(b, n-1);
+}
+}
+int main(void)
+{ 
+float b, int n;
+scanf("%f,%d", &b, &n);
+printf("%f", pow(b, n));
+return 0;
+}
+176
+
+
+--- PDF page 177 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Exponentialfunktion
+• Laufzeitanalyse:
+– Funktion pow wird aufgerufen für
+n, n−1, n−2, …, 1, 0, 
+d.h. (𝑛𝑛+ 1)-mal und unabhängig 
+von Eingabe b
+– Schritte innerhalb jedes pow-
+Aufrufs:
+• 2 Schritte (falls n = 0) oder
+• 5 Schritte
+– Gesamt: 
+5𝑛𝑛+ 2 = 𝒪𝒪(𝑛𝑛) + 𝒪𝒪(1) = 𝒪𝒪(𝑛𝑛)
+• Lineare Laufzeit in 𝑛𝑛
+• Geht es auch schneller?
+float pow(float b, int n)
+{
+if (n == 0) { 
+return 1;
+} else { 
+return b * pow(b, n-1);
+}
+}
+int main(void)
+{ 
+float b, int n;
+scanf("%f,%d", &b, &n);
+printf("%f", pow(b, n));
+return 0;
+}
+177
+
+
+--- PDF page 178 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Exponentialfunktion
+• n gerade: bn = (bn/2)2
+• n ungerade: bn = b * bn-1
+fastpow(10,5)
+= 10*fastpow(10,4)
+= 10*fastpow(10,2)2
+= 10*(fastpow(10,1)2)2
+= 10*((10*fastpow(10,0))2)2
+= 10*((10*1)2)2
+= 10*(102)2
+= 10*1002
+= 100.000
+• Asymptotisch schneller als pow?
+float sqr(float x)
+{ 
+return x*x; 
+}
+float fastpow(float b, int n)
+{
+if (n == 0) { 
+return 1;
+} else if (n % 2 == 0) {
+// gerade!
+return sqr(fastpow(b, n/2));
+} else { // n ungerade
+return b * fastpow(b,n-1);
+}
+}
+178
+
+
+--- PDF page 179 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Exponentialfunktion
+• Jeder Aufruf von fastpow benötigt 
+𝓞𝓞(𝟏𝟏) Schritte
+– n = 0: sofortiges return
+– n gerade: „/“ und „*“
+– n ungerade: „*“ und „-“
+• Anzahl Aufrufe von fastpow:
+– n gerade: n wird halbiert, 
+danach gerade oder ungerade
+– n ungerade: n-1 ist gerade
+• Spätestens alle 2 Aufrufe wird n
+halbiert
+• Max. 2 ⋅𝒪𝒪(log 𝑛𝑛) Aufrufe
+• Gesamtlaufzeit:
+𝒪𝒪1 ⋅𝒪𝒪log 𝑛𝑛= 𝒪𝒪log 𝑛𝑛
+(hier: log = log2)
+float fastpow(float b, int n)
+{
+if (n == 0) { 
+return 1;
+} else if (n % 2 == 0) {
+// gerade!
+return sqr(fastpow(b, n/2));
+} else { // n ungerade
+return b * fastpow(b,n-1);
+}
+}
+179
+
+
+--- PDF page 180 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+6. Analyse von Algorithmen
+6.1 Laufzeitanalyse
+6.2 𝒪𝒪-Notation für Wachstumsordnungen
+6.3 Beispiel: Exponentialfunktion
+6.4 Beispiel: Suchen in Arrays
+180
+
+
+--- PDF page 181 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel
+• Problemstellung: 
+Kreditkartenunternehmen möchte prüfen, 
+ob Transaktionen mit gestohlenen Karten 
+durchgeführt wurden
+• Modell:
+– 𝑁𝑁„verdächtige“ Kartennummern sind 
+gespeichert
+– 𝑀𝑀Transaktionen sind zu prüfen, jede 
+bezieht sich auf eine bestimmte 
+Kartennummer
+– 𝑁𝑁≈106
+– 𝑀𝑀≈109
+• Anwendung ist zeitkritisch!
+12348574845749282
+58390217827532753
+01829495275838688
+...
+Liste von 𝑀𝑀
+Transaktionen
+8372004822348545
+2285449902572639
+4820567396929388
+...
+Datenbank mit 
+𝑁𝑁verdächtigen
+Nummern
+vorhanden?
+181
+
+
+--- PDF page 182 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Lineare Suche
+• Verdächtige Nummern in Array A in beliebiger Reihenfolge 
+gespeichert
+• Für jede Transaktionsnummer m: prüfe ob Suchschlüssel (key) m in 
+Array A enthalten ist
+– Ja: Index zurückgeben
+– Nein: Speziellen Wert zurückgeben (NOT_FOUND)
+– Aufruf aus main: search(A,m,0,N-1); 
+#define NOT_FOUND -1
+int search(int A[], int key, int l, int r)
+{ 
+int i;
+for (i = l; i <= r; i++) { 
+if (key == A[i]) return i;
+}
+return NOT_FOUND;
+}
+182
+
+
+--- PDF page 183 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Laufzeitanalyse
+• Bester Fall: key = 45, sofort gefunden, 𝒪𝒪1 Schritte
+• Durchschnittlicher Fall: z.B. key = 76, 𝒪𝒪𝑁𝑁/2 Schritte
+• Schlechtester Fall: z.B. key = 99, 𝒪𝒪𝑁𝑁Schritte
+• Wegen 𝒪𝒪𝑁𝑁/2 =
+1
+2 ⋅𝒪𝒪𝑁𝑁= 𝒪𝒪𝑁𝑁: 
+Laufzeit schlimmstenfalls linear, aber auch im Durchschnitt
+• Gesamtlaufzeit für alle Transaktionen: 𝒪𝒪𝑁𝑁⋅𝑀𝑀
+45
+12
+77
+23
+76
+11
+A
+83
+66
+Bester Fall
+Durchschnittlicher Fall
+Schlechtester Fall
+0
+N-1
+183
+
+
+--- PDF page 184 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Binäre Suche
+• Annahme: Array A ist aufsteigend sortiert
+• Schnelle Prüfung, ob key (falls vorhanden) in linker oder rechter
+Hälfte des Arrays liegen müsste:
+– Sei 𝑘𝑘= 𝑁𝑁/2 −1 falls 𝑁𝑁gerade, sonst (𝑁𝑁−1)/2
+– Betrachte „mittleres“ Arrayelement A[k]
+– key <= A[k]: key in linker Hälfte →A':= A[0...k]
+– key > A[k]: key in rechter Hälfte →A":= A[k+1...N-1]
+• Dann: suche key in Array halber Größe (A' oder A")
+• Z.B. key = 83, k = 8/2-1 = 3:
+– key > A[3] = 45, also key in A" suchen
+11
+12
+23
+66
+76
+A
+77
+83
+0
+N-1
+k
+A'
+A"
+45
+184
+
+
+--- PDF page 185 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Binäre Suche
+• Vorheriges Teilarray A' nicht mehr relevant
+• Ausnutzen, dass Array A" ebenfalls sortiert ist
+• Setze A = A", wende o.g. Verfahren erneut an
+• k = 4/2-1 = 1
+• key > A[k] = 76, daher in A" (neu) weitersuchen
+• Fortsetzen, bis key gefunden, oder Array nicht weiter teilbar
+66
+76
+A
+77
+83
+N-1
+A'
+A"
+0
+Schritt 2
+A
+77
+83
+N-1
+A'
+A"
+0
+Schritt 3
+A
+83
+0
+Schritt 4
+185
+
+
+--- PDF page 186 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Binäre Suche
+• Implementierung: Array A nicht tatsächlich in A' und A" teilen, 
+sondern nur Index-Zeiger l und r umsetzen
+• Aufruf: binsearch(A,m,0,N-1);
+#define NOT_FOUND -1
+int binsearch(int A[], int key, int l, int r)
+{ 
+int k;
+while (r >= l) { 
+k = (l+r)/2;
+if (key == A[k]) return k;
+if (key < A[k]) r = k-1;
+else l = k+1;
+}
+return NOT_FOUND;
+}
+186
+
+
+--- PDF page 187 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel
+• Suche nach key = 23:
+11
+12
+23
+45
+66
+76
+A
+77
+83
+l
+r
+k
+Schritt 1
+11
+12
+23
+45
+66
+76
+A
+77
+83
+l
+r
+k
+Schritt 2
+11
+12
+23
+45
+66
+76
+A
+77
+83
+lr
+k
+Schritt 3
+11
+12
+23
+45
+66
+76
+A
+77
+83
+l
+r
+Erfolglose Suche,
+z.B. key = 25
+187
+
+
+--- PDF page 188 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Laufzeitanalyse
+• Bester Fall: key == A[k] im 1. Schritt: 𝒪𝒪1
+• Schlechtester Fall: key erst nach 𝑡𝑡Teilungsschritten gefunden bzw. 
+gar nicht gefunden
+– Wie oft kann 𝑁𝑁-elementiges Array halbiert werden?
+– 𝒪𝒪log 𝑁𝑁mal (vgl. Bsp. Exponentialfunktion)
+• Durchschnittlicher Fall: Ebenfalls 𝒪𝒪log 𝑁𝑁
+• Gesamtlaufzeit für 𝑀𝑀Transaktionen: 𝒪𝒪𝑀𝑀⋅log 𝑁𝑁
+• Abschätzung der absoluten Laufzeit: 
+– Annahme: Rechner mit 109 Operationen pro Sekunde
+– 𝒪𝒪𝑀𝑀⋅𝑁𝑁
+≈1015/109 sec ≈278 h ≈12 Tage
+– 𝒪𝒪𝑀𝑀⋅log 𝑁𝑁≈109 ⋅
+20
+109 sec = 20 sec
+– Zusatzaufwand: Sortierung des Arrays A, jedoch hierdurch 
+keine signifikante Zunahme der Laufzeit (< 1 sec)
+188

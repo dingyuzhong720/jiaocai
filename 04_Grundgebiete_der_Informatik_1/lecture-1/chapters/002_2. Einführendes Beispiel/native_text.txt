@@ -1,0 +1,364 @@
+--- PDF page 31 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+2. Einführendes Beispiel
+2.1 Temperaturumrechnung
+2.2 Analyse des Beispiels
+2.3 Ausführung und Fehlersuche
+31
+
+
+--- PDF page 32 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Einführendes C-Programmbeispiel
+• Umwandlung von Grad Fahrenheit in Grad Celsius
+•
+𝑦𝑦
+℃= (5/9) ×
+𝑥𝑥
+℉– 32
+#include <stdio.h>
+/* Umwandlung von Fahrenheit in Celsius
+fuer fahr = 0, 20, …, 300   */
+int main()
+{
+int fahr, celsius;
+int lower, upper, step;
+lower = 0; // untere Grenze der Temperaturtabelle
+upper = 300; // obere Grenze
+step
+= 20; // Schrittweite
+fahr  = lower;
+while (fahr <= upper)  {
+celsius = 5  *  (fahr-32) / 9;
+printf("%d\t%d\n", fahr, celsius);
+fahr = fahr + step;
+}
+return 0;
+}
+℃
+℉
+32
+
+
+--- PDF page 33 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Libraries
+• Von vielen Programmen häufig wiederverwendeter Code wird in 
+Bibliotheken (Libraries) abgelegt
+• Library-Code wird nur einmal compiliert und kann dann von allen 
+Programmen eingebunden werden
+• Dies erfolgt nach der Assemblierung durch den Linker
+• C besitzt insges. 29 Standard-Libraries, z.B.:
+– stdio: Ein- und Ausgabe
+– math: Mathematische Funktionen
+– string: String-Manipulation
+• Durch Einbinden einer Header-Datei (z.B. „stdio.h“) werden die 
+Library-Funktionen dem benutzenden Programm bekannt gemacht
+• Programmierer können (und sollten) auch eigene, 
+benutzerspezifische Libraries anlegen
+33
+
+
+--- PDF page 34 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Standardbibliothek C++ - Beispiele
+• Zeichenketten und Streams
+– string, iomanip, iostream, cstdio
+• Abtrakte Datentypen / Container
+– vector, array, (forward_)list, queue, stack
+– (unordered_)set, (unordered_) map
+– iteratoren
+• Smart Pointer
+– unique_prt
+– shared_prt
+– weak_ptr
+• Algorithmen
+– for_each, sort, copy, find & search, transform
+• Funktoren
+– multiplies, negate, …
+C++
+34
+
+
+--- PDF page 35 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+2. Einführendes Beispiel
+2.1 Temperaturumrechnung
+2.2 Analyse des Beispiels
+2.3 Ausführung und Fehlersuche
+35
+
+
+--- PDF page 36 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Analyse des C-Programms
+• Einbinden der Standard-Library zur Ein/Ausgabe
+– #include <stdio.h>
+– Ermöglicht Kommunikation des Programms mit der Außenwelt 
+(z.B. Benutzer)
+– Siehe C-Präprozessor
+• Kommentare
+– /* Umwandlung … */
+– // untere Grenze …
+– Erläuterung der Programmfunktion für Entwickler
+– Text innerhalb /* … */ und in einer Zeile nach // wird vom 
+Compiler ignoriert
+• Hauptfunktion main
+– int main() { … }
+– Alle Anweisungen innerhalb { … } gehören zu main
+– main wird nach Programmstart immer direkt aufgerufen
+– Im Allg. ruft main dann weitere Funktionen auf
+36
+
+
+--- PDF page 37 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Analyse des C-Programms
+• Variablen-Vereinbarungen
+– int fahr, celsius;
+– Variablen sind benannte Speicherplätze für Werte
+– Können lesend und schreibend zugegriffen werden
+– Variablen müssen vor Verwendung vereinbart werden
+– Hier: Verwendung von ganzzahligen (integer) Variablen
+• Zuweisungen
+– lower = 0; 
+– upper = 300;
+– Schreiben von Werten in die Variablen
+• Schleife
+– while (fahr <= upper) { /* ... */ }
+– while ist (wie auch int) ein C-Schlüsselwort
+– Code innerhalb { … } wird solange wiederholt, bis Bedingung 
+nicht mehr erfüllt
+37
+
+
+--- PDF page 38 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Analyse des C-Programms
+• Umrechnung
+– celsius = 5 * (fahr-32) / 9;
+– Rechenoperationen auf Variablen
+• Ausgabe
+– printf("%d\t%d\n", fahr, celsius);
+– Formatierte Ausgabe:
+• fahr als Integer-Zahl (erstes %d als Platzhalter)
+• Tabulator \t
+• celsius als Integer-Zahl (zweites %d als Platzhalter)
+• Zeilenumbruch \n
+• Vorbereitung des nächsten Schleifendurchlaufs
+– fahr = fahr + step;
+– fahr wird um step erhöht, bis upper überschritten
+38
+
+
+--- PDF page 39 ---
+© T. Gemmeke, IDS, RWTH
+Ausgabe
+• Formatierte Ausgabe
+#include <cstdio>  // printf; for c library: <stdio.h>, no "using ..."
+using namespace std;
+int main() {
+    int val = 65;
+    printf("Now using C++11:\n");
+    printf("-start-\n'%10d'\n-end-\n", val);
+  return 0;
+}
+#include <iostream>  // std::cout, std::right, std::endl
+#include <iomanip>   // std::setw
+int main() {
+    int val = 65;
+    std::cout << "Formatted output using C++" << std::endl;
+    std::cout << "-start-" << std::endl; 
+    std::cout << std::right;  // right-adjusted (manipulator)
+    std::cout << "'" << std::setw(10) << val << "'" << std::endl; 
+    std::cout << "-end-" << std::endl; 
+    return 0;
+}
+Classic C++
+C++11 oder c
+C++
+39
+
+
+--- PDF page 40 ---
+© T. Gemmeke, IDS, RWTH
+Libraries
+• Using und namespace
+#include <string>
+#include <iostream>
+using std::cout, std::endl, std::string;
+// using namespace std;
+int main( void ) {
+    string msg = "Hello world!";
+    cout << msg << endl;
+    return 0;
+}
+C++
+std::cout  ⭢  cout 
+40
+#include <string>
+#include <iostream>
+int main( void ) {
+    std::string msg = "Hello world!";
+    std::cout << msg << std::endl;
+    return 0;
+}
+
+
+--- PDF page 41 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+C-Präprozessor
+• C-Präprozessor (cpp) läuft vor dem Compiler über den Quellcode 
+(C-nach-C-Übersetzung) 
+• cpp-Anweisungen beginnen mit Zeichen #
+• cpp-Verwendung erhöht Lesbarkeit der Programme
+• Vor allem folgende Anwendungen:
+– Symbolische Definitionen (Konvention: Großbuchstaben)
+• #define UPPER 300
+• Alle Vorkommen von UPPER werden durch 300 ersetzt
+– Makros
+• #define MAX(a,b) (a > b) ? a : b
+• Alle Vorkommen von MAX(..., ...) werden ersetzt
+– Einbinden von Standard-Libraries (und allgemein Header-
+Dateien mit Deklarationen)
+• #include <stdio.h>
+• Datei stdio.h wird an dieser Stelle ins Programm eingefügt
+41
+
+
+--- PDF page 42 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+2. Einführendes Beispiel
+2.1 Temperaturumrechnung
+2.2 Analyse des Beispiels
+2.3 Ausführung und Fehlersuche
+42
+
+
+--- PDF page 43 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Übersetzung und Ausgabe
+• Programm in Textdatei „temp.c“ 
+gespeichert
+• Aufruf des C-Compilers (z.B. aus 
+Linux shell)
+– cc temp.c (je nach Compiler)
+– Präprozessor und Assembler 
+werden implizit aufgerufen
+– Zielprogramm „a.out“ wird 
+erzeugt
+– Ausführung von „a.out“ 
+generiert die gezeigte Ausgabe
+Ausgabe
+0
+-17
+20
+-6
+40
+4
+60
+15
+80
+26
+100
+37
+120
+48
+140
+60
+160
+71
+180
+82
+200
+93
+220
+104
+240
+115
+260
+126
+280
+137
+300
+148
+43
+
+
+--- PDF page 44 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+#include <stdio.h>
+/* Umwandlung von Fahrenheit in Celsius
+fuer fahr = 0, 20, …, 300   */
+int mein()
+{
+int fahr /*, celsius */;
+int lower, upper, step;
+lower = 0; // untere Grenze der Temperaturtabelle
+upper = 300; // obere Grenze
+step
+= 20; // Schrittweite
+fahr  = lower
+while (fahr <= upper)  {
+celsius = 5  *  (fahr-32) ** 9;
+printf("%d\t%d\n", fahr, celsius);
+fahr = fahr + step;
+}
+return 0;
+}
+Fehlerhafte Programme
+• Möglichkeit 1: Programm entspricht nicht dem C-Standard
+• Derartige Fehler werden vom Compiler (oder auch Linker) bemerkt 
+und dem Programmierer mitgeteilt 
+44
+
+
+--- PDF page 45 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Fehlerhafte Programme
+• Möglichkeit 2: Programm ist gültig (d.h. compilierbar), führt aber 
+nicht die gewünschte Funktion aus (es hat „Bugs“)
+• Wesentlich schwieriger zu finden und zu beheben!
+#include <stdio.h>
+/* Umwandlung von Fahrenheit in Celsius
+fuer fahr = 0, 20, …, 300   */
+int main()
+{
+int fahr, celsius;
+int lower, upper, step;
+lower = 0; // untere Grenze der Temperaturtabelle
+upper = 300; // obere Grenze
+step
+= 20; // Schrittweite
+fahr  = lower;
+while (fahr <= upper)  {
+celsius = 5  *  (fahr+32) / 9;
+printf("%d\t%d\n", fahr, celsius);
+fahr = fahr + step;
+}
+return 0;
+}
+45
+
+
+--- PDF page 46 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Fehlerhafte Programme
+• Programm unter 
+Kontrolle eines 
+Debuggers ausführen
+• Ermöglicht 
+Einzelschrittmodus, 
+Beobachtung von 
+Variablen u.v.m.
+• Hilfreich vor allem bei 
+Endlosschleifen und 
+Programmabstürzen
+• Debugger kann 
+Programmverhalten 
+beeinflussen 
+(„Heisenbugs“)
+Ausgabefenster
+Quellcode
+Kommandofenster
+46

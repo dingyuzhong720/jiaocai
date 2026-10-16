@@ -1,0 +1,2605 @@
+{
+  "pages": [
+    {
+      "page_idx": 96,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.256,
+            0.837,
+            0.317
+          ],
+          "level": 2,
+          "content": "4. Funktionen und Programmaufbau"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.156,
+            0.479,
+            0.37,
+            0.521
+          ],
+          "level": 2,
+          "content": "4.1 Funktionen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.156,
+            0.543,
+            0.543,
+            0.844
+          ],
+          "sub_type": "text",
+          "content": "4.2 Parameterübergabe\n4.3 Polymorhpie\n4.4 Templates\n4.5 Lambda Funktionen\n4.6 Module und Programme"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.988
+          ],
+          "content": "97"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 97,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.498,
+            0.072
+          ],
+          "content": "Funktionen und Programmaufbau"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.132,
+            0.915,
+            0.23
+          ],
+          "content": "**Def**.: Das **kartesische Produkt** 𝐴𝐴 × 𝐵𝐵 zweier Mengen 𝐴𝐴 und 𝐵𝐵 ist definiert durch"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.131,
+            0.238,
+            0.592,
+            0.29
+          ],
+          "content": "A \\times B = \\{(a, b) \\mid a \\in A, b \\in B \\}",
+          "image_source": "images/page_97_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.333,
+            0.913,
+            0.436
+          ],
+          "content": "**Def**.: Eine (binäre) **Relation** 𝑅𝑅 ist eine Teilmenge des kartesischen Produktes zweier Mengen: $R \\subseteq A \\times B$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.479,
+            0.918,
+            0.585
+          ],
+          "content": "**Def**.: Eine **Funktion** 𝐹𝐹 ∶ 𝐴𝐴 → 𝐵𝐵 ist eine rechtseindeutige Relation, <u>d.h. jedem a ∈ 𝐴𝐴 ist höchstens ein</u> $b \\in B$ <u>zugeordnet.</u>"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.626,
+            0.964,
+            0.953
+          ],
+          "sub_type": "text",
+          "content": "In **Programmiersprachen**: Eine Funktion (oder: Prozedur, Subroutine) ist ein abgegrenztes **Teilprogramm**, welches aus einer Menge von **Eingabeparametern** eine fest definierte **Ausgabe** erzeugt\n**Verwendung**: Einkapselung von häufig benötigten Teilprogrammen, Aufruf aus anderen Teilprogrammen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.029,
+            0.988
+          ],
+          "content": "98"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 98,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.023,
+            0.494,
+            0.072
+          ],
+          "content": "Modell der Funktionsabarbeitung"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.133,
+            0.48,
+            0.86
+          ],
+          "sub_type": "text",
+          "content": "**Zu jedem Zeitpunkt** befindet sich das Programm innerhalb einer bestimmten Funktion f\nZu Beginn ist dies die Funktion main (s.o.)\nAusführung von f kann durch **Aufruf** einer anderen Funktion g jederzeit **unterbrochen** werden\n• f übergibt **Parameter** an g\n• g berechnet einen **Funktionswert** und springt an **Aufrufstelle** in f zurück"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.503,
+            0.24,
+            0.938,
+            0.811
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"statement f1\"] --> B[\"statement f2\"]\n  B --> C[\"statement g1\"]\n  C --> D[\"statement g2\"]\n  D --> E[\"statement f3\"]\n  E --> F[\"statement f4\"]\n  B -->|Aufruf| C\n  D -->|Rücksprung| E\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.523,
+                0.165,
+                0.64,
+                0.201
+              ],
+              "content": "Funktion f"
+            },
+            {
+              "bbox": [
+                0.79,
+                0.164,
+                0.907,
+                0.201
+              ],
+              "content": "Funktion g"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_98_image_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.933,
+            0.835,
+            0.976,
+            0.866
+          ],
+          "content": "**Zeit**"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.029,
+            0.988
+          ],
+          "content": "99"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 99,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.494,
+            0.072
+          ],
+          "content": "Modell der Funktionsabarbeitung"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.135,
+            0.529,
+            0.68
+          ],
+          "sub_type": "text",
+          "content": "Während der Ausführung kann g ihrerseits **weitere Funktionen** aufrufen (verschachtelte Funktionsaufrufe)\nEbenso können nach Ausführung von f auch **andere Funktionen** auf g zurückgreifen\n**Vorteil**: Programmcode für mehrfach verwendete Routinen muss nur einmal vorhanden sein"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.072,
+            0.7,
+            0.397,
+            0.81
+          ],
+          "sub_type": "text",
+          "content": "– bessere **Wartbarkeit**\n– geringere **Codegröße**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.557,
+            0.233,
+            0.977,
+            0.81
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Funktion f\"] --> B[\"Funktion g\"]\n  C[\"Funktion i\"] --> B\n  B --> D[\"Funktion h\"]\n  D --> E[\"ruft auf\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_99_image_8.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "100"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 100,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.025,
+            0.186,
+            0.064
+          ],
+          "content": "Funktionen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.129,
+            0.969,
+            0.912
+          ],
+          "sub_type": "text",
+          "content": "• Funktionen besitzen eine **Deklaration** und eine **Definition**\n**Deklaration**: Name, Definitionsbereich, Wertebereich (d.h. **Interface** der Funktion nach außen)\n**Definition**: Programmcode zur **Implementierung** der gewünschten Funktionalität\nErfolgt die Definition vor der ersten Verwendung einer Funktion, so darf die Deklaration **entfallen**\n• **Allgemeine Form der Deklaration**:\n– Typ ID (Parameter-Deklaration\\*);\n– Parameter-Deklaration syntaktisch wie Variablendeklaration\n– Jedoch: Parameter-ID kann auch entfallen\n– float max(float x, float y); oder\nfloat max(float, float);\n– Deklariert Funktion max: float × float → float"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.036,
+            0.988
+          ],
+          "content": "101"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 101,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.334,
+            0.065
+          ],
+          "content": "Funktionsdefinitionen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.135,
+            0.31,
+            0.18
+          ],
+          "content": "• **Allgemeine Form**:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.068,
+            0.198,
+            0.825,
+            0.246
+          ],
+          "content": "– Typ ID (Parameter-Deklaration\\*) { statement\\* }"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.023,
+            0.262,
+            0.978,
+            0.541
+          ],
+          "sub_type": "text",
+          "content": "Interface-Definition **muss** vorheriger Deklaration entsprechen (falls vorhanden)\nFunktionsrumpf innerhalb $f / \\dot { r } \\ldots \\dot { r } / f$ kann beliebige Statements enthalten\n• Verlassen einer Funktion durch return**-Statement**"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.07,
+            0.562,
+            0.945,
+            0.843
+          ],
+          "sub_type": "text",
+          "content": "– return Ausdruck;\n– Typ von Ausdruck muss dem **Wertebereich** der Funktion entsprechen (falls nötig: type cast)\n– Funktionen können **nicht** per goto verlassen werden (Labels nur gültig **innerhalb** einer Funktion)"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "102"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 102,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.268,
+            0.065
+          ],
+          "content": "Funktionsaufrufe"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.133,
+            0.938,
+            0.233
+          ],
+          "content": "Kommunikation zwischen **aufrufender** (caller) und **aufgerufener** (callee) Funktion:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.071,
+            0.243,
+            0.825,
+            0.344
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid f(void) { int x; /* ... ruft g auf */ };\nint g(int a, int b) { return a+b; }\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.358,
+            0.931,
+            0.575
+          ],
+          "sub_type": "text",
+          "content": "• a und b sind die **formalen Parameter** der Funktion g gemäß Deklaration\nAufruf von g durch f per Namen und Übergabe **der aktuellen Parameter**, z.B."
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.074,
+            0.587,
+            0.289,
+            0.632
+          ],
+          "content": "- x = g (1, 2);",
+          "image_source": "images/page_102_equation_6.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.07,
+            0.646,
+            0.972,
+            0.916
+          ],
+          "sub_type": "text",
+          "content": "– In g werden die „Platzhalter“ a und b durch 1 bzw. 2 ersetzt, g wird ausgeführt und per return beendet\n– Der Ausdruck g(1,2) liefert dann den **Rückgabewert** 3; dieser kann z.B. an eine Variable (hier: x) zur Weiterverarbeitung zugewiesen werden"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "103"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 103,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.023,
+            0.428,
+            0.069
+          ],
+          "content": "Lokale und globale Variablen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.13,
+            0.417,
+            0.172
+          ],
+          "content": "• Zwei Arten von Variablen:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.188,
+            0.603,
+            0.636
+          ],
+          "sub_type": "text",
+          "content": "**Globale Variablen** sind im gesamten Programm **gültig** (d.h. können zugegriffen werden)\n**Lokale Variablen** sind nur in einer bestimmten Funktion gültig (ebenso wie **formale Funktionsparameter**)\n– Lokale Variablen können globale Variablen gleichen Namens **verdecken**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.651,
+            0.616,
+            0.844
+          ],
+          "content": "Globale Variablen sollten zur besseren Programm-Wartbarkeit **möglichst selten** verwendet werden (sonst Gefahr von unerwünschten Seiteneffekten)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.647,
+            0.167,
+            0.907,
+            0.848
+          ],
+          "sub_type": "code",
+          "content": "```c\nint a=2, b=2, i=10;\nint f(int a, int b)\n{\n    int i;\n    i = a+b;\n    return i;\n}\nint main(void)\n{\n    /* ... */\n    i -= f(a, b);\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "104"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 104,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.399,
+            0.065
+          ],
+          "content": "Funktionen auf einen Blick"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.091,
+            0.094,
+            0.836,
+            0.979
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"int sum;\"] --> B[\"Globale Variable\"]\n  C[\"int f(int, int);\"] --> D[\"Deklaration von f\"]\n  E[\"int main(void)\"] --> F[\"Definition der Hauptfunktion\"]\n  G[\"{ sum += f(1, 2); printf(&quot;%d&quot;, sum); return 0;}\"] --> H[\"Aufruf von f mit akt. Parametern\"]\n  I[\"{ int f(int a, int b) { int sum; sum = a+b; return sum;}\"] --> J[\"Lokale Variable von f\"]\n  K[\"{ Rückgabe des Funktionswertes }\"] --> L[\"Definition von f\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_104_image_1.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "105"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 105,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.024,
+            0.024,
+            0.136,
+            0.072
+          ],
+          "level": 2,
+          "content": "Beispiel"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.133,
+            0.511,
+            0.23
+          ],
+          "content": "Berechnung einer **Kreisfläche** als Funktion des Radius"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.087,
+            0.25,
+            0.268,
+            0.293
+          ],
+          "content": "A = \\pi * r ^ {2}",
+          "image_source": "images/page_105_equation_2.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.315,
+            0.576,
+            0.76
+          ],
+          "sub_type": "text",
+          "content": "• Definition von π als **Konstante**\n**Einkapselung** der Flächenberechnung in Funktion area\nHauptfunktion main: Rückgabetyp immer int hier keine Eingangsparameter: void\nFortlaufende Ein/Ausgabe von Radius und Fläche"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.608,
+            0.046,
+            0.88,
+            0.08
+          ],
+          "content": "#define PI 3.1415926"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.607,
+            0.138,
+            0.919,
+            0.922
+          ],
+          "sub_type": "code",
+          "content": "```c\nfloat area(float r)\n{\n    float a;\n    a = PI * r * r;\n    return a;\n}\n\nint main(void)\n{\n    float rad, A;\n    while (1) {\n        scanf(\"%f\", &rad);\n        A = area(rad);\n        printf(\"%f \\n\", A);\n    }\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "106"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 106,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.256,
+            0.837,
+            0.317
+          ],
+          "level": 2,
+          "content": "4. Funktionen und Programmaufbau"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.156,
+            0.479,
+            0.545,
+            0.847
+          ],
+          "sub_type": "text",
+          "content": "4.1 Funktionen\n**4.2 Parameterübergabe**\n4.3 Polymorhpie\n4.4 Templates\n4.5 Lambda Funktionen\n4.6 Module und Programme"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.036,
+            0.988
+          ],
+          "content": "107"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 107,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.025,
+            0.448,
+            0.071
+          ],
+          "content": "Wert- und Referenzparameter"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.104,
+            0.574,
+            0.607
+          ],
+          "sub_type": "text",
+          "content": "Bei Übergabe eines Wertes w an eine Funktion f wird dem formalen Parameter von f eine **lokale Kopie** von w zugewiesen (call by value)\nf arbeitet nur mit der Kopie, kann w **nicht modifizieren**\nFalls Modifikation von w erwünscht: Übergabe als **Referenzparameter** (call by reference)"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.072,
+            0.621,
+            0.557,
+            0.851
+          ],
+          "sub_type": "text",
+          "content": "– in C nur call-by-value (f1)\n– in C++: Operator & (f2)C++\n– **Nachbildung** in C: call by value mit Zeiger auf w (f3)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.604,
+            0.143,
+            0.973,
+            0.825
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid f1(int a) { a++; }\nvoid f2(int& a) { a++; }\nvoid f3(int* a) { (*a)++; }\n\nint main(void)\n{\n    int a;\n    a = 1;\n    f1(a);  // a = 1\n    f2(a);  // a = 2\n    f3(&a); // a = 3\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "108"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 108,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.025,
+            0.448,
+            0.069
+          ],
+          "content": "Wert- und Referenzparameter"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.016,
+            0.093,
+            0.552,
+            0.95
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"main\"] --> B[\"0\"]\n  B --> C[\"1\"]\n  C --> D[\"1\"]\n  D --> E[\"1\"]\n  E --> F[\"1\"]\n  F --> G[\"100\"]\n  G --> H[\"Adresse von a_main\"]\n  H --> I[\"f3\"]\n  I --> J[\"af3 := 100\\n(*af3)++\"]\n  J --> K[\"Kopie von a_main\\n(später verworfen)\"]\n  K --> L[\"1\"]\n  L --> M[\"af1 := 1\\naf1++\"]\n  M --> N[\"1\"]\n  N --> O[\"1\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_108_image_1.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.576,
+            0.143,
+            0.964,
+            0.86
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid f1(int a) { a++; }\nvoid f2(int& a) { a++; }\nvoid f3(int* a) { (*a)++; }\n\nint main(void)\n{\n    int a;\n    a = 1;\n    f1(a);  // a = 1\n    f2(a);  // a = 2\n    f3(&a); // a = 3\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "109"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 109,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.624,
+            0.069
+          ],
+          "content": "Funktionen mit mehreren Rückgabewerten"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.133,
+            0.422,
+            0.18
+          ],
+          "content": "• **Beispiel**: komplexe Zahlen"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.074,
+            0.199,
+            0.185,
+            0.246
+          ],
+          "content": "\\mathrm{c} = (\\mathrm{a}, \\mathrm{b})",
+          "image_source": "images/page_109_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.254,
+            0.428,
+            0.298
+          ],
+          "content": "Realteil a, Imaginärteil b"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.316,
+            0.425,
+            0.362
+          ],
+          "content": "• **Produkt** zweier komplexer"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.061,
+            0.369,
+            0.468,
+            0.42
+          ],
+          "content": "Zahlen $c _ { 1 } = ( a _ { 1 } , b _ { 1 } ) , c _ { 2 } = ( a _ { 2 } , b _ { 2 } )$"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.074,
+            0.433,
+            0.359,
+            0.484
+          ],
+          "content": "c _ {3} = (a _ {1} * a _ {2} - b _ {1} * b _ {2},",
+          "image_source": "images/page_109_equation_6.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.224,
+            0.488,
+            0.443,
+            0.537
+          ],
+          "content": "\\mathrm{a} _ {1} * \\mathrm{b} _ {2} + \\mathrm{a} _ {2} * \\mathrm{b} _ {1})",
+          "image_source": "images/page_109_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.55,
+            0.428,
+            0.596
+          ],
+          "content": "• Komplexe Zahlen sind **kein**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.063,
+            0.605,
+            0.334,
+            0.651
+          ],
+          "content": "**Basis-Datentyp** in C"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.669,
+            0.486,
+            0.714
+          ],
+          "content": "• **Naive Lösung**: zwei Funktionen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.061,
+            0.721,
+            0.41,
+            0.767
+          ],
+          "content": "für Real- und Imaginärteil"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.499,
+            0.133,
+            0.955,
+            0.913
+          ],
+          "sub_type": "code",
+          "content": "```c\nfloat prd_real(float a1, float a2,\n        float b1, float b2)\n{\n    return a1*a2-b1*b2;\n}\n\nfloat prd_imag(float a1, float a2,\n        float b1, float b2)\n{\n    return a1*b2+a2*b1;\n}\n\nint main(void)\n{\n    float c_real, c_imag;\n    c_real = prd_real( /* ... */ );\n    c_imag = prd_imag( /* ... */ );\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.036,
+            0.987
+          ],
+          "content": "110"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 110,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.625,
+            0.069
+          ],
+          "content": "Funktionen mit mehreren Rückgabewerten"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.135,
+            0.437,
+            0.929
+          ],
+          "sub_type": "text",
+          "content": "Definition des Datentyps complex als struct\n• structs werden als **Wertparameter** übergeben\nD.h. evtl. **kopieren** großer Speicherblöcke (langsam)\nÜbergabe als **Referenzparameter** (per Zeiger) evtl. besser\n**Arrays** (s.u.) werden immer als Referenzparameter übergeben\n• Arrays als **Rückgabewert** unzulässig (warum?)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.536,
+            0.135,
+            0.96,
+            0.916
+          ],
+          "sub_type": "code",
+          "content": "```c\ntypedef struct c {\n    float a, b; } complex;\n\ncomplex prod(complex c1, complex c2)\n{\n    complex c3;\n    c3.a = c1.a*c2.a-c1.b*c2.b;\n    c3.b = c1.a*c2.b+c2.a*c1.b;\n    return c3;\n}\n\nint main(void)\n{\n    complex c1, c2, c3;\n    c3 = prod(c1, c2);\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.036,
+            0.988
+          ],
+          "content": "111"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 111,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.256,
+            0.837,
+            0.317
+          ],
+          "level": 2,
+          "content": "4. Funktionen und Programmaufbau"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.156,
+            0.479,
+            0.545,
+            0.847
+          ],
+          "sub_type": "text",
+          "content": "4.1 Funktionen\n4.2 Parameterübergabe\n**4.3 Polymorhpie**\n4.4 Templates\n4.5 Lambda Funktionen\n4.6 Module und Programme"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "112"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 112,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.024,
+            0.024,
+            0.205,
+            0.072
+          ],
+          "content": "Polymorphie"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.92,
+            0.026,
+            0.967,
+            0.058
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.024,
+            0.108,
+            0.959,
+            0.156
+          ],
+          "level": 2,
+          "content": "• Auswahl der Funktionsdefinition in Abhängigkeit der Operanden"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.073,
+            0.165,
+            0.984,
+            0.943
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  #include <stdio.h>\n  #include <math.h>\n\n  // most of the time we compute square root\n    float root(float x) {\n      return pow(x,1/2.0);\n    }\n\n  // ... but we can do any root\n    float root(float x, float y) {\n      return pow(x,1/y);\n    }\n\n  int main( void )\n  {\n    float x1 = 4, x2 = 27;\n    printf(\"Square root of %.1f = %.3f\\n\", x1, root(x1));\n    printf(\"Cubic root of %.1f = %.3f\\n\", x2, root(x2,3));\n\n    return 0;\n  }\n\n  in c++:\n  ... Program finished with exit code 0\n\n  Statische Polymorphie (compile-time polymorphism)\n  Auswahl der Methode während Kompilierung\n  Hier: entscheidendes Merkmal - Anzahl der Operanden\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_112_image_3.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.036,
+            0.988
+          ],
+          "content": "113"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.027,
+            0.948,
+            0.951,
+            0.973
+          ],
+          "content": "(Zur Vereinfachung sind hier ‘stdio.h’ und ‘math.h’ eingebunden. In C++ sollten die Bibliotheken ‘cstdio’ und ‘cmath’ verwendet werden.)"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 113,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.024,
+            0.025,
+            0.205,
+            0.071
+          ],
+          "content": "Polymorphie"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.92,
+            0.027,
+            0.967,
+            0.058
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.09,
+            0.151,
+            0.638,
+            0.781
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n\n    #define TEST_INT\n    #define TEST_FLOAT\n\n#ifdef TEST_INT\nint mult(int a, int b) {\n    printf(\"Integer: %d x %d = %d\\n\", a, b, a*b);\n    return a*b;\n}\n#endif\n\n#ifdef TEST_FLOAT\nfloat mult(float a, float b) {\n    printf(\"Float: %.2f x %.2f = %.2f\\n\", a, b, a*b);\n    return a*b;\n}\n#endif\n\nint main( void )\n{\n    int i_a = 3, i_b = 4;\n    float f_a = 3.1, f_b = 4.5;\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.024,
+                0.1,
+                0.959,
+                0.147
+              ],
+              "content": "• Auswahl der Funktionsdefinition in Abhängigkeit der Operanden"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.327,
+            0.796,
+            0.956,
+            0.835
+          ],
+          "level": 2,
+          "content": "Statische Polymorphie (compile-time polymorphism)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.326,
+            0.838,
+            0.825,
+            0.875
+          ],
+          "content": "Auswahl der Methode während Kompilierung"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.326,
+            0.877,
+            0.734,
+            0.916
+          ],
+          "content": "Hier: entscheidendes Merkmal - **Typ**"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "114"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.24,
+            0.955,
+            0.707,
+            0.994
+          ],
+          "content": "(dynamische Polymorphie folgt später ...)"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 114,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.025,
+            0.388,
+            0.065
+          ],
+          "content": "Funktionen als Parameter"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.016,
+            0.133,
+            0.562,
+            0.642
+          ],
+          "sub_type": "text",
+          "content": "Funktionen sind keine Variablen, besitzen aber eine **Speicheradresse**\nDaher gibt es **Zeiger auf Funktionen**, diese können als **Parameter** übergeben und „aufgerufen“ werden\nSinnvoll, falls **Aufrufstruktur** der Funktionen nicht statisch festliegen soll\nBsp.:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.063,
+            0.658,
+            0.484,
+            0.932
+          ],
+          "sub_type": "code",
+          "content": "```txt\n- Funktion f:\n    int f(float, float);\n- Zeiger auf f:\n    int (*p)(float,float);\n    p = &f;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.578,
+            0.104,
+            0.978,
+            0.932
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\nint add(int a, int b)\n{\n    return a+b;\n}\n\nint sub(int a, int b)\n{\n    return a-b;\n}\n\nint op(int (*f)(int,int), int a, int b)\n{\n    return f(a, b);\n}\n\nint main(void)\n{\n    char c;\n    int result;\n    scanf(\"%c\", &c);\n    if (c == 'a')\n        result = op(add, 1, 2);\n    else if (c == 's')\n        result = op(sub, 1, 2);\n    printf(\"%d\\n\", result);\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "115"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 115,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.256,
+            0.837,
+            0.317
+          ],
+          "level": 2,
+          "content": "4. Funktionen und Programmaufbau"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.156,
+            0.479,
+            0.545,
+            0.847
+          ],
+          "sub_type": "text",
+          "content": "4.1 Funktionen\n4.2 Parameterübergabe\n4.3 Polymorhpie\n**4.4 Templates**\n4.5 Lambda Funktionen\n4.6 Module und Programme"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "116"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 116,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.026,
+            0.16,
+            0.071
+          ],
+          "content": "Template"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.92,
+            0.027,
+            0.967,
+            0.058
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.068,
+            0.249,
+            0.874,
+            0.891
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <cstdio>\n#include <iostream>\n\ntemplate <typename T>\nT mult(T a, T b) {\n    std::string tname;\n    switch( typeid(a).name()[0] ) {\n        case 'i': tname = \"Integer\"; break;\n        case 'f': tname = \"Float\"; break;\n    }\n    std::cout << tname << \": \" << a << \" x \" << b << \" = \" << a*b << std::endl;\n    return a*b;\n}\n\nint main( void )\n{\n    int i_a = 3, i_b = 4;\n    float f_a = 3.1, f_b = 4.5;\n\n    mult<int>(i_a,i_b);\n    mult<float>(f_a,f_b);\n\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.025,
+                0.13,
+                0.284,
+                0.176
+              ],
+              "content": "• Typ als Variable"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.416,
+            0.122,
+            0.953,
+            0.368
+          ],
+          "sub_type": "code",
+          "content": "```txt\nBisher:\nint mult(int a, int b) {\n    printf(\"Integer: %d x %d = %d\\n\", a, b, a*b);\n    return a*b;\n\nfloat mult(float a, float b) {\n    printf(\"Float: %.2f x %.2f = %.2f\\n\", a, b, a*b);\n    return a*b;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.414,
+            0.865,
+            0.927,
+            0.947
+          ],
+          "content": "Entsprechend können auch template-Klassen vereinbart werden."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "117"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.823,
+            0.974,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        }
+      ]
+    },
+    {
+      "page_idx": 117,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.256,
+            0.837,
+            0.317
+          ],
+          "level": 2,
+          "content": "4. Funktionen und Programmaufbau"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.156,
+            0.479,
+            0.545,
+            0.847
+          ],
+          "sub_type": "text",
+          "content": "4.1 Funktionen\n4.2 Parameterübergabe\n4.3 Polymorhpie\n4.4 Templates\n**4.5 Lambda Funktionen**\n4.6 Module und Programme"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.968,
+            0.037,
+            0.988
+          ],
+          "content": "118"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 118,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.025,
+            0.025,
+            0.267,
+            0.063
+          ],
+          "content": "Lambda Funktion"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.92,
+            0.028,
+            0.967,
+            0.057
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.059,
+            0.231,
+            0.974,
+            0.95
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <iostream>\n#include <string>\nusing namespace std;\n\n// Regular Function\nvoid report_age1(int val) {\n    cout << \"My age is \" << val << endl;\n}\n\nint main( void )\n{\n    int age = 23;\n\n    // Lambda Function\n    auto report_age2 = [](int val) -> string { return \"My age is \" + to_string(val); };\n    auto report_age3 = [age]() -> string { return \"My age is \" + to_string(age); };\n\n    report_age1(19);\n    cout << report_age2(21) << endl;\n    cout << report_age3() << endl;\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "119"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.822,
+            0.974,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        }
+      ]
+    },
+    {
+      "page_idx": 119,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.16,
+            0.256,
+            0.837,
+            0.317
+          ],
+          "level": 2,
+          "content": "4. Funktionen und Programmaufbau"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.156,
+            0.479,
+            0.552,
+            0.844
+          ],
+          "sub_type": "text",
+          "content": "4.1 Funktionen\n4.2 Parameterübergabe\n4.3 Polymorhpie\n4.4 Templates\n4.5 Lambda Funktionen\n**4.6 Module und Programme**"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "120"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 120,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.368,
+            0.072
+          ],
+          "content": "Module und Programme"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.011,
+            0.119,
+            0.624,
+            0.944
+          ],
+          "sub_type": "text",
+          "content": "C-Compiler übersetzt immer **ein einzelnes** C-Modul\n**Modul** = globale Variablen und Funktionen\nEntwicklung von Modulen kann **parallel** erfolgen\nModul (z.B. Library) muss nicht unbedingt **main-Funktion** enthalten\nKomplettes **C-Programm** wird aus einzelnen Modulen zusammengesetzt (durch den Linker)\nC-Programm muss **genau eine** main-Funktion enthalten\n**Globale Variablen** und **Funktionen** gleichen Namens dürfen nur einmal vorkommen"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.63,
+            0.152,
+            0.978,
+            0.918
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"C-Modul 1\"] --> B[\"Compiler\"]\n  C[\"C-Modul n\"] --> D[\"Compiler\"]\n  B --> E[\"Code 1\"]\n  D --> F[\"Code n\"]\n  E --> G[\"Linker\"]\n  F --> G\n  G --> H[\"a.out\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_120_image_9.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "121"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 121,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.368,
+            0.072
+          ],
+          "content": "Module und Programme"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.136,
+            0.525,
+            0.469
+          ],
+          "sub_type": "text",
+          "content": "Zweckmäßig: **Trennung** von Deklarationen und Definitionen in zwei Dateien (meist: \\*.h und \\*.c)\n• Deklarationen im **Header File**\nHeader File kann von allen C-Modulen **eingebunden** werden"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.068,
+            0.511,
+            0.43,
+            0.927
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include \"lib.h\"    main.c\nint main(void)\n{\n    /* ... */\n    a = sqrt( /* ... */ );\n    b = sin( /* ... */ );\n    c = cos( /* ... */ );\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.604,
+            0.154,
+            0.951,
+            0.407
+          ],
+          "sub_type": "code",
+          "content": "```txt\n/* Library lib.h\n  mit math. Funktionen */\nfloat sqrt( /* ... */ );\nfloat sin( /* ... */ );\nfloat cos( /* ... */ );\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.604,
+            0.514,
+            0.951,
+            0.927
+          ],
+          "sub_type": "code",
+          "content": "```txt\n/* Implementierung lib.c\n  der math. Funktionen */\nfloat sqrt( /* ... */ )\n    { /* ... */ }\nfloat sin( /* ... */ )\n    { /* ... */ }\nfloat cos( /* ... */ )\n    { /* ... */ }\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "122"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 122,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.365,
+            0.258,
+            0.632,
+            0.317
+          ],
+          "level": 2,
+          "content": "5. Datentypen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.156,
+            0.362,
+            0.51,
+            0.601
+          ],
+          "sub_type": "text",
+          "content": "**5.1 Arrays**\n5.2 Strukturen\n5.3 Abstrakte Datentypen\n5.4 Klassen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.036,
+            0.987
+          ],
+          "content": "123"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 123,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.027,
+            0.118,
+            0.071
+          ],
+          "content": "Arrays"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.108,
+            0.907,
+            0.308
+          ],
+          "sub_type": "text",
+          "content": "**Arrays** (oder: Felder, Vektoren) definieren zusammengesetzte Datentypen, deren Elemente durch einen **Index** zugegriffen werden\n• Vektor (**mathematisch**):"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.319,
+            0.816,
+            0.373
+          ],
+          "content": "$V   =   \\left( v _ { 1 } , \\ldots , v _ { n } \\right)$ $v _ { i }$ bezeichnet 𝑖𝑖-tes Element von 𝑉𝑉"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.38,
+            0.541,
+            0.426
+          ],
+          "content": "Vektor/Array-Deklaration in $C / C + +$"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.433,
+            0.49,
+            0.533
+          ],
+          "sub_type": "text",
+          "content": "– Typ ID [int-Konstante];\n– Z.B. int v[10];"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.123,
+            0.543,
+            0.805,
+            0.779
+          ],
+          "sub_type": "text",
+          "content": "• deklariert 10-elementigen Vektor 𝑉𝑉\n• Komponenten sind vom Typ int\n• Zugriff auf 𝑖𝑖-tes Element mittels Operator [...], z.B. v[3]\nDer Ausdruck 3 ist der **Index** des Elementes\n• **Index-Numerierung beginnt immer bei 0**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.114,
+            0.842,
+            0.825,
+            0.952
+          ],
+          "sub_type": "text_image",
+          "content": "v:= \nv[0] v[1] ... v[8] v[9]",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_123_image_15.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "124"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 124,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.025,
+            0.273,
+            0.071
+          ],
+          "content": "Arrays und Zeiger"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.011,
+            0.129,
+            0.978,
+            0.28
+          ],
+          "sub_type": "text",
+          "content": "Benachbarte Arrayelemente befinden sich stets auch **benachbart** im Speicher\n• Daher bei v[i]:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.055,
+            0.294,
+            0.99,
+            0.389
+          ],
+          "content": "– Index i bezeichnet den Abstand (offset) des 𝑖𝑖-ten Elementes von der **Basisadresse** $v ( = \\theta v [ 0 ] )$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.056,
+            0.401,
+            0.955,
+            0.49
+          ],
+          "content": "– Operator $v [ \\ldots ] ^ { n }$ entspricht **Addition** von Array-Basisadresse und Index"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.059,
+            0.501,
+            0.643,
+            0.548
+          ],
+          "content": "- \\mathrm{v} [ \\mathrm{i} ] = * (\\mathrm{v} + \\mathrm{i}) = * (\\mathrm{i} + \\mathrm{v}) = \\mathrm{i} [ \\mathrm{v} ]",
+          "image_source": "images/page_124_equation_6.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.058,
+            0.501,
+            0.882,
+            0.661
+          ],
+          "sub_type": "text",
+          "content": "– p = &v[0]; oder p = v; lässt p auf Anfang von v zeigen\n– Die folgenden 3 Ausdrücke sind äquivalent:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.09,
+            0.664,
+            0.752,
+            0.71
+          ],
+          "content": "\\mathrm{v} [ 3 ] = 1 2 3; \\mathrm{p} [ 3 ] = 1 2 3; \\text {und} * (\\mathrm{p} + 3) = 1 2 3;",
+          "image_source": "images/page_124_equation_10.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.134,
+            0.746,
+            0.857,
+            0.967
+          ],
+          "sub_type": "text_image",
+          "content": "p\nv:= \n+3\n123\nv[0] v[1]\n...\nv[8] v[9]",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_124_image_11.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.036,
+            0.988
+          ],
+          "content": "125"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 125,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.024,
+            0.313,
+            0.069
+          ],
+          "content": "Arrays und Schleifen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.136,
+            0.543,
+            0.341
+          ],
+          "content": "Vorteil von Arrays: **Menge „gleichartiger“ Objekte** kann mit einem Namen und variablem Index zugegriffen werden"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.358,
+            0.587,
+            0.634
+          ],
+          "sub_type": "text",
+          "content": "**Meist**: in Schleifen, damit Vermeidung von Code-Duplizierung\nBeispielprogramme zur Initialisierung von Array A sind äquivalent\n• **Post-Inkrement:**"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.074,
+            0.653,
+            0.275,
+            0.695
+          ],
+          "content": "^ {*} p + + = \\dots ;",
+          "image_source": "images/page_125_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.074,
+            0.713,
+            0.282,
+            0.751
+          ],
+          "content": "ist zu lesen wie"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.074,
+            0.771,
+            0.324,
+            0.813
+          ],
+          "content": "^ {*} p = \\dots ; p + + ;",
+          "image_source": "images/page_125_equation_8.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.658,
+            0.283,
+            0.914,
+            0.44
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint i, a[10];\n\nfor(i=0; i<10; i++) {\n    a[i] = i;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.658,
+            0.508,
+            0.914,
+            0.699
+          ],
+          "sub_type": "code",
+          "content": "```c\nint *p, i, a[10];\n\np = &a[0];\nfor(i=0; i<10; i++) {\n    *p++ = i;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "126"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 126,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.024,
+            0.313,
+            0.069
+          ],
+          "content": "Arrays und Schleifen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.133,
+            0.974,
+            0.909
+          ],
+          "sub_type": "text",
+          "content": "• **Array-Basisadressen** verhalten sich wie Zeiger (auf das erste Array-Element)\nNach Deklaration int a[10]; ist der Ausdruck a **identisch** mit dem Ausdruck &a[0]\n• Grund: $a = a + 0 = \\theta(\\pi(a + 0)) = \\theta a[0]$\nAchtung: Arrays können **nicht** mit einem einzigen Befehl kopiert werden"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.071,
+            0.54,
+            0.895,
+            0.909
+          ],
+          "sub_type": "code",
+          "content": "```txt\nint a[10], b[10], i;\n// unzulässig:\na = b;      // entspricht &a[0] = &b[0]\n// stattdessen:\nfor (i=0; i<10; i++) {  // elementweises Kopieren\n    a[i] = b[i];\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "127"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 127,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.023,
+            0.543,
+            0.072
+          ],
+          "content": "Beispiel: Ermittlung einer Stringlänge"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.136,
+            0.57,
+            0.652
+          ],
+          "sub_type": "text",
+          "content": "• String = Array mit char-Elementen\nElement-Wert 0 (oder '\\0' als char-Konstante) kennzeichnet **String-Ende**\nDaher: char-Arrays immer **ein Byte länger** als „Nutzlast“-String\nBeginnend bei 0: Zähler **inkrementieren**, bis '\\0' -Zeichen erreicht\n• Bsp.: char $s [ 6 ] = \\mathrm { { \\sf { K e t t e } } }$ 1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.784,
+            0.093,
+            0.807
+          ],
+          "content": "s"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.127,
+            0.768,
+            0.51,
+            0.88
+          ],
+          "content": "<table><tr><td>K</td><td>e</td><td>t</td><td>t</td><td>e</td><td>&#x27;\\0&#x27;</td></tr><tr><td colspan=\"5\">s[0]</td><td>s[5]</td></tr></table>",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_127_table_8.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.607,
+            0.19,
+            0.964,
+            0.598
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define STR \"teststring\"\n\nint main(void)\n{\n    char* s = STR;\n    int i, count = 0;\n\n    for(i=0; s[i] != 0; i++) {\n        count++;\n    }\n\n    printf(\"Länge = %d\", count);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.631,
+            0.669,
+            0.85,
+            0.922
+          ],
+          "sub_type": "code",
+          "content": "```javascript\n/* ... */\n\ncount = 0;\nwhile (s[count]) {\n    count++;\n}\n\n/* ... */\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "128"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "PowerPoint-Präsentation",
+      "authors": [
+        "Tobias Gemmeke"
+      ],
+      "created_at": "2026-10-06T18:07:32+02:00",
+      "modified_at": "2026-10-06T18:08:54+02:00",
+      "creator_application": "Acrobat PDFMaker 20 für PowerPoint",
+      "producer_application": "Adobe PDF Library 20.9.95",
+      "page_count": 355,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 96,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 97,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 98,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 99,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 100,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 101,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 102,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 103,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 104,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 105,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 106,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 107,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 108,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 109,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 110,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 111,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 112,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 113,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 114,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 115,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 116,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 117,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 118,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 119,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 120,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 121,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 122,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 123,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 124,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 125,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 126,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 127,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

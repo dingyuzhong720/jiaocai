@@ -1,0 +1,3272 @@
+{
+  "pages": [
+    {
+      "page_idx": 64,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.026,
+            0.323,
+            0.071
+          ],
+          "content": "Type cast mit Zeigern"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.135,
+            0.607,
+            0.352
+          ],
+          "sub_type": "text",
+          "content": "Zeiger sind im Prinzip **identisch** mit (positiven) Integer-Zahlen\nDaher können Zeiger und int ineinander **umgewandelt** werden"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.071,
+            0.363,
+            0.275,
+            0.461
+          ],
+          "content": "\\begin{array}{l} p = (i n t ^ {*}) x; \\\\ x = ^ {*} p; \\\\ \\end{array}",
+          "image_source": "images/page_64_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.476,
+            0.468,
+            0.576
+          ],
+          "content": "– lädt x mit dem Inhalt von Speicherstelle 1234"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.074,
+            0.587,
+            0.259,
+            0.632
+          ],
+          "content": "\\mathsf {x} = (\\text {int}) \\mathsf {q};",
+          "image_source": "images/page_64_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.074,
+            0.646,
+            0.332,
+            0.689
+          ],
+          "content": "– lädt x mit 2000"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.71,
+            0.625,
+            0.916
+          ],
+          "content": "Diese Eigenschaft von C/C++ bringt große **Flexibilität**, birgt jedoch auch **Gefahren**, z.B. möglicher Zugriff auf geschützte Speicherbereiche"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.686,
+            0.124,
+            0.967,
+            0.914
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"Input\"] --> B[\"x = 1234\"]\n  B --> C[\"1000\"]\n  D[\"...\"] -.-> E[\"q = 2000\"]\n  D --> F[\"p = 1000\"]\n  E --> G[\"2000\"]\n  F --> H[\"N\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_64_image_9.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.028,
+            0.988
+          ],
+          "content": "65"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 65,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.024,
+            0.32,
+            0.072
+          ],
+          "content": "Wozu dienen Zeiger?"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.133,
+            0.943,
+            0.877
+          ],
+          "sub_type": "text",
+          "content": "Allgemein: falls mittels eines **einzigen Objektes** (Zeiger) im Programmverlauf auf **verschiedene andere Objekte** zugegriffen werden soll\nOder falls (in der maschinennahen Programmierung) Zugriffe auf **vorgegebene feste Speicherstellen** notwendig sind\nVor allem sind Zeiger sinnvoll bei **dynamischen** (d.h. zur Laufzeit erzeugten) Datenstrukturen\nDatenobjekte, deren Größe während der Programmentwicklung noch nicht feststeht und die daher **nicht statisch deklariert** werden können\nHierfür kann dynamisch (d.h. während der Programmlaufzeit) Speicher angefordert und wieder freigegeben werden\nDer Speicherbereich hierfür heißt **Heap** (Halde, Haufen)"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.029,
+            0.988
+          ],
+          "content": "66"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 66,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.025,
+            0.231,
+            0.071
+          ],
+          "content": "Heap-Speicher"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.135,
+            0.562,
+            0.814
+          ],
+          "sub_type": "text",
+          "content": "Programmcode und Variablen im **statischen** Speicherbereich\n• Zugriff auf den **Heap** wie folgt:\nAnforderung von Heap-Speicher mittels Funktion malloc (memory allocation)\n– p zeigt dann auf Anfang von freiem 1000-Byte Heap-Block\n– Adresse eines freien Blockes wird von malloc **automatisch** ermittelt (z.B. 5000)"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.074,
+            0.478,
+            0.559,
+            0.527
+          ],
+          "content": "\\text {int} ^ {*} \\mathrm{p} = (\\text {int} ^ {*}) \\text {malloc(1000)};",
+          "image_source": "images/page_66_equation_5.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.629,
+            0.181,
+            0.96,
+            0.935
+          ],
+          "sub_type": "bar_stacked",
+          "content": "| Category | Label |\n| --- | --- |\n| Top (Yellow) | 0 |\n| Middle (Yellow) | p = 5000 |\n| Bottom (Green) | ... |\n| Bottom (Blue) | H |\n| Bottom (Blue) | E |\n| Bottom (Blue) | A |\n| Bottom (Blue) | P |",
+          "captions": [
+            {
+              "bbox": [
+                0.798,
+                0.122,
+                0.844,
+                0.154
+              ],
+              "content": "Adr."
+            }
+          ],
+          "footnotes": [],
+          "image_source": "images/page_66_chart_10.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.028,
+            0.988
+          ],
+          "content": "67"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 67,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.231,
+            0.072
+          ],
+          "content": "Heap-Speicher"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.133,
+            0.69,
+            0.3
+          ],
+          "sub_type": "text",
+          "content": "• Adressen **5000-5999** durch malloc reserviert $p = 1234$ ;\nweist 1234 an erste Speicherzelle im Block zu"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.379,
+            0.694,
+            0.819
+          ],
+          "sub_type": "text",
+          "content": "Da die an malloc übergebene **Blockgröße** variabel ist, kann Heap-Speicher immer **passend** angefordert werden\nNach Verwendung sollte der Heap-Block auch wieder **freigegeben** werden, um den Speicherplatz für andere Zwecke wiederverwenden zu können:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.074,
+            0.83,
+            0.695,
+            0.879
+          ],
+          "content": "free(p); // Block 5000-5999 freigeben"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.699,
+            0.119,
+            0.984,
+            0.937
+          ],
+          "sub_type": "bar_stacked",
+          "content": "| Stage | Value |\n| --- | --- |\n| Initial State | 0 |\n| Step 1 | p = 5000 |\n| Step 2 | ... |\n| Step 3 | 1234 |\n| Step 4 | 5000 |\n| Step 5 | 6000 |\n| Final State | N |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_67_chart_8.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.029,
+            0.988
+          ],
+          "content": "68"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 68,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.921,
+            0.028,
+            0.967,
+            0.057
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.107,
+            0.101,
+            0.77,
+            0.52
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdlib.h>\n#include <stdio.h>\n\nint main( void ) {\n    int* p;\n    printf(\"Any memory          @ %p: %d_%d_%d\\n\", p, p[0], p[1], p[2]);\n    p = (int*) malloc(1000);\n    printf(\"Allocated memory   @ %p: %d_%d_%d\\n\", p, p[0], p[1], p[2]);\n    p[0] = 4;\n    p[1] = 7;\n    p[2] = 11;\n    printf(\"Initialized memory @ %p: %d_%d_%d\\n\", p, p[0], p[1], p[2]);\n    free(p);\n    printf(\"Deallocated memory @ %p: %d_%d_%d\\n\", p, p[0], p[1], p[2]);\n\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.025,
+                0.024,
+                0.478,
+                0.071
+              ],
+              "content": "Dynamische Speicherallokierung"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.107,
+            0.543,
+            0.77,
+            0.96
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <cstdio>\n#include <memory>\nusing namespace std;\nint main( void ) {\n    int* p;\n    printf(\"Any memory          @ %p: %d_%d_%d\\n\", p, p[0], p[1], p[2]);\n    p = new int[250];\n    printf(\"Allocated memory   @ %p: %d_%d_%d\\n\", p, p[0], p[1], p[2]);\n    p[0] = 4;\n    p[1] = 7;\n    p[2] = 11;\n    printf(\"Initialized memory @ %p: %d_%d_%d\\n\", p, p[0], p[1], p[2]);\n    delete [] p;\n    printf(\"Deallocated memory @ %p: %d_%d_%d\\n\", p, p[0], p[1], p[2]);\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.968,
+            0.027,
+            0.987
+          ],
+          "content": "69"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.823,
+            0.974,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        }
+      ]
+    },
+    {
+      "page_idx": 69,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.026,
+            0.221,
+            0.063
+          ],
+          "content": "Smart Pointer"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.92,
+            0.026,
+            0.967,
+            0.058
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.138,
+            0.173,
+            0.805,
+            0.973
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <iostream>\n#include <memory>\n#include <sys/resource.h>\nusing namespace std;\n\n// get memory footprint\nlong get_mem() {\n    struct rusage is;\n    getrusage(RUSAGE_SELF, &is);\n    return is.ru_maxrss; // in KB\n}\n\nvoid subA() {\n    int a; int* pa = &a;\n}\n\nvoid subB() {\n    int* pa = new int;\n    // delete pa; // free memory space, no automatic deallocation\n}\n\nvoid subC() { unique_ptr<int> pa = make_unique<int>(); }\n\nint main( void ) {\n    long mem_base = get_mem();\n    cout << \"Memory base usage: \" << mem_base << endl;\n\n    for( long i=0; i<10000000; i++ ) {\n        subA();\n        if( i%1000000 == 0) cout << \"Addt'l allocation: \" << get_mem() - mem_base << endl;\n    }\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.025,
+                0.118,
+                0.213,
+                0.157
+              ],
+              "content": "• Motivation"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.987
+          ],
+          "content": "70"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.823,
+            0.974,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        }
+      ]
+    },
+    {
+      "page_idx": 70,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.026,
+            0.221,
+            0.063
+          ],
+          "content": "Smart Pointer"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.92,
+            0.026,
+            0.967,
+            0.058
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.025,
+            0.136,
+            0.271,
+            0.18
+          ],
+          "level": 2,
+          "content": "• Unique Pointer"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.048,
+            0.203,
+            0.987,
+            0.918
+          ],
+          "sub_type": "flowchart",
+          "content": "This image displays a code editor for creating an 'unique pointer' in a context, showing the syntax and conditional logic for handling unique pointers.",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_70_image_3.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.988
+          ],
+          "content": "71"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.822,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        }
+      ]
+    },
+    {
+      "page_idx": 71,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.026,
+            0.221,
+            0.063
+          ],
+          "content": "Smart Pointer"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.92,
+            0.027,
+            0.967,
+            0.058
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.09,
+            0.196,
+            0.891,
+            0.933
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <iostream>\n#include <memory>\nusing namespace std;\n\nvoid show( shared_ptr<string>& p0, shared_ptr<string>& p1 ) {\n    if( p0 != nullptr ) cout << \"Shared pointer p0: '\" << *p0 << ''' << endl;\n    if( p1 != nullptr ) cout << \"Shared pointer p1: '\" << *p1 << ''' << endl;\n    cout << \" Ptr of p0 use count: \" << p0.use_count() << endl;\n    cout << \" Ptr of p1 use count: \" << p1.use_count() << endl << endl;\n}\n\nint main( void )\n{\n    shared_ptr<string> ptr0 = make_shared<string>(\"shared\");\n    shared_ptr<string> ptr1;\n    show(ptr0, ptr1);\n\n    cout << \"Duplicating reference to object ...\" << endl;\n    ptr1 = ptr0;\n    show(ptr0, ptr1);\n\n    ptr0 = make_shared<string>(\"something new\");\n    show(ptr0, ptr1);\n\n    return 0;\n}\n```",
+          "captions": [
+            {
+              "bbox": [
+                0.025,
+                0.136,
+                0.268,
+                0.176
+              ],
+              "content": "• Shared Pointer"
+            }
+          ],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.029,
+            0.988
+          ],
+          "content": "72"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.823,
+            0.974,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        }
+      ]
+    },
+    {
+      "page_idx": 72,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.026,
+            0.221,
+            0.063
+          ],
+          "content": "Smart Pointer"
+        },
+        {
+          "type": "header",
+          "bbox": [
+            0.92,
+            0.027,
+            0.967,
+            0.058
+          ],
+          "content": "C++"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.025,
+            0.136,
+            0.25,
+            0.174
+          ],
+          "level": 2,
+          "content": "• Weak Pointer"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.293,
+            0.136,
+            0.972,
+            0.264
+          ],
+          "content": "Einen weak pointer zu de-referenzieren ist etwas ~~kompliziert. Es benötigt eine temporäre Kopie der Re~~ferenz. <u>Diese wird durch die Methode lock() erreicht.</u>"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.076,
+            0.233,
+            0.856,
+            0.901
+          ],
+          "sub_type": "code",
+          "content": "```cpp\n#include <iostream>\n#include <memory>\nusing namespace std;\n\nvoid show( shared_ptr<string>& p0, weak_ptr<string>& p1 ) {\n    if( p0 != nullptr ) cout << \"Shared pointer p0: '\" << *p0 << \"''' << endl;\n    if( !p1.expired() ) cout << \"Weak pointer p1: '\" << *(p1.lock()) << \"''' << endl;\n    cout << \" Ptr of p0 use count: \" << p0.use_count() << endl;\n    cout << \" Ptr of p1 use count: \" << p1.use_count() << endl << endl;\n}\n\nint main( void )\n{\n    shared_ptr<string> ptr0 = make_shared<string>(\"shared\");\n    weak_ptr<string> ptr1;\n    show(ptr0, ptr1);\n\n    cout << \"Duplicating reference to object ...\" << endl;\n    ptr1 = ptr0;\n    show(ptr0, ptr1);\n\n    ptr0 = make_shared<string>(\"something new\");\n    show(ptr0, ptr1);\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.651,
+            0.611,
+            0.971,
+            0.956
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"obj1\"] --> B[\"obj2\"]\n  B --> C[\"obj3\"]\n  C -.-> B\n  D[\"obj1\"] --> E[\"obj4\"]\n  F[\"obj2\"] --> G[\"obj3\"]\n  G -.-> F\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_72_image_5.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.987
+          ],
+          "content": "73"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.822,
+            0.974,
+            0.948,
+            0.99
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH"
+        }
+      ]
+    },
+    {
+      "page_idx": 73,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.081,
+            0.256,
+            0.913,
+            0.317
+          ],
+          "level": 2,
+          "content": "3. Elementare Datentypen und Anweisungen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.081,
+            0.474,
+            0.95,
+            0.758
+          ],
+          "sub_type": "text",
+          "content": "3.1 Einführung\n3.2 Variablen und Konstanten\n3.3 Zeiger\n**3.4 Arithmetische und logische Operationen und Zuweisungen**\n3.5 Kontrollanweisungen"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.986
+          ],
+          "content": "74"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 74,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.024,
+            0.588,
+            0.069
+          ],
+          "content": "Arithmetische und logische Operationen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.128,
+            0.773,
+            0.224
+          ],
+          "content": "Auf Variablen und Konstanten können verschiedene **Rechenoperationen** angewendet werden"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.072,
+            0.231,
+            0.277,
+            0.274
+          ],
+          "content": "- +, -, *, /",
+          "image_source": "images/page_74_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.284,
+            0.59,
+            0.331
+          ],
+          "content": "– % (modulo, nicht bei float-Werten)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.344,
+            0.646,
+            0.391
+          ],
+          "content": "• Multiplikative Operationen haben **Vorrang**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.402,
+            0.813,
+            0.448
+          ],
+          "content": "– Der **Ausdruck** $a \\pi b + c / d$ entspricht $( a \\div b ) + ( c / d )$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.461,
+            0.711,
+            0.554
+          ],
+          "content": "Diese primitiven Rechenoperationen sind in der Programmiersprache „eingebaut“"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.568,
+            0.95,
+            0.66
+          ],
+          "content": "Komplexere Operationen sind in **Libraries** verfügbar oder werden vom **Programmierer definiert**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.675,
+            0.457,
+            0.719
+          ],
+          "content": "• Z.B. Standard-Library math.h"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.732,
+            0.857,
+            0.779
+          ],
+          "content": "– sin, cos, tan, pow (power), sqrt (square root), ..."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.791,
+            0.959,
+            0.886
+          ],
+          "content": "**Ergebnisse** der Operationen haben einen bestimmten DT, der sich aus dem Operator und den Argumenttypen ergibt"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.987
+          ],
+          "content": "75"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 75,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.026,
+            0.211,
+            0.069
+          ],
+          "content": "Zuweisungen"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.025,
+            0.129,
+            0.31,
+            0.176
+          ],
+          "level": 2,
+          "content": "• Allgemeine Form:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.188,
+            0.534,
+            0.4
+          ],
+          "sub_type": "text",
+          "content": "– Ziel = Ausdruck\n– = ist der Zuweisungsoperator\n– Ausdruck wird berechnet, Wert wird in Ziel gespeichert"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.025,
+            0.414,
+            0.238,
+            0.453
+          ],
+          "level": 2,
+          "content": "• Kurzformen:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.474,
+            0.534,
+            0.695
+          ],
+          "sub_type": "text",
+          "content": "– ++, --: Increment, Decrement"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.124,
+            0.531,
+            0.467,
+            0.575
+          ],
+          "content": "x + + \\text {entspricht} x = x + 1",
+          "image_source": "images/page_75_equation_9.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.074,
+            0.593,
+            0.267,
+            0.633
+          ],
+          "content": "- + = , \\quad * = , \\dots",
+          "image_source": "images/page_75_equation_10.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.124,
+            0.649,
+            0.516,
+            0.693
+          ],
+          "content": "\\mathrm{x} + = \\mathrm{y} \\text {entspricht} \\mathrm{x} = \\mathrm{x} + \\mathrm{y}",
+          "image_source": "images/page_75_equation_11.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.568,
+            0.108,
+            0.782,
+            0.577
+          ],
+          "sub_type": "code",
+          "content": "```c\nint main()\n{\n    int a,b;\n    int c,d;\n\n    a = 1;\n    b = 2;\n\n    c = a+b;\n    d = c+1;\n    d = d+1;\n    printf(\"%d\", d);\n\n    return 0;      #def\n}                     #def\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.735,
+            0.506,
+            0.95,
+            0.943
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define a 1\n#define b 2\n\nint main()\n{\n    int c,d;\n\n    c = a+b;\n    d = c+1;\n    d++;\n    printf(\"%d\", d);\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.967,
+            0.028,
+            0.987
+          ],
+          "content": "76"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 76,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.024,
+            0.588,
+            0.069
+          ],
+          "content": "Arithmetische und logische Operationen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.136,
+            0.382,
+            0.18
+          ],
+          "content": "• **Vergleichsoperationen**"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.071,
+            0.2,
+            0.507,
+            0.298
+          ],
+          "content": "\\begin{array}{l} >, > = , <  , <   = \\\\ = = (\\text {Gleichheit}),! = (\\text {Ungleichheit}) \\\\ \\end{array}",
+          "image_source": "images/page_76_equation_2.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.316,
+            0.94,
+            0.478
+          ],
+          "sub_type": "text",
+          "content": "Ergebnis einer Vergleichsoperation ist stets ein **Boolescher Wert** (true oder false)\n• Boolescher DT in C: \\_Bool"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.494,
+            0.488,
+            0.543
+          ],
+          "content": "– Äquivalenzen aus stdbool.h:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.126,
+            0.552,
+            0.334,
+            0.67
+          ],
+          "sub_type": "text",
+          "content": "• bool ∶= \\_Bool\n• false ∶= 0\n• true ∶= 1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.69,
+            0.43,
+            0.736
+          ],
+          "content": "• **Schiebeoperationen** (shift)"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.754,
+            0.269,
+            0.858
+          ],
+          "sub_type": "text",
+          "content": ">> Rechtsshift\n<< Linksshift"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.987
+          ],
+          "content": "77"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 77,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.024,
+            0.588,
+            0.072
+          ],
+          "content": "Arithmetische und logische Operationen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.135,
+            0.472,
+            0.18
+          ],
+          "content": "• Shift-Operationen nützlich für"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.069,
+            0.198,
+            0.702,
+            0.309
+          ],
+          "sub_type": "text",
+          "content": "– Zugriff auf einzelne Bits eines Wertes\n– Vereinfachung von Rechenoperationen, z.B."
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.123,
+            0.325,
+            0.408,
+            0.416
+          ],
+          "sub_type": "text",
+          "content": "• x >> 1 entspricht $x / 2$\n• x << 2 entspricht $X ^ { \\star } 4$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.434,
+            0.772,
+            0.48
+          ],
+          "content": "Rechtsshift abhängig vom DT des ersten Arguments:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.069,
+            0.498,
+            0.807,
+            0.602
+          ],
+          "sub_type": "text",
+          "content": "– **Logisches** Shift: Auffüllen links mit 0\n– **Arithmetisches** Shift: Auffüllen links mit Vorzeichen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.626,
+            0.918,
+            0.672
+          ],
+          "content": "• Beispiel: unsigned char $a = 1 2 8$ ; signed char b = -128;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.046,
+            0.71,
+            0.224,
+            0.782
+          ],
+          "content": "**Binärdarstellung von a und b**"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.048,
+            0.811,
+            0.305,
+            0.871
+          ],
+          "content": "| 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n| --- | --- | --- | --- | --- | --- | --- | --- |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_77_table_14.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.053,
+            0.878,
+            0.077,
+            0.944
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_77_image_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.075,
+            0.92,
+            0.248,
+            0.952
+          ],
+          "content": "**Vorzeichen bei b**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.341,
+            0.769,
+            0.514,
+            0.805
+          ],
+          "content": "a: logisches Shift"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.359,
+            0.806,
+            0.5,
+            0.875
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_77_image_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.315,
+            0.875,
+            0.547,
+            0.907
+          ],
+          "content": "b: arithmetisches Shift"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.578,
+            0.77,
+            0.834,
+            0.828
+          ],
+          "content": "| 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |\n| --- | --- | --- | --- | --- | --- | --- | --- |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_77_table_20.jpg"
+        },
+        {
+          "type": "table",
+          "bbox": [
+            0.578,
+            0.854,
+            0.834,
+            0.911
+          ],
+          "content": "| 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |\n| --- | --- | --- | --- | --- | --- | --- | --- |",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_77_table_21.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.028,
+            0.988
+          ],
+          "content": "78"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 78,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.024,
+            0.588,
+            0.069
+          ],
+          "content": "Arithmetische und logische Operationen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.129,
+            0.959,
+            0.409
+          ],
+          "sub_type": "text",
+          "content": "• &: bitweise **UND-Verknüpfung**\n• |: bitweise **ODER-Verknüpfung**\n• ^: bitweise **Exklusiv-ODER-Verknüpfung** (XOR, „entweder...oder“)\n• Prüfen, Setzen oder Löschen **einzelner Bits** von Werten\nBsp.:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.416,
+            0.873,
+            0.464
+          ],
+          "content": "– signed char a = -64, b = 0xFF; // oder b = -1;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.044,
+            0.59,
+            0.331,
+            0.651
+          ],
+          "content": "<strong><u>1 1 0 0 0 0 0 0</u></strong>a:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.044,
+            0.675,
+            0.33,
+            0.734
+          ],
+          "content": "<strong><u>1 1 1 1 1 1 1 1</u></strong>b:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.789,
+            0.329,
+            0.849
+          ],
+          "content": "<strong><u>1 1 0 0 0 0 0 0</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.166,
+            0.866,
+            0.237,
+            0.9
+          ],
+          "content": "a & b"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.387,
+            0.591,
+            0.645,
+            0.65
+          ],
+          "content": "<strong><u>1 1 0 0 0 0 0 0</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.387,
+            0.675,
+            0.644,
+            0.734
+          ],
+          "content": "<strong><u>1 1 1 1 1 1 1 1</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.387,
+            0.79,
+            0.644,
+            0.85
+          ],
+          "content": "<strong><u>1 1 1 1 1 1 1 1</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.482,
+            0.864,
+            0.552,
+            0.898
+          ],
+          "content": "a | b"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.702,
+            0.591,
+            0.959,
+            0.649
+          ],
+          "content": "<strong><u>1 1 0 0 0 0 0 0</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.702,
+            0.675,
+            0.959,
+            0.734
+          ],
+          "content": "<strong><u>1 1 1 1 1 1 1 1</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.702,
+            0.79,
+            0.959,
+            0.85
+          ],
+          "content": "<strong><u>0 0 1 1 1 1 1 1</u></strong>"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.797,
+            0.866,
+            0.868,
+            0.898
+          ],
+          "content": "a ^ b"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.009,
+            0.968,
+            0.027,
+            0.987
+          ],
+          "content": "79"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 79,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.022,
+            0.024,
+            0.413,
+            0.072
+          ],
+          "level": 2,
+          "content": "Typumwandlung (type cast)"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.025,
+            0.114,
+            0.179,
+            0.158
+          ],
+          "level": 2,
+          "content": "Beispiel:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.168,
+            0.642,
+            0.269
+          ],
+          "sub_type": "text",
+          "content": "– int a = 10, b; float pi = 3.14;\n– b = pi + a;"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.025,
+            0.284,
+            0.541,
+            0.328
+          ],
+          "level": 2,
+          "content": "Welche Typen werden verwendet?"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.346,
+            0.83,
+            0.524
+          ],
+          "sub_type": "text",
+          "content": "– a wird in intern in float umgewandelt (10.0 = 1E1)\n– pi + a ergibt float-Resultat (13.14)\n– Resultat wird in int zurückverwandelt (13)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.539,
+            0.811,
+            0.639
+          ],
+          "content": "In C/C++ gibt es umfangreiche **type cast-Regeln** für alle Kombinationen der primitiven DT"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.657,
+            0.89,
+            0.758
+          ],
+          "content": "Viele Einzelheiten der Typumwandlung sind jedoch **compilerabhängig** (und damit eine „beliebte“ Fehlerquelle) !"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.775,
+            0.631,
+            0.822
+          ],
+          "content": "**Expliziter** type cast durch Programmierer:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.838,
+            0.397,
+            0.886
+          ],
+          "content": "– Ziel = (Typ) Ausdruck;"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.987
+          ],
+          "content": "80"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 80,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.081,
+            0.256,
+            0.913,
+            0.317
+          ],
+          "level": 2,
+          "content": "3. Elementare Datentypen und Anweisungen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.081,
+            0.474,
+            0.929,
+            0.752
+          ],
+          "sub_type": "text",
+          "content": "3.1 Einführung\n3.2 Variablen und Konstanten\n3.3 Zeiger\n3.4 Arithmetische und logische Operationen und Zuweisungen\n**3.5 Kontrollanweisungen**"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.988
+          ],
+          "content": "81"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 81,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.025,
+            0.323,
+            0.071
+          ],
+          "content": "Kontrollanweisungen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.129,
+            0.861,
+            0.283
+          ],
+          "sub_type": "text",
+          "content": "Bisher: Alle Anweisungen (statements) werden **sequentiell** abgearbeitet\n• Kontrollanweisungen ermöglichen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.069,
+            0.295,
+            0.851,
+            0.4
+          ],
+          "sub_type": "text",
+          "content": "– **bedingte Ausführung** von Code mittels Verzweigungen\n– **wiederholte Ausführung** von Code mittels Schleifen"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.037,
+            0.451,
+            0.207,
+            0.894
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Statement 1\"] --> B[\"Statement 2\"]\n  B --> C[\"Statement 3\"]\n  C --> D[\"Statement 4\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_81_image_7.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.274,
+            0.451,
+            0.655,
+            0.914
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Statement 1\"] -->|\"Bedingung true\"| B[\"Statement 2\"]\n  A -->|\"Bedingung false\"| C[\"Statement 3\"]\n  B --> D[\"Statement 4\"]\n  C --> D\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_81_image_8.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.687,
+            0.431,
+            0.987,
+            0.914
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Statement 1\"] --> B[\"Statement 2\"]\n  B --> C[\"Statement 3\"]\n  C --> D[\"Statement 4\"]\n  C -.->|\"holung solange Bedingung true\"| B\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_81_image_9.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.028,
+            0.988
+          ],
+          "content": "82"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 82,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.024,
+            0.417,
+            0.072
+          ],
+          "content": "Verzweigungen: if-then-else"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.135,
+            0.5,
+            0.244
+          ],
+          "sub_type": "text",
+          "content": "• Beispiel: Maximumsberechnung\n• Allgemeine Formen:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.071,
+            0.254,
+            0.43,
+            0.62
+          ],
+          "sub_type": "code",
+          "content": "```txt\n- if ( expression ) {\n    statement*\n}\n- if ( expression ) {\n    statement*\n} else { statement*\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.637,
+            0.492,
+            0.737
+          ],
+          "content": "Bedingung muss true oder false ergeben (0 ≙ false)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.753,
+            0.36,
+            0.848
+          ],
+          "content": "„Beliebter“ Fehler bei Gleichheitstest:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.071,
+            0.87,
+            0.553,
+            0.917
+          ],
+          "sub_type": "code",
+          "content": "```javascript\n- if (a = b) statt if (a == b)\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.599,
+            0.226,
+            0.909,
+            0.825
+          ],
+          "sub_type": "code",
+          "content": "```c\n#include <stdio.h>\n\nint main(void)\n{\n    int a, b, max;\n\n    // Einlesen von a und b\n    scanf(\"%d %d\", &a, &b);\n\n    if (a > b) {\n        max = a;\n    } else // d.h. a <= b\n        max = b;\n    }\n\n    printf(\"max = %d\", max);\n\n    return 0;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.988
+          ],
+          "content": "83"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 83,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.022,
+            0.024,
+            0.417,
+            0.069
+          ],
+          "level": 2,
+          "content": "Verzweigungen: if-then-else"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.134,
+            0.62,
+            0.234
+          ],
+          "content": "Komplexere Bedingungen können durch **logische Verknüpfungen** geprüft werden"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.254,
+            0.62,
+            0.521
+          ],
+          "sub_type": "text",
+          "content": "– ODER-Operator ||: **mindestens eine** der Teilbedingungen muss true sein\n– UND-Operator &&: **alle** Teilbedingungen müssen true sein"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.694,
+            0.035,
+            0.945,
+            0.567
+          ],
+          "sub_type": "code",
+          "content": "```c\nint a, b, c, x, y;\n/* ... */\nif (a > 10) {\n    if (b >= 20) {\n        if (c == 30) {\n            x++;\n        }\n    }\n}\n\nif (a < 40) {\n    y--;\n} else if (b <= 50) {\n    y--;\n} else if (c != 60) {\n    y--;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.089,
+            0.626,
+            0.575,
+            0.91
+          ],
+          "sub_type": "code",
+          "content": "```c\nint a, b, c, x, y;\n/* ... */\nif ((a > 10) && (b >= 20) && (c == 30)) {\n    x++;\n}\n\nif ((a < 40) || (b <= 50) || (c != 60)) {\n    y--;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.987
+          ],
+          "content": "84"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 84,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.343,
+            0.072
+          ],
+          "content": "Dangling else-Problem"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.135,
+            0.43,
+            0.18
+          ],
+          "content": "• Betrachte folgenden Code:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.19,
+            0.728,
+            0.238
+          ],
+          "content": "if (a > 100) if (b > 50) x++; else x--;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.252,
+            0.6,
+            0.298
+          ],
+          "content": "• **Zwei Möglichkeiten** der Interpretation:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.314,
+            0.656,
+            0.363
+          ],
+          "content": "– Wird x-- ausgeführt, falls (a <= 100) ?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.379,
+            0.801,
+            0.428
+          ],
+          "content": "(1) if (a > 100) if (b > 50) x++; <u>else</u> x--;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.443,
+            0.637,
+            0.489
+          ],
+          "content": "– Oder falls (a > 100) && (b <= 50) ?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.507,
+            0.801,
+            0.554
+          ],
+          "content": "(2) if (a > 100) if (b > 50) x++; <u>else</u> x--;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.572,
+            0.842,
+            0.672
+          ],
+          "content": "**Konvention**: else gehört immer zum innersten freien if, d.h. Version (2) ist richtig"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.689,
+            0.923,
+            0.788
+          ],
+          "content": "**Besser**: Vermeidung von Fehlern durch expliziten Gebrauch der **Blockstruktur** { statement\\* } in der Programmierung"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.799,
+            0.825,
+            0.846
+          ],
+          "content": "– if (a > 100) { if (b > 50) x++; else x--; }"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.988
+          ],
+          "content": "85"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 85,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.026,
+            0.323,
+            0.071
+          ],
+          "content": "Verzweigungen: goto"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.118,
+            0.782,
+            0.329
+          ],
+          "sub_type": "text",
+          "content": "Verzweigung auch über **Labels** und goto**-Statements** möglich\nEin Label ist eine symbolische **Sprungmarke** im Code\n• Syntax:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.071,
+            0.342,
+            0.739,
+            0.448
+          ],
+          "sub_type": "text",
+          "content": "– ID: statement (ID ist Bezeichner des Labels)\n– goto ID; (Sprung nach Position ID)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.577,
+            0.294,
+            0.623
+          ],
+          "content": "• Labels und gotos"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.069,
+            0.636,
+            0.836,
+            0.848
+          ],
+          "sub_type": "text",
+          "content": "– beeinträchtigen die **Lesbarkeit** des Programms\n– sind ein „historisches Relikt“ in Programmiersprachen\n– sind nicht notwendig und sollten nur bei **zwingenden Gründen** eingesetzt werden"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.789,
+            0.15,
+            0.986,
+            0.636
+          ],
+          "sub_type": "code",
+          "content": "```txt\nif (a > 10) {\n        goto L1;\n    }\n\nL2: if (b < 40) {\n        goto L3;\n    }\n\nL4: goto L5;\n\nL1: x++;\n        goto L2;\n\nL3: y--;\n        goto L4;\n\nL5: ;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.029,
+            0.988
+          ],
+          "content": "86"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 86,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.025,
+            0.361,
+            0.071
+          ],
+          "content": "Verzweigungen: switch"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.133,
+            0.927,
+            0.427
+          ],
+          "sub_type": "text",
+          "content": "Häufiger Fall: **Fallunterscheidung** über eine bestimmte Variable mit jeweils konstantem Vergleichswert\n• Normale Implementierung: **Kette** von if-then-else Statements\n• Gültig, aber umständlich\nBsp.: Umrechung von römischen Ziffern:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.234,
+            0.494,
+            0.766,
+            0.89
+          ],
+          "sub_type": "code",
+          "content": "```txt\nchar digit, int value;\n\n/* ... */\n\nif (digit == 'I') value = 1;\nelse if (digit == 'V') value = 5;\nelse if (digit == 'X') value = 10;\nelse if (digit == 'L') value = 50;\nelse if (digit == 'C') value = 100;\nelse if (digit == 'D') value = 500;\nelse if (digit == 'M') value = 1000;\nelse printf(\"Keine gültige Ziffer!\");\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.988
+          ],
+          "content": "87"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 87,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.025,
+            0.361,
+            0.071
+          ],
+          "content": "Verzweigungen: switch"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.136,
+            0.488,
+            0.182
+          ],
+          "content": "• **Kompaktere** Implementierung:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.061,
+            0.19,
+            0.32,
+            0.232
+          ],
+          "content": "switch-Statement"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.253,
+            0.306,
+            0.298
+          ],
+          "content": "• Allgemeine Form:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.072,
+            0.309,
+            0.45,
+            0.78
+          ],
+          "sub_type": "code",
+          "content": "```txt\nswitch (Ausdruck)\n{\n    case Konstante₁:\n        statement*\n    /* ... */\n    case Konstanteₙ:\n        statement*\n    default: statement*\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.487,
+            0.223,
+            0.914,
+            0.758
+          ],
+          "sub_type": "code",
+          "content": "```txt\nchar digit, int value;\n\n/* ... */\n\nswitch (digit)\n{\n    case 'I': value = 1;     break;\n    case 'V': value = 5;     break;\n    case 'X': value = 10;     break;\n    case 'L': value = 50;     break;\n    case 'C': value = 100;   break;\n    case 'D': value = 500;   break;\n    case 'M': value = 1000; break;\n    default:\n        printf(\"Keine gültige ziffer!\");\n        break;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.035,
+            0.816,
+            0.849,
+            0.928
+          ],
+          "sub_type": "text",
+          "content": "• break: sofortiges Verlassen des ganzen switch-Statements\n• default: Code im „sonst“-Fall (optional)"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.029,
+            0.988
+          ],
+          "content": "88"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 88,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.154,
+            0.063
+          ],
+          "content": "Schleifen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.135,
+            0.717,
+            0.36
+          ],
+          "sub_type": "text",
+          "content": "• Wiederholte Ausführung einer Anweisungsfolge\n• Bsp.: Berechnung der Fakultätsfunktion"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.322,
+            0.253,
+            0.624,
+            0.293
+          ],
+          "content": "n! := 1 \\times 2 \\times \\dots \\times n",
+          "image_source": "images/page_88_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.315,
+            0.957,
+            0.361
+          ],
+          "content": "• Ohne Schleife: Code muss bei Änderung von 𝑛𝑛 modifiziert werden"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.245,
+            0.388,
+            0.759,
+            0.948
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define N 10\n    /* ... */\n    int fact, count;\n\n    count = 0;\n    fact = 1;\n\n    count++;\n    fact *= count;\n\n    /* ... N-fache wiederholung */\n\n    count++;\n    fact *= count;\n    printf(\"factorial(%d) = %d\", N, fact);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.027,
+            0.987
+          ],
+          "content": "89"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 89,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.154,
+            0.063
+          ],
+          "content": "Schleifen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.135,
+            0.936,
+            0.373
+          ],
+          "sub_type": "text",
+          "content": "• Flexiblere Variante\n• Code zwischen L1 und L2 wird wiederholt bis Zähler größer als N\n• Umdefinieren von N (#define) reicht aus\n• Jedoch: **schlechter Programmierstil**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.454,
+            0.429,
+            0.564
+          ],
+          "content": "(gotos sollten nicht verwendet werden!)"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.576,
+            0.333,
+            0.953,
+            0.802
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define N 10\n    /* ... */\n\n    int fact, count;\n\n    count = 0;\n    fact = 1;\n\nL1: if (count >= N) goto L2;\n    count++;\n    fact *= count;\n    goto L1;\n\nL2: printf(\"factorial(%d) = %d\",\n        N, fact);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.838,
+            0.803,
+            0.939
+          ],
+          "content": "• C/C++ bietet drei Formen von **strukturierten Schleifen** – for, while, do"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.027,
+            0.987
+          ],
+          "content": "90"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 90,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.213,
+            0.065
+          ],
+          "content": "for-Schleifen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.013,
+            0.097,
+            0.293,
+            0.142
+          ],
+          "content": "• Allgemeine Form:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.059,
+            0.15,
+            0.73,
+            0.195
+          ],
+          "content": "for (expr1; expr2; expr3) { statement\\* }"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.013,
+            0.299,
+            0.15,
+            0.341
+          ],
+          "content": "• expr1:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.059,
+            0.352,
+            0.437,
+            0.516
+          ],
+          "content": "– Wird vor Schleifenbeginn einmal ausgeführt → Initialisierung"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.482,
+            0.237,
+            0.955,
+            0.583
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define N 10\n\n    /* ... */\n\n    int fact, count;\n\n    fact = 1;\n    for (count = 1; count <= N; count++) {\n        fact *= count;\n    }\n    printf(\"factorial(%d) = %d\", N, fact);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.013,
+            0.583,
+            0.15,
+            0.624
+          ],
+          "content": "• expr2:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.057,
+            0.635,
+            0.721,
+            0.682
+          ],
+          "content": "– Bedingung für jeden Durchlauf (jede Iteration)"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.013,
+            0.749,
+            0.15,
+            0.79
+          ],
+          "content": "• expr3:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.057,
+            0.802,
+            0.583,
+            0.848
+          ],
+          "content": "– Wird nach statement\\* ausgeführt"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.012,
+            0.919,
+            0.881,
+            0.964
+          ],
+          "content": "• Nach expr3 wird an den Schleifenanfang **zurückgesprungen**"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.988
+          ],
+          "content": "91"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 91,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.213,
+            0.065
+          ],
+          "content": "for-Schleifen"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.011,
+            0.104,
+            0.57,
+            0.144
+          ],
+          "content": "• Warum ist count = 1 ein **Ausdruck**?"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.057,
+            0.167,
+            0.882,
+            0.277
+          ],
+          "sub_type": "text",
+          "content": "– In C sind auch Zuweisungen Ausdrücke\n– Das Ergebnis von $\\_ ZieI = A u s d r u c k ^ { \\prime \\prime }$ ist per Definition $\\nu ^ { \\angle } I e ^ { I ^ { \\prime \\prime } }$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.011,
+            0.295,
+            0.891,
+            0.393
+          ],
+          "content": "Der Wert von expr1 wird bei for-Schleifen jedoch verworfen, nur der **Seiteneffekt** einer Zuweisung ist relevant"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.011,
+            0.412,
+            0.825,
+            0.506
+          ],
+          "content": "• Zwei spezielle Statements für Ausnahmefälle in Schleifen erlaubt"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.059,
+            0.529,
+            0.592,
+            0.639
+          ],
+          "sub_type": "text",
+          "content": "– break: verlässt Schleife komplett\n– continue: verlässt aktuelle Iteration"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.012,
+            0.658,
+            0.57,
+            0.703
+          ],
+          "content": "• Wie goto mit Vorsicht zu gebrauchen!"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.639,
+            0.533,
+            0.964,
+            0.87
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"for (...; ...; ...) {<br>  B[&quot;\"] --> A\n  C[\"\"] --> A\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "images/page_91_image_11.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.027,
+            0.987
+          ],
+          "content": "92"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 92,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.024,
+            0.25,
+            0.065
+          ],
+          "content": "while-Schleifen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.023,
+            0.128,
+            0.562,
+            0.483
+          ],
+          "sub_type": "text",
+          "content": "for-Schleifen werden vor allem für eine **feste Anzahl** von Iterationen verwendet\nSoll die Schleife ausgeführt werden, <u>solange</u> eine bestimmte **Bedingung** gilt, so ist eine while-Schleife besser\n• Allgemeine Form:"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.071,
+            0.49,
+            0.411,
+            0.624
+          ],
+          "sub_type": "code",
+          "content": "```groovy\nwhile (expression) {\n    statement*\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.637,
+            0.479,
+            0.682
+          ],
+          "content": "• expression wird ausgewertet"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.07,
+            0.693,
+            0.577,
+            0.944
+          ],
+          "sub_type": "text",
+          "content": "– Falls nicht null, so wird die Schleife betreten\n– Nach statement\\* wird an den Anfang zurückgesprungen, und expression wird erneut geprüft"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.027,
+            0.988
+          ],
+          "content": "93"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.599,
+            0.291,
+            0.955,
+            0.76
+          ],
+          "sub_type": "code",
+          "content": "```c\n#define N 10\n\n    /* ... */\n\n    int fact, count;\n\n    fact = 1; count = 1;\n\n    while(count <= N) {\n        fact *= count;\n        count++;\n    }\n\n    printf(\"factorial(%d) = %d\",\n        N, fact);\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 93,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.201,
+            0.065
+          ],
+          "content": "do-Schleifen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.007,
+            0.099,
+            0.592,
+            0.948
+          ],
+          "sub_type": "text",
+          "content": "Ebenfalls für Schleifen mit **unbekannter Anzahl** von Iterationen\n**Unterschied** zu while: Mindestens eine Iteration findet statt\n• Allgemeine Form: do { statement\\* } while (expression)\nstatement\\* wird ausgeführt, und expression wird ausgewertet\nFalls true, so wird an den Anfang zurückgesprungen\nBsp.: **Mindestens eine** Benutzereingabe wird erwartet\nbreak, continue können bei while- und do-Schleifen ebenfalls verwendet werden"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.616,
+            0.543,
+            0.99,
+            0.79
+          ],
+          "sub_type": "code",
+          "content": "```txt\nchar c;\n/* ... */\n\ndo {\n    scanf(\"%c\",&c);\n    /* Berechnung auf c */\n} while (c != 'q'); // quit?\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.029,
+            0.988
+          ],
+          "content": "94"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 94,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.019,
+            0.481,
+            0.071
+          ],
+          "content": "Äquivalenz von for, while, do"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.113,
+            0.862,
+            0.222
+          ],
+          "sub_type": "text",
+          "content": "• for würde als **einziges** Schleifenkonstrukt ausreichen\n• Jede Schleifenform lässt sich in die anderen **umsetzen**, z.B."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.231,
+            0.627,
+            0.328
+          ],
+          "content": "while (Ausdruck) { statement\\* } entspricht"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.332,
+            0.625,
+            0.376
+          ],
+          "content": "for (;Ausdruck;) { statement\\* }"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.428,
+            0.774,
+            0.525
+          ],
+          "content": "for (expr1; expr2; expr3) { statement\\* } entspricht"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.106,
+            0.531,
+            0.208,
+            0.572
+          ],
+          "content": "expr1;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.104,
+            0.574,
+            0.694,
+            0.618
+          ],
+          "content": "while (expr2) { statement\\* expr3; }"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.633,
+            0.97,
+            0.901
+          ],
+          "sub_type": "text",
+          "content": "Jedoch ist aus Gründen der **Programm-Lesbarkeit** die jeweils am besten geeignete Variante zu bevorzugen\nDer Einsatz von **strukturierten Schleifen** (for, while, do) und der **Verzicht auf Sprünge** (goto) führt beim Übersetzen auch oft zu besserem Maschinencode"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.027,
+            0.988
+          ],
+          "content": "95"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 95,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.024,
+            0.024,
+            0.243,
+            0.065
+          ],
+          "content": "Endlosschleifen"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.135,
+            0.487,
+            0.689
+          ],
+          "sub_type": "text",
+          "content": "Falls die Abbruchbedingung einer Schleife nie erfüllt ist, **terminiert** das Programm nicht\nCompiler kann dies i.A. **nicht bemerken**\nBei Ausführung: Ab einem gewissen Zeitpunkt **kein Programmfortschritt** mehr zu beobachten\n• **Abhilfe**:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.07,
+            0.711,
+            0.419,
+            0.875
+          ],
+          "sub_type": "text",
+          "content": "– Programmabbruch\n– Erneutes Starten unter Debugger-Kontrolle"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.552,
+            0.244,
+            0.957,
+            0.691
+          ],
+          "sub_type": "code",
+          "content": "```txt\nwhile ((a > 10) || (b > 20)) {\n    if ( /* ... */ ) {\n        /* ... */\n        a = 100;\n        /* ... */\n    } else {\n        /* ... */\n        b = 30;\n        /* ... */\n    }\n    /* danach Bedingung\n        stets erfüllt */\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.029,
+            0.988
+          ],
+          "content": "96"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "PowerPoint-Präsentation",
+      "authors": [
+        "Tobias Gemmeke"
+      ],
+      "created_at": "2026-10-06T18:07:32+02:00",
+      "modified_at": "2026-10-06T18:08:54+02:00",
+      "creator_application": "Acrobat PDFMaker 20 für PowerPoint",
+      "producer_application": "Adobe PDF Library 20.9.95",
+      "page_count": 355,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 64,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 65,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 66,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 67,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 68,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 69,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 70,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 71,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 72,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 73,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 74,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 75,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 76,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 77,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 78,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 79,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 80,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 81,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 82,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 83,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 84,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 85,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 86,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 87,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 88,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 89,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 90,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 91,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 92,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 93,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 94,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 95,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

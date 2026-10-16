@@ -1,0 +1,1203 @@
+--- PDF page 189 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+7. Sortieralgorithmen
+7.1 Einfache Verfahren (Selection/Insertion/Bubblesort)
+7.2 Quicksort
+7.3 Heapsort
+189
+
+
+--- PDF page 190 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Warum Betrachtung von Sortieralgorithmen?
+• Sortierung von Datensätzen wird als Subroutine in sehr vielen 
+Anwendungen benötigt (s. Beispiel „Suchen in Arrays“)
+• Einfachster Fall: Sortieren eines Arrays von Zahlen (z.B. int)
+• Allg. Fall: Sortieren eines Arrays von Datensätzen vom Typ struct
+• Beispiel:
+typedef struct person { 
+char name[100], vorname[100];
+struct datum { int tag, monat, jahr; } gebdatum;
+} Person;
+• Sortierung nach Namen, Vornamen oder Geburtsdatum?
+• Erfordert Definition eines Schlüssels (key), d.h. struct-
+Komponente, gemäß der sortiert werden soll
+• Unterschiedliche Vergleichsfunktionen erforderlich
+190
+
+
+--- PDF page 191 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Definition des Sortierproblems
+• Gegeben: Folge 𝑆𝑆= (𝑠𝑠1, … , 𝑠𝑠𝑁𝑁) von Datensätzen (struct)
+• Jeder Datensatz 𝑠𝑠𝑖𝑖besitzt einen Eintrag 𝑘𝑘𝑘𝑘𝑘𝑘eines mittels einer 
+Ordnungsrelation linear geordneten Datentyps
+• Z.B. Zahlen: „≤“-Relation, Buchstaben: alphabetische Reihenfolge, 
+Geburtsdatum: 3-stufiger Vergleich Jahr, Monat, Tag
+• Gesucht: Permutation (Anordnung) 𝑆𝑆′ = 𝑠𝑠1
+′, … , 𝑠𝑠𝑁𝑁
+′
+der Elemente von 𝑆𝑆, so dass
+𝑠𝑠1
+′. 𝑘𝑘𝑘𝑘𝑘𝑘≤𝑠𝑠2
+′. 𝑘𝑘𝑘𝑘𝑘𝑘≤⋯≤𝑠𝑠𝑁𝑁
+′ . 𝑘𝑘𝑘𝑘𝑘𝑘
+• Gleiche Schlüssel dürfen auch mehrfach vorkommen
+• Ein Sortieralgorithmus, der die ursprüngliche Reihenfolge bei 
+gleichem Schlüssel beibehält, heißt stabil
+• Sprachelemente in c: 
+Definition der Folge als Array: Person s[N];
+Auslesen des Schlüssels von Datensatz 𝑖𝑖: s[i].key
+191
+
+
+--- PDF page 192 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Analyse von Sortieralgorithmen
+• Wie üblich: Verwendung der 𝓞𝓞-Notation zur Abstraktion von 
+konstanten Faktoren und Rechnerdetails
+• Elementare Operationen von Sortieralgorithmen:
+– Vergleich zweier Schlüssel
+– Vertauschen von Daten in Folge S (Array oder File) 
+• Daher Abschätzung der Laufzeit in diesen Größen
+• Reale Laufzeit: abhängig von der Komplexität dieser Operationen
+• Bsp.: Sortieren eines Bücherregals, Vergleich der Autorennamen 
+aufwendiger als Vertauschen
+• Bsp.: Sortieren einer Datenbank mit großen Datensätzen in einem 
+File, Umkopieren auf Festplatte oder Magnetband aufwendiger als 
+Key-Vergleich
+• Hier: nur Betrachtung der Vergleichsoperationen
+192
+
+
+--- PDF page 193 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Sortieren durch Auswählen (Selection Sort)
+• Manuelles alphabetisches Sortieren 
+eines Bücherregals mit 𝑁𝑁Büchern:
+– Schlüssel: Autorenname
+– Durchlaufen der Bücher von links 
+nach rechts
+– Merken des jeweils „kleinsten“ 
+bisher gefundenen Buches und 
+dessen Position 𝑝𝑝im Regal
+– Zum Schluss: „Kleinstes“ Buch    
+ganz links hinstellen, dort bisher 
+stehendes Buch (vorläufig) an 
+Position 𝑝𝑝stellen
+– Verfahren fortsetzen mit 𝑝𝑝= 2
+Goethe
+Hesse
+Goethe
+Hesse
+193
+
+
+--- PDF page 194 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Algorithmus im Detail
+• Vereinfachung: Sortieren von Arrays vom Typ int, d.h. 
+Vergleichsoperation auf Zahlen, z.B. A[i] < A[j]
+• Real: Hilfsfunktion „less“ auf Sortierschlüsseln, jeweils Vergleich 
+less(A[i].key, A[j].key)
+void selection_sort(int A[], int l, int r)
+{ 
+int i, j, min;
+for (i = l; i < r; i++) {
+min = i;
+for (j = i+1; j <= r; j++) {
+if (A[j] < A[min]) min = j;
+}
+exchange(A[i], A[min]); // vertauschen 
+}
+}
+194
+
+
+--- PDF page 195 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel
+45
+12
+77
+23
+76
+11
+83
+66
+11
+12
+77
+23
+76
+45
+83
+66
+11
+12
+77
+23
+76
+45
+83
+66
+11
+12
+23
+77
+76
+45
+83
+66
+11
+12
+23
+45
+76
+77
+83
+66
+11
+12
+23
+45
+66
+77
+83
+76
+11
+12
+23
+45
+66
+76
+83
+77
+11
+12
+23
+45
+66
+76
+77
+83
+11
+12
+23
+45
+66
+76
+77
+83
+bereits sortiert
+noch unsortiert
+aktuell min. Schlüssel
+vertauscht
+Ergebnis
+195
+
+
+--- PDF page 196 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+void selection_sort(int A[], int l, int r)
+{ 
+int i, j, min;
+for (i = l; i < r; i++) {
+min = i;
+for (j = i+1; j <= r; j++) {
+if (A[j] < A[min]) min = j;
+}
+exchange(A[i], A[min]); 
+}
+}
+Laufzeitanalyse
+• Aufruf: selection_sort(A,0,N-1);
+𝟏𝟏+ 𝟐𝟐+ … + 𝑵𝑵−𝟐𝟐+ 𝑵𝑵−𝟏𝟏⋅𝒪𝒪1 + 𝑁𝑁−1 ⋅𝒪𝒪1
+= 𝑵𝑵⋅𝑵𝑵−𝟏𝟏/𝟐𝟐⋅𝒪𝒪1 + 𝒪𝒪𝑁𝑁= 𝒪𝒪𝑁𝑁2 + 𝒪𝒪𝑁𝑁= 𝒪𝒪(𝑁𝑁2)
+N-1 Iterationen
+N-1, N-2, ..., 1 Iterationen
+𝓞𝓞(𝟏𝟏) Operationen
+𝓞𝓞(𝟏𝟏) Operationen
+196
+
+
+--- PDF page 197 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Goethe
+Sortieren durch Einfügen (Insertion Sort)
+• Manuelles alphabetisches Sortieren 
+eines Bücherregals mit 𝑁𝑁Büchern:
+– Schlüssel: Autorenname
+– Durchlaufen der Bücher von links 
+nach rechts (𝑖𝑖= 1 … 𝑁𝑁)
+– Betrachtung des Buchs an 
+Position 𝒑𝒑= 𝒊𝒊
+– Buch Nr. 𝑖𝑖entnehmen
+– Bücher links von 𝑝𝑝= 𝑖𝑖
+(d.h. 𝑝𝑝< 𝑖𝑖) nach rechts rücken, 
+bis korrekte Einfügeposition für 
+Buch 𝑖𝑖gefunden
+– Verfahren fortsetzen mit
+𝑖𝑖= 𝑖𝑖+ 1
+Hesse
+Goethe
+197
+
+
+--- PDF page 198 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Algorithmus im Detail
+• Betrachtung aller Bücher von links nach rechts
+• Erstes Buch braucht nicht betrachtet zu werden, da kein linker 
+Nachbar (d.h. zu Beginn i = l+1)
+void insertion_sort(int A[], int l, int r)
+{ 
+int i, j, v;
+for (i = l+1; i <= r; i++) {
+v = A[i];
+for (j = i-1; j >= l; j--) {
+if (v < A[j]) A[j+1] = A[j];
+else break; 
+}
+A[j+1] = v;
+}
+}
+198
+
+
+--- PDF page 199 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel
+45
+12
+77
+23
+76
+11
+83
+66
+12
+45
+77
+23
+76
+11
+83
+66
+12
+45
+77
+23
+76
+11
+83
+66
+12
+23
+45
+77
+76
+11
+83
+66
+12
+23
+45
+76
+77
+11
+83
+66
+12
+23
+45
+76
+77
+11
+83
+66
+12
+23
+45
+76
+77
+11
+83
+66
+12
+23
+45
+76
+77
+11
+83
+66
+bereits sortiert
+noch unsortiert
+aktuelles Element
+bereits sortiert,
+aber zu verschieben
+199
+
+
+--- PDF page 200 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+void insertion_sort(int A[], int l, int r)
+{ 
+int i, j, v;
+for (i = l+1; i <= r; i++) {
+v = A[i];
+for (j = i-1; j >= l; j--) {
+if (v < A[j]) A[j+1] = A[j];
+else break; 
+}
+A[j+1] = v;
+}
+}
+Laufzeitanalyse
+• Aufruf: insertion_sort(A,0,N-1);
+𝟏𝟏+ 𝟐𝟐+ … + 𝑵𝑵−𝟐𝟐+ 𝑵𝑵−𝟏𝟏⋅𝒪𝒪1 +
+𝑁𝑁−1 ⋅𝒪𝒪(1)
+= 𝑵𝑵⋅
+⁄
+𝑵𝑵−𝟏𝟏
+𝟐𝟐⋅𝒪𝒪(1) + 𝒪𝒪(𝑁𝑁) = 𝒪𝒪(𝑁𝑁2) + 𝒪𝒪(𝑁𝑁) = 𝒪𝒪(𝑁𝑁2)
+N-1 Iterationen
+Max. 1,2,…,N-2,N-1 Iterationen
+O(1) Operationen
+O(1) Operationen
+200
+
+
+--- PDF page 201 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Bubblesort
+• Idee: Elemente mit kleinem Schlüssel sind 
+„leicht“ und steigen wie Blasen im Array 
+auf (d.h. wandern nach links)
+• Aufsteigen durch fortgesetztes 
+paarweises Vertauschen der Elemente 
+von rechts nach links implementiert
+void bubble_sort(int A[], int l, int r)
+{ 
+int i, j;
+for (i = l; i < r; i++) {
+for (j = r; j > i; j--) {
+if (A[j-1] > A[j]) 
+exchange(A[j-1],A[j]); 
+}
+}
+}
+201
+
+
+--- PDF page 202 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel (1. Durchlauf der äußeren Schleife)
+45
+12
+77
+23
+76
+11
+83
+66
+45
+12
+77
+23
+76
+11
+66
+83
+45
+12
+77
+23
+11
+76
+66
+83
+45
+12
+77
+11
+23
+76
+66
+83
+45
+12
+11
+77
+23
+76
+66
+83
+45
+11
+12
+77
+23
+76
+66
+83
+11
+45
+12
+77
+23
+76
+66
+83
+noch unsortiert
+aktuelle linke Grenze
+zu vertauschen
+• Kleinstes Element (11) am Ende des 1. Durchlaufs an der linken 
+Position
+• Andere relativ „leichte“ Elemente (z.B. 66) sind bereits teilweise 
+nach links gerückt, schwere nach rechts (45, 77)
+bereits sortiert
+202
+
+
+--- PDF page 203 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel (2. und 3. Durchlauf der äußeren Schleife)
+• Eigenschaft: nach 𝑖𝑖-tem Durchlauf ist 𝑖𝑖-tes kleinstes Element an 
+seiner endgültigen Position
+• Andere Elemente wurden weiter vorsortiert
+11
+45
+12
+77
+23
+76
+66
+83
+11
+45
+12
+77
+23
+66
+76
+83
+11
+45
+12
+23
+77
+66
+76
+83
+11
+12
+45
+23
+77
+66
+76
+83
+11
+12
+45
+23
+77
+66
+76
+83
+11
+12
+45
+23
+66
+77
+76
+83
+11
+12
+23
+45
+66
+77
+76
+83
+11
+12
+23
+45
+66
+77
+76
+83
+bereits sortiert
+noch unsortiert
+aktuelle linke Grenze
+zu vertauschen
+203
+
+
+--- PDF page 204 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Laufzeitanalyse
+1 + 2 + … + 𝑁𝑁−2 + 𝑁𝑁−1 ⋅𝒪𝒪(1)
+= 𝑁𝑁⋅(𝑁𝑁−1)/2 ⋅𝒪𝒪(1) = 𝒪𝒪(𝑁𝑁2)
+• Selection Sort, Insertion Sort und Bubblesort haben asymptotisch 
+alle quadratische Laufzeit in der Eingabegröße 𝑁𝑁und sind (bis auf 
+konstante Faktoren) gleichwertig
+void bubble_sort(int A[], int l, int r)
+{ 
+int i, j;
+for (i = l; i < r; i++) { 
+for (j = r; j > i; j--) { 
+if (A[j-1] > A[j]) 
+exchange(A[j-1],A[j]); 
+}
+}
+}
+𝑵𝑵−𝟏𝟏Iterationen
+𝑵𝑵−𝟏𝟏, 𝑵𝑵−𝟐𝟐, … , 𝟏𝟏Iterationen
+𝓞𝓞(𝟏𝟏) Operationen
+204
+
+
+--- PDF page 205 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+7. Sortieralgorithmen
+7.1 Einfache Verfahren (Selection/Insertion/Bubblesort)
+7.2 Quicksort
+7.3 Heapsort
+205
+
+
+--- PDF page 206 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Divide-and-conquer
+• „Divide et impera“, „Teile und herrsche“
+• Verbreitetes Prinzip beim Algorithmenentwurf
+• D.h. selbst kein Algorithmus, nur ein „Kochrezept“ bei der 
+Entwicklung
+• Divide-and-conquer-Idee:
+– Mehrere kleine Probleme sind insgesamt leichter zu lösen als 
+ein großes
+– Teile großes Problem in mehrere kleine, löse diese, und 
+berechne daraus die Gesamtlösung
+• Hier: 
+– Zerlege zu sortierendes Array A in zwei Teile A' und A", die 
+unabhängig voneinander sortiert werden können
+– Sortiere A' und A" getrennt
+– Zusammenfügen (Konkatenation) der sortierten Arrays A' und 
+A" ergibt sortiertes Gesamtarray A
+206
+
+
+--- PDF page 207 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Quicksort-Algorithmus
+• Für Array A[l...r] wähle ein bestimmtes A[k] aus
+• A[k] ist das Trennelement
+• Ordne Array so um, dass:
+– A' = A[l...k-1] hat nur Elemente ≤ A[k]
+– A" = A[k+1...r] hat nur Elemente ≥ A[k]
+• Dies wird realisiert, indem bzgl. des Trennelementes „falsche“ 
+Elemente in A' und A" paarweise vertauscht werden
+• Achtung: Arrays A', A" sind danach i.a. immer noch unsortiert
+• Sortiere die Teilarrays A' und A" mittels erneutem Aufruf des 
+Quicksort-Algorithmus (Rekursion)
+• Anschließend ist A = A' A[k] A" ein sortiertes Gesamtarray
+207
+
+
+--- PDF page 208 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Algorithmus im Detail
+k
+>= A[k]
+<= A[k]
+fertig sortiert
+void quick_sort(int A[], int l, int r)
+{ 
+int k;
+if (r <= l) return;
+k = partition(A,l,r);
+quick_sort(A,l,k-1);
+quick_sort(A,k+1,r);
+}
+208
+
+
+--- PDF page 209 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Algorithmus im Detail
+int partition(int A[], int l, int r)
+{ 
+int i, j, k, v;
+k = r; v = A[k]; // willkürliches Trennelement
+i = l; // starte am linken Rand
+j = r-1; // starte am rechten Rand – 1
+while (1) { // durchlaufen bis Abbruch
+while (i < r  && A[i] <= v) i++;
+while (j >= l && A[j] >= v) j--;
+if (i >= j) // aneinander vorbeigelaufen ?
+break; // Abbruch der while-Schleife
+else
+exchange(A[i],A[j]);
+}
+exchange(A[i],A[k]);
+return i;
+}
+209
+
+
+--- PDF page 210 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel (1. Durchlauf von partition)
+• Trennelement ist 66
+• 11 und 77 werden vertauscht
+• i und j laufen dann aneinander vorbei
+• 66 und 76 werden vertauscht
+• Anschließend Sortieren von A' und A"
+45
+12
+77
+23
+76
+11
+83
+66
+i
+j
+45
+12
+77
+23
+76
+11
+83
+66
+i
+j
+45
+12
+11
+23
+76
+77
+83
+66
+i
+j
+45
+12
+11
+23
+77
+83
+76
+66
+>= A[k]
+<= A[k]
+fertig sortiert
+Trennelement
+A'
+A"
+210
+
+
+--- PDF page 211 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel (Forts.)
+45
+12
+11
+23
+77
+83
+76
+66
+i
+j
+11
+12
+45
+23
+77
+83
+76
+66
+i
+j
+11
+12
+23
+45
+77
+83
+76
+66
+11
+12
+23
+45
+77
+83
+76
+66
+11
+12
+23
+45
+77
+83
+76
+66
+11
+12
+23
+45
+77
+83
+76
+66
+11
+12
+23
+45
+76
+77
+83
+66
+>= A[k]
+<= A[k]
+fertig sortiert
+Trennelement
+noch nicht betrachtet
+11
+12
+23
+45
+77
+83
+76
+66
+...
+211
+
+
+--- PDF page 212 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Laufzeitanalyse
+• Schlechtester Fall: zufällig gewähltes Trennelement ist das 
+Maximum des Arrays
+• Z.B. bei vorsortiertem Array
+• i durchläuft N-1 Elemente, d.h. 𝓞𝓞(𝑵𝑵−𝟏𝟏) Vergleiche
+• Jeder Teilungsschritt spaltet genau ein Element ab und hinterlässt 
+ein um ein Element kleineres Teilarray A'
+• Ist A' ebenfalls schon sortiert, so wiederholt sich dieser Effekt
+– Trennelement ist Maximum von A'
+– i durchläuft N-2 Elemente
+– usw.
+• Analoger Effekt bei Trennelement ganz links und Array-Min.
+max
+i
+212
+
+
+--- PDF page 213 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Laufzeitanalyse
+• Anzahl Vergleiche im worst case: 
+𝒪𝒪𝑁𝑁−1 + 𝒪𝒪𝑁𝑁−2 + … + 1 = 𝒪𝒪𝑁𝑁2
+• Jedoch wesentlich besser im best case:
+– 𝑇𝑇𝑁𝑁:= Zeit, um Array der Länge 𝑁𝑁zu sortieren
+– Pro Teilungsschritt durchlaufen 𝑖𝑖und 𝑗𝑗nicht mehr als 𝑁𝑁
+Elemente, d.h. es gibt 𝒪𝒪𝑁𝑁Vergleiche
+– Im besten Fall entstehen jeweils 2 Teilarrays gleicher Größe
+𝑇𝑇𝑁𝑁= 2 ⋅𝑇𝑇⁄
+𝑁𝑁2 + 𝒪𝒪𝑁𝑁
+= 2 ⋅2 ⋅𝑇𝑇⁄
+𝑁𝑁4 + 𝒪𝒪
+⁄
+𝑁𝑁2
++ 𝒪𝒪𝑁𝑁
+= 4 ⋅𝑇𝑇⁄
+𝑁𝑁4 + 2 ⋅𝒪𝒪
+⁄
+𝑁𝑁2 + 𝒪𝒪𝑁𝑁
+= 4 ⋅𝑇𝑇⁄
+𝑁𝑁4 + 𝒪𝒪𝑁𝑁+ 𝒪𝒪𝑁𝑁
+= ⋯= 𝒪𝒪𝑁𝑁+ ⋯+ 𝒪𝒪𝑁𝑁
+= log 𝑁𝑁⋅𝒪𝒪𝑁𝑁
+= 𝒪𝒪𝑁𝑁log 𝑁𝑁
+log 𝑁𝑁Teilungsschritte, 𝑇𝑇1 = 𝒪𝒪1
+log 𝑁𝑁mal
+213
+
+
+--- PDF page 214 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Laufzeitanalyse
+• Durch einfache Techniken kann man den worst case meist 
+ausschließen
+• Z.B. Median von 3 Elementen als Trennelement verwenden
+• Man kann zeigen: Quicksort hat auch im durchschnittlichen Fall
+(average case) eine Laufzeit von 𝓞𝓞𝑵𝑵𝒍𝒍𝒍𝒍𝒍𝒍𝑵𝑵
+• D.h. Quicksort ist fast immer effizient und darüber hinaus recht 
+einfach zu implementieren
+• Z.B. N = 1.000.000, 109 Operationen pro sec
+– 𝒪𝒪𝑁𝑁log 𝑁𝑁: Laufzeit < 1 sec
+– 𝒪𝒪𝑁𝑁2 :         Laufzeit ≈ 17 min
+• Daher: Quicksort ist das Sortierverfahren mit der größten 
+Verbreitung
+• Z.B. Bestandteil jeder C-Standard-Library (qsort-Funktion)
+214
+
+
+--- PDF page 215 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+7. Sortieralgorithmen
+7.1 Einfache Verfahren (Selection/Insertion/Bubblesort)
+7.2 Quicksort
+7.3 Heapsort
+215
+
+
+--- PDF page 216 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Heapsort
+• Selection Sort: Sortierung durch fortgesetzte Minimumsauswahl
+(s.o.)
+• 𝑁𝑁Minima sind auszuwählen, jede Auswahl kostet im Mittel 
+𝒪𝒪𝑁𝑁/2 = 𝒪𝒪𝑁𝑁Schritte, daher Gesamtlaufzeit 𝓞𝓞𝑵𝑵𝟐𝟐
+• Idee bei Heapsort: Beschleunigung der Minimumsauswahl
+• Betrachte folgende Anordnung der Array-Elemente 
+(Array-Indizes laufen hier von 𝟏𝟏… 𝑵𝑵statt 0 … 𝑁𝑁−1):
+• „Unsortiert“, aber folgende Eigenschaft für jedes A[i]:
+– A[i] ≤ A[2i],   falls 2i ≤ N
+– A[i] ≤ A[2i+1], falls 2i+1 ≤ N
+11
+12
+23
+77
+45
+76
+66
+83
+1         2         3         4        5         6         7        8
+216
+
+
+--- PDF page 217 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Veranschaulichung als Baumstruktur
+• Jedes Baumelement A[i] besitzt 0, 1, oder 2 „Kinder“
+• Kinder besitzen Arrayindex 2i bzw. 2i+1
+• 12, 23 sind Kinder von 11; 77, 45 sind Kinder von 12 usw.
+11
+12
+77
+83
+23
+66
+76
+45
+Def.: Gelten im Array A[1...N] für jedes A[i] die Eigenschaften 
+A[i] ≤ A[2i] (falls 2i ≤ N) und A[i] ≤ A[2i+1] (falls 
+2i+1 ≤ N), so ist A ein (Minimums-)Heap.
+11
+12
+23
+77
+45
+76
+66
+83
+1         2         3         4        5         6         7        8
+217
+
+
+--- PDF page 218 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Heapsort-Prinzip
+•
+Heap-Eigenschaft: Das (globale) Array-Minimum befindet sich 
+stets ganz oben im Heap (der sog. Wurzel)
+•
+Folgerung: Entnahme des Minimums aus einem Heap ist trivial 
+(immer in A[1], d.h. Laufzeit 𝒪𝒪1 )
+•
+Ablauf von Heapsort:
+1. Verwandeln des unsortierten Arrays A[1...N] in einen Heap, 
+danach ist Wurzel A[1] das Minimum
+2. Vertausche Wurzel und A[N]
+3. Min. befindet sich danach an der richtigen Stelle N
+(hier: absteigende Sortierreihenfolge!)
+4. A[2...N-1] ist noch korrekter Heap, jedoch neues Element 
+A[1] evtl. falsch
+5. Wiederherstellen der Heap-Eigenschaft von A[1...N-1]
+6. Fortsetzen ab Schritt 2 mit nächstem Element N-1 und neuer 
+Wurzel
+218
+
+
+--- PDF page 219 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Heapsort-Prinzip
+...
+Unsortiertes Array
+Verwandeln in Heap
+min1
+min1 an Position 1
+min1
+Vertauschen mit A[N]
+min2
+min1
+Heap reparieren, min2 an Pos. 1
+min2 min1
+Vertauschen mit A[N-1]
+min3
+min2 min1
+Heap reparieren, min3 an Pos. 1
+min8 min7 min6 min5 min4 min3 min2 min1
+Fertig sortiert
+min i := i-tes kleinstes Element im Array
+219
+
+
+--- PDF page 220 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Reparatur des Heaps
+• Situation nach erster Vertauschung
+83
+12
+23
+77
+45
+76
+66
+11
+• „Einsinken lassen“ der Wurzel: Vertausche Wurzel mit kleinerem 
+der beiden Kinder
+12
+83
+23
+77
+45
+76
+66
+11
+11
+12
+77
+83
+23
+66
+76
+45
+220
+
+
+--- PDF page 221 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Reparatur des Heaps
+• Fortsetzen abwärts im Baum, bis keine kleineren Kinder mehr 
+vorhanden 
+• Vernachlässige bereits sortierten Bereich am Ende von A
+• Heap-Eigenschaft des unsortierten Bereichs von A wieder 
+hergestellt
+12
+83
+23
+77
+45
+76
+66
+11
+12
+45
+23
+77
+83
+76
+66
+11
+221
+
+
+--- PDF page 222 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Heap-Reparatur (Einsinken lassen der Wurzel)
+void sink(int A[], int k, int N) // A[0] nicht benutzt
+{ 
+int child; // speichert kleinstes Kind falls vorhanden
+while (1) { // durchlaufen bis Abbruch
+if (2*k > N) break;  // Knoten k hat kein Kind
+if (2*k+1 <= N) {    // Knoten k hat 2 Kinder
+if (A[2*k] < A[2*k+1]) child = 2*k;
+else child = 2*k+1;
+} else child = 2*k;    // 2k <= N, Knoten k hat 1 Kind 
+if (A[k] > A[child]) { // Vertauschen notwendig?
+exchange(A[k], A[child]);
+k = child;    // Knoten k evtl. weiter sinken lassen
+} else break; // sonst: richtige Pos. für k gefunden
+}
+}
+222
+
+
+--- PDF page 223 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Heapsort-Algorithmus
+• Verwendung der Funktion sink auch zum einmaligen Heap-Aufbau 
+zu Beginn
+• Elemente mit Index > N/2 haben keine Kinder
+• Dann Vertauschen und Einsinken lassen wie oben gezeigt
+void heap_sort(int A[], int N) // A[0] nicht benutzt 
+{ 
+int i;
+for (i = N/2; i > 0; i--) { // Heap aufbauen
+sink(A,i,N); 
+}
+for (i = N; i > 1; i--) { 
+exchange(A[1], A[i]); // Min. ans akt. Heap-Ende setzen
+sink(A,1,i-1);       // Heap reparieren
+}
+}
+223
+
+
+--- PDF page 224 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Laufzeitanalyse
+• Betrachtung der worst case Laufzeit
+• 1. Schleife: 𝒪𝒪𝑁𝑁Aufrufe von sink
+• 2. Schleife: 𝒪𝒪𝑁𝑁Aufrufe von sink + 𝒪𝒪𝑁𝑁
+• Gesamt: 𝓞𝓞𝑵𝑵⋅𝑻𝑻𝐬𝐬𝐬𝐬𝐬𝐬𝐬𝐬+ 𝓞𝓞𝑵𝑵
+void heap_sort(int A[], int N)
+{ 
+int i;
+for (i = N/2; i > 0; i--) {    
+sink(A,i,N); // Heap aufbauen
+}
+for (i = N; i > 1; i--) {   
+exchange(A[1],A[i]); 
+sink(A,1,i-1);       
+}
+}
+𝓞𝓞𝑵𝑵Iterationen
+𝓞𝓞𝑵𝑵Iterationen
+𝓞𝓞𝟏𝟏
+224
+
+
+--- PDF page 225 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+void sink(int A[], int k, int N)
+{ 
+int child; 
+while (1) { 
+if (2*k > N) break; 
+if (2*k+1 <= N) { 
+if (A[2*k] < A[2*k+1]) 
+child = 2*k;
+else child = 2*k+1;
+} else child = 2*k;     
+if (A[k] > A[child]) {     
+exchange(A[k],A[child]);
+k = child;  
+} else break; 
+}
+}
+Laufzeitanalyse für 𝑻𝑻𝐬𝐬𝐬𝐬𝐬𝐬𝐬𝐬
+Alle Operationen
+jeweils 𝓞𝓞𝟏𝟏,
+also auch 
+insgesamt
+𝓞𝓞𝟏𝟏
+𝓞𝓞? ? ?
+Iterationen
+225
+
+
+--- PDF page 226 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Laufzeitanalyse
+• In jedem Durchlauf der while-Schleife wird k mindestens 
+verdoppelt (child = 2k bzw. 2k+1; k = child; )
+• Z.B. k = 1, 2, 4, 8, 16, 32, ... 
+• 32 nach 5 (= log 32) Schritten erreicht 
+• Allgemein: k kann höchstens (𝐥𝐥𝐥𝐥𝐥𝐥𝑵𝑵)-mal verdoppelt werden, bis 
+Arraygrenze N erreicht wurde und sink terminiert
+• Gesamtlaufzeit: 
+• Heapsort braucht auch im worst case nur 𝒪𝒪𝑁𝑁log 𝑁𝑁Schritte
+𝒪𝒪𝑁𝑁⋅𝑇𝑇sink + 𝒪𝒪𝑁𝑁
+= 𝒪𝒪𝑁𝑁⋅log 𝑁𝑁⋅𝒪𝒪1
++ 𝒪𝒪𝑁𝑁
+= 𝒪𝒪𝑁𝑁⋅𝒪𝒪log 𝑁𝑁+ 𝒪𝒪𝑁𝑁
+= 𝒪𝒪𝑁𝑁log 𝑁𝑁+ 𝒪𝒪𝑁𝑁
+= 𝒪𝒪𝑁𝑁log 𝑁𝑁
+226
+
+
+--- PDF page 227 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Fazit zu Sortierverfahren
+• Man kann zeigen: Jeder allgemeine Sortieralgorithmus benötigt im 
+worst case mindestens Laufzeit 𝓞𝓞𝑵𝑵𝐥𝐥𝐥𝐥𝐥𝐥𝑵𝑵
+• D.h. Heapsort ist der „bestmögliche“ Sortieralgorithmus bis auf 
+nichtsignifikante Terme + Konstanten
+• In der Praxis können jedoch andere Verfahren (z.B. Quicksort und 
+sogar Bubblesort für kleine 𝑁𝑁) durchaus schneller sein
+• In Spezialfällen kann man noch schneller sortieren
+• Sortierverfahren mit Verwendung zusätzlicher Zwischenspeicher
+– Bucket Sort, Radix Sort, Counting Sort (nächste Folie)
+227
+𝒙𝒙
+≤𝟐𝟐𝟐𝟐
+𝟏𝟏𝟏𝟏≤
+𝒙𝒙
+< 𝟐𝟐𝟐𝟐
+𝟐𝟐𝟐𝟐≤
+𝒙𝒙
+𝑚𝑚-Buckets ⭢𝒪𝒪𝑚𝑚
+set
+Stabile Sortierung je Radix (Buchstabe, Ziffer, …) 
+Key ⭢ [K][e][y]
+𝑚𝑚× Sortieren von Radix r ⭢𝒪𝒪𝑚𝑚⋅𝒪𝒪𝑓𝑓𝑟𝑟
+ 
+
+
+--- PDF page 228 ---
+© T. Gemmeke, IDS, RWTH
+Schlüsselindiziertes Zählen
+• Lineare Komplexität in der Laufzeit
+• Idee: „Schlüsselindiziertes Zählen“
+• 𝑚𝑚≔Anzahl möglicher Schlüssel
+• Beispiele
+•
+PLZ: 𝑚𝑚PLZ < 105
+•
+Name (20 Buchstaben): 𝑚𝑚name = 2620 < 2520 = 2100 ≈1030
+C[0] := 0
+C[1] += C[0] = 
+C[2] += C[1] = 
+C[3] += C[2] = 
+C[4] += C[3] = 
+C[5] += C[4] =
+Beispiel:  A[] := {'a','b','a','c','a','e','f','a'}
+C[m]
+'a': C[1] = 
+'b': C[2] =
+'c': C[3] =
+'d': C[4] =
+'e': C[5] =
+'f': C[6] =
+for( all letters in A )
+   C[A[i]-'a'+1]++;
+for( all C \ C[0] )
+   C[i] += C[i-1];
+for( all letters in A )
+   B[C[A[i]-'a']++] = A[i];
+→B[] : {'a',‘a','a',‘a',‘b‘,‘c',‘e',‘f‘}
+228

@@ -1,0 +1,1142 @@
+{
+  "pages": [
+    {
+      "page_idx": 260,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.41,
+            0.258,
+            0.588,
+            0.308
+          ],
+          "level": 2,
+          "content": "9. Bäume"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.156,
+            0.479,
+            0.577,
+            0.647
+          ],
+          "sub_type": "text",
+          "content": "**9.1 Definition und Darstellung**\n9.2 Baumdurchläufe\n9.3 Suchbäume"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.036,
+            0.988
+          ],
+          "content": "261"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 261,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.025,
+            0.026,
+            0.124,
+            0.063
+          ],
+          "content": "Bäume"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.033,
+            0.117,
+            0.861,
+            0.22
+          ],
+          "content": "**Def**.: Ein **Baum** besteht aus einem ausgezeichneten Knoten 𝑟𝑟 (**Wurzel**, root) und $k \\; \\geq \\; 0$ disjunkten Bäumen $T _ { 1 } , \\ldots , T _ { k }$"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.251,
+            0.93,
+            0.53
+          ],
+          "sub_type": "text",
+          "content": "Bäume sind eine äußerst verbreitete Datenstruktur mit einer **Vielzahl von Anwendungen**\nZ.B. Darstellung von **Hierarchien** (Firmen-Organigramm), Eltern-Kind-Beziehung (Stammbaum), Dateisysteme u.v.m.\n• Siehe auch Baumdarstellung von Arrays in **Heapsort**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.041,
+            0.55,
+            0.671,
+            0.948
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_261_image_6.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.688,
+            0.551,
+            0.983,
+            0.956
+          ],
+          "sub_type": "text_image",
+          "content": "C:\\inetpub\\wwwroot\\OPINION\nDatei  Bearbeiten  Ansicht  Favoriten  Etras  2\nZurück →  Suchen  Ordner  Verlauf\nAdesse C:\\inetpub\\wwwroot\\OPINION\nWechseln zu\nOrdner\nArbeitsplatz\n3#Diskette (A:)\nPLADE (C:)\n_RESTORE\nADLSF\nATI\nEigene Datenien\nEPUSBDRV\nFA\nInetpub\nissamples\nscripts\nwebpub\nwwwroot\nconstruction\ncontactus\nFORUM\nIMAGES\ninnovation\ninnovation-alt\nmembership\nOPINION\nOPINION-2\nOPINION-alt\nphilosophy\nprotected\nQuery\nregistration\nSEARCH\nunused pages\nJBuilder4\nKPCMS\nLEXWARE\nName\tGiöße\tTyp\nARCHIVE\tDateordiner\nARTIKEL\tDateordiner\nIMAGES\tDateordiner\nfeedback.html\t15 KB\tHTML Document\nmust_fields.html\t3 KB\tHTML Document\nopinion_archive.html\t9 KB\tHTML Document\nopinion_content.html\t10 KB\tHTML Document\nopinion_topnav.asp\t6 KB\tASP-Datei\nsurvey.html\t23 KB\tHTML Document\nthank_you.html\t3 KB\tHTML Document\n10 Objekt(e) (Freier Speicherplatz: 14.3 GB)\t64,7 KB\tArbeitsplatz",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_261_image_7.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "262"
+        }
+      ]
+    },
+    {
+      "page_idx": 262,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.024,
+            0.024,
+            0.197,
+            0.063
+          ],
+          "content": "Binärbäume"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.135,
+            0.682,
+            0.18
+          ],
+          "content": "• Spezialfall: Bäume mit max. **zwei Teilbäumen**"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.033,
+            0.227,
+            0.888,
+            0.386
+          ],
+          "content": "**Def**.: Ein **Binärbaum** $B \\; = \\; ( r , B _ { L } , B _ { R } )$ ist entweder leer oder besteht aus einer Wurzel 𝑟𝑟 sowie einem linken und rechten Teilbaum $B _ { L }$ bzw. $B _ { R }$"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.02,
+            0.429,
+            0.418,
+            0.867
+          ],
+          "sub_type": "text",
+          "content": "Z.B. Heap im Heapsort-Algorithmus: jeder Knoten besitzt max. zwei „Kinder“\n• Z.B. geschachteltes if-then-else-Statement\nZ.B. graphische Darstellung eines **Münzwurf-Prozesses**"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.451,
+            0.423,
+            0.959,
+            0.957
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"11\"] --> B[\"12\"]\n  A --> C[\"23\"]\n  B --> D[\"77\"]\n  B --> E[\"45\"]\n  B --> F[\"76\"]\n  B --> G[\"66\"]\n  A --> H[\"83\"]\n  A --> I[\"2\"]\n  A --> J[\"2\"]\n  A --> K[\"2\"]\n  A --> L[\"2\"]\n  A --> M[\"2\"]\n  A --> N[\"2\"]\n  A --> O[\"2\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_262_image_7.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.036,
+            0.988
+          ],
+          "content": "263"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 263,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.399,
+            0.072
+          ],
+          "content": "Darstellung als C-Datentyp"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.257,
+            0.144,
+            0.554,
+            0.274
+          ],
+          "sub_type": "code",
+          "content": "```c\ntypedef struct tr {\n    T* data;\n    struct tr *left,*right;\n} btree, *btreeptr;\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.027,
+            0.339,
+            0.915,
+            0.598
+          ],
+          "sub_type": "text",
+          "content": "Bäume als dynamische Datenstruktur, ähnlich zu Listen: Zeiger data auf **Nutzdaten** eines beliebigen Typs T\n• Zeiger left und right verweisen auf **linken** und **rechten** Teilbaum\n• NULL**-Zeiger**, falls Teilbaum leer"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.068,
+            0.572,
+            0.919,
+            0.945
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"btreeptr\"] --> B[\"data\"]\n  B --> C[\"Objekt vom Typ T\"]\n  B --> D[\"left\"]\n  D --> E[\"NULL\"]\n  D --> F[\"RIGHT\"]\n  F --> G[\"NULL\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_263_image_6.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "264"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 264,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.41,
+            0.258,
+            0.588,
+            0.308
+          ],
+          "level": 2,
+          "content": "9. Bäume"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.156,
+            0.479,
+            0.567,
+            0.647
+          ],
+          "sub_type": "text",
+          "content": "9.1 Definition und Darstellung\n**9.2 Baumdurchläufe**\n9.3 Suchbäume"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.036,
+            0.988
+          ],
+          "content": "265"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 265,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.024,
+            0.259,
+            0.065
+          ],
+          "content": "Baumdurchläufe"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.133,
+            0.911,
+            0.876
+          ],
+          "sub_type": "text",
+          "content": "Häufige Anwendung: **Durchlaufen** eines Baumes, d.h. Besuchen/Verarbeiten aller Knoten in bestimmter Reihenfolge\n• Z.B. beim Kopieren von Dateisystemen\n• Sei $B \\; = \\; ( r , B _ { L } , B _ { R } )$\n• L bezeichnet Durchlauf des **linken** Teilbaums $B _ { L }$\nR bezeichnet Durchlauf des **rechten** Teilbaums $B _ { R }$\n• W bezeichnet Bearbeitung der **Wurzel** 𝑟𝑟\nDrei prinzipielle Durchlaufschemata:\n– **Inorder**: L W R\n– **Preorder**: $W \\mathsf { L R }$\n– **Postorder**: L R W\n• In/Pre/Post bzgl. des Zeitpunkts der Wurzel-Bearbeitung"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "266"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 266,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.023,
+            0.626,
+            0.069
+          ],
+          "content": "Rekursive Implementierung der Durchläufe"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.037,
+            0.188,
+            0.35,
+            0.844
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid visit(T* item)\n{ // Verarbeitung von item\n}\n\nvoid preorder(btreeptr b)\n{\n    if (b == NULL) return;\n\n    visit(b->data);\n    preorder(b->left);\n    preorder(b->right);\n}\n\nvoid inorder(btreeptr b)\n{\n    if (b == NULL) return;\n\n    inorder(b->left);\n    visit(b->data);\n    inorder(b->right);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.543,
+            0.154,
+            0.851,
+            0.405
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid postorder(btreeptr b)\n{\n    if (b == NULL) return;\n\n    postorder(b->left);\n    postorder(b->right);\n    visit(b->data);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.524,
+            0.476,
+            0.96,
+            0.913
+          ],
+          "sub_type": "text",
+          "content": "• Laufzeit: 𝓞𝓞(# Knoten)\nInterner Ablauf der Rekursion: **Laufzeit-Stack** für Funktionsaufrufe (vgl. Kap. 8)\n**Übung**: nicht-rekursive Implementierung mittels expliziter Stack-Datenstruktur"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.036,
+            0.987
+          ],
+          "content": "267"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 267,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.023,
+            0.509,
+            0.071
+          ],
+          "content": "Beispiel: Inorder-Durchlauf (L W R)"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.029,
+            0.104,
+            0.67,
+            0.637
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"A\"] --> B[\"B\"]\n  A[\"A\"] --> C[\"C\"]\n  B[\"B\"] --> D[\"D\"]\n  B[\"B\"] --> E[\"E\"]\n  C[\"C\"] --> F[\"F\"]\n  C[\"C\"] --> G[\"G\"]\n  E[\"E\"] --> H[\"H\"]\n  E[\"E\"] --> I[\"I\"]\n  G[\"G\"] --> J[\"J\"]\n  G[\"G\"] --> K[\"K\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_267_image_1.jpg"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.636,
+            0.156,
+            0.921,
+            0.376
+          ],
+          "sub_type": "code",
+          "content": "```c\nvoid inorder(btreeptr b)\n{\n    if (b == NULL) return;\n    inorder(b->left);\n    visit(b->data);\n    inorder(b->right);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.027,
+            0.701,
+            0.654,
+            0.877
+          ],
+          "sub_type": "text",
+          "content": "• Inorder-Reihenfolge: D B H E I A F C J G K\n• Preorder-Reihenfolge: A B D E H I C F G J K\nPostorder-Reihenfolge: D H I E B F J K G C A"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "268"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 268,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.41,
+            0.258,
+            0.588,
+            0.308
+          ],
+          "level": 2,
+          "content": "9. Bäume"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.156,
+            0.479,
+            0.567,
+            0.647
+          ],
+          "sub_type": "text",
+          "content": "9.1 Definition und Darstellung\n9.2 Baumdurchläufe\n**9.3 Suchbäume**"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.968,
+            0.036,
+            0.987
+          ],
+          "content": "269"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 269,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.023,
+            0.563,
+            0.072
+          ],
+          "content": "Mengendarstellung durch Binärbäume"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.133,
+            0.905,
+            0.417
+          ],
+          "sub_type": "text",
+          "content": "**Mengenoperationen** (vgl. Listen, Kap. 8): Einfügen, Löschen, Suchen (gemäß **Suchschlüssel** oder key), Schnitt, Vereinigung\nIn vielen Anwendungen insbes. schnelle Implementierung von **Einfügen, Löschen, Suchen** erforderlich\nBeispiel: **Symboltabelle** im C-Compiler"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.068,
+            0.432,
+            0.934,
+            0.832
+          ],
+          "sub_type": "text",
+          "content": "– Symboltabelle verwaltet **Informationen zu den Identifiern** (Variablen, Funktionen, etc.) eines Programms, z.B. Datentyp und Speicherbedarf\n– **Variablendeklaration** für ID bewirkt **neuen Eintrag** in Symboltabelle mit Suchschlüssel ID\n– **Variablenverwendung** bewirkt **Suchen** nach ID\n– Variable **nicht mehr benötigt**: ID aus Symboltabelle **löschen**"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "270"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 270,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.022,
+            0.024,
+            0.191,
+            0.065
+          ],
+          "content": "Suchbäume"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.024,
+            0.099,
+            0.95,
+            0.615
+          ],
+          "sub_type": "text",
+          "content": "**Komplexität** der Mengenoperationen bei Listenimplementierung typischerweise $\\mathcal { O } ( N )$ bei 𝑁𝑁 Elementen\n$\\mathbb { Z } \\mathsf { U }$ **aufwendig** für häufigen Gebrauch\nSortiertes Array: Suchen in Zeit $\\mathcal { O } ( \\log N )$ per **binärer Suche**, jedoch Einfügen und Löschen aufwendig\nBinäre Suche: Berechnung eines **Entscheidungsbaums**, d.h. in jedem Schritt Verzweigung in linkes oder rechtes Teilarray\n**Idee bei binären Suchbäumen**: Entscheidungsbaum als explizite Datenstruktur"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.05,
+            0.637,
+            0.812,
+            0.793
+          ],
+          "content": "**Def**.: Sei $B \\; = \\; ( r , B _ { L } , B _ { R } )$ ein Binärbaum und bezeichne key(𝑛𝑛) den Suchschlüssel für jeden Knoten 𝑛𝑛. 𝐵𝐵 heißt **Suchbaum**, falls gilt:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.099,
+            0.797,
+            0.639,
+            0.958
+          ],
+          "sub_type": "text",
+          "content": "1. Für alle $n \\in B _ { L }$ : key(𝑛𝑛) < key(𝑟𝑟)\n2. Für alle $n \\in B _ { R }$ : key(𝑛𝑛) > key(𝑟𝑟)\n3. $B _ { L }$ und $B _ { R }$ sind Suchbäume"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.036,
+            0.988
+          ],
+          "content": "271"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 271,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.024,
+            0.024,
+            0.137,
+            0.072
+          ],
+          "content": "Beispiel"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.134,
+            0.851,
+            0.234
+          ],
+          "content": "Suchbaum für Monatsnamen, geordnet entsprechend der **lexikographischen** Reihenfolge:"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.186,
+            0.208,
+            0.949,
+            0.788
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  JAN[\"JAN\"] --> FEB[\"FEB\"]\n  JAN --> MAR[\"MAR\"]\n  FEB --> APR[\"APR\"]\n  MAR --> MAI[\"MAI\"]\n  MAR --> SEP[\"SEP\"]\n  MAR --> MAI\n  MAR --> OKT[\"OKT\"]\n  APR --> AUG[\"AUG\"]\n  AUG --> DEZ[\"DEZ\"]\n  MAI --> JUN[\"JUN\"]\n  JUN --> JUL[\"JUL\"]\n  OKT --> NOV[\"NOV\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_271_image_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.781,
+            0.165,
+            0.832
+          ],
+          "content": "• **Übung**:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.068,
+            0.849,
+            0.868,
+            0.957
+          ],
+          "sub_type": "text",
+          "content": "– Welcher Baum ergibt sich bei umgekehrter Reihenfolge?\n– Wie kann man mittels Suchbäumen sortieren?"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "272"
+        }
+      ]
+    },
+    {
+      "page_idx": 272,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.024,
+            0.025,
+            0.385,
+            0.071
+          ],
+          "content": "Einfügen eines Elementes"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.016,
+            0.149,
+            0.511,
+            0.776
+          ],
+          "sub_type": "code",
+          "content": "```c\nbtreeptr insert(T* item, btreeptr b)\n{\n    btreeptr n;\n\n    if (b == NULL) {\n        n = (btreeptr)malloc(sizeof(btree));\n        n->data = item;\n        n->left = NULL; n->right = NULL;\n        return n;\n    }\n\n    if (key(item) < key(b->data))\n        b->left = insert(item,b->left);\n\n    if (key(item) > key(b->data))\n        b->right = insert(item,b->right);\n\n    return b;\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.838,
+            0.455,
+            0.886
+          ],
+          "content": "• Beispiel: Einfügen von „DEZ“"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.523,
+            0.175,
+            0.987,
+            0.752
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  JAN[\"JAN\"] --> FEB[\"FEB\"]\n  FEB --> APR[\"APR\"]\n  APR --> AUG[\"AUG\"]\n  AUG --> DEZ[\"DEZ\"]\n  MAR[\"MAR\"] --> MAI[\"MAI\"]\n  MAR --> SEP[\"SEP\"]\n  MAI --> JUN[\"JUN\"]\n  SEP --> OKT[\"OKT\"]\n  JUN --> JUL[\"JUL\"]\n  OKT --> NOV[\"NOV\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_272_image_3.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "273"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.974,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 273,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.025,
+            0.361,
+            0.063
+          ],
+          "content": "Suchen eines Elementes"
+        },
+        {
+          "type": "code",
+          "bbox": [
+            0.037,
+            0.178,
+            0.424,
+            0.588
+          ],
+          "sub_type": "code",
+          "content": "```c\nT* search(T* item, btreeptr b)\n{\n    if (b == NULL) return NULL;\n\n    if (key(item) == key(b->data))\n        return b->data;\n\n    if (key(item) < key(b->data))\n        return search(item,b->left);\n\n    if (key(item) > key(b->data))\n        return search(item,b->right);\n}\n```",
+          "captions": [],
+          "footnotes": []
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.523,
+            0.176,
+            0.987,
+            0.748
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  JAN[\"JAN\"] --> MAR[\"MAR\"]\n  FEB[\"FEB\"] --> APR[\"APR\"]\n  MAR[\"MAR\"] --> MAI[\"MAI\"]\n  MAR[\"MAR\"] --> SEP[\"SEP\"]\n  MAI[\"MAI\"] --> JUN[\"JUN\"]\n  SEP[\"SEP\"] --> OKT[\"OKT\"]\n  JUN[\"JUN\"] --> JUL[\"JUL\"]\n  OKT[\"OKT\"] --> NOV[\"NOV\"]\n  APR[\"APR\"] --> AUG[\"AUG\"]\n  AUG[\"AUG\"] --> DEZ[\"DEZ\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_273_image_2.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.009,
+            0.701,
+            0.881,
+            0.917
+          ],
+          "sub_type": "text",
+          "content": "• **Beispiel**: Suchen von „NOV“\n**Aufwand**: Länge des Pfades von der Wurzel zum gesuchten Element (bzw. zu der Stelle, an der sich das Element befinden müsste)"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.987
+          ],
+          "content": "274"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.947,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 274,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.023,
+            0.559,
+            0.069
+          ],
+          "content": "Laufzeitanalyse für binäre Suchbäume"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.016,
+            0.119,
+            0.672,
+            0.624
+          ],
+          "sub_type": "text",
+          "content": "**Löschen eines Elementes**: gleiches Prinzip, jedoch etwas aufwendiger beim Löschen von inneren Baumknoten (Wiederherstellung der Baumstruktur notwendig)\nAufwand bestimmt durch **max. Pfadlänge** im Baum\nDiese ist wiederum bestimmt durch die **Reihenfolge** der Einfügeoperationen (siehe Bsp. Monatsnamen)\nExtremfälle:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.063,
+            0.64,
+            0.727,
+            0.894
+          ],
+          "content": "**a) ausgeglichener Baum**: Höhe der Teilbäume unterscheidet sich max. um 1, auf jeder Ebene verdoppelt sich die Anzahl der Knoten, daher Suchzeit 𝒪𝒪(log 𝑛𝑛) bei n Knoten **b) entarteter Baum**: wie Liste, d.h. 𝒪𝒪(𝑛𝑛)"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.676,
+            0.219,
+            0.984,
+            0.476
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph TD\n  A[\"Node 1\"] --> B[\"Node 2\"]\n  A[\"Node 3\"] --> C[\"Node 4\"]\n  B[\"Node 5\"] --> D[\"Node 6\"]\n  B[\"Node 7\"] --> E[\"Node 8\"]\n  C[\"Node 9\"] --> F[\"Node 10\"]\n  D[\"Node 11\"] --> G[\"Node 12\"]\n  E[\"Node 13\"] --> H[\"Node 14\"]\n  F[\"Node 15\"] --> I[\"Node 16\"]\n  G[\"Node 17\"] --> J[\"Node 18\"]\n  H[\"Node 19\"] --> K[\"Node 20\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_274_image_7.jpg"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.779,
+            0.524,
+            0.952,
+            0.894
+          ],
+          "sub_type": "flowchart",
+          "content": "```mermaid\ngraph LR\n  A[\"\"] --> B[\"\"]\n  B --> C[\"\"]\n  C --> D[\"\"]\n  D --> E[\"\"]\n```",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0257-0288/images/page_274_image_8.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "275"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    },
+    {
+      "page_idx": 275,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.023,
+            0.023,
+            0.559,
+            0.072
+          ],
+          "content": "Laufzeitanalyse für binäre Suchbäume"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.019,
+            0.129,
+            0.979,
+            0.848
+          ],
+          "sub_type": "text",
+          "content": "Man kann zeigen: Bei einem aus **zufälligen Schlüsseln** aufgebauten binären Suchbaum liegt die Suchzeit im average case bei 𝒪𝒪(log 𝑛𝑛)\n• **Jedoch**: nicht garantiert, worst case ist stets 𝒪𝒪(𝑛𝑛)\nAusgeglichene binäre Suchbäume (**AVL-Bäume**): 𝒪𝒪(log 𝑛𝑛) worst case für Suchen, Einfügen, Löschen garantiert\nWeitere Suchbaumstrukturen für **spezielle Anwendungen**\n• Z.B. Verwaltung großer Mengen in **externen Dateien** (Files)\n– **Zugriffszeit** = Zeit für Positionierung im File + Zeit für Übertragung der Daten in den Hauptspeicher\nDaher Übertragung von großen **zusammenhängenden Datenblöcken** statt einzelner Knoten sinnvoll\n– Datenstruktur: **B-Bäume**"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.008,
+            0.967,
+            0.037,
+            0.988
+          ],
+          "content": "276"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.749,
+            0.973,
+            0.948,
+            0.991
+          ],
+          "content": "© T. Gemmeke, IDS, RWTH; R. Leupers, SSS"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "PowerPoint-Präsentation",
+      "authors": [
+        "Tobias Gemmeke"
+      ],
+      "created_at": "2026-10-06T18:07:32+02:00",
+      "modified_at": "2026-10-06T18:08:54+02:00",
+      "creator_application": "Acrobat PDFMaker 20 für PowerPoint",
+      "producer_application": "Adobe PDF Library 20.9.95",
+      "page_count": 355,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "txt"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 260,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 261,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 262,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 263,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 264,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 265,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 266,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 267,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 268,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 269,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 270,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 271,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 272,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 273,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 274,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        },
+        {
+          "page_idx": 275,
+          "width_pt": 720.0,
+          "height_pt": 540.0
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

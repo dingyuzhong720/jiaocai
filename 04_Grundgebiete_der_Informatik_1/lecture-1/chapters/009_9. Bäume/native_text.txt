@@ -1,0 +1,345 @@
+--- PDF page 261 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+9. Bäume
+9.1 Definition und Darstellung
+9.2 Baumdurchläufe
+9.3 Suchbäume
+261
+
+
+--- PDF page 262 ---
+Bäume
+• Bäume sind eine äußerst verbreitete Datenstruktur mit einer 
+Vielzahl von Anwendungen
+• Z.B. Darstellung von Hierarchien (Firmen-Organigramm), Eltern-
+Kind-Beziehung (Stammbaum), Dateisysteme u.v.m.
+• Siehe auch Baumdarstellung von Arrays in Heapsort
+Def.: Ein Baum besteht aus einem ausgezeichneten Knoten 𝑟𝑟
+(Wurzel, root) und 𝑘𝑘≥0 disjunkten Bäumen 𝑇𝑇1, … , 𝑇𝑇𝑘𝑘
+A
+B
+E
+C
+D
+F
+Wurzel
+262
+
+
+--- PDF page 263 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Binärbäume
+• Spezialfall: Bäume mit max. zwei Teilbäumen
+Def.: Ein Binärbaum 𝐵𝐵= (𝑟𝑟, 𝐵𝐵𝐿𝐿, 𝐵𝐵𝑅𝑅) ist entweder leer oder 
+besteht aus einer Wurzel 𝑟𝑟sowie einem linken und rechten 
+Teilbaum 𝐵𝐵𝐿𝐿bzw. 𝐵𝐵𝑅𝑅
+• Z.B. Heap im Heapsort-
+Algorithmus: jeder Knoten 
+besitzt max. zwei „Kinder“
+• Z.B. geschachteltes 
+if-then-else-Statement
+• Z.B. graphische 
+Darstellung eines 
+Münzwurf-Prozesses
+11
+12
+77
+83
+23
+66
+76
+45
+263
+
+
+--- PDF page 264 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Darstellung als C-Datentyp
+• Bäume als dynamische Datenstruktur, ähnlich zu Listen: Zeiger 
+data auf Nutzdaten eines beliebigen Typs T
+• Zeiger left und right verweisen auf linken und rechten
+Teilbaum
+• NULL-Zeiger, falls Teilbaum leer
+btreeptr
+NULL
+left
+NULL
+right
+Objekt vom
+Typ T
+data
+typedef struct tr { 
+T* data; 
+struct tr *left,*right; 
+} btree, *btreeptr;
+264
+
+
+--- PDF page 265 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+9. Bäume
+9.1 Definition und Darstellung
+9.2 Baumdurchläufe
+9.3 Suchbäume
+265
+
+
+--- PDF page 266 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Baumdurchläufe
+• Häufige Anwendung: Durchlaufen eines Baumes, d.h. 
+Besuchen/Verarbeiten aller Knoten in bestimmter Reihenfolge
+• Z.B. beim Kopieren von Dateisystemen
+• Sei 𝐵𝐵= (𝑟𝑟, 𝐵𝐵𝐿𝐿, 𝐵𝐵𝑅𝑅)
+• L bezeichnet Durchlauf des linken Teilbaums 𝐵𝐵𝐿𝐿
+• R bezeichnet Durchlauf des rechten Teilbaums 𝐵𝐵𝑅𝑅
+• W bezeichnet Bearbeitung der Wurzel 𝑟𝑟
+• Drei prinzipielle Durchlaufschemata:
+– Inorder: L W R
+– Preorder: W L R
+– Postorder: L R W
+• In/Pre/Post bzgl. des Zeitpunkts der Wurzel-Bearbeitung
+266
+
+
+--- PDF page 267 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Rekursive Implementierung der Durchläufe
+• Laufzeit: 𝓞𝓞(# Knoten)
+• Interner Ablauf der 
+Rekursion: Laufzeit-Stack für 
+Funktionsaufrufe (vgl. Kap. 8)
+• Übung: nicht-rekursive 
+Implementierung mittels 
+expliziter Stack-
+Datenstruktur
+void visit(T* item)
+{ // Verarbeitung von item
+}
+void preorder(btreeptr b)
+{
+if (b == NULL) return;
+visit(b->data);
+preorder(b->left);
+preorder(b->right);
+}
+void inorder(btreeptr b)
+{
+if (b == NULL) return;
+inorder(b->left);
+visit(b->data);
+inorder(b->right);
+}
+void postorder(btreeptr b)
+{
+if (b == NULL) return;
+postorder(b->left);
+postorder(b->right);
+visit(b->data);
+}
+267
+
+
+--- PDF page 268 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Beispiel: Inorder-Durchlauf (L W R)
+• Inorder-Reihenfolge:     D B H E I A F C J G K
+• Preorder-Reihenfolge:   A B D E H I C F G J K
+• Postorder-Reihenfolge: D H I E B F J K G C A
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+void inorder(btreeptr b)
+{
+if (b == NULL) return;
+inorder(b->left);
+visit(b->data);
+inorder(b->right);
+}
+268
+
+
+--- PDF page 269 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+9. Bäume
+9.1 Definition und Darstellung
+9.2 Baumdurchläufe
+9.3 Suchbäume
+269
+
+
+--- PDF page 270 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Mengendarstellung durch Binärbäume
+• Mengenoperationen (vgl. Listen, Kap. 8): Einfügen, Löschen, 
+Suchen (gemäß Suchschlüssel oder key), Schnitt, Vereinigung
+• In vielen Anwendungen insbes. schnelle Implementierung von 
+Einfügen, Löschen, Suchen erforderlich
+• Beispiel: Symboltabelle im C-Compiler
+– Symboltabelle verwaltet Informationen zu den Identifiern
+(Variablen, Funktionen, etc.) eines Programms, z.B. Datentyp 
+und Speicherbedarf
+– Variablendeklaration für ID bewirkt neuen Eintrag in 
+Symboltabelle mit Suchschlüssel ID
+– Variablenverwendung bewirkt Suchen nach ID
+– Variable nicht mehr benötigt: ID aus Symboltabelle löschen
+270
+
+
+--- PDF page 271 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Suchbäume
+• Komplexität der Mengenoperationen bei Listenimplementierung 
+typischerweise 𝒪𝒪(𝑁𝑁) bei 𝑁𝑁Elementen
+• Zu aufwendig für häufigen Gebrauch 
+• Sortiertes Array: Suchen in Zeit 𝒪𝒪(log 𝑁𝑁) per binärer Suche, 
+jedoch Einfügen und Löschen aufwendig
+• Binäre Suche: Berechnung eines Entscheidungsbaums, d.h. in 
+jedem Schritt Verzweigung in linkes oder rechtes Teilarray
+• Idee bei binären Suchbäumen: Entscheidungsbaum als explizite 
+Datenstruktur
+Def.: Sei 𝐵𝐵= (𝑟𝑟, 𝐵𝐵𝐿𝐿, 𝐵𝐵𝑅𝑅) ein Binärbaum und bezeichne 
+key(𝑛𝑛) den Suchschlüssel für jeden Knoten 𝑛𝑛.
+𝐵𝐵heißt Suchbaum, falls gilt:
+1. Für alle 𝑛𝑛∈𝐵𝐵𝐿𝐿: key(𝑛𝑛) < key(𝑟𝑟)
+2. Für alle 𝑛𝑛∈𝐵𝐵𝑅𝑅: key(𝑛𝑛) > key(𝑟𝑟)
+3.
+𝐵𝐵𝐿𝐿und 𝐵𝐵𝑅𝑅sind Suchbäume
+271
+
+
+--- PDF page 272 ---
+Beispiel
+• Suchbaum für Monatsnamen, geordnet entsprechend der 
+lexikographischen Reihenfolge:
+JAN
+FEB
+APR
+AUG
+DEZ
+MAI
+JUN
+JUL
+SEP
+OKT
+NOV
+MAR
+• Übung: 
+– Welcher Baum ergibt sich bei umgekehrter Reihenfolge?
+– Wie kann man mittels Suchbäumen sortieren?
+272
+
+
+--- PDF page 273 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Einfügen eines Elementes
+• Beispiel: Einfügen von „DEZ“
+btreeptr insert(T* item, btreeptr b)
+{ 
+btreeptr n;
+if (b == NULL) {
+n = (btreeptr)malloc(sizeof(btree));
+n->data = item;
+n->left = NULL; n->right = NULL;
+return n;
+}
+if (key(item) < key(b->data))
+b->left = insert(item,b->left);
+if (key(item) > key(b->data))
+b->right = insert(item,b->right);
+return b;
+}
+DEZ
+JAN
+FEB
+APR
+AUG
+MAI
+JUN
+JUL
+SEP
+OKT
+NOV
+MAR
+273
+
+
+--- PDF page 274 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+DEZ
+JAN
+FEB
+APR
+AUG
+MAI
+JUN
+JUL
+SEP
+OKT
+NOV
+MAR
+Suchen eines Elementes
+• Beispiel: Suchen von „NOV“
+• Aufwand: Länge des Pfades von der Wurzel zum gesuchten 
+Element (bzw. zu der Stelle, an der sich das Element befinden 
+müsste)
+T* search(T* item, btreeptr b)
+{
+if (b == NULL) return NULL;
+if (key(item) == key(b->data))
+return b->data;
+if (key(item) < key(b->data))
+return search(item,b->left);
+if (key(item) > key(b->data))
+return search(item,b->right);
+}
+274
+
+
+--- PDF page 275 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Laufzeitanalyse für binäre Suchbäume
+• Löschen eines Elementes: gleiches Prinzip, 
+jedoch etwas aufwendiger beim Löschen von 
+inneren Baumknoten (Wiederherstellung der 
+Baumstruktur notwendig)
+• Aufwand bestimmt durch max. Pfadlänge im 
+Baum
+• Diese ist wiederum bestimmt durch die 
+Reihenfolge der Einfügeoperationen
+(siehe Bsp. Monatsnamen)
+• Extremfälle: 
+a) ausgeglichener Baum: Höhe der Teilbäume 
+unterscheidet sich max. um 1, auf jeder 
+Ebene verdoppelt sich die Anzahl der Knoten, 
+daher Suchzeit 𝒪𝒪(log 𝑛𝑛) bei n Knoten
+b) entarteter Baum: wie Liste, d.h. 𝒪𝒪(𝑛𝑛)
+a)
+b)
+275
+
+
+--- PDF page 276 ---
+© T. Gemmeke, IDS, RWTH; R. Leupers, SSS
+Laufzeitanalyse für binäre Suchbäume
+• Man kann zeigen: Bei einem aus zufälligen Schlüsseln aufgebauten 
+binären Suchbaum liegt die Suchzeit im average case bei 𝒪𝒪(log 𝑛𝑛)
+• Jedoch: nicht garantiert, worst case ist stets 𝒪𝒪(𝑛𝑛)
+• Ausgeglichene binäre Suchbäume (AVL-Bäume): 𝒪𝒪(log 𝑛𝑛) worst
+case für Suchen, Einfügen, Löschen garantiert
+• Weitere Suchbaumstrukturen für spezielle Anwendungen
+• Z.B. Verwaltung großer Mengen in externen Dateien (Files)
+– Zugriffszeit = Zeit für Positionierung im File + Zeit für 
+Übertragung der Daten in den Hauptspeicher
+– Daher Übertragung von großen zusammenhängenden
+Datenblöcken statt einzelner Knoten sinnvoll
+– Datenstruktur: B-Bäume
+276
