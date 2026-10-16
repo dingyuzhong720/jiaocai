@@ -1,0 +1,4785 @@
+{
+  "pages": [
+    {
+      "page_idx": 59,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.14,
+            0.147,
+            0.281,
+            0.182
+          ],
+          "level": 2,
+          "content": "第3章"
+        },
+        {
+          "type": "doc_title",
+          "bbox": [
+            0.14,
+            0.197,
+            0.642,
+            0.228
+          ],
+          "level": 1,
+          "content": "矩阵的初等变换与线性方程组"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.32,
+            0.88,
+            0.39
+          ],
+          "content": "本章先引进矩阵的初等变换,建立矩阵的秩的概念,并利用初等变换讨论矩阵的秩的性质;然后利用矩阵的秩讨论线性方程组无解、有惟一解或有无限多解的充分必要条件,并介绍用初等变换解线性方程组的方法."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.368,
+            0.431,
+            0.655,
+            0.456
+          ],
+          "level": 2,
+          "content": "§ 1 矩阵的初等变换"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.498,
+            0.88,
+            0.567
+          ],
+          "content": "矩阵的初等变换是矩阵的一种十分重要的运算,它在解线性方程组、求逆矩阵及矩阵理论的探讨中都可起重要的作用.为引进矩阵的初等变换,先来分析用消元法解线性方程组的例子."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.178,
+            0.573,
+            0.384,
+            0.59
+          ],
+          "content": "引例 求解线性方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.386,
+            0.596,
+            0.877,
+            0.695
+          ],
+          "content": "\\left\\{ \\begin{array}{l l} 2 x _ {1} - x _ {2} - x _ {3} + x _ {4} = 2, & ① \\\\ x _ {1} + x _ {2} - 2 x _ {3} + x _ {4} = 4, & ② \\\\ 4 x _ {1} - 6 x _ {2} + 2 x _ {3} - 2 x _ {4} = 4, & ③ \\\\ 3 x _ {1} + 6 x _ {2} - 9 x _ {3} + 7 x _ {4} = 9. & ④ \\end{array} \\right. \\tag {1}",
+          "image_source": "../../raw/pages_0033-0064/images/page_59_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.177,
+            0.746,
+            0.203,
+            0.763
+          ],
+          "content": "解"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.334,
+            0.703,
+            0.877,
+            0.802
+          ],
+          "content": "\\text {①} \\xrightarrow [ ③ \\div 2 ]{\\text {①} \\leftrightarrow \\text {②}} \\left\\{ \\begin{array}{l l} x _ {1} + x _ {2} - 2 x _ {3} + x _ {4} = 4, & ① \\\\ 2 x _ {1} - x _ {2} - x _ {3} + x _ {4} = 2, & ② \\\\ 2 x _ {1} - 3 x _ {2} + x _ {3} - x _ {4} = 2, & ③ \\\\ 3 x _ {1} + 6 x _ {2} - 9 x _ {3} + 7 x _ {4} = 9 & ④ \\end{array} \\right. \\tag {B_{1}}",
+          "image_source": "../../raw/pages_0033-0064/images/page_59_equation_8.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.093,
+            0.928,
+            0.115,
+            0.941
+          ],
+          "content": "56"
+        }
+      ]
+    },
+    {
+      "page_idx": 60,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.704,
+            0.037,
+            0.851,
+            0.051
+          ],
+          "content": "§ 1 矩阵的初等变换"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.345,
+            0.095,
+            0.846,
+            0.192
+          ],
+          "content": "\\xrightarrow [ ④ - 3 ① ]{\\text {②} - ③} \\left\\{ \\begin{array}{r l} x _ {1} & + x _ {2} - 2 x _ {3} + x _ {4} = 4, \\\\ & 2 x _ {2} - 2 x _ {3} + 2 x _ {4} = 0, \\\\ & - 5 x _ {2} + 5 x _ {3} - 3 x _ {4} = - 6, \\\\ & 3 x _ {2} - 3 x _ {3} + 4 x _ {4} = - 3 \\end{array} \\quad ① \\right. \\tag {B_{2}}",
+          "image_source": "../../raw/pages_0033-0064/images/page_60_equation_1.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.345,
+            0.204,
+            0.846,
+            0.301
+          ],
+          "content": "\\xrightarrow [ \\begin{array}{l} ③ + 5 ② \\\\ ④ - 3 ② \\end{array} ]{\\text {②} \\times \\frac {1}{2}} \\left\\{ \\begin{array}{c l} x _ {1} + x _ {2} - 2 x _ {3} + x _ {4} = 4, & ① \\\\ x _ {2} - x _ {3} + x _ {4} = 0, & ② \\\\ 2 x _ {4} = - 6, & ③ \\\\ x _ {4} = - 3 & ④ \\end{array} \\right. \\tag {B_{3}}",
+          "image_source": "../../raw/pages_0033-0064/images/page_60_equation_2.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.345,
+            0.313,
+            0.846,
+            0.409
+          ],
+          "content": "\\xrightarrow [ ④ - 2 ③ ]{③ \\leftrightarrow ④} \\left\\{ \\begin{array}{c c} x _ {1} + x _ {2} - 2 x _ {3} + x _ {4} = 4, & ① \\\\ x _ {2} - x _ {3} + x _ {4} = 0, & ② \\\\ x _ {4} = - 3, & ③ \\\\ 0 = 0. & ④ \\end{array} \\right. \\tag {B_{4}}",
+          "image_source": "../../raw/pages_0033-0064/images/page_60_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.419,
+            0.851,
+            0.543
+          ],
+          "content": "这里，$(1) \\rightarrow (B_{1})$ 是为消去 $x_{1}$ 作准备。$(B_{1}) \\rightarrow (B_{2})$ 是保留①中的 $x_{1}$，消去②、③、④中的 $x_{1}. (B_{2}) \\rightarrow (B_{3})$ 是保留②中的 $x_{2}$ 并把它的系数变为 1，然后消去③、④中的 $x_{2}$，在此同时恰好把 $x_{3}$ 也消去了。$(B_{3}) \\rightarrow (B_{4})$ 是消去 $x_{4}$，在此同时恰好把常数也消去了，得到恒等式 $0 = 0$（若常数项不能消去，就将得到矛盾方程 $0 = 1$，则说明方程组无解）。至此消元完毕。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.55,
+            0.851,
+            0.674
+          ],
+          "content": "$(B_{4})$ 是4个未知数3个有效方程的方程组，应有一个自由未知数，由于方程组 $(B_{4})$ 呈阶梯形，可把每个台阶的第一个未知数（即 $x_{1}, x_{2}, x_{4}$ 选为非自由未知数，剩下的 $x_{3}$ 选为自由未知数。这样，就只需用“回代”的方法便能求出解:由③得 $x_{4} = -3$；将 $x_{4} = -3$ 代入②，得 $x_{2} = x_{3} + 3$；以 $x_{4} = -3, x_{2} = x_{3} + 3$ 代入①，得 $x_{1} = x_{3} + 4$。于是解得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.427,
+            0.683,
+            0.524,
+            0.755
+          ],
+          "content": "\\left\\{ \\begin{array}{l} x _ {1} = x _ {3} + 4, \\\\ x _ {2} = x _ {3} + 3, \\\\ x _ {4} = - 3, \\end{array} \\right.",
+          "image_source": "../../raw/pages_0033-0064/images/page_60_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.765,
+            0.545,
+            0.784
+          ],
+          "content": "其中 $x_{3}$ 可任意取值.或令 $x_{3} = c$ ，方程组的解可记作"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.399,
+            0.793,
+            0.548,
+            0.891
+          ],
+          "content": "\\boldsymbol {x} _ {i} = \\left( \\begin{array}{c} x _ {1} \\\\ x _ {2} \\\\ x _ {3} \\\\ x _ {4} \\end{array} \\right) = \\left( \\begin{array}{c} c + 4 \\\\ c + 3 \\\\ c \\\\ - 3 \\end{array} \\right),",
+          "image_source": "../../raw/pages_0033-0064/images/page_60_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.899,
+            0.124,
+            0.915
+          ],
+          "content": "即"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.349,
+            0.945,
+            0.647,
+            0.961
+          ],
+          "content": "考研电子书网站:www.pdf2book.com"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.874,
+            0.949,
+            0.895,
+            0.962
+          ],
+          "content": "57"
+        }
+      ]
+    },
+    {
+      "page_idx": 61,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.137,
+            0.013,
+            0.403,
+            0.027
+          ],
+          "content": "第3章 矩阵的初等变换与线性方程组"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.045,
+            0.097,
+            0.07,
+            0.116
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0033-0064/images/page_61_image_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.043,
+            0.123,
+            0.118,
+            0.139
+          ],
+          "content": "自问自答"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.439,
+            0.071,
+            0.881,
+            0.162
+          ],
+          "content": "\\boldsymbol {x} = c \\left( \\begin{array}{c} 1 \\\\ 1 \\\\ 1 \\\\ 0 \\end{array} \\right) + \\left( \\begin{array}{c} 4 \\\\ 3 \\\\ 0 \\\\ - 3 \\end{array} \\right), \\tag {2}",
+          "image_source": "../../raw/pages_0033-0064/images/page_61_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.169,
+            0.305,
+            0.187
+          ],
+          "content": "其中 $c$ 为任意常数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.192,
+            0.887,
+            0.284
+          ],
+          "content": "在上述消元过程中,始终把方程组看作一个整体,即不是着眼于某一个方程的变形,而是着眼于整个方程组变成另一个方程组.其中用到三种变换,即:(i)交换方程次序(①与②相互替换);(ii)以不等于0的数乘某个方程(以①×k替换①);(iii)一个方程加上另一个方程的k倍(以①+k②替换①).由于这三种变换都是可逆的,即"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.324,
+            0.284,
+            0.692,
+            0.31
+          ],
+          "content": "若 $(A)\\xrightarrow{\\textcircled{i}\\leftrightarrow\\textcircled{j}}(B)$ ，则 $(B)\\xrightarrow{\\textcircled{i}\\leftrightarrow\\textcircled{j}}(A)$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.324,
+            0.311,
+            0.688,
+            0.351
+          ],
+          "content": "若 $(A)\\xrightarrow{\\textcircled{i}\\times k}(B)$ ，则 $(B)\\xrightarrow{\\textcircled{i}\\times\\frac{1}{k}}(A)$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.324,
+            0.354,
+            0.69,
+            0.382
+          ],
+          "content": "若 $(A)\\xrightarrow{\\textcircled{i}+k\\textcircled{j}}(B)$ ，则 $(B)\\xrightarrow{\\textcircled{i}-k\\textcircled{j}}(A)$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.391,
+            0.886,
+            0.435
+          ],
+          "content": "因此变换前的方程组与变换后的方程组是同解的,这三种变换都是方程组的同解变换,所以最后求得的解(2)是方程组(1)的全部解."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.44,
+            0.886,
+            0.484
+          ],
+          "content": "在上述变换过程中,实际上只对方程组的系数和常数项进行运算,未知数并未参与运算.因此,如果记方程组(1)的增广矩阵为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.35,
+            0.489,
+            0.664,
+            0.582
+          ],
+          "content": "\\boldsymbol {B} = (\\boldsymbol {A}, \\boldsymbol {b}) = \\left( \\begin{array}{c c c c c} 2 & - 1 & - 1 & 1 & 2 \\\\ 1 & 1 & - 2 & 1 & 4 \\\\ 4 & - 6 & 2 & - 2 & 4 \\\\ 3 & 6 & - 9 & 7 & 9 \\end{array} \\right),",
+          "image_source": "../../raw/pages_0033-0064/images/page_61_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.587,
+            0.884,
+            0.631
+          ],
+          "content": "那么上述对方程组的变换完全可以转换为对矩阵 B 的变换. 把方程组的上述三种同解变换移植到矩阵上, 就得到矩阵的三种初等行变换."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.173,
+            0.636,
+            0.591,
+            0.657
+          ],
+          "content": "定义 1 下面三种变换称为矩阵的初等行变换:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.133,
+            0.66,
+            0.886,
+            0.754
+          ],
+          "sub_type": "text",
+          "content": "(i) 对换两行(对换 i, j 两行, 记作  $r_{i} \\leftrightarrow r_{j}$ );\n(ii) 以数 $k (k \\neq 0)$ 乘某一行中的所有元(第 $i$ 行乘 $k$, 记作 $r_i \\times k$);\n（iii）把某一行所有元的 $k$ 倍加到另一行对应的元上去(第 $j$ 行的 $k$ 倍加到第 $i$ 行上，记作 $r_i + kr_j$)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.758,
+            0.883,
+            0.801
+          ],
+          "content": "把定义中的“行”换成“列”，即得矩阵的初等列变换的定义（所用记号是把“r”换成“c”）."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.171,
+            0.807,
+            0.601,
+            0.828
+          ],
+          "content": "矩阵的初等行变换与初等列变换,统称初等变换."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.832,
+            0.886,
+            0.891
+          ],
+          "content": "显然,三种初等变换都是可逆的,且其逆变换是同一类型的初等变换:变换  $r_{i} \\leftrightarrow r_{j}$  的逆变换就是其本身;变换  $r_{i} \\times k$  的逆变换为  $r_{i} \\times \\frac{1}{k}$  (或记作  $r_{i} \\div k$ );变换  $r_{i} + kr_{j}$  的逆变"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.088,
+            0.926,
+            0.108,
+            0.939
+          ],
+          "content": "58"
+        }
+      ]
+    },
+    {
+      "page_idx": 62,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.695,
+            0.033,
+            0.845,
+            0.048
+          ],
+          "content": "§ 1 矩阵的初等变换"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.092,
+            0.374,
+            0.111
+          ],
+          "content": "换为 $r_i + (-k)r_j$ （或记作 $r_i - kr_j$）."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.116,
+            0.846,
+            0.186
+          ],
+          "content": "如果矩阵 $A$ 经有限次初等行变换变成矩阵 $\\pmb{B}$, 就称矩阵 $\\pmb{A}$ 与 $\\pmb{B}$ 行等价, 记作 $A \\stackrel{r}{\\sim} B$; 如果矩阵 $A$ 经有限次初等列变换变成矩阵 $\\pmb{B}$, 就称矩阵 $\\pmb{A}$ 与 $\\pmb{B}$ 列等价, 记作 $A \\stackrel{c}{\\sim} B$; 如果矩阵 $A$ 经有限次初等变换变成矩阵 $\\pmb{B}$, 就称矩阵 $\\pmb{A}$ 与 $\\pmb{B}$ 等价, 记作 $A \\sim B$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.194,
+            0.454,
+            0.212
+          ],
+          "content": "矩阵之间的等价关系具有下列性质:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.135,
+            0.219,
+            0.489,
+            0.292
+          ],
+          "sub_type": "text",
+          "content": "(i) 反身性 $A \\sim A$;\n(ii) 对称性 若 $A \\sim B$, 则 $B \\sim A$;\n(iii) 传递性 若 $A \\sim B, B \\sim C$, 则 $A \\sim C$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.095,
+            0.301,
+            0.845,
+            0.344
+          ],
+          "content": "下面用矩阵的初等行变换来解方程组(1)，其过程可与方程组(1)的消元过程一一对照:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.339,
+            0.346,
+            0.66,
+            0.778
+          ],
+          "content": "\\begin{array}{l} \\boldsymbol {B} = \\left( \\begin{array}{c c c c c} 2 & - 1 & - 1 & 1 & 2 \\\\ 1 & 1 & - 2 & 1 & 4 \\\\ 4 & - 6 & 2 & - 2 & 4 \\\\ 3 & 6 & - 9 & 7 & 9 \\end{array} \\right) \\\\ \\overbrace {r _ {3} \\times \\frac {1}{2}} ^ {r _ {1} \\leftrightarrow r _ {2}} \\left( \\begin{array}{c c c c c} 1 & 1 & - 2 & 1 & 4 \\\\ 2 & - 1 & - 1 & 1 & 2 \\\\ 2 & - 3 & 1 & - 1 & 2 \\\\ 3 & 6 & - 9 & 7 & 9 \\end{array} \\right) = \\boldsymbol {B} _ {1} \\\\ \\frac {r _ {2} - r _ {3}}{r _ {3} - 2 r _ {1}} \\left( \\begin{array}{c c c c c} 1 & 1 & - 2 & 1 & 4 \\\\ 0 & 2 & - 2 & 2 & 0 \\\\ 0 & - 5 & 5 & - 3 & - 6 \\\\ 0 & 3 & - 3 & 4 & - 3 \\end{array} \\right) = \\boldsymbol {B} _ {2} \\\\ \\frac {r _ {2} \\times \\frac {1}{2}}{r _ {4} - 3 r _ {2}} \\left( \\begin{array}{c c c c c} 1 & 1 & - 2 & 1 & 4 \\\\ 0 & 1 & - 1 & 1 & 0 \\\\ 0 & 0 & 0 & 2 & - 6 \\\\ 0 & 0 & 0 & 1 & - 3 \\end{array} \\right) = \\boldsymbol {B} _ {3} \\\\ \\underbrace {r _ {3} \\leftrightarrow r _ {4}} _ {r _ {4} - 2 r _ {3}} \\left( \\begin{array}{c c c c c} 1 & 1 & - 2 & 1 & 4 \\\\ 0 & 1 & - 1 & 1 & 0 \\\\ 0 & 0 & 0 & 1 & - 3 \\\\ 0 & 0 & 0 & 0 & 0 \\end{array} \\right) = B _ {4}. \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0033-0064/images/page_62_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.79,
+            0.791,
+            0.809
+          ],
+          "content": "由方程组 $(B_{4})$ 得到解(2)的回代过程，也可用矩阵的初等行变换来完成，即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.309,
+            0.819,
+            0.627,
+            0.907
+          ],
+          "content": "\\boldsymbol {B} _ {4} \\xrightarrow [ r _ {2} - r _ {3} ]{r _ {1} - r _ {2}} \\left( \\begin{array}{c c c c c} 1 & 0 & - 1 & 0 & 4 \\\\ 0 & 1 & - 1 & 0 & 3 \\\\ 0 & 0 & 0 & 1 & - 3 \\\\ 0 & 0 & 0 & 0 & 0 \\end{array} \\right) = \\boldsymbol {B} _ {5},",
+          "image_source": "../../raw/pages_0033-0064/images/page_62_equation_11.jpg"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.347,
+            0.944,
+            0.643,
+            0.959
+          ],
+          "content": "考研电子书网站:www.pdf2book.com"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.868,
+            0.945,
+            0.89,
+            0.958
+          ],
+          "content": "59"
+        }
+      ]
+    },
+    {
+      "page_idx": 63,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.134,
+            0.014,
+            0.399,
+            0.028
+          ],
+          "content": "第3章 矩阵的初等变换与线性方程组"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.072,
+            0.265,
+            0.089
+          ],
+          "content": "$B_{5}$  对应方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.451,
+            0.095,
+            0.56,
+            0.169
+          ],
+          "content": "\\left\\{ \\begin{array}{l} x _ {1} - x _ {3} = 4, \\\\ x _ {2} - x _ {3} = 3, \\\\ x _ {4} = - 3, \\end{array} \\right.",
+          "image_source": "../../raw/pages_0033-0064/images/page_63_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.177,
+            0.454,
+            0.195
+          ],
+          "content": "取 $x_{3}$ 为自由未知数，并令 $x_{3} = c$ ，即得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.373,
+            0.205,
+            0.875,
+            0.299
+          ],
+          "content": "\\boldsymbol {x} = \\left( \\begin{array}{c} x _ {1} \\\\ x _ {2} \\\\ x _ {3} \\\\ x _ {4} \\end{array} \\right) = \\left( \\begin{array}{c} c + 4 \\\\ c + 3 \\\\ c \\\\ - 3 \\end{array} \\right) = c \\left( \\begin{array}{c} 1 \\\\ 1 \\\\ 1 \\\\ 0 \\end{array} \\right) + \\left( \\begin{array}{c} 4 \\\\ 3 \\\\ 0 \\\\ - 3 \\end{array} \\right), \\tag {2}",
+          "image_source": "../../raw/pages_0033-0064/images/page_63_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.307,
+            0.301,
+            0.325
+          ],
+          "content": "其中 $c$ 为任意常数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.331,
+            0.88,
+            0.425
+          ],
+          "content": "矩阵 $B_{4}$ 和 $B_{5}$ 的特点是:都可画出一条从第一行某元左方的竖线开始到最后一列某元下方的横线结束的阶梯线,它的左下方的元全为0;每段竖线的高度为一行,竖线的右方的第一个元为非零元,称为该非零行的首非零元,简称首元.具有这样特点的矩阵称为行阶梯形矩阵.为明确起见给出如下定义:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.429,
+            0.88,
+            0.474
+          ],
+          "content": "定义 2 （1）非零矩阵若满足(i) 非零行在零行的上面；(ii) 非零行的首元所在列在上一行(如果存在的话)的首元所在列的右面, 则称此矩阵为行阶梯形矩阵;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.478,
+            0.879,
+            0.524
+          ],
+          "content": "(2) 若 A 是行阶梯形矩阵, 并且还满足: (i) 非零行的首元为 1; (ii) 首元所在的列的其他元均为 0, 则称 A 为行最简形矩阵."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.173,
+            0.528,
+            0.694,
+            0.546
+          ],
+          "content": "于是 $B_{4}$ 和 $B_{5}$ 都是行阶梯形矩阵，且 $B_{5}$ 还是行最简形矩阵"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.553,
+            0.879,
+            0.596
+          ],
+          "content": "用归纳法不难证明(这里不证):对于任何非零矩阵 $A_{m\\times n}$ ，总可经有限次初等行变换把它变为行阶梯形矩阵和行最简形矩阵."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.602,
+            0.879,
+            0.645
+          ],
+          "content": "利用初等行变换,把一个矩阵化为行阶梯形矩阵和行最简形矩阵,是一种很重要的运算.由引例可知,要解线性方程组只需把增广矩阵化为行最简形矩阵."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.651,
+            0.879,
+            0.72
+          ],
+          "content": "由行最简形矩阵 $B_{5}$, 即可写出方程组的解 (2); 反之, 由方程组的解 (2) 也可写出矩阵 $B_{5}$. 由此可猜想到, 一个矩阵的行最简形矩阵是惟一确定的 (行阶梯形矩阵中非零行的行数也是惟一确定的)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.725,
+            0.88,
+            0.772
+          ],
+          "content": "对行最简形矩阵再施以初等列变换,可变成一种形状更简单的矩阵,称为标准形.例如"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.255,
+            0.775,
+            0.75,
+            0.868
+          ],
+          "content": "\\boldsymbol {B} _ {5} = \\left( \\begin{array}{c c c c c} 1 & 0 & - 1 & 0 & 4 \\\\ 0 & 1 & - 1 & 0 & 3 \\\\ 0 & 0 & 0 ^ {\\prime} & 1 & - 3 \\\\ 0 & 0 & 0 & 0 & 0 \\end{array} \\right) \\overbrace {c _ {5} - 4 c _ {1} - 3 c _ {2} + 3 c _ {3}} ^ {c _ {3} \\leftrightarrow c _ {4}} \\left( \\begin{array}{c c c c c} 1 & 0 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 & 0 \\\\ 0 & 0 & 1 & 0 & 0 \\\\ 0 & 0 & 0 & 0 & 0 \\end{array} \\right) = \\boldsymbol {F},",
+          "image_source": "../../raw/pages_0033-0064/images/page_63_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.874,
+            0.864,
+            0.892
+          ],
+          "content": "矩阵 F 称为矩阵 B 的标准形, 其特点是: F 的左上角是一个单位矩阵, 其余元全为 0."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.085,
+            0.925,
+            0.106,
+            0.937
+          ],
+          "content": "60"
+        }
+      ]
+    },
+    {
+      "page_idx": 64,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.699,
+            0.037,
+            0.849,
+            0.051
+          ],
+          "content": "§ 1 矩阵的初等变换"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.093,
+            0.609,
+            0.111
+          ],
+          "content": "对于 $m \\times n$ 矩阵 $\\mathbf{A}$, 总可经过初等变换把它化为标准形"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.395,
+            0.117,
+            0.548,
+            0.164
+          ],
+          "content": "\\boldsymbol {F} = \\left( \\begin{array}{c c} \\boldsymbol {E} _ {r} & \\boldsymbol {O} \\\\ \\boldsymbol {O} & \\boldsymbol {O} \\end{array} \\right) _ {m \\times n},",
+          "image_source": "../../raw/pages_0065-0096/images/page_64_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.169,
+            0.848,
+            0.213
+          ],
+          "content": "此标准形由 $m, n, r$ 三个数完全确定，其中 $r$ 就是行阶梯形矩阵中非零行的行数。所有与 $\\pmb{A}$ 等价的矩阵组成一个集合，标准形 $\\pmb{F}$ 是这个集合中形状最简单的矩阵。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.219,
+            0.848,
+            0.261
+          ],
+          "content": "矩阵的初等变换是矩阵的一种最基本的运算,为探讨它的应用,需要研究它的性质,下面介绍它的一个最基本的性质."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.268,
+            0.469,
+            0.286
+          ],
+          "content": "定理1 设 $A$ 与 $\\pmb{B}$ 为 $m \\times n$ 矩阵, 那么"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.094,
+            0.293,
+            0.848,
+            0.393
+          ],
+          "sub_type": "text",
+          "content": "(i)  $A \\sim B$  的充分必要条件是存在 m 阶可逆矩阵 P, 使 PA = B;\n(ii) $A \\stackrel{c}{\\sim} B$ 的充分必要条件是存在 $n$ 阶可逆矩阵 $Q$, 使 $AQ = B$;\n(iii) $A \\sim B$ 的充分必要条件是存在 $m$ 阶可逆矩阵 $P$ 及 $n$ 阶可逆矩阵 $Q$, 使 $PAQ = B$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.4,
+            0.503,
+            0.418
+          ],
+          "content": "为证明定理1,我们引进初等矩阵的知识."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.135,
+            0.425,
+            0.735,
+            0.445
+          ],
+          "content": "定义 3 由单位矩阵 E 经过一次初等变换得到的矩阵称为初等矩阵."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.45,
+            0.451,
+            0.468
+          ],
+          "content": "三种初等变换对应有三种初等矩阵."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.474,
+            0.724,
+            0.493
+          ],
+          "content": "(i) 把单位矩阵中第 $i, j$ 两行对换（或第 $i, j$ 两列对换），得初等矩阵"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.248,
+            0.502,
+            0.687,
+            0.701
+          ],
+          "content": "\\boldsymbol {E} (i, j) = \\left( \\begin{array}{c c c c c c c c} 1 & & & & & & \\\\ & \\ddots & & & & & \\\\ & & 1 & & & & \\\\ & & 0 & \\dots & 1 & & \\\\ & & & 1 & & \\\\ & & \\vdots & \\ddots & \\vdots & \\\\ & & & & 1 & \\\\ & & 1 & \\dots & 0 & \\\\ & & & & & 1 \\\\ & & & & & & \\ddots \\\\ & & & & & & 1 \\end{array} \\right) \\begin{array}{l} \\leftarrow \\text {第} i \\text {行} \\\\ , \\\\ \\leftarrow \\text {第} j \\text {行} \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_64_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.713,
+            0.534,
+            0.733
+          ],
+          "content": "用 $m$ 阶初等矩阵 $\\pmb{E}_m(i,j)$ 左乘矩阵 $\\pmb {A} = (a_{ij})_{m\\times n}$ ，得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.283,
+            0.739,
+            0.648,
+            0.915
+          ],
+          "content": "\\boldsymbol {E} _ {m} (i, j) \\boldsymbol {A} = \\left( \\begin{array}{c c c c} a _ {1 1} & a _ {1 2} & \\dots & a _ {1 n} \\\\ \\vdots & \\vdots & & \\vdots \\\\ a _ {j 1} & a _ {j 2} & \\dots & a _ {j n} \\\\ \\vdots & \\vdots & & \\vdots \\\\ a _ {i 1} ^ {\\prime} & a _ {i 2} & \\dots & a _ {i n} \\\\ \\vdots & \\vdots & & \\vdots \\\\ a _ {m 1} & a _ {m 2} & \\dots & a _ {m n} \\end{array} \\right) \\xleftarrow {\\text {第} i \\text {行}}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_64_equation_16.jpg"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.35,
+            0.945,
+            0.65,
+            0.96
+          ],
+          "content": "考研电子书网站:www.pdf2book.com"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.866,
+            0.95,
+            0.887,
+            0.963
+          ],
+          "content": "61"
+        }
+      ]
+    },
+    {
+      "page_idx": 65,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.142,
+            0.019,
+            0.404,
+            0.033
+          ],
+          "content": "第 3 章 矩阵的初等变换与线性方程组"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.075,
+            0.884,
+            0.144
+          ],
+          "content": "其结果相当于对矩阵 $\\pmb{A}$ 施行第一种初等行变换:把 $\\pmb{A}$ 的第 $i$ 行与第 $j$ 行对换 $(r_i \\leftrightarrow r_j)$. 类似地，以 $n$ 阶初等矩阵 $E_n(i, j)$ 右乘矩阵 $\\pmb{A}$，其结果相当于对矩阵 $\\pmb{A}$ 施行第一种初等列变换:把 $\\pmb{A}$ 的第 $i$ 列与第 $j$ 列对换 $(c_i \\leftrightarrow c_j)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.18,
+            0.148,
+            0.743,
+            0.167
+          ],
+          "content": "(ii) 以数 $k (k \\neq 0)$ 乘单位矩阵的第 $i$ 行（或第 $i$ 列），得初等矩阵"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.336,
+            0.171,
+            0.68,
+            0.309
+          ],
+          "content": "\\boldsymbol {E} (i (k)) = \\left( \\begin{array}{c c c c c c} 1 & & & & & \\\\ & \\ddots & & & & \\\\ & & 1 & & & \\\\ & & & k & & \\\\ & & & & 1 & \\\\ & & & & & \\ddots \\\\ & & & & & 1 \\end{array} \\right) \\leftarrow \\text {第} i \\text {行},",
+          "image_source": "../../raw/pages_0065-0096/images/page_65_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.315,
+            0.883,
+            0.358
+          ],
+          "content": "可以验知:以  $E_{m}(i(k))$  左乘矩阵 A, 其结果相当于以数 k 乘 A 的第 i 行  $(r_{i} \\times k)$ ; 以  $E_{n}(i(k))$  右乘矩阵 A, 其结果相当于以数 k 乘 A 的第 i 列  $(c_{i} \\times k)$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.363,
+            0.884,
+            0.406
+          ],
+          "content": "（iii）以 $k$ 乘单位矩阵的第 $j$ 行加到第 $i$ 行上或以 $k$ 乘单位矩阵的第 $i$ 列加到第 $j$ 列上，得初等矩阵"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.331,
+            0.411,
+            0.688,
+            0.56
+          ],
+          "content": "E (i j (k)) = \\left( \\begin{array}{c c c c c c} 1 & & & & & \\\\ & \\ddots & & & & \\\\ & & 1 & \\dots & k & \\\\ & & & \\ddots & \\vdots & \\\\ & & & & 1 & \\\\ & & & & & \\ddots \\\\ & & & & & 1 \\end{array} \\right) \\xleftarrow {\\text {第} i \\text {行}} \\xleftarrow {\\text {第} j \\text {行}}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_65_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.565,
+            0.882,
+            0.633
+          ],
+          "content": "可以验知:以  $E_{m}(ij(k))$  左乘矩阵 A, 其结果相当于把 A 的第 j 行乘 k 加到第 i 行上  $(r_{i}+kr_{j})$ ; 以  $E_{n}(ij(k))$  右乘矩阵 A, 其结果相当于把 A 的第 i 列乘 k 加到第 j 列上  $(c_{j}+kc_{i})$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.182,
+            0.638,
+            0.377,
+            0.656
+          ],
+          "content": "归纳上面的讨论,可得"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.661,
+            0.882,
+            0.729
+          ],
+          "content": "性质1 设 $A$ 是一个 $m \\times n$ 矩阵, 对 $A$ 施行一次初等行变换, 相当于在 $A$ 的左边乘相应的 $m$ 阶初等矩阵; 对 $A$ 施行一次初等列变换, 相当于在 $A$ 的右边乘相应的 $n$ 阶初等矩阵."
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.139,
+            0.733,
+            0.88,
+            0.798
+          ],
+          "content": "\\begin{array}{r l} & {\\text {显然初等矩阵都是可逆的,且其逆矩阵是同一类型的初等矩阵:} E (i, j) ^ {- 1} = E (i, j),} \\\\ & {E (i (k)) ^ {- 1} = E \\left(i \\left(\\frac {1}{k}\\right)\\right), E (i j (k)) ^ {- 1} = E (i j (- k)).} \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_65_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.18,
+            0.803,
+            0.875,
+            0.823
+          ],
+          "content": "性质 2 方阵 A 可逆的充分必要条件是存在有限个初等矩阵  $P_{1}, P_{2}, \\cdots, P_{l}$ ，使"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.446,
+            0.827,
+            0.567,
+            0.846
+          ],
+          "content": "A = P _ {1} P _ {2} \\dots P _ {l}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_65_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.851,
+            0.88,
+            0.894
+          ],
+          "content": "证 先证充分性. 设  $A=P_{1}P_{2}\\cdots P_{l}$ ，因初等矩阵可逆，有限个可逆矩阵的乘积仍可逆. 故 A 可逆."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.095,
+            0.927,
+            0.116,
+            0.939
+          ],
+          "content": "62"
+        }
+      ]
+    },
+    {
+      "page_idx": 66,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.7,
+            0.035,
+            0.851,
+            0.05
+          ],
+          "content": "§1 矩阵的初等变换"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.117,
+            0.092,
+            0.848,
+            0.137
+          ],
+          "content": "再证必要性. 设 n 阶方阵 A 可逆, 它经有限次初等行变换成为行最简形矩阵 B. 由性质 1, 知有初等矩阵  $Q_{1}, Q_{2}, \\cdots, Q_{l}$  使"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.416,
+            0.144,
+            0.554,
+            0.163
+          ],
+          "content": "Q _ {1} \\dots Q _ {2} Q _ {1} A = B.",
+          "image_source": "../../raw/pages_0065-0096/images/page_66_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.115,
+            0.17,
+            0.846,
+            0.214
+          ],
+          "content": "因 $A,Q_{1},Q_{2},\\cdots,Q_{l}$ 均可逆,故B也可逆,从而B的非零行数为n,即B有n个首元1,但B总共只有n个列,故B=E.于是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.219,
+            0.22,
+            0.738,
+            0.241
+          ],
+          "content": "\\boldsymbol {A} = \\boldsymbol {Q} _ {1} ^ {- 1} \\boldsymbol {Q} _ {2} ^ {- 1} \\dots \\boldsymbol {Q} _ {l} ^ {- 1} \\boldsymbol {B} = \\boldsymbol {Q} _ {1} ^ {- 1} \\boldsymbol {Q} _ {2} ^ {- 1} \\dots \\boldsymbol {Q} _ {l} ^ {- 1} \\boldsymbol {E} = \\boldsymbol {Q} _ {1} ^ {- 1} \\boldsymbol {Q} _ {2} ^ {- 1} \\dots \\boldsymbol {Q} _ {l} ^ {- 1} = \\boldsymbol {P} _ {1} \\boldsymbol {P} _ {2} \\dots \\boldsymbol {P} _ {l},",
+          "image_source": "../../raw/pages_0065-0096/images/page_66_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.113,
+            0.248,
+            0.612,
+            0.268
+          ],
+          "content": "这里  $P_{i}=Q_{i}^{-1}$  为初等矩阵, 即 A 是若干个初等矩阵的乘积."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.803,
+            0.25,
+            0.846,
+            0.267
+          ],
+          "content": "证毕"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.154,
+            0.274,
+            0.503,
+            0.292
+          ],
+          "content": "下面应用初等矩阵的知识来证明定理1."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.155,
+            0.3,
+            0.291,
+            0.318
+          ],
+          "content": "定理1的证明:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.154,
+            0.324,
+            0.551,
+            0.343
+          ],
+          "content": "(i) 依据 $A \\sim B$ 的定义和初等矩阵的性质, 有"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.19,
+            0.353,
+            0.54,
+            0.371
+          ],
+          "content": "$A \\sim B \\Leftrightarrow A$  经有限次初等行变换变成 B"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.251,
+            0.383,
+            0.764,
+            0.401
+          ],
+          "content": "$\\Leftrightarrow$ 存在有限个 $m$ 阶初等矩阵 $\\pmb{P}_1, \\pmb{P}_2, \\dots, \\pmb{P}_l$, 使 $\\pmb{P}_l \\dots \\pmb{P}_2 \\pmb{P}_1 \\pmb{A} = \\pmb{B}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.251,
+            0.409,
+            0.554,
+            0.426
+          ],
+          "content": "$\\Leftrightarrow$ 存在 $m$ 阶可逆矩阵 $\\pmb{P}$, 使 $PA = B$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.153,
+            0.433,
+            0.361,
+            0.452
+          ],
+          "content": "类似可证明(ii)和(iii)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.801,
+            0.434,
+            0.843,
+            0.451
+          ],
+          "content": "证毕"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.11,
+            0.458,
+            0.845,
+            0.527
+          ],
+          "content": "定理 1 把矩阵的初等变换与矩阵的乘法联系了起来,从而可以依据矩阵乘法的运算规律得到初等变换的运算规律,也可以利用矩阵的初等变换去研究矩阵的乘法.下面先给出定理 1 的一个推论,然后介绍一种利用初等变换求逆矩阵的方法."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.534,
+            0.546,
+            0.552
+          ],
+          "content": "推论 方阵 A 可逆的充分必要条件是  $A \\sim E$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.562,
+            0.509,
+            0.58
+          ],
+          "content": "证 $A$ 可逆 $\\Leftrightarrow$ 存在可逆矩阵 $P$, 使 $PA = E$"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.251,
+            0.588,
+            0.334,
+            0.604
+          ],
+          "content": "\\Leftrightarrow A \\stackrel {r} {\\sim} E.",
+          "image_source": "../../raw/pages_0065-0096/images/page_66_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.799,
+            0.588,
+            0.843,
+            0.606
+          ],
+          "content": "证毕"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.108,
+            0.616,
+            0.845,
+            0.663
+          ],
+          "content": "定理 1 表明, 如果  $A \\sim B$ , 即 A 经一系列初等行变换变为 B, 则有可逆矩阵 P, 使 PA = B. 那么, 如何去求出这个可逆矩阵 P?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.67,
+            0.844,
+            0.763
+          ],
+          "content": "由于 $PA = B \\Leftrightarrow \\begin{cases} PA = B, \\\\ PE = P \\end{cases} \\Leftrightarrow P(A, E) = (B, P) \\Leftrightarrow (A, E) \\sim (B, P)$, 因此, 如果对矩阵 $(A, E)$ 作初等行变换, 那么当把 $A$ 变为 $B$ 时, $E$ 就变为 $P$. 于是就得到所求的可逆矩阵 $P$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.771,
+            0.843,
+            0.863
+          ],
+          "content": "例1 设 $A = \\begin{pmatrix} 2 & -1 & -1 \\\\ 1 & 1 & -2 \\\\ 4 & -6 & 2 \\end{pmatrix}$ 的行最简形矩阵为 $F$, 求 $F$ 及一个可逆矩阵 $P$, 使 $PA = F$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.871,
+            0.841,
+            0.915
+          ],
+          "content": "解 把 A 用初等行变换化成行最简形矩阵, 即为 F. 但需求出 P, 故按上段所述, 对  $(A, E)$  作初等行变换把 A 化成行最简形矩阵, 便同时得到 F 和 P. 运算如下:"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.35,
+            0.945,
+            0.65,
+            0.96
+          ],
+          "content": "考研电子书网站:www.pdf2book.com"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.866,
+            0.948,
+            0.889,
+            0.961
+          ],
+          "content": "63"
+        }
+      ]
+    },
+    {
+      "page_idx": 67,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.144,
+            0.019,
+            0.409,
+            0.033
+          ],
+          "content": "第 3 章 矩阵的初等变换与线性方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.231,
+            0.077,
+            0.801,
+            0.144
+          ],
+          "content": "(\\boldsymbol {A}, \\boldsymbol {E}) = \\left( \\begin{array}{c c c c c c} 2 & - 1 & - 1 & 1 & 0 & 0 \\\\ 1 & 1 & - 2 & 0 & 1 & 0 \\\\ 4 & - 6 & 2 & 0 & 0 & 1 \\end{array} \\right) \\xrightarrow [ r _ {2} - 2 r _ {1} ]{r _ {1} \\leftrightarrow r _ {2}} \\left( \\begin{array}{c c c c c c} 1 & 1 & - 2 & 0 & 1 & 0 \\\\ 0 & - 3 & 3 & 1 & - 2 & 0 \\\\ 0 & - 4 & 4 & - 2 & 0 & 1 \\end{array} \\right)",
+          "image_source": "../../raw/pages_0065-0096/images/page_67_equation_1.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.293,
+            0.151,
+            0.58,
+            0.216
+          ],
+          "content": "\\overbrace {r _ {3} + 4 r _ {2}} ^ {r _ {2} - r _ {3}} \\left( \\begin{array}{c c c c c c} 1 & 0 & - 1 & - 3 & 3 & 1 \\\\ 0 & 1 & - 1 & 3 & - 2 & - 1 \\\\ 0 & 0 & 0 & 1 0 & - 8 & - 3 \\end{array} \\right),",
+          "image_source": "../../raw/pages_0065-0096/images/page_67_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.223,
+            0.714,
+            0.291
+          ],
+          "content": "故  $F=\\begin{pmatrix}1&0&-1\\\\0&1&-1\\\\0&0&0\\end{pmatrix}$  为 A 的行最简形矩阵, 而使 PA=F 的可逆矩阵"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.426,
+            0.295,
+            0.595,
+            0.363
+          ],
+          "content": "\\boldsymbol {P} = \\left( \\begin{array}{c c c} - 3 & 3 & 1 \\\\ . 3 & - 2 & - 1 \\\\ 1 0 & - 8 & - 3 \\end{array} \\right).",
+          "image_source": "../../raw/pages_0065-0096/images/page_67_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.368,
+            0.887,
+            0.411
+          ],
+          "content": "注 上述解中所得 $(\\pmb{F},\\pmb{P})$ ，可继续作初等行变换 $r_3\\times k,r_1 + kr_3,r_2 + kr_3$ ，则 $\\pmb{F}$ 不变而$\\pmb{P}$ 变.由此可知本例中使 $PA = F$ 的可逆矩阵 $\\pmb{P}$ 不是惟一的."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.184,
+            0.417,
+            0.635,
+            0.485
+          ],
+          "content": "例2 设 $A = \\begin{pmatrix} 0 & -2 & 1 \\\\ 3 & 0 & -2 \\\\ -2 & 3 & 0 \\end{pmatrix}$, 证明 $A$ 可逆, 并求 $A^{-1}$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.489,
+            0.887,
+            0.533
+          ],
+          "content": "解 如同例1, 初等行变换把 $(A, E)$ 化成 $(F, P)$, 其中 $F$ 为 $A$ 的行最简形矩阵. 如果 $F = E$, 由定理1之推论知 $A$ 可逆, 并由 $PA = E$, 知 $P = A^{-1}$. 运算如下:"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.188,
+            0.539,
+            0.774,
+            0.752
+          ],
+          "content": "\\begin{array}{l} (A, E) = \\left( \\begin{array}{c c c c c c} 0 & - 2 & 1 & 1 & 0 & 0 \\\\ 3 & 0 & - 2 & 0 & 1 & 0 \\\\ - 2 & 3 & 0 & 0 & 0 & 1 \\end{array} \\right) \\\\ \\underbrace {r _ {3} \\times 3} _ {r _ {1} \\leftrightarrow r _ {2}} \\left( \\begin{array}{c c c c c c} 3 & 0 & - 2 & 0 & 1 & 0 \\\\ 0 & - 2 & 1 & 1 & 0 & 0 \\\\ 0 & 9 & - 4 & 0 & 2 & 3 \\end{array} \\right) \\underbrace {r _ {3} \\times 2} _ {r _ {3} + 9 r _ {2}} \\left( \\begin{array}{c c c c c c} 3 & 0 & - 2 & 0 & 1 & 0 \\\\ 0 & - 2 & 1 & 1 & 0 & 0 \\\\ 0 & 0 & 1 & 9 & 4 & 6 \\end{array} \\right) \\\\ \\overbrace {r _ {2} - r _ {3}} ^ {r _ {1} + 2 r _ {3}} \\left( \\begin{array}{c c c c c c} 3 & 0 & 0 & 1 8 & 9 & 1 2 \\\\ 0 & - 2 & 0 & - 8 & - 4 & - 6 \\\\ 0 & 0 & 1 & 9 & 4 & 6 \\end{array} \\right) \\overbrace {r _ {2} \\times \\left(- \\frac {1}{2}\\right)} ^ {r _ {1} \\times \\frac {1}{3}} \\left( \\begin{array}{c c c c c c} 1 & 0 & 0 & 6 & 3 & 4 \\\\ 0 & 1 & 0 & 4 & 2 & 3 \\\\ 0 & 0 & 1 & 9 & 4 & 6 \\end{array} \\right), \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_67_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.758,
+            0.495,
+            0.829
+          ],
+          "content": "因 $A \\sim^{r} E$，故 $A$ 可逆，且 $A^{-1} = \\begin{pmatrix} 6 & 3 & 4 \\\\ 4 & 2 & 3 \\\\ 9 & 4 & 6 \\end{pmatrix}$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.182,
+            0.831,
+            0.763,
+            0.9
+          ],
+          "content": "例3 求解矩阵方程 $AX = B$，其中 $A = \\begin{pmatrix} 2 & 1 & -3 \\\\ 1 & 2 & -2 \\\\ -1 & 3 & 2 \\end{pmatrix}, B = \\begin{pmatrix} 1 & -1 \\\\ 2 & 0 \\\\ -2 & 5 \\end{pmatrix}$."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.096,
+            0.931,
+            0.117,
+            0.943
+          ],
+          "content": "64"
+        }
+      ]
+    },
+    {
+      "page_idx": 68,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.695,
+            0.037,
+            0.847,
+            0.052
+          ],
+          "content": "§1 矩阵的初等变换"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.095,
+            0.568,
+            0.113
+          ],
+          "content": "解 设可逆矩阵 P 使 PA = F 为行最简形矩阵, 则"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.377,
+            0.119,
+            0.559,
+            0.138
+          ],
+          "content": "\\boldsymbol {P} (\\boldsymbol {A}, \\boldsymbol {B}) = (\\boldsymbol {F}, \\boldsymbol {P B}),",
+          "image_source": "../../raw/pages_0065-0096/images/page_68_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.143,
+            0.844,
+            0.187
+          ],
+          "content": "因此对矩阵 $(A, B)$ 作初等行变换把 $A$ 变为 $F$, 同时把 $B$ 变为 $PB$. 若 $F = E$, 则 $A$ 可逆, 且 $P = A^{-1}$, 这时所给方程有惟一解 $X = PB = A^{-1}B$. 由"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.136,
+            0.197,
+            0.682,
+            0.344
+          ],
+          "content": "\\begin{array}{l} (A, B) = \\left( \\begin{array}{c c c c c} 2 & 1 & - 3 & 1 & - 1 \\\\ 1 & 2 & - 2 & 2 & 0 \\\\ - 1 & 3 & 2 & - 2 & 5 \\end{array} \\right) \\overset {r _ {1} \\leftrightarrow r _ {2}} {\\underset {r _ {3} + r _ {1}} {\\overset {r _ {2} - 2 r _ {1}} {\\longrightarrow}}} \\left( \\begin{array}{c c c c c} 1 & 2 & - 2 & 2 & 0 \\\\ 0 & - 3 & 1 & - 3 & - 1 \\\\ 0 & 5 & 0 & 0 & 5 \\end{array} \\right) \\\\ \\underset {r _ {3} + 3 r _ {2}} {\\overset {r _ {3} \\leftrightarrow r _ {2}} {\\longrightarrow}} \\left( \\begin{array}{c c c c c} 1 & 2 & - 2 & 2 & 0 \\\\ 0 & 1 & 0 & 0 & 1 \\\\ 0.. & 0 & 1 & - 3 & 2 \\end{array} \\right) \\overset {r _ {1} - 2 r _ {2} + 2 r _ {3}} {\\longrightarrow} \\left( \\begin{array}{c c c c c} 1 & 0 & 0 & - 4 & 2 \\\\ 0 & 1 & 0 & 0 & 1 \\\\ 0 & 0 & 1 & - 3 & 2 \\end{array} \\right), \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_68_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.352,
+            0.344,
+            0.371
+          ],
+          "content": "可见 $A \\sim E$，因此 $A$ 可逆，且"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.381,
+            0.379,
+            0.553,
+            0.448
+          ],
+          "content": "\\boldsymbol {X} = \\boldsymbol {A} ^ {- 1} \\boldsymbol {B} = \\left( \\begin{array}{c c} - 4 & 2 \\\\ 0 & 1 \\\\ - 3 & 2 \\end{array} \\right)",
+          "image_source": "../../raw/pages_0065-0096/images/page_68_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.457,
+            0.311,
+            0.476
+          ],
+          "content": "即为所给方程的惟一解."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.09,
+            0.481,
+            0.845,
+            0.623
+          ],
+          "content": "例2和例3是一种用初等行变换求 $A^{-1}$ 或 $A^{-1}B$ 的方法，当 $\\pmb{A}$ 为3阶或更高阶的矩阵时，求 $A^{-1}$ 或 $A^{-1}B$ 通常都用此方法.这是当 $\\pmb{A}$ 为可逆矩阵时，求解方程$AX = B$ 的方法（求 $A^{-1}$ 也就是求方程 $AX = E$ 的解).这方法就是把方程 $AX = B$ 的增广矩阵 $(A,B)$ 化为行最简形矩阵，从而求得方程的解.特别地，求解线性方程组$Ax = b$ （ $A$ 为可逆矩阵）时把增广矩阵 $(A,b)$ 化为行最简形矩阵，其最后一列就是解向量，从而得到了一个求解线性方程组的新途径."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.629,
+            0.336,
+            0.648
+          ],
+          "content": "例4 求解线性方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.384,
+            0.657,
+            0.548,
+            0.732
+          ],
+          "content": "\\left\\{ \\begin{array}{l l} x _ {1} - x _ {2} - x _ {3} = 2, \\\\ 2 x _ {1} - x _ {2} - 3 x _ {3} = 1, \\\\ 3 x _ {1} + 2 x _ {2} - 5 x _ {3} = 0. \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_68_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.742,
+            0.47,
+            0.761
+          ],
+          "content": "解 记此方程组为 Ax=b，则增广矩阵"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.242,
+            0.769,
+            0.691,
+            0.919
+          ],
+          "content": "\\begin{array}{l} (\\boldsymbol {A}, \\boldsymbol {b}) = \\left( \\begin{array}{c c c c} 1 & - 1 & - 1 & 2 \\\\ 2 & - 1 & - 3 & 1 \\\\ 3 & 2 & - 5 & 0 \\end{array} \\right) \\xrightarrow [ r _ {3} - 3 r _ {1} ]{r _ {2} - 2 r _ {1}} \\left( \\begin{array}{c c c c} 1 & - 1 & - 1 & 2 \\\\ 0 & 1 & - 1 & - 3 \\\\ 0 & 5 & - 2 & - 6 \\end{array} \\right) \\\\ \\begin{array}{c} \\frac {r _ {1} + r _ {2}}{r _ {3} - 5 r _ {2}} \\left( \\begin{array}{c c c c} 1 & 0 & - 2 & - 1 \\\\ 0 & 1 & - 1 & - 3 \\\\ 0 & 0 & 1 & 3 \\end{array} \\right) \\frac {r _ {1} + 2 r _ {3}}{r _ {2} + r _ {3}} \\left( \\begin{array}{c c c c} 1 & 0 & 0 & 5 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & 1 & 3 \\end{array} \\right). \\end{array} \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_68_equation_12.jpg"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.348,
+            0.945,
+            0.647,
+            0.961
+          ],
+          "content": "考研电子书网站:www.pdf2book.com"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.866,
+            0.95,
+            0.889,
+            0.963
+          ],
+          "content": "65"
+        },
+        {
+          "type": "aside_text",
+          "bbox": [
+            0.863,
+            0.405,
+            0.979,
+            0.423
+          ],
+          "content": "举一反三"
+        },
+        {
+          "type": "aside_text",
+          "bbox": [
+            0.913,
+            0.379,
+            0.937,
+            0.398
+          ],
+          "content": "图"
+        }
+      ]
+    },
+    {
+      "page_idx": 69,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.148,
+            0.019,
+            0.414,
+            0.034
+          ],
+          "content": "第3章 矩阵的初等变换与线性方程组"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.076,
+            0.549,
+            0.095
+          ],
+          "content": "因 $A \\sim E$，故 $A$ 可逆，于是方程组有解，且解为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.455,
+            0.107,
+            0.582,
+            0.176
+          ],
+          "content": "\\boldsymbol {x} = \\boldsymbol {A} ^ {- 1} \\boldsymbol {b} = \\left( \\begin{array}{c} 5 \\\\ 0 \\\\ 3 \\end{array} \\right).",
+          "image_source": "../../raw/pages_0065-0096/images/page_69_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.185,
+            0.893,
+            0.229
+          ],
+          "content": "此方程组我们已在第2章例16中分别用克拉默法则和逆矩阵求解过.比较这三种方法,显然这里介绍的方法最为方便和快捷."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.412,
+            0.268,
+            0.639,
+            0.293
+          ],
+          "level": 2,
+          "content": "§ 2 矩阵的秩"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.332,
+            0.893,
+            0.376
+          ],
+          "content": "为了更好地理解矩阵的秩的概念,重新讨论上节引例中增广矩阵 B 及其行阶梯形矩阵  $B_{4}$  和  $B_{5}$ :"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.269,
+            0.38,
+            0.77,
+            0.474
+          ],
+          "content": "\\boldsymbol {B} = \\left( \\begin{array}{c c c c c} 2 & - 1 & - 1 & 1 & 2 \\\\ 1 & 1 & - 2 & 1 & 4 \\\\ 4 & - 6 & 2 & - 2 & 4 \\\\ 3 & 6 & - 9 & 7 & 9 \\end{array} \\right) \\stackrel {{r}} {{\\sim}} \\left( \\begin{array}{c c c c c} 1 & 1 & - 2 & 1 & 4 \\\\ 0 & 1 & - 1 & 1 & 0 \\\\ 0 & 0 & 0 & 1 & - 3 \\\\ 0 & 0 & 0 & 0 & 0 \\end{array} \\right) = \\boldsymbol {B} _ {4}",
+          "image_source": "../../raw/pages_0065-0096/images/page_69_equation_6.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.291,
+            0.485,
+            0.567,
+            0.577
+          ],
+          "content": "\\sim \\left( \\begin{array}{c c c c c} 1 & 0 & - 1 & 0 & 4 \\\\ 0 & 1 & - 1 & 0 & 3 \\\\ 0 & 0 & 0 & 1 & - 3 \\\\ 0 & 0 & 0 & 0 & 0 \\end{array} \\right) = \\boldsymbol {B} _ {5},",
+          "image_source": "../../raw/pages_0065-0096/images/page_69_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.581,
+            0.893,
+            0.626
+          ],
+          "content": "我们发现 $B_{4}$ 和 $B_{5}$ 都恰好有3个非零行.自然要问:每一个与 $\\pmb{B}$ 行等价的行阶梯形矩阵是否都恰好有3个非零行？回答是肯定的.为阐明这一问题先引入矩阵子式的概念"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.63,
+            0.893,
+            0.676
+          ],
+          "content": "定义 4 在  $m \\times n$  矩阵 A 中, 任取 k 行与 k 列  $(k \\leqslant m, k \\leqslant n)$ , 位于这些行列交叉处的  $k^{2}$  个元素, 不改变它们在 A 中所处的位置次序而得的 k 阶行列式, 称为矩阵 A 的 k 阶子式."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.679,
+            0.687,
+            0.699
+          ],
+          "content": "$m \\times n$ 矩阵 A 的 k 阶子式共有 $C_{m}^{k} \\cdot C_{n}^{k}$ 个. 公众号:旗胜考研"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.704,
+            0.894,
+            0.822
+          ],
+          "content": "现在来观察行阶梯形矩阵 $B_{4}$ 的子式. 取 $B_{4}$ 的第1、第2、第3行和第1、第2、第4列, 得到三阶非零子式 $\\left| \\begin{array}{lll} 1 & 1 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 1 \\end{array} \\right|$; 而它的任一四阶子式都将因含有零行而成为0. 换言之, $B_{4}$ 中非零子式的最高阶数是3. 同样 $B_{5}$ 中非零子式的最高阶数也是3."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.826,
+            0.749,
+            0.846
+          ],
+          "content": "非零子式在矩阵的初等行变换中的意义可以表述成如下的引理:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.851,
+            0.679,
+            0.87
+          ],
+          "content": "引理 设 $A \\sim B$，则 $A$ 与 $B$ 中非零子式的最高阶数相等."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.879,
+            0.631,
+            0.898
+          ],
+          "content": "证 先证 B 是 A 经过一次初等行变换而得的情形."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.101,
+            0.929,
+            0.123,
+            0.942
+          ],
+          "content": "66"
+        }
+      ]
+    },
+    {
+      "page_idx": 70,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.74,
+            0.034,
+            0.843,
+            0.049
+          ],
+          "content": "§2 矩阵的秩"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.091,
+            0.093,
+            0.845,
+            0.143
+          ],
+          "content": "设 $D$ 是 $\\pmb{A}$ 中的 $r$ 阶非零子式. 当 $\\pmb{A} \\xrightarrow{r_i \\leftrightarrow r_j} \\pmb{B}$ 或 $\\pmb{A} \\xrightarrow{r_i \\times k} \\pmb{B}$ 时, 在 $\\pmb{B}$ 中总能找到与 $D$ 相对应的 $r$ 阶子式 $D_1$, 由于 $D_1 = D$ 或 $D_1 = -D$ 或 $D_1 = kD$, 因此 $D_1 \\neq 0$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.091,
+            0.15,
+            0.843,
+            0.225
+          ],
+          "content": "当 $A \\xrightarrow{r_i + kr_j} B$ 时, 因为对于作变换 $r_i \\leftrightarrow r_j$ 时结论成立, 所以只需考虑 $A \\xrightarrow{r_1 + kr_2} B$ 这一特殊情形. 分两种情形讨论: ① $D$ 不包含 $A$ 的第 1 行, 这时 $D$ 也是 $B$ 的 $r$ 阶非零子式; ② $D$ 包含 $A$ 的第 1 行, 这时把 $B$ 中与 $D$ 对应的 $r$ 阶子式 $D_1$ 记作"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.3,
+            0.233,
+            0.627,
+            0.336
+          ],
+          "content": "D _ {1} = \\left| \\begin{array}{c} r _ {1} + k r _ {2} \\\\ r _ {p} \\\\ \\vdots \\\\ r _ {q} \\end{array} \\right| = \\left| \\begin{array}{c} r _ {1} \\\\ r _ {p} \\\\ \\vdots \\\\ r _ {q} \\end{array} \\right| + k \\left| \\begin{array}{c} r _ {2} \\\\ r _ {p} \\\\ \\vdots \\\\ r _ {q} \\end{array} \\right| = D + k D _ {2},",
+          "image_source": "../../raw/pages_0065-0096/images/page_70_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.09,
+            0.346,
+            0.843,
+            0.392
+          ],
+          "content": "若 $p = 2$ ，则 $D_{1} = D\\neq 0$ ；若 $p\\neq 2$ ，则 $D_{2}$ 也是 $\\pmb{B}$ 的 $r$ 阶子式，由 $D_{1} - kD_{2} = D\\neq 0$ ，知 $D_{1}$ 与 $D_{2}$ 不同时为0.总之， $\\pmb{B}$ 中存在 $r$ 阶非零子式 $D_{1}$ 或 $D_{2}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.09,
+            0.397,
+            0.843,
+            0.442
+          ],
+          "content": "记 $\\pmb{A}$ 和 $\\pmb{B}$ 中非零子式的最高阶数分别为 $s$ 和 $t$, 那么上述表明 $s \\leqslant t$. 因 $\\pmb{A}$ 经一次初等行变换成为 $\\pmb{B}, \\pmb{B}$ 也就可经一次初等行变换成为 $\\pmb{A}$, 故又有 $t \\leqslant s$, 于是 $s = t$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.447,
+            0.843,
+            0.466
+          ],
+          "content": "经一次初等行变换结论成立,即可知经有限次初等行变换结论也成立. 证毕"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.473,
+            0.486,
+            0.491
+          ],
+          "content": "现在可以回答本节一开始提出的问题了."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.089,
+            0.497,
+            0.843,
+            0.542
+          ],
+          "content": "设 $\\pmb{C}$ 是任一与 $\\pmb{B}$ 行等价的行阶梯形矩阵，由引理，$\\pmb{C}$ 中非零子式的最高阶数应与 $B_{4}$ 中非零子式的最高阶数相同，即 $\\pmb{C}$ 有且仅有3个非零行."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.089,
+            0.547,
+            0.843,
+            0.592
+          ],
+          "content": "值得注意的是上面的讨论中,关心的并不是非零子式(作为行列式)本身,而是它的阶数,尤其是非零子式的最高阶数.由此给出矩阵的秩的定义:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.088,
+            0.597,
+            0.843,
+            0.667
+          ],
+          "content": "定义5 设在矩阵 $\\pmb{A}$ 中有一个不等于0的 $r$ 阶子式 $D$, 且所有 $r + 1$ 阶子式(如果存在的话)全等于0, 那么 $D$ 称为矩阵 $\\pmb{A}$ 的最高阶非零子式, 数 $r$ 称为矩阵 $\\pmb{A}$ 的秩, 记作 $R(\\pmb{A})$. 规定零矩阵的秩等于0."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.088,
+            0.672,
+            0.843,
+            0.742
+          ],
+          "content": "由行列式的性质可知, 在 A 中当所有  $r+1$  阶子式全等于 0 时, 所有高于  $r+1$  阶的子式也全等于 0, 因此把 r 阶非零子式称为最高阶非零子式, 而 A 的秩  $R(A)$  就是 A 的非零子式的最高阶数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.087,
+            0.747,
+            0.843,
+            0.792
+          ],
+          "content": "由于 $R(A)$ 是 $\\pmb{A}$ 的非零子式的最高阶数，因此，若矩阵 $\\pmb{A}$ 中有某个 $s$ 阶子式不为0，则 $R(A) \\geqslant s$；若 $\\pmb{A}$ 中所有 $t$ 阶子式全为0，则 $R(A) < t$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.797,
+            0.571,
+            0.816
+          ],
+          "content": "显然, 若 A 为  $m \\times n$  矩阵, 则  $0 \\leqslant R(A) \\leqslant \\min\\{m, n\\}$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.088,
+            0.822,
+            0.843,
+            0.868
+          ],
+          "content": "由于行列式与其转置行列式相等, 因此  $A^{T}$  的子式与 A 的子式对应相等, 从而  $R(A^{\\mathrm{T}})=R(A)$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.09,
+            0.873,
+            0.843,
+            0.918
+          ],
+          "content": "对于 $n$ 阶矩阵 $\\pmb{A}$, 由于 $\\pmb{A}$ 的 $n$ 阶子式只有一个 $|\\pmb{A}|$, 故当 $|\\pmb{A}| \\neq 0$ 时 $R(\\pmb{A}) = n$, 当 $|\\pmb{A}| = 0$ 时 $R(\\pmb{A}) < n$. 可见可逆矩阵的秩等于矩阵的阶数, 不可逆矩阵的秩小于矩阵的"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.348,
+            0.946,
+            0.65,
+            0.962
+          ],
+          "content": "考研电子书网站:www.pdf2book.com"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.866,
+            0.949,
+            0.889,
+            0.963
+          ],
+          "content": "67"
+        }
+      ]
+    },
+    {
+      "page_idx": 71,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.148,
+            0.017,
+            0.412,
+            0.032
+          ],
+          "content": "第3章 矩阵的初等变换与线性方程组"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.074,
+            0.469,
+            0.093
+          ],
+          "content": "阶数.因此，可逆矩阵又称满秩矩阵."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.187,
+            0.098,
+            0.824,
+            0.117
+          ],
+          "content": "矩阵的初等变换作为一种运算,其深刻意义在于它不改变矩阵的秩,即有"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.187,
+            0.123,
+            0.497,
+            0.142
+          ],
+          "content": "定理2 若 $A \\sim B$，则 $R(A) = R(B)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.15,
+            0.896,
+            0.195
+          ],
+          "content": "证 由引理, 只需证明 $\\pmb{A}$ 经初等列变换变成 $\\pmb{B}$ 的情形, 这时 $\\pmb{A}^{\\mathrm{T}}$ 经初等行变换变为 $\\pmb{B}^{\\mathrm{T}}$, 由引理知 $R(\\pmb{A}^{\\mathrm{T}}) = R(\\pmb{B}^{\\mathrm{T}})$, 又 $R(\\pmb{A}) = R(\\pmb{A}^{\\mathrm{T}}), R(\\pmb{B}) = R(\\pmb{B}^{\\mathrm{T}})$, 因此 $R(\\pmb{A}) = R(\\pmb{B})$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.187,
+            0.201,
+            0.896,
+            0.22
+          ],
+          "content": "总之,若 A 经有限次初等变换变为 B（即  $A \\sim B$ ），则  $R(A) = R(B)$ . 证毕"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.187,
+            0.229,
+            0.796,
+            0.248
+          ],
+          "content": "由于 $A \\sim B$ 的充分必要条件是有可逆矩阵 $P, Q$, 使 $PAQ = B$, 因此可得"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.187,
+            0.256,
+            0.655,
+            0.275
+          ],
+          "content": "推论 若可逆矩阵 P, Q 使 PAQ = B，则  $R(A) = R(B)$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.281,
+            0.896,
+            0.349
+          ],
+          "content": "对于一般的矩阵, 当行数与列数较高时, 按定义求秩是很麻烦的. 然而对于行阶梯形矩阵, 如前所示, 它的秩就等于非零行的行数, 一看便知毋需计算. 因此依据定理 2 把矩阵化为行阶梯形矩阵来求秩是方便而有效的方法."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.187,
+            0.356,
+            0.467,
+            0.374
+          ],
+          "content": "例 5 求矩阵 A 和 B 的秩, 其中"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.306,
+            0.38,
+            0.724,
+            0.472
+          ],
+          "content": "\\boldsymbol {A} = \\left( \\begin{array}{c c c} 1 & 2 & 3 \\\\ 2 & 3 & - 5 \\\\ 4 & 7 & 1 \\end{array} \\right), \\quad \\boldsymbol {B} = \\left( \\begin{array}{c c c c c} 3 & 2 & 0 & 5 & 0 \\\\ 3 & - 2 & 3 & 6 & - 1 \\\\ 2 & 0 & 1 & 5 & - 3 \\\\ 1 & 6 & - 4 & - 1 & 4 \\end{array} \\right).",
+          "image_source": "../../raw/pages_0065-0096/images/page_71_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.145,
+            0.478,
+            0.894,
+            0.547
+          ],
+          "content": "解 在 A 中, 容易看出一个 2 阶子式  $\\begin{vmatrix}1 & 2 \\\\ 2 & 3\\end{vmatrix} \\neq 0$ , A 的 3 阶子式只有一个  $|A|$ , 经计算可知  $|A| = 0$ , 因此  $R(A) = 2$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.187,
+            0.553,
+            0.518,
+            0.571
+          ],
+          "content": "对 $\\pmb{B}$ 作初等行变换变成行阶梯形矩阵"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.251,
+            0.576,
+            0.801,
+            0.771
+          ],
+          "content": "\\begin{array}{l} \\boldsymbol {B} = \\left( \\begin{array}{c c c c c} 3 & 2 & 0 & 5 & 0 \\\\ 3 & - 2 & 3 & 6 & - 1 \\\\ 2 & 0 & 1 & 5 & - 3 \\\\ 1 & 6 & - 4 & - 1 & 4 \\end{array} \\right) \\overbrace {\\substack {r _ {3} - 2 r _ {1} \\\\ r _ {4} - 3 r _ {1}}} ^ {r _ {1} \\leftrightarrow r _ {4}} \\left( \\begin{array}{c c c c c} 1 & 6 & - 4 & - 1 & 4 \\\\ 0 & - 4 & 3 & 1 & - 1 \\\\ 0 & - 1 2 & 9 & 7 & - 1 1 \\\\ 0 & - 1 6 & 1 2 & 8 & - 1 2 \\end{array} \\right) \\\\ \\overbrace {r _ {4} - 4 r _ {2}} ^ {r _ {3} - 3 r _ {2}} \\left( \\begin{array}{c c c c c} 1 & 6 & - 4 & - 1 & 4 \\\\ 0 & - 4 & 3 & 1 & - 1 \\\\ 0 & 0 & 0 & 4 & - 8 \\\\ 0 & 0 & 0 & 4 & - 8 \\end{array} \\right) \\stackrel {{r _ {4} - r _ {3}}} {{\\sim}} \\left( \\begin{array}{c c c c c} 1 & 6 & - 4 & - 1 & 4 \\\\ 0 & - 4 & 3 & 1 & - 1 \\\\ 0 & 0 & 0 & 4 & - 8 \\\\ 0 & 0 & 0 & 0 & 0 \\end{array} \\right), \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_71_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.145,
+            0.779,
+            0.57,
+            0.797
+          ],
+          "content": "因为行阶梯形矩阵有3个非零行,所以 $R(B)=3$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.804,
+            0.848,
+            0.898
+          ],
+          "content": "例6 设 $A = \\begin{pmatrix} 1 & -2 & 2 & -1 \\\\ 2 & -4 & 8 & 0 \\\\ -2 & 4 & -2 & 3 \\\\ 3 & -6 & 0 & -6 \\end{pmatrix}, b = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\\\ 4 \\end{pmatrix}$, 求矩阵 $A$ 及矩阵 $B = (A, b)$ 的秩."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.098,
+            0.929,
+            0.119,
+            0.941
+          ],
+          "content": "68"
+        }
+      ]
+    },
+    {
+      "page_idx": 72,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.743,
+            0.039,
+            0.847,
+            0.054
+          ],
+          "content": "§2 矩阵的秩"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.095,
+            0.845,
+            0.139
+          ],
+          "content": "解 对 B 作初等行变换变为行阶梯形矩阵, 设 B 的行阶梯形矩阵为  $\\widetilde{B} = (\\widetilde{A}, \\widetilde{b})$ , 则  $\\widetilde{A}$  就是 A 的行阶梯形矩阵, 故从  $\\widetilde{B} = (\\widetilde{A}, \\widetilde{b})$  中可同时看出  $R(A)$  及  $R(B)$ ."
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.223,
+            0.146,
+            0.71,
+            0.337
+          ],
+          "content": "\\begin{array}{l} \\boldsymbol {B} = \\left( \\begin{array}{c c c c c} 1 & - 2 & 2 & - 1 & 1 \\\\ 2 & - 4 & 8 & 0 & 2 \\\\ - 2 & 4 & - 2 & 3 & 3 \\\\ 3 & - 6 & 0 & - 6 & 4 \\end{array} \\right) \\overbrace {r _ {4} - 3 r _ {1}} ^ {r _ {2} - 2 r _ {1}} \\left( \\begin{array}{c c c c c} 1 & - 2 & 2 & - 1 & 1 \\\\ 0 & 0 & 4 & 2 & 0 \\\\ 0 & 0 & 2 & 1 & 5 \\\\ 0 & 0 & - 6 & - 3 & 1 \\end{array} \\right) \\\\ \\overbrace {r _ {4} + 3 r _ {2}} ^ {r _ {2} \\times \\frac {1}{2}} \\left( \\begin{array}{c c c c c} 1 & - 2 & 2 & - 1 & 1 \\\\ 0 & 0 & 2 & 1 & 0 \\\\ 0 & 0 & 0 & 0 & 5 \\\\ 0 & 0 & 0 & 0 & 1 \\end{array} \\right) \\overbrace {r _ {4} - r _ {3}} ^ {r _ {3} \\times \\frac {1}{5}} \\left( \\begin{array}{c c c c c} 1 & - 2 & 2 & - 1 & 1 \\\\ 0 & 0 & 2 & 1 & 0 \\\\ 0 & 0 & 0 & 0 & 1 \\\\ 0 & 0 & 0 & 0 & 0 \\end{array} \\right), \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_72_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.343,
+            0.14,
+            0.36
+          ],
+          "content": "因此"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.371,
+            0.368,
+            0.559,
+            0.385
+          ],
+          "content": "R (\\boldsymbol {A}) = 2, R (\\boldsymbol {B}) = 3.",
+          "image_source": "../../raw/pages_0065-0096/images/page_72_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.089,
+            0.392,
+            0.843,
+            0.435
+          ],
+          "content": "从矩阵 B 的行阶梯形矩阵可知, 本例中的 A 与 b 所对应的线性方程组 Ax=b 是无解的, 这是因为行阶梯形矩阵的第 3 行表示矛盾方程 0=1."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.441,
+            0.216,
+            0.458
+          ],
+          "content": "例7 设"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.364,
+            0.466,
+            0.562,
+            0.536
+          ],
+          "content": "\\boldsymbol {A} = \\left( \\begin{array}{c c c c} 1 & 2 & - 1 & 1 \\\\ 3 & 2 & \\lambda & - 1 \\\\ 5 & 6 & 3 & \\mu \\end{array} \\right),",
+          "image_source": "../../raw/pages_0065-0096/images/page_72_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.09,
+            0.54,
+            0.361,
+            0.559
+          ],
+          "content": "已知  $R(A)=2$ ，求  $\\lambda$  与  $\\mu$  的值."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.565,
+            0.675,
+            0.635
+          ],
+          "content": "解 $A \\xrightarrow{r_2 - 3r_1} \\begin{pmatrix} 1 & 2 & -1 & 1 \\\\ 0 & -4 & \\lambda + 3 & -4 \\\\ 0 & -4 & 8 & \\mu - 5 \\end{pmatrix} \\xrightarrow{r_3 - r_2} \\begin{pmatrix} 1 & 2 & -1 & 1 \\\\ 0 & -4 & \\lambda + 3 & -4 \\\\ 0 & 0 & 5 - \\lambda & \\mu - 1 \\end{pmatrix},$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.089,
+            0.639,
+            0.229,
+            0.656
+          ],
+          "content": "因 $R(A) = 2$ ，故"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.354,
+            0.668,
+            0.571,
+            0.716
+          ],
+          "content": "\\left\\{ \\begin{array}{l l} 5 - \\lambda = 0, \\\\ \\mu - 1 = 0, \\end{array} \\right. \\quad \\text {即} \\quad \\left\\{ \\begin{array}{l l} \\lambda = 5, \\\\ \\mu = 1. \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_72_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.087,
+            0.725,
+            0.841,
+            0.767
+          ],
+          "content": "下面讨论矩阵的秩的性质.前面我们已经提出了矩阵秩的一些最基本的性质,归纳起来有"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.125,
+            0.774,
+            0.454,
+            0.871
+          ],
+          "sub_type": "text",
+          "content": "① $0 \\leqslant R(A_{m \\times n}) \\leqslant \\min \\{m, n\\}$.\n②  $R(A^{\\mathrm{T}})=R(A)$ .\n③ 若 $A \\sim B$，则 $R(A) = R(B)$.\n④ 若 P, Q 可逆, 则  $R(PAQ) = R(A)$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.126,
+            0.877,
+            0.469,
+            0.895
+          ],
+          "content": "下面再介绍几个常用的矩阵秩的性质:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.125,
+            0.902,
+            0.565,
+            0.921
+          ],
+          "content": "⑤  $\\max\\left\\{R(A), R(B)\\right\\} \\leqslant R(A, B) \\leqslant R(A) + R(B)$ ,"
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.78,
+            0.837,
+            0.887,
+            0.907
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_72_image_20.jpg"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.348,
+            0.946,
+            0.65,
+            0.962
+          ],
+          "content": "考研电子书网站:www.pdf2book.com"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.862,
+            0.954,
+            0.884,
+            0.967
+          ],
+          "content": "69"
+        }
+      ]
+    },
+    {
+      "page_idx": 73,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.149,
+            0.021,
+            0.411,
+            0.036
+          ],
+          "content": "第3章 矩阵的初等变换与线性方程组"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.079,
+            0.462,
+            0.096
+          ],
+          "content": "特别地, 当 B=b 为非零列向量时, 有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.393,
+            0.103,
+            0.639,
+            0.121
+          ],
+          "content": "R (A) \\leqslant R (A, b) \\leqslant R (A) + 1.",
+          "image_source": "../../raw/pages_0065-0096/images/page_73_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.127,
+            0.893,
+            0.171
+          ],
+          "content": "证 因为 $A$ 的最高阶非零子式总是 $(A, B)$ 的非零子式, 所以 $R(A) \\leqslant R(A, B)$. 同理有 $R(B) \\leqslant R(A, B)$. 两式合起来, 即为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.38,
+            0.177,
+            0.652,
+            0.195
+          ],
+          "content": "\\max \\left\\{R (A), R (B) \\right\\} \\leqslant R (A, B).",
+          "image_source": "../../raw/pages_0065-0096/images/page_73_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.2,
+            0.893,
+            0.32
+          ],
+          "content": "设 $R(A) = r, R(B) = t$. 把 $A^{\\mathrm{T}}$ 和 $B^{\\mathrm{T}}$ 分别作初等行变换化为行阶梯形矩阵 $\\widetilde{A}$ 和 $\\widetilde{B}$. 因由性质 $2, R(A^{\\mathrm{T}}) = r, R(B^{\\mathrm{T}}) = t$, 故 $\\widetilde{A}$ 和 $\\widetilde{B}$ 中分别含 $r$ 个和 $t$ 个非零行, 从而 $\\binom{\\widetilde{A}}{\\widetilde{B}}$ 中只含 $r + t$ 个非零行, 并且 $\\binom{A^{\\mathrm{T}}}{B^{\\mathrm{T}}} \\stackrel{r}{\\sim} \\binom{\\widetilde{A}}{\\widetilde{B}}$. 于是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.261,
+            0.324,
+            0.892,
+            0.371
+          ],
+          "content": "R (\\boldsymbol {A}, \\boldsymbol {B}) = R \\binom{\\boldsymbol {A} ^ {\\mathrm{T}}}{\\boldsymbol {B} ^ {\\mathrm{T}}} ^ {\\mathrm{T}} = R \\binom{\\boldsymbol {A} ^ {\\mathrm{T}}}{\\boldsymbol {B} ^ {\\mathrm{T}}} = R \\binom{\\widetilde {\\boldsymbol {A}}}{\\widetilde {\\boldsymbol {B}}} \\leqslant r + t = R (\\boldsymbol {A}) + R (\\boldsymbol {B}). \\quad \\text {证毕}",
+          "image_source": "../../raw/pages_0065-0096/images/page_73_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.189,
+            0.378,
+            0.254,
+            0.396
+          ],
+          "content": "例如令"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.367,
+            0.401,
+            0.665,
+            0.472
+          ],
+          "content": "\\boldsymbol {A} = \\left( \\begin{array}{c c} 1 & 0 \\\\ 0 & 1 \\\\ 0 & 0 \\end{array} \\right), \\quad \\boldsymbol {B} = \\left( \\begin{array}{c} 0 \\\\ 0 \\\\ 1 \\end{array} \\right), \\quad \\boldsymbol {C} = \\left( \\begin{array}{c} 1 \\\\ 1 \\\\ 0 \\end{array} \\right),",
+          "image_source": "../../raw/pages_0065-0096/images/page_73_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.477,
+            0.174,
+            0.494
+          ],
+          "content": "则"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.334,
+            0.501,
+            0.698,
+            0.644
+          ],
+          "content": "\\begin{array}{l} R (\\boldsymbol {A}, \\boldsymbol {B}) = R \\left( \\begin{array}{c c c} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{array} \\right) = 3 = R (\\boldsymbol {A}) + R (\\boldsymbol {B}), \\\\ R (\\boldsymbol {A}, \\boldsymbol {C}) = R \\left( \\begin{array}{c c c} 1 & 0 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 0 \\end{array} \\right) = 2 <   R (\\boldsymbol {A}) + R (\\boldsymbol {C}). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_73_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.65,
+            0.429,
+            0.669
+          ],
+          "content": "⑥  $R(A+B) \\leqslant R(A) + R(B)$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.675,
+            0.891,
+            0.743
+          ],
+          "content": "证 不妨设 A, B 为  $n \\times m$  矩阵. 对矩阵  $\\begin{pmatrix} A + B \\\\ B \\end{pmatrix}$  作初等行变换  $r_{i} - r_{n+i} \\quad (i = 1, 2, \\cdots, n)$  即得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.443,
+            0.747,
+            0.589,
+            0.793
+          ],
+          "content": "\\binom {A + B} {B} \\stackrel {{r}} {{\\sim}} \\binom {A} {B},",
+          "image_source": "../../raw/pages_0065-0096/images/page_73_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.8,
+            0.192,
+            0.817
+          ],
+          "content": "于是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.273,
+            0.821,
+            0.757,
+            0.868
+          ],
+          "content": "R (\\boldsymbol {A} + \\boldsymbol {B}) \\leqslant R \\binom{\\boldsymbol {A} + \\boldsymbol {B}}{\\boldsymbol {B}} = R \\binom{\\boldsymbol {A}}{\\boldsymbol {B}} = R (\\boldsymbol {A} ^ {\\mathrm{T}}, \\boldsymbol {B} ^ {\\mathrm{T}}) ^ {\\mathrm{T}} = R (\\boldsymbol {A} ^ {\\mathrm{T}}, \\boldsymbol {B} ^ {\\mathrm{T}})",
+          "image_source": "../../raw/pages_0065-0096/images/page_73_equation_15.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.351,
+            0.873,
+            0.891,
+            0.899
+          ],
+          "content": "\\stackrel {\\text {由⑤}} {\\leqslant} R \\left(\\boldsymbol {A} ^ {\\mathrm{T}}\\right) + R \\left(\\boldsymbol {B} ^ {\\mathrm{T}}\\right) = R (\\boldsymbol {A}) + R (\\boldsymbol {B}). \\quad \\text {证毕}",
+          "image_source": "../../raw/pages_0065-0096/images/page_73_equation_16.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.102,
+            0.932,
+            0.123,
+            0.945
+          ],
+          "content": "70"
+        }
+      ]
+    },
+    {
+      "page_idx": 74,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.686,
+            0.033,
+            0.833,
+            0.047
+          ],
+          "content": "§3 线性方程组的解"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.09,
+            0.584,
+            0.108
+          ],
+          "content": "后面我们还要介绍两条常用的性质,现先罗列于下:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.133,
+            0.115,
+            0.609,
+            0.157
+          ],
+          "sub_type": "text",
+          "content": "⑦  $R(\\boldsymbol{A}\\boldsymbol{B}) \\leqslant \\min\\{R(\\boldsymbol{A}), R(\\boldsymbol{B})\\}$  (见下节定理7).\n⑧ 若 $A_{m \\times n} B_{n \\times l} = O$，则 $R(A) + R(B) \\leqslant n$（见下章例23）."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.163,
+            0.595,
+            0.18
+          ],
+          "content": "例 8 设 A 为 n 阶矩阵, 证明  $R(A+E)+R(A-E)\\geqslant n$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.134,
+            0.187,
+            0.504,
+            0.205
+          ],
+          "content": "证 因 $(A+E)+(E-A)=2E$ ，由性质⑥，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.323,
+            0.212,
+            0.605,
+            0.23
+          ],
+          "content": "R (\\boldsymbol {A} + \\boldsymbol {E}) + R (\\boldsymbol {E} - \\boldsymbol {A}) \\geqslant R (2 \\boldsymbol {E}) = n,",
+          "image_source": "../../raw/pages_0065-0096/images/page_74_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.236,
+            0.346,
+            0.254
+          ],
+          "content": "而 $R(\\pmb {E} - \\pmb {A}) = R(\\pmb {A} - \\pmb {E})$ ，所以"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.364,
+            0.26,
+            0.567,
+            0.277
+          ],
+          "content": "R (A + E) + R (A - E) \\geqslant n.",
+          "image_source": "../../raw/pages_0065-0096/images/page_74_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.133,
+            0.283,
+            0.637,
+            0.302
+          ],
+          "content": "例9 证明: 若 $A_{m \\times n} B_{n \\times l} = C$, 且 $R(A) = n$, 则 $R(B) = R(C)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.094,
+            0.307,
+            0.83,
+            0.401
+          ],
+          "content": "证 因 $R(A) = n$，知 $A$ 的行最简形矩阵为 $\\begin{pmatrix} E_n \\\\ O \\end{pmatrix}_{m \\times n}$，并有 $m$ 阶可逆矩阵 $P$，使 $PA = \\begin{pmatrix} E_n \\\\ O \\end{pmatrix}$. 于是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.344,
+            0.398,
+            0.58,
+            0.443
+          ],
+          "content": "P C = P A B = \\binom{E _ {n}}{O} B = \\binom{B}{O}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_74_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.093,
+            0.447,
+            0.616,
+            0.491
+          ],
+          "content": "由矩阵秩的性质④, 知  $R(C)=R(PC)$ , 而  $R\\begin{pmatrix}B\\\\O\\end{pmatrix}=R(B)$ , 故"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.402,
+            0.497,
+            0.528,
+            0.516
+          ],
+          "content": "R (\\boldsymbol {C}) = R (\\boldsymbol {B}).",
+          "image_source": "../../raw/pages_0065-0096/images/page_74_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.09,
+            0.522,
+            0.832,
+            0.612
+          ],
+          "content": "本例中的矩阵 A 的秩等于它的列数, 这样的矩阵称为列满秩矩阵. 类似地, 若矩阵 A 的秩等于它的行数, 就称它为行满秩矩阵. 当 A 为方阵时, 列满秩矩阵就成为满秩矩阵, 也就是可逆矩阵. 因此, 本例的结论当 A 为方阵这一特殊情形时就是矩阵秩的性质④."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.619,
+            0.564,
+            0.637
+          ],
+          "content": "本例另一种重要的特殊情形是 $C = O$ ，这时结论为"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.132,
+            0.644,
+            0.484,
+            0.661
+          ],
+          "content": "设 AB = O, 若 A 为列满秩矩阵, 则 B = O."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.667,
+            0.589,
+            0.686
+          ],
+          "content": "这是因为,按本例的结论,这时有  $R(B)=0$ , 故 B=O."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.325,
+            0.725,
+            0.61,
+            0.75
+          ],
+          "level": 2,
+          "content": "§ 3 线性方程组的解"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.131,
+            0.79,
+            0.49,
+            0.807
+          ],
+          "content": "设有 $n$ 个未知数 $m$ 个方程的线性方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.34,
+            0.814,
+            0.826,
+            0.912
+          ],
+          "content": "\\left\\{ \\begin{array}{l} a _ {1 1} x _ {1} + a _ {1 2} x _ {2} + \\dots + a _ {1 n} x _ {n} = b _ {1}, \\\\ a _ {2 1} x _ {1} + a _ {2 2} x _ {2} + \\dots + a _ {2 n} x _ {n} = b _ {2}, \\\\ \\dots \\dots \\\\ a _ {m 1} x _ {1} + a _ {m 2} x _ {2} + \\dots + a _ {m n} x _ {n} = b _ {m}, \\end{array} \\right. \\tag {3}",
+          "image_source": "../../raw/pages_0065-0096/images/page_74_equation_21.jpg"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.349,
+            0.946,
+            0.649,
+            0.961
+          ],
+          "content": "考研电子书网站:www.pdf2book.com"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.855,
+            0.948,
+            0.875,
+            0.96
+          ],
+          "content": "71"
+        }
+      ]
+    },
+    {
+      "page_idx": 75,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.153,
+            0.018,
+            0.414,
+            0.032
+          ],
+          "content": "第 3 章 矩阵的初等变换与线性方程组"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.153,
+            0.074,
+            0.681,
+            0.092
+          ],
+          "content": "第2章中已经说明，(3)式可以写成以向量 $\\pmb{x}$ 为未知元的形式"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.488,
+            0.101,
+            0.881,
+            0.115
+          ],
+          "content": "\\boldsymbol {A} \\boldsymbol {x} = \\boldsymbol {b}. \\tag {4}",
+          "image_source": "../../raw/pages_0065-0096/images/page_75_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.153,
+            0.122,
+            0.887,
+            0.189
+          ],
+          "content": "线性方程组(3)如果有解,就称它是相容的;如果无解,就称它不相容.利用系数矩阵A和增广矩阵 $B=(A,b)$ 的秩,可以方便地讨论线性方程组是否有解(即是否相容)以及有解时解是否惟一等问题,其结论是"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.193,
+            0.195,
+            0.549,
+            0.213
+          ],
+          "content": "定理3 对 $n$ 元线性方程组(3)，即 $Ax = b$"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.191,
+            0.22,
+            0.667,
+            0.284
+          ],
+          "sub_type": "text",
+          "content": "(i) 无解的充分必要条件是  $R(A) < R(A, b)$ ;\n(ii) 有惟一解的充分必要条件是  $R(A)=R(A,b)=n$ ;\n(iii) 有无限多解的充分必要条件是  $R(A)=R(A,b)<n.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.153,
+            0.291,
+            0.884,
+            0.334
+          ],
+          "content": "证 只需证明条件的充分性, 因为 (i), (ii), (iii) 中条件的必要性依次是 (ii) (iii), (i) (iii), (i) (ii) 中条件的充分性的逆否命题."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.191,
+            0.34,
+            0.72,
+            0.357
+          ],
+          "content": "设 $R(A) = r$ 为叙述方便，不妨设 $\\pmb {B} = (\\pmb {A},\\pmb {b})$ 的行最简形矩阵为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.321,
+            0.364,
+            0.71,
+            0.541
+          ],
+          "content": "\\widetilde {\\boldsymbol {B}} = \\left( \\begin{array}{c c c c c c c c} 1 & 0 & \\dots & 0 & b _ {1 1} & \\dots & b _ {1, n - r} & d _ {1} \\\\ 0 & 1 & \\dots & 0 & b _ {2 1} & \\dots & b _ {2, n - r} & d _ {2} \\\\ \\vdots & \\vdots & & \\vdots & \\vdots & & \\vdots & \\vdots \\\\ 0 & 0 & \\dots & 1 & b _ {r 1} & \\dots & b _ {r, n - r} & d _ {r} \\\\ 0 & 0 & \\dots & 0 & 0 & \\dots & 0 & d _ {r + 1} \\\\ 0 & 0 & \\dots & 0 & 0 & \\dots & 0 & 0 \\\\ \\vdots & \\vdots & & \\vdots & \\vdots & & \\vdots & \\vdots \\\\ 0 & 0 & \\dots & 0 & 0 & \\dots & 0 & 0 \\end{array} \\right).",
+          "image_source": "../../raw/pages_0065-0096/images/page_75_equation_11.jpg"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.148,
+            0.543,
+            0.884,
+            0.632
+          ],
+          "sub_type": "text",
+          "content": "(i) 若 $R(A) < R(B)$, 则 $\\widetilde{B}$ 中的 $d_{r+1} = 1$, 于是 $\\widetilde{B}$ 的第 $r+1$ 行对应矛盾方程 $0 = 1$, 故方程组(3)无解.\n(ii) 若 $R(A) = R(B) = r = n$，则 $\\widetilde{B}$ 中的 $d_{r+1} = 0$（或 $d_{r+1}$ 不出现），且 $b_{ij}$ 都不出现，于是 $\\widetilde{B}$ 对应方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.468,
+            0.639,
+            0.56,
+            0.735
+          ],
+          "content": "\\left\\{ \\begin{array}{l} x _ {1} = d _ {1}, \\\\ x _ {2} = d _ {2}, \\\\ \\dots \\dots \\\\ x _ {n} = d _ {n}, \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_75_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.743,
+            0.35,
+            0.76
+          ],
+          "content": "故方程组(3)有惟一解."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.189,
+            0.765,
+            0.848,
+            0.785
+          ],
+          "content": "(iii) 若 $R(A) = R(B) = r < n$，则 $\\widetilde{B}$ 中的 $d_{r+1} = 0$（或 $d_{r+1}$ 不出现），$\\widetilde{B}$ 对应方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.391,
+            0.792,
+            0.879,
+            0.887
+          ],
+          "content": "\\left\\{ \\begin{array}{l} x _ {1} = - b _ {1 1} x _ {r + 1} - \\dots - b _ {1, n - r} x _ {n} + d _ {1}, \\\\ x _ {2} = - b _ {2 1} x _ {r + 1} - \\dots - b _ {2, n - r} x _ {n} + d _ {2}, \\\\ \\dots \\dots \\\\ x _ {r} = - b _ {r 1} x _ {r + 1} - \\dots - b _ {r, n - r} x _ {n} + d _ {r}, \\end{array} \\right. \\tag {5}",
+          "image_source": "../../raw/pages_0065-0096/images/page_75_equation_18.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.102,
+            0.922,
+            0.124,
+            0.935
+          ],
+          "content": "72"
+        }
+      ]
+    },
+    {
+      "page_idx": 76,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.686,
+            0.036,
+            0.839,
+            0.05
+          ],
+          "content": "§3 线性方程组的解"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.093,
+            0.782,
+            0.113
+          ],
+          "content": "令自由未知数  $x_{r+1}=c_{1},x_{r+2}=c_{2},\\cdots,x_{n}=c_{n-r}$ ，即得方程组(3)的含 n-r 个参数的解"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.306,
+            0.12,
+            0.605,
+            0.273
+          ],
+          "content": "\\left( \\begin{array}{c} x _ {1} \\\\ \\vdots \\\\ x _ {r} \\\\ x _ {r + 1} \\\\ \\vdots \\\\ x _ {n} \\end{array} \\right) = \\left( \\begin{array}{c} - b _ {1 1} c _ {1} - \\dots - b _ {1, n - r} c _ {n - r} + d _ {1} \\\\ \\vdots \\\\ - b _ {r 1} c _ {1} - \\dots - b _ {r, n - r} c _ {n - r} + d _ {r} \\\\ c _ {1} \\\\ \\vdots \\\\ c _ {n - r} \\end{array} \\right),",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.081,
+            0.346,
+            0.107,
+            0.364
+          ],
+          "content": "即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.277,
+            0.28,
+            0.834,
+            0.43
+          ],
+          "content": "\\left( \\begin{array}{c} x _ {1} \\\\ \\vdots \\\\ x _ {r} \\\\ x _ {r + 1} \\\\ \\vdots \\\\ x _ {n} \\end{array} \\right) = c _ {1} \\left( \\begin{array}{c} - b _ {1 1} \\\\ \\vdots \\\\ - b _ {r 1} \\\\ 1 \\\\ \\vdots \\\\ 0 \\end{array} \\right) + \\dots + c _ {n - r} \\left( \\begin{array}{c} - b _ {1, n - r} \\\\ \\vdots \\\\ - b _ {r, n - r} \\\\ 0 \\\\ \\vdots \\\\ 1 \\end{array} \\right) + \\left( \\begin{array}{c} d _ {1} \\\\ \\vdots \\\\ d _ {r} \\\\ 0 \\\\ \\vdots \\\\ 0 \\end{array} \\right), \\tag {6}",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.437,
+            0.837,
+            0.484
+          ],
+          "content": "由于参数  $c_{1}, c_{2}, \\cdots, c_{n-r}$  可任意取值，故方程组(3)有无限多解。此时，(6)式所对应的表达式即称为方程组(3)的通解。证毕"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.12,
+            0.489,
+            0.377,
+            0.507
+          ],
+          "content": "例10 求解齐次线性方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.354,
+            0.514,
+            0.56,
+            0.589
+          ],
+          "content": "\\left\\{ \\begin{array}{l} x _ {1} + 2 x _ {2} + 2 x _ {3} + x _ {4} = 0, \\\\ 2 x _ {1} + x _ {2} - 2 x _ {3} - 2 x _ {4} = 0, \\\\ x _ {1} - x _ {2} - 4 x _ {3} - 3 x _ {4} = 0. \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.119,
+            0.596,
+            0.604,
+            0.614
+          ],
+          "content": "解 对系数矩阵 A 施行初等行变换变为行最简形矩阵"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.242,
+            0.62,
+            0.686,
+            0.791
+          ],
+          "content": "\\begin{array}{l} \\boldsymbol {A} = \\left( \\begin{array}{c c c c} 1 & 2 & 2 & 1 \\\\ 2 & 1 & - 2 & - 2 \\\\ 1 & - 1 & - 4 & - 3 \\end{array} \\right) \\xrightarrow [ r _ {3} - r _ {1} ]{r _ {2} - 2 r _ {1}} \\left( \\begin{array}{c c c c} 1 & 2 & 2 & 1 \\\\ 0 & - 3 & - 6 & - 4 \\\\ 0 & - 3 & - 6 & - 4 \\end{array} \\right) \\\\ \\overbrace {r _ {2} \\times \\left(- \\frac {1}{3}\\right)} ^ {r _ {3} - r _ {2}} \\left( \\begin{array}{c c c c} 1 & 2 & 2 & 1 \\\\ 0 & 1 & 2 & \\frac {4}{3} \\\\ 0 & 0 & 0 & 0 \\end{array} \\right) \\stackrel {r _ {1} - 2 r _ {2}} {\\sim} \\left( \\begin{array}{c c c c} 1 & 0 & - 2 & - \\frac {5}{3} \\\\ 0 & 1 & 2 & \\frac {4}{3} \\\\ 0 & 0 & 0 & 0 \\end{array} \\right), \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.794,
+            0.35,
+            0.812
+          ],
+          "content": "即得与原方程组同解的方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.375,
+            0.817,
+            0.537,
+            0.894
+          ],
+          "content": "\\left\\{ \\begin{array}{l} x _ {1} - 2 x _ {3} - \\frac {5}{3} x _ {4} = 0, \\\\ x _ {2} + 2 x _ {3} + \\frac {4}{3} x _ {4} = 0, \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.901,
+            0.165,
+            0.918
+          ],
+          "content": "由此即得"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.349,
+            0.946,
+            0.649,
+            0.962
+          ],
+          "content": "考研电子书网站:www.pdf2book.com"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.86,
+            0.951,
+            0.883,
+            0.964
+          ],
+          "content": "73"
+        }
+      ]
+    },
+    {
+      "page_idx": 77,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.149,
+            0.021,
+            0.414,
+            0.035
+          ],
+          "content": "第 3 章 矩阵的初等变换与线性方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.347,
+            0.079,
+            0.692,
+            0.155
+          ],
+          "content": "\\left\\{ \\begin{array}{l l} x _ {1} = 2 x _ {3} + \\frac {5}{3} x _ {4}, \\\\ x _ {2} = - 2 x _ {3} - \\frac {4}{3} x _ {4}. \\end{array} \\right. \\quad (x _ {3}, x _ {4} \\text {可任意取值}).",
+          "image_source": "../../raw/pages_0065-0096/images/page_77_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.189,
+            0.16,
+            0.562,
+            0.179
+          ],
+          "content": "令 $x_{3} = c_{1}, x_{4} = c_{2}$, 把它写成通常的参数形式"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.449,
+            0.183,
+            0.592,
+            0.306
+          ],
+          "content": "\\left\\{ \\begin{array}{l} x _ {1} = 2 c _ {1} + \\frac {5}{3} c _ {2}, \\\\ x _ {2} = - 2 c _ {1} - \\frac {4}{3} c _ {2}, \\\\ x _ {3} = c _ {1}, \\\\ x _ {4} = c _ {2}, \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_77_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.312,
+            0.499,
+            0.331
+          ],
+          "content": "其中 $c_{1}, c_{2}$ 为任意实数，或写成向量形式"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.289,
+            0.335,
+            0.75,
+            0.46
+          ],
+          "content": "\\left( \\begin{array}{c} x _ {1} \\\\ x _ {2} \\\\ x _ {3} \\\\ x _ {4} \\end{array} \\right) = \\left( \\begin{array}{c} 2 c _ {1} + \\frac {5}{3} c _ {2} \\\\ - 2 c _ {1} - \\frac {4}{3} c _ {2} \\\\ c _ {1} \\\\ c _ {2} \\end{array} \\right) = c _ {1} \\left( \\begin{array}{c} 2 \\\\ - 2 \\\\ 1 \\\\ 0 \\end{array} \\right) + c _ {2} \\left( \\begin{array}{c} \\frac {5}{3} \\\\ - \\frac {4}{3} \\\\ 0 \\\\ 1 \\end{array} \\right) \\quad (c _ {1}, c _ {2} \\in \\mathbb {R}).",
+          "image_source": "../../raw/pages_0065-0096/images/page_77_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.188,
+            0.466,
+            0.461,
+            0.484
+          ],
+          "content": "例11 求解非齐次线性方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.42,
+            0.492,
+            0.619,
+            0.567
+          ],
+          "content": "\\left\\{ \\begin{array}{l} x _ {1} - 2 x _ {2} + 3 x _ {3} - x _ {4} = 1, \\\\ 3 x _ {1} - x _ {2} + 5 x _ {3} - 3 x _ {4} = 2, \\\\ 2 x _ {1} + x _ {2} + 2 x _ {3} - 2 x _ {4} = 3. \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_77_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.577,
+            0.5,
+            0.595
+          ],
+          "content": "解 对增广矩阵 $\\pmb{B}$ 施行初等行变换"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.228,
+            0.605,
+            0.769,
+            0.755
+          ],
+          "content": "\\begin{array}{l} \\boldsymbol {B} = \\left( \\begin{array}{c c c c c} 1 & - 2 & 3 & - 1 & 1 \\\\ 3 & - 1 & 5 & - 3 & . 2 \\\\ 2 & 1 & 2 & - 2 & 3 \\end{array} \\right) \\\\ \\underset {r _ {3} - 2 r _ {1}} {\\overset {r _ {2} - 3 r _ {1}} {\\sim}} \\left( \\begin{array}{c c c c c} 1 & - 2 & 3 & - 1 & 1 \\\\ 0 & 5 & - 4 & 0 & - 1 \\\\ 0 & ^ \\prime 5 & - 4 & 0 & 1 \\end{array} \\right) \\overset {r _ {3} - r _ {2}} {\\sim} \\left( \\begin{array}{c c c c c} 1 & - 2 & 3 & - 1 & 1 \\\\ 0 & 5 & - 4 & 0 & - 1 \\\\ 0 & 0 & 0 & 0 & 2 \\end{array} \\right), \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_77_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.763,
+            0.498,
+            0.782
+          ],
+          "content": "可见 $R(A) = 2, R(B) = 3$，故方程组无解."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.185,
+            0.79,
+            0.46,
+            0.808
+          ],
+          "content": "例12 求解非齐次线性方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.391,
+            0.818,
+            0.62,
+            0.894
+          ],
+          "content": "\\left\\{ \\begin{array}{l} x _ {1} + x _ {2} - 3 x _ {3} - x _ {4} = 1, \\\\ 3 x _ {1} - x _ {2} - 3 x _ {3} + 4 x _ {4} = 4, \\\\ x _ {1} + 5 x _ {2} - 9 x _ {3} - 8 x _ {4} = 0. \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_77_equation_12.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.1,
+            0.929,
+            0.121,
+            0.942
+          ],
+          "content": "74"
+        }
+      ]
+    },
+    {
+      "page_idx": 78,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.69,
+            0.037,
+            0.84,
+            0.052
+          ],
+          "content": "§3 线性方程组的解"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.093,
+            0.444,
+            0.111
+          ],
+          "content": "解 对增广矩阵 $\\pmb{B}$ 施行初等行变换"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.219,
+            0.122,
+            0.705,
+            0.193
+          ],
+          "content": "\\boldsymbol {B} = \\left( \\begin{array}{r r r r r} 1 & 1 & - 3 & - 1 & 1 \\\\ 3 & - 1 & - 3 & 4 & 4 \\\\ 1 & 5 & - 9 & - 8 & 0 \\end{array} \\right) \\overset {r _ {2} - 3 r _ {1}} {\\underset {r _ {3} - r _ {1}} {\\sim}} \\left( \\begin{array}{r r r r r} 1 & 1 & - 3 & - 1 & 1 \\\\ 0 & - 4 & 6 & 7 & 1 \\\\ 0 & 4 & - 6 & - 7 & - 1 \\end{array} \\right)",
+          "image_source": "../../raw/pages_0065-0096/images/page_78_equation_2.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.239,
+            0.206,
+            0.795,
+            0.315
+          ],
+          "content": "\\overbrace {r _ {2} \\times \\left(- \\frac {1}{4}\\right)} ^ {r _ {3} + r _ {2}} \\left( \\begin{array}{c c c c c} 1 & 1 & - 3 & - 1 & 1 \\\\ 0 & 1 & - \\frac {3}{2} & - \\frac {7}{4} & - \\frac {1}{4} \\\\ 0 & 0 & 0 & 0 & 0 \\end{array} \\right) \\stackrel {{r _ {1} - r _ {2}}} {{\\sim}} \\left( \\begin{array}{c c c c c} 1 & 0 & - \\frac {3}{2} & \\frac {3}{4} & \\frac {5}{4} \\\\ 0 & 1 & - \\frac {3}{2} & - \\frac {7}{4} & - \\frac {1}{4} \\\\ 0 & 0 & 0 & 0 & 0 \\end{array} \\right),",
+          "image_source": "../../raw/pages_0065-0096/images/page_78_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.089,
+            0.323,
+            0.134,
+            0.341
+          ],
+          "content": "即得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.374,
+            0.353,
+            0.547,
+            0.491
+          ],
+          "content": "\\left\\{ \\begin{array}{l} x _ {1} = \\frac {3}{2} x _ {3} - \\frac {3}{4} x _ {4} + \\frac {5}{4}, \\\\ x _ {2} = \\frac {3}{2} x _ {3} + \\frac {7}{4} x _ {4} - \\frac {1}{4}, \\\\ x _ {3} = x _ {3}, \\\\ x _ {4} = x _ {4}, \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_78_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.086,
+            0.5,
+            0.132,
+            0.518
+          ],
+          "content": "亦即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.259,
+            0.527,
+            0.66,
+            0.659
+          ],
+          "content": "\\left( \\begin{array}{c} x _ {1} \\\\ x _ {2} \\\\ x _ {3} \\\\ x _ {4} \\end{array} \\right) = c _ {1} \\left( \\begin{array}{c} \\frac {3}{2} \\\\ \\frac {3}{2} \\\\ 1 \\\\ 0 \\end{array} \\right) + c _ {2} \\left( \\begin{array}{c} - \\frac {3}{4} \\\\ \\frac {7}{4} \\\\ 0 \\\\ 1 \\end{array} \\right) + \\left( \\begin{array}{c} \\frac {5}{4} \\\\ - \\frac {1}{4} \\\\ 0 \\\\ 0 \\end{array} \\right) \\quad (c _ {1}, c _ {2} \\in \\mathbb {R}).",
+          "image_source": "../../raw/pages_0065-0096/images/page_78_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.125,
+            0.665,
+            0.318,
+            0.683
+          ],
+          "content": "例13 设线性方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.306,
+            0.691,
+            0.611,
+            0.764
+          ],
+          "content": "\\left\\{ \\begin{array}{c c c} (1 + \\lambda) x _ {1} & + x _ {2} & + x _ {3} = 0, \\\\ x _ {1} + (1 + \\lambda) x _ {2} & + x _ {3} = 3, \\\\ x _ {1} & + x _ {2} + (1 + \\lambda) x _ {3} = \\lambda , \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_78_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.772,
+            0.834,
+            0.814
+          ],
+          "content": "问 $\\lambda$ 取何值时, 此方程组(1)有惟一解; (2)无解; (3)有无限多解? 并在有无限多解时求其通解."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.121,
+            0.822,
+            0.759,
+            0.841
+          ],
+          "content": "解法 1 对增广矩阵  $\\boldsymbol{B}=(\\boldsymbol{A},\\boldsymbol{b})$  作初等行变换把它变为行阶梯形矩阵,有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.211,
+            0.848,
+            0.702,
+            0.917
+          ],
+          "content": "\\boldsymbol {B} = \\left( \\begin{array}{c c c c} 1 + \\lambda & 1 & 1 & 0 \\\\ 1 & 1 + \\lambda & 1 & 3 \\\\ 1 & 1 & 1 + \\lambda & \\lambda \\end{array} \\right) \\stackrel {r _ {1} \\leftrightarrow r _ {3}} {\\sim} \\left( \\begin{array}{c c c c} 1 & 1 & 1 + \\lambda & \\lambda \\\\ 1 & 1 + \\lambda & 1 & 3 \\\\ 1 + \\lambda & 1 & 1 & 0 \\end{array} \\right)",
+          "image_source": "../../raw/pages_0065-0096/images/page_78_equation_12.jpg"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.352,
+            0.946,
+            0.65,
+            0.961
+          ],
+          "content": "考研电子书网站:www.pdf2book.com"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.857,
+            0.95,
+            0.878,
+            0.963
+          ],
+          "content": "75"
+        }
+      ]
+    },
+    {
+      "page_idx": 79,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.151,
+            0.018,
+            0.413,
+            0.032
+          ],
+          "content": "第3章 矩阵的初等变换与线性方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.298,
+            0.077,
+            0.634,
+            0.142
+          ],
+          "content": "\\overbrace {r _ {3} - (1 + \\lambda) r _ {1}} ^ {r _ {2} - r _ {1}} \\left( \\begin{array}{c c c c} 1 & 1 & 1 + \\lambda & \\lambda \\\\ 0 & \\lambda & - \\lambda & 3 - \\lambda \\\\ 0 & - \\lambda & - \\lambda (2 + \\lambda) & - \\lambda (1 + \\lambda) \\end{array} \\right)",
+          "image_source": "../../raw/pages_0065-0096/images/page_79_equation_1.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.3,
+            0.151,
+            0.651,
+            0.216
+          ],
+          "content": "\\sim_ {r _ {3} + r _ {2}} \\left( \\begin{array}{c c c c} 1 & 1 & 1 + \\lambda & \\lambda \\\\ 0 & \\lambda & - \\lambda & 3 - \\lambda \\\\ 0 & 0 & - \\lambda (3 + \\lambda) & (1 - \\lambda) (3 + \\lambda) \\end{array} \\right).",
+          "image_source": "../../raw/pages_0065-0096/images/page_79_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.19,
+            0.224,
+            0.722,
+            0.242
+          ],
+          "content": "(1) 当  $\\lambda \\neq 0$  且  $\\lambda \\neq -3$  时,  $R(A) = R(B) = 3$ , 方程组有惟一解;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.19,
+            0.249,
+            0.616,
+            0.267
+          ],
+          "content": "(2) 当  $\\lambda=0$  时,  $R(A)=1$ ,  $R(B)=2$ , 方程组无解;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.189,
+            0.274,
+            0.707,
+            0.291
+          ],
+          "content": "(3) 当  $\\lambda = -3$  时,  $R(A) = R(B) = 2$ , 方程组有无限多解, 这时"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.324,
+            0.298,
+            0.705,
+            0.367
+          ],
+          "content": "\\boldsymbol {B} \\stackrel {{r}} {{\\sim}} \\left( \\begin{array}{c c c c} 1 & 1 & - 2 & - 3 \\\\ 0 & - 3 & 3 & 6 \\\\ 0 & 0 & 0 & 0 \\end{array} \\right) \\stackrel {{r}} {{\\sim}} \\left( \\begin{array}{c c c c} 1 & 0 & - 1 & - 1 \\\\ 0 & 1 & - 1 & - 2 \\\\ 0 & 0 & 0 & 0 \\end{array} \\right),",
+          "image_source": "../../raw/pages_0065-0096/images/page_79_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.373,
+            0.274,
+            0.391
+          ],
+          "content": "由此便得通解"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.378,
+            0.399,
+            0.653,
+            0.443
+          ],
+          "content": "\\left\\{ \\begin{array}{l l} x _ {1} = x _ {3} - 1, \\\\ x _ {2} = x _ {3} - 2 \\end{array} \\right. \\quad (x _ {3} \\text {可任意取值}),",
+          "image_source": "../../raw/pages_0065-0096/images/page_79_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.45,
+            0.174,
+            0.466
+          ],
+          "content": "即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.387,
+            0.476,
+            0.642,
+            0.549
+          ],
+          "content": "\\left( \\begin{array}{c} x _ {1} \\\\ x _ {2} \\\\ x _ {3} \\end{array} \\right) = c \\left( \\begin{array}{c} 1 \\\\ 1 \\\\ 1 \\end{array} \\right) + \\left( \\begin{array}{c} - 1 \\\\ - 2 \\\\ 0 \\end{array} \\right) \\quad (c \\in \\mathbb {R}).",
+          "image_source": "../../raw/pages_0065-0096/images/page_79_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.556,
+            0.887,
+            0.6
+          ],
+          "content": "解法2 因系数矩阵 $A$ 为3阶方阵，故有 $R(A) \\leqslant R(A, b)_{3 \\times 4} \\leqslant 3.$ 于是由定理3，知方程有惟一解的充分必要条件是 $A$ 的秩 $R(A) = 3$ ，即 $|A| \\neq 0.$ 而"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.302,
+            0.606,
+            0.729,
+            0.67
+          ],
+          "content": "\\left| \\boldsymbol {A} \\right| = \\left| \\begin{array}{c c c} 1 + \\lambda & 1 & 1 \\\\ 1 & 1 + \\lambda & 1 \\\\ 1 & 1 & 1 + \\lambda \\end{array} \\right| = (3 + \\lambda) \\left| \\begin{array}{c c c} 1 & 1 & 1 \\\\ 1 & 1 + \\lambda & 1 \\\\ 1 & 1 & 1 + \\lambda \\end{array} \\right|",
+          "image_source": "../../raw/pages_0065-0096/images/page_79_equation_12.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.336,
+            0.679,
+            0.607,
+            0.742
+          ],
+          "content": "= (3 + \\lambda) \\left| \\begin{array}{l l l} 1 & 1 & 1 \\\\ 0 & \\lambda & 0 \\\\ 0 & 0 & \\lambda \\end{array} \\right| = (3 + \\lambda) \\lambda^ {2},",
+          "image_source": "../../raw/pages_0065-0096/images/page_79_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.751,
+            0.534,
+            0.769
+          ],
+          "content": "因此, 当  $\\lambda \\neq 0$  且  $\\lambda \\neq -3$  时, 方程组有惟一解."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.776,
+            0.287,
+            0.794
+          ],
+          "content": "当 $\\lambda = 0$ 时，"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.354,
+            0.8,
+            0.669,
+            0.868
+          ],
+          "content": "\\boldsymbol {B} = \\left( \\begin{array}{c c c c} 1 & 1 & 1 & 0 \\\\ \\dot {1} & 1 & 1 & 3 \\\\ 1 & 1 & 1 & 0 \\end{array} \\right) \\sim \\left( \\begin{array}{c c c c} 1 & 1 & 1 & 0 \\\\ 0 & 0 & 0 & 1 \\\\ 0 & 0 & 0 & 0 \\end{array} \\right),",
+          "image_source": "../../raw/pages_0065-0096/images/page_79_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.145,
+            0.873,
+            0.473,
+            0.891
+          ],
+          "content": "知  $R(A)=1, R(B)=2$ ，故方程组无解."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.101,
+            0.923,
+            0.122,
+            0.936
+          ],
+          "content": "76"
+        }
+      ]
+    },
+    {
+      "page_idx": 80,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.685,
+            0.032,
+            0.832,
+            0.046
+          ],
+          "content": "§3 线性方程组的解"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.089,
+            0.259,
+            0.107
+          ],
+          "content": "当 $\\lambda = -3$ 时，"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.277,
+            0.113,
+            0.657,
+            0.179
+          ],
+          "content": "\\boldsymbol {B} = \\left( \\begin{array}{r r r r} - 2 & 1 & 1 & 0 \\\\ 1 & - 2 & 1 & 3 \\\\ 1 & 1 & - 2 & - 3 \\end{array} \\right) \\stackrel {{r}} {{\\sim}} \\left( \\begin{array}{r r r r} 1 & 0 & - 1 & - 1 \\\\ 0 & 1 & - 1 & - 2 \\\\ 0 & 0 & 0 & 0 \\end{array} \\right),",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.183,
+            0.554,
+            0.202
+          ],
+          "content": "知 $R(A) = R(B) = 2$ ，故方程组有无限多解，且通解为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.345,
+            0.209,
+            0.592,
+            0.28
+          ],
+          "content": "\\left( \\begin{array}{c} x _ {1} \\\\ x _ {2} \\\\ x _ {3} \\end{array} \\right) = c \\left( \\begin{array}{c} 1 \\\\ 1 \\\\ 1 \\end{array} \\right) + \\left( \\begin{array}{c} - 1 \\\\ - 2 \\\\ 0 \\end{array} \\right) \\quad (c \\in \\mathbb {R}).",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.284,
+            0.832,
+            0.327
+          ],
+          "content": "比较解法1与解法2, 显见解法2较简单. 但解法2的方法只适用于系数矩阵为方阵的情形."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.333,
+            0.832,
+            0.445
+          ],
+          "content": "对含参数的矩阵作初等变换时,例如在本例中对矩阵 B 作初等变换时,由于  $\\lambda + 1, \\lambda + 3$  等因式可以等于 0,故不宜作诸如  $r_{2} - \\frac{1}{\\lambda + 1} r_{1}, r_{2} \\times (\\lambda + 1), r_{3} \\times \\frac{1}{\\lambda + 3}$  这样的变换.如果作了这种变换,则需对  $\\lambda + 1 = 0$  (或  $\\lambda + 3 = 0$ ) 的情形另作讨论.因此,对含参数的矩阵作初等变换较不方便."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.45,
+            0.691,
+            0.469
+          ],
+          "content": "由定理3容易得出线性方程组理论中两个最基本的定理，这就是"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.474,
+            0.764,
+            0.493
+          ],
+          "content": "定理4 $n$ 元齐次线性方程组 $Ax = 0$ 有非零解的充分必要条件是 $R(A) < n$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.499,
+            0.717,
+            0.518
+          ],
+          "content": "定理5 线性方程组 $Ax = b$ 有解的充分必要条件是 $R(A) = R(A, b)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.524,
+            0.682,
+            0.542
+          ],
+          "content": "显然,定理 4 是定理 3(iii) 的特殊情形,而定理 5 就是定理 3(i)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.548,
+            0.617,
+            0.566
+          ],
+          "content": "为了下一章论述的需要,下面把定理5推广到矩阵方程."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.572,
+            0.706,
+            0.591
+          ],
+          "content": "定理6 矩阵方程 $AX = B$ 有解的充分必要条件是 $R(A) = R(A,B)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.596,
+            0.829,
+            0.615
+          ],
+          "content": "证 设 $\\pmb{A}$ 为 $m \\times n$ 矩阵, $\\pmb{B}$ 为 $m \\times l$ 矩阵, 则 $\\pmb{X}$ 为 $n \\times l$ 矩阵. 把 $\\pmb{X}$ 和 $\\pmb{B}$ 按列分块, 记为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.285,
+            0.621,
+            0.646,
+            0.641
+          ],
+          "content": "X = (X _ {1}, X _ {2}, \\dots , X _ {l}), \\quad B = (\\beta_ {1}, \\beta_ {2}, \\dots , \\beta_ {l}),",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.645,
+            0.409,
+            0.663
+          ],
+          "content": "则矩阵方程 $AX = B$ 等价于 $l$ 个方程"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.358,
+            0.67,
+            0.573,
+            0.689
+          ],
+          "content": "\\boldsymbol {A} \\boldsymbol {X} _ {i} = \\boldsymbol {\\beta} _ {i} \\quad (i = 1, 2, \\dots , l).",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.693,
+            0.83,
+            0.736
+          ],
+          "content": "又, 设 $R(A) = r$, 且 $\\pmb{A}$ 的行最简形矩阵为 $\\widetilde{\\pmb{A}}$, 则 $\\widetilde{\\pmb{A}}$ 有 $r$ 个非零行, 且 $\\widetilde{\\pmb{A}}$ 的后 $m - r$ 行全为零行. 再设"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.258,
+            0.741,
+            0.673,
+            0.763
+          ],
+          "content": "(A, B) = (A, \\boldsymbol {\\beta} _ {1}, \\boldsymbol {\\beta} _ {2}, \\dots , \\boldsymbol {\\beta} _ {l}) \\stackrel {r} {\\sim} (\\widetilde {A}, \\widetilde {\\boldsymbol {\\beta}} _ {1}, \\widetilde {\\boldsymbol {\\beta}} _ {2}, \\dots , \\widetilde {\\boldsymbol {\\beta}} _ {l}),",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.767,
+            0.143,
+            0.784
+          ],
+          "content": "从而"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.315,
+            0.789,
+            0.617,
+            0.811
+          ],
+          "content": "(A, \\pmb {\\beta} _ {i}) \\stackrel {r} {\\sim} (\\widetilde {A}, \\widetilde {\\pmb {\\beta}} _ {i}) \\quad (i = 1, 2, \\dots , l).",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.815,
+            0.412,
+            0.833
+          ],
+          "content": "由上述讨论并依据定理5,可得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.194,
+            0.839,
+            0.668,
+            0.91
+          ],
+          "content": "\\begin{array}{l} A X = B \\text {有解} \\Leftrightarrow A X _ {i} = \\beta_ {i} \\text {有解} (i = 1, 2, \\dots , l) \\\\ \\Leftrightarrow R (\\boldsymbol {A}, \\boldsymbol {\\beta} _ {i}) = R (\\boldsymbol {A}) \\quad (i = 1, 2, \\dots , l) \\\\ \\Leftrightarrow \\tilde {\\boldsymbol {\\beta}} _ {i} \\text {的后} m - r \\text {个元全为零} (i = 1, 2, \\dots , l) \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_22.jpg"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.348,
+            0.945,
+            0.646,
+            0.96
+          ],
+          "content": "考研电子书网站:www.pdf2book.com"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.853,
+            0.944,
+            0.875,
+            0.956
+          ],
+          "content": "77"
+        }
+      ]
+    },
+    {
+      "page_idx": 81,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.157,
+            0.015,
+            0.417,
+            0.029
+          ],
+          "content": "第 3 章 矩阵的初等变换与线性方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.354,
+            0.07,
+            0.692,
+            0.115
+          ],
+          "content": "\\begin{array}{l} \\Leftrightarrow \\left(\\tilde {\\boldsymbol {\\beta}} _ {1}, \\tilde {\\boldsymbol {\\beta}} _ {2}, \\dots , \\tilde {\\boldsymbol {\\beta}} _ {l}\\right) \\text {的后} m - r \\text {行全为零行} \\\\ \\Leftrightarrow R (\\boldsymbol {A}, \\boldsymbol {B}) = r = R (\\boldsymbol {A}). \\\\ \\end{array}",
+          "image_source": "../../raw/pages_0065-0096/images/page_81_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.846,
+            0.097,
+            0.89,
+            0.114
+          ],
+          "content": "证毕"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.195,
+            0.123,
+            0.573,
+            0.141
+          ],
+          "content": "利用定理 6, 容易得出矩阵的秩的性质⑦, 即"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.195,
+            0.148,
+            0.625,
+            0.167
+          ],
+          "content": "定理7 设 $AB = C$ ，则 $R(C) \\leqslant \\min \\{R(A), R(B)\\}$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.154,
+            0.173,
+            0.887,
+            0.216
+          ],
+          "content": "证 因 $AB = C$ ，知矩阵方程 $AX = C$ 有解 $X = B$ ，于是据定理6有 $R(A) = R(A,C)$ .而 $R(C)\\leqslant R(A,C)$ ，因此 $R(C)\\leqslant R(A)$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.195,
+            0.223,
+            0.755,
+            0.242
+          ],
+          "content": "又  $B^{T}A^{T}=C^{T}$ ，由上段证明知有  $R(C^{T})\\leqslant R(B^{T})$ ，即  $R(C)\\leqslant R(B)$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.194,
+            0.25,
+            0.519,
+            0.268
+          ],
+          "content": "综合便得  $R(C) \\leqslant \\min\\{R(A), R(B)\\}$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.845,
+            0.25,
+            0.89,
+            0.267
+          ],
+          "content": "证毕"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.194,
+            0.275,
+            0.591,
+            0.293
+          ],
+          "content": "定理 6 和定理 7 的应用, 我们在下一章中讨论."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.443,
+            0.334,
+            0.599,
+            0.359
+          ],
+          "level": 2,
+          "content": "习题三"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.19,
+            0.398,
+            0.544,
+            0.414
+          ],
+          "content": "1. 用初等行变换把下列矩阵化为行最简形矩阵:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.191,
+            0.423,
+            0.353,
+            0.485
+          ],
+          "content": "(1) $\\begin{pmatrix}1&0&2&-1\\\\2&0&3&1\\\\3&0&4&3\\end{pmatrix};$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.453,
+            0.423,
+            0.625,
+            0.485
+          ],
+          "content": "(2) $\\begin{pmatrix}0&2&-3&1\\\\0&3&-4&3\\\\0&4&-7&-1\\end{pmatrix};$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.191,
+            0.494,
+            0.399,
+            0.579
+          ],
+          "content": "(3) $\\begin{pmatrix}1&-1&3&-4&3\\\\3&-3&5&-4&1\\\\2&-2&3&-2&0\\\\3&-3&4&-2&-1\\end{pmatrix};$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.453,
+            0.493,
+            0.658,
+            0.578
+          ],
+          "content": "(4) $\\begin{pmatrix}2&3&1&-3&-7\\\\1&2&0&-2&-4\\\\3&-2&8&3&0\\\\2&-3&7&4&3\\end{pmatrix}.$"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.187,
+            0.587,
+            0.692,
+            0.696
+          ],
+          "sub_type": "text",
+          "content": "2. 设 $A = \\begin{pmatrix} 1 & 2 & 3 & 4 \\\\ 2 & 3 & 4 & 5 \\\\ 5 & 4 & 3 & 2 \\end{pmatrix}$, 求一个可逆矩阵 $P$, 使 $PA$ 为行最简形矩阵.\n3. 设  $A = \\begin{pmatrix} -5 & 3 & 1 \\\\ 2 & -1 & 1 \\end{pmatrix}$ ，求:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.188,
+            0.705,
+            0.538,
+            0.746
+          ],
+          "sub_type": "text",
+          "content": "(1) 可逆矩阵 P, 使 PA 为行最简形矩阵;\n(2) 一个可逆矩阵 Q, 使  $QA^{T}$  为行最简形矩阵."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.755,
+            0.551,
+            0.771
+          ],
+          "content": "4. 试利用矩阵的初等变换, 求下列方阵的逆矩阵:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.19,
+            0.792,
+            0.314,
+            0.854
+          ],
+          "content": "(1) $\\begin{pmatrix}3&2&1\\\\3&1&5\\\\3&2&3\\end{pmatrix};$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.453,
+            0.78,
+            0.631,
+            0.864
+          ],
+          "content": "(2) $\\begin{pmatrix}3&-2&0&-1\\\\0&2&2&1\\\\1&-2&-3&-2\\\\0&1&2&1\\end{pmatrix}.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.186,
+            0.874,
+            0.655,
+            0.89
+          ],
+          "content": "5. 试利用矩阵的初等行变换, 求解第 2 章习题二第 15 题之(2)."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.109,
+            0.922,
+            0.13,
+            0.935
+          ],
+          "content": "78"
+        }
+      ]
+    },
+    {
+      "page_idx": 82,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.798,
+            0.038,
+            0.847,
+            0.051
+          ],
+          "content": "习题三"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.095,
+            0.569,
+            0.158
+          ],
+          "content": "6.(1) 设  $A=\\begin{pmatrix}4&1&-2\\\\ 2&2&1\\\\ 3&1&-1\\end{pmatrix}, B=\\begin{pmatrix}1&-3\\\\ 2&2\\\\ 3&-1\\end{pmatrix}$ ，求 X 使 AX=B;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.163,
+            0.601,
+            0.224
+          ],
+          "content": "(2) 设  $A=\\begin{pmatrix}0&2&1\\\\2&-1&3\\\\-3&3&-4\\end{pmatrix}, B=\\begin{pmatrix}1&2&3\\\\2&-3&1\\end{pmatrix}$ ，求 X 使 XA=B;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.23,
+            0.478,
+            0.291
+          ],
+          "content": "(3) 设  $A=\\begin{pmatrix}1&-1&0\\\\0&1&-1\\\\-1&0&1\\end{pmatrix},AX=2X+A$ , 求 X."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.297,
+            0.73,
+            0.313
+          ],
+          "content": "7. 在秩是 $r$ 的矩阵中, 有没有等于0的 $r - 1$ 阶子式? 有没有等于0的 $r$ 阶子式?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.32,
+            0.607,
+            0.336
+          ],
+          "content": "8. 从矩阵 A 中划去一行得到矩阵 B, 问 A, B 的秩的关系怎样?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.343,
+            0.434,
+            0.359
+          ],
+          "content": "9. 求作一个秩是 4 的方阵, 它有 2 行是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.36,
+            0.365,
+            0.591,
+            0.382
+          ],
+          "content": "(1, 0, 1, 0, 0), (1, - 1, 0, 0, 0).",
+          "image_source": "../../raw/pages_0065-0096/images/page_82_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.388,
+            0.301,
+            0.404
+          ],
+          "content": "10. 求下列矩阵的秩:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.411,
+            0.814,
+            0.495
+          ],
+          "content": "(1) $\\begin{pmatrix}3&1&0&2\\\\1&-1&2&-1\\\\1&3&-4&4\\end{pmatrix};$  (2) $\\begin{pmatrix}3&2&-1&-3&-1\\\\2&-1&3&1&-3\\\\7&0&5&-1&-8\\end{pmatrix};$  (3) $\\begin{pmatrix}2&1&8&3&7\\\\2&-3&0&7&-5\\\\3&-2&5&8&0\\\\1&0&3&2&0\\end{pmatrix}.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.5,
+            0.675,
+            0.517
+          ],
+          "content": "11. 设 $A, B$ 都是 $m \\times n$ 矩阵, 证明 $A \\sim B$ 的充分必要条件是 $R(A) = R(B)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.524,
+            0.474,
+            0.585
+          ],
+          "content": "12. 设  $A=\\begin{pmatrix}1&-2&3k\\\\-1&2k&-3\\\\k&-2&3\\end{pmatrix}$ ，问 k 为何值，可使"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.14,
+            0.591,
+            0.537,
+            0.607
+          ],
+          "content": "(1)  $R(A)=1;$  (2)  $R(A)=2;$  (3)  $R(A)=3.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.614,
+            0.596,
+            0.698
+          ],
+          "content": "13. 讨论 n 阶  $(n \\geqslant 2)$  方阵  $A = \\begin{pmatrix} a & b & \\cdots & b \\\\ b & a & \\cdots & b \\\\ \\vdots & \\vdots & & \\vdots \\\\ b & b & \\cdots & a \\end{pmatrix}$  的秩的情况."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.139,
+            0.704,
+            0.369,
+            0.719
+          ],
+          "content": "14. 求解下列齐次线性方程组:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.726,
+            0.663,
+            0.891
+          ],
+          "content": "(1) $\\left\\{ \\begin{array}{l}x_{1} + x_{2} + 2x_{3} - x_{4} = 0,\\\\ 2x_{1} + x_{2} + x_{3} - x_{4} = 0,\\\\ 2x_{1} + 2x_{2} + x_{3} + 2x_{4} = 0; \\end{array} \\right.$ (2) $\\left\\{ \\begin{array}{l}x_{1} + 2x_{2} + x_{3} - x_{4} = 0,\\\\ 3x_{1} + 6x_{2} - x_{3} - 3x_{4} = 0,\\\\ 5x_{1} + 10x_{2} + x_{3} - 5x_{4} = 0; \\end{array} \\right.$ (3) $\\left\\{ \\begin{array}{l}2x_{1} + 3x_{2} - x_{3} - 7x_{4} = 0,\\\\ 3x_{1} + x_{2} + 2x_{3} - 7x_{4} = 0,\\\\ 4x_{1} + x_{2} - 3x_{3} + 6x_{4} = 0,\\\\ x_{1} - 2x_{2} + 5x_{3} - 5x_{4} = 0; \\end{array} \\right.$ (4) $\\left\\{ \\begin{array}{l}3x_{1} + 4x_{2} - 5x_{3} + 7x_{4} = 0,\\\\ 2x_{1} - 3x_{2} + 3x_{3} - 2x_{4} = 0,\\\\ 4x_{1} + 11x_{2} - 13x_{3} + 16x_{4} = 0,\\\\ 7x_{1} - 2x_{2} + x_{3} + 3x_{4} = 0. \\end{array} \\right.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.899,
+            0.385,
+            0.915
+          ],
+          "content": "15. 求解下列非齐次线性方程组:"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.346,
+            0.944,
+            0.642,
+            0.959
+          ],
+          "content": "考研电子书网站:www.pdf2book.com"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.869,
+            0.947,
+            0.89,
+            0.96
+          ],
+          "content": "79"
+        }
+      ]
+    },
+    {
+      "page_idx": 83,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.146,
+            0.017,
+            0.411,
+            0.031
+          ],
+          "content": "第3章 矩阵的初等变换与线性方程组"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.183,
+            0.078,
+            0.37,
+            0.15
+          ],
+          "content": "(1) $\\left\\{ \\begin{array}{l}4x_{1} + 2x_{2} - x_{3} = 2,\\\\ 3x_{1} - x_{2} + 2x_{3} = 10,\\\\ 11x_{1} + 3x_{2} = 8; \\end{array} \\right.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.474,
+            0.074,
+            0.634,
+            0.155
+          ],
+          "content": "(2) $\\left\\{\\begin{aligned}&2x+3y+z=4,\\\\&x-2y+4z=-5,\\\\&3x+8y-2z=13,\\\\&4x-y+9z=-6;\\end{aligned}\\right.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.183,
+            0.161,
+            0.353,
+            0.224
+          ],
+          "content": "(3) $\\left\\{\\begin{aligned}&2x+y-z+w=1,\\\\ &4x+2y-2z+w=2,\\\\ &2x+y-z-w=1;\\end{aligned}\\right.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.474,
+            0.161,
+            0.661,
+            0.224
+          ],
+          "content": "(4) $\\left\\{\\begin{aligned}&2x+y-z+w=1,\\\\ &3x-2y+z-3w=4,\\\\ &x+4y-3z+5w=-2.\\end{aligned}\\right.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.182,
+            0.231,
+            0.299,
+            0.246
+          ],
+          "content": "16. 写出一个以"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.44,
+            0.252,
+            0.592,
+            0.335
+          ],
+          "content": "\\boldsymbol {x} = c _ {1} \\left( \\begin{array}{r} 2 \\\\ - 3 \\\\ 1 \\\\ 0 \\end{array} \\right) + c _ {2} \\left( \\begin{array}{r} - 2 \\\\ 4 \\\\ 0 \\\\ 1 \\end{array} \\right)",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.341,
+            0.344,
+            0.357
+          ],
+          "content": "为通解的齐次线性方程组."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.182,
+            0.363,
+            0.334,
+            0.379
+          ],
+          "content": "17. 设有线性方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.4,
+            0.386,
+            0.63,
+            0.451
+          ],
+          "content": "\\left( \\begin{array}{c c c} 1 & \\lambda - 1 & - 2 \\\\ 0 & \\lambda - 2 & \\lambda + 1 \\\\ 0 & 0 & 2 \\lambda + 1 \\end{array} \\right) \\left( \\begin{array}{c} x _ {1} \\\\ x _ {2} \\\\ x _ {3} \\end{array} \\right) = \\left( \\begin{array}{c} 1 \\\\ 3 \\\\ 5 \\end{array} \\right),",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.145,
+            0.457,
+            0.801,
+            0.473
+          ],
+          "content": "问  $\\lambda$  为何值时(1)有惟一解;(2)无解;(3)有无限多解?并在有无限多解时求其通解."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.18,
+            0.48,
+            0.444,
+            0.495
+          ],
+          "content": "18.  $\\lambda$  取何值时, 非齐次线性方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.443,
+            0.5,
+            0.591,
+            0.569
+          ],
+          "content": "\\left\\{ \\begin{array}{l} \\lambda x _ {1} + x _ {2} + x _ {3} = 1, \\\\ x _ {1} + \\lambda x _ {2} + x _ {3} = \\lambda , \\\\ x _ {1} + x _ {2} + \\lambda x _ {3} = \\lambda^ {2} \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.18,
+            0.575,
+            0.728,
+            0.591
+          ],
+          "content": "(1) 有惟一解；(2) 无解；(3) 有无限多解？并在有无限多解时求其通解."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.18,
+            0.598,
+            0.351,
+            0.613
+          ],
+          "content": "19. 非齐次线性方程组"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.435,
+            0.619,
+            0.598,
+            0.687
+          ],
+          "content": "\\left\\{ \\begin{array}{r l} - 2 x _ {1} + x _ {2} + x _ {3} = - 2, \\\\ x _ {1} - 2 x _ {2} + x _ {3} = \\lambda , \\\\ x _ {1} + x _ {2} - 2 x _ {3} = \\lambda^ {2} \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.145,
+            0.694,
+            0.572,
+            0.711
+          ],
+          "content": "当 $\\lambda$ 取何值时有解？并求出它的通解.公众号:旗胜考研"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.179,
+            0.716,
+            0.229,
+            0.731
+          ],
+          "content": "20. 设"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.37,
+            0.736,
+            0.664,
+            0.805
+          ],
+          "content": "\\left\\{ \\begin{array}{c c c} (2 - \\lambda) x _ {1} + & 2 x _ {2} - & 2 x _ {3} = \\quad 1, \\\\ 2 x _ {1} + (5 - \\lambda) x _ {2} - & 4 x _ {3} = \\quad 2, \\\\ - 2 x _ {1} - & 4 x _ {2} + (5 - \\lambda) x _ {3} = - \\lambda - 1, \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.144,
+            0.81,
+            0.784,
+            0.827
+          ],
+          "content": "问 $\\lambda$ 为何值时, 此方程组有惟一解、无解或有无限多解? 并在有无限多解时求其通解."
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.175,
+            0.832,
+            0.811,
+            0.893
+          ],
+          "sub_type": "text",
+          "content": "21. 证明 $R(A) = 1$ 的充分必要条件是存在非零列向量 $\\pmb{a}$ 及非零行向量 $\\pmb{b}^{\\mathrm{T}}$, 使 $A = ab^{\\mathrm{T}}$.\n22. 证明秩为 $r (r \\geqslant 1)$ 的矩阵 $\\mathbf{A}$ 可表示为 $r$ 个秩为 1 的矩阵之和.\n23. 设 A 为列满秩矩阵, AB = C, 证明线性方程 Bx = 0 与 Cx = 0 同解."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.098,
+            0.927,
+            0.119,
+            0.939
+          ],
+          "content": "80"
+        }
+      ]
+    },
+    {
+      "page_idx": 84,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.796,
+            0.035,
+            0.847,
+            0.049
+          ],
+          "content": "习题三"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.127,
+            0.091,
+            0.685,
+            0.108
+          ],
+          "content": "24. 设 A 为  $m \\times n$  矩阵, 证明方程  $AX = E_{m}$  有解的充分必要条件是  $R(A) = m$ ."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.54,
+            0.172,
+            0.639,
+            0.22
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_84_image_2.jpg"
+        },
+        {
+          "type": "footer",
+          "bbox": [
+            0.352,
+            0.946,
+            0.65,
+            0.96
+          ],
+          "content": "考研电子书网站:www.pdf2book.com"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.863,
+            0.949,
+            0.883,
+            0.961
+          ],
+          "content": "81"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "created_at": "2023-09-23T02:53:17Z",
+      "modified_at": "2023-10-16T10:11:07+08:00",
+      "creator_application": "PDFPatcher 0.6.2.3546",
+      "producer_application": "ABBYY FineReader 15",
+      "page_count": 176,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "ocr"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 59,
+          "width_pt": 501.1000061035156,
+          "height_pt": 706.1000170893967
+        },
+        {
+          "page_idx": 60,
+          "width_pt": 496.1000061035156,
+          "height_pt": 702.699970703572
+        },
+        {
+          "page_idx": 61,
+          "width_pt": 498.0,
+          "height_pt": 703.8999829106033
+        },
+        {
+          "page_idx": 62,
+          "width_pt": 498.0,
+          "height_pt": 703.8999829106033
+        },
+        {
+          "page_idx": 63,
+          "width_pt": 499.8999938964844,
+          "height_pt": 705.349985351786
+        },
+        {
+          "page_idx": 64,
+          "width_pt": 495.3500061035156,
+          "height_pt": 702.2499902341515
+        },
+        {
+          "page_idx": 65,
+          "width_pt": 503.04998779296875,
+          "height_pt": 707.500019531697
+        },
+        {
+          "page_idx": 66,
+          "width_pt": 495.6000061035156,
+          "height_pt": 702.2499902341515
+        },
+        {
+          "page_idx": 67,
+          "width_pt": 498.5,
+          "height_pt": 704.1499731447548
+        },
+        {
+          "page_idx": 68,
+          "width_pt": 495.8500061035156,
+          "height_pt": 702.2499902341515
+        },
+        {
+          "page_idx": 69,
+          "width_pt": 501.6000061035156,
+          "height_pt": 706.3000073246658
+        },
+        {
+          "page_idx": 70,
+          "width_pt": 493.8999938964844,
+          "height_pt": 701.0499780271202
+        },
+        {
+          "page_idx": 71,
+          "width_pt": 499.20001220703125,
+          "height_pt": 704.650014648214
+        },
+        {
+          "page_idx": 72,
+          "width_pt": 493.8999938964844,
+          "height_pt": 701.0499780271202
+        },
+        {
+          "page_idx": 73,
+          "width_pt": 498.70001220703125,
+          "height_pt": 704.4000244140625
+        },
+        {
+          "page_idx": 74,
+          "width_pt": 493.8999938964844,
+          "height_pt": 701.0499780271202
+        },
+        {
+          "page_idx": 75,
+          "width_pt": 505.70001220703125,
+          "height_pt": 709.2000122070312
+        },
+        {
+          "page_idx": 76,
+          "width_pt": 493.8999938964844,
+          "height_pt": 701.0499780271202
+        },
+        {
+          "page_idx": 77,
+          "width_pt": 501.6000061035156,
+          "height_pt": 706.3000073246658
+        },
+        {
+          "page_idx": 78,
+          "width_pt": 496.54998779296875,
+          "height_pt": 702.699970703572
+        },
+        {
+          "page_idx": 79,
+          "width_pt": 505.70001220703125,
+          "height_pt": 709.4500024411827
+        },
+        {
+          "page_idx": 80,
+          "width_pt": 496.79998779296875,
+          "height_pt": 702.9500219728798
+        },
+        {
+          "page_idx": 81,
+          "width_pt": 503.04998779296875,
+          "height_pt": 707.500019531697
+        },
+        {
+          "page_idx": 82,
+          "width_pt": 499.70001220703125,
+          "height_pt": 705.0999951176345
+        },
+        {
+          "page_idx": 83,
+          "width_pt": 500.1499938964844,
+          "height_pt": 705.5999755859375
+        },
+        {
+          "page_idx": 84,
+          "width_pt": 495.6000061035156,
+          "height_pt": 702.2499902341515
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

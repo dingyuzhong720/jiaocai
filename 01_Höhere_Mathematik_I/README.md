@@ -9,7 +9,7 @@
 | 高等数学 第八版 上册（同济） | — | 待解析／整理 |
 | 高等数学 第八版 下册（同济） | — | 待解析／整理 |
 | Höhere Mathematik | — | 待解析／整理 |
-| 工程数学 线性代数 第七版（同济） | — | 待解析／整理 |
+| [工程数学 线性代数 第七版（同济）](linear-algebra-tongji-7e/) | 176 | [ZIP](https://github.com/dingyuzhong720/jiaocai/releases/download/mineru-advanced-2026-10-16/linear-algebra-tongji-7e.mineru-advanced.zip) |
 | 数学分析 第5版 上册（华东师大） | — | 待解析／整理 |
 | 数学分析 第5版 下册（华东师大） | — | 待解析／整理 |
 | Höhere Mathematik I – Skript | — | 待解析／整理 |
