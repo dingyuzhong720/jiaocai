@@ -6,7 +6,7 @@
 
 | 教材／讲义 | 页数 | 状态／下载 |
 | --- | ---: | --- |
-| 高等数学 第八版 上册（同济） | — | 待解析／整理 |
+| [高等数学 第八版 上册（同济）](advanced-mathematics-tongji-8e-vol1/) | 442 | [ZIP](https://github.com/dingyuzhong720/jiaocai/releases/download/mineru-advanced-2026-10-16/advanced-mathematics-tongji-8e-vol1.mineru-advanced.zip) |
 | [高等数学 第八版 下册（同济）](advanced-mathematics-tongji-8e-vol2/) | 354 | [ZIP](https://github.com/dingyuzhong720/jiaocai/releases/download/mineru-advanced-2026-10-16/advanced-mathematics-tongji-8e-vol2.mineru-advanced.zip) |
 | Höhere Mathematik | — | 待解析／整理 |
 | [工程数学 线性代数 第七版（同济）](linear-algebra-tongji-7e/) | 176 | [ZIP](https://github.com/dingyuzhong720/jiaocai/releases/download/mineru-advanced-2026-10-16/linear-algebra-tongji-7e.mineru-advanced.zip) |
