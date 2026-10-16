@@ -11,4 +11,4 @@
 | 数据结构与算法分析 C++语言描述 第4版 | — | 待解析／整理 |
 | Grundgebiete der Informatik 1 – Folien | — | 待解析／整理 |
 | Grundgebiete der Informatik 1 – Folien mit Kommentaren | — | 待解析／整理 |
-| Grundgebiete der Informatik 1 – Vorlesung 3 | — | 待解析／整理 |
+| [Grundgebiete der Informatik 1 – Vorlesung 3](lecture-3/) | 48 | [ZIP](https://github.com/dingyuzhong720/jiaocai/releases/download/mineru-advanced-2026-10-16/lecture-3.mineru-advanced.zip) |

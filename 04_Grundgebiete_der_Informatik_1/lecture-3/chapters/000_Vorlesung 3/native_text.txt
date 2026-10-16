@@ -1,0 +1,1094 @@
+--- PDF page 1 ---
+Grundgebiete der Informatik 1
+Programmierung, Algorithmen und 
+Datenstrukturen
+Prof. Dr.-Ing. Tobias Gemmeke
+Integrierte Digitale Systeme und Schaltungsentwurf (IDS)
+gemmeke@ids.rwth-aachen.de
+WS 2026/2027
+
+
+--- PDF page 2 ---
+2
+© T. Gemmeke, IDS, RWTH
+Computerstudium an der elektronischen Großrechenanlage der 
+TH Aachen um 1960
+[Forschung & Lehre, 3/24]
+
+
+--- PDF page 3 ---
+3
+© T. Gemmeke, IDS, RWTH
+CIP-Pool 2050
+www.odditycentral.com
+techrepublic.com
+generated with 
+chatGPT
+
+
+--- PDF page 4 ---
+4
+© T. Gemmeke, IDS, RWTH
+CIP-Pool 2026
+Praktika
+&
+Lernraum
+
+
+--- PDF page 5 ---
+5
+© T. Gemmeke, IDS, RWTH
+Übungsbetrieb
+• Koordination / Fachstudienbetreuung
+– Dipl.-Inform. Tatjana Eiden 
+– Fragestunden
+• Di 12:15-13:45 (UMIC, ab 20.10.)
+• Do 13:15-14:00 (H02, ab 15.10.) im Anschluss an die Globalübung
+• Gemeinsame Globalübung 
+– Do 12:15-13:15
+– Vor allem: c/C++-Programmierkurs
+– Michael Gansen
+• Kleingruppenübungen: 
+– Interaktive Vertiefung und Ergänzung des Vorlesungsstoffes
+– Tutoren: studentische Hilfskräfte 
+– Ca. 16 wöchentliche Termine zur Auswahl
+– Vorauss. ab 2. Vorlesungswoche (siehe RWTHonline)
+7
+
+
+--- PDF page 6 ---
+6
+© T. Gemmeke, IDS, RWTH
+Kleingruppenübungen
+• Teilnahme nicht obligatorisch aber dringend empfohlen
+• Anmeldungsinfo: siehe RWTHonline
+• Anmeldeschluss beachten!
+• Gruppeneinteilung: Benachrichtigung per email
+• Übungsaufgaben: jeweils am Fr online über Moodle
+• Vorbereitungsaufgaben, Präsenzaufgaben und 
+Nachbereitungsaufgaben
+Alle Studierende mit 100 von 200 Punkten in den Hausübungen haben in 21/22 bestanden.
+Teilnahme an der Probeklausur führte in 21/22 zu folgender Verbesserung:
+2 
+𝟓𝟓𝟎𝟎𝟎1          3 
+𝟗𝟗𝟎𝟎𝟎<3          4 
+𝟗𝟗𝟎𝟎𝟎<4          5 
+𝟖𝟖𝟎𝟎𝟎<5
+⭢100P Voraussetzung für Probeklausur
+
+
+--- PDF page 7 ---
+7
+© T. Gemmeke, IDS, RWTH
+Klausur
+60%
+72%
+
+
+--- PDF page 8 ---
+8
+© T. Gemmeke, IDS, RWTH
+Literatur
+• B.W. Kernighan, D.M. Ritchie: 
+Programmieren in C, 
+2. Auflage, Hanser, 1990, ISBN 3-446-15497-3
+• R. Sedgewick: Algorithmen in C++,
+Addison-Wesley, 2002, ISBN 3-8273-7026-4
+• In der Lehrbuchsammlung
+• Kommentierte Vorlesungsfolien 
+(elektronisch)
+• Grundsätzlich auch andere Einführungen in 
+die Programmierung als Hilfsmittel geeignet
+
+
+--- PDF page 9 ---
+9
+© T. Gemmeke, IDS, RWTH
+CODESCAPE
+• Serious Gaming 
+• Grundlagen von Programmiersprachen
+• Anwendung von Algorithmen
+• Eigene Lösungsideen entwickeln
+Etwa ein Viertel der erfolglosen 
+Studierenden hat in Codescape
+keine Aufgabe fertiggestellt.
+
+
+--- PDF page 10 ---
+10
+© T. Gemmeke, IDS, RWTH
+Über das IDS (www.ids.rwth-aachen.de)
+•
+Lehrstuhl für Integrierte Digitale Systeme und 
+Schaltungsentwurf (IDS)
+•
+Schwerpunkte: 
+– Entwurfsmethodik integrierte digitale Schaltungen
+– Beschleuniger für verschiedene Anwendungen:
+• Simulation biologischer neuronaler Netzwerke
+• Hardware für künstliche neuronale Netze
+• Kryptographie
+• …
+– Testmethoden
+•
+Standort: UMIC Gebäude
+– Mies-van-der-Rohe Str. 15, RWTH Hörn Campus
+7
+
+
+--- PDF page 11 ---
+11
+© T. Gemmeke, IDS, RWTH
+Zahlendarstellung
+217
+7x1
+1x10
+2x100
+Stellenwertsystem
+‘Einser’
+‘Zehner’
+‘Hunderter’
+
+
+--- PDF page 12 ---
+12
+© T. Gemmeke, IDS, RWTH
+Zahlendarstellung
+217
+7x100
+1x101
+2x102
+Stellenwertsystem
+‘Einser’
+‘Zehner’
+‘Hunderter’
+Ziffern / Digits
+Gewicht
+𝑋𝑋= ෍
+𝑖𝑖=0
+𝑁𝑁−1
+𝑥𝑥𝑖𝑖⋅𝑟𝑟𝑖𝑖 
+Dezimalsystem (𝑟𝑟= 10)
+Binärystem (𝑟𝑟= 2)
+102
+101
+100
+2
+1
+7
+27
+26
+25
+24
+23
+22
+21
+20
+Ziffern / Digits
+Gewicht
+2x102  + 1x101 + 7x100
+
+
+--- PDF page 13 ---
+13
+© T. Gemmeke, IDS, RWTH
+Zahlendarstellung
+217
+7x100
+1x101
+2x102
+Stellenwertsystem
+‘Einser’
+‘Zehner’
+‘Hunderter’
+Dezimalsystem (𝑟𝑟= 10)
+Binärystem (𝑟𝑟= 2)
+102
+101
+100
+2
+1
+7
+27
+26
+25
+24
+23
+22
+21
+20
+1
+1
+0
+1
+1
+0
+0
+1
+Ziffern / Digits
+Gewicht
+Ziffern / Digits
+Gewicht
+𝑋𝑋= ෍
+𝑖𝑖=0
+𝑁𝑁−1
+𝑥𝑥𝑖𝑖⋅𝑟𝑟𝑖𝑖 
+
+
+--- PDF page 14 ---
+14
+© T. Gemmeke, IDS, RWTH
+Zahlendarstellung
+(0010)2
+(002)10
+(0111)2
+(007)10
+(????)2
+(016)10
+(0010)16
+(217)10
+(1101 1001)2
+(   9)16
+(13)10=(?)16
+
+
+--- PDF page 15 ---
+15
+© T. Gemmeke, IDS, RWTH
+Zahlendarstellung
+𝑋𝑋= ෍
+𝑖𝑖=0
+𝑁𝑁−1
+𝑥𝑥𝑖𝑖⋅𝑟𝑟𝑖𝑖 
+Dezimalsystem (𝑟𝑟= 10)
+Binärystem (𝑟𝑟= 2)
+102
+101
+100
+2
+1
+7
+27
+26
+25
+24
+23
+22
+21
+20
+1
+1
+0
+1
+1
+0
+0
+1
+Ziffern / Digits
+Gewicht
+Ziffern / Digits
+Gewicht
+Hexadezimalystem (𝑟𝑟= 16)
+167
+166
+165
+164
+163
+162
+161
+160
+0
+0
+0
+0
+0
+0
+D
+9
+Ziffern / Digits
+Gewicht
+[playing card: Wikipedia]
+
+
+--- PDF page 16 ---
+16
+© T. Gemmeke, IDS, RWTH
+Zahlendarstellung
+r
+10
+2
+16
+00
+0000 0000
+00
+01
+0000 0001
+01
+02
+0000 0010
+02
+03
+0000 0011
+03
+04
+0000 0100
+04
+05
+0000 0101
+05
+06
+0000 0110
+06
+07
+0000 0111
+07
+08
+0000 1000
+08
+09
+0000 1001
+09
+10
+0000 1010
+11
+0000 1011
+12
+0000 1100
+13
+0000 1101
+14
+0000 1110
+15
+0000 1111
+16
+0001 0000
+17
+0001 0001
+?
+
+
+--- PDF page 17 ---
+17
+© T. Gemmeke, IDS, RWTH
+Zahlendarstellung
+r
+10
+2
+16
+00
+0000 0000
+00
+01
+0000 0001
+01
+02
+0000 0010
+02
+03
+0000 0011
+03
+04
+0000 0100
+04
+05
+0000 0101
+05
+06
+0000 0110
+06
+07
+0000 0111
+07
+08
+0000 1000
+08
+09
+0000 1001
+09
+10
+0000 1010
+0A
+11
+0000 1011
+0B
+12
+0000 1100
+0C
+13
+0000 1101
+0D
+14
+0000 1110
+0E
+15
+0000 1111
+0F
+16
+0001 0000
+17
+0001 0001
+
+
+--- PDF page 18 ---
+18
+© T. Gemmeke, IDS, RWTH
+Zahlendarstellung
+r
+10
+2
+16
+00
+0000 0000
+00
+01
+0000 0001
+01
+02
+0000 0010
+02
+03
+0000 0011
+03
+04
+0000 0100
+04
+05
+0000 0101
+05
+06
+0000 0110
+06
+07
+0000 0111
+07
+08
+0000 1000
+08
+09
+0000 1001
+09
+10
+0000 1010
+0A
+11
+0000 1011
+0B
+12
+0000 1100
+0C
+13
+0000 1101
+0D
+14
+0000 1110
+0E
+15
+0000 1111
+0F
+16
+0001 0000
+10
+17
+0001 0001
+11
+
+
+--- PDF page 19 ---
+19
+© T. Gemmeke, IDS, RWTH
+Buchstabendarstellung
+[General Electric TermiNet 300, ~1971]
+> char c0:a  char c1:a
+char c0 = 0x61;
+char c1 = 'a';
+printf("char c0:%c  char c1:%c\n", C0, C1);
+American Standard Code for Information Interchange (ASCII)
+Unicode Character
+UTF 0x0001F44D
+
+
+--- PDF page 20 ---
+20
+© T. Gemmeke, IDS, RWTH
+CODESCAPE
+• Serious Gaming 
+• Grundlagen von Programmiersprachen
+• Anwendung von Algorithmen
+• Eigene Lösungsideen entwickeln
+move();
+Move!
+[casesar: asterix.com]
+
+
+--- PDF page 21 ---
+21
+© T. Gemmeke, IDS, RWTH
+CODESCAPE
+move();
+move();
+move();
+move();
+move();
+…
+
+
+--- PDF page 22 ---
+22
+© T. Gemmeke, IDS, RWTH
+CODESCAPE
+
+
+--- PDF page 23 ---
+23
+© T. Gemmeke, IDS, RWTH
+CODESCAPE
+
+
+--- PDF page 24 ---
+24
+© T. Gemmeke, IDS, RWTH
+Inhalt der Vorlesung
+1. Einleitung
+2. Einführendes Beispiel
+3. Elementare Datentypen und Anweisungen
+4. Zusammengesetzte Datentypen
+5. Funktionen und Programmaufbau
+6. Analyse von Algorithmen
+7. Sortieralgorithmen
+8. Lineare Datentypen
+9. Bäume
+10. Graphen
+11. Techniken zum Algorithmenentwurf
+
+
+--- PDF page 25 ---
+2. Einführendes Beispiel
+2.1 Temperaturumrechnung
+2.2 Analyse des Beispiels
+2.3 Ausführung und Fehlersuche
+
+
+--- PDF page 26 ---
+26
+© T. Gemmeke, IDS, RWTH
+Einführendes C-Programmbeispiel
+• Umwandlung von Grad Fahrenheit in Grad Celsius
+•
+𝑦𝑦
+℃= (5/9) ×
+𝑥𝑥
+℉– 32
+℃
+℉
+
+
+--- PDF page 27 ---
+Sven Moschitz, Bild, 2.5.2024
+@eomhyeok, unsplash, 30.11.2022
+Joshua Mellin, CNN, 17.12.2018
+
+
+--- PDF page 28 ---
+28
+© T. Gemmeke, IDS, RWTH
+Einführendes C-Programmbeispiel
+• Umwandlung von Grad Fahrenheit in Grad Celsius
+•
+𝑦𝑦
+℃= (5/9) ×
+𝑥𝑥
+℉– 32
+#include <stdio.h>
+/* Umwandlung von Fahrenheit in Celsius
+fuer fahr = 0, 20, …, 300   */
+int main()
+{
+int fahr, celsius;
+int lower, upper, step;
+lower = 0; // untere Grenze der Temperaturtabelle
+upper = 300; // obere Grenze
+step
+= 20; // Schrittweite
+fahr  = lower;
+while (fahr <= upper)  {
+celsius = 5  *  (fahr-32) / 9;
+printf("%d\t%d\n", fahr, celsius);
+fahr = fahr + step;
+}
+return 0;
+}
+℃
+℉
+
+
+--- PDF page 29 ---
+29
+© T. Gemmeke, IDS, RWTH
+Einführendes C-Programmbeispiel
+• Umwandlung von Grad Fahrenheit in Grad Celsius
+•
+𝑦𝑦
+℃= (5/9) ×
+𝑥𝑥
+℉– 32
+#include <stdio.h>
+/* Umwandlung von Fahrenheit in Celsius
+fuer fahr = 0, 20, …, 300   */
+int main()
+{
+int fahr, celsius;
+int lower, upper, step;
+lower = 0; // untere Grenze der Temperaturtabelle
+upper = 300; // obere Grenze
+step
+= 20; // Schrittweite
+fahr  = lower;
+while (fahr <= upper)  {
+celsius = 5  *  (fahr-32) / 9;
+printf("%d\t%d\n", fahr, celsius);
+fahr = fahr + step;
+}
+return 0;
+}
+℃
+℉
+
+
+--- PDF page 30 ---
+30
+© T. Gemmeke, IDS, RWTH
+Einführendes C-Programmbeispiel
+• Umwandlung von Grad Fahrenheit in Grad Celsius
+•
+𝑦𝑦
+℃= (5/9) ×
+𝑥𝑥
+℉– 32
+#include <stdio.h>
+/* Umwandlung von Fahrenheit in Celsius
+fuer fahr = 0, 20, …, 300   */
+int main()
+{
+int fahr, celsius;
+int lower, upper, step;
+lower = 0; // untere Grenze der Temperaturtabelle
+upper = 300; // obere Grenze
+step
+= 20; // Schrittweite
+fahr  = lower;
+while (fahr <= upper)  {
+celsius = 5  *  (fahr-32) / 9;
+printf("%d\t%d\n", fahr, celsius);
+fahr = fahr + step;
+}
+return 0;
+}
+℃
+℉
+
+
+--- PDF page 31 ---
+31
+© T. Gemmeke, IDS, RWTH
+Speicher
+[2GB, Qimonda]
+[Schubladenschrank “Alex”, ikea]
+
+
+--- PDF page 32 ---
+32
+© T. Gemmeke, IDS, RWTH
+Einführendes C-Programmbeispiel
+• Umwandlung von Grad Fahrenheit in Grad Celsius
+•
+𝑦𝑦
+℃= (5/9) ×
+𝑥𝑥
+℉– 32
+#include <stdio.h>
+/* Umwandlung von Fahrenheit in Celsius
+fuer fahr = 0, 20, …, 300   */
+int main()
+{
+int fahr, celsius;
+int lower, upper, step;
+lower = 0; // untere Grenze der Temperaturtabelle
+upper = 300; // obere Grenze
+step
+= 20; // Schrittweite
+fahr  = lower;
+while (fahr <= upper)  {
+celsius = 5  *  (fahr-32) / 9;
+printf("%d\t%d\n", fahr, celsius);
+fahr = fahr + step;
+}
+return 0;
+}
+℃
+℉
+
+
+--- PDF page 33 ---
+33
+© T. Gemmeke, IDS, RWTH
+Einführendes C-Programmbeispiel
+• Umwandlung von Grad Fahrenheit in Grad Celsius
+•
+𝑦𝑦
+℃= (5/9) ×
+𝑥𝑥
+℉– 32
+#include <stdio.h>
+/* Umwandlung von Fahrenheit in Celsius
+fuer fahr = 0, 20, …, 300   */
+int main()
+{
+int fahr, celsius;
+int lower, upper, step;
+lower = 0; // untere Grenze der Temperaturtabelle
+upper = 300; // obere Grenze
+step
+= 20; // Schrittweite
+fahr  = lower;
+while (fahr <= upper)  {
+celsius = 5  *  (fahr-32) / 9;
+printf("%d\t%d\n", fahr, celsius);
+fahr = fahr + step;
+}
+return 0;
+}
+℃
+℉
+
+
+--- PDF page 34 ---
+34
+© T. Gemmeke, IDS, RWTH
+Einführendes C-Programmbeispiel
+• Umwandlung von Grad Fahrenheit in Grad Celsius
+•
+𝑦𝑦
+℃= (5/9) ×
+𝑥𝑥
+℉– 32
+#include <stdio.h>
+/* Umwandlung von Fahrenheit in Celsius
+fuer fahr = 0, 20, …, 300   */
+int main()
+{
+int fahr, celsius;
+int lower, upper, step;
+lower = 0; // untere Grenze der Temperaturtabelle
+upper = 300; // obere Grenze
+step
+= 20; // Schrittweite
+fahr  = lower;
+while (fahr <= upper)  {
+celsius = 5  *  (fahr-32) / 9;
+printf("%d\t%d\n", fahr, celsius);
+fahr = fahr + step;
+}
+return 0;
+}
+℃
+℉
+
+
+--- PDF page 35 ---
+35
+© T. Gemmeke, IDS, RWTH
+Einführendes C-Programmbeispiel
+• Umwandlung von Grad Fahrenheit in Grad Celsius
+•
+𝑦𝑦
+℃= (5/9) ×
+𝑥𝑥
+℉– 32
+#include <stdio.h>
+/* Umwandlung von Fahrenheit in Celsius
+fuer fahr = 0, 20, …, 300   */
+int main()
+{
+int fahr, celsius;
+int lower, upper, step;
+lower = 0; // untere Grenze der Temperaturtabelle
+upper = 300; // obere Grenze
+step
+= 20; // Schrittweite
+fahr  = lower;
+while (fahr <= upper)  {
+celsius = 5  *  (fahr-32) / 9;
+printf("%d\t%d\n", fahr, celsius);
+fahr = fahr + step;
+}
+return 0;
+}
+℃
+℉
+
+
+--- PDF page 36 ---
+36
+© T. Gemmeke, IDS, RWTH
+[General Electric TermiNet 300, ~1971]
+> char c0:a  char c1:a
+char c0 = 0x61;
+char c1 = 'a';
+printf("char c0:%c  char c1:%c\n", C0, C1);
+American Standard Code for Information Interchange (ASCII)
+printf("%d\t%d\n", fahr, celsius);
+
+
+--- PDF page 37 ---
+37
+© T. Gemmeke, IDS, RWTH
+printf("%d\t%d\n", fahr, celsius);
+
+
+--- PDF page 38 ---
+38
+© T. Gemmeke, IDS, RWTH
+Einführendes C-Programmbeispiel
+• Umwandlung von Grad Fahrenheit in Grad Celsius
+•
+𝑦𝑦
+℃= (5/9) ×
+𝑥𝑥
+℉– 32
+#include <stdio.h>
+/* Umwandlung von Fahrenheit in Celsius
+fuer fahr = 0, 20, …, 300   */
+int main()
+{
+int fahr, celsius;
+int lower, upper, step;
+lower = 0; // untere Grenze der Temperaturtabelle
+upper = 300; // obere Grenze
+step
+= 20; // Schrittweite
+fahr  = lower;
+while (fahr <= upper)  {
+celsius = 5  *  (fahr-32) / 9;
+printf("%d\t%d\n", fahr, celsius);
+fahr = fahr + step;
+}
+return 0;
+}
+℃
+℉
+
+
+--- PDF page 39 ---
+39
+© T. Gemmeke, IDS, RWTH
+Einführendes C-Programmbeispiel
+• Umwandlung von Grad Fahrenheit in Grad Celsius
+•
+𝑦𝑦
+℃= (5/9) ×
+𝑥𝑥
+℉– 32
+#include <stdio.h>
+/* Umwandlung von Fahrenheit in Celsius
+fuer fahr = 0, 20, …, 300   */
+int main()
+{
+int fahr, celsius;
+int lower, upper, step;
+lower = 0; // untere Grenze der Temperaturtabelle
+upper = 300; // obere Grenze
+step
+= 20; // Schrittweite
+fahr  = lower;
+while (fahr <= upper)  {
+celsius = 5  *  (fahr-32) / 9;
+printf("%d\t%d\n", fahr, celsius);
+fahr = fahr + step;
+}
+return 0;
+}
+℃
+℉
+
+
+--- PDF page 40 ---
+40
+© T. Gemmeke, IDS, RWTH
+Einführendes C-Programmbeispiel
+• Umwandlung von Grad Fahrenheit in Grad Celsius
+•
+𝑦𝑦
+℃= (5/9) ×
+𝑥𝑥
+℉– 32
+#include <stdio.h>
+/* Umwandlung von Fahrenheit in Celsius
+fuer fahr = 0, 20, …, 300   */
+int main()
+{
+int fahr, celsius;
+int lower, upper, step;
+lower = 0; // untere Grenze der Temperaturtabelle
+upper = 300; // obere Grenze
+step
+= 20; // Schrittweite
+fahr  = lower;
+while (fahr <= upper)  {
+celsius = 5  *  (fahr-32) / 9;
+printf("%d\t%d\n", fahr, celsius);
+fahr = fahr + step;
+}
+return 0;
+}
+℃
+℉
+
+
+--- PDF page 41 ---
+41
+© T. Gemmeke, IDS, RWTH
+Einführendes C-Programmbeispiel
+• Umwandlung von Grad Fahrenheit in Grad Celsius
+•
+𝑦𝑦
+℃= (5/9) ×
+𝑥𝑥
+℉– 32
+#include <stdio.h>
+/* Umwandlung von Fahrenheit in Celsius
+fuer fahr = 0, 20, …, 300   */
+int main()
+{
+int fahr, celsius;
+int lower, upper, step;
+lower = 0; // untere Grenze der Temperaturtabelle
+upper = 300; // obere Grenze
+step
+= 20; // Schrittweite
+fahr  = lower;
+while (fahr <= upper)  {
+celsius = 5  *  (fahr-32) / 9;
+printf("%d\t%d\n", fahr, celsius);
+fahr = fahr + step;
+}
+return 0;
+}
+℃
+℉
+
+
+--- PDF page 42 ---
+2. Einführendes Beispiel
+2.1 Temperaturumrechnung
+2.2 Analyse des Beispiels
+2.3 Ausführung und Fehlersuche
+
+
+--- PDF page 43 ---
+43
+© T. Gemmeke, IDS, RWTH
+Analyse des C-Programms
+• Einbinden der Standard-Library zur Ein/Ausgabe
+– #include <stdio.h>
+– Ermöglicht Kommunikation des Programms mit der Außenwelt 
+(z.B. Benutzer)
+– Siehe C-Präprozessor
+• Kommentare
+– /* Umwandlung … */
+– // untere Grenze …
+– Erläuterung der Programmfunktion für Entwickler
+– Text innerhalb /* … */ und in einer Zeile nach // wird vom 
+Compiler ignoriert
+• Hauptfunktion main
+– int main() { … }
+– Alle Anweisungen innerhalb { … } gehören zu main
+– main wird nach Programmstart immer direkt aufgerufen
+– Im Allg. ruft main dann weitere Funktionen auf
+
+
+--- PDF page 44 ---
+44
+© T. Gemmeke, IDS, RWTH
+Analyse des C-Programms
+• Variablen-Vereinbarungen
+– int fahr, celsius;
+– Variablen sind benannte Speicherplätze für Werte
+– Können lesend und schreibend zugegriffen werden
+– Variablen müssen vor Verwendung vereinbart werden
+– Hier: Verwendung von ganzzahligen (integer) Variablen
+• Zuweisungen
+– lower = 0; 
+– upper = 300;
+– Schreiben von Werten in die Variablen
+• Schleife
+– while (fahr <= upper) { /* ... */ }
+– while ist (wie auch int) ein C-Schlüsselwort
+– Code innerhalb { … } wird solange wiederholt, bis Bedingung 
+nicht mehr erfüllt
+
+
+--- PDF page 45 ---
+45
+© T. Gemmeke, IDS, RWTH
+Analyse des C-Programms
+• Umrechnung
+– celsius = 5 * (fahr-32) / 9;
+– Rechenoperationen auf Variablen
+• Ausgabe
+– printf("%d\t%d\n", fahr, celsius);
+– Formatierte Ausgabe:
+• fahr als Integer-Zahl (erstes %d als Platzhalter)
+• Tabulator \t
+• celsius als Integer-Zahl (zweites %d als Platzhalter)
+• Zeilenumbruch \n
+• Vorbereitung des nächsten Schleifendurchlaufs
+– fahr = fahr + step;
+– fahr wird um step erhöht, bis upper überschritten
+
+
+--- PDF page 46 ---
+46
+© T. Gemmeke, IDS, RWTH
+C-Präprozessor
+• C-Präprozessor (cpp) läuft vor dem Compiler über den Quellcode 
+(C-nach-C-Übersetzung) 
+• cpp-Anweisungen beginnen mit Zeichen #
+• cpp-Verwendung erhöht Lesbarkeit der Programme
+• Vor allem folgende Anwendungen:
+– Symbolische Definitionen (Konvention: Großbuchstaben)
+• #define UPPER 300
+• Alle Vorkommen von UPPER werden durch 300 ersetzt
+– Makros
+• #define MAX(a,b) (a > b) ? a : b
+• Alle Vorkommen von MAX(..., ...) werden ersetzt
+– Einbinden von Standard-Libraries (und allgemein Header-
+Dateien mit Deklarationen)
+• #include <stdio.h>
+• Datei stdio.h wird an dieser Stelle ins Programm eingefügt
+
+
+--- PDF page 47 ---
+47
+© T. Gemmeke, IDS, RWTH
+
+
+--- PDF page 48 ---
+48
+© T. Gemmeke, IDS, RWTH
+Zahlendarstellung
+(2201010001)10
+(22 01 01 0001)10
+(10000011001100001011111101010001)2
+(1000 0011 0011 0000 1011 1111 0101 0001)2
+(83 30 BF 51)16
+32.12.2021
+Vorzeichen?
+⭢ MSB (Most Significant Bit) hat Gewicht −2𝑁𝑁−1
+ 
+hier: −231 = −2147483648 10
+= -(2093957295)10
+(2112320001)10
+Größte vorzeichenbehaftete 32b-Zahl:
+2𝑁𝑁−1 −1 = 231−1 = 2147483647 10
+YY MM DD ####
+1.1.2022
