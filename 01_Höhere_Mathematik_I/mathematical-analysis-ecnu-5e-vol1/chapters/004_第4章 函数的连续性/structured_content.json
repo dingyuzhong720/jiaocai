@@ -1,0 +1,5087 @@
+{
+  "pages": [
+    {
+      "page_idx": 75,
+      "blocks": [
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.738,
+            0.105,
+            0.859,
+            0.132
+          ],
+          "level": 2,
+          "content": "第四章"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.619,
+            0.149,
+            0.859,
+            0.175
+          ],
+          "level": 2,
+          "content": "函数的连续性"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.347,
+            0.292,
+            0.588,
+            0.316
+          ],
+          "level": 2,
+          "content": "§ 1 连续性概念"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.36,
+            0.531,
+            0.377
+          ],
+          "content": "连续函数是数学分析中着重讨论的一类函数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.035,
+            0.382,
+            0.892,
+            0.442
+          ],
+          "content": "从几何形象上粗略地说,连续函数在坐标平面上的图像是一条连绵不断的曲线.当然我们不能满足于这种直观的认识,而应给出函数连续性的精确定义,并由此出发研究连续函数的性质.本节中先定义函数在一点的连续性和在区间上的连续性."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.035,
+            0.453,
+            0.323,
+            0.471
+          ],
+          "level": 2,
+          "content": "一、函数在一点的连续性"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.482,
+            0.497,
+            0.5
+          ],
+          "content": "定义1 设函数 $f$ 在某 $U(x_0)$ 上有定义. 若"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.372,
+            0.508,
+            0.887,
+            0.531
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} f (x) = f (x _ {0}), \\tag {1}",
+          "image_source": "../../raw/pages_0065-0096/images/page_75_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.035,
+            0.534,
+            0.23,
+            0.551
+          ],
+          "content": "则称 f 在点  $x_{0}$  连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.556,
+            0.518,
+            0.573
+          ],
+          "content": "例如,函数 $f(x)=2x+1$ 在点x=2连续,因为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.285,
+            0.578,
+            0.638,
+            0.601
+          ],
+          "content": "\\lim _ {x \\to 2} f (x) = \\lim _ {x \\to 2} (2 x + 1) = 5 = f (2).",
+          "image_source": "../../raw/pages_0065-0096/images/page_75_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.036,
+            0.603,
+            0.141,
+            0.619
+          ],
+          "content": "又如,函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.331,
+            0.626,
+            0.589,
+            0.683
+          ],
+          "content": "f (x) = \\left\\{ \\begin{array}{c l} x \\sin \\frac {1}{x}, & x \\neq 0, \\\\ 0, & x = 0 \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_75_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.035,
+            0.687,
+            0.24,
+            0.704
+          ],
+          "content": "在点 $x = 0$ 连续，因为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.295,
+            0.711,
+            0.63,
+            0.743
+          ],
+          "content": "\\lim _ {x \\to 0} f (x) = \\lim _ {x \\to 0} x \\sin \\frac {1}{x} = 0 = f (0).",
+          "image_source": "../../raw/pages_0065-0096/images/page_75_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.035,
+            0.75,
+            0.892,
+            0.789
+          ],
+          "content": "为引入函数 $y = f(x)$ 在点 $x_0$ 连续的另一种表述，记 $\\Delta x = x - x_0$，称为自变量 $x$ （在点 $x_0$）的增量或改变量。设 $y_0 = f(x_0)$，相应的函数 $y$ （在点 $x_0$）的增量记为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.221,
+            0.794,
+            0.709,
+            0.811
+          ],
+          "content": "\\Delta y = f (x) - f (x _ {0}) = f (x _ {0} + \\Delta x) - f (x _ {0}) = y - y _ {0}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_75_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.815,
+            0.806,
+            0.832
+          ],
+          "content": "注 自变量的增量  $\\Delta x$  或函数的增量  $\\Delta y$  可以是正数,也可以是 0 或负数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.836,
+            0.724,
+            0.853
+          ],
+          "content": "引进了增量的概念之后,易见“函数  $y=f(x)$  在点  $x_{0}$  连续”等价于"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.407,
+            0.858,
+            0.523,
+            0.881
+          ],
+          "content": "\\lim _ {\\Delta x \\to 0} \\Delta y = 0.",
+          "image_source": "../../raw/pages_0065-0096/images/page_75_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.036,
+            0.884,
+            0.894,
+            0.923
+          ],
+          "content": "由于函数在一点的连续性是通过极限来定义的,因而也可直接用  $\\varepsilon-\\delta$  方式来叙述,即:若对任给的  $\\varepsilon>0$ ,存在  $\\delta>0$ ,使得当  $\\left|x-x_{0}\\right|<\\delta$  时,有"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.912,
+            0.957,
+            0.932,
+            0.968
+          ],
+          "content": "65"
+        }
+      ]
+    },
+    {
+      "page_idx": 76,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.102,
+            0.028,
+            0.34,
+            0.043
+          ],
+          "content": "第四章 函数的连续性"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.427,
+            0.079,
+            0.956,
+            0.095
+          ],
+          "content": "\\mid f (x) - f (x _ {0}) \\mid <   \\varepsilon , \\tag {2}",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_1.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.099,
+            0.348,
+            0.117
+          ],
+          "content": "则称函数 f 在点  $x_{0}$  连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.121,
+            0.962,
+            0.27
+          ],
+          "content": "由上述定义,我们可得出函数f在点 $x_{0}$ 有极限与f在 $x_{0}$ 连续这两个概念之间的联系.首先,f在点 $x_{0}$ 有极限是f在 $x_{0}$ 连续的必要条件;进一步说,“f在点 $x_{0}$ 连续”不仅要求f在点 $x_{0}$ 有极限,而且要求其极限值应等于f在 $x_{0}$ 的函数值 $f(x_{0})$ .其次,在讨论极限时,我们假定f在点 $x_{0}$ 的某空心邻域 $U^{\\circ}(x_{0})$ 上有定义(f在点 $x_{0}$ 可以没有定义),而“f在点 $x_{0}$ 连续”则要求f在某 $U(x_{0})$ 上(包括点 $x_{0}$ )有定义,此时由于(2)式当 $x=x_{0}$ 时总是成立的,所以在极限定义中的“ $0<|x-x_{0}|<\\delta$ ”换成了在连续定义中的“ $|x-x_{0}|<\\delta$ ”.最后,(1)式又可表示为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.422,
+            0.276,
+            0.639,
+            0.299
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} f (x) = f (\\lim _ {x \\to x _ {0}} x),",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.303,
+            0.769,
+            0.326
+          ],
+          "content": "可见“f在点 $x_{0}$ 连续”意味着极限运算 $\\lim_{x\\to x_{0}}$ 与对应法则f的可交换性."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.145,
+            0.331,
+            0.876,
+            0.348
+          ],
+          "content": "例 1 证明函数  $f(x)=xD(x)$  在点 x=0 连续, 其中  $D(x)$  为狄利克雷函数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.352,
+            0.671,
+            0.37
+          ],
+          "content": "证 由 $f(0) = 0$ 及 $\\mid D(x)\\mid \\leqslant 1$ ，对任给的 $\\varepsilon >0$ ，为使"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.337,
+            0.373,
+            0.735,
+            0.392
+          ],
+          "content": "\\mid f (x) - f (0) \\mid = \\mid x D (x) \\mid \\leqslant \\mid x \\mid <   \\varepsilon ,",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_8.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.396,
+            0.617,
+            0.413
+          ],
+          "content": "只要取  $\\delta=\\varepsilon$ ，即可按  $\\varepsilon-\\delta$  定义推得 f 在点 x=0 连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.417,
+            0.848,
+            0.435
+          ],
+          "content": "相应于 f 在点  $x_{0}$  的左、右极限的概念, 我们给出左、右连续的定义如下."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.439,
+            0.655,
+            0.456
+          ],
+          "content": "定义2 设函数 $f$ 在某 $U_{+}(x_{0})(U_{-}(x_{0}))$ 有定义.若"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.333,
+            0.463,
+            0.731,
+            0.491
+          ],
+          "content": "\\lim _ {x \\to x _ {0} ^ {+}} f (x) = f (x _ {0}) \\left(\\lim _ {x \\to x _ {0} ^ {-}} f (x) = f (x _ {0})\\right),",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.495,
+            0.376,
+            0.511
+          ],
+          "content": "则称 f 在点  $x_{0}$  右(左)连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.516,
+            0.608,
+            0.533
+          ],
+          "content": "根据上述定义1与定义2,不难推出如下定理."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.538,
+            0.95,
+            0.555
+          ],
+          "content": "定理 4.1 函数 f 在点  $x_{0}$  连续的充要条件是: f 在点  $x_{0}$  既是右连续, 又是左连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.559,
+            0.312,
+            0.575
+          ],
+          "content": "例2 讨论函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.314,
+            0.581,
+            0.555,
+            0.617
+          ],
+          "content": "f (x) = \\left\\{ \\begin{array}{l l} x + 2, & x \\geqslant 0, \\\\ x - 2, & x <   0 \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.622,
+            0.306,
+            0.638
+          ],
+          "content": "在点 x=0 的连续性."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.643,
+            0.247,
+            0.66
+          ],
+          "content": "解 因为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.295,
+            0.667,
+            0.575,
+            0.689
+          ],
+          "content": "\\lim _ {x \\to 0 ^ {+}} f (x) = \\lim _ {x \\to 0 ^ {+}} (x + 2) = 2,",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_20.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.288,
+            0.694,
+            0.583,
+            0.716
+          ],
+          "content": "\\lim _ {x \\to 0 ^ {-}} f (x) = \\lim _ {x \\to 0 ^ {-}} (x - 2) = - 2,",
+          "image_source": "../../raw/pages_0065-0096/images/page_76_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.72,
+            0.769,
+            0.758
+          ],
+          "content": "而 $f(0) = 2$ ，所以 $f$ 在点 $x = 0$ 右连续，但不左连续，从而它在 $x = 0$ 不连续（见图4-1）."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.789,
+            0.56,
+            0.964,
+            0.708
+          ],
+          "sub_type": "text_image",
+          "content": "y\n2\nO x\n-2",
+          "captions": [
+            {
+              "bbox": [
+                0.834,
+                0.717,
+                0.895,
+                0.732
+              ],
+              "content": "图4-1"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_76_image_23.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.102,
+            0.769,
+            0.341,
+            0.788
+          ],
+          "level": 2,
+          "content": "二、间断点及其分类"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.8,
+            0.961,
+            0.841
+          ],
+          "content": "定义3 设函数 $f$ 在某 $U^{\\circ}(x_0)$ 上有定义. 若 $f$ 在点 $x_0$ 无定义, 或 $f$ 在点 $x_0$ 有定义而不连续, 则称点 $x_0$ 为函数 $f$ 的间断点或不连续点."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.846,
+            0.961,
+            0.884
+          ],
+          "content": "按此定义以及上一段中关于极限与连续性之间联系的讨论, 可知若  $x_{0}$  为函数 f 的间断点, 则必出现下列情形之一:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.889,
+            0.591,
+            0.913
+          ],
+          "content": "(i) $f$ 在点 $x_0$ 无定义或极限 $\\lim_{x\\to x_0}f(x)$ 不存在；"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.067,
+            0.955,
+            0.088,
+            0.965
+          ],
+          "content": "66"
+        }
+      ]
+    },
+    {
+      "page_idx": 77,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.699,
+            0.029,
+            0.846,
+            0.045
+          ],
+          "content": "§ 1 连续性概念"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.067,
+            0.079,
+            0.705,
+            0.106
+          ],
+          "content": "(ii) $f$ 在点 $x_0$ 有定义且极限 $\\lim_{x\\to x_0}f(x)$ 存在①，但 $\\lim_{x\\to x_0}f(x)\\neq f(x_0)$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.067,
+            0.113,
+            0.463,
+            0.13
+          ],
+          "content": "据此,我们对函数的间断点作如下分类."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.069,
+            0.135,
+            0.267,
+            0.151
+          ],
+          "content": "1. 可去间断点 若"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.382,
+            0.156,
+            0.518,
+            0.181
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} f (x) = A,",
+          "image_source": "../../raw/pages_0065-0096/images/page_77_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.022,
+            0.184,
+            0.741,
+            0.202
+          ],
+          "content": "而 $f$ 在点 $x_0$ 无定义，或有定义但 $f(x_0) \\neq A$ ，则称点 $x_0$ 为 $f$ 的可去间断点."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.067,
+            0.205,
+            0.534,
+            0.223
+          ],
+          "content": "例如,对于函数  $f(x)=\\left|\\operatorname{sgn}x\\right|$ , 因  $f(0)=0$ , 而"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.341,
+            0.227,
+            0.559,
+            0.251
+          ],
+          "content": "\\lim _ {x \\to 0} f (x) = 1 \\neq f (0),",
+          "image_source": "../../raw/pages_0065-0096/images/page_77_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.021,
+            0.256,
+            0.882,
+            0.313
+          ],
+          "content": "故点 $x = 0$ 为 $f(x) = |\\operatorname{sgn} x|$ 的可去间断点. 又如函数 $g(x) = \\frac{\\sin x}{x}$, 由于 $\\lim_{x \\to 0} g(x) = 1$, 而 $g$ 在 $x = 0$ 无定义, 所以点 $x = 0$ 是函数 $g$ 的可去间断点."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.022,
+            0.319,
+            0.884,
+            0.41
+          ],
+          "content": "设点 $x_0$ 为函数 $f$ 的可去间断点，且 $\\lim_{x\\to x_0}f(x) = A.$ 我们按如下方法定义一个函数 $\\hat{f}$ :当 $x\\neq x_0$ 时， $\\hat{f} (x) = f(x)$ ；当 $x = x_0$ 时， $\\hat{f} (x_0) = A.$ 易见，对于函数 $\\hat{f}$ ，点 $x_0$ 是它的连续点.例如，对上述的 $g(x) = \\frac{\\sin{x}}{x}$ ，我们定义"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.329,
+            0.419,
+            0.573,
+            0.476
+          ],
+          "content": "\\hat {g} (x) = \\left\\{ \\begin{array}{c l} \\frac {\\sin x}{x}, & x \\neq 0, \\\\ 1, & x = 0, \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_77_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.481,
+            0.228,
+            0.498
+          ],
+          "content": "则  $\\hat{g}$  在点 x=0 连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.067,
+            0.502,
+            0.643,
+            0.52
+          ],
+          "content": "2. 跳跃间断点 若函数 f 在点  $x_{0}$  的左、右极限都存在, 但"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.331,
+            0.524,
+            0.571,
+            0.552
+          ],
+          "content": "\\lim _ {x \\to x _ {0} ^ {+}} f (x) \\neq \\lim _ {x \\to x _ {0} ^ {-}} f (x),",
+          "image_source": "../../raw/pages_0065-0096/images/page_77_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.555,
+            0.364,
+            0.572
+          ],
+          "content": "则称点 $x_0$ 为函数 $f$ 的跳跃间断点."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.069,
+            0.576,
+            0.66,
+            0.594
+          ],
+          "content": "例如,对函数 $f(x)=[x]$ （图1-5），当 $x=n(n$ 为整数）时，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.304,
+            0.597,
+            0.601,
+            0.622
+          ],
+          "content": "\\lim _ {x \\to n ^ {-}} [ x ] = n - 1, \\lim _ {x \\to n ^ {+}} [ x ] = n,",
+          "image_source": "../../raw/pages_0065-0096/images/page_77_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.022,
+            0.624,
+            0.884,
+            0.685
+          ],
+          "content": "所以在整数点上函数 $f$ 的左、右极限不相等，从而整数点都是函数 $f(x) = [x]$ 的跳跃间断点. 又如符号函数 $\\operatorname{sgn} x$ 在 $x = 0$ 处的左、右极限分别为-1和1，故 $x = 0$ 是 $\\operatorname{sgn} x$ 的跳跃间断点（图1-1）."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.69,
+            0.884,
+            0.729
+          ],
+          "content": "可去间断点和跳跃间断点统称为第一类间断点.第一类间断点的特点是函数在该点处的左、右极限都存在."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.733,
+            0.883,
+            0.773
+          ],
+          "content": "3. 函数的所有其他形式的间断点, 即使得函数至少有一侧极限不存在的那些点, 称为第二类间断点."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.778,
+            0.884,
+            0.879
+          ],
+          "content": "例如, 函数  $y=\\frac{1}{x}$  当  $x\\to0$  时不存在有限的极限, 故 x=0 是  $y=\\frac{1}{x}$  的第二类间断点. 函数  $\\sin\\frac{1}{x}$  在 x=0 处左、右极限都不存在, 故 x=0 是  $\\sin\\frac{1}{x}$  的第二类间断点. 又如, 对于狄利克雷函数  $D(x)$ , 其定义域 R 上每一点 x 都是第二类间断点."
+        },
+        {
+          "type": "page_footnote",
+          "bbox": [
+            0.023,
+            0.909,
+            0.601,
+            0.926
+          ],
+          "content": "① 这里所说的极限存在是指存在有限极限,即不包括非正常极限."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.902,
+            0.957,
+            0.924,
+            0.969
+          ],
+          "content": "67"
+        }
+      ]
+    },
+    {
+      "page_idx": 78,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.097,
+            0.03,
+            0.333,
+            0.046
+          ],
+          "content": "第四章 函数的连续性"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.096,
+            0.084,
+            0.361,
+            0.104
+          ],
+          "level": 2,
+          "content": "三、区间上的连续函数"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.114,
+            0.956,
+            0.154
+          ],
+          "content": "若函数 $f$ 在区间 $I$ 上的每一点都连续, 则称 $f$ 为 $I$ 上的连续函数. 对于闭区间或半开半闭区间的端点, 函数在这些点上连续是指左连续或右连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.158,
+            0.957,
+            0.224
+          ],
+          "content": "例如, 函数 $y = c, y = x, y = \\sin x$ 和 $y = \\cos x$ 都是 $\\mathbf{R}$ 上的连续函数. 又如函数 $y = \\sqrt{1 - x^2}$ 在 $(-1, 1)$ 上的每一点都连续, 在 $x = 1$ 为左连续, 在 $x = -1$ 为右连续, 因而它在 $[-1, 1]$ 上连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.228,
+            0.957,
+            0.268
+          ],
+          "content": "若函数 $f$ 在区间 $[a, b]$ 上仅有有限个第一类间断点，则称 $f$ 在 $[a, b]$ 上分段连续。例如，函数 $y = [x]$ 和 $y = x - [x]$ 在区间 $[-3, 3]$ 上是分段连续的。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.272,
+            0.957,
+            0.312
+          ],
+          "content": "在 §3 中我们将证明任何初等函数在其定义区间上为连续函数. 同时, 也存在着在其定义区间上每一点都不连续的函数, 如前面已提到的狄利克雷函数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.316,
+            0.367,
+            0.333
+          ],
+          "content": "例 3 证明: 黎曼函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.23,
+            0.343,
+            0.825,
+            0.405
+          ],
+          "content": "R (x) = \\left\\{ \\begin{array}{l l} \\frac {1}{q}, & \\text {当} x = \\frac {p}{q} \\bigg (p, q \\text {为正整数}, \\frac {p}{q} \\text {为既约真分数} \\bigg), \\\\ 0, & \\text {当} x = 0, 1 \\text {及} (0, 1) \\text {上的无理数} \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_78_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.412,
+            0.625,
+            0.43
+          ],
+          "content": "在 $(0,1)$ 上任何无理点都连续,任何有理点都不连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.44,
+            0.96,
+            0.539
+          ],
+          "content": "证 设  $\\xi\\in(0,1)$  为无理数.任给  $\\varepsilon>0\\left(\\text{不妨设 }\\varepsilon<\\frac{1}{2}\\right)$ ，满足  $\\frac{1}{q}\\geqslant\\varepsilon$  的正整数 q 显然只有有限个（但至少有一个，如 q=2），从而使  $R(x)\\geqslant\\varepsilon$  的有理数  $x\\in(0,1)$  只有有限个（至少有一个，如  $\\frac{1}{2}$ ），设为  $x_{1},\\cdots,x_{n}$ .取"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.304,
+            0.544,
+            0.749,
+            0.564
+          ],
+          "content": "\\delta = \\min \\left\\{\\mid x _ {1} - \\xi \\mid , \\dots , \\mid x _ {n} - \\xi \\mid , \\xi , 1 - \\xi \\right\\},",
+          "image_source": "../../raw/pages_0065-0096/images/page_78_equation_10.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.567,
+            0.957,
+            0.606
+          ],
+          "content": "则对任何 $x \\in U(\\xi; \\delta) ( \\subset (0,1))$，当 $x$ 为有理数时，有 $R(x) < \\varepsilon$，当 $x$ 为无理数时，有 $R(x) = 0$。于是，对任何 $x \\in U(\\xi; \\delta)$，总有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.387,
+            0.609,
+            0.673,
+            0.629
+          ],
+          "content": "\\mid R (x) - R (\\xi) \\mid = R (x) <   \\varepsilon .",
+          "image_source": "../../raw/pages_0065-0096/images/page_78_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.632,
+            0.446,
+            0.65
+          ],
+          "content": "这就证明了  $R(x)$  在无理点  $\\xi$  连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.658,
+            0.954,
+            0.715
+          ],
+          "content": "现设 $\\frac{p}{q}$ 为(0,1)上任一有理数.取 $\\varepsilon_0 = \\frac{1}{2q}$, 对任何正数 $\\delta$ (无论多么小), 在 $U\\left(\\frac{p}{q}; \\delta\\right)$ 内总可取到无理数 $x (\\in (0,1))$, 使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.39,
+            0.719,
+            0.671,
+            0.758
+          ],
+          "content": "\\left| R (x) - R \\bigg (\\frac {p}{q} \\bigg) \\right| = \\frac {1}{q} > \\varepsilon_ {0}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_78_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.761,
+            0.446,
+            0.779
+          ],
+          "content": "所以  $R(x)$  在任何有理点都不连续."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.452,
+            0.807,
+            0.599,
+            0.827
+          ],
+          "level": 2,
+          "content": "习题 4.1"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.848,
+            0.518,
+            0.864
+          ],
+          "content": "1. 按定义证明下列函数在其定义域内连续:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.16,
+            0.87,
+            0.291,
+            0.899
+          ],
+          "content": "(1)  $f(x)=\\frac{1}{x}$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.391,
+            0.876,
+            0.534,
+            0.895
+          ],
+          "content": "(2) $f(x) = |x|$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.137,
+            0.907,
+            0.498,
+            0.922
+          ],
+          "content": "2. 指出下列函数的间断点并说明其类型:"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.064,
+            0.955,
+            0.086,
+            0.966
+          ],
+          "content": "68"
+        }
+      ]
+    },
+    {
+      "page_idx": 79,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.664,
+            0.029,
+            0.848,
+            0.044
+          ],
+          "content": "§ 2 连续函数的性质"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.087,
+            0.08,
+            0.465,
+            0.111
+          ],
+          "content": "(1)  $f(x)=x+\\frac{1}{x}$ ; (2)  $f(x)=\\frac{\\sin x}{|x|}$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.087,
+            0.117,
+            0.479,
+            0.134
+          ],
+          "content": "(3)  $f(x) = \\left[ \\left| \\cos x \\right| \\right]$ ; (4)  $f(x) = \\operatorname{sgn} |x|$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.087,
+            0.139,
+            0.577,
+            0.174
+          ],
+          "content": "(5)  $f(x)=\\mathrm{sgn}(\\cos x)$ ; (6)  $f(x)=\\left\\{\\begin{aligned}&x,&x\\text{为有理数},\\\\ &-x,&x\\text{为无理数};\\end{aligned}\\right.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.087,
+            0.18,
+            0.436,
+            0.266
+          ],
+          "content": "(7) $f(x) = \\begin{cases} \\frac{1}{x + 7}, & -\\infty < x < -7, \\\\ x, & -7 \\leqslant x \\leqslant 1, \\\\ (x - 1)\\sin \\frac{1}{x - 1}, & 1 < x < +\\infty. \\end{cases}$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.272,
+            0.38,
+            0.287
+          ],
+          "content": "3. 延拓下列函数,使其在 R 上连续:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.087,
+            0.291,
+            0.231,
+            0.322
+          ],
+          "content": "(1)  $f(x) = \\frac{x^{3} - 8}{x - 2}$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.274,
+            0.293,
+            0.441,
+            0.322
+          ],
+          "content": "(2)  $f(x) = \\frac{1 - \\cos x}{x^{2}}$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.503,
+            0.292,
+            0.667,
+            0.321
+          ],
+          "content": "(3) $f(x) = x \\cos \\frac{1}{x}$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.329,
+            0.886,
+            0.366
+          ],
+          "content": "4. 证明: 若 $f$ 在点 $x_0$ 连续, 则 $\\left|f\\right|$ 与 $f^2$ 也在点 $x_0$ 连续. 又问: 若 $\\left|f\\right|$ 或 $f^2$ 在 $I$ 上连续, 那么 $f$ 在 $I$ 上是否必连续?"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.063,
+            0.37,
+            0.832,
+            0.386
+          ],
+          "content": "5. 设当 $x \\neq 0$ 时, $f(x) \\equiv g(x)$, 而 $f(0) \\neq g(0)$. 证明: $f$ 与 $g$ 两者中至多有一个在 $x = 0$ 连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.063,
+            0.403,
+            0.832,
+            0.418
+          ],
+          "content": "6. 设 $f$ 为区间 $I$ 上的单调函数. 证明: 若 $x_0 \\in I$ 为 $f$ 的间断点, 则 $x_0$ 必是 $f$ 的第一类间断点."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.424,
+            0.362,
+            0.438
+          ],
+          "content": "7. 设函数 $f$ 只有可去间断点, 定义"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.378,
+            0.442,
+            0.531,
+            0.463
+          ],
+          "content": "g (x) = \\lim _ {y \\to x} f (y).",
+          "image_source": "../../raw/pages_0065-0096/images/page_79_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.466,
+            0.195,
+            0.48
+          ],
+          "content": "证明 g 为连续函数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.066,
+            0.485,
+            0.346,
+            0.5
+          ],
+          "content": "8. 设 $f$ 为 $\\mathbf{R}$ 上的单调函数, 定义"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.377,
+            0.505,
+            0.534,
+            0.521
+          ],
+          "content": "g (x) = f (x + 0).",
+          "image_source": "../../raw/pages_0065-0096/images/page_79_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.525,
+            0.301,
+            0.54
+          ],
+          "content": "证明 g 在 R 上每一点都右连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.065,
+            0.545,
+            0.5,
+            0.559
+          ],
+          "content": "9. 举出定义在 $[0,1]$ 上分别符合下述要求的函数:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.089,
+            0.565,
+            0.441,
+            0.594
+          ],
+          "content": "(1) 只在 $\\frac{1}{2}$, $\\frac{1}{3}$ 和 $\\frac{1}{4}$ 三点不连续的函数；"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.089,
+            0.602,
+            0.421,
+            0.63
+          ],
+          "content": "(2) 只在 $\\frac{1}{2},\\frac{1}{3}$ 和 $\\frac{1}{4}$ 三点连续的函数；"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.089,
+            0.639,
+            0.454,
+            0.667
+          ],
+          "content": "(3) 只在 $\\frac{1}{n}(n=1,2,3,\\cdots)$ 上间断的函数；"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.088,
+            0.674,
+            0.532,
+            0.688
+          ],
+          "content": "(4) 只在 x=0 右连续, 而在其他点都不连续的函数."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.308,
+            0.735,
+            0.619,
+            0.758
+          ],
+          "level": 2,
+          "content": "§ 2 连续函数的性质"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.03,
+            0.809,
+            0.32,
+            0.828
+          ],
+          "level": 2,
+          "content": "一、连续函数的局部性质"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.03,
+            0.838,
+            0.889,
+            0.88
+          ],
+          "content": "若函数 f 在点  $x_{0}$  连续，则 f 在点  $x_{0}$  有极限，且极限值等于函数值  $f(x_{0})$ . 从而，根据函数极限的性质能推断出函数 f 在  $U(x_{0})$  的性态."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.884,
+            0.791,
+            0.902
+          ],
+          "content": "定理 4.2(局部有界性) 若函数 f 在点  $x_{0}$  连续, 则 f 在某  $U(x_{0})$  上有界."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.906,
+            0.889,
+            0.924
+          ],
+          "content": "定理 4.3(局部保号性) 若函数 f 在点  $x_{0}$  连续, 且  $f(x_{0}) > 0$  (或 <0), 则对任何正"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.906,
+            0.957,
+            0.928,
+            0.968
+          ],
+          "content": "69"
+        }
+      ]
+    },
+    {
+      "page_idx": 80,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.097,
+            0.03,
+            0.335,
+            0.046
+          ],
+          "content": "第四章 函数的连续性"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.077,
+            0.778,
+            0.096
+          ],
+          "content": "数 $r < f(x_0)$ （或 $r < -f(x_0)$ ），存在某 $U(x_0)$，使得对一切 $x \\in U(x_0)$，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.386,
+            0.099,
+            0.66,
+            0.118
+          ],
+          "content": "f (x) > r (\\text {或} f (x) <   - r).",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.125,
+            0.959,
+            0.198
+          ],
+          "content": "注 在具体应用局部保号性时, 常取  $r=\\frac{1}{2}f(x_{0})$ , 则 (当  $f(x_{0})>0$  时) 存在某  $U(x_{0})$ , 使在其上有  $f(x)>\\frac{1}{2}f(x_{0})$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.204,
+            0.957,
+            0.244
+          ],
+          "content": "定理 4.4(四则运算) 若函数 f 和 g 在点  $x_{0}$  连续, 则  $f \\pm g, f \\cdot g, f / g$  (这里  $g(x_{0}) \\neq 0$ ) 也都在点  $x_{0}$  连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.145,
+            0.248,
+            0.752,
+            0.265
+          ],
+          "content": "以上三个定理的证明,都可从函数极限的有关定理直接推得."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.144,
+            0.27,
+            0.818,
+            0.287
+          ],
+          "content": "对常量函数 y=c 和函数 y=x 反复应用定理 4.4, 能推出多项式函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.333,
+            0.291,
+            0.724,
+            0.31
+          ],
+          "content": "P (x) = a _ {0} x ^ {n} + a _ {1} x ^ {n - 1} + \\dots + a _ {n - 1} x + a _ {n}",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.314,
+            0.962,
+            0.372
+          ],
+          "content": "和有理函数 $R(x) = \\frac{P(x)}{Q(x)}$ ($P, Q$ 为多项式)在其定义域的每一点都是连续的. 同样, 由 $\\sin x$ 和 $\\cos x$ 在 $\\mathbf{R}$ 上的连续性, 可推得 $\\tan x$ 与 $\\cot x$ 在其定义域的每一点都连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.376,
+            0.521,
+            0.393
+          ],
+          "content": "关于复合函数的连续性,有如下定理."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.398,
+            0.962,
+            0.437
+          ],
+          "content": "定理 4.5 若函数 f 在点  $x_{0}$  连续, g 在点  $u_{0}$  连续,  $u_{0}=f(x_{0})$ , 则复合函数  $g \\circ f$  在点  $x_{0}$  连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.441,
+            0.856,
+            0.46
+          ],
+          "content": "证 由于 $g$ 在 $u_0$ 连续，对任给的 $\\varepsilon > 0$ ，存在 $\\delta_1 > 0$ ，使得当 $|u - u_0| < \\delta_1$ 时，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.422,
+            0.462,
+            0.96,
+            0.482
+          ],
+          "content": "\\mid g (u) - g (u _ {0}) \\mid <   \\varepsilon . \\tag {1}",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_12.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.101,
+            0.485,
+            0.966,
+            0.546
+          ],
+          "content": "又由 $u_0 = f(x_0)$ 及 $u = f(x)$ 在点 $x_0$ 连续，故对上述 $\\delta_1 > 0$ ，存在 $\\delta > 0$ ，使得当 $|x - x_0| < \\delta$ 时，有 $|u - u_0| = |f(x) - f(x_0)| < \\delta_1.$ 联系(1)得:对任给的 $\\varepsilon > 0$ ，存在 $\\delta > 0$ ，当 $|x - x_0| < \\delta$ 时，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.39,
+            0.55,
+            0.682,
+            0.57
+          ],
+          "content": "\\mid g (f (x)) - g (f (x _ {0})) \\mid <   \\varepsilon .",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.573,
+            0.397,
+            0.59
+          ],
+          "content": "这就证明了  $g \\circ f$  在点  $x_{0}$  连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.595,
+            0.633,
+            0.611
+          ],
+          "content": "注 根据连续性的定义,上述定理的结论可表为"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.324,
+            0.616,
+            0.961,
+            0.641
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} g (f (x)) = g (\\lim _ {x \\to x _ {0}} f (x)) = g (f (x _ {0})). \\tag {2}",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.644,
+            0.391,
+            0.668
+          ],
+          "content": "例 1 求  $\\lim_{x\\to1}\\sin\\left(1-x^{2}\\right)$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.672,
+            0.879,
+            0.69
+          ],
+          "content": "解 $\\sin (1 - x^2)$ 可看作函数 $g(u) = \\sin u$ 与 $f(x) = 1 - x^2$ 的复合.由(2)式得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.29,
+            0.694,
+            0.775,
+            0.718
+          ],
+          "content": "\\lim _ {x \\to 1} \\sin (1 - x ^ {2}) = \\sin (\\lim _ {x \\to 1} (1 - x ^ {2})) = \\sin 0 = 0.",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.72,
+            0.965,
+            0.781
+          ],
+          "content": "注 若复合函数 $g \\circ f$ 的内函数 $f$ 当 $x \\to x_0$ 时极限为 $a$, 而 $a \\neq f(x_0)$ 或 $f$ 在 $x_0$ 无定义（即 $x_0$ 为 $f$ 的可去间断点），又外函数 $g$ 在 $u = a$ 连续，则我们仍可用上述定理来求复合函数的极限，即有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.383,
+            0.785,
+            0.961,
+            0.811
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} g (f (x)) = g (\\lim _ {x \\to x _ {0}} f (x)). \\tag {3}",
+          "image_source": "../../raw/pages_0065-0096/images/page_80_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.814,
+            0.962,
+            0.855
+          ],
+          "content": "读者还可证明:(3)式不仅对于 $x \\to x_0$ 这种类型的极限成立，而且对于 $x \\to +\\infty, x \\to -\\infty$ 或 $x \\to x_0^\\pm$ 等类型的极限也是成立的."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.15,
+            0.859,
+            0.299,
+            0.876
+          ],
+          "content": "例 2 求极限:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.151,
+            0.883,
+            0.564,
+            0.922
+          ],
+          "content": "(1) $\\lim_{x\\to 0}\\sqrt{2 - \\frac{\\sin x}{x}};$ (2) $\\lim_{x\\to \\infty}\\sqrt{2 - \\frac{\\sin x}{x}}.$"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.07,
+            0.954,
+            0.092,
+            0.965
+          ],
+          "content": "70"
+        }
+      ]
+    },
+    {
+      "page_idx": 81,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.66,
+            0.032,
+            0.848,
+            0.046
+          ],
+          "content": "§ 2 连续函数的性质"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.083,
+            0.576,
+            0.122
+          ],
+          "content": "解 （1） $\\lim_{x\\to0}\\sqrt{2-\\frac{\\sin x}{x}}=\\sqrt{2-\\lim_{x\\to0}\\frac{\\sin x}{x}}=\\sqrt{2-1}=1;$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.127,
+            0.553,
+            0.166
+          ],
+          "content": "(2) $\\lim_{x\\to \\infty}\\sqrt{2 - \\frac{\\sin x}{x}} = \\sqrt{2 - \\lim_{x\\to\\infty}\\frac{\\sin x}{x}} = \\sqrt{2 - 0} = \\sqrt{2}.$"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.025,
+            0.176,
+            0.423,
+            0.195
+          ],
+          "level": 2,
+          "content": "二、闭区间上连续函数的基本性质"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.068,
+            0.206,
+            0.834,
+            0.224
+          ],
+          "content": "设f为闭区间 $[a,b]$ 上的连续函数,本段中我们讨论f在 $[a,b]$ 上的整体性质."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.067,
+            0.227,
+            0.823,
+            0.245
+          ],
+          "content": "定义1 设 $f$ 为定义在数集 $D$ 上的函数. 若存在 $x_0 \\in D$, 使得对一切 $x \\in D$, 有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.288,
+            0.248,
+            0.611,
+            0.267
+          ],
+          "content": "f (x _ {0}) \\geqslant f (x) (f (x _ {0}) \\leqslant f (x)),",
+          "image_source": "../../raw/pages_0065-0096/images/page_81_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.269,
+            0.741,
+            0.288
+          ],
+          "content": "则称 $f$ 在 $D$ 上有最大（最小）值，并称 $f(x_0)$ 为 $f$ 在 $D$ 上的最大（最小）值."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.291,
+            0.884,
+            0.351
+          ],
+          "content": "例如，$\\sin x$ 在 $[0, \\pi]$ 上有最大值1，最小值0。但一般而言，函数 $f$ 在其定义域 $D$ 上不一定有最大值或最小值（即使 $f$ 在 $D$ 上有界）。如 $f(x) = x$ 在 $(0, 1)$ 上既无最大值也无最小值。又如"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.317,
+            0.357,
+            0.88,
+            0.415
+          ],
+          "content": "g (x) = \\left\\{ \\begin{array}{l l} \\frac {1}{x}, & x \\in (0, 1), \\\\ 2, & x = 0 \\text {与} 1, \\end{array} \\right. \\tag {4}",
+          "image_source": "../../raw/pages_0065-0096/images/page_81_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.419,
+            0.884,
+            0.457
+          ],
+          "content": "它在闭区间 $[0,1]$ 上也无最大、最小值.下述定理给出了函数能取得最大、最小值的充分条件."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.462,
+            0.884,
+            0.501
+          ],
+          "content": "定理 4.6(最大、最小值定理) 若函数 f 在闭区间  $[a, b]$  上连续，则 f 在  $[a, b]$  上有最大值与最小值."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.505,
+            0.559,
+            0.522
+          ],
+          "content": "为了更好地证明这个定理,我们先证明一个引理."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.526,
+            0.882,
+            0.566
+          ],
+          "content": "引理(有界性定理) 若函数 $f(x)$ 在闭区间 $[a,b]$ 上连续,那么 $f(x)$ 在闭区间 $[a,b]$ 上有界."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.069,
+            0.569,
+            0.794,
+            0.588
+          ],
+          "content": "证 若不然,不妨假设 $f(x)$ 在 $[a,b]$ 上无上界.那么存在 $x_{n}\\in[a,b]$ ,使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.334,
+            0.592,
+            0.566,
+            0.609
+          ],
+          "content": "f (x _ {n}) > n, \\quad n = 1, 2, \\dots .",
+          "image_source": "../../raw/pages_0065-0096/images/page_81_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.612,
+            0.882,
+            0.659
+          ],
+          "content": "由此得 $\\lim_{n\\to \\infty}f(x_n) = +\\infty$ .另一方面，因为 $\\{x_{n}\\} (\\subset [a,b])$ 是有界数列，所以由致密性定理， $\\{x_{n}\\}$ 有收敛的子列 $\\{x_{n_k}\\}$ ，设 $\\lim_{k\\to \\infty}x_{n_k} = x_0$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.663,
+            0.075,
+            0.679
+          ],
+          "content": "由于"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.397,
+            0.685,
+            0.507,
+            0.704
+          ],
+          "content": "a \\leqslant x _ {n _ {k}} \\leqslant b,",
+          "image_source": "../../raw/pages_0065-0096/images/page_81_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.706,
+            0.284,
+            0.723
+          ],
+          "content": "由极限的不等式性质推得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.401,
+            0.729,
+            0.504,
+            0.746
+          ],
+          "content": "a \\leqslant x _ {0} \\leqslant b,",
+          "image_source": "../../raw/pages_0065-0096/images/page_81_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.749,
+            0.397,
+            0.766
+          ],
+          "content": "故 $f(x)$ 在点 $x_0$ 连续.由归结原则导出"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.222,
+            0.77,
+            0.682,
+            0.796
+          ],
+          "content": "+ \\infty = \\lim _ {n \\to \\infty} f (x _ {n}) = \\lim _ {k \\to \\infty} f (x _ {n _ {k}}) = \\lim _ {x \\to x _ {0}} f (x) = f (x _ {0}),",
+          "image_source": "../../raw/pages_0065-0096/images/page_81_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.798,
+            0.081,
+            0.814
+          ],
+          "content": "矛盾."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.819,
+            0.576,
+            0.836
+          ],
+          "content": "定理 4.6 的证明 由引理和确界原理, 存在上确界"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.379,
+            0.841,
+            0.527,
+            0.867
+          ],
+          "content": "\\sup _ {x \\in [ a, b ]} f (x) = M.",
+          "image_source": "../../raw/pages_0065-0096/images/page_81_equation_25.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.025,
+            0.868,
+            0.876,
+            0.887
+          ],
+          "content": "下面来证明:存在  $\\xi\\in[a,b]$ ，使  $f(\\xi)=M$ 。倘若不然，对一切  $x\\in[a,b]$ ，都有  $f(x)<M$ 。令"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.306,
+            0.891,
+            0.598,
+            0.929
+          ],
+          "content": "g (x) = \\frac {1}{M - f (x)}, \\quad x \\in [ a, b ].",
+          "image_source": "../../raw/pages_0065-0096/images/page_81_equation_27.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.901,
+            0.96,
+            0.921,
+            0.972
+          ],
+          "content": "71"
+        }
+      ]
+    },
+    {
+      "page_idx": 82,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.106,
+            0.028,
+            0.342,
+            0.043
+          ],
+          "content": "第四章 函数的连续性"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.076,
+            0.854,
+            0.094
+          ],
+          "content": "易见函数 $g$ 在 $[a,b]$ 上连续，且取正值，故 $g$ 在 $[a,b]$ 上有上界，记为 $G$. 则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.359,
+            0.1,
+            0.709,
+            0.136
+          ],
+          "content": "0 <   g (x) = \\frac {1}{M - f (x)} \\leqslant G, \\quad x \\in [ a, b ].",
+          "image_source": "../../raw/pages_0065-0096/images/page_82_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.142,
+            0.202,
+            0.158
+          ],
+          "content": "从而推得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.399,
+            0.165,
+            0.667,
+            0.198
+          ],
+          "content": "f (x) \\leqslant M - \\frac {1}{G}, \\quad x \\in [ a, b ].",
+          "image_source": "../../raw/pages_0065-0096/images/page_82_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.204,
+            0.963,
+            0.244
+          ],
+          "content": "但这与 $M$ 为 $f([a,b])$ 的上确界相矛盾.所以必有 $\\xi \\in [a,b]$ ，使 $f(\\xi) = M$ ，即 $f$ 在 $[a,b]$ 上有最大值."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.153,
+            0.249,
+            0.476,
+            0.267
+          ],
+          "content": "同理可证 $f$ 在 $[a,b]$ 上有最小值."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.153,
+            0.271,
+            0.724,
+            0.289
+          ],
+          "content": "注 函数 $f(x) = x, x \\in (0,1)$ 既没有最大值也没有最小值."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.293,
+            0.967,
+            0.356
+          ],
+          "content": "定理4.7（介值性定理）设函数 $f$ 在闭区间 $[a, b]$ 上连续，且 $f(a) \\neq f(b)$. 若 $\\mu$ 为介于 $f(a)$ 与 $f(b)$ 之间的任何实数 $(f(a) < \\mu < f(b)$ 或 $f(a) > \\mu > f(b))$，则至少存在一点 $x_0 \\in (a, b)$，使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.482,
+            0.361,
+            0.585,
+            0.379
+          ],
+          "content": "f (x _ {0}) = \\mu .",
+          "image_source": "../../raw/pages_0065-0096/images/page_82_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.382,
+            0.967,
+            0.422
+          ],
+          "content": "这个定理表明, 若 f 在  $[a, b]$  上连续, 又不妨设  $f(a) < f(b)$ , 则 f 在  $[a, b]$  上必能取得区间  $[f(a), f(b)]$  上的一切值, 即有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.395,
+            0.426,
+            0.677,
+            0.445
+          ],
+          "content": "[ f (a), f (b) ] \\subset f ([ a, b ]),",
+          "image_source": "../../raw/pages_0065-0096/images/page_82_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.448,
+            0.726,
+            0.466
+          ],
+          "content": "其几何意义如图 4-2 所示. 下面的推论是定理 4.7 的等价命题."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.105,
+            0.47,
+            0.967,
+            0.512
+          ],
+          "content": "推论（根的存在定理）若函数 $f$ 在闭区间 $[a, b]$ 上连续，且 $f(a)$ 与 $f(b)$ 异号（即 $f(a)f(b) < 0$），则至少存在一点 $x_0 \\in (a, b)$，使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.48,
+            0.516,
+            0.589,
+            0.535
+          ],
+          "content": "f (x _ {0}) = 0,",
+          "image_source": "../../raw/pages_0065-0096/images/page_82_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.538,
+            0.524,
+            0.556
+          ],
+          "content": "即方程 $f(x) = 0$ 在 $(a, b)$ 上至少有一个根."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.56,
+            0.967,
+            0.6
+          ],
+          "content": "这个推论的几何解释如图4-3所示:若点 $A(a,f(a))$ 与 $B(b,f(b))$ 分别在x轴的两侧,则连接A,B的连续曲线 $y=f(x)$ 与x轴至少有一个交点."
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.195,
+            0.606,
+            0.495,
+            0.755
+          ],
+          "sub_type": "line",
+          "content": "| X | Y |\n| --- | --- |\n| a | f(a) |\n| x0 | \\(\\mu\\) |\n| b | f(b) |",
+          "captions": [
+            {
+              "bbox": [
+                0.316,
+                0.765,
+                0.378,
+                0.779
+              ],
+              "content": "图4-2"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_82_chart_17.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.584,
+            0.613,
+            0.876,
+            0.755
+          ],
+          "sub_type": "line",
+          "content": "| Point | X-coordinate | Y-coordinate |\n| --- | --- | --- |\n| A | a | f(a) |\n| x0 | x0 | 0 |\n| b | b | f(b) |",
+          "captions": [
+            {
+              "bbox": [
+                0.701,
+                0.765,
+                0.762,
+                0.779
+              ],
+              "content": "图4-3"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_82_chart_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.107,
+            0.793,
+            0.969,
+            0.878
+          ],
+          "content": "应用介值性定理,我们还容易推得连续函数的下述性质:若f在区间I上连续且不是常量函数,则值域 $f(I)$ 也是一个区间;特别地,若I为闭区间 $[a,b]$ ,f在 $[a,b]$ 上的最大值为M,最小值为m,则 $f([a,b])=[m,M]$ ;又若f为 $[a,b]$ 上的递增(递减)连续函数且不为常数,则"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.312,
+            0.882,
+            0.759,
+            0.901
+          ],
+          "content": "f (\\left[ a, b \\right]) = \\left[ f (a), f (b) \\right] \\left(\\left[ f (b), f (a) \\right]\\right).",
+          "image_source": "../../raw/pages_0065-0096/images/page_82_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.156,
+            0.904,
+            0.967,
+            0.923
+          ],
+          "content": "定理4.7的证明 不妨设 $f(a) < \\mu < f(b)$. 令 $g(x) = f(x) - \\mu$, 则 $g$ 也是 $[a, b]$ 上的连"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.074,
+            0.955,
+            0.096,
+            0.967
+          ],
+          "content": "72"
+        }
+      ]
+    },
+    {
+      "page_idx": 83,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.662,
+            0.032,
+            0.848,
+            0.046
+          ],
+          "content": "§ 2 连续函数的性质"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.079,
+            0.55,
+            0.141
+          ],
+          "continues_prev": true,
+          "content": "续函数,且  $g(a)<0, g(b)>0$ . 于是定理的结论转化为: 存在  $x_{0}\\in(a,b)$ , 使得  $g(x_{0})=0$  (即上述推论). 设集合(见图4-4)"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.141,
+            0.145,
+            0.429,
+            0.163
+          ],
+          "content": "E = \\{x \\mid g (x) <   0, x \\in [ a, b ] \\}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.167,
+            0.55,
+            0.249
+          ],
+          "content": "显然 E 为非空有界数集  $(E \\subset [a, b]$ ，且  $a \\in E)$ ，故由确界原理，存在上确界  $x_{0} = \\sup E$ 。另一方面，因  $g(a) < 0$ ， $g(b) > 0$ ，由连续函数的局部保号性，存在  $\\delta > 0$ ，使得"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.569,
+            0.08,
+            0.885,
+            0.22
+          ],
+          "sub_type": "line",
+          "content": "| Point | x-coordinate | y-coordinate |\n| --- | --- | --- |\n| A | a | g(a) |\n| B | x0 | g(b) |",
+          "captions": [
+            {
+              "bbox": [
+                0.684,
+                0.23,
+                0.747,
+                0.245
+              ],
+              "content": "图4-4"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_83_chart_4.jpg"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.23,
+            0.255,
+            0.673,
+            0.273
+          ],
+          "content": "g (x) <   0, x \\in [ a, a + \\delta); g (x) > 0, x \\in (b - \\delta , b ].",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.277,
+            0.4,
+            0.294
+          ],
+          "content": "由此易见 $x_0 \\neq a, x_0 \\neq b$，即 $x_0 \\in (a, b)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.298,
+            0.887,
+            0.381
+          ],
+          "content": "下证 $g(x_0) = 0$. 倘若 $g(x_0) \\neq 0$, 不妨设 $g(x_0) < 0$. 再由局部保号性, 存在 $U(x_0; \\eta) (\\subset (a, b))$, 使在其上 $g(x) < 0$, 特别有 $g\\left(x_0 + \\frac{\\eta}{2}\\right) < 0 \\Rightarrow x_0 + \\frac{\\eta}{2} \\in E$. 但这与 $x_0 = \\sup E$ 相矛盾, 故必有 $g(x_0) = 0$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.069,
+            0.386,
+            0.674,
+            0.403
+          ],
+          "content": "例 3 设 a>0, n 是正整数. 证明: 方程  $x^{n}=a$  有唯一的正数解."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.024,
+            0.408,
+            0.886,
+            0.446
+          ],
+          "content": "在第一章 §3 例 2 中给出了该题 n=2 情形的证明, 现在用介值性定理来证明一般的情形."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.023,
+            0.451,
+            0.886,
+            0.514
+          ],
+          "content": "证 先证存在性.由于当 $x \\to +\\infty$ 时,有 $x^n \\to +\\infty$,故必存在正数 $b$,使得 $b^n > a$.因$f(x) = x^n$ 在 $[0,b]$ 上连续,并有 $f(0) < a < f(b)$,故由介值性定理,至少存在一点 $x_0 \\in (0,b)$,使得 $f(x_0) = x_0^n = a$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.52,
+            0.463,
+            0.537
+          ],
+          "content": "再证唯一性.设正数 $x_{1}$ 使得 $x_{1}^{n} = a$ ，则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.197,
+            0.542,
+            0.712,
+            0.562
+          ],
+          "content": "x _ {0} ^ {n} - x _ {1} ^ {n} = (x _ {0} - x _ {1}) (x _ {0} ^ {n - 1} + x _ {0} ^ {n - 2} x _ {1} + \\dots + x _ {1} ^ {n - 1}) = 0,",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.565,
+            0.61,
+            0.583
+          ],
+          "content": "由于第二个括号内的数为正,所以只能  $x_{0}-x_{1}=0$ , 即  $x_{1}=x_{0}$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.588,
+            0.397,
+            0.604
+          ],
+          "content": "例 4 设 f 在  $[a, b]$  上连续, 满足"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.348,
+            0.609,
+            0.884,
+            0.627
+          ],
+          "content": "f ([ a, b ]) \\subset [ a, b ]. \\tag {5}",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.631,
+            0.306,
+            0.648
+          ],
+          "content": "证明:存在  $x_{0} \\in [a, b]$ ，使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.397,
+            0.653,
+            0.884,
+            0.67
+          ],
+          "content": "f (x _ {0}) = x _ {0}. \\tag {6}",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.674,
+            0.701,
+            0.692
+          ],
+          "content": "证 条件(5)意味着:对任何  $x \\in [a, b]$ ，有  $a \\leqslant f(x) \\leqslant b$ ，特别有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.304,
+            0.696,
+            0.607,
+            0.714
+          ],
+          "content": "a \\leqslant f (  a  ) \\quad {\\text {以及}} \\quad f (  b  ) \\leqslant b.",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.718,
+            0.823,
+            0.736
+          ],
+          "content": "若 $a = f(a)$ 或 $f(b) = b$ ，则取 $x_0 = a$ 或 $b$ ，从而(6)式成立.现设 $a <   f(a)$ 与 $f(b) <   b.$ 令"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.368,
+            0.741,
+            0.545,
+            0.758
+          ],
+          "content": "F (x) = f (x) - x,",
+          "image_source": "../../raw/pages_0065-0096/images/page_83_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.762,
+            0.887,
+            0.802
+          ],
+          "content": "则 $F(a) = f(a) - a > 0, F(b) = f(b) - b < 0.$ 故由根的存在性定理，存在 $x_0 \\in (a, b)$，使得 $F(x_0) = 0$，即 $f(x_0) = x_0$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.806,
+            0.887,
+            0.845
+          ],
+          "content": "从本例的证明过程可见,在应用介值性定理或根的存在性定理证明某些问题时,选取合适的辅助函数(如在本例中令  $F(x)=f(x)-x$ ), 可收到事半功倍的效果."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.03,
+            0.856,
+            0.267,
+            0.875
+          ],
+          "level": 2,
+          "content": "三、反函数的连续性"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.03,
+            0.887,
+            0.889,
+            0.927
+          ],
+          "content": "定理4.8 若函数 $f$ 在 $[a, b]$ 上严格单调并连续，则反函数 $f^{-1}$ 在其定义域 $[f(a), f(b)]$ 或 $[f(b), f(a)]$ 上连续."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.905,
+            0.959,
+            0.927,
+            0.97
+          ],
+          "content": "73"
+        }
+      ]
+    },
+    {
+      "page_idx": 84,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.1,
+            0.029,
+            0.339,
+            0.045
+          ],
+          "content": "第四章 函数的连续性"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.079,
+            0.649,
+            0.186
+          ],
+          "content": "证 不妨设 $f$ 在 $[a, b]$ 上严格增. 此时 $f$ 的值域即反函数 $f^{-1}$ 的定义域为 $[f(a), f(b)]$. 任取 $y_0 \\in (f(a), f(b))$, 设 $x_0 = f^{-1}(y_0)$, 则 $x_0 \\in (a, b)$. 于是对任给的 $\\varepsilon > 0$, 可在 $(a, b)$ 上 $x_0$ 的两侧各取异于 $x_0$ 的点 $x_1, x_2$ ($x_1 < x_0 < x_2$), 使它们与 $x_0$ 的距离小于 $\\varepsilon$ (图4-5)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.189,
+            0.649,
+            0.229
+          ],
+          "content": "设与 $x_{1}, x_{2}$ 对应的函数值分别为 $y_{1}, y_{2}$, 由 $f$ 的严格增性知 $y_{1} < y_{0} < y_{2}$. 令"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.24,
+            0.233,
+            0.506,
+            0.252
+          ],
+          "content": "\\delta = \\min \\left\\{y _ {2} - y _ {0}, y _ {0} - y _ {1} \\right\\},",
+          "image_source": "../../raw/pages_0065-0096/images/page_84_equation_3.jpg"
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.666,
+            0.078,
+            0.96,
+            0.22
+          ],
+          "sub_type": "line",
+          "content": "| Point | X-coordinate | Y-coordinate |\n| --- | --- | --- |\n| Start | a | f(a) |\n| x1 | x1 | y1 |\n| x0 | x0 | y0 |\n| x2 | x2 | y2 |\n| b | b | f(b) |",
+          "captions": [
+            {
+              "bbox": [
+                0.772,
+                0.231,
+                0.835,
+                0.245
+              ],
+              "content": "图4-5"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_84_chart_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.256,
+            0.788,
+            0.275
+          ],
+          "content": "则当 $y \\in U(y_0; \\delta)$ 时，对应的 $x = f^{-1}(y)$ 的值都落在 $x_1$ 与 $x_2$ 之间，故有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.35,
+            0.278,
+            0.718,
+            0.299
+          ],
+          "content": "\\left| f ^ {- 1} (y) - f ^ {- 1} (y _ {0}) \\right| = \\left| x - x _ {0} \\right| <   \\varepsilon ,",
+          "image_source": "../../raw/pages_0065-0096/images/page_84_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.303,
+            0.708,
+            0.322
+          ],
+          "content": "这就证明了 $f^{-1}$ 在点 $y_0$ 连续，从而 $f^{-1}$ 在 $(f(a), f(b))$ 上连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.326,
+            0.962,
+            0.367
+          ],
+          "content": "类似地可证 $f^{-1}$ 在其定义区间的端点 $f(a)$ 与 $f(b)$ 分别为右连续与左连续.所以 $f^{-1}$ 在 $[f(a), f(b)]$ 上连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.375,
+            0.962,
+            0.43
+          ],
+          "content": "例 5 由于  $y=\\sin x$  在区间  $\\left[-\\frac{\\pi}{2},\\frac{\\pi}{2}\\right]$  上严格单调且连续, 故其反函数  $y=\\arcsin x$  在区间  $[-1,1]$  上连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.434,
+            0.962,
+            0.474
+          ],
+          "content": "同理可得其他反三角函数也在相应的定义区间上连续.如 $y = \\arccos x$ 在 $[-1,1]$ 上连续，$y = \\arctan x$ 在 $(-\\infty, +\\infty)$ 上连续等."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.478,
+            0.962,
+            0.567
+          ],
+          "content": "例6 由于 $y = x^n$ ( $n$ 为正整数) 在 $[0, +\\infty)$ 上严格单调且连续，其值域为 $[0, +\\infty)$，故 $y = x^{\\frac{1}{n}}$ 在 $[0, +\\infty)$ 上连续。又若把 $y = x^{-\\frac{1}{n}}$ ( $n$ 为正整数) 看作由 $y = u^{\\frac{1}{n}}$ 与 $u = \\frac{1}{x}$ 复合而成的函数，则由复合函数的连续性，$y = x^{-\\frac{1}{n}}$ 在 $(0, +\\infty)$ 上连续。"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.573,
+            0.801,
+            0.595
+          ],
+          "content": "综上可知, 若 q 为非零整数, 则  $y = x^{\\frac{1}{q}}$  是其定义区间上的连续函数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.599,
+            0.67,
+            0.617
+          ],
+          "content": "例 7 证明:有理幂函数  $y=x^{\\alpha}$  在其定义区间上连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.103,
+            0.626,
+            0.962,
+            0.68
+          ],
+          "content": "证 设有理数 $\\alpha = \\frac{p}{q}$, 这里 $p, q (\\neq 0)$ 为整数. 因为 $y = u^{\\frac{1}{q}}$ 与 $u = x^p$ 均在其定义区间上连续, 所以复合函数"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.451,
+            0.685,
+            0.611,
+            0.712
+          ],
+          "content": "y = (x ^ {p}) ^ {\\frac {1}{q}} = x ^ {\\alpha}",
+          "image_source": "../../raw/pages_0065-0096/images/page_84_equation_16.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.715,
+            0.416,
+            0.733
+          ],
+          "content": "也是其定义区间上的连续函数."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.103,
+            0.744,
+            0.289,
+            0.762
+          ],
+          "level": 2,
+          "content": "四、一致连续性"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.774,
+            0.962,
+            0.814
+          ],
+          "content": "函数 f 在区间上连续, 是指 f 在该区间上每一点都连续. 本段中讨论的一致连续性概念反映了函数在区间上更强的连续性."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.818,
+            0.961,
+            0.857
+          ],
+          "content": "定义2 设 $f$ 为定义在区间 $I$ 上的函数. 若对任给的 $\\varepsilon > 0$, 存在 $\\delta = \\delta(\\varepsilon) > 0$, 使得对任何 $x', x'' \\in I$, 只要 $|x' - x''| < \\delta$, 就有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.422,
+            0.862,
+            0.646,
+            0.881
+          ],
+          "content": "\\mid f (x ^ {\\prime}) - f (x ^ {\\prime \\prime}) \\mid <   \\varepsilon ,",
+          "image_source": "../../raw/pages_0065-0096/images/page_84_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.101,
+            0.884,
+            0.431,
+            0.901
+          ],
+          "content": "则称函数 $f$ 在区间 $I$ 上一致连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.906,
+            0.962,
+            0.925
+          ],
+          "content": "直观地说，f 在 I 上一致连续意味着:不论两点  $x'$  与  $x''$  在 I 中处于什么位置，只要"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.067,
+            0.955,
+            0.089,
+            0.966
+          ],
+          "content": "74"
+        }
+      ]
+    },
+    {
+      "page_idx": 85,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.669,
+            0.031,
+            0.891,
+            0.046
+          ],
+          "content": "§ 2 连续函数的性质"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.079,
+            0.485,
+            0.097
+          ],
+          "content": "它们的距离小于 $\\delta$ ，就可使 $|f(x') - f(x'')| < \\varepsilon.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.101,
+            0.65,
+            0.119
+          ],
+          "content": "例 8 证明  $f(x)=ax+b\\quad(a\\neq0)$  在  $(-∞,+∞)$  上一致连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.123,
+            0.279,
+            0.14
+          ],
+          "content": "证 任给 $\\varepsilon > 0$ ，由于"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.288,
+            0.143,
+            0.639,
+            0.163
+          ],
+          "content": "\\mid f (x ^ {\\prime}) - f (x ^ {\\prime \\prime}) \\mid = \\mid a \\mid \\mid x ^ {\\prime} - x ^ {\\prime \\prime} \\mid ,",
+          "image_source": "../../raw/pages_0065-0096/images/page_85_equation_4.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.173,
+            0.737,
+            0.203
+          ],
+          "content": "故可选取 $\\delta = \\frac{\\varepsilon}{|a|}$，则对任何 $x', x'' \\in (-\\infty, +\\infty)$，只要 $|x' - x''| < \\delta$，就有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.354,
+            0.215,
+            0.573,
+            0.235
+          ],
+          "content": "\\mid f (x ^ {\\prime}) - f (x ^ {\\prime \\prime}) \\mid <   \\varepsilon .",
+          "image_source": "../../raw/pages_0065-0096/images/page_85_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.244,
+            0.512,
+            0.263
+          ],
+          "content": "这就证得 $f(x) = ax + b$ 在 $(-\\infty, +\\infty)$ 上一致连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.269,
+            0.874,
+            0.301
+          ],
+          "content": "例 9 证明函数  $y=\\frac{1}{x}$  在  $(0,1)$  上不一致连续（尽管它在  $(0,1)$  上每一点都连续）."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.307,
+            0.893,
+            0.37
+          ],
+          "content": "证 按一致连续性的定义,为证函数 f 在某区间 I 上不一致连续,只需证明:存在某  $\\varepsilon_{0}>0$ , 对任何正数  $\\delta$  (不论  $\\delta$  多么小), 总存在两点  $x', x'' \\in I$ , 尽管  $\\left|x'-x''\\right| < \\delta$ , 但有  $\\left|f(x') - f(x'')\\right| \\geqslant \\varepsilon_{0}$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.376,
+            0.893,
+            0.45
+          ],
+          "content": "对于本例中函数 $y = \\frac{1}{x}$，可取 $\\varepsilon_0 = 1$，对无论多么小的正数 $\\delta \\left( <\\frac{1}{2} \\right)$，只要取 $x' = \\delta$ 与 $x'' = \\frac{\\delta}{2}$ （图4-6），则虽有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.235,
+            0.458,
+            0.438,
+            0.492
+          ],
+          "content": "\\mid x ^ {\\prime} - x ^ {\\prime \\prime} \\mid = \\frac {\\delta}{2} <   \\delta ,",
+          "image_source": "../../raw/pages_0065-0096/images/page_85_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.034,
+            0.499,
+            0.06,
+            0.516
+          ],
+          "content": "但"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.235,
+            0.519,
+            0.438,
+            0.559
+          ],
+          "content": "\\left| \\frac {1}{x ^ {\\prime}} - \\frac {1}{x ^ {\\prime \\prime}} \\right| = \\frac {1}{\\delta} > 1,",
+          "image_source": "../../raw/pages_0065-0096/images/page_85_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.034,
+            0.565,
+            0.374,
+            0.598
+          ],
+          "content": "所以 $y = \\frac{1}{x}$ 在(0,1)上不一致连续."
+        },
+        {
+          "type": "chart",
+          "bbox": [
+            0.654,
+            0.416,
+            0.895,
+            0.543
+          ],
+          "sub_type": "contour",
+          "content": "| Feature | Description |\n| --- | --- |\n| Curve | y = 1/x |\n| Horizontal Line | y = 1/x |\n| Vertical Line | x'' |\n| Lower Bound | (1/x' - 1/x'') |\n| Upper Bound | (1/x' - 1/x'') |",
+          "captions": [
+            {
+              "bbox": [
+                0.734,
+                0.546,
+                0.796,
+                0.56
+              ],
+              "content": "图4-6"
+            }
+          ],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_85_chart_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.034,
+            0.605,
+            0.893,
+            0.648
+          ],
+          "content": "例10 函数 $f(x)$ 定义在区间 $I$ 上，试证 $f(x)$ 在 $I$ 上一致连续的充要条件为:对任何数列 $\\{x_n'\\}, \\{x_n''\\} \\subset I$ ，若 $\\lim_{n\\to \\infty}(x_n' - x_n'') = 0$ ，则"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.348,
+            0.652,
+            0.576,
+            0.675
+          ],
+          "content": "\\lim _ {n \\to \\infty} \\left[ f (x _ {n} ^ {\\prime}) - f (x _ {n} ^ {\\prime \\prime}) \\right] = 0.",
+          "image_source": "../../raw/pages_0065-0096/images/page_85_equation_18.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.678,
+            0.894,
+            0.745
+          ],
+          "content": "证 必要性 若 $f(x)$ 在 $I$ 上一致连续, 则 $\\forall \\varepsilon > 0, \\exists \\delta(\\varepsilon) > 0, \\forall x', x'' \\in I, |x' - x''| < \\delta$, 则 $|f(x') - f(x'')| < \\varepsilon$. 设 $I$ 上两个数列 $\\{x_n'\\}, \\{x_n''\\}$, 满足 $\\lim_{n \\to \\infty} (x_n' - x_n'') = 0$, 于是对上述 $\\delta > 0, \\exists N > 0, \\forall n > N, |x_n' - x_n''| < \\delta$, 由一致连续性条件, 有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.367,
+            0.755,
+            0.564,
+            0.775
+          ],
+          "content": "\\mid f (x _ {n} ^ {\\prime}) - f (x _ {n} ^ {\\prime \\prime}) \\mid <   \\varepsilon ,",
+          "image_source": "../../raw/pages_0065-0096/images/page_85_equation_20.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.036,
+            0.785,
+            0.062,
+            0.801
+          ],
+          "content": "即"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.349,
+            0.806,
+            0.577,
+            0.83
+          ],
+          "content": "\\lim _ {n \\to \\infty} \\left[ f (x _ {n} ^ {\\prime}) - f (x _ {n} ^ {\\prime \\prime}) \\right] = 0.",
+          "image_source": "../../raw/pages_0065-0096/images/page_85_equation_22.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.034,
+            0.832,
+            0.894,
+            0.881
+          ],
+          "content": "充分性 设对 $I$ 上任意两个数列 $\\{x_{n}^{\\prime}\\}$ 与 $\\{x_{n}^{\\prime \\prime}\\}$, 若 $\\lim_{n\\to \\infty}(x_n' - x_n'') = 0$, 则有 $\\lim_{n\\to \\infty}[f(x_n') - f(x_n'')] = 0$. 现证 $f(x)$ 在 $I$ 上一致连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.08,
+            0.884,
+            0.478,
+            0.902
+          ],
+          "content": "用反证法.若 $f(x)$ 在I上不一致连续,则"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.082,
+            0.905,
+            0.747,
+            0.925
+          ],
+          "content": "$\\exists \\varepsilon_0 > 0, \\forall \\delta > 0, \\exists x', x''$, 满足 $|x' - x''| < \\delta$, 但有 $|f(x') - f(x'')| \\geqslant \\varepsilon_0$."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.912,
+            0.959,
+            0.932,
+            0.97
+          ],
+          "content": "75"
+        }
+      ]
+    },
+    {
+      "page_idx": 86,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.135,
+            0.029,
+            0.335,
+            0.044
+          ],
+          "content": "第四章 函数的连续性"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.077,
+            0.728,
+            0.096
+          ],
+          "content": "取 $\\delta_{1} = 1, \\exists x_{1}^{\\prime}, x_{1}^{\\prime \\prime} \\in I, |x_{1}^{\\prime} - x_{1}^{\\prime \\prime}| < 1$，有 $|f(x_1') - f(x_1'')| \\geqslant \\varepsilon_0$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.101,
+            0.748,
+            0.136
+          ],
+          "content": "取 $\\delta_2 = \\frac{1}{2},\\exists x_2',x_2''\\in I,\\mid x_2' - x_2''\\mid <  \\frac{1}{2}$ ，有 $|f(x_2') - f(x_2'')|\\geqslant \\varepsilon_0,$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.145,
+            0.145,
+            0.242,
+            0.155
+          ],
+          "content": "... ... ... ... ... ... ..."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.164,
+            0.75,
+            0.198
+          ],
+          "content": "取 $\\delta_{n} = \\frac{1}{n},\\exists x_{n}^{\\prime},x_{n}^{\\prime \\prime}\\in I,\\mid x_{n}^{\\prime} - x_{n}^{\\prime \\prime}\\mid <  \\frac{1}{n}$ ，有 $\\mid f(x_n^\\prime) - f(x_n^{\\prime \\prime})\\mid \\geqslant \\varepsilon_0$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.207,
+            0.242,
+            0.217
+          ],
+          "content": "... ... ... ... ... ... ..."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.097,
+            0.224,
+            0.959,
+            0.269
+          ],
+          "content": "于是 $\\lim_{n\\to \\infty}(x_n' - x_n'') = 0$ ，但是 $\\lim_{n\\to \\infty}[f(x_n') - f(x_n'')] \\neq 0$ ，与所设条件矛盾.所以 $f(x)$ 在 $I$ 上一致连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.274,
+            0.674,
+            0.307
+          ],
+          "content": "例 11 证明  $f(x)=\\sin\\frac{1}{x}$  在区间  $(0,1)$  上不一致连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.144,
+            0.314,
+            0.597,
+            0.367
+          ],
+          "content": "证 取  $x_{n}=\\frac{1}{2n\\pi}, y_{n}=\\frac{1}{2n\\pi+\\frac{\\pi}{2}}, n=1,2,\\cdots$  虽然"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.447,
+            0.374,
+            0.607,
+            0.396
+          ],
+          "content": "\\lim _ {n \\to \\infty} (x _ {n} - y _ {n}) = 0,",
+          "image_source": "../../raw/pages_0065-0096/images/page_86_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.4,
+            0.151,
+            0.417
+          ],
+          "content": "但是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.414,
+            0.419,
+            0.646,
+            0.458
+          ],
+          "content": "\\left| \\sin \\frac {1}{x _ {n}} - \\sin \\frac {1}{y _ {n}} \\right| = 1 \\rightarrow 0,",
+          "image_source": "../../raw/pages_0065-0096/images/page_86_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.464,
+            0.617,
+            0.496
+          ],
+          "content": "故由例 10 的结论推得  $\\sin\\frac{1}{x}$  在  $(0,1)$  上不一致连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.503,
+            0.962,
+            0.628
+          ],
+          "content": "函数在区间上的连续与一致连续这两个概念有着重要的差别. $f$ 在区间 $I$ 上连续，是指任给 $\\varepsilon > 0$ ，对每一点 $x \\in I$ ，都存在相应的正数 $\\delta = \\delta(\\varepsilon, x)$，只要 $x' \\in I$ 且 $|x - x'| < \\delta$ 就有 $|f(x) - f(x')| < \\varepsilon.$ 一般来说，对于 $I$ 上不同的点，相应的正数 $\\delta$ 是不同的.换句话说，$\\delta$ 的取值除依赖于 $\\varepsilon$ 之外，还与点 $x$ 有关，由此我们写 $\\delta = \\delta(\\varepsilon, x)$ 以表示 $\\delta$ 与 $\\varepsilon$ 和 $x$ 的依赖关系.如果能做到 $\\delta$ 只与 $\\varepsilon$ 有关，而与 $x$ 无关，或者说存在适合于 $I$ 上所有点 $x$ 的公共的 $\\delta$ ，即 $\\delta = \\delta(\\varepsilon)$，那么函数就不仅在 $I$ 上连续，而且是一致连续了."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.098,
+            0.632,
+            0.962,
+            0.736
+          ],
+          "content": "所以，f 在区间 I 上一致连续是 f 的又一个整体性质，由它可推出 f 在 I 上每一点都连续的这一局部性质（只要在定义 2 中把  $x'$  看作定点，把  $x''$  看作动点，即得 f 在点  $x'$  连续）。而从例 9 可见，由 f 在区间 I 上每一点都连续，并不能推出 f 在 I 上一致连续。然而，对于定义在闭区间上的函数来说，由它在每一点都连续却可推出在区间上的一致连续性，即有如下重要定理:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.74,
+            0.961,
+            0.779
+          ],
+          "content": "定理 4.9(一致连续性定理) 若函数 f 在闭区间  $[a, b]$  上连续, 则 f 在  $[a, b]$  上一致连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.783,
+            0.959,
+            0.825
+          ],
+          "content": "证 若不然, 存在  $\\varepsilon_{0}>0$ , 以及区间  $[a,b]$  上的点列  $\\{x_{n}\\},\\{y_{n}\\}$ , 虽然  $\\lim_{n\\to\\infty}(x_{n}-y_{n})=0$ , 但是"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.36,
+            0.829,
+            0.958,
+            0.848
+          ],
+          "content": "\\mid f (x _ {n}) - f (y _ {n}) \\mid \\geqslant \\varepsilon_ {0}, \\quad n = 1, 2, \\dots . \\tag {7}",
+          "image_source": "../../raw/pages_0065-0096/images/page_86_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.851,
+            0.928,
+            0.873
+          ],
+          "content": "因为 $\\{x_{n}\\}$ 有界，所以由致密性定理，$\\{x_{n}\\}$ 有一个收敛的子列 $\\{x_{n_k}\\}$. 设 $\\lim_{k\\to \\infty}x_{n_k} = x_0$ ，从而"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.367,
+            0.876,
+            0.691,
+            0.899
+          ],
+          "content": "\\lim _ {k \\to \\infty} y _ {n _ {k}} = \\lim _ {k \\to \\infty} \\left[ (y _ {n _ {k}} - x _ {n _ {k}}) + x _ {n _ {k}} \\right] = x _ {0},",
+          "image_source": "../../raw/pages_0065-0096/images/page_86_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.101,
+            0.902,
+            0.961,
+            0.921
+          ],
+          "content": "又 $a \\leqslant x_{n_k} \\leqslant b$，由极限的不等式性质推得 $a \\leqslant x_0 \\leqslant b$，故 $f(x)$ 在点 $x_0$ 连续。由归结原则与"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.067,
+            0.956,
+            0.088,
+            0.967
+          ],
+          "content": "76"
+        }
+      ]
+    },
+    {
+      "page_idx": 87,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.669,
+            0.031,
+            0.855,
+            0.046
+          ],
+          "content": "§ 2 连续函数的性质"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.079,
+            0.12,
+            0.096
+          ],
+          "content": "(7)式得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.223,
+            0.1,
+            0.697,
+            0.124
+          ],
+          "content": "\\varepsilon_ {0} \\leqslant \\lim _ {k \\to \\infty} \\left| f (x _ {n _ {k}}) - f (y _ {n _ {k}}) \\right| = \\left| f (x _ {0}) - f (x _ {0}) \\right| = 0,",
+          "image_source": "../../raw/pages_0065-0096/images/page_87_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.127,
+            0.087,
+            0.143
+          ],
+          "content": "矛盾."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.149,
+            0.892,
+            0.211
+          ],
+          "content": "例12 设区间 $I_{1}$ 的右端点为 $c \\in I_{1}$, 区间 $I_{2}$ 的左端点也为 $c \\in I_{2}(I_{1}, I_{2}$ 可分别为有限或无限区间). 试按一致连续性的定义证明: 若 $f$ 分别在 $I_{1}$ 和 $I_{2}$ 上一致连续, 则 $f$ 在 $I = I_{1} \\cup I_{2}$ 上也一致连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.216,
+            0.892,
+            0.255
+          ],
+          "content": "证 任给 $\\varepsilon > 0$，由 $f$ 在 $I_{1}$ 和 $I_{2}$ 上的一致连续性，分别存在正数 $\\delta_{1}$ 和 $\\delta_{2}$，使得对任何 $x', x'' \\in I_{1}$，只要 $|x' - x''| < \\delta_{1}$，就有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.351,
+            0.259,
+            0.888,
+            0.278
+          ],
+          "content": "\\mid f (x ^ {\\prime}) - f (x ^ {\\prime \\prime}) \\mid <   \\varepsilon ; \\tag {8}",
+          "image_source": "../../raw/pages_0065-0096/images/page_87_equation_6.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.281,
+            0.576,
+            0.3
+          ],
+          "content": "又对任何 $x^{\\prime}, x^{\\prime \\prime} \\in I_{2}$, 只要 $|x^{\\prime} - x^{\\prime \\prime}| < \\delta_{2}$, 也有(8)式成立."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.304,
+            0.892,
+            0.344
+          ],
+          "content": "点 $x = c$ 作为 $I_{1}$ 的右端点，$f$ 在点 $c$ 为左连续，作为 $I_{2}$ 的左端点，$f$ 在点 $c$ 为右连续，所以 $f$ 在点 $c$ 连续.故对上述 $\\varepsilon > 0$ ，存在 $\\delta_{3} > 0$ ，当 $|x - c| < \\delta_{3}$ 时，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.356,
+            0.353,
+            0.888,
+            0.383
+          ],
+          "content": "\\mid f (x) - f (c) \\mid <   \\frac {\\varepsilon}{2}. \\tag {9}",
+          "image_source": "../../raw/pages_0065-0096/images/page_87_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.079,
+            0.39,
+            0.829,
+            0.409
+          ],
+          "content": "令 $\\delta = \\min \\{\\delta_1, \\delta_2, \\delta_3\\}$，对任何 $x', x'' \\in I, |x' - x''| < \\delta$，分别讨论以下两种情形:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.077,
+            0.413,
+            0.584,
+            0.451
+          ],
+          "sub_type": "text",
+          "content": "(i)  $x'$ ,  $x''$  同时属于  $I_{1}$  或同时属于  $I_{2}$ ，则 (8) 式成立.\n(ii) $x^{\\prime}, x^{\\prime \\prime}$ 分属 $I_{1}$ 与 $I_{2}$, 设 $x^{\\prime} \\in I_{1}, x^{\\prime \\prime} \\in I_{2}$, 则"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.271,
+            0.456,
+            0.655,
+            0.475
+          ],
+          "content": "\\mid x ^ {\\prime} - c \\mid = c - x ^ {\\prime} <   x ^ {\\prime \\prime} - x ^ {\\prime} <   \\delta \\leqslant \\delta_ {3},",
+          "image_source": "../../raw/pages_0065-0096/images/page_87_equation_14.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.485,
+            0.892,
+            0.539
+          ],
+          "content": "故由(9)式得 $|f(x') - f(c)| < \\frac{\\varepsilon}{2}$. 同理得 $|f(x'') - f(c)| < \\frac{\\varepsilon}{2}$. 从而也有(8)式成立. 这就证明了 $f$ 在 $I$ 上一致连续."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.387,
+            0.566,
+            0.534,
+            0.587
+          ],
+          "level": 2,
+          "content": "习题 4.2"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.608,
+            0.424,
+            0.623
+          ],
+          "content": "1. 讨论复合函数 $f \\circ g$ 与 $g \\circ f$ 的连续性，设"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.093,
+            0.627,
+            0.378,
+            0.663
+          ],
+          "sub_type": "text",
+          "content": "(1)  $f(x) = \\operatorname{sgn} x$ ,  $g(x) = 1 + x^{2}$ ;\n(2)  $f(x) = \\operatorname{sgn} x$ ,  $g(x) = (1 - x^{2})x$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.668,
+            0.324,
+            0.683
+          ],
+          "content": "2. 设 $f, g$ 在点 $x_0$ 连续，证明:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.091,
+            0.687,
+            0.634,
+            0.723
+          ],
+          "sub_type": "text",
+          "content": "(1) 若  $f(x_{0}) > g(x_{0})$ ，则存在  $U(x_{0}; \\delta)$ ，使在其上有  $f(x) > g(x)$ ;\n(2) 若在某  $U^{\\circ}(x_{0})$  上有  $f(x) > g(x)$ ，则  $f(x_{0}) \\geqslant g(x_{0})$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.728,
+            0.321,
+            0.742
+          ],
+          "content": "3. 设 $f, g$ 在区间 $I$ 上连续. 记"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.228,
+            0.747,
+            0.692,
+            0.764
+          ],
+          "content": "F (x) = \\max \\left\\{f (x), g (x) \\right\\}, G (x) = \\min \\left\\{f (x), g (x) \\right\\}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_87_equation_26.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.768,
+            0.282,
+            0.782
+          ],
+          "content": "证明 F 和 G 也都在 I 上连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.788,
+            0.325,
+            0.803
+          ],
+          "content": "提示: 利用第一章总练习题 1."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.808,
+            0.395,
+            0.823
+          ],
+          "content": "4. 设 $f$ 为 $\\mathbf{R}$ 上连续函数, 常数 $c > 0$. 记"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.327,
+            0.829,
+            0.595,
+            0.886
+          ],
+          "content": "F (x) = \\left\\{ \\begin{array}{l l} - c, & f (x) <   - c, \\\\ f (x), & | f (x) | \\leqslant c, \\\\ c, & f (x) > c. \\end{array} \\right.",
+          "image_source": "../../raw/pages_0065-0096/images/page_87_equation_30.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.032,
+            0.89,
+            0.206,
+            0.904
+          ],
+          "content": "证明 F 在 R 上连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.07,
+            0.91,
+            0.394,
+            0.926
+          ],
+          "content": "提示: $F(x)=\\max\\{-c,\\min\\{c,f(x)\\}\\}$ ."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.908,
+            0.96,
+            0.93,
+            0.97
+          ],
+          "content": "77"
+        }
+      ]
+    },
+    {
+      "page_idx": 88,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.136,
+            0.03,
+            0.337,
+            0.045
+          ],
+          "content": "第四章 函数的连续性"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.081,
+            0.933,
+            0.114
+          ],
+          "content": "5. 设 $f(x) = \\sin x, g(x) = \\begin{cases} x - \\pi, & x \\leqslant 0, \\\\ x + \\pi, & x > 0. \\end{cases}$ 证明:复合函数 $f \\circ g$ 在 $x = 0$ 连续，但 $g$ 在 $x = 0$ 不连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.117,
+            0.957,
+            0.156
+          ],
+          "content": "6. 设 $f$ 在 $[a, +\\infty)$ 上连续，且 $\\lim_{x \\to +\\infty} f(x)$ 存在。证明:$f$ 在 $[a, +\\infty)$ 上有界。又问 $f$ 在 $[a, +\\infty)$ 上必有最大值或最小值吗？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.136,
+            0.159,
+            0.863,
+            0.175
+          ],
+          "content": "7. 若对任何充分小的 $\\varepsilon > 0, f$ 在 $[a + \\varepsilon, b - \\varepsilon]$ 上连续，能否由此推出 $f$ 在 $(a, b)$ 上连续？"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.138,
+            0.18,
+            0.238,
+            0.194
+          ],
+          "content": "8. 求极限:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.16,
+            0.2,
+            0.586,
+            0.24
+          ],
+          "content": "(1) $\\lim_{x\\to \\frac{\\pi}{4}}(\\pi -x)\\tan x;$ (2) $\\lim_{x\\to 1^{+}}\\frac{x\\sqrt{1 + 2x} - \\sqrt{x^2 - 1}}{x + 1}.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.1,
+            0.242,
+            0.959,
+            0.277
+          ],
+          "content": "9. 证明: 若 $f$ 在 $[a, b]$ 上连续, 且对任何 $x \\in [a, b], f(x) \\neq 0$, 则 $f$ 在 $[a, b]$ 上恒正或恒负."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.281,
+            0.558,
+            0.296
+          ],
+          "content": "10. 证明:任一实系数奇次方程至少有一个实根."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.3,
+            0.893,
+            0.315
+          ],
+          "content": "11. 试用一致连续的定义证明: 若 f, g 都在区间 I 上一致连续, 则  $f + g$  也在 I 上一致连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.322,
+            0.503,
+            0.337
+          ],
+          "content": "12. 证明 $f(x) = \\sqrt{x}$ 在 $[0, +\\infty)$ 上一致连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.341,
+            0.699,
+            0.356
+          ],
+          "content": "提示: $[0,+\\infty)=[0,1]\\cup[1,+\\infty)$ ，利用定理4.9和例10的结论."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.36,
+            0.759,
+            0.375
+          ],
+          "content": "13. 证明: $f(x)=x^{2}$ 在 $[a,b]$ 上一致连续，但在 $(-∞,+∞)$ 上不一致连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.101,
+            0.379,
+            0.962,
+            0.413
+          ],
+          "content": "14. 设函数 $f$ 在区间 $I$ 上满足利普希茨（Lipschitz）条件，即存在常数 $L > 0$ ，使得对 $I$ 上任意两点 $x', x''$ ，都有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.394,
+            0.414,
+            0.675,
+            0.432
+          ],
+          "content": "\\left| f (x ^ {\\prime}) - f (x ^ {\\prime \\prime}) \\right| \\leqslant L \\left| x ^ {\\prime} - x ^ {\\prime \\prime} \\right|.",
+          "image_source": "../../raw/pages_0065-0096/images/page_88_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.433,
+            0.305,
+            0.448
+          ],
+          "content": "证明 f 在 I 上一致连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.453,
+            0.495,
+            0.467
+          ],
+          "content": "15. 证明 $\\sin x$ 在 $(- \\infty, +\\infty)$ 上一致连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.472,
+            0.713,
+            0.489
+          ],
+          "content": "提示: 利用不等式  $\\left|\\sin x' - \\sin x''\\right| \\leqslant \\left|x' - x''\\right|$  (见第三章 §1 例 4)."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.516,
+            0.682,
+            0.531
+          ],
+          "content": "16. 设函数 $f$ 满足第6题的条件. 证明 $f$ 在 $[a, +\\infty)$ 上一致连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.535,
+            0.938,
+            0.551
+          ],
+          "content": "17. 设函数 $f$ 在 $[0, 2a]$ 上连续，且 $f(0) = f(2a)$. 证明:存在点 $x_0 \\in [0, a]$，使得 $f(x_0) = f(x_0 + a)$."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.555,
+            0.801,
+            0.57
+          ],
+          "content": "18. 设 $f$ 为 $[a, b]$ 上的增函数，其值域为 $[f(a), f(b)]$. 证明 $f$ 在 $[a, b]$ 上连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.142,
+            0.574,
+            0.769,
+            0.59
+          ],
+          "content": "19. 设 f 在  $[a, b]$  上连续， $x_{1}, x_{2}, \\cdots, x_{n} \\in [a, b]$ . 证明:存在  $\\xi \\in [a, b]$ ，使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.348,
+            0.595,
+            0.712,
+            0.623
+          ],
+          "content": "f (\\xi) = \\frac {1}{n} [ f (x _ {1}) + f (x _ {2}) + \\dots + f (x _ {n}) ].",
+          "image_source": "../../raw/pages_0065-0096/images/page_88_equation_21.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.632,
+            0.531,
+            0.648
+          ],
+          "content": "20. 证明 $f(x) = \\cos \\sqrt{x}$ 在 $[0, +\\infty)$ 上一致连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.141,
+            0.652,
+            0.66,
+            0.667
+          ],
+          "content": "提示: $[0, +\\infty) = [0, 1] \\cup [1, +\\infty)$. 在 $[1, +\\infty)$ 上成立不等式"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.322,
+            0.672,
+            0.747,
+            0.69
+          ],
+          "content": "\\left| \\cos \\sqrt {x ^ {\\prime}} - \\cos \\sqrt {x ^ {\\prime \\prime}} \\right| \\leqslant \\left| \\sqrt {x ^ {\\prime}} - \\sqrt {x ^ {\\prime \\prime}} \\right| \\leqslant \\left| x ^ {\\prime} - x ^ {\\prime \\prime} \\right|.",
+          "image_source": "../../raw/pages_0065-0096/images/page_88_equation_24.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.366,
+            0.736,
+            0.71,
+            0.759
+          ],
+          "level": 2,
+          "content": "§ 3 初等函数的连续性"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.102,
+            0.803,
+            0.965,
+            0.864
+          ],
+          "content": "从前面两节知道,在基本初等函数中,三角函数、反三角函数以及有理指数幂函数都是其定义域上的连续函数.本节将讨论指数函数、对数函数与实指数幂函数的连续性,以及初等函数的连续性."
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.104,
+            0.875,
+            0.369,
+            0.893
+          ],
+          "level": 2,
+          "content": "一、指数函数的连续性"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.906,
+            0.965,
+            0.924
+          ],
+          "content": "在第一章中,我们已定义了实指数的乘幂,并证明了指数函数  $y=a^{x}\\quad(0<a\\neq1)$  在 R"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.07,
+            0.956,
+            0.091,
+            0.967
+          ],
+          "content": "78"
+        }
+      ]
+    },
+    {
+      "page_idx": 89,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.642,
+            0.03,
+            0.848,
+            0.045
+          ],
+          "content": "§ 3 初等函数的连续性"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.079,
+            0.885,
+            0.118
+          ],
+          "continues_prev": true,
+          "content": "上是严格单调的.下面先把关于有理指数幂的一个重要性质推广到实指数幂,然后证明指数函数的连续性."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.123,
+            0.54,
+            0.14
+          ],
+          "content": "定理 4.10 设  $a>0,\\alpha,\\beta$  为任意两个实数, 则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.306,
+            0.144,
+            0.599,
+            0.162
+          ],
+          "content": "a ^ {\\alpha} \\cdot a ^ {\\beta} = a ^ {\\alpha + \\beta}, \\quad (a ^ {\\alpha}) ^ {\\beta} = a ^ {\\alpha \\beta}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_89_equation_3.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.071,
+            0.167,
+            0.633,
+            0.184
+          ],
+          "content": "证 不妨设 $a > 1$ ，由 $a^x$ 的定义(第一章 §3 定义2)，即有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.322,
+            0.188,
+            0.584,
+            0.212
+          ],
+          "content": "a ^ {x} = \\sup _ {r \\leqslant x} \\{a ^ {r} \\mid r \\text {为有理数} \\}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_89_equation_5.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.215,
+            0.61,
+            0.232
+          ],
+          "content": "依据上确界定义,任给  $\\varepsilon>0$ , 存在有理数  $r\\leqslant\\alpha$  和  $s\\leqslant\\beta$ , 使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.313,
+            0.236,
+            0.594,
+            0.253
+          ],
+          "content": "a ^ {\\alpha} - \\varepsilon <   a ^ {r}, \\quad a ^ {\\beta} - \\varepsilon <   a ^ {s}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_89_equation_7.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.258,
+            0.258,
+            0.276
+          ],
+          "content": "由 $a^x$ 的严格递增性, 得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.395,
+            0.279,
+            0.512,
+            0.296
+          ],
+          "content": "a ^ {r + s} \\leqslant a ^ {\\alpha + \\beta}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_89_equation_9.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.302,
+            0.495,
+            0.319
+          ],
+          "content": "而由有理指数乘幂的性质,有  $a^{r} \\cdot a^{s} = a^{r+s}$ , 故得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.288,
+            0.323,
+            0.621,
+            0.341
+          ],
+          "content": "(a ^ {\\alpha} - \\varepsilon) (a ^ {\\beta} - \\varepsilon) <   a ^ {r + s} \\leqslant a ^ {\\alpha + \\beta}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_89_equation_11.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.346,
+            0.228,
+            0.363
+          ],
+          "content": "由 $\\varepsilon$ 的任意性, 可得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.379,
+            0.367,
+            0.53,
+            0.384
+          ],
+          "content": "a ^ {\\alpha} \\cdot a ^ {\\beta} \\leqslant a ^ {\\alpha + \\beta}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_89_equation_13.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.39,
+            0.576,
+            0.407
+          ],
+          "content": "为证相反的不等式,同理存在有理数  $p \\leqslant \\alpha + \\beta$ , 使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.382,
+            0.411,
+            0.528,
+            0.428
+          ],
+          "content": "a ^ {\\alpha + \\beta} - \\varepsilon <   a ^ {p}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_89_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.433,
+            0.462,
+            0.45
+          ],
+          "content": "再取有理数 $r \\leqslant \\alpha$ 和 $s \\leqslant \\beta$, 并使 $p \\leqslant r + s$, 则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.31,
+            0.454,
+            0.599,
+            0.471
+          ],
+          "content": "a ^ {p} \\leqslant a ^ {r + s} = a ^ {r} \\cdot a ^ {s} \\leqslant a ^ {\\alpha} \\cdot a ^ {\\beta}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_89_equation_17.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.476,
+            0.55,
+            0.493
+          ],
+          "content": "由此得到 $a^{\\alpha +\\beta} - \\varepsilon < a^p\\leqslant a^\\alpha \\cdot a^\\beta$ ，并由 $\\varepsilon$ 的任意性，推得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.38,
+            0.498,
+            0.531,
+            0.515
+          ],
+          "content": "a ^ {\\alpha + \\beta} \\leqslant a ^ {\\alpha} \\cdot a ^ {\\beta}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_89_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.52,
+            0.567,
+            0.538
+          ],
+          "content": "这就证得 $a^{\\alpha} \\cdot a^{\\beta} = a^{\\alpha + \\beta}$. 后一等式的证明留给读者."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.543,
+            0.576,
+            0.56
+          ],
+          "content": "定理 4.11 指数函数  $a^{x}$  (a>0) 在 R 上是连续的."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.565,
+            0.425,
+            0.581
+          ],
+          "content": "证 先设 $a > 1$. 由第三章 §2 例4知"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.374,
+            0.585,
+            0.537,
+            0.609
+          ],
+          "content": "\\lim _ {x \\to 0} a ^ {x} = 1 = a ^ {0},",
+          "image_source": "../../raw/pages_0065-0096/images/page_89_equation_23.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.613,
+            0.558,
+            0.63
+          ],
+          "content": "这表明 $a^x$ 在 $x = 0$ 连续. 现任取 $x_0 \\in \\mathbf{R}$. 由定理4.10得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.328,
+            0.635,
+            0.582,
+            0.652
+          ],
+          "content": "a ^ {x} = a ^ {x _ {0} + (x - x _ {0})} = a ^ {x _ {0}} \\cdot a ^ {x - x _ {0}}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_89_equation_25.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.658,
+            0.429,
+            0.675
+          ],
+          "content": "令 $t = x - x_0$ ，则当 $x\\to x_0$ 时有 $t\\to 0$ ，从而有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.273,
+            0.681,
+            0.637,
+            0.706
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} a ^ {x} = \\lim _ {x \\to x _ {0}} a ^ {x _ {0}} a ^ {x - x _ {0}} = a ^ {x _ {0}} \\lim _ {t \\to 0} a ^ {t} = a ^ {x _ {0}}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_89_equation_27.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.027,
+            0.71,
+            0.357,
+            0.728
+          ],
+          "content": "这就证明了 $a^x$ 在任一点 $x_0$ 连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.075,
+            0.734,
+            0.431,
+            0.767
+          ],
+          "content": "当 $0 < a < 1$ 时，令 $b = \\frac{1}{a}$，则有 $b > 1$，而"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.375,
+            0.775,
+            0.539,
+            0.812
+          ],
+          "content": "a ^ {x} = \\left(\\frac {1}{b}\\right) ^ {x} = b ^ {- x}",
+          "image_source": "../../raw/pages_0065-0096/images/page_89_equation_30.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.029,
+            0.816,
+            0.628,
+            0.833
+          ],
+          "content": "可看作函数  $b^{u}$  与 u = -x 的复合, 所以此时  $a^{x}$  亦在 R 上连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.073,
+            0.838,
+            0.675,
+            0.855
+          ],
+          "content": "利用指数函数  $a^{x}$  的连续性,以及第三章 §5 例 4 中已证明的"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.278,
+            0.859,
+            0.636,
+            0.883
+          ],
+          "content": "\\lim _ {x \\to - \\infty} a ^ {x} = 0, \\lim _ {x \\to + \\infty} a ^ {x} = + \\infty (a > 1),",
+          "image_source": "../../raw/pages_0065-0096/images/page_89_equation_33.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.029,
+            0.887,
+            0.89,
+            0.926
+          ],
+          "content": "可知 $a^x$ 的值域为 $(0, +\\infty)$ （$0 < a < 1$ 时也是如此). 于是，$a^x$ 的反函数——对数函数 $\\log_a x$ 在其定义域 $(0, +\\infty)$ 上也连续."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.905,
+            0.959,
+            0.927,
+            0.97
+          ],
+          "content": "79"
+        }
+      ]
+    },
+    {
+      "page_idx": 90,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.097,
+            0.029,
+            0.335,
+            0.045
+          ],
+          "content": "第四章 函数的连续性"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.143,
+            0.077,
+            0.549,
+            0.102
+          ],
+          "content": "例1 设 $\\lim_{x\\to x_0}u(x) = a > 0,\\lim_{x\\to x_0}v(x) = b.$ 证明"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.443,
+            0.105,
+            0.609,
+            0.131
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} u (x) ^ {v (x)} = a ^ {b}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_90_equation_2.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.096,
+            0.134,
+            0.957,
+            0.176
+          ],
+          "content": "证 补充定义 $u(x_0) = a, v(x_0) = b$，则 $u(x), v(x)$ 在点 $x_0$ 连续，从而 $v(x) \\ln u(x)$ 在 $x_0$ 连续，所以 $u(x)^{v(x)} = \\mathrm{e}^{v(x) \\ln u(x)}$ 在 $x_0$ 连续. 由此得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.339,
+            0.178,
+            0.713,
+            0.206
+          ],
+          "content": "\\lim _ {x \\to x _ {0}} u (x) ^ {v (x)} = \\lim _ {x \\to x _ {0}} \\mathrm{e} ^ {v (x) \\ln u (x)} = \\mathrm{e} ^ {b \\ln a} = a ^ {b}.",
+          "image_source": "../../raw/pages_0065-0096/images/page_90_equation_4.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.1,
+            0.215,
+            0.363,
+            0.235
+          ],
+          "level": 2,
+          "content": "二、初等函数的连续性"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.098,
+            0.245,
+            0.96,
+            0.307
+          ],
+          "content": "由于幂函数  $x^{\\alpha}$  ( $\\alpha$  为实数) 可表为  $x^{\\alpha}=e^{\\alpha\\ln x}$ ，它是函数  $e^{u}$  与  $u=\\alpha\\ln x$  的复合，故由指数函数与对数函数的连续性以及复合函数的连续性，推得幂函数  $y=x^{\\alpha}$  在其定义域  $(0,+\\infty)$  上连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.098,
+            0.311,
+            0.959,
+            0.351
+          ],
+          "content": "前面已经指出,常量函数、三角函数、反三角函数都是其定义域上的连续函数,因此我们有下述定理:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.145,
+            0.355,
+            0.744,
+            0.372
+          ],
+          "content": "定理 4.12 一切基本初等函数都是其定义域上的连续函数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.099,
+            0.376,
+            0.957,
+            0.415
+          ],
+          "content": "由于任何初等函数都是由基本初等函数经过有限次四则运算与复合运算所得到，所以有"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.146,
+            0.42,
+            0.744,
+            0.436
+          ],
+          "content": "定理 4.13 任何初等函数都是在其定义区间上的连续函数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.441,
+            0.6,
+            0.458
+          ],
+          "content": "下面举两个利用函数的连续性求极限的例子."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.464,
+            0.367,
+            0.498
+          ],
+          "content": "例2 求 $\\lim_{x\\to 0}\\frac{\\ln(1 + x)}{x}.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.505,
+            0.431,
+            0.522
+          ],
+          "content": "解 由对数函数的连续性有"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.315,
+            0.526,
+            0.747,
+            0.556
+          ],
+          "content": "原式 $= \\lim_{x\\to 0}\\ln (1 + x)^{\\frac{1}{x}} = \\ln [\\lim_{x\\to 0}(1 + x)^{\\frac{1}{x}}]$"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.37,
+            0.562,
+            0.476,
+            0.576
+          ],
+          "content": "= \\ln e = 1.",
+          "image_source": "../../raw/pages_0065-0096/images/page_90_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.148,
+            0.582,
+            0.376,
+            0.617
+          ],
+          "content": "例 3 求  $\\lim_{x\\to0}\\frac{\\ln(1+x^{2})}{\\cos x}$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.147,
+            0.624,
+            0.887,
+            0.659
+          ],
+          "content": "解 由于 $x = 0$ 在初等函数 $f(x) = \\frac{\\ln(1 + x^2)}{\\cos x}$ 的定义域内，故由 $f$ 的连续性得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.397,
+            0.665,
+            0.664,
+            0.702
+          ],
+          "content": "\\lim _ {x \\to 0} \\frac {\\ln (1 + x ^ {2})}{\\cos x} = f (0) = 0.",
+          "image_source": "../../raw/pages_0065-0096/images/page_90_equation_18.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.457,
+            0.732,
+            0.605,
+            0.752
+          ],
+          "level": 2,
+          "content": "习题 4.3"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.144,
+            0.774,
+            0.283,
+            0.789
+          ],
+          "content": "1. 求下列极限:"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.166,
+            0.794,
+            0.369,
+            0.827
+          ],
+          "content": "(1)  $\\lim_{x\\to0}\\frac{e^{x}\\cos x+5}{1+x^{2}+\\ln(1-x)}$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.449,
+            0.798,
+            0.697,
+            0.823
+          ],
+          "content": "(2) $\\lim_{x\\to +\\infty}\\left(\\sqrt{x + \\sqrt{x + \\sqrt{x}}} -\\sqrt{x}\\right)$;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.166,
+            0.833,
+            0.632,
+            0.874
+          ],
+          "content": "(3) $\\lim_{x\\to 0^{+}}\\left(\\sqrt{\\frac{1}{x} + \\sqrt{\\frac{1}{x} + \\sqrt{\\frac{1}{x}}} - \\sqrt{\\frac{1}{x} - \\sqrt{\\frac{1}{x} + \\sqrt{\\frac{1}{x}}}}\\right);$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.166,
+            0.88,
+            0.357,
+            0.922
+          ],
+          "content": "(4)  $\\lim_{x\\to+\\infty}\\frac{\\sqrt{x+\\sqrt{x+\\sqrt{x}}}}{\\sqrt{x+1}}$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.449,
+            0.894,
+            0.636,
+            0.916
+          ],
+          "content": "(5) $\\lim_{x\\to 0}(1 + \\sin x)^{\\cot x}$."
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.069,
+            0.956,
+            0.091,
+            0.967
+          ],
+          "content": "80"
+        }
+      ]
+    },
+    {
+      "page_idx": 91,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.722,
+            0.033,
+            0.865,
+            0.047
+          ],
+          "content": "第四章总练习题"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.08,
+            0.496,
+            0.1
+          ],
+          "content": "2. 设 $\\lim_{n\\to \\infty}a_n = a > 0,\\lim_{n\\to \\infty}b_n = b.$ 证明 $\\lim_{n\\to \\infty}(a_n)^{b_n} = a^b.$"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.103,
+            0.258,
+            0.12
+          ],
+          "content": "提示: $\\left(a_{n}\\right)^{b_{n}}=\\mathrm{e}^{b_{n}\\ln a_{n}}$"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.351,
+            0.168,
+            0.588,
+            0.191
+          ],
+          "level": 2,
+          "content": "第四章总练习题"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.235,
+            0.637,
+            0.25
+          ],
+          "content": "1. 设函数 $f$ 在 $(a, b)$ 上连续，且 $f(a + 0)$ 与 $f(b - 0)$ 为有限值。证明:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.098,
+            0.255,
+            0.865,
+            0.308
+          ],
+          "sub_type": "text",
+          "content": "(1) f 在  $(a, b)$  上有界；\n(2) 若存在  $\\xi \\in (a, b)$ ，使得  $f(\\xi) \\geqslant \\max\\{f(a+0), f(b-0)\\}$ ，则 f 在  $(a, b)$  上能取到最大值；\n(3) f 在  $(a, b)$  上一致连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.313,
+            0.819,
+            0.329
+          ],
+          "content": "2. 设函数 $f$ 在 $(a, b)$ 上连续，且 $f(a + 0) = f(b - 0) = +\\infty$. 证明 $f$ 在 $(a, b)$ 上能取到最小值."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.333,
+            0.381,
+            0.348
+          ],
+          "content": "3. 设函数 $f$ 在区间 $I$ 上连续, 证明:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.098,
+            0.352,
+            0.721,
+            0.387
+          ],
+          "sub_type": "text",
+          "content": "（1）若对任何有理数 $r \\in I$ ，有 $f(r) = 0$ ，则在 $I$ 上 $f(x) \\equiv 0$\n(2) 若对任意两个有理数  $r_{1}, r_{2}, r_{1} < r_{2}$ ，有  $f(r_{1}) < f(r_{2})$ ，则 f 在 I 上严格增."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.392,
+            0.464,
+            0.407
+          ],
+          "content": "4. 设 $a_1, a_2, a_3$ 为正数，$\\lambda_1 < \\lambda_2 < \\lambda_3$. 证明:方程"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.338,
+            0.415,
+            0.597,
+            0.446
+          ],
+          "content": "\\frac {a _ {1}}{x - \\lambda_ {1}} + \\frac {a _ {2}}{x - \\lambda_ {2}} + \\frac {a _ {3}}{x - \\lambda_ {3}} = 0",
+          "image_source": "../../raw/pages_0065-0096/images/page_91_equation_15.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.45,
+            0.396,
+            0.465
+          ],
+          "content": "在区间 $(\\lambda_{1},\\lambda_{2})$ 与 $(\\lambda_{2},\\lambda_{3})$ 上各有一个根."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.47,
+            0.697,
+            0.486
+          ],
+          "content": "提示: 考虑  $f(x)=a_{1}(x-\\lambda_{2})(x-\\lambda_{3})+a_{2}(x-\\lambda_{1})(x-\\lambda_{3})+a_{3}(x-\\lambda_{1})(x-\\lambda_{2})$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.489,
+            0.641,
+            0.505
+          ],
+          "content": "5. 设 $f$ 在 $[a, b]$ 上连续，且对任何 $x \\in [a, b]$，存在 $y \\in [a, b]$，使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.371,
+            0.51,
+            0.571,
+            0.539
+          ],
+          "content": "\\left| f (y) \\right| \\leqslant \\frac {1}{2} \\left| f (x) \\right|.",
+          "image_source": "../../raw/pages_0065-0096/images/page_91_equation_19.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.038,
+            0.545,
+            0.344,
+            0.56
+          ],
+          "content": "证明:存在  $\\xi\\in[a,b]$ ，使得  $f(\\xi)=0$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.076,
+            0.566,
+            0.794,
+            0.582
+          ],
+          "content": "提示:函数  $\\left|f\\right|$  在  $[a,b]$  上有最小值  $m=f(\\xi)$ ，若 m=0，则已得证；若 m>0，可得矛盾."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.037,
+            0.587,
+            0.896,
+            0.621
+          ],
+          "content": "6. 设 f 在  $[a, b]$  上连续， $x_{1}, x_{2}, \\cdots, x_{n} \\in [a, b]$ ，另有一组正数  $\\lambda_{1}, \\lambda_{2}, \\cdots, \\lambda_{n}$  满足  $\\lambda_{1} + \\lambda_{2} + \\cdots + \\lambda_{n} = 1$ .\n证明:存在一点  $\\xi\\in[a,b]$ ，使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.269,
+            0.626,
+            0.66,
+            0.642
+          ],
+          "content": "f (\\xi) = \\lambda_ {1} f (x _ {1}) + \\lambda_ {2} f (x _ {2}) + \\dots + \\lambda_ {n} f (x _ {n}).",
+          "image_source": "../../raw/pages_0065-0096/images/page_91_equation_23.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.647,
+            0.606,
+            0.675
+          ],
+          "content": "注:本章§2习题19是本题的特例,其中 $\\lambda_{1}=\\lambda_{2}=\\cdots=\\lambda_{n}=\\frac{1}{n}$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.681,
+            0.896,
+            0.697
+          ],
+          "content": "7. 设 $f$ 在 $[0, +\\infty)$ 上连续，满足 $0 \\leqslant f(x) \\leqslant x, x \\in [0, +\\infty)$. 设 $a_1 \\geqslant 0, a_{n+1} = f(a_n), n = 1, 2, \\cdots$. 证明:"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.099,
+            0.701,
+            0.525,
+            0.759
+          ],
+          "sub_type": "text",
+          "content": "(1)  $\\{a_{n}\\}$  为收敛数列；\n(2) 设  $\\lim_{n\\to\\infty}a_{n}=t$ ，则有  $f(t)=t$ ;\n(3) 若条件改为  $0 \\leqslant f(x) < x, x \\in (0, +\\infty)$ ，则 t = 0."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.077,
+            0.763,
+            0.767,
+            0.779
+          ],
+          "content": "8. 设 $f$ 在 $[0,1]$ 上连续，$f(0) = f(1)$. 证明:对任何正整数 $n$，存在 $\\xi \\in [0,1]$，使得"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.378,
+            0.784,
+            0.553,
+            0.815
+          ],
+          "content": "f \\left(\\xi + \\frac {1}{n}\\right) = f (\\xi).",
+          "image_source": "../../raw/pages_0065-0096/images/page_91_equation_31.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.822,
+            0.588,
+            0.851
+          ],
+          "content": "提示:n=1 时取  $\\xi=0, n>1$  时令  $F(x)=f\\left(x+\\frac{1}{n}\\right)-f(x)$ ，则有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.301,
+            0.857,
+            0.634,
+            0.888
+          ],
+          "content": "F (0) + F \\bigg (\\frac {1}{n} \\bigg) + \\dots + F \\bigg (\\frac {n - 1}{n} \\bigg) = 0.",
+          "image_source": "../../raw/pages_0065-0096/images/page_91_equation_33.jpg"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.078,
+            0.892,
+            0.439,
+            0.907
+          ],
+          "content": "9. 设 $f$ 在 $x = 0$ 连续，且对任何 $x, y \\in \\mathbb{R}$，有"
+        },
+        {
+          "type": "equation",
+          "bbox": [
+            0.358,
+            0.913,
+            0.575,
+            0.928
+          ],
+          "content": "f (x + y) = f (x) + f (y).",
+          "image_source": "../../raw/pages_0065-0096/images/page_91_equation_35.jpg"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.916,
+            0.962,
+            0.935,
+            0.972
+          ],
+          "content": "81"
+        }
+      ]
+    },
+    {
+      "page_idx": 92,
+      "blocks": [
+        {
+          "type": "header",
+          "bbox": [
+            0.09,
+            0.033,
+            0.327,
+            0.048
+          ],
+          "content": "第四章 函数的连续性"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.088,
+            0.081,
+            0.457,
+            0.096
+          ],
+          "content": "证明:(1)f在R上连续;(2) $f(x)=f(1)x$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.128,
+            0.1,
+            0.775,
+            0.123
+          ],
+          "content": "提示:(1) 易见  $\\lim_{x\\to0}f(x)=f(0)=0\\Rightarrow\\lim_{x\\to x_{0}}f(x)=\\lim_{x\\to x_{0}}\\left[f(x-x_{0})+f(x_{0})\\right]=f(x_{0})$ ;"
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.149,
+            0.128,
+            0.934,
+            0.159
+          ],
+          "content": "(2) 对整数  $p, q (\\neq 0)$  有  $f(p) = pf(1)$ ,  $f\\left(\\frac{1}{q}\\right) = \\frac{1}{q}f(1) \\Rightarrow$  对有理数 r 有  $f(r) = rf(1) \\Rightarrow$  结论."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.163,
+            0.949,
+            0.18
+          ],
+          "content": "10. 设定义在 $\\mathbf{R}$ 上的函数 $f$ 在 0,1 两点连续，且对任何 $x \\in \\mathbf{R}$，有 $f(x^2) = f(x)$. 证明 $f$ 为常量函数."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.089,
+            0.186,
+            0.949,
+            0.232
+          ],
+          "content": "提示: 易见 f 偶; 对任何  $x \\in R^{+}$ ,  $f(x) = f(x^{\\frac{1}{2^n}}) \\to f(1)$  ( $n \\to \\infty$ ), 从而得  $x \\neq 0$  时  $f(x) = f(1)$ ;  $f(0) = \\lim_{x \\to 0} f(x) = f(1)$ ."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.13,
+            0.235,
+            0.637,
+            0.249
+          ],
+          "content": "11. 设 $0 \\leqslant \\alpha \\leqslant 1$. 证明: $f(x) = x^{\\alpha}$ 在区间 $[0, +\\infty)$ 上一致连续."
+        },
+        {
+          "type": "text",
+          "bbox": [
+            0.087,
+            0.254,
+            0.949,
+            0.289
+          ],
+          "content": "12. 设 $f(x)$ 是区间 $[a, b]$ 上的一个非常数的连续函数，$M, m$ 分别是最大、最小值。证明:存在 $[\\alpha, \\beta] \\subset [a, b]$，使得"
+        },
+        {
+          "type": "list",
+          "bbox": [
+            0.162,
+            0.294,
+            0.769,
+            0.329
+          ],
+          "sub_type": "text",
+          "content": "(1)  $m < f(x) < M, x \\in (\\alpha, \\beta)$ ;\n(2) $f(\\alpha), f(\\beta)$ 恰好是 $f(x)$ 在 $[a, b]$ 上的最大、最小值（最小、最大值）."
+        },
+        {
+          "type": "image",
+          "bbox": [
+            0.095,
+            0.378,
+            0.174,
+            0.426
+          ],
+          "content": "",
+          "captions": [],
+          "footnotes": [],
+          "image_source": "../../raw/pages_0065-0096/images/page_92_image_11.jpg"
+        },
+        {
+          "type": "paragraph_title",
+          "bbox": [
+            0.184,
+            0.394,
+            0.372,
+            0.411
+          ],
+          "level": 2,
+          "content": "第四章综合自测题"
+        },
+        {
+          "type": "page_number",
+          "bbox": [
+            0.058,
+            0.956,
+            0.079,
+            0.967
+          ],
+          "content": "82"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "file_suffix": "pdf",
+    "producer": {
+      "name": "mineru",
+      "version": "4.0.12"
+    },
+    "document": {
+      "title": "14612565",
+      "created_at": "2020-07-19T09:30:04+08:00",
+      "modified_at": "2020-07-19T09:30:04+08:00",
+      "creator_application": "Pdg2Pic",
+      "producer_application": "FreePic2Pdf_Lib - v3.08",
+      "page_count": 322,
+      "page_count_kind": "physical"
+    }
+  },
+  "extensions": {
+    "mineru": {
+      "tier": "advanced",
+      "parse_mode": "ocr"
+    },
+    "docvortex_layout": {
+      "version": 1,
+      "pages": [
+        {
+          "page_idx": 75,
+          "width_pt": 510.51971435546875,
+          "height_pt": 820.3222045898438
+        },
+        {
+          "page_idx": 76,
+          "width_pt": 510.51971435546875,
+          "height_pt": 820.3222045898438
+        },
+        {
+          "page_idx": 77,
+          "width_pt": 510.51971435546875,
+          "height_pt": 820.3222045898438
+        },
+        {
+          "page_idx": 78,
+          "width_pt": 510.51971435546875,
+          "height_pt": 820.3222045898438
+        },
+        {
+          "page_idx": 79,
+          "width_pt": 510.51971435546875,
+          "height_pt": 820.3222045898438
+        },
+        {
+          "page_idx": 80,
+          "width_pt": 510.51971435546875,
+          "height_pt": 820.3222045898438
+        },
+        {
+          "page_idx": 81,
+          "width_pt": 510.51971435546875,
+          "height_pt": 820.3222045898438
+        },
+        {
+          "page_idx": 82,
+          "width_pt": 510.51971435546875,
+          "height_pt": 820.3222045898438
+        },
+        {
+          "page_idx": 83,
+          "width_pt": 510.51971435546875,
+          "height_pt": 820.3222045898438
+        },
+        {
+          "page_idx": 84,
+          "width_pt": 510.51971435546875,
+          "height_pt": 820.3222045898438
+        },
+        {
+          "page_idx": 85,
+          "width_pt": 510.51971435546875,
+          "height_pt": 820.3222045898438
+        },
+        {
+          "page_idx": 86,
+          "width_pt": 510.51971435546875,
+          "height_pt": 820.3222045898438
+        },
+        {
+          "page_idx": 87,
+          "width_pt": 510.51971435546875,
+          "height_pt": 820.3222045898438
+        },
+        {
+          "page_idx": 88,
+          "width_pt": 510.51971435546875,
+          "height_pt": 820.3222045898438
+        },
+        {
+          "page_idx": 89,
+          "width_pt": 510.51971435546875,
+          "height_pt": 820.3222045898438
+        },
+        {
+          "page_idx": 90,
+          "width_pt": 510.51971435546875,
+          "height_pt": 820.3222045898438
+        },
+        {
+          "page_idx": 91,
+          "width_pt": 510.51971435546875,
+          "height_pt": 820.3222045898438
+        },
+        {
+          "page_idx": 92,
+          "width_pt": 510.51971435546875,
+          "height_pt": 820.3222045898438
+        }
+      ]
+    }
+  },
+  "is_full_document": false
+}

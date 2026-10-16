@@ -1,0 +1,668 @@
+# 附录I 实数理论
+
+原始 PDF 第 274–285 页。
+
+## 附录 I
+
+## 实数理论
+
+在中学数学中,我们已经知道实数包括有理数和无理数.从历史上看,人们先认识有理数.不过在公元前古希腊时期就已发现不可公度线段,指出“无理数”的存在.但有关实数的理论却直到19世纪末,为奠定微积分基础的需要才完整地建立起来.
+
+## 一、建立实数的原则
+
+有理数全体组成的集合 $\mathbf{Q}$, 构成一个阿基米德有序域, 我们希望有理数扩充到实数之后, 全体实数的集合也构成阿基米德有序域.
+
+所谓集合 $F$ 构成一个阿基米德有序域，是说它满足以下三个条件:
+
+1. $F$ 是域 在 $F$ 中定义了加法“+”与乘法“·”两个运算, 使得对于 $F$ 中任意元素 $a, b, c$ 成立:
+
+加法的结合律: $(a + b) + c = a + (b + c)$
+
+加法的交换律: $a + b = b + a$
+
+乘法的结合律: $(a\cdot b)\cdot c = a\cdot (b\cdot c);$
+
+乘法的交换律: $a\cdot b = b\cdot a$
+
+乘法关于加法的分配律: $a\cdot (b + c) = a\cdot b + a\cdot c.$
+
+在 $F$ 中存在零元素和反元素: 在 $F$ 中存在一个元素“0”, 使得对 $F$ 中任一元素 $a$, 有 $a + 0 = a$, 则称“0”为零元素; 对每一个元素 $a \in F$, 有一个元素 $(-a) \in F$, 使得 $a + (-a) = 0$, 则称 $-a$ 为 $a$ 的反元素.
+
+在 $F$ 中存在单位元素与逆元素: 在 $F$ 中存在一个元素 $e$, 使得对 $F$ 中任一元素 $a$, 有 $a \cdot e = a$, 则称 $e$ 为单位元素; 对每一个非零元素 $a \in F$, 有一个元素 $a^{-1} \in F$, 使得 $a \cdot a^{-1} = e$, 则称 $a^{-1}$ 为 $a$ 的逆元素.
+
+2. F 是有序域 在 F 中定义了序关系“<”具有如下(全序)性质:
+
+传递性: 对 F 中的元素 a, b, c, 若  $a < b^{①}$ , b < c, 则 a < c;
+
+三歧性: F 中任意两个元素 a 与 b 之间, 关系
+
+$$
+a <   b, a = b, a > b
+$$
+
+三者必居其一，也只居其一（这里 $a > b$ ，就是 $b < a$ ）.
+
+当序与加法、乘法运算结合起来进行时,则有如下性质:
+
+加法保序性: 若 a < b, 则对任何  $c \in F$ , 有  $a + c < b + c$ ;
+
+<small><span class="docvortex-page-footnote" data-block-type="page_footnote" style="color:#6b7280">① 关系式 a < b 称为 a 小于 b，或 b 大于 a.</span></small>
+
+263
+
+---
+
+附录I 实数理论
+
+乘法保序性: 若 a < b 及  $c > 0^{①}$ ，则 ac < bc.
+
+3. $F$ 中元素满足阿基米德性 对 $F$ 中任意两个正元素 $a, b$, 必存在自然数 $n$, 使得 $na > b^{②}$.
+
+有理数系 Q 满足上述所有条件,所以它是一个阿基米德有序域.我们现在的目标是:利用有理数作材料,构造出一个新的有序域,它不仅具有阿基米德性,而且能使确界原理得以成立,并把有理数作为它的一部分.特别当有理数作为新数进行运算时,仍保持其原来的运算规律,我们称这种新数为实数.用有理数构造新数的方法很多,如戴德金的分划说,康托尔的基本列说,区间套说,等等.本附录将向大家详细介绍戴德金分划说.
+
+## 二、分析
+
+我们称能使确界原理得以成立的有序域为具有完备性的有序域.读者已知有理数域 Q 不是完备的有序域,现在要把它扩充成一个具有完备性的有序域 R.
+
+不妨先假定这种 R 是存在的,然后看它应具有什么特性,尤其是新数与旧数(有理数)之间的关系如何?
+
+先介绍两个引理(证明可以暂时不看).
+
+引理 1 一个有序域如果具有完备性,则必具有阿基米德性.
+
+证 用反证法. 设 $\alpha, \beta$ 为域中正元素, 倘若序列 $\{n\alpha\}$ 中没有一项大于 $\beta$, 则序列有上界 ($\beta$ 就是一个). 因而由完备性假设, 存在 $\{n\alpha\}$ 的上确界 $\lambda$, 对一切自然数 $n$ 有 $\lambda \geqslant n\alpha^{③}$, 同时存在某个自然数 $n_0$, 使 $n_0\alpha > \lambda - \alpha$. 从而有
+
+$$
+(n _ {0} + 2) \alpha \leqslant \lambda <   (n _ {0} + 1) \alpha \text {或} \alpha <   0,
+$$
+
+这与假设 $\alpha > 0$ 矛盾. 所以完备的有序域必具有阿基米德性.
+
+引理 2 一个有序域, 如果具有阿基米德性, 则它的有理元素 $^{④}$ 必在该域中稠密. 即对有序域中任意两个不同的元素 $\alpha, \beta$, 在 $\alpha$ 与 $\beta$ 之间必存在一个有理元素 (从而存在无穷多个有理元素).
+
+证 设 $\alpha, \beta$ 为有序域中两个不同的元素，且 $\alpha < \beta$. 由阿基米德性，存在正整数 $N$，使得 $N(\beta - \alpha) > 1$ 或 $\frac{1}{N} < \beta - \alpha$. 令 $d = \frac{1}{N}$，它是一个有理数，再任取一个有理数 $\gamma_0 < \alpha$，在等差序列 $\{\gamma_0 + nd\}$ 中，由阿基米德性总有某项大于 $\alpha$，设在该序列中第一个大于 $\alpha$ 的项为 $\gamma_0 + n_0 d$，则该数就是所求的有理数，即 $\alpha < \gamma_0 + n_0 d < \beta$. 因为由 $n_0$ 的选择有 $\gamma_0 + (n_0 - 1)d \leqslant \alpha$，倘若 $\gamma_0 + n_0 d \geqslant \beta$，则这两个不等式相减将有 $d \geqslant \beta - \alpha$，这与 $d$ 的定义矛盾，从而得证.
+
+<small><span class="docvortex-page-footnote" data-block-type="page_footnote" style="color:#6b7280">① 若元素 $c$ 满足关系式 $c > 0$ ，则称 $c$ 为正元素；若满足关系式 $c < 0$ ，则称 $c$ 为负元素.</span></small>
+
+<small><span class="docvortex-page-footnote" data-block-type="page_footnote" style="color:#6b7280">②  $n(\text{自然数})$  个元素 a 相加, 记作  $na(=\underbrace{a+a+\cdots+a}_{n\text{个}})$ .</span></small>
+
+<small><span class="docvortex-page-footnote" data-block-type="page_footnote" style="color:#6b7280">③ 关系式  $a \leqslant b$  表示元素 a, b 之间有关系式 a < b 或 a = b.</span></small>
+
+<small><span class="docvortex-page-footnote" data-block-type="page_footnote" style="color:#6b7280">④ 任一阿基米德有序域都有一个与有理数域同构的子域, 其元素称为有理元素. 为此, 今后为叙述方便, 将对“有理元素”与“有理数”两种说法看作有相同含义而不加以区别. 如有理元素 $d$ 也说有理数 $d$.</span></small>
+
+264
+
+---
+
+附录I 实数理论
+
+由这两个引理看到,若存在完备的有序域 R,则有理数必在其中稠密.
+
+接下来分析 $\mathbf{R}$ 中新数（非有理数）与旧数（有理数）之间的关系.设 $\alpha \in \mathbb{R}$，但 $\alpha \notin \mathbb{Q}$. 那么任一 $\gamma \in \mathbb{Q}$，或者 $\gamma < \alpha$，或者 $\gamma >\alpha$，二者必居其一.令
+
+$$
+A = \{\gamma \in \mathbf {Q} | \gamma <   \alpha \}, A ^ {\prime} = \{\gamma \in \mathbf {Q} | \gamma > \alpha \}. \tag {1}
+$$
+
+这时 $A$ 与 $A'$ 满足下述三个条件:
+
+$1^{\circ}$ $A$ 和 $A^{\prime}$ 皆不空；
+
+$2^{\circ} \quad A \cup A' = \mathbf{Q}$;
+
+$3^{\circ}$ 若 $a \in A, a' \in A'$, 则 $a < a'$ (从而 $A \cap A' = \varnothing$).
+
+一般地,我们引入下面的定义:
+
+定义1 若 $A, A'$ 是满足上述三个条件的有理数集 $\mathbf{Q}$ 的子集, 则称序对 $(A, A')$ 为 $\mathbf{Q}$ 的一个分划, 并分别称 $A$ 和 $A'$ 为该分划的下类和上类.
+
+例如,对任一  $\gamma \in Q$ ,令
+
+$$
+A = \{x \in \mathbf {Q} \mid x <   \gamma \}, A ^ {\prime} = \mathbf {Q} \backslash A = \{x \in \mathbf {Q} \mid x \geqslant \gamma \},
+$$
+
+则 $(A, A')$ 显然是一个分划（我们称它为第一种分划）. 若令
+
+$$
+A = \{x \in \mathbf {Q} \mid x \leqslant \gamma \}, A ^ {\prime} = \mathbf {Q} \backslash A = \{x \in Q \mid x > \gamma \},
+$$
+
+这里 $(A,A')$ 显然也是一个分划(我们称它为第二种分划).这两个分划的特点是:第一种分划的上类有最小数,第二种分划的下类有最大数.此外还有第三种分划,它的上类无最小数,下类无最大数①.例如,
+
+$$
+A ^ {\prime} = \{x \in \mathbf {Q} \mid x > 0 \text {且} x ^ {2} > 2 \},
+$$
+
+$$
+A = \mathbf {Q} \backslash A ^ {\prime} = \{x \in \mathbf {Q} \mid x \leqslant 0 \quad \text {或} \quad (x > 0 \text {且} x ^ {2} <   2) \}.
+$$
+
+这也是一个分划,而且在这个分划里,A 中无最大数, $A'$ 中无最小数.这是因为,当 x>1 且 $x^{2}<2$ 时,对任何满足 $0<h<\frac{2-x^{2}}{2x+1}$ 的 h,有
+
+$$
+(x + h) ^ {2} = x ^ {2} + 2 x h + h ^ {2} <   x ^ {2} + 2 x h + h <   x ^ {2} + 2 - x ^ {2} = 2.
+$$
+
+可见 $A$ 中无最大数.类似地，设 $x > 0$ 且 $x^{2} > 2$ ，则对任何满足 $0 < h < \frac{x^2 - 2}{2x}$ 的 $h$ ，有
+
+$$
+(x - h) ^ {2} = x ^ {2} - 2 x h + h ^ {2} > x ^ {2} - 2 x h > 2.
+$$
+
+可见  $A'$  中无最小数.
+
+第三种分划的存在说明有理数集尽管稠密,但仍有空隙.容易看出,填补上例中空隙的正是无理数 $\sqrt{2}$ .
+
+现在回头来看上面由新数 $\alpha$ 所产生的分划(1)，究竟属于哪一种.很清楚，如果 $A$ 有最大数或 $A^{\prime}$ 有最小数，则该最大数或最小数与 $\alpha$ 之间将不存在任何有理数，从而与引理2矛盾，所以由 $\alpha$ 所产生的分划 $(A,A^{\prime})$ 必为第三种分划.反之，设 $(A,A^{\prime})$ 是 $\mathbf{Q}$ 的任一第三种分划，它是否必由某一新数 $\alpha$ 产生呢？首先 $A$ 与 $A^{\prime}$ 之间必至少有一新数存在，否则 $A$ 作为 $\mathbf{R}$ 的有上界的子集将没有上确界（最小上界），这与 $\mathbf{R}$ 的完备性相矛盾.其次，$A$ 与 $A^{\prime}$ 之间也只能有一个新数，倘若有两个新数，则在这两个数之间又将不存在任何有理数，这又与引理2相矛盾.设这唯一的新数为 $\alpha$ ，则分划 $(A,A^{\prime})$ 只能由 $\alpha$ 所
+
+<small><span class="docvortex-page-footnote" data-block-type="page_footnote" style="color:#6b7280">① 由有理数本身的稠密性, 不可能存在上类有最小数, 同时下类有最大数的分划.</span></small>
+
+265
+
+---
+
+附录I 实数理论
+
+产生而且也是反过来确定 $\alpha$ 的.这样就获得如下重要结果:如果 $\mathbf{Q}$ 能扩充成完备的有序域 $\mathbf{R}$,则 $\mathbf{R}$ 中的新数与 $Q$ 中的第三种分划必一一对应.
+
+这样一来,只要知道 Q 的所有第三种分划,就可以知道 R 上的序,这是因为不仅新数与旧数可比较大小,新数与新数也可以比较大小.一旦知道了 R 上的序,就可从 Q 内已知的四则运算推知 R 上的四则运算.这是因为在有序域上序与加法、乘法运算是协调的.此外,也不难看到:若存在 Q 的完备扩充的话,则这种扩充基本上(即在序同构意义下)是唯一的.所有这些虽然我们不打算作深入地讨论,但必须认识到有上述事实,才有助于对以下内容的理解.
+
+## 三、分划全体所成的有序集
+
+现在不再假设 $\mathbf{R}$ 的存在,而是要把它真正地构造出来.我们设想,对每一个可能的$\mathbf{Q}$ 的第三种分划,都定义一个新数来填补空隙.由于这种分划与新数是一一对应的,因此,不妨干脆就把分划本身用来充当新数,这是允许的.因为归根到底数学对象本身究竟是什么并不重要,重要的是它们之间的关系和运算.而且为统一起见,我们也用分划形式来表示相应的旧数(正如把整数扩充到有理数时,也可用假分数来表示整数那样).于是我们就把注意力转到 $\mathbf{Q}$ 的分划的全体上去.
+
+定义 2 Q 的分划的全体称为分划集, 以 R 表示, 其中第一种分划和第二种分划看作是同一种分划, 即由同一个 r 产生的第一种分划和第二种分划不加区别地看作同一分划, 称为有端分划 $^{①}$ , 并用  $r^{*}$  记这个分划. 第三种分划称为无端分划. 今后凡分划, 不论有端还是无端, 都用小写希腊字母来表示, 如  $\alpha = (A, A')$ ,  $\beta = (B, B')$  等 (小写拉丁字母则用来表示有理数).
+
+由于任一分划均由它的上、下两类中的任何一类完全确定,因此,给定了分划的一个类,也就完全确定了该分划.Q的怎样的子集才能成为一个分划的类呢?对此有如下命题:
+
+定理1(类的标志) Q 的非空子集 $M$ 能成为一个分划的上(下)类的充要条件是:
+
+$1^{\circ}$ $M\neq \mathbf{Q}$
+
+$2^{\circ}$ 若 $x \in M$，且 $y > x (y < x)$，则 $y \in M$.
+
+证 只需证充分性. 设 $M$ 满足条件, 则 $M$ 与 $\mathbf{Q} \setminus M$ 不空. 令 $A = M, A' = \mathbf{Q} \setminus M$, 则 $(A, A')$ 满足分划的前两个条件. 设 $x \in A, y \in A'$, 由 $A'$ 的定义不可能有 $y = x$. 再由 $2^\circ$ 它也不可能有 $y < x$, 因而必有 $y > x$, 即分划的第三个条件也满足.
+
+推论 不论是上类还是下类, 若 a, b 属于它, 则 a, b 之间的有理数都属于它.
+
+定义3 设 $\alpha = (A, A')$, $\beta = (B, B')$ 为任意两个分划, 我们说: 在 $A, B$ 无端 (通过调整总可以办到) 的情形下, 若 $A \subset B$, 则有 $\alpha < \beta$; 若 $A = B$, 则有 $\alpha = \beta$; 若 $A \supset B$, 则有 $\alpha > \beta$.
+
+定理 2 定义3中的关系“<”是全序的, 即满足下述条件:
+
+$1^{\circ}$ 若 $\alpha < \beta, \beta < \gamma$，则 $\alpha < \gamma$（传递性）；
+
+$2^{\circ}\quad\alpha<\beta,\alpha=\beta,\alpha>\beta$ 三者必居其一，且仅居其一（三歧性）.
+
+<small><span class="docvortex-page-footnote" data-block-type="page_footnote" style="color:#6b7280">① 这里“端”是指上类的最小数或下类的最大数.</span></small>
+
+266
+
+---
+
+附录I 实数理论
+
+证 $1^{\circ}$ 是显然的. 现在证明 $2^{\circ}$ (三歧性). 如果 $A \neq B$, 且 $A \not\subset B$, 则必存在某个 $a \in A$, 同时 $a \in B'$. 由后一关系及分划定义, 对任何 $b \in B$ 都有 $a > b$. 再由定理 1 得 $B \subset A$. $\square$
+
+注意 如果不限制下类无端,则对同一个有端分划将出现第一种分划小于第二种分划的不合理现象.
+
+读者容易证明如下命题.
+
+定理3 $1^{\circ}$ 设 $\alpha = (A, A')$，对任何 $a \in A$，$a$ 对应的分划记为 $a^{*}$，则有 $a^{*} \leqslant \alpha$，对任何 $b \in A'$，有 $b^{*} \geqslant \alpha$。反之，由 $a^{*} < \alpha$ 有 $a \in A$，由 $b^{*} > \alpha$ 有 $b \in A'$。
+
+$2^{\circ}$ 对任意 $\alpha, \beta$，当 $\alpha < \beta$ 时，存在 $r \in \mathbf{Q}$，使得 $\alpha < r < \beta$（这说明有端分划在 $\mathbf{R}$ 中稠密）.
+
+定理 4(戴德金定理,或称实数的连续性定理) 设 A 与  $A'$  为 R 的子集, 它满足如下条件:
+
+$1^{\circ}$  A 与  $A'$  均不空；
+$2^{\circ} \quad A \cup A' = \mathbf{R}$;
+$3^{\circ}$ 若 $\alpha \in A, \alpha' \in A'$, 则 $\alpha < \alpha'$.
+
+则或者 $A$ 有最大元, 或者 $A'$ 有最小元 (称序对 $(A, A')$ 为 $\mathbf{R}$ 的一个分划).
+
+证 令 $A = \{r \in \mathbf{Q} | r^* \in A\}, A' = \{r \in \mathbf{Q} | r^* \in A'\}$, 则 $\alpha = (A, A')$ 为 $\mathbf{Q}$ 的一个分划. 设 $\beta < \alpha$, 由定理3的 $2^\circ$, 存在 $r \in \mathbf{Q}$, 使得 $\beta < r^* < \alpha$. 由 $r^* < \alpha$ 及定理3的 $1^\circ$ 有 $r \in A$. 又由 $\beta < r^*$, 根据类的标志①知道 $\beta \in A$. 同样由 $\beta > \alpha$, 可得 $\beta \in A'$. 但 $\alpha$ 本身作为 $\mathbf{Q}$ 的一个分划, 也是 $\mathbf{R}$ 的元素, 故不属于 $A$, 必属于 $A'$. 若 $\alpha \in A$, 则 $\alpha$ 为 $A$ 的最大元, 否则为 $A'$ 的最小元.
+
+因为以后将把 R 看作是实数集, 所以本定理是说: 实数集无空隙, 或更通俗地说: 如果将实数集看作一条直线, 并用一把没有厚度的理想的刀来砍它, 那么不论砍在哪里, 总要碰到直线上的一点. 戴德金称实数的这个性质为连续性, 但有的书也称它为实数的连通性.
+
+定理 5(实数的完备性定理) 设 M 为 R 中有上界的子集, 则 M 在 R 中有上确界. 即 M 在 R 中全体上界所组成的集合有最小元.
+
+证 令 $M$ 在 $\mathbf{R}$ 中全体上界组成的集合为 $A'$, 令 $A = \mathbf{R} \setminus A'$. 则 $(A, A')$ 为 $\mathbf{R}$ 的一个分划. 由戴德金定理, 或者 $A$ 有最大元, 或者 $A'$ 有最小元. 因为 $A$ 中任一元素 $a$ 都不是 $M$ 的上界, 故存在 $M$ 中某一元素 $m$, 使 $a < m$. 由定理3的 $2^\circ$, 存在 $a_1$, 使得 $a < a_1 < m$, 即 $a_1 \in A$, 于是 $A$ 无最大元. 因而 $A'$ 一定有最小元.
+
+## 四、R中的加法
+
+在定义 R 中的加法之前, 先证明一个引理.
+
+引理3 对任何 $\mathbf{Q}$ 的分划 $(A, A')$ 及任何有理数 $k > 0$, 存在 $a \in A, a' \in A'$, 使得 $a' - a = k$.
+
+证 设 $c \in A, c' \in A'$. 由阿基米德性, 在等差序列 $\{c + nk\}$ 中必有大于 $c'$ 的项, 设 $c + n_0k$ 是该序列中第一个大于 $c'$ 的项, 则 $c + n_0k \in A'$, 而 $c + (n_0 - 1)k \in A$, 故分别取它们为
+
+<small><span class="docvortex-page-footnote" data-block-type="page_footnote" style="color:#6b7280">① 在定理1中如果将Q改为R,其结论仍然成立.当然这里只用到它的必要条件部分.</span></small>
+
+267
+
+---
+
+附录I 实数理论
+
+$a^{\prime}$ 与 $a$ 时，其差正是 $k$.
+
+设 $X, Y$ 为两个数集，我们用 $X + Y, X \cdot Y$ 和 $-X$ 分别表示 $\{x + y \mid x \in X, y \in Y\}, \{x \cdot y \mid x \in X, y \in Y\}$ 和 $\{-x \mid x \in X\}$.
+
+定义4 设 $\alpha = (A, A')$, $\beta = (B, B')$，我们定义 $\alpha + \beta = (C, C')$，其中 $C = A + B$，从而 $C' = \mathbf{Q} \setminus C$.
+
+这里必须指出, 定义 4 中的  $(C, C')$  确是 Q 的一个分划, 因为 C 非空,  $C \neq Q$ , 设  $x \in A, y \in B, z < x + y$ . 这时令  $x_{1} = x - \frac{x + y - z}{2}, y_{1} = y - \frac{x + y - z}{2}$ , 则  $x_{1} \in A, y_{1} \in B$  且  $z = x_{1} + y_{1}$ , 故 C 确是这一分划的下类.
+
+当然,我们也可以从定义  $C' = A' + B'$  入手.读者可以验证这两个定义的一致性,即它们至多相差一个端.
+
+定理 6 R 中的加法具有下列性质: 对任何  $\alpha, \beta, \gamma \in R$ ,
+
+$1^{\circ}\quad \alpha +\beta = \beta +\alpha$ （交换律）， $(\alpha +\beta) + \gamma = \alpha +(\beta +\gamma)$ （结合律）.
+$2^{\circ}$ 存在零元 $\mathbf{0}^{①}$, 对任何 $\alpha \in \mathbb{R}$, 有 $\alpha + \mathbf{0} = \alpha$.
+$3^{\circ}$ 对任何 $\alpha \in \mathbf{R}$, 存在反元 $-\alpha \in \mathbf{R}$, 使得 $\alpha + (-\alpha) = 0$.
+$4^{\circ}$ 若 $\alpha < \beta$ ，则 $\alpha + \gamma < \beta + \gamma$ （加法的单调性）.
+
+证  $1^{\circ}$  显然.
+
+$2^{\circ}$ 以一切负有理数为下类的 $0^{*}$ 满足零元要求.事实上，设 $A$ 为 $\alpha$ 的下类，则对任一 $x\in A$ 及 $y < 0$ ，都有 $x + y < x$ ，故 $x + y\in A$ ，从而 $\alpha +0^{*}\leqslant \alpha .$ 另一方面.若 $A$ 无端，则对任何$x\in A$ ，存在 $x_{1} > x$ ，且 $x_{1}\in A.$ 从而 $x = x_{1} + (x - x_{1})$ ，其中 $x - x_{1} <   0.$ 于是又有 $\alpha +0^{*}\geqslant \alpha .$ 这就得到 $\alpha +0^{*} = \alpha .$ 由于零元的唯一性②，今后将一直把 $0^{*}$ 写作0.
+$3^{\circ}$ 设 $\alpha = (A, A')$，现在证明 $(-A', -A)$ 满足要求，易见 $(-A', -A)$ 是一个分划。暂将它写作 $-\alpha$。由于 $A + (-A') = A - A'$ 中的元素恒为负有理数，故 $\alpha + (-\alpha) \leqslant 0$。另一方面，由引理3，对任给的 $\varepsilon > 0$，总存在 $A'$ 中的数 $a'$ 与 $A$ 中的数 $a$，使得 $0 \leqslant a' - a < \varepsilon$，故有 $\alpha + (-\alpha) \geqslant 0$。从而得 $\alpha + (-\alpha) = 0$。由于反元的唯一性。今后将一直把 $(-A', -A)$ 写作 $-\alpha$。
+$4^{\circ}$ 设 $\alpha < \beta$ ，由定义 $A \subset B.$ 于是有 $A + C \subseteq B + C$ ，所以 $\alpha + \gamma \leqslant \beta + \gamma.$ 另一方面，倘若 $\alpha + \gamma = \beta + \gamma$ ，则两边各加 $-\gamma$ 将有 $\alpha = \beta.$ 这与假设相矛盾，故应有 $\alpha + \gamma < \beta + \gamma.$
+
+## 五、R中的乘法
+
+在定义 R 中乘法之前先介绍一个与引理 3 相类似的定理.
+
+定理7 对任何分划 $\alpha = (A, A') > 0$ 及任何有理数 $k > 1$, 存在 $a \in A, a' \in A'$, 使得 $\frac{a'}{a} = k$.
+
+证 与引理3的证明相仿,只需将那里的等差序列改用等比序列 $\{ck^{n}\}$ 就可以了.
+
+<small><span class="docvortex-page-footnote" data-block-type="page_footnote" style="color:#6b7280">① 这里 0 表示 R 中零元, 以区别 Q 中零元 0, 当把 R 中零元等同于 Q 中零元后, 就统一用 0 表示零元, 下一段 R 中单位元也用同样的表示方式.</span></small>
+
+<small><span class="docvortex-page-footnote" data-block-type="page_footnote" style="color:#6b7280">② 设  $0_{1}$  和  $0_{2}$  为两个零元，由于  $0_{1}=0_{1}+0_{2}=0_{2}+0_{1}=0_{2}$ ，所以零元是唯一的。用同样的方法读者可证反元和下一段讲到的逆元也具有唯一性。</span></small>
+
+268
+
+---
+
+附录I 实数理论
+
+定义5 设 $\alpha = (A, A')$，则在 $A, A'$ 两类中有一个且仅有一个不包含0，也就是说该类中元素皆同号，我们称这个类为分划 $\alpha$ 的同号类，记作 $\overline{A}$.
+
+由定义5可见, 当  $\alpha > 0$  时, 其同号类是上类, 当  $\alpha < 0$  时, 则下类为其同号类, 若  $\alpha = 0$ , 则不定.
+
+定理8（同号类的标志）Q的不空子集 $M$ 成为某分划的同号类的充要条件是:
+
+$1^{\circ}$  M 中只含同号的数.
+
+$2^{\circ}$ 若 $x \in M$，则对任何正有理数 $h, x(1 + h) \in M$.
+
+这个定理的证明读者容易自行推得.
+
+定义6 设 $\alpha$ 的同号类为 $\overline{A}, \beta$ 的同号类为 $\overline{B}$, 我们定义 $\alpha \cdot \beta$ 为 $\{x \cdot y | x \in \overline{A}, y \in \overline{B}\}$, 也就是 $\overline{A} \cdot \overline{B}$ 为其同号类的分划.
+
+注意定义6中的 $\overline{A} \cdot \overline{B}$ 确实是某个分划的同号类. 因为由定理7(同号类的标志)知满足 $1^{\circ}$ 是显然的. 又若 $xy \in \overline{A} \cdot \overline{B}$, 则由于
+
+$$
+(1 + h) = \left(1 + \frac {h}{2 + h}\right) \cdot \left(1 + \frac {h}{2}\right),
+$$
+
+有
+
+$$
+x y (1 + h) = x \bigg (1 + \frac {h}{2 + h} \bigg) \cdot y \bigg (1 + \frac {h}{2} \bigg).
+$$
+
+由同号类标志右边属于  $\overline{A} \cdot \overline{B}$ ，故左边亦属于它，即  $2^{\circ}$  也满足.
+
+定理 9 R 中的乘法具有下列性质: 对任何  $\alpha, \beta, \gamma \in R$ ,
+
+$1^{\circ}\quad\alpha\cdot\beta=\beta\cdot\alpha(\text{交换律}),(\alpha\cdot\beta)\gamma=\alpha(\beta\cdot\gamma)(\text{结合律}).$
+
+$2^{\circ}$  同号相乘得正,异号相乘得负 $^{①}$ ,乘0得0.
+
+$3^{\circ}\quad(\alpha+\beta)\gamma=\alpha\gamma+\beta\gamma(分配律).$
+
+$4^{\circ}$  存在单位元1,它对任何  $\alpha$  都有  $\alpha \cdot 1 = \alpha$ .
+
+$5^{\circ}$ 对任何 $\alpha \neq 0$ ，存在逆元 $\alpha^{-1}$ 使 $\alpha \cdot \alpha^{-1} = 1.$
+
+$6^{\circ}$ 若 $\alpha < \beta$ 且 $\gamma > 0$, 则 $\alpha \gamma < \beta \gamma$.
+
+证 $1^{\circ}$ 显然.
+
+$2^{\circ}$ 易见当 $\alpha, \beta$ 同号时，有 $\alpha \cdot \beta \geqslant 0$ ，当 $\alpha, \beta$ 异号时，则有 $\alpha \cdot \beta \leqslant 0.$ 现在只需证明 $\alpha, \beta$ 均不为0时，$\alpha \cdot \beta \neq 0.$ 事实上，如果 $\alpha, \beta \neq 0$ ，则在0与 $\overline{A}$ 之间必存在某有理数 $a$ ，同样在0与 $\overline{B}$ 之间也必存在某有理数 $b.$ 因而 $a \cdot b$ 必在0与 $\overline{A} \cdot \overline{B}$ 之间，也就是说 $\alpha \cdot \beta \neq 0.$
+
+$3^{\circ}$ （i）先假定 $\alpha, \beta$ 同号，且 $\gamma \neq 0$. 我们只需证明 $(\alpha + \beta)\gamma = \alpha\gamma + \beta\gamma$ 两边有相等的同号类即可. 由于两个同号分划的和的同号类等于它们的同号类的和，因此有下列一连串的等式:
+
+$$
+\begin{array}{l} \overline {{(A + B) C}} = \overline {{(A + B)}} \cdot \overline {{C}} = (\overline {{A}} + \overline {{B}}) \cdot \overline {{C}} = \overline {{A}} \cdot \overline {{C}} + \overline {{B}} \cdot \overline {{C}} \\ = \overline {{A C}} + \overline {{B C}} = \overline {{A C + B C}}. \\ \end{array}
+$$
+
+这里只有中间那个等式需要说明一下,等式左边和右边的一般项分别为
+
+<small><span class="docvortex-page-footnote" data-block-type="page_footnote" style="color:#6b7280">① 同有理数一样, 若  $\alpha > 0$ , 则称  $\alpha$  为正元; 若  $\alpha < 0$ , 则称  $\alpha$  为负元.</span></small>
+
+269
+
+---
+
+附录I 实数理论
+
+$$
+(a + b) c \text {和} a c _ {1} + b c _ {2}, \text {其中} a \in \overline {{A}}, b \in \overline {{B}}, c, c _ {1}, c _ {2}, \in \overline {{C}}.
+$$
+
+显然前者是后者的特例.但由于 $a$ 与 $b$ 同号，$ac_{1} + bc_{2}$ 必然在 $(a + b)c_{1}$ 与 $(a + b)c_{2}$ 之间，故后者也是前者的特例.从而等式成立.
+
+（ii）对于一般情况，当 $\alpha, \beta, \gamma$ 和 $\alpha + \beta$ 皆不为0时，可如下证明. 设 $\alpha, \beta$ 不同号. 对等式 $\alpha + \beta = (\alpha + \beta)$ 作移项得 $(\alpha + \beta) + (-\alpha) = \beta$ 或 $(\alpha + \beta) + (-\beta) = \alpha$. 这两个式子中总有一个左边有两个同号的被加项，不妨设是其中第一式，那么对该式应用(i)并利用关系 $(- \alpha) \gamma = -\alpha \gamma^{①}$ 再作一次移项就行了. 若 $\alpha, \beta$ 中有一个为0，那就更不成问题了.
+
+$4^{\circ} 1^{*}$ 满足作为单位元的要求.事实上， $1^{*}$ 的同号类为 $\{1 + h \mid h \in \mathbf{Q}$ 且 $h > 0\}$. 设 $\overline{A}$ 为 $\alpha$ 的同号类，$x$ 为 $\overline{A}$ 中任一数，$h > 0$，则 $\overline{A} \cdot \overline{1}^{*}$ 之一般项为 $x(1 + h)$. 又由 $\overline{A}$ 为同号类，所以 $x(1 + h) \in \overline{A}$，从而 $\overline{A} \cdot \overline{1}^{*} \subset \overline{A}$. 另一方面，假设 $\overline{A}$ 无端，则对任何 $x \in \overline{A}$，存在 $x' \in \overline{A}$，使 $\frac{x}{x'} > 1$，从而 $x = x' \cdot \frac{x}{x'}$，这里 $\frac{x}{x'} \in \overline{1}^{*}$，故又有 $\overline{A} \subset \overline{A} \cdot \overline{1}^{*}$，这就推得 $\alpha \cdot 1^{*} = \alpha$. 由于单位元的唯一性，今后将 $1^{*}$ 写作 1.
+
+$5^{\circ}$ 设 $\alpha \neq 0$ ，且 $\alpha$ 的同号类为 $\overline{A}$. 现在证明以
+
+$$
+\overline {{{A}}} ^ {- 1} = \{y ^ {- 1} \mid y \text {在} 0 \text {与} \overline {{{A}}} \text {之间} \}
+$$
+
+为同号类的分划满足逆元的要求. 首先易见它是一个分划, 暂把它写作 $\alpha^{-1}$. 对 $x \in \overline{A}$, $y^{-1} \in \overline{A}^{-1}$ 有 $xy^{-1} > 1$, 故 $\alpha \cdot \alpha^{-1} = 1$. 又由引理3知存在 $x \in \overline{A}, y^{-1} \in \overline{A}^{-1}$, 使 $xy^{-1}$ 和1可接近到事先指定的任何程度, 故 $\alpha \cdot \alpha^{-1} \leqslant 1$. 从而等式成立. 我们今后将 $\alpha$ 的逆元写作 $\alpha^{-1}$.
+
+$6^{\circ}$ 设 $\alpha < \beta$, 由加法性质 $4^{\circ}$, 两边各加 $-\alpha$ 得 $\beta - \alpha > 0$. 由于过程可逆知道: $\alpha < \beta$ 当且仅当 $\beta - \alpha > 0$. 因分配律对差也成立②, 有 $(\beta - \alpha)\gamma = \beta \gamma - \alpha \gamma$. 再由正乘正得正, 故 $\beta \gamma - \alpha \gamma > 0$. 从而又有 $\alpha \gamma < \beta \gamma$.
+
+## 六、R 作为 Q 的扩充
+
+通过对应 $r \leftrightarrow r^{*}$, $\mathbf{Q}$ 与 $\mathbf{R}$ 的子集 $\mathbf{Q}^{*}$ 之间建立了一对一的映射.
+
+定理 10 对于 Q 与 R 的子集  $Q^{*}$  之间的映射  $r \leftrightarrow r^{*}$ ，具有如下性质:
+
+$1^{\circ}$ 保序性 即 $a < b (a = b)$ 当且仅当 $a^{*} < b^{*}(a^{*} = b^{*})$.
+
+$2^{\circ}$  保持加法和乘法两个运算, 即
+
+$$
+(a + b) ^ {*} = a ^ {*} + b ^ {*}, (a \cdot b) ^ {*} = a ^ {*} \cdot b ^ {*}.
+$$
+
+证 关于保序性是显然的,故只证后一结论.
+
+关于加法,我们比较下类.由于
+
+$$
+(a + b) ^ {*} \text {的下类} = \{z \mid z <   a + b \},
+$$
+
+$$
+a ^ {*} + b ^ {*} \text {的下类} = \{x + y \mid x <   a, y <   b \}.
+$$
+
+因 $x < a, y < b$ 时有 $x + y < a + b$, 故 $a^{*} + b^{*} \subset (a + b)^{*}$. 另一方面, 因任一 $z < a + b$ 恒可表示为 $z = \left(a - \frac{a + b - z}{2}\right) + \left(b - \frac{a + b - z}{2}\right)$, 故相反的包含关系也成立.
+
+关于乘法,比较它们的同号类.由于
+
+<small><span class="docvortex-page-footnote" data-block-type="page_footnote" style="color:#6b7280">① 这实际上是  $\alpha + \beta = 0$  时的特例, 它可由比较两边同号类而得到.</span></small>
+
+<small><span class="docvortex-page-footnote" data-block-type="page_footnote" style="color:#6b7280">② $(\alpha -\beta)\gamma +\beta \gamma = [( \alpha -\beta) + \beta ]\cdot \gamma = \alpha \cdot \gamma$ ，等式两边加 $(- \beta \gamma)$ 即得 $(\alpha -\beta)\gamma = \alpha \gamma -\beta \gamma .$</span></small>
+
+270
+
+---
+
+附录I 实数理论
+
+$$
+(a \cdot b) ^ {*} \text {的同号类} = \{a b (1 + h) \mid h > 0 \},
+$$
+
+$$
+a ^ {*} \cdot b ^ {*} \text {的同号类} = \{a (1 + s) \mid s > 0 \} \cdot \{b (1 + t) \mid t > 0 \},
+$$
+
+$(1+s)(1+t)>1$ , 故
+
+$$
+a ^ {*} \cdot b ^ {*} \text {的同号类} \subset (a \cdot b) ^ {*} \text {的同号类}.
+$$
+
+另一方面，因 $(1 + h) = \left(1 + \frac{h}{2 + h}\right)\left(1 + \frac{h}{2}\right)$，故相反的包含关系也成立.
+
+这个定理说明,在这个映射下 Q 与  $Q^{*}$  具有同构关系,从而可以把它们等同起来,把 R 看作是 Q 的扩充,把无端分划称为无理数,称 R 为实数集.
+
+最后一项工作是必须指出 R 中运算的唯一性.
+
+定理 11 在 R 中的加、乘、求反元、求逆元等运算是唯一的, 即从等价的分划出发, 得到的结论也是等价的, 且只能在有端分划的情形下出现形式上的差异.
+
+证 仅就乘法来证明. 设 $\overline{A}, \overline{B}$ 分别为 $\alpha, \beta$ 的同号类. 为简便起见, 设 $\overline{A}$ 有端为 $a, \overline{B}$ 无端. 我们证明 $\overline{A} \cdot \overline{B} = \overline{A}^{\circ} \overline{B}$ (这里 $\overline{A}^{\circ}$ 表示去掉端的 $\overline{A}$). 由于 $\overline{A} \cdot \overline{B} = a \cdot \overline{B} \cup \overline{A}^{\circ} \overline{B}$, 所以只需指出 $a \cdot \overline{B} \subset \overline{A}^{\circ} \overline{B}$ 即可. 事实上, 对任一 $b \in \overline{B}$, 由于 $\overline{B}$ 无端, 故当 $h$ 充分小时, $\frac{b}{1 + h} \in \overline{B}$. 又因 $a \cdot b = a(1 + h) \frac{b}{1 + h}$, 而 $a(1 + h) \in \overline{A}^{\circ}$, 可见 $a \cdot b \in \overline{A}^{\circ} \overline{B}$. 因此, 只有 $\overline{A}, \overline{B}$ 皆无端时, $\overline{A} \cdot \overline{B}$ 才会比 $\overline{A}^{\circ} \cdot \overline{B}^{\circ}$ 多出一个 $a \cdot b$.
+
+由于每一分划都是由它的下类或上类来确定的,因此,完全可由全体分划的下类(或上类)所组成集合 $R'$ 来代替原来的分划集.不仅如此,当用下类(或上类)来定义实数时,也可以硬性规定统一的形式.如规定下类(或上类)一律无端来达到表示的唯一性.但不管采用哪一种方式,都可以相应地定义序和运算来达到相同的扩充目的.
+
+## 七、实数的无限小数表示①
+
+为了实用的目的,人们需要给实数一种方便的表示形式,使它既易于比较大小,又便于运算和估计以至达到任意精确的程度,无限小数就是这样的一种表示形式.
+
+定理 12 对任一实数  $\gamma\in[0,1)$  都唯一地对应着一个整数数列  $\{c_{n}\}$ ，其中  $c_{n}$  为 0， $1,\cdots,9$  中的某一数，且有无限个  $c_{n}<9$ ，使得有理数列  $\{a_{n}\}(a_{n}=0.c_{1}\cdots c_{n}②)$  满足不等式
+
+$$
+a _ {n} \leqslant \gamma <   a _ {n} + 1 0 ^ {- n}, n = 1, 2, \dots . \tag {2}
+$$
+
+反之，任一满足上述关于 $c_{n}$ 条件的整数数列 $\{c_n\}$，必存在唯一实数 $\gamma \in [0,1)$，使不等式(2)成立.
+
+证 首先证明, 若实数  $\gamma \in [0,1)$ , 则存在整数数列  $\{c_{n}\}$  且满足不等式(2). 为此, 将闭区间  $[0,1]$  十等分, 令  $0.c_{1}$  为分点:  $0, 0.1, \cdots, 0.9$  (不考虑右端点) 中不超过  $\gamma$  的最大数, 于是  $0.c_{1} \leqslant \gamma < 0.c_{1} + 10^{-1}$ . 再对区间  $[0.c_{1}, 0.c_{1} + 10^{-1}]$  十等分, 令  $0.c_{1}c_{2}$  为分点:
+
+<small><span class="docvortex-page-footnote" data-block-type="page_footnote" style="color:#6b7280">① 在本段中只用到实数域的性质(主要是阿基米德性和区间套定理),而与实数的具体定义方式无关.因此本段可独立阅读.</span></small>
+
+<small><span class="docvortex-page-footnote" data-block-type="page_footnote" style="color:#6b7280">② 在此采取了通常十进位小数记法，即  $0.c_{1}\cdots c_{n}=\sum_{k=1}^{n}\frac{c_{k}}{10^{k}}$ .</span></small>
+
+271
+
+---
+
+附录I 实数理论
+
+$0.c_{1},0.c_{1}1,\cdots,0.c_{1}9$ （不考虑右端点）中不超过 $\gamma$ 的最大数，于是 $0.c_{1}c_{2}\leqslant\gamma<0.c_{1}c_{2}+10^{-2}$ . 照此无限进行下去，它的第n步便是(2)式.
+
+还要证明在所有 $c_{n}$ 中，必有无限多个小于9.事实上，假如当 $n > r$ 后均有 $c_{n} = 9$ ，则这时出现
+
+$$
+a _ {n} = 0. c _ {1} \dots c _ {r} 9 \dots 9.
+$$
+
+由于 $\gamma \geqslant a_{n}$ ，将有
+
+$$
+\gamma - a _ {r} \geqslant \frac {1}{1 0 ^ {r}} \sum_ {k = 1} ^ {n - r} \frac {9}{1 0 ^ {k}} = \frac {1}{1 0 ^ {r}} \bigg (1 - \frac {1}{1 0 ^ {n - r}} \bigg).
+$$
+
+这表明当 $n$ 充分大时上式右边可任意接近于 $10^{-r}$, 但由(2) $\gamma - a_r$ 应为小于 $10^{-r}$ 的定数, 矛盾!
+
+其次证明 $\gamma$ 的存在性. 设 $\{c_n\}$ 满足定理中关于 $c_n$ 的条件, 显然 $\{a_n\}$ 为递增数列. 令 $a_n + 10^{-n} = b_n$, 则因
+
+$$
+b _ {n - 1} - b _ {n} = 1 0 ^ {- (n - 1)} - (c _ {n} + 1) 1 0 ^ {- n} \left\{ \begin{array}{l l} = 0, \text {当} c _ {n} = 9, \\ > 0, \text {当} c _ {n} <   9 \end{array} \right.
+$$
+
+可知 $\left[a_{n},b_{n}\right],n=1,2,\cdots$ 构成区间套.又因 $b_{n}-a_{n}=10^{-n}\rightarrow0(n\rightarrow\infty)$ ，故由区间套定理，存在唯一实数 $\gamma$ ，满足 $a_{n}\leqslant\gamma\leqslant b_{n},n=1,2,\cdots$ .但因有无限多个 $c_{n}<9$ ，从而 $\{b_{n}\}$ 中无最小项.因此对任何 $n,\gamma\neq b_{n}$ ，这样就得到(2).
+
+最后证明对应的唯一性.先证明不同实数对应不同的数列.事实上,若实数  $\gamma,\delta$  都对应同一数列  $\{c_{n}\}$ , 则由(2)可得不等式  $|\gamma-\delta|<10^{-n}$  对任何 n 成立, 从而有  $\gamma=\delta$ . 再证明不同的数列为不同的实数所对应. 设  $\gamma$  对应于  $\{c_{n}\}$ ,  $\delta$  对应于  $\{d_{n}\}$ . 如果当 n<r 时,  $c_{n}=d_{n}$ , 但  $c_{r}<d_{r}$ , 则由(2)有
+
+$$
+\gamma <   0. c _ {1} \dots c _ {r} + 1 0 ^ {- r} \quad \text {及} \quad \delta \geqslant 0. c _ {1} \dots c _ {r - 1} d _ {r},
+$$
+
+故由 $c_{r} < d_{r}$ 就得到 $\gamma < \delta$. 从而不同的数列对应的实数也不同.
+
+现在利用定理 12 的结果给  $[0,1)$  内的任一实数一种方便的记法:
+
+$$
+\gamma = 0. c _ {1} c _ {2} \dots .
+$$
+
+它不外乎是定理 12 中那一列不等式的缩写,有了这个记法,任何实数都可写作
+
+$$
+\gamma = c _ {0} + 0. c _ {1} c _ {2} \dots ①, \tag {3}
+$$
+
+其中 $c_{0}$ 为整数.(3)式称为实数 $\gamma$ 的无限小数表示，而有限小数
+
+$$
+c _ {0} + 0. c _ {1} \dots c _ {n} \quad \text {和} \quad c _ {0} + 0. c _ {1} \dots c _ {n} + 1 0 ^ {- n}
+$$
+
+分别称为  $\gamma$  的 (n 阶) 不足近似值和过剩近似值, 它们一起构成足以确定  $\gamma$  的区间套.
+
+## 八、无限小数四则运算的定义
+
+我们将应用无限小数递增有界数列必“稳定”于某个小数这一重要性质来建立无限小数的四则运算.以下讨论的都是非负小数.
+
+设
+
+$$
+x _ {1}, x _ {2}, \dots , x _ {n}, \dots \tag {4}
+$$
+
+<small><span class="docvortex-page-footnote" data-block-type="page_footnote" style="color:#6b7280">① 如果 $c_{n}$ 从某项起均为0，可将这些0省略而得到有限小数.又若 $c_{0} \geqslant 0$ ，还可简单地写作 $\gamma = c_{0}, c_{1}c_{2}\dots$.</span></small>
+
+272
+
+---
+
+附录I 实数理论
+
+是小数数列, 若对所有  $k=1,2,\cdots$ , 有  $x_{k}\leqslant x_{k+1}$ , 数列(4)称为递增数列. 若存在整数 M, 使对于所有  $k=1,2,\cdots$ , 有  $x_{k}\leqslant M$ , 则称数列(4)有上界.
+
+若数列的项 $x_{n}$ 都是整数，并能找到 $n_0$ ，对所有 $n > n_0$ ，有 $x_{n} = \xi$ ，则称数列稳定于 $\xi$ 容易看出，若整数数列递增，并且有上界 $M$ ，那么这数列必稳定于某一整数 $\xi \leqslant M$
+
+现在考虑小数数列
+
+$$
+\boldsymbol {a} _ {1} = \alpha_ {1 0}. \alpha_ {1 1} \alpha_ {1 2} \alpha_ {1 3} \dots
+$$
+
+$$
+\boldsymbol {a} _ {2} = \alpha_ {2 0}. \alpha_ {2 1} \alpha_ {2 2} \alpha_ {2 3} \dots \tag {5}
+$$
+
+... ... ... ... ... ... ...
+
+$$
+\boldsymbol {a} _ {n} = \alpha_ {n 0}. \alpha_ {n 1} \alpha_ {n 2} \alpha_ {n 3} \dots
+$$
+
+... ... ... ... ... ... ...
+
+(5) 的右边相当于一个无限矩阵.
+
+定义 7 若对任意  $k=0,1,2,\cdots,(5)$  的第 k 列  $\{\alpha_{nk}\}$  稳定于  $\gamma_{k}$ ，则称数列 (5) 稳定于  $a=\gamma_{0}\cdot\gamma_{1}\gamma_{2}\gamma_{3}\cdots$ ，记作
+
+$$
+a _ {n} \stackrel {\rightarrow} {\longrightarrow} a, \tag {6}
+$$
+
+其中  $\gamma_{0}$  是整数， $\gamma_{k}(k=1,2,\cdots)$  是  $\{0,1,2,\cdots,9\}$  中某个数字.
+
+定理13 若递增数列(5)有上界 $M$ ，则数列必稳定于满足下列不等式的某个数 $a$
+
+$$
+a _ {n} \leqslant a \leqslant M \quad (n = 1, 2, 3, \dots). \tag {7}
+$$
+
+证 由于矩阵(5)的零列也是递增的,而且有上界M,因此零列的整数稳定于某一非负整数 $\gamma_{0}\leqslant M$ .现用归纳法来证明.假若已证明矩阵(5)中下标不大于k的各列分别稳定于 $\gamma_{0},\gamma_{1},\cdots,\gamma_{k}$ ,而且
+
+$$
+\gamma_ {0} \cdot \gamma_ {1} \dots \gamma_ {k} \leqslant M \quad (\gamma_ {1}, \dots , \gamma_ {k} \text {是数字}).
+$$
+
+现需证明(5)的第 $(k + 1)$ 列必稳定于某一数字 $\gamma_{k + 1}$，而且有不等式
+
+$$
+\gamma_ {0} \cdot \gamma_ {1} \dots \gamma_ {k} \gamma_ {k + 1} \leqslant M. \tag {8}
+$$
+
+事实上，当 $n_1$ 充分大且 $n > n_1$ 时，$\pmb{a}_n$ 的小数表示可写为
+
+$$
+\boldsymbol {a} _ {n} = \gamma_ {0}. \gamma_ {1} \dots \gamma_ {k} a _ {n, k + 1} a _ {n, k + 2} \dots \leqslant M.
+$$
+
+因为 $a_{n}$ 是递增的，所以对上述 $n$ ，数字 $a_{n,k + 1}(\leqslant 9)$ 递增，于是当 $n > n_{2}(n_{2}$ 充分大）时，$\{a_{n,k + 1}\}$ 将稳定于某一数字 $\gamma_{k + 1}$，而且
+
+$$
+\gamma_ {0} \cdot \gamma_ {1} \dots \gamma_ {k} \gamma_ {k + 1} \leqslant a _ {n} \leqslant M \quad (n > n _ {2}),
+$$
+
+这就证明了不等式(8)和 $a_{n}\rightarrow a=\gamma_{0}\cdot\gamma_{1}\gamma_{2}\cdots$ ，于是可推出(7)中第二个不等式.
+
+现证对所有 $n, \pmb{a}_n \leqslant \pmb{a}$. 若结论不成立, 则可以找到自然数 $n$, 使得 $\pmb{a} < \pmb{a}_n$. 因此, 对某个 $k$ 有
+
+$$
+a _ {n} = \gamma_ {0} \cdot \gamma_ {1} \dots \gamma_ {k} a _ {n, k + 1} a _ {n, k + 2} \dots ,
+$$
+
+并且 $\gamma_{k + 1} < a_{n,k + 1}$. 当 $n$ 无限增大时, $a_{n,k + 1}$ 递增, 并稳定于数 $\gamma_{k + 1}$, 由此得到 $\gamma_{k + 1} < \gamma_{k + 1}$ 的矛盾.
+
+给定两个小数  $x=\alpha_{0}\cdot\alpha_{1}\alpha_{2}\cdots,y=\beta_{0}\cdot\beta_{1}\beta_{2}\cdots$ ，用  $x^{(n)}$  表示 x 的 n 位不足近似值，则  $x^{(n)}+y^{(n)}=\alpha_{0}\cdot\alpha_{1}\cdots\alpha_{n}+\beta_{0}\cdot\beta_{1}\cdots\beta_{n}$ .
+
+定理14 在上述记号下，
+
+$$
+\boldsymbol {x} ^ {(n)} + \boldsymbol {y} ^ {(n)};
+$$
+
+273
+
+---
+
+附录I 实数理论
+
+$$
+(\boldsymbol {x} ^ {(n)} \cdot \boldsymbol {y} ^ {(n)}) ^ {(n)};
+$$
+
+$$
+\boldsymbol {x} ^ {(n)} - (\boldsymbol {y} ^ {(n)} + 1 0 ^ {- n}) \quad (\boldsymbol {x} > \boldsymbol {y} > 0),
+$$
+
+$$
+\left(\frac {\boldsymbol {x} ^ {(n)}}{\boldsymbol {y} ^ {(n)} + 1 0 ^ {- n}}\right) ^ {(n)} \quad (\boldsymbol {y} > 0) \tag {9}
+$$
+
+都是递增有界数列,所以分别稳定于某个数.
+
+证 由于
+
+$$
+\boldsymbol {x} ^ {(n)} + \boldsymbol {y} ^ {(n)} \leqslant \alpha_ {0} + 1 + \beta_ {0} + 1;
+$$
+
+$$
+(\boldsymbol {x} ^ {(n)} \cdot \boldsymbol {y} ^ {(n)}) ^ {(n)} \leqslant (\alpha_ {0} + 1) (\beta_ {0} + 1);
+$$
+
+$$
+\boldsymbol {x} ^ {(n)} - (\boldsymbol {y} ^ {(n)} + 1 0 ^ {- n}) \leqslant \alpha_ {0} + 1;
+$$
+
+$\left(\frac{\boldsymbol{x}^{(n)}}{\boldsymbol{y}^{(n)} + 10^{-n}}\right)^{(n)} \leqslant \frac{\alpha_0 + 1}{\beta_0 \cdot \beta_1 \cdots \beta_s}$ （其中 $s$ 使得 $\beta_s > 0$），
+
+因此所有数列都是有界的,因为当 n 增大时, $x^{(n)}$  递增, $y^{(n)}+10^{-n}$  递减,易见(9)中各数列是递增的.由定理13,即有(9)中各数列稳定于某个数.
+
+定义 8 对任意两个无限小数 x, y, 我们定义  $x + y, x \cdot y, x - y$  为
+
+$$
+\boldsymbol {x} ^ {(n)} + \boldsymbol {y} ^ {(n)} \longrightarrow \boldsymbol {x} + \boldsymbol {y};
+$$
+
+$$
+(x ^ {(n)} \cdot y ^ {(n)}) ^ {(n)} \rightrightarrows x \cdot y;
+$$
+
+$$
+\boldsymbol {x} ^ {(n)} - \left(\boldsymbol {y} ^ {(n)} + 1 0 ^ {- n}\right) \Rightarrow \boldsymbol {x} - \boldsymbol {y} \quad (\boldsymbol {x} > \boldsymbol {y} > 0);
+$$
+
+$$
+\left(\frac {x ^ {(n)}}{y ^ {(n)} + 1 0 ^ {- n}}\right) ^ {(n)} \Rightarrow \frac {x}{y} \quad (y > 0).
+$$
+
+由此可知: 当 x > y > 0 时, 必存在 n, 使得  $\boldsymbol{x}^{(n)} - (\boldsymbol{y}^{(n)} + 10^{-n}) > 0$ .
+
+274
