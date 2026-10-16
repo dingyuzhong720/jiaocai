@@ -12,4 +12,4 @@ FULL 内容视图保留模型识别出的页眉、页脚、页码、边栏、脚
 
 | 章节 | 原始 PDF 页码 |
 | --- | --- |
-| [Vorlesung 3](chapters/000_Vorlesung 3/content.md) | 1–48 |
+| [Vorlesung 3](chapters/000_Vorlesung%203/content.md) | 1–48 |
