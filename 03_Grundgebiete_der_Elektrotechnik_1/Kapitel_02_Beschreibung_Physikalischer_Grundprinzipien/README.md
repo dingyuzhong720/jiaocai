@@ -12,4 +12,4 @@ FULL 内容视图保留模型识别出的页眉、页脚、页码、边栏、脚
 
 | 章节 | 原始 PDF 页码 |
 | --- | --- |
-| [Kapitel 2 – Beschreibung Physikalischer Grundprinzipien](chapters/000_Kapitel 2 – Beschreibung Physikalischer Grund/content.md) | 1–36 |
+| [Kapitel 2 – Beschreibung Physikalischer Grundprinzipien](chapters/000_Kapitel%202%20%E2%80%93%20Beschreibung%20Physikalischer%20Grund/content.md) | 1–36 |
